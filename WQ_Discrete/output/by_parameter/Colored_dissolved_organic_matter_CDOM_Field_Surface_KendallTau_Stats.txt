@@ -1,0 +1,97 @@
+AreaID|ManagedAreaName|ParameterName|RelativeDepth|ActivityType|SufficientData|N_Data|N_Years|EarliestYear|LatestYear|Season|Median|Independent|tau|z|p_z|chi_sq|p_chi_sq|SennSlope|SennIntercept|Trend
+1|Alligator Harbor Aquatic Preserve|Colored dissolved organic matter, CDOM|Surface|Field|FALSE|0|0|||||||||||||
+2|Apalachicola Bay Aquatic Preserve|Colored dissolved organic matter, CDOM|Surface|Field|FALSE|0|0|||||||||||||
+3|Apalachicola National Estuarine Research Reserve|Colored dissolved organic matter, CDOM|Surface|Field|FALSE|0|0|||||||||||||
+4|Banana River Aquatic Preserve|Colored dissolved organic matter, CDOM|Surface|Field|FALSE|0|0|||||||||||||
+5|Big Bend Seagrasses Aquatic Preserve|Colored dissolved organic matter, CDOM|Surface|Field|FALSE|0|0|||||||||||||
+7|Biscayne Bay-Cape Florida to Monroe County Line Aquatic Preserve|Colored dissolved organic matter, CDOM|Surface|Field|FALSE|0|0|||||||||||||
+6|Biscayne Bay Aquatic Preserve|Colored dissolved organic matter, CDOM|Surface|Field|FALSE|0|0|||||||||||||
+8|Boca Ciega Bay Aquatic Preserve|Colored dissolved organic matter, CDOM|Surface|Field|FALSE|0|0|||||||||||||
+9|Cape Haze Aquatic Preserve|Colored dissolved organic matter, CDOM|Surface|Field|FALSE|0|0|||||||||||||
+10|Cape Romano-Ten Thousand Islands Aquatic Preserve|Colored dissolved organic matter, CDOM|Surface|Field|FALSE|0|0|||||||||||||
+11|Cockroach Bay Aquatic Preserve|Colored dissolved organic matter, CDOM|Surface|Field|FALSE|0|0|||||||||||||
+13|Coupon Bight Aquatic Preserve|Colored dissolved organic matter, CDOM|Surface|Field|FALSE|0|0|||||||||||||
+14|Estero Bay Aquatic Preserve|Colored dissolved organic matter, CDOM|Surface|Field|FALSE|0|0|||||||||||||
+15|Florida Keys National Marine Sanctuary|Colored dissolved organic matter, CDOM|Surface|Field|FALSE|0|0|||||||||||||
+16|Fort Clinch State Park Aquatic Preserve|Colored dissolved organic matter, CDOM|Surface|Field|FALSE|0|0|||||||||||||
+17|Fort Pickens State Park Aquatic Preserve|Colored dissolved organic matter, CDOM|Surface|Field|FALSE|0|0|||||||||||||
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|Colored dissolved organic matter, CDOM|Surface|Field|FALSE|0|0|||||||||||||
+19|Guana River Marsh Aquatic Preserve|Colored dissolved organic matter, CDOM|Surface|Field|FALSE|0|0|||||||||||||
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|Colored dissolved organic matter, CDOM|Surface|Field|FALSE|0|0|||||||||||||
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|Colored dissolved organic matter, CDOM|Surface|Field|FALSE|0|0|||||||||||||
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|Colored dissolved organic matter, CDOM|Surface|Field|FALSE|0|0|||||||||||||
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|Colored dissolved organic matter, CDOM|Surface|Field|FALSE|0|0|||||||||||||
+24|Lake Jackson Aquatic Preserve|Colored dissolved organic matter, CDOM|Surface|Field|FALSE|0|0|||||||||||||
+25|Lemon Bay Aquatic Preserve|Colored dissolved organic matter, CDOM|Surface|Field|FALSE|0|0|||||||||||||
+26|Lignumvitae Key Aquatic Preserve|Colored dissolved organic matter, CDOM|Surface|Field|FALSE|0|0|||||||||||||
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|Colored dissolved organic matter, CDOM|Surface|Field|FALSE|0|0|||||||||||||
+28|Matlacha Pass Aquatic Preserve|Colored dissolved organic matter, CDOM|Surface|Field|FALSE|0|0|||||||||||||
+29|Mosquito Lagoon Aquatic Preserve|Colored dissolved organic matter, CDOM|Surface|Field|FALSE|0|0|||||||||||||
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|Colored dissolved organic matter, CDOM|Surface|Field|FALSE|0|0|||||||||||||
+48|Nature Coast Aquatic Preserve|Colored dissolved organic matter, CDOM|Surface|Field|FALSE|0|0|||||||||||||
+31|North Fork St. Lucie Aquatic Preserve|Colored dissolved organic matter, CDOM|Surface|Field|FALSE|0|0|||||||||||||
+32|Oklawaha River Aquatic Preserve|Colored dissolved organic matter, CDOM|Surface|Field|FALSE|0|0|||||||||||||
+33|Pellicer Creek Aquatic Preserve|Colored dissolved organic matter, CDOM|Surface|Field|FALSE|0|0|||||||||||||
+34|Pine Island Sound Aquatic Preserve|Colored dissolved organic matter, CDOM|Surface|Field|FALSE|0|0|||||||||||||
+35|Pinellas County Aquatic Preserve|Colored dissolved organic matter, CDOM|Surface|Field|FALSE|0|0|||||||||||||
+36|Rainbow Springs Aquatic Preserve|Colored dissolved organic matter, CDOM|Surface|Field|FALSE|0|0|||||||||||||
+37|Rocky Bayou State Park Aquatic Preserve|Colored dissolved organic matter, CDOM|Surface|Field|FALSE|0|0|||||||||||||
+38|Rookery Bay Aquatic Preserve|Colored dissolved organic matter, CDOM|Surface|Field|FALSE|0|0|||||||||||||
+39|Rookery Bay National Estuarine Research Reserve|Colored dissolved organic matter, CDOM|Surface|Field|FALSE|0|0|||||||||||||
+12|Southeast Florida Coral Reef Ecosystem Conservation Area|Colored dissolved organic matter, CDOM|Surface|Field|FALSE|0|0|||||||||||||
+40|St. Andrews State Park Aquatic Preserve|Colored dissolved organic matter, CDOM|Surface|Field|FALSE|0|0|||||||||||||
+41|St. Joseph Bay Aquatic Preserve|Colored dissolved organic matter, CDOM|Surface|Field|FALSE|0|0|||||||||||||
+42|St. Joseph Bay State Buffer Preserve|Colored dissolved organic matter, CDOM|Surface|Field|FALSE|0|0|||||||||||||
+43|St. Martins Marsh Aquatic Preserve|Colored dissolved organic matter, CDOM|Surface|Field|FALSE|0|0|||||||||||||
+44|Terra Ceia Aquatic Preserve|Colored dissolved organic matter, CDOM|Surface|Field|FALSE|0|0|||||||||||||
+45|Tomoka Marsh Aquatic Preserve|Colored dissolved organic matter, CDOM|Surface|Field|FALSE|0|0|||||||||||||
+46|Wekiva River Aquatic Preserve|Colored dissolved organic matter, CDOM|Surface|Field|FALSE|0|0|||||||||||||
+47|Yellow River Marsh Aquatic Preserve|Colored dissolved organic matter, CDOM|Surface|Field|FALSE|0|0|||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||

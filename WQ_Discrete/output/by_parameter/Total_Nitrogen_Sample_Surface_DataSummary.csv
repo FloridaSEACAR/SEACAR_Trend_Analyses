@@ -1,0 +1,49 @@
+AreaID,ManagedAreaName,ParameterName,RelativeDepth,ActivityType,N_Total,N_AnalysisUse,N_H,perc_H,N_I,perc_I,N_Q,perc_Q,N_S,perc_S,N_U,perc_U
+1,Alligator Harbor Aquatic Preserve,Total Nitrogen,Surface,Sample,1248,1248,0,0,1597,1.6418723719247,365,0.375255739356616,0,0,763,0.784438709942735
+2,Apalachicola Bay Aquatic Preserve,Total Nitrogen,Surface,Sample,1868,1868,0,0,1597,1.6418723719247,365,0.375255739356616,0,0,763,0.784438709942735
+3,Apalachicola National Estuarine Research Reserve,Total Nitrogen,Surface,Sample,2605,2605,0,0,1597,1.6418723719247,365,0.375255739356616,0,0,763,0.784438709942735
+4,Banana River Aquatic Preserve,Total Nitrogen,Surface,Sample,1654,1654,0,0,1597,1.6418723719247,365,0.375255739356616,0,0,763,0.784438709942735
+5,Big Bend Seagrasses Aquatic Preserve,Total Nitrogen,Surface,Sample,6954,6954,0,0,1597,1.6418723719247,365,0.375255739356616,0,0,763,0.784438709942735
+7,Biscayne Bay-Cape Florida to Monroe County Line Aquatic Preserve,Total Nitrogen,Surface,Sample,1,0,0,0,1597,1.6418723719247,365,0.375255739356616,0,0,763,0.784438709942735
+6,Biscayne Bay Aquatic Preserve,Total Nitrogen,Surface,Sample,2502,2502,0,0,1597,1.6418723719247,365,0.375255739356616,0,0,763,0.784438709942735
+8,Boca Ciega Bay Aquatic Preserve,Total Nitrogen,Surface,Sample,1794,1794,0,0,1597,1.6418723719247,365,0.375255739356616,0,0,763,0.784438709942735
+9,Cape Haze Aquatic Preserve,Total Nitrogen,Surface,Sample,325,325,0,0,1597,1.6418723719247,365,0.375255739356616,0,0,763,0.784438709942735
+10,Cape Romano-Ten Thousand Islands Aquatic Preserve,Total Nitrogen,Surface,Sample,1753,1753,0,0,1597,1.6418723719247,365,0.375255739356616,0,0,763,0.784438709942735
+11,Cockroach Bay Aquatic Preserve,Total Nitrogen,Surface,Sample,1274,1274,0,0,1597,1.6418723719247,365,0.375255739356616,0,0,763,0.784438709942735
+13,Coupon Bight Aquatic Preserve,Total Nitrogen,Surface,Sample,98,98,0,0,1597,1.6418723719247,365,0.375255739356616,0,0,763,0.784438709942735
+14,Estero Bay Aquatic Preserve,Total Nitrogen,Surface,Sample,5411,5411,0,0,1597,1.6418723719247,365,0.375255739356616,0,0,763,0.784438709942735
+15,Florida Keys National Marine Sanctuary,Total Nitrogen,Surface,Sample,20900,20900,0,0,1597,1.6418723719247,365,0.375255739356616,0,0,763,0.784438709942735
+16,Fort Clinch State Park Aquatic Preserve,Total Nitrogen,Surface,Sample,41,0,0,0,1597,1.6418723719247,365,0.375255739356616,0,0,763,0.784438709942735
+17,Fort Pickens State Park Aquatic Preserve,Total Nitrogen,Surface,Sample,75,75,0,0,1597,1.6418723719247,365,0.375255739356616,0,0,763,0.784438709942735
+18,Gasparilla Sound-Charlotte Harbor Aquatic Preserve,Total Nitrogen,Surface,Sample,3807,3807,0,0,1597,1.6418723719247,365,0.375255739356616,0,0,763,0.784438709942735
+19,Guana River Marsh Aquatic Preserve,Total Nitrogen,Surface,Sample,1446,1446,0,0,1597,1.6418723719247,365,0.375255739356616,0,0,763,0.784438709942735
+20,Guana Tolomato Matanzas National Estuarine Research Reserve,Total Nitrogen,Surface,Sample,2352,2352,0,0,1597,1.6418723719247,365,0.375255739356616,0,0,763,0.784438709942735
+21,Indian River-Malabar to Vero Beach Aquatic Preserve,Total Nitrogen,Surface,Sample,2597,2597,0,0,1597,1.6418723719247,365,0.375255739356616,0,0,763,0.784438709942735
+22,Indian River-Vero Beach to Ft. Pierce Aquatic Preserve,Total Nitrogen,Surface,Sample,825,825,0,0,1597,1.6418723719247,365,0.375255739356616,0,0,763,0.784438709942735
+23,Jensen Beach to Jupiter Inlet Aquatic Preserve,Total Nitrogen,Surface,Sample,389,389,0,0,1597,1.6418723719247,365,0.375255739356616,0,0,763,0.784438709942735
+24,Lake Jackson Aquatic Preserve,Total Nitrogen,Surface,Sample,1,0,0,0,1597,1.6418723719247,365,0.375255739356616,0,0,763,0.784438709942735
+25,Lemon Bay Aquatic Preserve,Total Nitrogen,Surface,Sample,1513,1513,0,0,1597,1.6418723719247,365,0.375255739356616,0,0,763,0.784438709942735
+26,Lignumvitae Key Aquatic Preserve,Total Nitrogen,Surface,Sample,129,0,0,0,1597,1.6418723719247,365,0.375255739356616,0,0,763,0.784438709942735
+27,Loxahatchee River-Lake Worth Creek Aquatic Preserve,Total Nitrogen,Surface,Sample,4256,4256,0,0,1597,1.6418723719247,365,0.375255739356616,0,0,763,0.784438709942735
+28,Matlacha Pass Aquatic Preserve,Total Nitrogen,Surface,Sample,1255,1255,0,0,1597,1.6418723719247,365,0.375255739356616,0,0,763,0.784438709942735
+29,Mosquito Lagoon Aquatic Preserve,Total Nitrogen,Surface,Sample,337,337,0,0,1597,1.6418723719247,365,0.375255739356616,0,0,763,0.784438709942735
+30,Nassau River-St. Johns River Marshes Aquatic Preserve,Total Nitrogen,Surface,Sample,410,410,0,0,1597,1.6418723719247,365,0.375255739356616,0,0,763,0.784438709942735
+48,Nature Coast Aquatic Preserve,Total Nitrogen,Surface,Sample,4235,4235,0,0,1597,1.6418723719247,365,0.375255739356616,0,0,763,0.784438709942735
+31,North Fork St. Lucie Aquatic Preserve,Total Nitrogen,Surface,Sample,252,252,0,0,1597,1.6418723719247,365,0.375255739356616,0,0,763,0.784438709942735
+32,Oklawaha River Aquatic Preserve,Total Nitrogen,Surface,Sample,1,0,0,0,1597,1.6418723719247,365,0.375255739356616,0,0,763,0.784438709942735
+33,Pellicer Creek Aquatic Preserve,Total Nitrogen,Surface,Sample,134,0,0,0,1597,1.6418723719247,365,0.375255739356616,0,0,763,0.784438709942735
+34,Pine Island Sound Aquatic Preserve,Total Nitrogen,Surface,Sample,2637,2637,0,0,1597,1.6418723719247,365,0.375255739356616,0,0,763,0.784438709942735
+35,Pinellas County Aquatic Preserve,Total Nitrogen,Surface,Sample,10848,10848,0,0,1597,1.6418723719247,365,0.375255739356616,0,0,763,0.784438709942735
+36,Rainbow Springs Aquatic Preserve,Total Nitrogen,Surface,Sample,1,0,0,0,1597,1.6418723719247,365,0.375255739356616,0,0,763,0.784438709942735
+37,Rocky Bayou State Park Aquatic Preserve,Total Nitrogen,Surface,Sample,584,584,0,0,1597,1.6418723719247,365,0.375255739356616,0,0,763,0.784438709942735
+38,Rookery Bay Aquatic Preserve,Total Nitrogen,Surface,Sample,1759,1759,0,0,1597,1.6418723719247,365,0.375255739356616,0,0,763,0.784438709942735
+39,Rookery Bay National Estuarine Research Reserve,Total Nitrogen,Surface,Sample,3597,3597,0,0,1597,1.6418723719247,365,0.375255739356616,0,0,763,0.784438709942735
+12,Southeast Florida Coral Reef Ecosystem Conservation Area,Total Nitrogen,Surface,Sample,217,0,0,0,1597,1.6418723719247,365,0.375255739356616,0,0,763,0.784438709942735
+40,St. Andrews State Park Aquatic Preserve,Total Nitrogen,Surface,Sample,1118,1118,0,0,1597,1.6418723719247,365,0.375255739356616,0,0,763,0.784438709942735
+41,St. Joseph Bay Aquatic Preserve,Total Nitrogen,Surface,Sample,1393,1393,0,0,1597,1.6418723719247,365,0.375255739356616,0,0,763,0.784438709942735
+42,St. Joseph Bay State Buffer Preserve,Total Nitrogen,Surface,Sample,53,0,0,0,1597,1.6418723719247,365,0.375255739356616,0,0,763,0.784438709942735
+43,St. Martins Marsh Aquatic Preserve,Total Nitrogen,Surface,Sample,990,990,0,0,1597,1.6418723719247,365,0.375255739356616,0,0,763,0.784438709942735
+44,Terra Ceia Aquatic Preserve,Total Nitrogen,Surface,Sample,1253,1253,0,0,1597,1.6418723719247,365,0.375255739356616,0,0,763,0.784438709942735
+45,Tomoka Marsh Aquatic Preserve,Total Nitrogen,Surface,Sample,300,300,0,0,1597,1.6418723719247,365,0.375255739356616,0,0,763,0.784438709942735
+46,Wekiva River Aquatic Preserve,Total Nitrogen,Surface,Sample,1,0,0,0,1597,1.6418723719247,365,0.375255739356616,0,0,763,0.784438709942735
+47,Yellow River Marsh Aquatic Preserve,Total Nitrogen,Surface,Sample,74,74,0,0,1597,1.6418723719247,365,0.375255739356616,0,0,763,0.784438709942735

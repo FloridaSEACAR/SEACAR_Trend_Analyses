@@ -1,0 +1,49 @@
+AreaID,ManagedAreaName,ParameterName,RelativeDepth,ActivityType,N_Total,N_AnalysisUse,N_H,perc_H,N_I,perc_I,N_Q,perc_Q,N_S,perc_S,N_U,perc_U
+1,Alligator Harbor Aquatic Preserve,pH,Surface,Field,4228,4228,0,0,0,0,1,0.000201401350597457,0,0,0,0
+2,Apalachicola Bay Aquatic Preserve,pH,Surface,Field,29706,29706,0,0,0,0,1,0.000201401350597457,0,0,0,0
+3,Apalachicola National Estuarine Research Reserve,pH,Surface,Field,45516,45516,0,0,0,0,1,0.000201401350597457,0,0,0,0
+4,Banana River Aquatic Preserve,pH,Surface,Field,20243,20243,0,0,0,0,1,0.000201401350597457,0,0,0,0
+5,Big Bend Seagrasses Aquatic Preserve,pH,Surface,Field,80381,80381,0,0,0,0,1,0.000201401350597457,0,0,0,0
+7,Biscayne Bay-Cape Florida to Monroe County Line Aquatic Preserve,pH,Surface,Field,1,0,0,0,0,0,1,0.000201401350597457,0,0,0,0
+6,Biscayne Bay Aquatic Preserve,pH,Surface,Field,3434,3434,0,0,0,0,1,0.000201401350597457,0,0,0,0
+8,Boca Ciega Bay Aquatic Preserve,pH,Surface,Field,16132,16132,0,0,0,0,1,0.000201401350597457,0,0,0,0
+9,Cape Haze Aquatic Preserve,pH,Surface,Field,6975,6975,0,0,0,0,1,0.000201401350597457,0,0,0,0
+10,Cape Romano-Ten Thousand Islands Aquatic Preserve,pH,Surface,Field,4262,4262,0,0,0,0,1,0.000201401350597457,0,0,0,0
+11,Cockroach Bay Aquatic Preserve,pH,Surface,Field,14348,14348,0,0,0,0,1,0.000201401350597457,0,0,0,0
+13,Coupon Bight Aquatic Preserve,pH,Surface,Field,32,0,0,0,0,0,1,0.000201401350597457,0,0,0,0
+14,Estero Bay Aquatic Preserve,pH,Surface,Field,7613,7613,0,0,0,0,1,0.000201401350597457,0,0,0,0
+15,Florida Keys National Marine Sanctuary,pH,Surface,Field,3440,3440,0,0,0,0,1,0.000201401350597457,0,0,0,0
+16,Fort Clinch State Park Aquatic Preserve,pH,Surface,Field,803,803,0,0,0,0,1,0.000201401350597457,0,0,0,0
+17,Fort Pickens State Park Aquatic Preserve,pH,Surface,Field,668,668,0,0,0,0,1,0.000201401350597457,0,0,0,0
+18,Gasparilla Sound-Charlotte Harbor Aquatic Preserve,pH,Surface,Field,34852,34852,0,0,0,0,1,0.000201401350597457,0,0,0,0
+19,Guana River Marsh Aquatic Preserve,pH,Surface,Field,5105,5105,0,0,0,0,1,0.000201401350597457,0,0,0,0
+20,Guana Tolomato Matanzas National Estuarine Research Reserve,pH,Surface,Field,14410,14410,0,0,0,0,1,0.000201401350597457,0,0,0,0
+21,Indian River-Malabar to Vero Beach Aquatic Preserve,pH,Surface,Field,38291,38291,0,0,0,0,1,0.000201401350597457,0,0,0,0
+22,Indian River-Vero Beach to Ft. Pierce Aquatic Preserve,pH,Surface,Field,5165,5165,0,0,0,0,1,0.000201401350597457,0,0,0,0
+23,Jensen Beach to Jupiter Inlet Aquatic Preserve,pH,Surface,Field,6465,6465,0,0,0,0,1,0.000201401350597457,0,0,0,0
+24,Lake Jackson Aquatic Preserve,pH,Surface,Field,1,0,0,0,0,0,1,0.000201401350597457,0,0,0,0
+25,Lemon Bay Aquatic Preserve,pH,Surface,Field,7485,7485,0,0,0,0,1,0.000201401350597457,0,0,0,0
+26,Lignumvitae Key Aquatic Preserve,pH,Surface,Field,124,0,0,0,0,0,1,0.000201401350597457,0,0,0,0
+27,Loxahatchee River-Lake Worth Creek Aquatic Preserve,pH,Surface,Field,7384,7384,0,0,0,0,1,0.000201401350597457,0,0,0,0
+28,Matlacha Pass Aquatic Preserve,pH,Surface,Field,6427,6427,0,0,0,0,1,0.000201401350597457,0,0,0,0
+29,Mosquito Lagoon Aquatic Preserve,pH,Surface,Field,3497,3497,0,0,0,0,1,0.000201401350597457,0,0,0,0
+30,Nassau River-St. Johns River Marshes Aquatic Preserve,pH,Surface,Field,17457,17457,0,0,0,0,1,0.000201401350597457,0,0,0,0
+48,Nature Coast Aquatic Preserve,pH,Surface,Field,4081,4081,0,0,0,0,1,0.000201401350597457,0,0,0,0
+31,North Fork St. Lucie Aquatic Preserve,pH,Surface,Field,3154,3154,0,0,0,0,1,0.000201401350597457,0,0,0,0
+32,Oklawaha River Aquatic Preserve,pH,Surface,Field,1,0,0,0,0,0,1,0.000201401350597457,0,0,0,0
+33,Pellicer Creek Aquatic Preserve,pH,Surface,Field,748,748,0,0,0,0,1,0.000201401350597457,0,0,0,0
+34,Pine Island Sound Aquatic Preserve,pH,Surface,Field,19518,19518,0,0,0,0,1,0.000201401350597457,0,0,0,0
+35,Pinellas County Aquatic Preserve,pH,Surface,Field,51197,51197,0,0,0,0,1,0.000201401350597457,0,0,0,0
+36,Rainbow Springs Aquatic Preserve,pH,Surface,Field,1,0,0,0,0,0,1,0.000201401350597457,0,0,0,0
+37,Rocky Bayou State Park Aquatic Preserve,pH,Surface,Field,303,303,0,0,0,0,1,0.000201401350597457,0,0,0,0
+38,Rookery Bay Aquatic Preserve,pH,Surface,Field,1500,1500,0,0,0,0,1,0.000201401350597457,0,0,0,0
+39,Rookery Bay National Estuarine Research Reserve,pH,Surface,Field,5980,5980,0,0,0,0,1,0.000201401350597457,0,0,0,0
+12,Southeast Florida Coral Reef Ecosystem Conservation Area,pH,Surface,Field,146,0,0,0,0,0,1,0.000201401350597457,0,0,0,0
+40,St. Andrews State Park Aquatic Preserve,pH,Surface,Field,928,928,0,0,0,0,1,0.000201401350597457,0,0,0,0
+41,St. Joseph Bay Aquatic Preserve,pH,Surface,Field,3464,3464,0,0,0,0,1,0.000201401350597457,0,0,0,0
+42,St. Joseph Bay State Buffer Preserve,pH,Surface,Field,4,0,0,0,0,0,1,0.000201401350597457,0,0,0,0
+43,St. Martins Marsh Aquatic Preserve,pH,Surface,Field,4102,4102,0,0,0,0,1,0.000201401350597457,0,0,0,0
+44,Terra Ceia Aquatic Preserve,pH,Surface,Field,16146,16146,0,0,0,0,1,0.000201401350597457,0,0,0,0
+45,Tomoka Marsh Aquatic Preserve,pH,Surface,Field,279,279,0,0,0,0,1,0.000201401350597457,0,0,0,0
+46,Wekiva River Aquatic Preserve,pH,Surface,Field,1,0,0,0,0,0,1,0.000201401350597457,0,0,0,0
+47,Yellow River Marsh Aquatic Preserve,pH,Surface,Field,523,523,0,0,0,0,1,0.000201401350597457,0,0,0,0

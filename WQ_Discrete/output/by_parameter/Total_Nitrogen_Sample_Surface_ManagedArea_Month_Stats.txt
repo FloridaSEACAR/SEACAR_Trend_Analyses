@@ -1,0 +1,456 @@
+AreaID|ManagedAreaName|Month|ParameterName|RelativeDepth|ActivityType|N|Min|Max|Median|Mean|StandardDeviation|ProgramIDs
+1|Alligator Harbor Aquatic Preserve|1|Total Nitrogen|Surface|Sample|99|0.00012|0.424|0.00031|0.0958471717171717|0.114536237292587|514, 5002
+1|Alligator Harbor Aquatic Preserve|2|Total Nitrogen|Surface|Sample|102|0.00011|0.43|0.00028|0.0991590196078431|0.114962840733536|514, 5002
+1|Alligator Harbor Aquatic Preserve|3|Total Nitrogen|Surface|Sample|128|0.00014|1.5|0.00062|0.150817890625|0.211589613790515|514, 5002
+1|Alligator Harbor Aquatic Preserve|4|Total Nitrogen|Surface|Sample|97|0.00014|0.76|0.0005|0.156524432989691|0.203519380685277|514, 5002
+1|Alligator Harbor Aquatic Preserve|5|Total Nitrogen|Surface|Sample|129|0.00018|0.68|0.00062|0.183565581395349|0.212602573071017|514, 5002
+1|Alligator Harbor Aquatic Preserve|6|Total Nitrogen|Surface|Sample|103|0.00014|1.15|0.00084|0.211186601941748|0.261769018256042|514, 5002
+1|Alligator Harbor Aquatic Preserve|7|Total Nitrogen|Surface|Sample|144|0.00021|1.19|0.00097|0.248997708333333|0.30257084769543|514, 5002
+1|Alligator Harbor Aquatic Preserve|8|Total Nitrogen|Surface|Sample|89|0.00017|0.95|0.00077|0.205458988764045|0.288931352479368|514, 5002
+1|Alligator Harbor Aquatic Preserve|9|Total Nitrogen|Surface|Sample|98|0.00016|0.88|0.00087|0.209984693877551|0.261030512053862|514, 5002
+1|Alligator Harbor Aquatic Preserve|10|Total Nitrogen|Surface|Sample|88|0.00021|0.78|0.000685|0.188084772727273|0.256116753400401|514, 5002
+1|Alligator Harbor Aquatic Preserve|11|Total Nitrogen|Surface|Sample|96|0.00019|0.71|0.00075|0.189469895833333|0.21177395198652|514, 5002
+1|Alligator Harbor Aquatic Preserve|12|Total Nitrogen|Surface|Sample|75|0.00015|0.52|0.00035|0.1258748|0.150016577042204|514, 5002
+2|Apalachicola Bay Aquatic Preserve|1|Total Nitrogen|Surface|Sample|137|0.00041|1.95|0.68|0.656243722627737|0.272030151229513|355, 514, 5002
+2|Apalachicola Bay Aquatic Preserve|2|Total Nitrogen|Surface|Sample|158|0.00022|4.304|0.687|0.679899493670886|0.359200852719821|355, 514, 5002
+2|Apalachicola Bay Aquatic Preserve|3|Total Nitrogen|Surface|Sample|126|0.00034|1.405|0.72|0.698382380952381|0.215048938904347|355, 514, 5002
+2|Apalachicola Bay Aquatic Preserve|4|Total Nitrogen|Surface|Sample|139|0.00021|1.707|0.608|0.634006115107914|0.257424560384486|355, 514, 5002
+2|Apalachicola Bay Aquatic Preserve|5|Total Nitrogen|Surface|Sample|157|0.00022|1.305|0.553|0.560593121019108|0.190828627686424|355, 514, 5002
+2|Apalachicola Bay Aquatic Preserve|6|Total Nitrogen|Surface|Sample|150|0.00031|1.009|0.601|0.562541533333333|0.196051344664129|355, 514, 5002
+2|Apalachicola Bay Aquatic Preserve|7|Total Nitrogen|Surface|Sample|172|0.00024|1.512|0.595|0.68147738372093|0.376796969321153|103, 355, 514, 5002
+2|Apalachicola Bay Aquatic Preserve|8|Total Nitrogen|Surface|Sample|176|0.00023|1.407|0.6365|0.676863352272727|0.283632207318081|103, 355, 514, 5002
+2|Apalachicola Bay Aquatic Preserve|9|Total Nitrogen|Surface|Sample|162|0.0003|1.304|0.627|0.619896975308642|0.20289064044207|355, 514, 5002
+2|Apalachicola Bay Aquatic Preserve|10|Total Nitrogen|Surface|Sample|185|0.0003|1.297|0.612|0.591638540540541|0.180741022269463|355, 514, 5002
+2|Apalachicola Bay Aquatic Preserve|11|Total Nitrogen|Surface|Sample|170|0.00026|1.6|0.512|0.534128882352941|0.202629147670629|355, 514, 5002
+2|Apalachicola Bay Aquatic Preserve|12|Total Nitrogen|Surface|Sample|136|0.00038|1.113|0.4925|0.516564779411765|0.156126468883008|355, 514, 5002
+3|Apalachicola National Estuarine Research Reserve|1|Total Nitrogen|Surface|Sample|201|0.00017|1.95|0.71|0.682078706467662|0.2677397152223|355, 514, 5002
+3|Apalachicola National Estuarine Research Reserve|2|Total Nitrogen|Surface|Sample|218|0.00022|4.304|0.704|0.693329357798165|0.336920618882486|355, 514, 5002
+3|Apalachicola National Estuarine Research Reserve|3|Total Nitrogen|Surface|Sample|169|0.00031|1.405|0.74|0.698679704142012|0.226468949720292|355, 514, 5002
+3|Apalachicola National Estuarine Research Reserve|4|Total Nitrogen|Surface|Sample|188|0.00021|2.004|0.635|0.652740053191489|0.299743103712149|355, 514, 5002
+3|Apalachicola National Estuarine Research Reserve|5|Total Nitrogen|Surface|Sample|220|0.00022|1.305|0.5735|0.582920181818182|0.210883657295017|355, 514, 5002
+3|Apalachicola National Estuarine Research Reserve|6|Total Nitrogen|Surface|Sample|228|0.00031|1.01|0.62|0.596938114035088|0.21012981107962|355, 514, 5002
+3|Apalachicola National Estuarine Research Reserve|7|Total Nitrogen|Surface|Sample|242|0.00024|2.604|0.5815|0.644637066115703|0.369163608849553|103, 355, 514, 5002
+3|Apalachicola National Estuarine Research Reserve|8|Total Nitrogen|Surface|Sample|243|0.00023|1.407|0.62|0.639973744855967|0.268960672584441|103, 355, 514, 5002
+3|Apalachicola National Estuarine Research Reserve|9|Total Nitrogen|Surface|Sample|225|0.0003|1.304|0.626|0.608769822222222|0.194998481589703|355, 514, 5002
+3|Apalachicola National Estuarine Research Reserve|10|Total Nitrogen|Surface|Sample|262|0.0003|1.39|0.6245|0.613811106870229|0.196197530838691|355, 514, 5002
+3|Apalachicola National Estuarine Research Reserve|11|Total Nitrogen|Surface|Sample|226|0.00026|1.6|0.534|0.547772699115044|0.202777462999916|355, 514, 5002
+3|Apalachicola National Estuarine Research Reserve|12|Total Nitrogen|Surface|Sample|183|0.00025|1.113|0.51|0.539991147540984|0.185496439346459|355, 514, 5002
+4|Banana River Aquatic Preserve|1|Total Nitrogen|Surface|Sample|136|0.78|2.37168|1.2108|1.29444375|0.308613783480229|5002
+4|Banana River Aquatic Preserve|2|Total Nitrogen|Surface|Sample|128|0.741|2.704|1.204|1.322888984375|0.424606972138617|540, 5002
+4|Banana River Aquatic Preserve|3|Total Nitrogen|Surface|Sample|159|0.867|4.4|1.256|1.35949761006289|0.434660996050857|540, 5002
+4|Banana River Aquatic Preserve|4|Total Nitrogen|Surface|Sample|137|0.634|2.628|1.193|1.27959277372263|0.341078563607483|5002
+4|Banana River Aquatic Preserve|5|Total Nitrogen|Surface|Sample|140|0.49|2.404|1.229255|1.27987735714286|0.3372264459483|540, 5002
+4|Banana River Aquatic Preserve|6|Total Nitrogen|Surface|Sample|167|0.218|2.562|1.2439|1.27509329341317|0.359256237855216|540, 5002
+4|Banana River Aquatic Preserve|7|Total Nitrogen|Surface|Sample|148|0.382|1.92392|1.23|1.22712425675676|0.316217302798629|103, 5002
+4|Banana River Aquatic Preserve|8|Total Nitrogen|Surface|Sample|116|0.481|2.304|1.13655|1.21493913793103|0.360635513466385|540, 5002
+4|Banana River Aquatic Preserve|9|Total Nitrogen|Surface|Sample|117|0.53|2.306|1.171|1.20981760683761|0.391436254632571|5002
+4|Banana River Aquatic Preserve|10|Total Nitrogen|Surface|Sample|137|0.6434|2.417|1.2|1.2934497080292|0.374150522104528|5002
+4|Banana River Aquatic Preserve|11|Total Nitrogen|Surface|Sample|130|0.644|3.127|1.24524|1.29648938461538|0.395347941932567|5002
+4|Banana River Aquatic Preserve|12|Total Nitrogen|Surface|Sample|139|0.628|3.27884|1.2684|1.36651971223022|0.420258581979539|540, 5002
+5|Big Bend Seagrasses Aquatic Preserve|1|Total Nitrogen|Surface|Sample|521|0.00012|2.35|0.39|0.402544548944338|0.39701813151368|514, 5002
+5|Big Bend Seagrasses Aquatic Preserve|2|Total Nitrogen|Surface|Sample|604|0.00009|6.36|0.45|0.47297798013245|0.455774363062217|514, 540, 5002
+5|Big Bend Seagrasses Aquatic Preserve|3|Total Nitrogen|Surface|Sample|589|0.00013|2.204|0.466|0.451403582342954|0.375494574830917|514, 540, 5002
+5|Big Bend Seagrasses Aquatic Preserve|4|Total Nitrogen|Surface|Sample|594|0.00009|2.04|0.4885|0.50600468013468|0.451290699510194|514, 5002
+5|Big Bend Seagrasses Aquatic Preserve|5|Total Nitrogen|Surface|Sample|581|0.00008|3.077|0.45|0.447639139414802|0.411681506342082|514, 540, 5002
+5|Big Bend Seagrasses Aquatic Preserve|6|Total Nitrogen|Surface|Sample|617|0.00016|2.95|0.444|0.488048265802269|0.434280558804176|514, 540, 5002
+5|Big Bend Seagrasses Aquatic Preserve|7|Total Nitrogen|Surface|Sample|565|0.00013|2.28|0.46|0.496603451327434|0.459062670450354|103, 514, 540, 5002
+5|Big Bend Seagrasses Aquatic Preserve|8|Total Nitrogen|Surface|Sample|600|0.0001|2.501|0.49|0.51364445|0.443708283583067|103, 514, 540, 5002
+5|Big Bend Seagrasses Aquatic Preserve|9|Total Nitrogen|Surface|Sample|546|0.00012|3.12|0.52|0.554671263736264|0.517734593954211|514, 540, 5002
+5|Big Bend Seagrasses Aquatic Preserve|10|Total Nitrogen|Surface|Sample|609|0.00009|2.342|0.46|0.508496551724138|0.448385561944326|514, 5002
+5|Big Bend Seagrasses Aquatic Preserve|11|Total Nitrogen|Surface|Sample|504|0.00009|2.842|0.3775|0.397550396825397|0.36771024817614|514, 540, 5002
+5|Big Bend Seagrasses Aquatic Preserve|12|Total Nitrogen|Surface|Sample|624|0.00008|2.914|0.4115|0.453344807692308|0.41743558602599|514, 540, 5002
+6|Biscayne Bay Aquatic Preserve|1|Total Nitrogen|Surface|Sample|262|0.00021|4.116|0.3555|0.408891946564886|0.341863721736442|514, 4058, 5002, 5026
+6|Biscayne Bay Aquatic Preserve|2|Total Nitrogen|Surface|Sample|109|0.00046|1.31|0.425|0.437266146788991|0.212099078288759|514, 4058, 5002, 5026
+6|Biscayne Bay Aquatic Preserve|3|Total Nitrogen|Surface|Sample|211|0.00028|1.43|0.375|0.38410663507109|0.251897773234557|514, 4058, 5002, 5026
+6|Biscayne Bay Aquatic Preserve|4|Total Nitrogen|Surface|Sample|97|0.00025|0.88|0.404|0.34565|0.176283239442476|514, 4058, 5002, 5026
+6|Biscayne Bay Aquatic Preserve|5|Total Nitrogen|Surface|Sample|245|0.00019|1.338|0.43|0.422620734693878|0.251338739284321|514, 4058, 5002, 5026
+6|Biscayne Bay Aquatic Preserve|6|Total Nitrogen|Surface|Sample|153|0.00023|1.648|0.45|0.471340849673203|0.245337790759865|514, 4058, 5002, 5026
+6|Biscayne Bay Aquatic Preserve|7|Total Nitrogen|Surface|Sample|263|0.00043|1.699|0.415|0.475561520912548|0.301254520636263|103, 514, 4058, 5002, 5026
+6|Biscayne Bay Aquatic Preserve|8|Total Nitrogen|Surface|Sample|209|0.00035|4.248|0.41|0.508105215311005|0.436730106915715|103, 514, 4058, 5002, 5026
+6|Biscayne Bay Aquatic Preserve|9|Total Nitrogen|Surface|Sample|277|0.00037|2.17|0.462|0.482408194945848|0.270922230797342|514, 4058, 5002, 5026
+6|Biscayne Bay Aquatic Preserve|10|Total Nitrogen|Surface|Sample|207|0.00014|2.25|0.407|0.414388357487923|0.256329342312383|514, 4058, 5002, 5026
+6|Biscayne Bay Aquatic Preserve|11|Total Nitrogen|Surface|Sample|305|0.00022|1.96|0.389|0.420622196721311|0.264522334620823|514, 4058, 5002, 5026
+6|Biscayne Bay Aquatic Preserve|12|Total Nitrogen|Surface|Sample|164|0.00024|2.16|0.451|0.460634512195122|0.297673328027183|514, 4058, 5002, 5026
+8|Boca Ciega Bay Aquatic Preserve|1|Total Nitrogen|Surface|Sample|91|0.26|1.15|0.52|0.557362637362637|0.174857625670685|5002
+8|Boca Ciega Bay Aquatic Preserve|2|Total Nitrogen|Surface|Sample|135|0.08|1.43|0.54|0.5896|0.197847340515999|5002
+8|Boca Ciega Bay Aquatic Preserve|3|Total Nitrogen|Surface|Sample|119|0.275|1.12|0.56|0.595966386554622|0.151906412578913|5002
+8|Boca Ciega Bay Aquatic Preserve|4|Total Nitrogen|Surface|Sample|82|0.22|1.25|0.505|0.562219512195122|0.214958625039265|5002
+8|Boca Ciega Bay Aquatic Preserve|5|Total Nitrogen|Surface|Sample|243|0.12|1.78|0.6|0.653123456790124|0.22811576639342|5002
+8|Boca Ciega Bay Aquatic Preserve|6|Total Nitrogen|Surface|Sample|158|0.3|2.52|0.635|0.732683544303797|0.320957546027024|5002
+8|Boca Ciega Bay Aquatic Preserve|7|Total Nitrogen|Surface|Sample|202|0.165|1.8|0.63|0.705533168316832|0.314386562191245|103, 5002
+8|Boca Ciega Bay Aquatic Preserve|8|Total Nitrogen|Surface|Sample|132|0.111|1.78|0.66|0.753886363636364|0.318161840034049|5002
+8|Boca Ciega Bay Aquatic Preserve|9|Total Nitrogen|Surface|Sample|235|0.132|1.82|0.59|0.688157446808511|0.303275855180286|5002
+8|Boca Ciega Bay Aquatic Preserve|10|Total Nitrogen|Surface|Sample|152|0.12|1.41|0.61|0.655131578947368|0.229800768424197|5002
+8|Boca Ciega Bay Aquatic Preserve|11|Total Nitrogen|Surface|Sample|78|0.42|1.46|0.595|0.646910256410257|0.213897364992145|5002
+8|Boca Ciega Bay Aquatic Preserve|12|Total Nitrogen|Surface|Sample|167|0.275|1.72|0.52|0.573161676646707|0.203551252163707|5002
+9|Cape Haze Aquatic Preserve|1|Total Nitrogen|Surface|Sample|30|0.00006|1.21|0.356505|0.376444333333333|0.228829795453895|476, 479, 513, 5028
+9|Cape Haze Aquatic Preserve|2|Total Nitrogen|Surface|Sample|28|0.00006|1.387|0.341|0.409374642857143|0.333112111418876|476, 479, 513
+9|Cape Haze Aquatic Preserve|3|Total Nitrogen|Surface|Sample|34|0.00025|1.27|0.4065|0.466727941176471|0.307346175911053|476, 479, 513, 5002
+9|Cape Haze Aquatic Preserve|4|Total Nitrogen|Surface|Sample|26|0.15|1.12|0.6155|0.583154615384616|0.241684874052652|476, 479, 513, 5002
+9|Cape Haze Aquatic Preserve|5|Total Nitrogen|Surface|Sample|26|0.192|1.54|0.4745|0.5625|0.288404889001556|479, 5002, 5028
+9|Cape Haze Aquatic Preserve|6|Total Nitrogen|Surface|Sample|21|0.317|1.084|0.54|0.557142857142857|0.167587375930971|476, 479, 513, 5002, 5028
+9|Cape Haze Aquatic Preserve|7|Total Nitrogen|Surface|Sample|21|0.109|1.526|0.694|0.736714285714286|0.359850961212714|103, 476, 479, 5002
+9|Cape Haze Aquatic Preserve|8|Total Nitrogen|Surface|Sample|24|0.38|1.56|0.709|0.736708333333333|0.287155537185393|479, 5002, 5028
+9|Cape Haze Aquatic Preserve|9|Total Nitrogen|Surface|Sample|29|0.421|2.205|0.63|0.807655172413793|0.441691575962076|476, 479, 5002, 5028
+9|Cape Haze Aquatic Preserve|10|Total Nitrogen|Surface|Sample|32|0.00005|1.1|0.4305|0.4781609375|0.305418104680837|476, 479, 513, 5028
+9|Cape Haze Aquatic Preserve|11|Total Nitrogen|Surface|Sample|33|0.18|1.411|0.501|0.533848484848485|0.281264346435444|476, 479, 513, 5002, 5028
+9|Cape Haze Aquatic Preserve|12|Total Nitrogen|Surface|Sample|21|0.15|0.808|0.505|0.473571428571429|0.172379108777303|476, 479, 5028
+10|Cape Romano-Ten Thousand Islands Aquatic Preserve|1|Total Nitrogen|Surface|Sample|133|0.073|1.146|0.453|0.43865037593985|0.198112171556411|354, 509, 5002
+10|Cape Romano-Ten Thousand Islands Aquatic Preserve|2|Total Nitrogen|Surface|Sample|141|0.112|1.104|0.42|0.440321276595745|0.190637634123152|354, 509, 5002
+10|Cape Romano-Ten Thousand Islands Aquatic Preserve|3|Total Nitrogen|Surface|Sample|135|0.169|1.31|0.464|0.465614814814815|0.170370674250456|354, 509, 5002
+10|Cape Romano-Ten Thousand Islands Aquatic Preserve|4|Total Nitrogen|Surface|Sample|165|0.00031|0.932|0.4457|0.427318733333333|0.189489560314731|354, 509, 514, 5002
+10|Cape Romano-Ten Thousand Islands Aquatic Preserve|5|Total Nitrogen|Surface|Sample|143|0.0661|0.774|0.446|0.416214685314685|0.168107696432151|354, 509, 5002
+10|Cape Romano-Ten Thousand Islands Aquatic Preserve|6|Total Nitrogen|Surface|Sample|154|0.00033|1.015|0.4332|0.450958636363636|0.230753901780701|354, 509, 514, 5002
+10|Cape Romano-Ten Thousand Islands Aquatic Preserve|7|Total Nitrogen|Surface|Sample|142|0.17|1.144|0.554|0.541082394366197|0.222557840852042|354, 509, 5002
+10|Cape Romano-Ten Thousand Islands Aquatic Preserve|8|Total Nitrogen|Surface|Sample|170|0.00037|1.106|0.56185|0.527722070588235|0.234237499821136|354, 509, 514, 5002
+10|Cape Romano-Ten Thousand Islands Aquatic Preserve|9|Total Nitrogen|Surface|Sample|152|0.1909|1.648|0.624|0.638376973684211|0.269424797521048|354, 509, 5002
+10|Cape Romano-Ten Thousand Islands Aquatic Preserve|10|Total Nitrogen|Surface|Sample|136|0.21|1.724|0.6155|0.655715448529412|0.319019185608404|354, 509, 5002
+10|Cape Romano-Ten Thousand Islands Aquatic Preserve|11|Total Nitrogen|Surface|Sample|149|0.2178|0.984|0.544|0.534943624161074|0.169660128588666|354, 509, 5002
+10|Cape Romano-Ten Thousand Islands Aquatic Preserve|12|Total Nitrogen|Surface|Sample|133|0.126|1.33|0.462|0.488259398496241|0.247159485082612|354, 509, 5002
+11|Cockroach Bay Aquatic Preserve|1|Total Nitrogen|Surface|Sample|106|0.00039|1.973|0.583|0.640762169811321|0.497248938726641|514, 5002
+11|Cockroach Bay Aquatic Preserve|2|Total Nitrogen|Surface|Sample|105|0.00065|1.75|0.619|0.594099142857143|0.374015379769423|514, 5002
+11|Cockroach Bay Aquatic Preserve|3|Total Nitrogen|Surface|Sample|93|0.00049|1.687|0.561|0.562676021505376|0.417420956678288|514, 5002
+11|Cockroach Bay Aquatic Preserve|4|Total Nitrogen|Surface|Sample|117|0.00022|2.06|0.552|0.565019658119658|0.471990464880185|514, 5002
+11|Cockroach Bay Aquatic Preserve|5|Total Nitrogen|Surface|Sample|123|0.00029|1.94|0.496|0.50547756097561|0.400630291455486|514, 5002
+11|Cockroach Bay Aquatic Preserve|6|Total Nitrogen|Surface|Sample|100|0.00036|1.817|0.5805|0.6169225|0.47636493509136|514, 5002
+11|Cockroach Bay Aquatic Preserve|7|Total Nitrogen|Surface|Sample|112|0.00084|3.99|0.837|0.758742232142857|0.607398661650034|514, 5002
+11|Cockroach Bay Aquatic Preserve|8|Total Nitrogen|Surface|Sample|105|0.0006|4.144|1.011|0.901473523809524|0.623166001237263|514, 5002
+11|Cockroach Bay Aquatic Preserve|9|Total Nitrogen|Surface|Sample|114|0.00022|1.956|0.7975|0.730162807017544|0.514431237016766|514, 5002
+11|Cockroach Bay Aquatic Preserve|10|Total Nitrogen|Surface|Sample|110|0.00045|2.11|0.67|0.631272181818182|0.510126029559097|514, 5002
+11|Cockroach Bay Aquatic Preserve|11|Total Nitrogen|Surface|Sample|105|0.00047|2.999|0.586|0.571026952380952|0.467788352970912|514, 5002
+11|Cockroach Bay Aquatic Preserve|12|Total Nitrogen|Surface|Sample|84|0.00041|1.513|0.5755|0.566347976190476|0.371406234331997|514, 5002
+13|Coupon Bight Aquatic Preserve|1|Total Nitrogen|Surface|Sample|8|0.13095984|0.854|0.20089267|0.28663952875|0.243256484905846|297, 5002
+13|Coupon Bight Aquatic Preserve|2|Total Nitrogen|Surface|Sample|4|0.11919281|0.384|0.313848695|0.28272255|0.115107083092945|297, 5002
+13|Coupon Bight Aquatic Preserve|3|Total Nitrogen|Surface|Sample|8|0.04264607|0.454|0.20995946|0.22046475375|0.124175976387807|297, 5002
+13|Coupon Bight Aquatic Preserve|4|Total Nitrogen|Surface|Sample|4|0.11553286|0.474|0.30213589|0.29845116|0.172559953236323|297, 5002
+13|Coupon Bight Aquatic Preserve|5|Total Nitrogen|Surface|Sample|12|0.10190804|0.584|0.23391731|0.28392456|0.154045376729321|297, 5002
+13|Coupon Bight Aquatic Preserve|6|Total Nitrogen|Surface|Sample|9|0.07544369|0.474|0.173|0.252278808888889|0.161339237560389|297, 5002
+13|Coupon Bight Aquatic Preserve|7|Total Nitrogen|Surface|Sample|9|0.184|0.554|0.28866548|0.317619628888889|0.128525144026442|297, 5002
+13|Coupon Bight Aquatic Preserve|8|Total Nitrogen|Surface|Sample|10|0.131|0.434|0.205346695|0.2284811|0.0873186604686697|297, 5002
+13|Coupon Bight Aquatic Preserve|9|Total Nitrogen|Surface|Sample|7|0.06864001|0.637|0.18991944|0.319373335714286|0.241309635616818|297, 5002
+13|Coupon Bight Aquatic Preserve|10|Total Nitrogen|Surface|Sample|9|0.106|0.624|0.23904731|0.282132283333333|0.166378504196459|297, 5002
+13|Coupon Bight Aquatic Preserve|11|Total Nitrogen|Surface|Sample|8|0.10507388|0.584|0.280970805|0.30387515|0.135991964148974|297, 5002
+13|Coupon Bight Aquatic Preserve|12|Total Nitrogen|Surface|Sample|10|0.15806981|0.555|0.231113935|0.265920536|0.110317185345578|297, 5002
+14|Estero Bay Aquatic Preserve|1|Total Nitrogen|Surface|Sample|412|0.00033|3.28|0.585|0.597369417475728|0.335524198446568|476, 514, 5002
+14|Estero Bay Aquatic Preserve|2|Total Nitrogen|Surface|Sample|455|0.00019|3.29|0.49|0.542156747252747|0.333272337215126|303, 476, 514, 4063, 5002
+14|Estero Bay Aquatic Preserve|3|Total Nitrogen|Surface|Sample|448|0.01|2.13|0.49|0.583540178571429|0.391109164678188|476, 4063, 5002
+14|Estero Bay Aquatic Preserve|4|Total Nitrogen|Surface|Sample|461|0.0002|2|0.55|0.586577245119306|0.359460355248886|476, 514, 5002
+14|Estero Bay Aquatic Preserve|5|Total Nitrogen|Surface|Sample|411|0.00034|1.67|0.54|0.540745352798054|0.314785775535634|476, 514, 5002
+14|Estero Bay Aquatic Preserve|6|Total Nitrogen|Surface|Sample|472|0.00026|1.9|0.495|0.54976718220339|0.369080821675363|303, 476, 514, 4063, 5002
+14|Estero Bay Aquatic Preserve|7|Total Nitrogen|Surface|Sample|436|0.00025|9.43|0.63|0.649954541284404|0.559413967054498|103, 476, 514, 5002
+14|Estero Bay Aquatic Preserve|8|Total Nitrogen|Surface|Sample|466|0.00033|5.1|0.64|0.638914763948498|0.414359718312026|476, 514, 4063, 5002
+14|Estero Bay Aquatic Preserve|9|Total Nitrogen|Surface|Sample|438|0.00034|1.5|0.62|0.605966598173516|0.311414715795929|476, 514, 4063, 5002
+14|Estero Bay Aquatic Preserve|10|Total Nitrogen|Surface|Sample|492|0.00021|2.29|0.595|0.628587357723577|0.39478628692151|476, 514, 4063, 5002
+14|Estero Bay Aquatic Preserve|11|Total Nitrogen|Surface|Sample|457|0.00038|1.52|0.55|0.517059562363238|0.31474146796719|476, 514, 4063, 5002
+14|Estero Bay Aquatic Preserve|12|Total Nitrogen|Surface|Sample|463|0.00026|4.69|0.57|0.605788401727862|0.435755916190791|476, 514, 5002
+15|Florida Keys National Marine Sanctuary|1|Total Nitrogen|Surface|Sample|1501|0.00005|1.509|0.14654875|0.170298247688208|0.135723611601163|297, 514, 5002
+15|Florida Keys National Marine Sanctuary|2|Total Nitrogen|Surface|Sample|1843|0.00004|1.82|0.1671712|0.180184820482908|0.132442267047698|297, 514, 5002
+15|Florida Keys National Marine Sanctuary|3|Total Nitrogen|Surface|Sample|1873|0.00003|1.606|0.1559929|0.185679395210892|0.168709123399762|297, 514, 5002
+15|Florida Keys National Marine Sanctuary|4|Total Nitrogen|Surface|Sample|1497|0.00002|1.917|0.13718022|0.166493566165665|0.151937597562443|297, 514, 5002
+15|Florida Keys National Marine Sanctuary|5|Total Nitrogen|Surface|Sample|2053|0.00005|1.103216|0.16113671|0.19778182661471|0.168857273387315|297, 514, 5002
+15|Florida Keys National Marine Sanctuary|6|Total Nitrogen|Surface|Sample|1432|0.00004|1.216|0.15741389|0.175765784832402|0.148585986050198|297, 514, 5002
+15|Florida Keys National Marine Sanctuary|7|Total Nitrogen|Surface|Sample|2070|0|0.884|0.173338565|0.194805519913044|0.131084020302987|103, 297, 514, 5002
+15|Florida Keys National Marine Sanctuary|8|Total Nitrogen|Surface|Sample|1672|0.00005|1.43|0.1772912|0.202197007679426|0.17533084340341|103, 297, 514, 5002
+15|Florida Keys National Marine Sanctuary|9|Total Nitrogen|Surface|Sample|1693|0.00001|2.98631725|0.13495222|0.174340315646781|0.158615017182531|297, 514, 5002
+15|Florida Keys National Marine Sanctuary|10|Total Nitrogen|Surface|Sample|1756|0.00003|1.04|0.171470335|0.184367418468109|0.133760470043844|297, 514, 5002
+15|Florida Keys National Marine Sanctuary|11|Total Nitrogen|Surface|Sample|1777|0.00006|3.94|0.16107145|0.200573138902645|0.196087101195752|297, 514, 5002
+15|Florida Keys National Marine Sanctuary|12|Total Nitrogen|Surface|Sample|1733|0.00004|1.505|0.1452885|0.160409121055972|0.134005284352498|297, 514, 5002
+17|Fort Pickens State Park Aquatic Preserve|1|Total Nitrogen|Surface|Sample|1|0.547|0.547|0.547|0.547||5002
+17|Fort Pickens State Park Aquatic Preserve|2|Total Nitrogen|Surface|Sample|2|0.0044|0.247|0.1257|0.1257|0.171544105115856|505, 5002
+17|Fort Pickens State Park Aquatic Preserve|3|Total Nitrogen|Surface|Sample|9|0.0028|0.335|0.22|0.217422222222222|0.0977126114912729|505, 514, 5002
+17|Fort Pickens State Park Aquatic Preserve|4|Total Nitrogen|Surface|Sample|10|0.0215|0.458|0.2775|0.26595|0.129134824032008|505, 514, 5002
+17|Fort Pickens State Park Aquatic Preserve|5|Total Nitrogen|Surface|Sample|8|0.0171|0.38|0.212|0.2137625|0.100480388100649|505, 5002
+17|Fort Pickens State Park Aquatic Preserve|6|Total Nitrogen|Surface|Sample|14|0.0209|0.561|0.25|0.279621428571429|0.165796363412709|505, 514, 5002
+17|Fort Pickens State Park Aquatic Preserve|7|Total Nitrogen|Surface|Sample|8|0.0537|0.616|0.242|0.2879625|0.178533101672651|505, 5002
+17|Fort Pickens State Park Aquatic Preserve|8|Total Nitrogen|Surface|Sample|6|0.0184|0.673|0.385|0.373066666666667|0.274395383829005|505, 514, 5002
+17|Fort Pickens State Park Aquatic Preserve|9|Total Nitrogen|Surface|Sample|5|0.215|0.45|0.274|0.3036|0.0928940256421262|5002
+17|Fort Pickens State Park Aquatic Preserve|10|Total Nitrogen|Surface|Sample|4|0.0292|0.456|0.38|0.3113|0.193009395280817|505, 5002
+17|Fort Pickens State Park Aquatic Preserve|11|Total Nitrogen|Surface|Sample|2|0.0266|0.44|0.2333|0.2333|0.292317943342519|505, 5002
+17|Fort Pickens State Park Aquatic Preserve|12|Total Nitrogen|Surface|Sample|6|0.0271|0.446|0.229|0.235183333333333|0.141679362176242|505, 5002
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|1|Total Nitrogen|Surface|Sample|299|0.00006|1.862|0.46|0.493998160535117|0.255869936809138|476, 479, 513, 514, 5002
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|2|Total Nitrogen|Surface|Sample|324|0.00006|1.76|0.4875|0.520205308641975|0.295652826663548|476, 479, 513, 514, 5002
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|3|Total Nitrogen|Surface|Sample|314|0.00025|2.68|0.4705|0.544546751592357|0.358093200332314|476, 479, 513, 514, 5002
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|4|Total Nitrogen|Surface|Sample|322|0.0002|10.1|0.523|0.558723322981367|0.599327545420814|476, 479, 513, 514, 5002
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|5|Total Nitrogen|Surface|Sample|256|0.0002|2.19|0.5145|0.538348046875|0.333411100642232|476, 479, 513, 514, 5002
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|6|Total Nitrogen|Surface|Sample|311|0.00006|3.37|0.564|0.602766205787781|0.367125167856883|476, 479, 513, 514, 5002
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|7|Total Nitrogen|Surface|Sample|348|0|302.3|0.6945|1.59109591954023|16.1723231004831|103, 476, 479, 513, 514, 5002
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|8|Total Nitrogen|Surface|Sample|329|0.00042|2.35|0.831|0.85661103343465|0.426157250842785|103, 476, 479, 513, 514, 5002
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|9|Total Nitrogen|Surface|Sample|340|0.00035|5.525|0.881|0.917166705882353|0.511250743731594|476, 479, 513, 514, 5002
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|10|Total Nitrogen|Surface|Sample|307|0.00048|4.444|0.69|0.755667980456026|0.46298157448108|476, 479, 513, 514, 5002
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|11|Total Nitrogen|Surface|Sample|327|0.00001|3.01|0.557|0.577084587155963|0.34777794051779|476, 479, 513, 514, 5002
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|12|Total Nitrogen|Surface|Sample|330|0.0001|2.04|0.479|0.522831757575758|0.290491206187522|476, 479, 513, 514, 5002
+19|Guana River Marsh Aquatic Preserve|1|Total Nitrogen|Surface|Sample|109|0.1313|2.604|0.508|0.722841100917431|0.499415171476226|4054, 5002, 5014
+19|Guana River Marsh Aquatic Preserve|2|Total Nitrogen|Surface|Sample|129|0.149|3.948|0.524|0.698695503875969|0.530289646239972|4054, 5002, 5014
+19|Guana River Marsh Aquatic Preserve|3|Total Nitrogen|Surface|Sample|111|0.1112|3.248|0.556|0.747063513513514|0.548473834671592|4054, 5002, 5014
+19|Guana River Marsh Aquatic Preserve|4|Total Nitrogen|Surface|Sample|133|0.06152|3.304|0.619|0.783422781954887|0.526736749270785|4054, 5002, 5014
+19|Guana River Marsh Aquatic Preserve|5|Total Nitrogen|Surface|Sample|119|0.1686|3.908|0.6619|0.879326554621849|0.67447674943334|4054, 5002, 5014
+19|Guana River Marsh Aquatic Preserve|6|Total Nitrogen|Surface|Sample|122|0.16069|12.602|0.758|1.04228196721311|1.28691128418321|4054, 5002, 5014
+19|Guana River Marsh Aquatic Preserve|7|Total Nitrogen|Surface|Sample|122|0.2202|3.125|0.7595|0.959635983606557|0.611359708278912|4054, 5002, 5014
+19|Guana River Marsh Aquatic Preserve|8|Total Nitrogen|Surface|Sample|136|0.1313|4.004|0.94743|1.11792058823529|0.752502345466766|4054, 5002, 5014
+19|Guana River Marsh Aquatic Preserve|9|Total Nitrogen|Surface|Sample|114|0.0705|3.983|0.962265|1.14103929824561|0.725623804846951|4054, 5002, 5014
+19|Guana River Marsh Aquatic Preserve|10|Total Nitrogen|Surface|Sample|122|0.2385|3.698|0.900315|1.05345303278689|0.615631960444289|4054, 5002, 5014
+19|Guana River Marsh Aquatic Preserve|11|Total Nitrogen|Surface|Sample|121|0.156|3.124|0.611|0.822631652892562|0.503966682722094|4054, 5002, 5014
+19|Guana River Marsh Aquatic Preserve|12|Total Nitrogen|Surface|Sample|108|0.1694|2.189|0.546|0.698765740740741|0.38994477752866|4054, 5002, 5014
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|1|Total Nitrogen|Surface|Sample|184|0.1299|3.304|0.498|0.626779184782609|0.486467026286838|4054, 5002, 5014
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2|Total Nitrogen|Surface|Sample|205|0.1185|3.948|0.498|0.61045356097561|0.467661936066632|4054, 5002, 5014
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|3|Total Nitrogen|Surface|Sample|184|0.1015|3.248|0.498|0.646605760869565|0.480401982215267|4054, 5002, 5014
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|4|Total Nitrogen|Surface|Sample|215|0.024|3.304|0.541|0.667134790697674|0.468945063159344|4054, 5002, 5014
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|5|Total Nitrogen|Surface|Sample|204|0.08577|3.908|0.60755|0.758607303921569|0.585049805802921|4054, 5002, 5014
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|6|Total Nitrogen|Surface|Sample|195|0.16069|12.602|0.6637|0.883044512820513|1.06285317107543|4054, 5002, 5014
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|7|Total Nitrogen|Surface|Sample|198|0.1236|3.125|0.6101|0.822953434343434|0.56374326172958|4054, 5002, 5014
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|8|Total Nitrogen|Surface|Sample|219|0.045|5.902|0.788|0.981180730593607|0.763468857574832|4054, 5002, 5014
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|9|Total Nitrogen|Surface|Sample|187|0.0652|3.983|0.76|0.963011764705882|0.670499529598665|4054, 5002, 5014
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|10|Total Nitrogen|Surface|Sample|191|0.048|3.698|0.758|0.903682356020942|0.570767320807976|4054, 5002, 5014
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|11|Total Nitrogen|Surface|Sample|188|0.1315|3.124|0.521|0.701164521276596|0.468489706151969|4054, 5002, 5014
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|12|Total Nitrogen|Surface|Sample|182|0.0788|2.189|0.4985|0.595810054945055|0.367086992123372|4054, 5002, 5014
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|1|Total Nitrogen|Surface|Sample|235|0.1217|1.84385|0.73|0.756752042553192|0.333310288406087|540, 5002
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|2|Total Nitrogen|Surface|Sample|226|0.1093|1.504|0.66|0.672666902654867|0.29616519347022|540, 5002
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|3|Total Nitrogen|Surface|Sample|220|0.0629|1.72086|0.61715|0.673225772727273|0.351058579829639|540, 5002
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|4|Total Nitrogen|Surface|Sample|238|0.059|1.214|0.57|0.57304718487395|0.241627547846969|540, 5002
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|5|Total Nitrogen|Surface|Sample|219|0.1251|1.269|0.471|0.519702374429224|0.247971825369144|540, 5002
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|6|Total Nitrogen|Surface|Sample|242|0.058|1.872|0.554|0.610745|0.303448659971307|540, 5002
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|7|Total Nitrogen|Surface|Sample|208|0.087|1.83074|0.661|0.721180865384615|0.356251839536529|540, 5002
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|8|Total Nitrogen|Surface|Sample|208|0.0326|1.71|0.62355|0.689104182692308|0.356840316663393|103, 540, 5002
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|9|Total Nitrogen|Surface|Sample|181|0.1281|2.29|0.689|0.78931729281768|0.446278484330714|540, 5002
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|10|Total Nitrogen|Surface|Sample|212|0.1294|2.77029|0.7694|0.807692311320755|0.372782425193966|540, 5002
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|11|Total Nitrogen|Surface|Sample|197|0.1336|2.051|0.725|0.775334111675127|0.334060508088176|540, 5002
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|12|Total Nitrogen|Surface|Sample|211|0.147|1.9909|0.764|0.783442796208531|0.323890286068852|540, 5002
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|1|Total Nitrogen|Surface|Sample|74|0.206|1.231|0.5453|0.586075810810811|0.25100789445647|540, 5002
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|2|Total Nitrogen|Surface|Sample|75|0.145|0.958|0.3914|0.438686|0.182540356759665|540, 5002
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|3|Total Nitrogen|Surface|Sample|72|0.1176|1.49627|0.44385|0.544229305555556|0.327246022639411|540, 5002
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|4|Total Nitrogen|Surface|Sample|87|0.096|1.069|0.4323|0.480065057471264|0.212953146893393|540, 5002
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|5|Total Nitrogen|Surface|Sample|71|0.122|0.953|0.401|0.443401830985916|0.221371533499098|5002
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|6|Total Nitrogen|Surface|Sample|67|0.161|1.26|0.4697|0.55876447761194|0.272388253358191|540, 5002
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|7|Total Nitrogen|Surface|Sample|50|0.06|2.31648|0.48355|0.594257|0.364625524615352|5002
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|8|Total Nitrogen|Surface|Sample|67|0.164|1.51643|0.531|0.600071791044776|0.285427568373576|5002
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|9|Total Nitrogen|Surface|Sample|60|0.258|1.54|0.4985|0.680112166666667|0.375572342942557|5002
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|10|Total Nitrogen|Surface|Sample|79|0.243|2.31397|0.78|0.780782658227848|0.356164147174567|540, 5002
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|11|Total Nitrogen|Surface|Sample|59|0.3406|1.368|0.7475|0.75458779661017|0.294112298890839|5002
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|12|Total Nitrogen|Surface|Sample|64|0.156|1.39585|0.5259|0.6155128125|0.27959042384008|540, 5002
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|1|Total Nitrogen|Surface|Sample|52|0.014|1.03|0.2075|0.325173076923077|0.220137098204808|5002, 10000
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|2|Total Nitrogen|Surface|Sample|16|0.109|0.464|0.243|0.264125|0.0990514176240468|5002
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|3|Total Nitrogen|Surface|Sample|42|0.2|0.82|0.205|0.288809523809524|0.16372377661487|5002, 10000
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|4|Total Nitrogen|Surface|Sample|10|0.2|0.3|0.2535|0.2453|0.0300186978768604|5002, 10000
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|5|Total Nitrogen|Surface|Sample|39|0.051|0.71|0.205|0.294589743589744|0.169343114469864|5002, 10000
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|6|Total Nitrogen|Surface|Sample|15|0.172|0.524|0.345|0.327933333333333|0.115203215894266|5002
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|7|Total Nitrogen|Surface|Sample|55|0.145|0.933|0.205|0.267545454545455|0.148312585088464|5002, 10000
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|8|Total Nitrogen|Surface|Sample|43|0.102|0.805|0.357|0.371209302325581|0.154825794291756|5002
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|9|Total Nitrogen|Surface|Sample|38|0.2|1.26|0.2015|0.29421052631579|0.232733365346831|5002, 10000
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|10|Total Nitrogen|Surface|Sample|36|0.084|1.033|0.3645|0.396972222222222|0.190794502183611|5002, 10000
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|11|Total Nitrogen|Surface|Sample|43|0.2|2.152|0.205|0.432767441860465|0.503104023950046|5002, 10000
+25|Lemon Bay Aquatic Preserve|1|Total Nitrogen|Surface|Sample|115|0.055|0.904|0.443|0.453434782608696|0.130949041276126|476, 479, 5002
+25|Lemon Bay Aquatic Preserve|2|Total Nitrogen|Surface|Sample|129|0.00006|1.03|0.404|0.430380775193798|0.158356429049374|476, 479, 513, 5002
+25|Lemon Bay Aquatic Preserve|3|Total Nitrogen|Surface|Sample|100|0.00025|1.443|0.4375|0.4813026|0.209861825295607|476, 479, 513, 5002
+25|Lemon Bay Aquatic Preserve|4|Total Nitrogen|Surface|Sample|100|0.15|0.955|0.475|0.48777|0.152617158506857|476, 479, 513, 5002
+25|Lemon Bay Aquatic Preserve|5|Total Nitrogen|Surface|Sample|149|0.115|1.407|0.415|0.440986577181208|0.17847965235594|476, 479, 5002
+25|Lemon Bay Aquatic Preserve|6|Total Nitrogen|Surface|Sample|145|0.00002|1.404|0.475|0.499581103448276|0.227261193304328|476, 479, 513, 5002
+25|Lemon Bay Aquatic Preserve|7|Total Nitrogen|Surface|Sample|127|0.194|1.504|0.635|0.683897637795276|0.238406044008478|103, 476, 479, 5002
+25|Lemon Bay Aquatic Preserve|8|Total Nitrogen|Surface|Sample|136|0.15|1.23|0.695|0.696639705882353|0.222667720316673|476, 479, 5002
+25|Lemon Bay Aquatic Preserve|9|Total Nitrogen|Surface|Sample|110|0.315|1.465|0.7145|0.759354545454546|0.248125655735547|476, 479, 513, 5002
+25|Lemon Bay Aquatic Preserve|10|Total Nitrogen|Surface|Sample|128|0.00005|1.27|0.62|0.634773828125|0.211415718298091|476, 479, 513, 5002
+25|Lemon Bay Aquatic Preserve|11|Total Nitrogen|Surface|Sample|148|0.269|1.21|0.525|0.555405405405405|0.163496565852047|476, 479, 5002
+25|Lemon Bay Aquatic Preserve|12|Total Nitrogen|Surface|Sample|126|0.00025|1.106|0.4315|0.449025793650794|0.152447774104331|476, 479, 513, 5002
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|1|Total Nitrogen|Surface|Sample|477|0.00017|2.37|0.62|0.673028008385744|0.485763655162145|514, 5002, 10000
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|2|Total Nitrogen|Surface|Sample|193|0.00012|1.994|0.552|0.532410103626943|0.35877537519722|514, 5002, 10000
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|3|Total Nitrogen|Surface|Sample|508|0.00011|4.02|0.5775|0.663854783464567|0.493772848511911|514, 5002, 10000
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|4|Total Nitrogen|Surface|Sample|213|0.00013|2.1|0.5|0.526633051643193|0.355210342470091|514, 5002, 10000
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|5|Total Nitrogen|Surface|Sample|498|0.0001|3.936|0.71|0.771013935742972|0.550759223861556|514, 5002, 10000
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|6|Total Nitrogen|Surface|Sample|199|0.00015|2.215|0.7|0.672884723618091|0.45580413368645|514, 5002, 10000
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|7|Total Nitrogen|Surface|Sample|558|0.00035|2.88|0.8015|0.829134426523298|0.513731426844579|514, 5002, 10000
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|8|Total Nitrogen|Surface|Sample|187|0.00048|1.6|0.781|0.71394256684492|0.421708809920238|514, 5002, 10000
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|9|Total Nitrogen|Surface|Sample|542|0.00043|3.19|0.8545|0.909509280442805|0.541810678247718|514, 5002, 10000
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|10|Total Nitrogen|Surface|Sample|212|0.00024|1.58|0.728|0.668587311320755|0.389775291833662|514, 5002, 10000
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|11|Total Nitrogen|Surface|Sample|490|0.00037|2.756|0.7175|0.753894387755102|0.535930042296304|514, 5002, 10000
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|12|Total Nitrogen|Surface|Sample|179|0.00025|1.221|0.54|0.521396368715084|0.332697034322298|514, 5002, 10000
+28|Matlacha Pass Aquatic Preserve|1|Total Nitrogen|Surface|Sample|106|0.09|1.404|0.55|0.608952830188679|0.248536262835617|476, 513, 5002, 5028
+28|Matlacha Pass Aquatic Preserve|2|Total Nitrogen|Surface|Sample|104|0.01|2.9|0.59|0.623170192307692|0.347236497533569|476, 5002, 5028
+28|Matlacha Pass Aquatic Preserve|3|Total Nitrogen|Surface|Sample|110|0.01|1.6|0.627|0.646954545454546|0.253789459312337|476, 5002, 5028
+28|Matlacha Pass Aquatic Preserve|4|Total Nitrogen|Surface|Sample|101|0.01|1.204|0.54|0.505544554455446|0.207491374507591|476, 5002, 5028
+28|Matlacha Pass Aquatic Preserve|5|Total Nitrogen|Surface|Sample|101|0.01|1.13|0.544|0.534821782178218|0.244780775227125|303, 476, 5002, 5028
+28|Matlacha Pass Aquatic Preserve|6|Total Nitrogen|Surface|Sample|99|0.084|1.4|0.707|0.672565656565657|0.269763772760924|303, 476, 5002, 5028
+28|Matlacha Pass Aquatic Preserve|7|Total Nitrogen|Surface|Sample|115|0|4.1|0.714|0.741949565217391|0.469083512441597|103, 476, 5002, 5028
+28|Matlacha Pass Aquatic Preserve|8|Total Nitrogen|Surface|Sample|94|0.23|2.304|0.7825|0.856744680851064|0.366446696564474|303, 476, 5002, 5028
+28|Matlacha Pass Aquatic Preserve|9|Total Nitrogen|Surface|Sample|111|0.31|1.3|0.816|0.782225225225225|0.226923202254727|303, 476, 513, 5002, 5028
+28|Matlacha Pass Aquatic Preserve|10|Total Nitrogen|Surface|Sample|103|0.06|1.29|0.72|0.732601941747573|0.224088670291596|303, 476, 513, 5002, 5028
+28|Matlacha Pass Aquatic Preserve|11|Total Nitrogen|Surface|Sample|106|0.05|2.504|0.649|0.722377358490566|0.398334950054424|303, 476, 5002, 5028
+28|Matlacha Pass Aquatic Preserve|12|Total Nitrogen|Surface|Sample|105|0.087|1.48|0.554|0.561190476190476|0.242488068510522|476, 5002, 5028
+29|Mosquito Lagoon Aquatic Preserve|1|Total Nitrogen|Surface|Sample|30|0.2084|1.472|0.56525|0.612320666666667|0.329281791405575|5002
+29|Mosquito Lagoon Aquatic Preserve|2|Total Nitrogen|Surface|Sample|30|0.078|1.31017|0.3815|0.527857333333333|0.339487336841011|5002
+29|Mosquito Lagoon Aquatic Preserve|3|Total Nitrogen|Surface|Sample|29|0.176|1.32422|0.432|0.541151379310345|0.305469625842432|5002
+29|Mosquito Lagoon Aquatic Preserve|4|Total Nitrogen|Surface|Sample|31|0.147|1.014|0.634|0.607902580645161|0.221067058950714|5002
+29|Mosquito Lagoon Aquatic Preserve|5|Total Nitrogen|Surface|Sample|30|0.171|1.273|0.6265|0.692622666666667|0.312017373233511|5002
+29|Mosquito Lagoon Aquatic Preserve|6|Total Nitrogen|Surface|Sample|29|0.4223|1.811|0.83|0.913146896551724|0.336924262802525|5002
+29|Mosquito Lagoon Aquatic Preserve|7|Total Nitrogen|Surface|Sample|28|0.4909|1.7477|0.92175|1.01847178571429|0.370458314834512|103, 5002
+29|Mosquito Lagoon Aquatic Preserve|8|Total Nitrogen|Surface|Sample|26|0.37|1.79884|1.07285|1.06510884615385|0.38968278874312|5002
+29|Mosquito Lagoon Aquatic Preserve|9|Total Nitrogen|Surface|Sample|21|0.154|3.5905|0.814|0.979718571428571|0.728709014321119|5002
+29|Mosquito Lagoon Aquatic Preserve|10|Total Nitrogen|Surface|Sample|27|0.2379|2.48116|0.851|1.02513925925926|0.617157437050808|5002
+29|Mosquito Lagoon Aquatic Preserve|11|Total Nitrogen|Surface|Sample|28|0.2214|1.949|0.7|0.794065|0.479778371855172|5002
+29|Mosquito Lagoon Aquatic Preserve|12|Total Nitrogen|Surface|Sample|28|0.1808|1.62901|0.5215|0.588934642857143|0.313663993452798|5002
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|1|Total Nitrogen|Surface|Sample|37|0.2067|2.01|0.4286|0.587745945945946|0.405575667412379|103, 5002
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|2|Total Nitrogen|Surface|Sample|32|0.166|1.404|0.5735|0.599959375|0.278327742360223|103, 5002
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|3|Total Nitrogen|Surface|Sample|37|0.223|5.1401|0.484|0.776356756756757|1.03219682326917|103, 5002
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|4|Total Nitrogen|Surface|Sample|34|0.21|2.021|0.3943|0.451086176470588|0.310144350849287|5002
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|5|Total Nitrogen|Surface|Sample|33|0.025|1.21|0.404|0.432874242424242|0.260922801718132|103, 5002
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|6|Total Nitrogen|Surface|Sample|32|0.2592|1.004|0.533|0.5366571875|0.213824470811086|5002
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|7|Total Nitrogen|Surface|Sample|42|0.0795|4.805|0.68255|0.795504761904762|0.757437660946875|103, 5002
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|8|Total Nitrogen|Surface|Sample|34|0.2655|3.214|0.64765|0.789329411764706|0.581026330457142|103, 5002
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|9|Total Nitrogen|Surface|Sample|24|0.17019|1.66|0.677|0.686512083333333|0.317811379156817|5002
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|10|Total Nitrogen|Surface|Sample|55|0.013|0.97|0.473|0.502625454545455|0.212220471678221|103, 5002
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|11|Total Nitrogen|Surface|Sample|28|0.1165|1.3|0.4237|0.542863571428572|0.364976131702744|5002
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|12|Total Nitrogen|Surface|Sample|22|0.1613|1.06|0.34295|0.445568181818182|0.239172122492336|5002
+48|Nature Coast Aquatic Preserve|1|Total Nitrogen|Surface|Sample|388|0.1|0.73|0.3|0.316085051546392|0.0971206154025655|479, 514, 5002
+48|Nature Coast Aquatic Preserve|2|Total Nitrogen|Surface|Sample|339|0.1|1.09|0.31|0.323896755162242|0.114843389456537|479, 514, 5002
+48|Nature Coast Aquatic Preserve|3|Total Nitrogen|Surface|Sample|331|0.07|1000|0.31|3.34974018126888|54.9469573832596|479, 514, 540, 5002
+48|Nature Coast Aquatic Preserve|4|Total Nitrogen|Surface|Sample|380|0.11|0.8|0.37|0.379547368421053|0.111022521989166|479, 514, 5002
+48|Nature Coast Aquatic Preserve|5|Total Nitrogen|Surface|Sample|336|0.18|1.56|0.43|0.445154761904762|0.152377946776506|479, 514, 5002
+48|Nature Coast Aquatic Preserve|6|Total Nitrogen|Surface|Sample|335|0.22|1.66|0.49|0.513982089552239|0.194855419244101|479, 514, 540
+48|Nature Coast Aquatic Preserve|7|Total Nitrogen|Surface|Sample|406|0.22|1.54|0.48|0.505926108374384|0.181233821982129|103, 479, 5002
+48|Nature Coast Aquatic Preserve|8|Total Nitrogen|Surface|Sample|339|0.23|1.49|0.54|0.547551622418879|0.162193432682548|479
+48|Nature Coast Aquatic Preserve|9|Total Nitrogen|Surface|Sample|335|0.16|1.24|0.51|0.517277611940299|0.161956702853172|479, 540, 5002
+48|Nature Coast Aquatic Preserve|10|Total Nitrogen|Surface|Sample|389|0.033|1.91|0.44|0.466848329048843|0.182511163699041|479, 514, 5002
+48|Nature Coast Aquatic Preserve|11|Total Nitrogen|Surface|Sample|333|0.13|0.86|0.37|0.378435435435435|0.119218184382819|479, 514, 540, 5002
+48|Nature Coast Aquatic Preserve|12|Total Nitrogen|Surface|Sample|324|0.09|0.96|0.32|0.324722222222222|0.10489675006107|479, 514
+31|North Fork St. Lucie Aquatic Preserve|1|Total Nitrogen|Surface|Sample|11|0.511|1.204|0.917|0.841818181818182|0.226396916137044|5002
+31|North Fork St. Lucie Aquatic Preserve|2|Total Nitrogen|Surface|Sample|24|0.012|1.7|0.708|0.825333333333333|0.332779946441523|5002
+31|North Fork St. Lucie Aquatic Preserve|3|Total Nitrogen|Surface|Sample|16|0.662|1.21|0.954|0.913375|0.16549073488668|5002
+31|North Fork St. Lucie Aquatic Preserve|4|Total Nitrogen|Surface|Sample|20|0.032|1.41|0.7155|0.74735|0.397691135774591|5002
+31|North Fork St. Lucie Aquatic Preserve|5|Total Nitrogen|Surface|Sample|21|0.139|1.607|0.855|0.834190476190476|0.358623565740962|5002
+31|North Fork St. Lucie Aquatic Preserve|6|Total Nitrogen|Surface|Sample|26|0.922|2.706|1.1235|1.28876923076923|0.409372036924098|5002
+31|North Fork St. Lucie Aquatic Preserve|7|Total Nitrogen|Surface|Sample|21|0.604|2.42|1.448|1.43652380952381|0.453253419076748|5002
+31|North Fork St. Lucie Aquatic Preserve|8|Total Nitrogen|Surface|Sample|25|0.93|2.093|1.24|1.35068|0.365481727769438|5002
+31|North Fork St. Lucie Aquatic Preserve|9|Total Nitrogen|Surface|Sample|28|0.844|1.98|1.1645|1.27975|0.333579978193914|5002
+31|North Fork St. Lucie Aquatic Preserve|10|Total Nitrogen|Surface|Sample|20|0.95|2.16|1.42|1.47435|0.317909168590156|5002
+31|North Fork St. Lucie Aquatic Preserve|11|Total Nitrogen|Surface|Sample|23|0.575|3.01|1.17|1.16113043478261|0.503993624089164|5002
+31|North Fork St. Lucie Aquatic Preserve|12|Total Nitrogen|Surface|Sample|17|0.555|1.334|1.01|0.967176470588235|0.199260581680785|5002
+34|Pine Island Sound Aquatic Preserve|1|Total Nitrogen|Surface|Sample|217|0.00032|1.41|0.4|0.477387788018433|0.295753487210103|303, 476, 514, 5002
+34|Pine Island Sound Aquatic Preserve|2|Total Nitrogen|Surface|Sample|211|0.00035|4.34|0.404|0.492042606635071|0.42087803938154|303, 476, 513, 514, 5002
+34|Pine Island Sound Aquatic Preserve|3|Total Nitrogen|Surface|Sample|199|0.00032|1.5|0.43|0.463686633165829|0.279564169589748|303, 476, 514, 5002
+34|Pine Island Sound Aquatic Preserve|4|Total Nitrogen|Surface|Sample|216|0.00032|1.3|0.41|0.424939537037037|0.260351674554833|303, 476, 514, 5002
+34|Pine Island Sound Aquatic Preserve|5|Total Nitrogen|Surface|Sample|207|0.00034|1.9|0.425|0.479920724637681|0.320072856197952|303, 476, 514, 5002
+34|Pine Island Sound Aquatic Preserve|6|Total Nitrogen|Surface|Sample|220|0.00027|3.74|0.5495|0.602687681818182|0.499073751734094|303, 476, 513, 514, 5002
+34|Pine Island Sound Aquatic Preserve|7|Total Nitrogen|Surface|Sample|245|0.0004|4.07|0.52|0.566500734693878|0.401873160633007|103, 303, 476, 513, 514, 5002
+34|Pine Island Sound Aquatic Preserve|8|Total Nitrogen|Surface|Sample|203|0.00049|2.38|0.57|0.630862610837438|0.346795861756262|103, 303, 476, 513, 514, 5002
+34|Pine Island Sound Aquatic Preserve|9|Total Nitrogen|Surface|Sample|237|0.00044|10|0.56|0.625165949367089|0.693912593557058|103, 303, 476, 513, 514, 5002
+34|Pine Island Sound Aquatic Preserve|10|Total Nitrogen|Surface|Sample|229|0.00025|2.75|0.61|0.596753493449782|0.363117371626883|303, 476, 513, 514, 5002
+34|Pine Island Sound Aquatic Preserve|11|Total Nitrogen|Surface|Sample|234|0.00043|11.12|0.542|0.675271196581197|0.859724305810878|303, 476, 513, 514, 5002
+34|Pine Island Sound Aquatic Preserve|12|Total Nitrogen|Surface|Sample|219|0.00041|1.73|0.43|0.453509041095891|0.267441300460859|303, 476, 513, 514, 5002
+35|Pinellas County Aquatic Preserve|1|Total Nitrogen|Surface|Sample|668|0.00018|4.04|0.55|0.775622095808383|0.729678625988446|514, 5002
+35|Pinellas County Aquatic Preserve|2|Total Nitrogen|Surface|Sample|784|0.00018|4.61|0.57|0.789171479591837|0.748484726855699|514, 5002
+35|Pinellas County Aquatic Preserve|3|Total Nitrogen|Surface|Sample|789|0.00017|5|0.58|0.802700392902408|0.816736694611921|514, 5002
+35|Pinellas County Aquatic Preserve|4|Total Nitrogen|Surface|Sample|708|0.00015|6.52|0.59|0.818816610169492|0.873867790171432|514, 5002
+35|Pinellas County Aquatic Preserve|5|Total Nitrogen|Surface|Sample|1270|0.0002|6.41|0.6655|0.903611480314961|0.903406596972766|514, 5002
+35|Pinellas County Aquatic Preserve|6|Total Nitrogen|Surface|Sample|1014|0.00021|7.61|0.67|0.90762575443787|0.838021754243197|514, 5002
+35|Pinellas County Aquatic Preserve|7|Total Nitrogen|Surface|Sample|923|0.00027|6.85|0.67|0.920590650054171|0.826938536678672|103, 514, 5002
+35|Pinellas County Aquatic Preserve|8|Total Nitrogen|Surface|Sample|891|0.00019|5.47|0.74|0.881433265993266|0.626091368361739|514, 5002
+35|Pinellas County Aquatic Preserve|9|Total Nitrogen|Surface|Sample|1278|0.00022|3.71|0.72|0.860547159624413|0.544278918248679|514, 5002
+35|Pinellas County Aquatic Preserve|10|Total Nitrogen|Surface|Sample|933|0.00021|4.72|0.66|0.789126248660236|0.608583845890819|514, 5002
+35|Pinellas County Aquatic Preserve|11|Total Nitrogen|Surface|Sample|597|0.00034|4.02|0.64|0.883250351758794|0.785553226023215|514, 5002
+35|Pinellas County Aquatic Preserve|12|Total Nitrogen|Surface|Sample|993|0.0002|5.42|0.59|0.788334541792548|0.693748485206001|514, 5002
+37|Rocky Bayou State Park Aquatic Preserve|1|Total Nitrogen|Surface|Sample|42|0.00014|0.42|0.175|0.146500238095238|0.118577261619219|514, 537, 5002
+37|Rocky Bayou State Park Aquatic Preserve|2|Total Nitrogen|Surface|Sample|49|0.00017|1.644|0.19|0.18589387755102|0.254102476570447|514, 537, 5002
+37|Rocky Bayou State Park Aquatic Preserve|3|Total Nitrogen|Surface|Sample|52|0.00019|0.48|0.2|0.166422307692308|0.136285058732738|514, 537, 5002
+37|Rocky Bayou State Park Aquatic Preserve|4|Total Nitrogen|Surface|Sample|50|0.00016|0.46|0.225|0.1815316|0.143061227385554|514, 537, 5002
+37|Rocky Bayou State Park Aquatic Preserve|5|Total Nitrogen|Surface|Sample|58|0.00014|0.43|0.2|0.170701896551724|0.136429866661932|514, 537, 5002
+37|Rocky Bayou State Park Aquatic Preserve|6|Total Nitrogen|Surface|Sample|50|0.00016|0.53|0.21|0.1738938|0.146255904508613|514, 537, 5002
+37|Rocky Bayou State Park Aquatic Preserve|7|Total Nitrogen|Surface|Sample|53|0.00017|0.5|0.24|0.187440754716981|0.152475638190916|514, 537, 5002
+37|Rocky Bayou State Park Aquatic Preserve|8|Total Nitrogen|Surface|Sample|50|0.00011|1.58|0.225|0.2124568|0.245770379389929|514, 537, 5002
+37|Rocky Bayou State Park Aquatic Preserve|9|Total Nitrogen|Surface|Sample|47|0.0002|0.42|0.21|0.179365319148936|0.141165719971262|514, 537, 5002
+37|Rocky Bayou State Park Aquatic Preserve|10|Total Nitrogen|Surface|Sample|47|0.00016|1.01|0.19|0.185982127659574|0.187969859979179|514, 537, 5002
+37|Rocky Bayou State Park Aquatic Preserve|11|Total Nitrogen|Surface|Sample|43|0.00008|0.49|0.16|0.135424418604651|0.117573744058424|514, 537, 5002
+37|Rocky Bayou State Park Aquatic Preserve|12|Total Nitrogen|Surface|Sample|43|0.00014|0.43|0.18|0.150599302325581|0.127007553813512|514, 537, 5002
+38|Rookery Bay Aquatic Preserve|1|Total Nitrogen|Surface|Sample|54|0.00027|1.45|0.3065|0.362816666666667|0.246356347088812|354, 509, 514, 5002
+38|Rookery Bay Aquatic Preserve|2|Total Nitrogen|Surface|Sample|200|0.00014|0.942|0.233|0.21447405|0.196301469947669|354, 509, 514, 5002
+38|Rookery Bay Aquatic Preserve|3|Total Nitrogen|Surface|Sample|134|0.00024|1.114|0.28985|0.266596940298507|0.221263515263607|354, 509, 514, 5002
+38|Rookery Bay Aquatic Preserve|4|Total Nitrogen|Surface|Sample|127|0.00009|1.12|0.3023|0.284929133858268|0.242938795996106|354, 509, 514, 5002
+38|Rookery Bay Aquatic Preserve|5|Total Nitrogen|Surface|Sample|156|0.00011|1.231|0.2354|0.21836608974359|0.192477285267551|354, 509, 514, 5002
+38|Rookery Bay Aquatic Preserve|6|Total Nitrogen|Surface|Sample|204|0.00012|1.304|0.255|0.230144509803922|0.221787310917453|354, 509, 514, 5002
+38|Rookery Bay Aquatic Preserve|7|Total Nitrogen|Surface|Sample|102|0.00011|1540.44|0.32395|15.4455090196078|152.492236426009|354, 509, 514, 5002
+38|Rookery Bay Aquatic Preserve|8|Total Nitrogen|Surface|Sample|198|0.00017|1.004|0.31035|0.284192828282828|0.253748946167862|354, 509, 514, 5002
+38|Rookery Bay Aquatic Preserve|9|Total Nitrogen|Surface|Sample|171|0.00024|1.2|0.33|0.312689766081871|0.268425269446809|354, 509, 514, 5002
+38|Rookery Bay Aquatic Preserve|10|Total Nitrogen|Surface|Sample|68|0.00015|1.604|0.4474|0.458505441176471|0.298998306561539|354, 509, 514, 5002
+38|Rookery Bay Aquatic Preserve|11|Total Nitrogen|Surface|Sample|182|0.00021|1.107|0.27|0.23839989010989|0.213665722248741|354, 509, 514, 5002
+38|Rookery Bay Aquatic Preserve|12|Total Nitrogen|Surface|Sample|163|0.00013|1.04|0.2405|0.226903619631902|0.207825372239998|354, 509, 514, 5002
+39|Rookery Bay National Estuarine Research Reserve|1|Total Nitrogen|Surface|Sample|202|0.00027|1.805|0.4086|0.434207920792079|0.271514584764675|354, 509, 514, 5002
+39|Rookery Bay National Estuarine Research Reserve|2|Total Nitrogen|Surface|Sample|349|0.00014|1.546|0.299|0.315124727793696|0.240032708627813|354, 509, 514, 5002
+39|Rookery Bay National Estuarine Research Reserve|3|Total Nitrogen|Surface|Sample|280|0.00024|1.413|0.38|0.378273071428571|0.242056241036956|354, 509, 514, 5002
+39|Rookery Bay National Estuarine Research Reserve|4|Total Nitrogen|Surface|Sample|301|0.00009|1.12|0.394|0.371838641196013|0.237065321715804|354, 509, 514, 5002
+39|Rookery Bay National Estuarine Research Reserve|5|Total Nitrogen|Surface|Sample|303|0.00011|1.231|0.3|0.323233696369637|0.223912429944482|354, 509, 514, 5002
+39|Rookery Bay National Estuarine Research Reserve|6|Total Nitrogen|Surface|Sample|364|0.00012|1.93|0.3345|0.339703598901099|0.277594673812171|354, 509, 514, 5002
+39|Rookery Bay National Estuarine Research Reserve|7|Total Nitrogen|Surface|Sample|247|0.00011|1540.44|0.45|6.70123327935223|97.9865410702987|354, 509, 514, 5002
+39|Rookery Bay National Estuarine Research Reserve|8|Total Nitrogen|Surface|Sample|374|0.00017|1.604|0.39|0.410082705882353|0.292632939333501|354, 509, 514, 5002
+39|Rookery Bay National Estuarine Research Reserve|9|Total Nitrogen|Surface|Sample|324|0.00024|1.648|0.4545|0.468528549382716|0.3169078705621|354, 509, 514, 5002
+39|Rookery Bay National Estuarine Research Reserve|10|Total Nitrogen|Surface|Sample|206|0.00015|2.911|0.5615|0.604595490291262|0.365002761469751|354, 509, 514, 5002
+39|Rookery Bay National Estuarine Research Reserve|11|Total Nitrogen|Surface|Sample|340|0.00021|1.419|0.40775|0.378451058823529|0.257964548066304|354, 509, 514, 5002
+39|Rookery Bay National Estuarine Research Reserve|12|Total Nitrogen|Surface|Sample|307|0.00013|1.33|0.3237|0.345197557003257|0.269633833433877|354, 509, 514, 5002
+40|St. Andrews State Park Aquatic Preserve|1|Total Nitrogen|Surface|Sample|52|0.00007|0.411|0.189|0.170333269230769|0.128772445927997|470, 514, 5002
+40|St. Andrews State Park Aquatic Preserve|2|Total Nitrogen|Surface|Sample|107|0.00007|0.52|0.13|0.130544299065421|0.131073434193032|470, 514, 5002
+40|St. Andrews State Park Aquatic Preserve|3|Total Nitrogen|Surface|Sample|80|0.00009|0.524|0.182|0.15915375|0.105924641942136|470, 514, 5002
+40|St. Andrews State Park Aquatic Preserve|4|Total Nitrogen|Surface|Sample|107|0.00009|0.94|0.17|0.154957009345794|0.147775436224526|470, 514, 5002
+40|St. Andrews State Park Aquatic Preserve|5|Total Nitrogen|Surface|Sample|67|0.0001|0.42|0.21|0.178803432835821|0.130784934374144|470, 514, 5002
+40|St. Andrews State Park Aquatic Preserve|6|Total Nitrogen|Surface|Sample|150|0.0001|0.55|0.18|0.1580684|0.123906716996642|470, 514, 5002
+40|St. Andrews State Park Aquatic Preserve|7|Total Nitrogen|Surface|Sample|68|0.0001|0.984|0.185|0.18059|0.167375795197246|103, 470, 514, 5002
+40|St. Andrews State Park Aquatic Preserve|8|Total Nitrogen|Surface|Sample|107|0|0.97|0.19|0.185346355140187|0.186823255271325|103, 470, 514, 5002
+40|St. Andrews State Park Aquatic Preserve|9|Total Nitrogen|Surface|Sample|79|0.00011|0.55|0.22|0.20512|0.155843265181926|470, 514, 5002
+40|St. Andrews State Park Aquatic Preserve|10|Total Nitrogen|Surface|Sample|105|0.00009|0.8|0.17|0.170220285714286|0.163779035478957|470, 514, 5002
+40|St. Andrews State Park Aquatic Preserve|11|Total Nitrogen|Surface|Sample|69|0.0001|0.414|0.18|0.172905507246377|0.135233535178488|470, 514, 5002
+40|St. Andrews State Park Aquatic Preserve|12|Total Nitrogen|Surface|Sample|127|0.0001|0.42|0.17|0.152997952755906|0.117281574550774|470, 514, 5002
+41|St. Joseph Bay Aquatic Preserve|1|Total Nitrogen|Surface|Sample|114|0.00008|0.38|0.000375|0.106026228070175|0.117126479238232|514, 540, 5002
+41|St. Joseph Bay Aquatic Preserve|2|Total Nitrogen|Surface|Sample|90|0.0001|0.5|0.125|0.113423111111111|0.124988517267144|514, 5002
+41|St. Joseph Bay Aquatic Preserve|3|Total Nitrogen|Surface|Sample|119|0.00008|0.454|0.13|0.118629915966387|0.116886127698277|514, 540, 5002
+41|St. Joseph Bay Aquatic Preserve|4|Total Nitrogen|Surface|Sample|137|0.00009|0.6|0.13|0.123159927007299|0.130534151095415|514, 540, 5002
+41|St. Joseph Bay Aquatic Preserve|5|Total Nitrogen|Surface|Sample|126|0.0001|0.464|0.145|0.139553333333333|0.141887758496637|514, 540, 5002
+41|St. Joseph Bay Aquatic Preserve|6|Total Nitrogen|Surface|Sample|143|0.00012|0.81|0.17|0.163164125874126|0.181147677589964|514, 540, 5002
+41|St. Joseph Bay Aquatic Preserve|7|Total Nitrogen|Surface|Sample|113|0.00009|0.77|0.15|0.158765840707965|0.178493802256977|103, 514, 5002
+41|St. Joseph Bay Aquatic Preserve|8|Total Nitrogen|Surface|Sample|127|0.00011|0.56|0.00063|0.152247480314961|0.164991111828758|514, 5002
+41|St. Joseph Bay Aquatic Preserve|9|Total Nitrogen|Surface|Sample|93|0.00016|0.62|0.16|0.152455483870968|0.163977954606021|514, 540, 5002
+41|St. Joseph Bay Aquatic Preserve|10|Total Nitrogen|Surface|Sample|115|0.00009|0.6|0.16|0.164150869565217|0.171428393969279|514, 540, 5002
+41|St. Joseph Bay Aquatic Preserve|11|Total Nitrogen|Surface|Sample|104|0.00009|0.554|0.135|0.13766625|0.147495026858321|514, 5002
+41|St. Joseph Bay Aquatic Preserve|12|Total Nitrogen|Surface|Sample|112|0.00008|0.37|0.12|0.109697053571429|0.114330794860363|514, 540, 5002
+43|St. Martins Marsh Aquatic Preserve|1|Total Nitrogen|Surface|Sample|90|0.15|1.32|0.312|0.345427777777778|0.170280527978067|479, 5002
+43|St. Martins Marsh Aquatic Preserve|2|Total Nitrogen|Surface|Sample|80|0.13|0.921|0.29|0.3225375|0.128967559825492|479, 5002
+43|St. Martins Marsh Aquatic Preserve|3|Total Nitrogen|Surface|Sample|81|0.09|0.81|0.3|0.325271604938272|0.120660371740858|479, 540, 5002
+43|St. Martins Marsh Aquatic Preserve|4|Total Nitrogen|Surface|Sample|92|0.17|0.76|0.36|0.385619565217391|0.127030829726125|479, 5002
+43|St. Martins Marsh Aquatic Preserve|5|Total Nitrogen|Surface|Sample|77|0.17|1.03|0.36|0.393103896103896|0.175702543522882|479, 5002
+43|St. Martins Marsh Aquatic Preserve|6|Total Nitrogen|Surface|Sample|79|0.18|1.36|0.447|0.464832911392405|0.159253371514863|479, 540, 5002
+43|St. Martins Marsh Aquatic Preserve|7|Total Nitrogen|Surface|Sample|86|0.18|0.78|0.4385|0.448732558139535|0.124739769064722|479, 5002
+43|St. Martins Marsh Aquatic Preserve|8|Total Nitrogen|Surface|Sample|69|0.21|1.16|0.48|0.483449275362319|0.127098449131081|479, 5002
+43|St. Martins Marsh Aquatic Preserve|9|Total Nitrogen|Surface|Sample|86|0.00054|1.05|0.452|0.466550465116279|0.165119422649947|479, 514, 540, 5002
+43|St. Martins Marsh Aquatic Preserve|10|Total Nitrogen|Surface|Sample|106|0.00051|1.16|0.365|0.375176320754717|0.156193383240901|479, 514, 5002
+43|St. Martins Marsh Aquatic Preserve|11|Total Nitrogen|Surface|Sample|70|0.13|0.55|0.33|0.3275|0.104548130515102|479, 540, 5002
+43|St. Martins Marsh Aquatic Preserve|12|Total Nitrogen|Surface|Sample|74|0.13|0.574|0.31|0.308597297297297|0.0999034081075288|479, 5002
+44|Terra Ceia Aquatic Preserve|1|Total Nitrogen|Surface|Sample|118|0.04|3.39|0.37|0.52328813559322|0.494233345727474|5002
+44|Terra Ceia Aquatic Preserve|2|Total Nitrogen|Surface|Sample|102|0.04|6.4|0.392|0.547676470588235|0.734205142533116|5002
+44|Terra Ceia Aquatic Preserve|3|Total Nitrogen|Surface|Sample|95|0.031|1.56|0.451|0.57301052631579|0.354743044396352|5002
+44|Terra Ceia Aquatic Preserve|4|Total Nitrogen|Surface|Sample|120|0.016|2.03|0.414|0.505016666666667|0.399757342012623|5002
+44|Terra Ceia Aquatic Preserve|5|Total Nitrogen|Surface|Sample|130|0.03|1.49|0.4175|0.483815384615385|0.288298504450605|5002
+44|Terra Ceia Aquatic Preserve|6|Total Nitrogen|Surface|Sample|93|0.03|1.753|0.48|0.594827956989247|0.375996317733354|5002
+44|Terra Ceia Aquatic Preserve|7|Total Nitrogen|Surface|Sample|97|0.03|2.65|0.399|0.58098969072165|0.549674439533025|103, 5002
+44|Terra Ceia Aquatic Preserve|8|Total Nitrogen|Surface|Sample|90|0.25|2.297|0.54|0.730788888888889|0.504724588253352|5002
+44|Terra Ceia Aquatic Preserve|9|Total Nitrogen|Surface|Sample|66|0.03|2.42|0.7035|0.76780303030303|0.550098542772026|5002
+44|Terra Ceia Aquatic Preserve|10|Total Nitrogen|Surface|Sample|121|0.11|39.006|0.536|0.948925619834711|3.51891589405338|5002
+44|Terra Ceia Aquatic Preserve|11|Total Nitrogen|Surface|Sample|105|0.04|2.32|0.51|0.618733333333333|0.426935237988032|5002
+44|Terra Ceia Aquatic Preserve|12|Total Nitrogen|Surface|Sample|116|0.03|2.21|0.4025|0.503784482758621|0.391069410185978|5002
+45|Tomoka Marsh Aquatic Preserve|1|Total Nitrogen|Surface|Sample|24|0.00027|1.037|0.4049|0.4409875|0.311275254191108|514, 5002
+45|Tomoka Marsh Aquatic Preserve|2|Total Nitrogen|Surface|Sample|33|0.00026|1.115|0.622|0.585020606060606|0.347651102075948|514, 5002
+45|Tomoka Marsh Aquatic Preserve|3|Total Nitrogen|Surface|Sample|22|0.0006|0.99|0.65555|0.546209545454546|0.337955079650666|514, 5002
+45|Tomoka Marsh Aquatic Preserve|4|Total Nitrogen|Surface|Sample|19|0.674|1.32|0.878|0.932494210526316|0.231526467273081|5002
+45|Tomoka Marsh Aquatic Preserve|5|Total Nitrogen|Surface|Sample|27|0.00053|1.188|0.7404|0.659658888888889|0.356344920648232|514, 5002
+45|Tomoka Marsh Aquatic Preserve|6|Total Nitrogen|Surface|Sample|30|0.6193|2.117|1.108215|1.18434866666667|0.375861686507641|5002
+45|Tomoka Marsh Aquatic Preserve|7|Total Nitrogen|Surface|Sample|13|0.6972|1.605|0.9956|1.01637692307692|0.276876462084465|5002
+45|Tomoka Marsh Aquatic Preserve|8|Total Nitrogen|Surface|Sample|29|0.37|1.88|1.288|1.28732448275862|0.344202319175243|5002
+45|Tomoka Marsh Aquatic Preserve|9|Total Nitrogen|Surface|Sample|14|0.6636|1.517|0.9585|1.00565|0.250751273483997|5002
+45|Tomoka Marsh Aquatic Preserve|10|Total Nitrogen|Surface|Sample|34|0.00055|2.87476|0.972115|0.953523529411765|0.641792129596031|514, 5002
+45|Tomoka Marsh Aquatic Preserve|11|Total Nitrogen|Surface|Sample|22|0.00051|1.0435|0.5658|0.503065909090909|0.320073703620173|514, 5002
+45|Tomoka Marsh Aquatic Preserve|12|Total Nitrogen|Surface|Sample|33|0.00021|1.306|0.765|0.66599303030303|0.406464688445418|514, 5002
+47|Yellow River Marsh Aquatic Preserve|1|Total Nitrogen|Surface|Sample|2|0.218|0.297|0.2575|0.2575|0.0558614357137372|540, 5002
+47|Yellow River Marsh Aquatic Preserve|2|Total Nitrogen|Surface|Sample|8|0.0002|0.509|0.23|0.19872125|0.186302412409617|514, 540, 5002
+47|Yellow River Marsh Aquatic Preserve|3|Total Nitrogen|Surface|Sample|6|0.0064|0.385|0.341|0.284733333333333|0.143811357919556|505, 540, 5002
+47|Yellow River Marsh Aquatic Preserve|4|Total Nitrogen|Surface|Sample|10|0.0271|0.472|0.3545|0.33751|0.126315482028135|505, 540, 5002
+47|Yellow River Marsh Aquatic Preserve|5|Total Nitrogen|Surface|Sample|7|0.0303|0.42|0.307|0.286757142857143|0.122591107033951|505, 540, 5002
+47|Yellow River Marsh Aquatic Preserve|6|Total Nitrogen|Surface|Sample|5|0.0244|0.487|0.36|0.26586|0.21342239338926|505, 540, 5002
+47|Yellow River Marsh Aquatic Preserve|7|Total Nitrogen|Surface|Sample|10|0.0241|0.5|0.3969|0.27903|0.217187318281299|103, 505, 5002
+47|Yellow River Marsh Aquatic Preserve|8|Total Nitrogen|Surface|Sample|5|0.0201|0.494|0.344|0.31262|0.184334402649099|505, 540, 5002
+47|Yellow River Marsh Aquatic Preserve|9|Total Nitrogen|Surface|Sample|3|0.198|0.48|0.398|0.358666666666667|0.14505631090488|5002
+47|Yellow River Marsh Aquatic Preserve|10|Total Nitrogen|Surface|Sample|6|0.0801|0.472|0.28|0.266016666666667|0.129939069054179|505, 540, 5002
+47|Yellow River Marsh Aquatic Preserve|11|Total Nitrogen|Surface|Sample|6|0.0332|0.334|0.2975|0.259366666666667|0.112734052826405|505, 540, 5002
+47|Yellow River Marsh Aquatic Preserve|12|Total Nitrogen|Surface|Sample|6|0.0149|0.43|0.3035|0.285983333333333|0.145124917456192|505, 5002

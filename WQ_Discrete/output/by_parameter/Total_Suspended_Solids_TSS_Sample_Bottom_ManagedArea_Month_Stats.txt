@@ -1,0 +1,10 @@
+AreaID|ManagedAreaName|Month|ParameterName|RelativeDepth|ActivityType|N|Min|Max|Median|Mean|StandardDeviation|ProgramIDs
+5|Big Bend Seagrasses Aquatic Preserve|1|Total Suspended Solids, TSS|Bottom|Sample|4|2|4|2|2.5|1|5002
+5|Big Bend Seagrasses Aquatic Preserve|2|Total Suspended Solids, TSS|Bottom|Sample|2|3|4|3.5|3.5|0.707106781186548|5002
+5|Big Bend Seagrasses Aquatic Preserve|3|Total Suspended Solids, TSS|Bottom|Sample|2|2|5|3.5|3.5|2.12132034355964|5002
+5|Big Bend Seagrasses Aquatic Preserve|4|Total Suspended Solids, TSS|Bottom|Sample|4|2|4|3|3|1.15470053837925|5002
+5|Big Bend Seagrasses Aquatic Preserve|7|Total Suspended Solids, TSS|Bottom|Sample|2|3|3|3|3|0|5002
+5|Big Bend Seagrasses Aquatic Preserve|8|Total Suspended Solids, TSS|Bottom|Sample|1|5|5|5|5||5002
+5|Big Bend Seagrasses Aquatic Preserve|9|Total Suspended Solids, TSS|Bottom|Sample|4|3|6|4|4.25|1.25830573921179|5002
+5|Big Bend Seagrasses Aquatic Preserve|10|Total Suspended Solids, TSS|Bottom|Sample|8|2|7|3|3.625|1.99553072067128|5002
+5|Big Bend Seagrasses Aquatic Preserve|11|Total Suspended Solids, TSS|Bottom|Sample|1|2|2|2|2||5002

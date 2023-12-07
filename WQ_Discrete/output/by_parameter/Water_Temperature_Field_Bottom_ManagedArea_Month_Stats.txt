@@ -1,0 +1,427 @@
+AreaID|ManagedAreaName|Month|ParameterName|RelativeDepth|ActivityType|N|Min|Max|Median|Mean|StandardDeviation|ProgramIDs
+1|Alligator Harbor Aquatic Preserve|1|Water Temperature|Bottom|Field|87|8.6|19.5|14.5|14.4494252873563|2.76749712981589|95, 5002
+1|Alligator Harbor Aquatic Preserve|2|Water Temperature|Bottom|Field|201|11|21.9|15.5|15.5468656716418|2.37174927571733|95, 5002
+1|Alligator Harbor Aquatic Preserve|3|Water Temperature|Bottom|Field|170|10.7|29.4|17.85|17.7894117647059|3.20635550559559|557, 5002
+1|Alligator Harbor Aquatic Preserve|4|Water Temperature|Bottom|Field|312|13.8|26.6|21.6|21.5301282051282|2.84694047706896|95, 5002
+1|Alligator Harbor Aquatic Preserve|5|Water Temperature|Bottom|Field|289|20|29.5|25.8|25.4515570934256|2.02500154261597|95, 5002
+1|Alligator Harbor Aquatic Preserve|6|Water Temperature|Bottom|Field|449|25.6|31.5|28.7|28.7623608017817|1.01990665883981|557, 5002
+1|Alligator Harbor Aquatic Preserve|7|Water Temperature|Bottom|Field|355|9|33.4|29.7|29.7385915492958|1.69310774313742|95, 557, 5002
+1|Alligator Harbor Aquatic Preserve|8|Water Temperature|Bottom|Field|190|28|32.2|29.9|29.9768421052632|0.960704396732057|95, 5002
+1|Alligator Harbor Aquatic Preserve|9|Water Temperature|Bottom|Field|309|23.3|31.1|28.1|27.6935275080906|1.67675770831394|557, 5002
+1|Alligator Harbor Aquatic Preserve|10|Water Temperature|Bottom|Field|223|15.5|28.2|24.5|23.6596412556054|2.74240702068806|5002
+1|Alligator Harbor Aquatic Preserve|11|Water Temperature|Bottom|Field|88|16.2|24.4|18.8|18.9602272727273|1.79421418605877|5002
+1|Alligator Harbor Aquatic Preserve|12|Water Temperature|Bottom|Field|149|13.1|30.2|16.2|17.4523489932886|3.41276585723364|95, 5002
+2|Apalachicola Bay Aquatic Preserve|1|Water Temperature|Bottom|Field|1065|1.2|28|13.6|13.4460093896714|2.90226213623624|129, 355, 5002
+2|Apalachicola Bay Aquatic Preserve|2|Water Temperature|Bottom|Field|1132|2|22.6|14.3|14.3244699646643|2.8019874501983|129, 355, 5002
+2|Apalachicola Bay Aquatic Preserve|3|Water Temperature|Bottom|Field|1497|8.32|23.7|17.6|17.3784368737475|2.60439395557943|95, 129, 355, 5002
+2|Apalachicola Bay Aquatic Preserve|4|Water Temperature|Bottom|Field|1210|11.1|35.2|21.3|21.3412396694215|2.6097057724526|129, 355, 5002
+2|Apalachicola Bay Aquatic Preserve|5|Water Temperature|Bottom|Field|1125|5|32.9|25.8|25.6397422222222|1.98922301603235|129, 355, 557, 5002
+2|Apalachicola Bay Aquatic Preserve|6|Water Temperature|Bottom|Field|1349|5.8|32.7|28.5|28.3556634544107|1.81949089856929|119, 129, 355, 5002
+2|Apalachicola Bay Aquatic Preserve|7|Water Temperature|Bottom|Field|1751|19.1|33.3|29.4|29.2918960593946|1.43728456374866|115, 129, 355, 5002
+2|Apalachicola Bay Aquatic Preserve|8|Water Temperature|Bottom|Field|1746|9|32.4|29.7|29.5443298969072|1.42923003415566|129, 355, 5002, 5071
+2|Apalachicola Bay Aquatic Preserve|9|Water Temperature|Bottom|Field|1253|17.2|39.2|28.2|28.1019473264166|1.53805114242411|129, 355, 5002
+2|Apalachicola Bay Aquatic Preserve|10|Water Temperature|Bottom|Field|965|17|30.4|24|23.6239378238342|2.80377950242254|129, 355, 5002
+2|Apalachicola Bay Aquatic Preserve|11|Water Temperature|Bottom|Field|966|5.37|27.7|18.6|18.5586645962733|2.20091652536766|95, 129, 355, 5002
+2|Apalachicola Bay Aquatic Preserve|12|Water Temperature|Bottom|Field|820|8.5|24.1|15.8|15.933743902439|2.91849125686291|129, 355, 5002
+3|Apalachicola National Estuarine Research Reserve|1|Water Temperature|Bottom|Field|1753|1.2|28|13.4|13.1096349115801|3.08923190257917|95, 129, 355, 5002
+3|Apalachicola National Estuarine Research Reserve|2|Water Temperature|Bottom|Field|1773|2|22.6|14.2|14.1198082346306|2.75044042592613|129, 355, 5002
+3|Apalachicola National Estuarine Research Reserve|3|Water Temperature|Bottom|Field|2387|8.32|23.74|17.5|17.3201256807708|2.67900623709562|95, 129, 355, 5002
+3|Apalachicola National Estuarine Research Reserve|4|Water Temperature|Bottom|Field|1951|11.1|35.2|21.1|21.2072475653511|2.53622949695884|95, 129, 355, 5002
+3|Apalachicola National Estuarine Research Reserve|5|Water Temperature|Bottom|Field|1636|5|32.9|25.8|25.5716075794621|1.9871099405007|95, 129, 355, 557, 5002
+3|Apalachicola National Estuarine Research Reserve|6|Water Temperature|Bottom|Field|1579|5.8|32.7|28.5|28.3502089930336|1.79243496028147|119, 129, 355, 557, 5002
+3|Apalachicola National Estuarine Research Reserve|7|Water Temperature|Bottom|Field|2131|19.1|33.3|29.4|29.2653636790239|1.42497254617303|95, 115, 129, 355, 5002
+3|Apalachicola National Estuarine Research Reserve|8|Water Temperature|Bottom|Field|2151|9|32.4|29.7|29.5388145048815|1.3795381561161|95, 115, 129, 355, 5002, 5071
+3|Apalachicola National Estuarine Research Reserve|9|Water Temperature|Bottom|Field|1676|17.2|39.2|28|28.0275059665871|1.57647908752296|95, 129, 355, 5002
+3|Apalachicola National Estuarine Research Reserve|10|Water Temperature|Bottom|Field|1600|16.7|30.4|24.1|23.7116875|2.76979898076375|95, 129, 355, 5002
+3|Apalachicola National Estuarine Research Reserve|11|Water Temperature|Bottom|Field|1385|5.37|27.7|18.6|18.480642599278|2.27415301010231|95, 129, 355, 5002
+3|Apalachicola National Estuarine Research Reserve|12|Water Temperature|Bottom|Field|1211|8.5|24.1|15.4|15.6650536746491|2.96398476361381|95, 129, 355, 5002
+4|Banana River Aquatic Preserve|1|Water Temperature|Bottom|Field|400|6|24.25|17.6|17.6767025|3.11598168055874|95, 3013, 5002
+4|Banana River Aquatic Preserve|2|Water Temperature|Bottom|Field|566|1.65|27|18.465|17.0634593639576|5.1322134907148|3013, 5002
+4|Banana River Aquatic Preserve|3|Water Temperature|Bottom|Field|448|2.03|28|21.385|20.3716607142857|4.33301714517461|95, 3013, 5002
+4|Banana River Aquatic Preserve|4|Water Temperature|Bottom|Field|604|2.34|31|23.1|22.9275993377483|3.69805260101407|95, 3013, 5002
+4|Banana River Aquatic Preserve|5|Water Temperature|Bottom|Field|658|2.46|38|26.4|26.0975501519757|3.27157605576471|95, 3013, 5002
+4|Banana River Aquatic Preserve|6|Water Temperature|Bottom|Field|563|2.57|34|28.5|26.9254689165187|6.59943803363568|95, 3013, 5002
+4|Banana River Aquatic Preserve|7|Water Temperature|Bottom|Field|565|2.91|34|29.8|28.5981026548673|5.40008829879969|95, 115, 3013, 5002
+4|Banana River Aquatic Preserve|8|Water Temperature|Bottom|Field|665|11.8|33|29.7|29.6041714285714|1.40251937601092|95, 3013, 5002
+4|Banana River Aquatic Preserve|9|Water Temperature|Bottom|Field|423|2.9|32.35|28.7|27.8023522458629|4.44798655139725|3013, 5002
+4|Banana River Aquatic Preserve|10|Water Temperature|Bottom|Field|613|2.5|29.6|26.1|25.0544371941272|4.78019515060107|95, 3013, 5002
+4|Banana River Aquatic Preserve|11|Water Temperature|Bottom|Field|417|1.54|26.6|20.9|20.840587529976|4.18737493299316|5002
+4|Banana River Aquatic Preserve|12|Water Temperature|Bottom|Field|338|8.5|26|19.2|19.231899408284|2.87650251311418|3013, 5002
+5|Big Bend Seagrasses Aquatic Preserve|1|Water Temperature|Bottom|Field|1962|4.2|32.7|14.3|14.5979153924567|3.47556018501639|95, 5002
+5|Big Bend Seagrasses Aquatic Preserve|2|Water Temperature|Bottom|Field|2134|5.2|26|15.9|16.0689128397376|3.01367701805384|477, 5002
+5|Big Bend Seagrasses Aquatic Preserve|3|Water Temperature|Bottom|Field|2968|6.4|25.9|18.7|18.7414588948787|3.17579737594069|60, 95, 477, 5002
+5|Big Bend Seagrasses Aquatic Preserve|4|Water Temperature|Bottom|Field|3318|4.9|29.4|22|22.0264737793852|2.42142995890662|95, 5002
+5|Big Bend Seagrasses Aquatic Preserve|5|Water Temperature|Bottom|Field|3069|18.44|30.8|25.9|25.633587487781|1.99881374547511|5002
+5|Big Bend Seagrasses Aquatic Preserve|6|Water Temperature|Bottom|Field|2730|2.8|32.6|28.6|28.3386923076923|1.84083315448533|60, 477, 5002
+5|Big Bend Seagrasses Aquatic Preserve|7|Water Temperature|Bottom|Field|3088|17.8|35.5|29.7|29.3907836787565|1.57615367771515|60, 115, 5002
+5|Big Bend Seagrasses Aquatic Preserve|8|Water Temperature|Bottom|Field|3433|6.5|33|29.8|29.4623856685115|1.63027849535856|5002
+5|Big Bend Seagrasses Aquatic Preserve|9|Water Temperature|Bottom|Field|3129|9.5|32|28|27.8610591243209|1.66547857284874|60, 95, 115, 5002
+5|Big Bend Seagrasses Aquatic Preserve|10|Water Temperature|Bottom|Field|3079|7.2|30.5|24.3|24.076502111075|2.73796073545042|60, 5002
+5|Big Bend Seagrasses Aquatic Preserve|11|Water Temperature|Bottom|Field|2343|11.3|28|19.7|19.7304737516005|2.98973322742912|95, 477, 5002
+5|Big Bend Seagrasses Aquatic Preserve|12|Water Temperature|Bottom|Field|2173|5.2|23.9|16.5|16.5125586746434|3.44890141674102|477, 5002
+6|Biscayne Bay Aquatic Preserve|1|Water Temperature|Bottom|Field|136|14.5|24.54|19.46|19.8106617647059|2.65256359639078|509
+6|Biscayne Bay Aquatic Preserve|2|Water Temperature|Bottom|Field|125|18.4|25.79|22.51|22.06088|1.7168378734962|509
+6|Biscayne Bay Aquatic Preserve|3|Water Temperature|Bottom|Field|152|19.02|28.62|22.925|23.4711842105263|2.34675087045067|102, 509
+6|Biscayne Bay Aquatic Preserve|4|Water Temperature|Bottom|Field|685|20.41|29.6|25|25.046204379562|1.71118778700014|102, 509, 965
+6|Biscayne Bay Aquatic Preserve|5|Water Temperature|Bottom|Field|458|22.84|31|27.24|27.1747379912664|1.45393438803963|102, 509, 965, 4049
+6|Biscayne Bay Aquatic Preserve|6|Water Temperature|Bottom|Field|228|24|31.8|29|28.8780263157895|1.12186913699322|102, 509, 4049, 5002
+6|Biscayne Bay Aquatic Preserve|7|Water Temperature|Bottom|Field|147|27.43|32.22|31|30.7057823129252|1.0252155972189|115, 509, 5002
+6|Biscayne Bay Aquatic Preserve|8|Water Temperature|Bottom|Field|137|28.48|33.15|30.8|30.7129927007299|1.01084295411676|509, 5002
+6|Biscayne Bay Aquatic Preserve|9|Water Temperature|Bottom|Field|679|25.1|34.2|30|29.9989248895434|1.2126089740096|509, 965
+6|Biscayne Bay Aquatic Preserve|10|Water Temperature|Bottom|Field|231|23.4|29.8|27.3|27.152380952381|1.3471835201089|509, 965
+6|Biscayne Bay Aquatic Preserve|11|Water Temperature|Bottom|Field|138|20.6|27.9|23.8|24.0468115942029|1.46388543362666|509, 5002
+6|Biscayne Bay Aquatic Preserve|12|Water Temperature|Bottom|Field|135|18.17|26.7|22.61|22.4991111111111|1.7728775271767|509
+8|Boca Ciega Bay Aquatic Preserve|1|Water Temperature|Bottom|Field|216|8.83|21.88|16.8|16.5628240740741|2.91864732711387|5002
+8|Boca Ciega Bay Aquatic Preserve|2|Water Temperature|Bottom|Field|181|13.73|26|18.66|18.2075138121547|2.77769746894345|95, 4067, 5002
+8|Boca Ciega Bay Aquatic Preserve|3|Water Temperature|Bottom|Field|182|15.64|26.2|20.51|20.7546703296703|2.31832709047965|4067, 5002
+8|Boca Ciega Bay Aquatic Preserve|4|Water Temperature|Bottom|Field|183|18.24|28.25|22.9|23.4190163934426|2.23473850149396|95, 5002
+8|Boca Ciega Bay Aquatic Preserve|5|Water Temperature|Bottom|Field|228|15.5|33.6|26.5|26.1648245614035|2.21147317991274|95, 5002
+8|Boca Ciega Bay Aquatic Preserve|6|Water Temperature|Bottom|Field|188|25.9|32.2|29.3|29.4698404255319|1.19965256827143|5002
+8|Boca Ciega Bay Aquatic Preserve|7|Water Temperature|Bottom|Field|158|15.5|33.3|30.265|29.6369620253165|2.53706804772823|5002
+8|Boca Ciega Bay Aquatic Preserve|8|Water Temperature|Bottom|Field|567|15.5|33.6|31.27|30.953544973545|1.64021844975087|95, 102, 4067, 5002
+8|Boca Ciega Bay Aquatic Preserve|9|Water Temperature|Bottom|Field|2737|15.5|31.88|29.19|29.058377785897|1.30982680953183|95, 4067, 5002
+8|Boca Ciega Bay Aquatic Preserve|10|Water Temperature|Bottom|Field|657|9.8|34.8|25.6|25.8046270928463|2.28518036248387|4067, 5002
+8|Boca Ciega Bay Aquatic Preserve|11|Water Temperature|Bottom|Field|214|15.5|26.24|21.295|21.4209719626168|1.56126051732761|95, 5002
+8|Boca Ciega Bay Aquatic Preserve|12|Water Temperature|Bottom|Field|169|9.3|29.6|19.9|19.4548698224852|3.91272714169208|5002
+9|Cape Haze Aquatic Preserve|1|Water Temperature|Bottom|Field|31|14.2|23.29|20.3|19.6641935483871|2.58396436274903|95, 479, 5002
+9|Cape Haze Aquatic Preserve|2|Water Temperature|Bottom|Field|34|15.36|25.3|19.55|19.6455882352941|2.33184306241569|95, 479, 5002
+9|Cape Haze Aquatic Preserve|3|Water Temperature|Bottom|Field|45|14.8|25.08|20.7|20.6002222222222|3.15893788888901|95, 479, 5002
+9|Cape Haze Aquatic Preserve|4|Water Temperature|Bottom|Field|41|21.6|28.32|25.2|25.0985365853659|1.64989933174059|95, 479, 5002
+9|Cape Haze Aquatic Preserve|5|Water Temperature|Bottom|Field|46|23.5|31.7|27.845|27.5482608695652|1.81958152007888|95, 479, 5002
+9|Cape Haze Aquatic Preserve|6|Water Temperature|Bottom|Field|44|23.9|32.9|29.3|29.2022727272727|1.67373953078528|95, 476, 479, 5002
+9|Cape Haze Aquatic Preserve|7|Water Temperature|Bottom|Field|116|27.04|32.7|30.3|30.02|1.22429180948931|95, 479, 5002
+9|Cape Haze Aquatic Preserve|8|Water Temperature|Bottom|Field|82|25.8|33.8|31|30.8159756097561|1.51951816579727|95, 476, 479, 5002
+9|Cape Haze Aquatic Preserve|9|Water Temperature|Bottom|Field|68|26.3|32.1|29.75|29.6169117647059|1.09400572640721|95, 479, 5002
+9|Cape Haze Aquatic Preserve|10|Water Temperature|Bottom|Field|49|22.68|30.7|26.99|26.7173469387755|2.28755398434496|95, 476, 479, 5002
+9|Cape Haze Aquatic Preserve|11|Water Temperature|Bottom|Field|40|18|29.76|22.22|22.78625|2.18153520103008|95, 476, 479, 5002
+9|Cape Haze Aquatic Preserve|12|Water Temperature|Bottom|Field|27|12.74|22.9|20.89|19.6874074074074|3.21812127776511|95, 479, 5002
+10|Cape Romano-Ten Thousand Islands Aquatic Preserve|1|Water Temperature|Bottom|Field|377|8.4|30.4|19.3|19.289124668435|3.13263000916324|509, 4043, 5002
+10|Cape Romano-Ten Thousand Islands Aquatic Preserve|2|Water Temperature|Bottom|Field|413|14.1|27|21.72|21.3889346246973|2.7687774330688|95, 509, 4043, 5002
+10|Cape Romano-Ten Thousand Islands Aquatic Preserve|3|Water Temperature|Bottom|Field|333|16.6|29.4|23.4|23.3068468468468|2.77413157430099|509, 4043, 5002
+10|Cape Romano-Ten Thousand Islands Aquatic Preserve|4|Water Temperature|Bottom|Field|416|18.68|29.7|25.25|25.1675721153846|2.3164096896293|509, 4043, 5002
+10|Cape Romano-Ten Thousand Islands Aquatic Preserve|5|Water Temperature|Bottom|Field|437|21.3|32|28.2|27.990709382151|1.57823301503651|509, 4043, 5002
+10|Cape Romano-Ten Thousand Islands Aquatic Preserve|6|Water Temperature|Bottom|Field|397|23.6|37.2|29.78|29.7501763224181|1.50958978946874|509, 4043, 5002
+10|Cape Romano-Ten Thousand Islands Aquatic Preserve|7|Water Temperature|Bottom|Field|426|21.1|33.6|30.735|30.4316431924883|1.62184459237025|95, 509, 4043, 5002
+10|Cape Romano-Ten Thousand Islands Aquatic Preserve|8|Water Temperature|Bottom|Field|465|21.1|33.7|30.8|30.6878279569893|1.47457584947491|509, 4043, 5002
+10|Cape Romano-Ten Thousand Islands Aquatic Preserve|9|Water Temperature|Bottom|Field|419|26.1|32.9|29.8|29.7594033412888|1.25870001179857|95, 509, 4043, 5002
+10|Cape Romano-Ten Thousand Islands Aquatic Preserve|10|Water Temperature|Bottom|Field|446|20|32.2|27.215|27.1921076233184|2.24722021484526|509, 4043, 5002
+10|Cape Romano-Ten Thousand Islands Aquatic Preserve|11|Water Temperature|Bottom|Field|383|17.1|30|23.7|23.6497650130548|1.95387564838416|509, 4043, 5002
+10|Cape Romano-Ten Thousand Islands Aquatic Preserve|12|Water Temperature|Bottom|Field|381|11.2|37.9|21.7|21.5830183727034|3.42275005963249|95, 509, 4043, 5002
+11|Cockroach Bay Aquatic Preserve|1|Water Temperature|Bottom|Field|151|12.76|22|17.15|16.9092052980132|2.21107350192278|5002
+11|Cockroach Bay Aquatic Preserve|2|Water Temperature|Bottom|Field|152|13.73|23.6|18.675|19.2003289473684|2.33610062202864|5002
+11|Cockroach Bay Aquatic Preserve|3|Water Temperature|Bottom|Field|157|16.97|25.96|21.98|21.8427388535032|2.2500223963173|5002
+11|Cockroach Bay Aquatic Preserve|4|Water Temperature|Bottom|Field|161|18.68|28.12|25.22|24.9119875776398|1.83118364039348|5002
+11|Cockroach Bay Aquatic Preserve|5|Water Temperature|Bottom|Field|170|24.03|29.99|27.505|27.1687647058824|1.6138766598793|4067, 5002
+11|Cockroach Bay Aquatic Preserve|6|Water Temperature|Bottom|Field|164|24.89|31.8|28.9|28.8788414634146|1.44915901120016|5002
+11|Cockroach Bay Aquatic Preserve|7|Water Temperature|Bottom|Field|148|25.61|32.07|29.525|29.1596621621622|1.68598642498249|5002
+11|Cockroach Bay Aquatic Preserve|8|Water Temperature|Bottom|Field|1262|25.31|32.72|29.96|29.5046830427892|2.12250903089127|4067, 5002
+11|Cockroach Bay Aquatic Preserve|9|Water Temperature|Bottom|Field|977|24.43|32.6|29.08|28.8839918116684|1.50720762597651|4067, 5002
+11|Cockroach Bay Aquatic Preserve|10|Water Temperature|Bottom|Field|175|20.4|28.29|25.83|25.6072|1.60884967829699|4067, 5002
+11|Cockroach Bay Aquatic Preserve|11|Water Temperature|Bottom|Field|175|16.7|24.87|21.97|21.9358857142857|1.85323612224529|5002
+11|Cockroach Bay Aquatic Preserve|12|Water Temperature|Bottom|Field|143|8.91|24.6|20.75|19.5529370629371|3.9477227937856|5002
+13|Coupon Bight Aquatic Preserve|1|Water Temperature|Bottom|Field|6|17.2068|26.8|21.9707|21.95635|3.56375114380901|297
+13|Coupon Bight Aquatic Preserve|2|Water Temperature|Bottom|Field|2|19.2229|23.0329|21.1279|21.1279|2.69407683632075|297
+13|Coupon Bight Aquatic Preserve|3|Water Temperature|Bottom|Field|5|19.8195|28.27|24.098|24.32026|3.69476177689442|297
+13|Coupon Bight Aquatic Preserve|4|Water Temperature|Bottom|Field|1|28.4637|28.4637|28.4637|28.4637||297
+13|Coupon Bight Aquatic Preserve|5|Water Temperature|Bottom|Field|9|27.7894|31.2|29.7591|29.4959666666667|1.30777053128597|297
+13|Coupon Bight Aquatic Preserve|6|Water Temperature|Bottom|Field|3|28.9091|31.1|30.05|30.0197|1.09576424015388|297
+13|Coupon Bight Aquatic Preserve|7|Water Temperature|Bottom|Field|5|29.8|32.2222|31.5681|31.3412|0.911963077651722|297, 982
+13|Coupon Bight Aquatic Preserve|8|Water Temperature|Bottom|Field|6|30|32.1|30.6443|30.7835|0.828969644800099|297, 982, 5002
+13|Coupon Bight Aquatic Preserve|9|Water Temperature|Bottom|Field|4|29.22|29.4976|29.4222|29.3905|0.120465928793166|297, 982
+13|Coupon Bight Aquatic Preserve|10|Water Temperature|Bottom|Field|6|26.707|30.1512|28.45735|28.4788166666667|1.42397908189224|297, 5002
+13|Coupon Bight Aquatic Preserve|11|Water Temperature|Bottom|Field|3|21.7|27.68|25.41|24.93|3.01875802276367|297
+13|Coupon Bight Aquatic Preserve|12|Water Temperature|Bottom|Field|4|21.9499|24.97|22.2666|22.863275|1.41903336201091|297
+14|Estero Bay Aquatic Preserve|1|Water Temperature|Bottom|Field|35|15.74|24|20.14|19.7811428571429|2.16700494234971|95, 476, 509
+14|Estero Bay Aquatic Preserve|2|Water Temperature|Bottom|Field|33|16.8|23.4|19.9|19.6660606060606|1.62769764428536|95, 476, 509
+14|Estero Bay Aquatic Preserve|3|Water Temperature|Bottom|Field|37|16.9|26.7|22.44|21.8678378378378|2.68191073587381|95, 476, 509, 5002
+14|Estero Bay Aquatic Preserve|4|Water Temperature|Bottom|Field|38|20.3|29.66|24.47|24.4915789473684|2.258516047506|95, 476, 509
+14|Estero Bay Aquatic Preserve|5|Water Temperature|Bottom|Field|34|21.2|30.42|27.345|27.4220588235294|2.08892574887518|95, 476, 509
+14|Estero Bay Aquatic Preserve|6|Water Temperature|Bottom|Field|34|27.21|31.17|29.55|29.4297058823529|1.18568094562274|95, 476, 509, 5002
+14|Estero Bay Aquatic Preserve|7|Water Temperature|Bottom|Field|36|28.67|31.7|30.19|30.175|0.823353768784372|95, 115, 509, 5002
+14|Estero Bay Aquatic Preserve|8|Water Temperature|Bottom|Field|38|28.13|32.5|30.155|30.1552631578947|0.950421632870168|95, 476, 509
+14|Estero Bay Aquatic Preserve|9|Water Temperature|Bottom|Field|34|28.13|36.87|30.1|29.9814705882353|1.52515698616309|95, 476, 509
+14|Estero Bay Aquatic Preserve|10|Water Temperature|Bottom|Field|28|21.2|31.95|27.65|26.6717857142857|2.96146366911567|476, 509
+14|Estero Bay Aquatic Preserve|11|Water Temperature|Bottom|Field|30|17.65|26.2|23.28|22.5186666666667|2.27680467766339|95, 476, 509
+14|Estero Bay Aquatic Preserve|12|Water Temperature|Bottom|Field|35|17.6|25.8|21.42|21.1451428571429|2.44052474037928|95, 476, 509
+15|Florida Keys National Marine Sanctuary|1|Water Temperature|Bottom|Field|357714|8.494|35.2377|22.11|21.7120364433598|2.60823450775793|95, 296, 297, 509, 899
+15|Florida Keys National Marine Sanctuary|2|Water Temperature|Bottom|Field|333891|12.1|36.8|22.92|22.610213965935|2.19167838363218|296, 297, 509, 899, 5002
+15|Florida Keys National Marine Sanctuary|3|Water Temperature|Bottom|Field|370185|12.87|33.7|23.98|23.8098927216122|2.06678242201658|60, 296, 297, 509, 899, 5002
+15|Florida Keys National Marine Sanctuary|4|Water Temperature|Bottom|Field|343757|13.392|32.742|25.79|25.7888095599508|1.66260822753071|60, 296, 297, 509, 899, 965, 5002
+15|Florida Keys National Marine Sanctuary|5|Water Temperature|Bottom|Field|354522|18.2|37.5498|27.604|27.6659326075674|1.45813553072164|60, 296, 297, 509, 899, 965, 982, 4049, 5002
+15|Florida Keys National Marine Sanctuary|6|Water Temperature|Bottom|Field|355329|23.4258|36.012|29.7|29.7187520314976|1.39089960515847|60, 102, 296, 297, 509, 899, 982, 5002
+15|Florida Keys National Marine Sanctuary|7|Water Temperature|Bottom|Field|370450|19.65|36.281|30.621|30.6382325374545|1.17800473741983|60, 115, 296, 297, 509, 899, 982, 5002
+15|Florida Keys National Marine Sanctuary|8|Water Temperature|Bottom|Field|369353|21.38|37.096|30.849|30.8591461027797|1.05197137589157|60, 102, 115, 296, 297, 509, 899, 982, 5002
+15|Florida Keys National Marine Sanctuary|9|Water Temperature|Bottom|Field|353272|16.64|35.931|29.966|29.938615409656|1.10734918409598|60, 296, 297, 509, 899, 965, 982, 5002
+15|Florida Keys National Marine Sanctuary|10|Water Temperature|Bottom|Field|374408|15.8052|37.1668|28.25|27.9057743175894|1.69144541359076|60, 95, 296, 297, 509, 899, 965, 982, 5002
+15|Florida Keys National Marine Sanctuary|11|Water Temperature|Bottom|Field|365882|15.65|30.874|25.258|25.0209438993993|1.99793780193071|296, 297, 509, 899, 5002
+15|Florida Keys National Marine Sanctuary|12|Water Temperature|Bottom|Field|359022|10.663|28.9752|23.978|23.3875826163856|2.34514340827019|95, 296, 297, 509, 899
+17|Fort Pickens State Park Aquatic Preserve|2|Water Temperature|Bottom|Field|1|22.2|22.2|22.2|22.2||95
+17|Fort Pickens State Park Aquatic Preserve|4|Water Temperature|Bottom|Field|2|18.86|20.19|19.525|19.525|0.94045201897811|5002
+17|Fort Pickens State Park Aquatic Preserve|5|Water Temperature|Bottom|Field|2|23|24.58|23.79|23.79|1.11722871427474|95, 5002
+17|Fort Pickens State Park Aquatic Preserve|6|Water Temperature|Bottom|Field|3|21.41|25.56|22.46|23.1433333333333|2.15773801313629|60
+17|Fort Pickens State Park Aquatic Preserve|7|Water Temperature|Bottom|Field|5|21.52|27.95|26.67|25.898|2.66609639735701|60, 95, 115
+17|Fort Pickens State Park Aquatic Preserve|10|Water Temperature|Bottom|Field|2|22.86|26|24.43|24.43|2.22031529292576|60, 5002
+17|Fort Pickens State Park Aquatic Preserve|11|Water Temperature|Bottom|Field|3|19.02|21.7|19.54|20.0866666666667|1.42117322425288|60, 95
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|1|Water Temperature|Bottom|Field|325|12|30.2|18.91|19.2310153846154|2.86825782979105|476, 479, 5002
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|2|Water Temperature|Bottom|Field|331|7.7|30.8|20.2|20.1368882175227|3.0815866116406|476, 479, 5002
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|3|Water Temperature|Bottom|Field|343|13.1|29.9|21.6|21.2640233236152|3.0615391190106|95, 476, 479, 5002
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|4|Water Temperature|Bottom|Field|334|19.6|28.3|24.875|24.7388323353293|1.73193450539081|476, 479, 5002
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|5|Water Temperature|Bottom|Field|301|18.8|36.3|27.15|26.9425249169435|2.1031605431375|95, 476, 479, 5002
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|6|Water Temperature|Bottom|Field|356|20.6|33.1|28.99|29.1428651685393|1.55155140671676|476, 479, 5002
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|7|Water Temperature|Bottom|Field|439|9.9|36.6|30.2|29.7615034168565|2.30238550488752|115, 479, 5002
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|8|Water Temperature|Bottom|Field|323|27.6|33.8|30.7|30.6849535603715|0.991790015943326|102, 115, 476, 479, 5002
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|9|Water Temperature|Bottom|Field|380|20.5|34.2|29.32|29.0026315789474|1.66088348586454|95, 476, 479, 5002
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|10|Water Temperature|Bottom|Field|382|19.3|31|26|25.7416230366492|2.22238326691971|95, 476, 479, 5002
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|11|Water Temperature|Bottom|Field|302|16.46|28.99|22.29|22.6609602649007|2.43221186506345|476, 479, 5002
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|12|Water Temperature|Bottom|Field|328|10.95|27.8|20.6|20.0848170731707|3.25352191623198|476, 479, 5002
+19|Guana River Marsh Aquatic Preserve|1|Water Temperature|Bottom|Field|251|1.48|20.4|14.7|13.3380597609562|4.89600981375797|5002
+19|Guana River Marsh Aquatic Preserve|2|Water Temperature|Bottom|Field|201|1.47|20.1|15.4|14.2526865671642|4.22738651488939|5002, 5014
+19|Guana River Marsh Aquatic Preserve|3|Water Temperature|Bottom|Field|150|9|33.6|19|17.2810666666667|4.2568548976547|5002
+19|Guana River Marsh Aquatic Preserve|4|Water Temperature|Bottom|Field|271|2.11|26.9|21.2|20.3390405904059|3.96057232609104|5002
+19|Guana River Marsh Aquatic Preserve|5|Water Temperature|Bottom|Field|286|2.27|35.1|25.35|21.8966608391608|8.34545436436652|5002, 5014
+19|Guana River Marsh Aquatic Preserve|6|Water Temperature|Bottom|Field|190|2.77|32.2|27.25|26.0126842105263|5.81844018582693|5002
+19|Guana River Marsh Aquatic Preserve|7|Water Temperature|Bottom|Field|281|2.79|36.1|28.8|25.7578398576512|8.34394809294942|5002, 5014
+19|Guana River Marsh Aquatic Preserve|8|Water Temperature|Bottom|Field|239|2.99|33.1|29.1|27.6497029288703|6.01894228399813|5002
+19|Guana River Marsh Aquatic Preserve|9|Water Temperature|Bottom|Field|129|2.85|31|28.5|27.573488372093|4.02815151099941|60, 5002, 5014
+19|Guana River Marsh Aquatic Preserve|10|Water Temperature|Bottom|Field|231|2.15|28.4|24.3|21.2810779220779|7.63667590632532|95, 5002, 5014
+19|Guana River Marsh Aquatic Preserve|11|Water Temperature|Bottom|Field|175|12.4|26.7|20.4|20.2427314285714|2.06065938891172|95, 5002, 5014
+19|Guana River Marsh Aquatic Preserve|12|Water Temperature|Bottom|Field|120|6.61|23.8|18.04|17.9265416666667|3.754885290454|5002, 5014
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|1|Water Temperature|Bottom|Field|615|1.48|21.106|15|13.8565658536585|4.64938849243159|5002
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2|Water Temperature|Bottom|Field|512|1.45|21.04|15.1|14.569826171875|3.32188368553354|5002, 5014
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|3|Water Temperature|Bottom|Field|492|4.8|33.6|17.3|16.9864634146342|3.74797662896743|5002
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|4|Water Temperature|Bottom|Field|600|2.1|26.9|20.5|19.4970166666667|4.36560049850837|5002
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|5|Water Temperature|Bottom|Field|644|2.25|35.1|24.6|22.815152173913|6.46013201347701|5002, 5014
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|6|Water Temperature|Bottom|Field|478|2.74|32.2|26.9|26.2433472803347|4.19242589604379|5002
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|7|Water Temperature|Bottom|Field|708|2.75|36.1|28.1|26.477581920904|6.12816642169634|5002, 5014
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|8|Water Temperature|Bottom|Field|692|2.69|33.1|28.3|26.6634725433526|6.07346089160455|5002
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|9|Water Temperature|Bottom|Field|432|2.85|33.1|28.1|27.6271782407407|3.02617621675253|60, 5002, 5014
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|10|Water Temperature|Bottom|Field|602|2.15|28.7|24.7|22.9545448504983|5.72506136846531|95, 5002, 5014
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|11|Water Temperature|Bottom|Field|444|12.4|26.7|20.3|20.2818423423423|2.28559578402542|95, 5002, 5014
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|12|Water Temperature|Bottom|Field|337|6.61|23.8|17.7|17.9444836795252|3.27557515403976|5002, 5014
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|1|Water Temperature|Bottom|Field|895|1.36|29.4|18.19|16.5264681564246|5.8361528871505|95, 3013, 5002
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|2|Water Temperature|Bottom|Field|722|1.84|26|19.07|18.5308545706371|3.72117074655367|95, 3013, 5002
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|3|Water Temperature|Bottom|Field|686|1.65|30|21.6|20.4447755102041|4.49070242086274|95, 3013, 5002
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|4|Water Temperature|Bottom|Field|1100|2.16|34.6|23.8|21.6293872727273|6.66978709793469|95, 3013, 5002
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|5|Water Temperature|Bottom|Field|871|2.45|37.36|26.44|24.83294489093|5.99994580199226|95, 3013, 5002
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|6|Water Temperature|Bottom|Field|780|2.99|37|28.7|28.543558974359|1.82515523889566|95, 3013, 5002
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|7|Water Temperature|Bottom|Field|1102|2.01|34|29.305|26.6515480943739|7.96329567526931|95, 3013, 5002
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|8|Water Temperature|Bottom|Field|958|2|33.89|29.5|28.2028340292276|5.8423045833766|95, 115, 3013, 5002
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|9|Water Temperature|Bottom|Field|874|2.84|34.26|28.6|27.9994599542334|3.83805654319339|95, 3013, 5002
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|10|Water Temperature|Bottom|Field|999|2.54|31.11|25.5|25.0483243243243|3.96715541933528|3013, 5002
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|11|Water Temperature|Bottom|Field|780|1.74|30|23|21.0230705128205|6.37851320790488|95, 3013, 5002
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|12|Water Temperature|Bottom|Field|700|2.1|31.9|20|19.1845628571429|4.17636463922428|95, 3013, 5002
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|1|Water Temperature|Bottom|Field|248|1.59|29.2|18.4|17.8726209677419|5.04814769266985|5002
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|2|Water Temperature|Bottom|Field|165|5.5|25.2|19.61|18.6153333333333|4.16824516116522|5002
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|3|Water Temperature|Bottom|Field|167|2.32|27.2|23.1|22.3900598802395|4.43245580397866|5002
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|4|Water Temperature|Bottom|Field|268|2.4|27.8|23.7|22.8484701492537|4.68566107909751|5002
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|5|Water Temperature|Bottom|Field|184|21.7|29.7|27.21|26.5781413043478|1.94678309451321|5002
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|6|Water Temperature|Bottom|Field|116|26|32.1|29.068|29.1155689655172|1.21907976144616|5002
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|7|Water Temperature|Bottom|Field|267|2.98|32.24|29.6|28.3925880149813|5.87912192074238|5002
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|8|Water Temperature|Bottom|Field|147|2.85|33.1|29.9|29.1580272108844|5.05976387443208|115, 5002
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|9|Water Temperature|Bottom|Field|167|2.89|31.5|28.4|27.5668862275449|4.56929430951628|5002
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|10|Water Temperature|Bottom|Field|271|20.6|30.2|26.3|25.9917712177122|2.33647086659084|5002
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|11|Water Temperature|Bottom|Field|115|19|28|23|23.1230434782609|1.37046424066269|5002
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|12|Water Temperature|Bottom|Field|158|10.3|25.7|20.15|20.0694303797468|2.68652244698969|5002
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|1|Water Temperature|Bottom|Field|22|12|27|21.15|20.1772727272727|3.88684372113854|5002
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|2|Water Temperature|Bottom|Field|19|17|26.4|22.5|22.4657894736842|2.48945624537987|95, 3013, 5002
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|3|Water Temperature|Bottom|Field|20|20|25|23|22.86|1.40876952655407|95, 5002
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|4|Water Temperature|Bottom|Field|19|20|28|24.5|24.7105263157895|2.13642867547225|95, 5002
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|5|Water Temperature|Bottom|Field|22|21|29|26.5|26.5|1.70768570767295|95, 5002
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|6|Water Temperature|Bottom|Field|18|25|30.4|29|28.5388888888889|1.60921569822031|95, 5002
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|7|Water Temperature|Bottom|Field|13|27|31.9|30|29.9230769230769|1.27550894819404|95, 3013, 5002
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|8|Water Temperature|Bottom|Field|26|27|31|29|29.0038461538462|0.974261061207219|95, 115, 5002
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|9|Water Temperature|Bottom|Field|10|27|32.5|29|28.95|1.57144660884309|95, 5002
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|10|Water Temperature|Bottom|Field|13|22.6|29|26|26.4153846153846|1.95910104973606|95, 5002
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|11|Water Temperature|Bottom|Field|19|18|25|22.4|22.2315789473684|2.52521784133544|5002
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|12|Water Temperature|Bottom|Field|17|13|25|21.1|20.7294117647059|3.42377071112435|5002
+25|Lemon Bay Aquatic Preserve|1|Water Temperature|Bottom|Field|91|14|24.1|18.7|18.8114285714286|2.25437676602085|95, 476, 479, 5002
+25|Lemon Bay Aquatic Preserve|2|Water Temperature|Bottom|Field|96|14.1|25.6|19.4|18.8703125|2.92249297081681|95, 476, 479, 5002
+25|Lemon Bay Aquatic Preserve|3|Water Temperature|Bottom|Field|149|11.9|26.14|20.22|20.3430872483222|2.17418108203329|95, 476, 479, 5002
+25|Lemon Bay Aquatic Preserve|4|Water Temperature|Bottom|Field|185|20|33.1|24.6|24.3603783783784|1.9884720394574|95, 479, 5002
+25|Lemon Bay Aquatic Preserve|5|Water Temperature|Bottom|Field|111|24.4|30|27.3|27.1905405405405|1.32833651119657|95, 479, 5002
+25|Lemon Bay Aquatic Preserve|6|Water Temperature|Bottom|Field|152|26.4|33|29.77|29.7880263157895|1.52786482164169|95, 479, 5002
+25|Lemon Bay Aquatic Preserve|7|Water Temperature|Bottom|Field|238|1.2|32.6|30.4|30.103487394958|2.61015721713323|95, 479, 5002
+25|Lemon Bay Aquatic Preserve|8|Water Temperature|Bottom|Field|185|20.1|32.6|30.8|30.6410810810811|1.48143618584735|95, 479, 5002
+25|Lemon Bay Aquatic Preserve|9|Water Temperature|Bottom|Field|199|27.6|42|30|30.0913065326633|1.19525378798161|60, 95, 476, 479, 5002
+25|Lemon Bay Aquatic Preserve|10|Water Temperature|Bottom|Field|208|18.4|30.5|27.3|26.680625|2.7158401149908|95, 479, 5002
+25|Lemon Bay Aquatic Preserve|11|Water Temperature|Bottom|Field|189|19.4|28.34|22.7|22.871164021164|1.76706413554352|95, 476, 479, 5002
+25|Lemon Bay Aquatic Preserve|12|Water Temperature|Bottom|Field|151|10.6|33.3|21.8|20.4233112582781|3.75791852348332|476, 479, 5002
+28|Matlacha Pass Aquatic Preserve|1|Water Temperature|Bottom|Field|29|14.3|27.5|21.4|21.0675862068966|3.57275869319535|95, 476, 513, 5002
+28|Matlacha Pass Aquatic Preserve|2|Water Temperature|Bottom|Field|90|13.3|30.2|20.25|20.231|2.79261749473681|95, 476, 513, 5002
+28|Matlacha Pass Aquatic Preserve|3|Water Temperature|Bottom|Field|61|14.5|28|23.4|22.454262295082|3.24749465435351|95, 476, 513, 5002
+28|Matlacha Pass Aquatic Preserve|4|Water Temperature|Bottom|Field|55|21.5|31.1|24.2|24.4067272727273|2.00140788830102|95, 476, 513, 5002
+28|Matlacha Pass Aquatic Preserve|5|Water Temperature|Bottom|Field|73|23.5|31.3|27.3|27.1947945205479|1.84911773976811|95, 476, 513, 5002
+28|Matlacha Pass Aquatic Preserve|6|Water Temperature|Bottom|Field|58|23.5|32.2|30|29.5910344827586|1.58377927938448|95, 476, 513, 5002
+28|Matlacha Pass Aquatic Preserve|7|Water Temperature|Bottom|Field|90|19.4|32.4|30.5|29.9522222222222|2.29793399039653|95, 115, 476, 5002
+28|Matlacha Pass Aquatic Preserve|8|Water Temperature|Bottom|Field|75|14.5|32.4|30.3|29.9481333333333|2.33988143227752|95, 476, 513, 5002
+28|Matlacha Pass Aquatic Preserve|9|Water Temperature|Bottom|Field|51|26.4|30.8|29.8|29.4805882352941|1.03870768123607|95, 513, 5002
+28|Matlacha Pass Aquatic Preserve|10|Water Temperature|Bottom|Field|72|2.8|29.2|27.43|26.3108333333333|3.68931756352134|95, 476, 513, 5002
+28|Matlacha Pass Aquatic Preserve|11|Water Temperature|Bottom|Field|59|17.45|27.5|24.1|23.6425423728814|2.73765353417367|95, 476, 5002
+28|Matlacha Pass Aquatic Preserve|12|Water Temperature|Bottom|Field|52|16.5|25.035|21.7|21.3393846153846|2.37559649602274|95, 476, 513, 5002
+29|Mosquito Lagoon Aquatic Preserve|1|Water Temperature|Bottom|Field|130|1.66|24.34|17.9|16.5651538461538|4.2597086981626|5002
+29|Mosquito Lagoon Aquatic Preserve|2|Water Temperature|Bottom|Field|73|8.6|22.67|16.92|16.4798630136986|3.14237679558301|5002
+29|Mosquito Lagoon Aquatic Preserve|3|Water Temperature|Bottom|Field|94|12.1|25.2|19|18.6678723404255|3.13799602936364|5002
+29|Mosquito Lagoon Aquatic Preserve|4|Water Temperature|Bottom|Field|100|10.8|27.2|23|22.3779|2.72345157378417|5002
+29|Mosquito Lagoon Aquatic Preserve|5|Water Temperature|Bottom|Field|88|2.33|29.07|26.45|24.4932954545455|6.20892363403774|5002
+29|Mosquito Lagoon Aquatic Preserve|6|Water Temperature|Bottom|Field|105|8.7|31.35|28.1|27.7392380952381|2.67687989128779|5002
+29|Mosquito Lagoon Aquatic Preserve|7|Water Temperature|Bottom|Field|104|2.9|32|29.55|28.0022115384615|6.27635150907728|5002
+29|Mosquito Lagoon Aquatic Preserve|8|Water Temperature|Bottom|Field|108|9.4|33.82|29.85|29.4297222222222|2.50776828899268|5002
+29|Mosquito Lagoon Aquatic Preserve|9|Water Temperature|Bottom|Field|127|24.7|30.8|28.4|28.402125984252|1.32803329342545|5002
+29|Mosquito Lagoon Aquatic Preserve|10|Water Temperature|Bottom|Field|116|2.62|29.3|25.95|25.0497413793103|4.89062251949442|5002
+29|Mosquito Lagoon Aquatic Preserve|11|Water Temperature|Bottom|Field|84|14.6|25.61|21.3|21.4297619047619|2.06349450718481|5002
+29|Mosquito Lagoon Aquatic Preserve|12|Water Temperature|Bottom|Field|108|1.93|23.85|18.8|17.2835185185185|5.20889772809084|5002
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|1|Water Temperature|Bottom|Field|43|9.82|17.36|12.6|13.0169302325581|1.82784380383201|5002
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|2|Water Temperature|Bottom|Field|23|10.97|18.9|12.7|13.4428695652174|2.04027278266118|5002
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|3|Water Temperature|Bottom|Field|53|12.84|25|17.11|17.5680566037736|2.12932971951896|5002
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|4|Water Temperature|Bottom|Field|41|6.8|25.4|20.32|20.1470731707317|3.24624879199241|95, 5002
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|5|Water Temperature|Bottom|Field|29|21.33|28.3|25.702|25.2603793103448|2.012559749136|5002
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|6|Water Temperature|Bottom|Field|23|25.46|29.6|27.08|27.3470869565217|1.13264946487282|5002
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|7|Water Temperature|Bottom|Field|40|21.5|30.9|28.15|27.785575|2.28029313103854|5002
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|8|Water Temperature|Bottom|Field|25|23.25|31.44|28.91|28.33004|1.96083592888339|103, 115, 5002
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|9|Water Temperature|Bottom|Field|23|24.8|29.51|28.11|27.8218260869565|1.32878015324288|60, 5002
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|10|Water Temperature|Bottom|Field|23|20.1|26.8|24.8|24.454652173913|1.7391341526146|5002
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|11|Water Temperature|Bottom|Field|25|13.11|24.5|19.45|19.537|3.20995623023119|5002
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|12|Water Temperature|Bottom|Field|33|10.58|19.6|17.29|16.9452727272727|2.01995295849816|5002
+48|Nature Coast Aquatic Preserve|1|Water Temperature|Bottom|Field|67|5.9|21|14.9|14.9810447761194|3.35479039417872|479, 5002, 5008
+48|Nature Coast Aquatic Preserve|2|Water Temperature|Bottom|Field|97|7.1|23.28|16.2|15.9147422680412|2.93937532081773|95, 479, 5002
+48|Nature Coast Aquatic Preserve|3|Water Temperature|Bottom|Field|58|15.3|25.7|19.7|19.8413793103448|2.15797456066486|5002, 5008
+48|Nature Coast Aquatic Preserve|4|Water Temperature|Bottom|Field|86|16.7|27.7|22.95|22.6238372093023|2.54260735494545|479, 5002, 5008
+48|Nature Coast Aquatic Preserve|5|Water Temperature|Bottom|Field|92|21.4|30|26.25|26.179347826087|2.17359468524136|95, 5002, 5008
+48|Nature Coast Aquatic Preserve|6|Water Temperature|Bottom|Field|90|25.1|32.2|29.5|29.2738888888889|1.35270157852695|60, 95, 5002, 5008
+48|Nature Coast Aquatic Preserve|7|Water Temperature|Bottom|Field|44|26.6|31.7|29.9|29.755|1.21007687628168|115, 479, 5002, 5008
+48|Nature Coast Aquatic Preserve|8|Water Temperature|Bottom|Field|41|27.1|31.4|29.9|29.6|1.18342722632192|95, 5002
+48|Nature Coast Aquatic Preserve|9|Water Temperature|Bottom|Field|76|25|31.85|27.75|28.086052631579|1.39584056295588|60, 95, 115, 5002, 5008
+48|Nature Coast Aquatic Preserve|10|Water Temperature|Bottom|Field|72|15.4|29.5|23.1|23.8043055555556|2.80095296981646|60, 479, 5002, 5008
+48|Nature Coast Aquatic Preserve|11|Water Temperature|Bottom|Field|55|15.3|25.7|20|20.0763636363636|2.41936352483868|5002, 5008
+48|Nature Coast Aquatic Preserve|12|Water Temperature|Bottom|Field|62|10.5|23.2|17.95|17.3306451612903|2.94081446896567|5002, 5008
+34|Pine Island Sound Aquatic Preserve|1|Water Temperature|Bottom|Field|175|11.7|30.5|17.7|17.7416|2.65243669364475|95, 476, 509, 5002
+34|Pine Island Sound Aquatic Preserve|2|Water Temperature|Bottom|Field|137|11.3|30|19.7|19.794598540146|2.61518839007558|95, 476, 509, 5002
+34|Pine Island Sound Aquatic Preserve|3|Water Temperature|Bottom|Field|254|8.2|28.2|21.905|21.3193700787402|3.31431849880368|95, 476, 509, 5002
+34|Pine Island Sound Aquatic Preserve|4|Water Temperature|Bottom|Field|192|19.8|32|24.05|24.3192708333333|2.47040503485014|95, 509, 5002
+34|Pine Island Sound Aquatic Preserve|5|Water Temperature|Bottom|Field|166|19.3|31.2|26.2|26.0732530120482|2.37485418164606|95, 476, 509, 5002
+34|Pine Island Sound Aquatic Preserve|6|Water Temperature|Bottom|Field|168|22.8|36.3|29.35|28.9554166666667|2.47088528200852|95, 509, 5002
+34|Pine Island Sound Aquatic Preserve|7|Water Temperature|Bottom|Field|359|5.9|34.9|30|29.7488300835655|2.44163473757197|95, 115, 509, 5002
+34|Pine Island Sound Aquatic Preserve|8|Water Temperature|Bottom|Field|257|14.7|33.1|30.3|30.1671984435798|1.67012839008639|95, 476, 509, 5002
+34|Pine Island Sound Aquatic Preserve|9|Water Temperature|Bottom|Field|268|26.5|33.1|29.5|29.6296641791045|1.0624106391611|95, 115, 476, 509, 5002
+34|Pine Island Sound Aquatic Preserve|10|Water Temperature|Bottom|Field|174|5|31.8|26.1|25.6473563218391|3.44654386985968|95, 476, 509, 5002
+34|Pine Island Sound Aquatic Preserve|11|Water Temperature|Bottom|Field|142|16.59|28|22.845|22.6045774647887|2.08202459542208|476, 509, 5002
+34|Pine Island Sound Aquatic Preserve|12|Water Temperature|Bottom|Field|152|11.7|28|21|20.7918421052632|2.79072361691909|95, 476, 509, 5002
+35|Pinellas County Aquatic Preserve|1|Water Temperature|Bottom|Field|700|8.23|22.57|16.79|16.6232571428571|3.06264511465232|95, 5002
+35|Pinellas County Aquatic Preserve|2|Water Temperature|Bottom|Field|678|11.8|27.2|18.225|18.1590855457227|2.69967497169368|95, 4067, 5002
+35|Pinellas County Aquatic Preserve|3|Water Temperature|Bottom|Field|634|11.1|28.2|20.28|20.2567034700315|2.598883467349|95, 4067, 5002
+35|Pinellas County Aquatic Preserve|4|Water Temperature|Bottom|Field|964|17.69|32.3|24.76|24.0249688796681|2.13408205783192|95, 4067, 5002
+35|Pinellas County Aquatic Preserve|5|Water Temperature|Bottom|Field|1002|15.5|33.6|27.1|26.8571856287425|2.1911987384903|95, 4067, 5002
+35|Pinellas County Aquatic Preserve|6|Water Temperature|Bottom|Field|758|24.95|33.7|29.2|29.2905145118734|1.22777461869847|60, 95, 5002
+35|Pinellas County Aquatic Preserve|7|Water Temperature|Bottom|Field|660|15.5|33.3|30|29.7568878787879|1.81980610770917|60, 95, 115, 4067, 5002, 5008
+35|Pinellas County Aquatic Preserve|8|Water Temperature|Bottom|Field|1851|15.5|34|30.12|30.1505186385737|1.43033114708731|95, 102, 4067, 5002
+35|Pinellas County Aquatic Preserve|9|Water Temperature|Bottom|Field|5320|15.5|33.01|29.06|28.9504191729323|1.3037922449317|95, 4067, 5002
+35|Pinellas County Aquatic Preserve|10|Water Temperature|Bottom|Field|1600|9.8|34.8|26.59|26.38440625|2.33631828673268|60, 95, 4067, 5002
+35|Pinellas County Aquatic Preserve|11|Water Temperature|Bottom|Field|684|15.5|28.1|21.5|21.8908596491228|1.99168050195157|95, 5002
+35|Pinellas County Aquatic Preserve|12|Water Temperature|Bottom|Field|587|9.3|29.6|19.02|18.8167512776831|3.17641311212046|95, 5002, 5008
+37|Rocky Bayou State Park Aquatic Preserve|1|Water Temperature|Bottom|Field|6|13.7778|16.2222|14.83335|14.8796333333333|1.01067788868|537
+37|Rocky Bayou State Park Aquatic Preserve|2|Water Temperature|Bottom|Field|10|13.0556|18.7222|15.69445|15.73334|2.0878632826675|537
+37|Rocky Bayou State Park Aquatic Preserve|3|Water Temperature|Bottom|Field|8|14.6111|21.6667|18.6111|18.05555|2.30617062000439|537
+37|Rocky Bayou State Park Aquatic Preserve|4|Water Temperature|Bottom|Field|10|19.0556|26|21.0556|21.78335|1.9597130505652|537
+37|Rocky Bayou State Park Aquatic Preserve|5|Water Temperature|Bottom|Field|9|22.2222|27.7778|24.6667|24.8271555555556|1.59800149023015|537
+37|Rocky Bayou State Park Aquatic Preserve|6|Water Temperature|Bottom|Field|10|25.4444|30.8333|28.2222|28.17999|1.53882591857125|102, 537
+37|Rocky Bayou State Park Aquatic Preserve|7|Water Temperature|Bottom|Field|8|25.2222|30.7222|29.3889|28.833325|1.85045844956633|537
+37|Rocky Bayou State Park Aquatic Preserve|8|Water Temperature|Bottom|Field|9|27.2778|31.2778|29.1667|29.4382777777778|1.30005566013323|537
+37|Rocky Bayou State Park Aquatic Preserve|9|Water Temperature|Bottom|Field|11|25.7222|30.3889|28.2222|28.2777818181818|1.29171390626422|537
+37|Rocky Bayou State Park Aquatic Preserve|10|Water Temperature|Bottom|Field|10|23.2222|29.4444|26.5|26.2|2.09187152462945|537
+37|Rocky Bayou State Park Aquatic Preserve|11|Water Temperature|Bottom|Field|7|17.4444|23|20.6111|20.5158571428571|2.06573910328898|537
+37|Rocky Bayou State Park Aquatic Preserve|12|Water Temperature|Bottom|Field|8|15.6667|19.7222|18.1111|17.7083375|1.44526678401058|537
+38|Rookery Bay Aquatic Preserve|1|Water Temperature|Bottom|Field|129|14.72|32.4|19.8|19.8456589147287|2.50289702300193|509, 4043, 5002
+38|Rookery Bay Aquatic Preserve|2|Water Temperature|Bottom|Field|142|12.2|24.9|20.4|20.1031690140845|2.53347051785662|509, 4043, 5002
+38|Rookery Bay Aquatic Preserve|3|Water Temperature|Bottom|Field|131|18.8|28.1|23.6|23.0251145038168|2.09142842846783|509, 4043, 5002
+38|Rookery Bay Aquatic Preserve|4|Water Temperature|Bottom|Field|156|4.4|29.7|24.6|24.6604487179487|2.71802047108261|509, 4043, 5002
+38|Rookery Bay Aquatic Preserve|5|Water Temperature|Bottom|Field|148|23.41|31.42|27.45|27.6346621621622|1.51429758105887|509, 4043, 5002
+38|Rookery Bay Aquatic Preserve|6|Water Temperature|Bottom|Field|145|24.47|31.4|29.56|29.438|1.04955122684783|509, 4043, 5002
+38|Rookery Bay Aquatic Preserve|7|Water Temperature|Bottom|Field|144|28.56|35.6|30.52|30.7311111111111|0.959624133230546|509, 4043, 5002
+38|Rookery Bay Aquatic Preserve|8|Water Temperature|Bottom|Field|147|28|33|30.6|30.7474829931973|1.01050160034402|509, 4043, 5002
+38|Rookery Bay Aquatic Preserve|9|Water Temperature|Bottom|Field|140|27.22|31.96|29.985|29.6884285714286|1.09121559266783|509, 4043, 5002
+38|Rookery Bay Aquatic Preserve|10|Water Temperature|Bottom|Field|132|20.6|31.7|27.5|26.8246212121212|2.5959990958793|509, 4043, 5002
+38|Rookery Bay Aquatic Preserve|11|Water Temperature|Bottom|Field|127|17.8|26.4|22.8|22.6295275590551|2.00217970835585|509, 4043, 5002
+38|Rookery Bay Aquatic Preserve|12|Water Temperature|Bottom|Field|124|15.1|26.5|21|21.3837096774194|2.89051981927069|509, 4043, 5002
+39|Rookery Bay National Estuarine Research Reserve|1|Water Temperature|Bottom|Field|498|8.4|32.4|19.4|19.4457630522088|2.96682704185092|509, 4043, 5002
+39|Rookery Bay National Estuarine Research Reserve|2|Water Temperature|Bottom|Field|544|12.2|27|21.17|21.0869117647059|2.75829450994963|95, 509, 4043, 5002
+39|Rookery Bay National Estuarine Research Reserve|3|Water Temperature|Bottom|Field|459|16.6|29.4|23.5|23.250697167756|2.59690173852101|509, 4043, 5002
+39|Rookery Bay National Estuarine Research Reserve|4|Water Temperature|Bottom|Field|564|4.4|29.7|25.1|25.0598758865248|2.43419383561143|509, 4043, 5002
+39|Rookery Bay National Estuarine Research Reserve|5|Water Temperature|Bottom|Field|577|21.3|32|28|27.9079202772964|1.56197319137612|509, 4043, 5002
+39|Rookery Bay National Estuarine Research Reserve|6|Water Temperature|Bottom|Field|531|23.6|37.2|29.7|29.6929001883239|1.39189671983882|509, 4043, 5002
+39|Rookery Bay National Estuarine Research Reserve|7|Water Temperature|Bottom|Field|559|21.4|35.6|30.7|30.5272987477639|1.44171867089319|95, 509, 4043, 5002
+39|Rookery Bay National Estuarine Research Reserve|8|Water Temperature|Bottom|Field|597|21.4|33.7|30.7|30.7114237855946|1.32483029797276|509, 4043, 5002
+39|Rookery Bay National Estuarine Research Reserve|9|Water Temperature|Bottom|Field|548|26.1|32.9|29.8|29.7196532846715|1.22265201170486|95, 509, 4043, 5002
+39|Rookery Bay National Estuarine Research Reserve|10|Water Temperature|Bottom|Field|564|20|32.2|27.3|27.1115780141844|2.32770185093994|509, 4043, 5002
+39|Rookery Bay National Estuarine Research Reserve|11|Water Temperature|Bottom|Field|503|17.1|30|23.5|23.3934592445328|2.01633053009734|509, 4043, 5002
+39|Rookery Bay National Estuarine Research Reserve|12|Water Temperature|Bottom|Field|494|11.2|37.9|21.6|21.5324089068826|3.29363656962027|95, 509, 4043, 5002
+40|St. Andrews State Park Aquatic Preserve|1|Water Temperature|Bottom|Field|5|12.1|18.3|13.02|13.908|2.49602083324639|95
+40|St. Andrews State Park Aquatic Preserve|2|Water Temperature|Bottom|Field|9|14.03|18.2|15.1|15.4477777777778|1.42900120519349|95, 5002
+40|St. Andrews State Park Aquatic Preserve|3|Water Temperature|Bottom|Field|3|20.5|21.64|21.18|21.1066666666667|0.573527099040083|95
+40|St. Andrews State Park Aquatic Preserve|4|Water Temperature|Bottom|Field|3|22.6|24.9|23.1|23.5333333333333|1.20968315410827|95
+40|St. Andrews State Park Aquatic Preserve|5|Water Temperature|Bottom|Field|25|23.3|30.2|24.9|25.42|2.00187412191676|95, 557
+40|St. Andrews State Park Aquatic Preserve|6|Water Temperature|Bottom|Field|15|21.96|33|28.9|28.9773333333333|2.39499319016827|60, 95, 557
+40|St. Andrews State Park Aquatic Preserve|7|Water Temperature|Bottom|Field|2|27.5|29.7|28.6|28.6|1.5556349186104|95, 115
+40|St. Andrews State Park Aquatic Preserve|8|Water Temperature|Bottom|Field|6|28.7|31.2|30.1|30.1|0.894427190999916|95, 115
+40|St. Andrews State Park Aquatic Preserve|9|Water Temperature|Bottom|Field|7|26.7|31.2|30|29.1714285714286|1.88300671419788|95
+40|St. Andrews State Park Aquatic Preserve|10|Water Temperature|Bottom|Field|19|21.8|27.5|23.3|23.8|1.62992842378635|95, 557
+40|St. Andrews State Park Aquatic Preserve|11|Water Temperature|Bottom|Field|6|17.8|22.7|21.6|20.9833333333333|1.89569688153636|95
+40|St. Andrews State Park Aquatic Preserve|12|Water Temperature|Bottom|Field|4|14.6|19.2|16.6|16.75|2.34165183862446|95
+41|St. Joseph Bay Aquatic Preserve|1|Water Temperature|Bottom|Field|106|10.4|20.5|14.25|14.0971698113208|2.06814651535734|95, 5002
+41|St. Joseph Bay Aquatic Preserve|2|Water Temperature|Bottom|Field|118|12.4|21.6|16.25|16.3720338983051|1.91890663282708|95, 5002
+41|St. Joseph Bay Aquatic Preserve|3|Water Temperature|Bottom|Field|238|11.1|23.4|17.8|17.3077731092437|2.86157293483558|95, 5002
+41|St. Joseph Bay Aquatic Preserve|4|Water Temperature|Bottom|Field|174|11.9|26.8|21|20.8372988505747|2.62563840897424|95, 557, 5002
+41|St. Joseph Bay Aquatic Preserve|5|Water Temperature|Bottom|Field|214|20.3|30.5|26.2|25.8098130841122|2.23004388735879|95, 557, 5002
+41|St. Joseph Bay Aquatic Preserve|6|Water Temperature|Bottom|Field|242|22.7|32.5|28.9|28.4504132231405|1.96539033391276|60, 95, 557, 5002
+41|St. Joseph Bay Aquatic Preserve|7|Water Temperature|Bottom|Field|302|21.8|33.6|30.1|30.0072847682119|1.32020331353529|95, 115, 557, 5002
+41|St. Joseph Bay Aquatic Preserve|8|Water Temperature|Bottom|Field|252|25.2|33|29.6|29.6436507936508|1.04370593405052|95, 557, 5002
+41|St. Joseph Bay Aquatic Preserve|9|Water Temperature|Bottom|Field|119|24.8|30.9|27.8|28.0882352941177|1.39722342526158|95, 557, 5002
+41|St. Joseph Bay Aquatic Preserve|10|Water Temperature|Bottom|Field|122|19.5|29.4|23.8|23.5976229508197|2.07505334125552|60, 95, 557, 5002
+41|St. Joseph Bay Aquatic Preserve|11|Water Temperature|Bottom|Field|84|15.5|26.1|20.2|20.8107142857143|3.08205133758416|95, 5002
+41|St. Joseph Bay Aquatic Preserve|12|Water Temperature|Bottom|Field|107|8.1|20.9|15.4|15.8878504672897|2.47377605644267|5002
+43|St. Martins Marsh Aquatic Preserve|1|Water Temperature|Bottom|Field|238|6|22.9|15.15|15.3709663865546|3.52407840406843|95, 479, 5002, 5008
+43|St. Martins Marsh Aquatic Preserve|2|Water Temperature|Bottom|Field|332|7.5|22.4|16.6|16.496686746988|2.8198403435669|5002
+43|St. Martins Marsh Aquatic Preserve|3|Water Temperature|Bottom|Field|175|8.7|25.3|19.9|19.8302857142857|1.96870557525399|5002, 5008
+43|St. Martins Marsh Aquatic Preserve|4|Water Temperature|Bottom|Field|284|16.2|28.4|23.1|22.7918309859155|2.51597935458065|95, 5002, 5008
+43|St. Martins Marsh Aquatic Preserve|5|Water Temperature|Bottom|Field|301|20.8|30.2|26.2|26.1933554817276|2.13571745241379|5002
+43|St. Martins Marsh Aquatic Preserve|6|Water Temperature|Bottom|Field|316|24.6|32.1|29.5|29.2291139240506|1.52024658807952|5002, 5008
+43|St. Martins Marsh Aquatic Preserve|7|Water Temperature|Bottom|Field|159|26.6|31.6|29.7|29.7109433962264|1.11846571698326|115, 479, 5002, 5008
+43|St. Martins Marsh Aquatic Preserve|8|Water Temperature|Bottom|Field|148|27.1|31.6|29.7|29.4712837837838|1.13533373702587|479, 5002
+43|St. Martins Marsh Aquatic Preserve|9|Water Temperature|Bottom|Field|191|25.1|30.4|27.8|27.8900523560209|1.30716869502158|479, 5002, 5008
+43|St. Martins Marsh Aquatic Preserve|10|Water Temperature|Bottom|Field|244|13.9|28.6|22.9|23.6475409836066|2.63938866580457|5002, 5008
+43|St. Martins Marsh Aquatic Preserve|11|Water Temperature|Bottom|Field|160|14.8|26.1|20.3|20.5315625|2.34775834390003|95, 5002, 5008
+43|St. Martins Marsh Aquatic Preserve|12|Water Temperature|Bottom|Field|252|9.9|24.2|17.9|17.3309523809524|2.8764731693756|479, 5002, 5008
+44|Terra Ceia Aquatic Preserve|1|Water Temperature|Bottom|Field|127|7.6|24.2|16.09|16.2195275590551|3.23819464160709|95, 5002
+44|Terra Ceia Aquatic Preserve|2|Water Temperature|Bottom|Field|137|1.2|29.7|17.43|17.4868613138686|3.34217363927078|95, 5002
+44|Terra Ceia Aquatic Preserve|3|Water Temperature|Bottom|Field|169|14.1|25.2|20.2|20.1672781065089|2.68454566069181|95, 4067, 5002
+44|Terra Ceia Aquatic Preserve|4|Water Temperature|Bottom|Field|145|18.6|30.8|24.28|24.5506896551724|2.5791416679382|95, 5002
+44|Terra Ceia Aquatic Preserve|5|Water Temperature|Bottom|Field|150|20.4|31.1|27.1|26.9577333333333|1.73141023588337|4067, 5002
+44|Terra Ceia Aquatic Preserve|6|Water Temperature|Bottom|Field|148|24.4|32.7|29.225|29.0416216216216|1.43987530358343|95, 5002
+44|Terra Ceia Aquatic Preserve|7|Water Temperature|Bottom|Field|240|27.5|32.5|30.4|30.2866666666667|0.868245798771913|4067, 5002
+44|Terra Ceia Aquatic Preserve|8|Water Temperature|Bottom|Field|532|15.6|33.7|30.65|30.5991917293233|1.54597536691578|95, 4067, 5002
+44|Terra Ceia Aquatic Preserve|9|Water Temperature|Bottom|Field|750|26.02|32.23|28.585|28.75104|1.02672641986802|95, 4067, 5002
+44|Terra Ceia Aquatic Preserve|10|Water Temperature|Bottom|Field|596|16.09|30.6|27.59|26.905855704698|2.30264818813112|95, 4067, 5002
+44|Terra Ceia Aquatic Preserve|11|Water Temperature|Bottom|Field|140|16.64|25.6|21.5|21.3126428571429|1.7312820594499|95, 5002
+44|Terra Ceia Aquatic Preserve|12|Water Temperature|Bottom|Field|153|2.2|30.6|19.6|19.5475816993464|4.1544440419336|5002
+45|Tomoka Marsh Aquatic Preserve|1|Water Temperature|Bottom|Field|12|12.83|20.45|16.465|16.8361666666667|2.63471957567105|5002
+45|Tomoka Marsh Aquatic Preserve|2|Water Temperature|Bottom|Field|21|12.84|22.17|16.96|16.5576666666667|2.48977218502684|5002
+45|Tomoka Marsh Aquatic Preserve|3|Water Temperature|Bottom|Field|13|16.53|24.4|19.4|20.4334615384615|2.90263629066706|5002
+45|Tomoka Marsh Aquatic Preserve|4|Water Temperature|Bottom|Field|14|18.27|25.27|23.355|22.7471428571429|2.12814628101702|5002
+45|Tomoka Marsh Aquatic Preserve|5|Water Temperature|Bottom|Field|11|22.3|27.88|24.4|24.8290909090909|1.69807216893426|5002
+45|Tomoka Marsh Aquatic Preserve|6|Water Temperature|Bottom|Field|26|26.08|30.82|28.655|28.5482307692308|1.42448220228102|5002
+45|Tomoka Marsh Aquatic Preserve|7|Water Temperature|Bottom|Field|12|27.63|30.4|29.494|29.3231666666667|0.924679977400863|5002
+45|Tomoka Marsh Aquatic Preserve|8|Water Temperature|Bottom|Field|21|27.2|31.25|29.6|29.4182857142857|1.39992332443092|5002
+45|Tomoka Marsh Aquatic Preserve|9|Water Temperature|Bottom|Field|9|25.008|29.43|27.41|27.5737777777778|1.45846886989214|5002
+45|Tomoka Marsh Aquatic Preserve|10|Water Temperature|Bottom|Field|23|23.66|28.4|25.903|25.7879130434783|1.25954832860628|5002
+45|Tomoka Marsh Aquatic Preserve|11|Water Temperature|Bottom|Field|14|16.91|22.803|21.605|20.5455|2.22040238037371|5002
+45|Tomoka Marsh Aquatic Preserve|12|Water Temperature|Bottom|Field|17|10.57|23.7|16.56|17.4784705882353|3.89411673421662|5002
+47|Yellow River Marsh Aquatic Preserve|1|Water Temperature|Bottom|Field|34|8.5|20.1|13.7|13.4705882352941|3.31877390756803|5002
+47|Yellow River Marsh Aquatic Preserve|2|Water Temperature|Bottom|Field|39|11.9|20.7|14.8|15.125641025641|2.11196066908129|5002
+47|Yellow River Marsh Aquatic Preserve|3|Water Temperature|Bottom|Field|57|13.5|24.3|17.7|18.2210526315789|2.68060073505024|5002
+47|Yellow River Marsh Aquatic Preserve|4|Water Temperature|Bottom|Field|51|14.8|25.4|21.4|21.1058823529412|2.44674573788989|5002
+47|Yellow River Marsh Aquatic Preserve|5|Water Temperature|Bottom|Field|56|21.1|30.7|26.05|25.5535714285714|2.29275255658222|5002
+47|Yellow River Marsh Aquatic Preserve|6|Water Temperature|Bottom|Field|45|26.7|31.2|28.5|28.5377777777778|1.20591136582347|5002
+47|Yellow River Marsh Aquatic Preserve|7|Water Temperature|Bottom|Field|3|29.1|30|29.5|29.5333333333333|0.450924975282289|115, 5002
+47|Yellow River Marsh Aquatic Preserve|9|Water Temperature|Bottom|Field|25|24.6|29.9|27.8|27.572|1.47210733304335|5002
+47|Yellow River Marsh Aquatic Preserve|10|Water Temperature|Bottom|Field|48|15.7|28.7|24.2|23.3854166666667|3.15857425305417|5002
+47|Yellow River Marsh Aquatic Preserve|11|Water Temperature|Bottom|Field|21|9.6|26.1|18.8|18.4952380952381|4.93705136599531|5002
+47|Yellow River Marsh Aquatic Preserve|12|Water Temperature|Bottom|Field|32|7.5|23.3|15|15.1|3.74432904536981|5002

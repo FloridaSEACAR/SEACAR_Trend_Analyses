@@ -1,0 +1,49 @@
+AreaID,ManagedAreaName,ParameterName,RelativeDepth,ActivityType,N_Total,N_AnalysisUse,N_H,perc_H,N_I,perc_I,N_Q,perc_Q,N_S,perc_S,N_U,perc_U
+1,Alligator Harbor Aquatic Preserve,Secchi Depth,Surface,Field,1851,1851,0,0,0,0,0,0,1985,0.872753813076798,0,0
+2,Apalachicola Bay Aquatic Preserve,Secchi Depth,Surface,Field,17248,17248,0,0,0,0,0,0,1985,0.872753813076798,0,0
+3,Apalachicola National Estuarine Research Reserve,Secchi Depth,Surface,Field,27645,27645,0,0,0,0,0,0,1985,0.872753813076798,0,0
+4,Banana River Aquatic Preserve,Secchi Depth,Surface,Field,5994,5994,0,0,0,0,0,0,1985,0.872753813076798,0,0
+5,Big Bend Seagrasses Aquatic Preserve,Secchi Depth,Surface,Field,33858,33858,0,0,0,0,0,0,1985,0.872753813076798,0,0
+7,Biscayne Bay-Cape Florida to Monroe County Line Aquatic Preserve,Secchi Depth,Surface,Field,1,0,0,0,0,0,0,0,1985,0.872753813076798,0,0
+6,Biscayne Bay Aquatic Preserve,Secchi Depth,Surface,Field,542,542,0,0,0,0,0,0,1985,0.872753813076798,0,0
+8,Boca Ciega Bay Aquatic Preserve,Secchi Depth,Surface,Field,5901,5901,0,0,0,0,0,0,1985,0.872753813076798,0,0
+9,Cape Haze Aquatic Preserve,Secchi Depth,Surface,Field,4993,4993,0,0,0,0,0,0,1985,0.872753813076798,0,0
+10,Cape Romano-Ten Thousand Islands Aquatic Preserve,Secchi Depth,Surface,Field,76,0,0,0,0,0,0,0,1985,0.872753813076798,0,0
+11,Cockroach Bay Aquatic Preserve,Secchi Depth,Surface,Field,9419,9419,0,0,0,0,0,0,1985,0.872753813076798,0,0
+13,Coupon Bight Aquatic Preserve,Secchi Depth,Surface,Field,2,0,0,0,0,0,0,0,1985,0.872753813076798,0,0
+14,Estero Bay Aquatic Preserve,Secchi Depth,Surface,Field,2208,2208,0,0,0,0,0,0,1985,0.872753813076798,0,0
+15,Florida Keys National Marine Sanctuary,Secchi Depth,Surface,Field,4152,4152,0,0,0,0,0,0,1985,0.872753813076798,0,0
+16,Fort Clinch State Park Aquatic Preserve,Secchi Depth,Surface,Field,726,726,0,0,0,0,0,0,1985,0.872753813076798,0,0
+17,Fort Pickens State Park Aquatic Preserve,Secchi Depth,Surface,Field,238,238,0,0,0,0,0,0,1985,0.872753813076798,0,0
+18,Gasparilla Sound-Charlotte Harbor Aquatic Preserve,Secchi Depth,Surface,Field,21849,21849,0,0,0,0,0,0,1985,0.872753813076798,0,0
+19,Guana River Marsh Aquatic Preserve,Secchi Depth,Surface,Field,728,728,0,0,0,0,0,0,1985,0.872753813076798,0,0
+20,Guana Tolomato Matanzas National Estuarine Research Reserve,Secchi Depth,Surface,Field,1016,1016,0,0,0,0,0,0,1985,0.872753813076798,0,0
+21,Indian River-Malabar to Vero Beach Aquatic Preserve,Secchi Depth,Surface,Field,18886,18886,0,0,0,0,0,0,1985,0.872753813076798,0,0
+22,Indian River-Vero Beach to Ft. Pierce Aquatic Preserve,Secchi Depth,Surface,Field,1399,1399,0,0,0,0,0,0,1985,0.872753813076798,0,0
+23,Jensen Beach to Jupiter Inlet Aquatic Preserve,Secchi Depth,Surface,Field,4204,4204,0,0,0,0,0,0,1985,0.872753813076798,0,0
+24,Lake Jackson Aquatic Preserve,Secchi Depth,Surface,Field,1,0,0,0,0,0,0,0,1985,0.872753813076798,0,0
+25,Lemon Bay Aquatic Preserve,Secchi Depth,Surface,Field,1069,1069,0,0,0,0,0,0,1985,0.872753813076798,0,0
+26,Lignumvitae Key Aquatic Preserve,Secchi Depth,Surface,Field,33,0,0,0,0,0,0,0,1985,0.872753813076798,0,0
+27,Loxahatchee River-Lake Worth Creek Aquatic Preserve,Secchi Depth,Surface,Field,3330,3330,0,0,0,0,0,0,1985,0.872753813076798,0,0
+28,Matlacha Pass Aquatic Preserve,Secchi Depth,Surface,Field,3831,3831,0,0,0,0,0,0,1985,0.872753813076798,0,0
+29,Mosquito Lagoon Aquatic Preserve,Secchi Depth,Surface,Field,264,264,0,0,0,0,0,0,1985,0.872753813076798,0,0
+30,Nassau River-St. Johns River Marshes Aquatic Preserve,Secchi Depth,Surface,Field,8297,8297,0,0,0,0,0,0,1985,0.872753813076798,0,0
+48,Nature Coast Aquatic Preserve,Secchi Depth,Surface,Field,1319,1319,0,0,0,0,0,0,1985,0.872753813076798,0,0
+31,North Fork St. Lucie Aquatic Preserve,Secchi Depth,Surface,Field,1231,1231,0,0,0,0,0,0,1985,0.872753813076798,0,0
+32,Oklawaha River Aquatic Preserve,Secchi Depth,Surface,Field,1,0,0,0,0,0,0,0,1985,0.872753813076798,0,0
+33,Pellicer Creek Aquatic Preserve,Secchi Depth,Surface,Field,89,0,0,0,0,0,0,0,1985,0.872753813076798,0,0
+34,Pine Island Sound Aquatic Preserve,Secchi Depth,Surface,Field,12312,12312,0,0,0,0,0,0,1985,0.872753813076798,0,0
+35,Pinellas County Aquatic Preserve,Secchi Depth,Surface,Field,17514,17514,0,0,0,0,0,0,1985,0.872753813076798,0,0
+36,Rainbow Springs Aquatic Preserve,Secchi Depth,Surface,Field,1,0,0,0,0,0,0,0,1985,0.872753813076798,0,0
+37,Rocky Bayou State Park Aquatic Preserve,Secchi Depth,Surface,Field,408,408,0,0,0,0,0,0,1985,0.872753813076798,0,0
+38,Rookery Bay Aquatic Preserve,Secchi Depth,Surface,Field,318,318,0,0,0,0,0,0,1985,0.872753813076798,0,0
+39,Rookery Bay National Estuarine Research Reserve,Secchi Depth,Surface,Field,446,446,0,0,0,0,0,0,1985,0.872753813076798,0,0
+12,Southeast Florida Coral Reef Ecosystem Conservation Area,Secchi Depth,Surface,Field,4901,4901,0,0,0,0,0,0,1985,0.872753813076798,0,0
+40,St. Andrews State Park Aquatic Preserve,Secchi Depth,Surface,Field,1048,1048,0,0,0,0,0,0,1985,0.872753813076798,0,0
+41,St. Joseph Bay Aquatic Preserve,Secchi Depth,Surface,Field,872,872,0,0,0,0,0,0,1985,0.872753813076798,0,0
+42,St. Joseph Bay State Buffer Preserve,Secchi Depth,Surface,Field,4,0,0,0,0,0,0,0,1985,0.872753813076798,0,0
+43,St. Martins Marsh Aquatic Preserve,Secchi Depth,Surface,Field,387,387,0,0,0,0,0,0,1985,0.872753813076798,0,0
+44,Terra Ceia Aquatic Preserve,Secchi Depth,Surface,Field,6616,6616,0,0,0,0,0,0,1985,0.872753813076798,0,0
+45,Tomoka Marsh Aquatic Preserve,Secchi Depth,Surface,Field,128,0,0,0,0,0,0,0,1985,0.872753813076798,0,0
+46,Wekiva River Aquatic Preserve,Secchi Depth,Surface,Field,1,0,0,0,0,0,0,0,1985,0.872753813076798,0,0
+47,Yellow River Marsh Aquatic Preserve,Secchi Depth,Surface,Field,84,0,0,0,0,0,0,0,1985,0.872753813076798,0,0

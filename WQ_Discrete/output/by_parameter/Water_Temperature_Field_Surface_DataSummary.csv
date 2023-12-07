@@ -1,0 +1,49 @@
+AreaID,ManagedAreaName,ParameterName,RelativeDepth,ActivityType,N_Total,N_AnalysisUse,N_H,perc_H,N_I,perc_I,N_Q,perc_Q,N_S,perc_S,N_U,perc_U
+1,Alligator Harbor Aquatic Preserve,Water Temperature,Surface,Field,5844,5844,0,0,0,0,0,0,0,0,0,0
+2,Apalachicola Bay Aquatic Preserve,Water Temperature,Surface,Field,35896,35896,0,0,0,0,0,0,0,0,0,0
+3,Apalachicola National Estuarine Research Reserve,Water Temperature,Surface,Field,53965,53965,0,0,0,0,0,0,0,0,0,0
+4,Banana River Aquatic Preserve,Water Temperature,Surface,Field,23394,23394,0,0,0,0,0,0,0,0,0,0
+5,Big Bend Seagrasses Aquatic Preserve,Water Temperature,Surface,Field,96944,96944,0,0,0,0,0,0,0,0,0,0
+7,Biscayne Bay-Cape Florida to Monroe County Line Aquatic Preserve,Water Temperature,Surface,Field,1,0,0,0,0,0,0,0,0,0,0,0
+6,Biscayne Bay Aquatic Preserve,Water Temperature,Surface,Field,6948,6948,0,0,0,0,0,0,0,0,0,0
+8,Boca Ciega Bay Aquatic Preserve,Water Temperature,Surface,Field,17567,17567,0,0,0,0,0,0,0,0,0,0
+9,Cape Haze Aquatic Preserve,Water Temperature,Surface,Field,7414,7414,0,0,0,0,0,0,0,0,0,0
+10,Cape Romano-Ten Thousand Islands Aquatic Preserve,Water Temperature,Surface,Field,6835,6835,0,0,0,0,0,0,0,0,0,0
+11,Cockroach Bay Aquatic Preserve,Water Temperature,Surface,Field,14863,14863,0,0,0,0,0,0,0,0,0,0
+13,Coupon Bight Aquatic Preserve,Water Temperature,Surface,Field,108,108,0,0,0,0,0,0,0,0,0,0
+14,Estero Bay Aquatic Preserve,Water Temperature,Surface,Field,7684,7684,0,0,0,0,0,0,0,0,0,0
+15,Florida Keys National Marine Sanctuary,Water Temperature,Surface,Field,23997,23997,0,0,0,0,0,0,0,0,0,0
+16,Fort Clinch State Park Aquatic Preserve,Water Temperature,Surface,Field,813,813,0,0,0,0,0,0,0,0,0,0
+17,Fort Pickens State Park Aquatic Preserve,Water Temperature,Surface,Field,863,863,0,0,0,0,0,0,0,0,0,0
+18,Gasparilla Sound-Charlotte Harbor Aquatic Preserve,Water Temperature,Surface,Field,36215,36215,0,0,0,0,0,0,0,0,0,0
+19,Guana River Marsh Aquatic Preserve,Water Temperature,Surface,Field,5301,5301,0,0,0,0,0,0,0,0,0,0
+20,Guana Tolomato Matanzas National Estuarine Research Reserve,Water Temperature,Surface,Field,15446,15446,0,0,0,0,0,0,0,0,0,0
+21,Indian River-Malabar to Vero Beach Aquatic Preserve,Water Temperature,Surface,Field,42288,42288,0,0,0,0,0,0,0,0,0,0
+22,Indian River-Vero Beach to Ft. Pierce Aquatic Preserve,Water Temperature,Surface,Field,5841,5841,0,0,0,0,0,0,0,0,0,0
+23,Jensen Beach to Jupiter Inlet Aquatic Preserve,Water Temperature,Surface,Field,7080,7080,0,0,0,0,0,0,0,0,0,0
+24,Lake Jackson Aquatic Preserve,Water Temperature,Surface,Field,1,0,0,0,0,0,0,0,0,0,0,0
+25,Lemon Bay Aquatic Preserve,Water Temperature,Surface,Field,8541,8541,0,0,0,0,0,0,0,0,0,0
+26,Lignumvitae Key Aquatic Preserve,Water Temperature,Surface,Field,127,127,0,0,0,0,0,0,0,0,0,0
+27,Loxahatchee River-Lake Worth Creek Aquatic Preserve,Water Temperature,Surface,Field,5511,5511,0,0,0,0,0,0,0,0,0,0
+28,Matlacha Pass Aquatic Preserve,Water Temperature,Surface,Field,6686,6686,0,0,0,0,0,0,0,0,0,0
+29,Mosquito Lagoon Aquatic Preserve,Water Temperature,Surface,Field,3922,3922,0,0,0,0,0,0,0,0,0,0
+30,Nassau River-St. Johns River Marshes Aquatic Preserve,Water Temperature,Surface,Field,28419,28419,0,0,0,0,0,0,0,0,0,0
+48,Nature Coast Aquatic Preserve,Water Temperature,Surface,Field,4981,4981,0,0,0,0,0,0,0,0,0,0
+31,North Fork St. Lucie Aquatic Preserve,Water Temperature,Surface,Field,3193,3193,0,0,0,0,0,0,0,0,0,0
+32,Oklawaha River Aquatic Preserve,Water Temperature,Surface,Field,1,0,0,0,0,0,0,0,0,0,0,0
+33,Pellicer Creek Aquatic Preserve,Water Temperature,Surface,Field,778,778,0,0,0,0,0,0,0,0,0,0
+34,Pine Island Sound Aquatic Preserve,Water Temperature,Surface,Field,21313,21313,0,0,0,0,0,0,0,0,0,0
+35,Pinellas County Aquatic Preserve,Water Temperature,Surface,Field,57274,57274,0,0,0,0,0,0,0,0,0,0
+36,Rainbow Springs Aquatic Preserve,Water Temperature,Surface,Field,1,0,0,0,0,0,0,0,0,0,0,0
+37,Rocky Bayou State Park Aquatic Preserve,Water Temperature,Surface,Field,151,151,0,0,0,0,0,0,0,0,0,0
+38,Rookery Bay Aquatic Preserve,Water Temperature,Surface,Field,3433,3433,0,0,0,0,0,0,0,0,0,0
+39,Rookery Bay National Estuarine Research Reserve,Water Temperature,Surface,Field,10721,10721,0,0,0,0,0,0,0,0,0,0
+12,Southeast Florida Coral Reef Ecosystem Conservation Area,Water Temperature,Surface,Field,593,593,0,0,0,0,0,0,0,0,0,0
+40,St. Andrews State Park Aquatic Preserve,Water Temperature,Surface,Field,1015,1015,0,0,0,0,0,0,0,0,0,0
+41,St. Joseph Bay Aquatic Preserve,Water Temperature,Surface,Field,4104,4104,0,0,0,0,0,0,0,0,0,0
+42,St. Joseph Bay State Buffer Preserve,Water Temperature,Surface,Field,4,0,0,0,0,0,0,0,0,0,0,0
+43,St. Martins Marsh Aquatic Preserve,Water Temperature,Surface,Field,5737,5737,0,0,0,0,0,0,0,0,0,0
+44,Terra Ceia Aquatic Preserve,Water Temperature,Surface,Field,17636,17636,0,0,0,0,0,0,0,0,0,0
+45,Tomoka Marsh Aquatic Preserve,Water Temperature,Surface,Field,295,295,0,0,0,0,0,0,0,0,0,0
+46,Wekiva River Aquatic Preserve,Water Temperature,Surface,Field,1,0,0,0,0,0,0,0,0,0,0,0
+47,Yellow River Marsh Aquatic Preserve,Water Temperature,Surface,Field,586,586,0,0,0,0,0,0,0,0,0,0

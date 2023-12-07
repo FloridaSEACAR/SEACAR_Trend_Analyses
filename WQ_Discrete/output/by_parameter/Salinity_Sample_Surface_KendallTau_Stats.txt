@@ -1,0 +1,97 @@
+AreaID|ManagedAreaName|ParameterName|RelativeDepth|ActivityType|SufficientData|N_Data|N_Years|EarliestYear|LatestYear|Season|Median|Independent|tau|z|p_z|chi_sq|p_chi_sq|SennSlope|SennIntercept|Trend
+1|Alligator Harbor Aquatic Preserve|Salinity|Surface|Sample|FALSE|0|0|||||||||||||
+2|Apalachicola Bay Aquatic Preserve|Salinity|Surface|Sample|FALSE|285|4|2000|2003|||||||||||
+3|Apalachicola National Estuarine Research Reserve|Salinity|Surface|Sample|FALSE|368|4|2000|2003|||||||||||
+4|Banana River Aquatic Preserve|Salinity|Surface|Sample|FALSE|0|0|||||||||||||
+5|Big Bend Seagrasses Aquatic Preserve|Salinity|Surface|Sample|FALSE|1|1|2000|2000|||||||||||
+7|Biscayne Bay-Cape Florida to Monroe County Line Aquatic Preserve|Salinity|Surface|Sample|FALSE|0|0|||||||||||||
+6|Biscayne Bay Aquatic Preserve|Salinity|Surface|Sample|FALSE|128|3|2010|2016|||||||||||
+8|Boca Ciega Bay Aquatic Preserve|Salinity|Surface|Sample|FALSE|0|0|||||||||||||
+9|Cape Haze Aquatic Preserve|Salinity|Surface|Sample|FALSE|0|0|||||||||||||
+10|Cape Romano-Ten Thousand Islands Aquatic Preserve|Salinity|Surface|Sample|FALSE|0|0|||||||||||||
+11|Cockroach Bay Aquatic Preserve|Salinity|Surface|Sample|FALSE|0|0|||||||||||||
+13|Coupon Bight Aquatic Preserve|Salinity|Surface|Sample|FALSE|0|0|||||||||||||
+14|Estero Bay Aquatic Preserve|Salinity|Surface|Sample|FALSE|0|0|||||||||||||
+15|Florida Keys National Marine Sanctuary|Salinity|Surface|Sample|FALSE|28|2|2011|2016|||||||||||
+16|Fort Clinch State Park Aquatic Preserve|Salinity|Surface|Sample|FALSE|0|0|||||||||||||
+17|Fort Pickens State Park Aquatic Preserve|Salinity|Surface|Sample|FALSE|9|1|1999|1999|||||||||||
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|Salinity|Surface|Sample|FALSE|0|0|||||||||||||
+19|Guana River Marsh Aquatic Preserve|Salinity|Surface|Sample|FALSE|0|0|||||||||||||
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|Salinity|Surface|Sample|FALSE|0|0|||||||||||||
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|Salinity|Surface|Sample|FALSE|0|0|||||||||||||
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|Salinity|Surface|Sample|FALSE|12|1|2007|2007|||||||||||
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|Salinity|Surface|Sample|FALSE|56|1|2007|2007|||||||||||
+24|Lake Jackson Aquatic Preserve|Salinity|Surface|Sample|FALSE|0|0|||||||||||||
+25|Lemon Bay Aquatic Preserve|Salinity|Surface|Sample|FALSE|0|0|||||||||||||
+26|Lignumvitae Key Aquatic Preserve|Salinity|Surface|Sample|FALSE|0|0|||||||||||||
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|Salinity|Surface|Sample|FALSE|77|1|2007|2007|||||||||||
+28|Matlacha Pass Aquatic Preserve|Salinity|Surface|Sample|FALSE|0|0|||||||||||||
+29|Mosquito Lagoon Aquatic Preserve|Salinity|Surface|Sample|FALSE|0|0|||||||||||||
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|Salinity|Surface|Sample|FALSE|0|0|||||||||||||
+48|Nature Coast Aquatic Preserve|Salinity|Surface|Sample|FALSE|0|0|||||||||||||
+31|North Fork St. Lucie Aquatic Preserve|Salinity|Surface|Sample|FALSE|36|1|2007|2007|||||||||||
+32|Oklawaha River Aquatic Preserve|Salinity|Surface|Sample|FALSE|0|0|||||||||||||
+33|Pellicer Creek Aquatic Preserve|Salinity|Surface|Sample|FALSE|0|0|||||||||||||
+34|Pine Island Sound Aquatic Preserve|Salinity|Surface|Sample|FALSE|0|0|||||||||||||
+35|Pinellas County Aquatic Preserve|Salinity|Surface|Sample|FALSE|0|0|||||||||||||
+36|Rainbow Springs Aquatic Preserve|Salinity|Surface|Sample|FALSE|0|0|||||||||||||
+37|Rocky Bayou State Park Aquatic Preserve|Salinity|Surface|Sample|FALSE|0|0|||||||||||||
+38|Rookery Bay Aquatic Preserve|Salinity|Surface|Sample|FALSE|0|0|||||||||||||
+39|Rookery Bay National Estuarine Research Reserve|Salinity|Surface|Sample|FALSE|0|0|||||||||||||
+12|Southeast Florida Coral Reef Ecosystem Conservation Area|Salinity|Surface|Sample|FALSE|0|0|||||||||||||
+40|St. Andrews State Park Aquatic Preserve|Salinity|Surface|Sample|FALSE|0|0|||||||||||||
+41|St. Joseph Bay Aquatic Preserve|Salinity|Surface|Sample|FALSE|0|0|||||||||||||
+42|St. Joseph Bay State Buffer Preserve|Salinity|Surface|Sample|FALSE|0|0|||||||||||||
+43|St. Martins Marsh Aquatic Preserve|Salinity|Surface|Sample|FALSE|0|0|||||||||||||
+44|Terra Ceia Aquatic Preserve|Salinity|Surface|Sample|FALSE|0|0|||||||||||||
+45|Tomoka Marsh Aquatic Preserve|Salinity|Surface|Sample|FALSE|1|1|2002|2002|||||||||||
+46|Wekiva River Aquatic Preserve|Salinity|Surface|Sample|FALSE|0|0|||||||||||||
+47|Yellow River Marsh Aquatic Preserve|Salinity|Surface|Sample|FALSE|0|0|||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||
+||||||||||||||||||||

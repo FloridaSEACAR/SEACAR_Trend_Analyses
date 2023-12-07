@@ -1,0 +1,49 @@
+AreaID,ManagedAreaName,ParameterName,RelativeDepth,ActivityType,N_Total,N_AnalysisUse,N_H,perc_H,N_I,perc_I,N_Q,perc_Q,N_S,perc_S,N_U,perc_U
+1,Alligator Harbor Aquatic Preserve,Chlorophyll a uncorrected for pheophytin,Surface,Sample,678,678,0,0,1192,2.98821759839559,91,0.228127350213086,0,0,1132,2.83780396089245
+2,Apalachicola Bay Aquatic Preserve,Chlorophyll a uncorrected for pheophytin,Surface,Sample,2843,2843,0,0,1192,2.98821759839559,91,0.228127350213086,0,0,1132,2.83780396089245
+3,Apalachicola National Estuarine Research Reserve,Chlorophyll a uncorrected for pheophytin,Surface,Sample,3429,3429,0,0,1192,2.98821759839559,91,0.228127350213086,0,0,1132,2.83780396089245
+4,Banana River Aquatic Preserve,Chlorophyll a uncorrected for pheophytin,Surface,Sample,40,0,0,0,1192,2.98821759839559,91,0.228127350213086,0,0,1132,2.83780396089245
+5,Big Bend Seagrasses Aquatic Preserve,Chlorophyll a uncorrected for pheophytin,Surface,Sample,3651,3651,0,0,1192,2.98821759839559,91,0.228127350213086,0,0,1132,2.83780396089245
+7,Biscayne Bay-Cape Florida to Monroe County Line Aquatic Preserve,Chlorophyll a uncorrected for pheophytin,Surface,Sample,1,0,0,0,1192,2.98821759839559,91,0.228127350213086,0,0,1132,2.83780396089245
+6,Biscayne Bay Aquatic Preserve,Chlorophyll a uncorrected for pheophytin,Surface,Sample,452,452,0,0,1192,2.98821759839559,91,0.228127350213086,0,0,1132,2.83780396089245
+8,Boca Ciega Bay Aquatic Preserve,Chlorophyll a uncorrected for pheophytin,Surface,Sample,35,0,0,0,1192,2.98821759839559,91,0.228127350213086,0,0,1132,2.83780396089245
+9,Cape Haze Aquatic Preserve,Chlorophyll a uncorrected for pheophytin,Surface,Sample,29,0,0,0,1192,2.98821759839559,91,0.228127350213086,0,0,1132,2.83780396089245
+10,Cape Romano-Ten Thousand Islands Aquatic Preserve,Chlorophyll a uncorrected for pheophytin,Surface,Sample,393,393,0,0,1192,2.98821759839559,91,0.228127350213086,0,0,1132,2.83780396089245
+11,Cockroach Bay Aquatic Preserve,Chlorophyll a uncorrected for pheophytin,Surface,Sample,675,675,0,0,1192,2.98821759839559,91,0.228127350213086,0,0,1132,2.83780396089245
+13,Coupon Bight Aquatic Preserve,Chlorophyll a uncorrected for pheophytin,Surface,Sample,61,61,0,0,1192,2.98821759839559,91,0.228127350213086,0,0,1132,2.83780396089245
+14,Estero Bay Aquatic Preserve,Chlorophyll a uncorrected for pheophytin,Surface,Sample,144,144,0,0,1192,2.98821759839559,91,0.228127350213086,0,0,1132,2.83780396089245
+15,Florida Keys National Marine Sanctuary,Chlorophyll a uncorrected for pheophytin,Surface,Sample,15978,15978,0,0,1192,2.98821759839559,91,0.228127350213086,0,0,1132,2.83780396089245
+16,Fort Clinch State Park Aquatic Preserve,Chlorophyll a uncorrected for pheophytin,Surface,Sample,16,0,0,0,1192,2.98821759839559,91,0.228127350213086,0,0,1132,2.83780396089245
+17,Fort Pickens State Park Aquatic Preserve,Chlorophyll a uncorrected for pheophytin,Surface,Sample,190,190,0,0,1192,2.98821759839559,91,0.228127350213086,0,0,1132,2.83780396089245
+18,Gasparilla Sound-Charlotte Harbor Aquatic Preserve,Chlorophyll a uncorrected for pheophytin,Surface,Sample,504,504,0,0,1192,2.98821759839559,91,0.228127350213086,0,0,1132,2.83780396089245
+19,Guana River Marsh Aquatic Preserve,Chlorophyll a uncorrected for pheophytin,Surface,Sample,48,0,0,0,1192,2.98821759839559,91,0.228127350213086,0,0,1132,2.83780396089245
+20,Guana Tolomato Matanzas National Estuarine Research Reserve,Chlorophyll a uncorrected for pheophytin,Surface,Sample,98,0,0,0,1192,2.98821759839559,91,0.228127350213086,0,0,1132,2.83780396089245
+21,Indian River-Malabar to Vero Beach Aquatic Preserve,Chlorophyll a uncorrected for pheophytin,Surface,Sample,77,77,0,0,1192,2.98821759839559,91,0.228127350213086,0,0,1132,2.83780396089245
+22,Indian River-Vero Beach to Ft. Pierce Aquatic Preserve,Chlorophyll a uncorrected for pheophytin,Surface,Sample,40,0,0,0,1192,2.98821759839559,91,0.228127350213086,0,0,1132,2.83780396089245
+23,Jensen Beach to Jupiter Inlet Aquatic Preserve,Chlorophyll a uncorrected for pheophytin,Surface,Sample,301,301,0,0,1192,2.98821759839559,91,0.228127350213086,0,0,1132,2.83780396089245
+24,Lake Jackson Aquatic Preserve,Chlorophyll a uncorrected for pheophytin,Surface,Sample,1,0,0,0,1192,2.98821759839559,91,0.228127350213086,0,0,1132,2.83780396089245
+25,Lemon Bay Aquatic Preserve,Chlorophyll a uncorrected for pheophytin,Surface,Sample,76,76,0,0,1192,2.98821759839559,91,0.228127350213086,0,0,1132,2.83780396089245
+26,Lignumvitae Key Aquatic Preserve,Chlorophyll a uncorrected for pheophytin,Surface,Sample,15,0,0,0,1192,2.98821759839559,91,0.228127350213086,0,0,1132,2.83780396089245
+27,Loxahatchee River-Lake Worth Creek Aquatic Preserve,Chlorophyll a uncorrected for pheophytin,Surface,Sample,3138,3138,0,0,1192,2.98821759839559,91,0.228127350213086,0,0,1132,2.83780396089245
+28,Matlacha Pass Aquatic Preserve,Chlorophyll a uncorrected for pheophytin,Surface,Sample,183,183,0,0,1192,2.98821759839559,91,0.228127350213086,0,0,1132,2.83780396089245
+29,Mosquito Lagoon Aquatic Preserve,Chlorophyll a uncorrected for pheophytin,Surface,Sample,12,0,0,0,1192,2.98821759839559,91,0.228127350213086,0,0,1132,2.83780396089245
+30,Nassau River-St. Johns River Marshes Aquatic Preserve,Chlorophyll a uncorrected for pheophytin,Surface,Sample,66,0,0,0,1192,2.98821759839559,91,0.228127350213086,0,0,1132,2.83780396089245
+48,Nature Coast Aquatic Preserve,Chlorophyll a uncorrected for pheophytin,Surface,Sample,1161,0,0,0,1192,2.98821759839559,91,0.228127350213086,0,0,1132,2.83780396089245
+31,North Fork St. Lucie Aquatic Preserve,Chlorophyll a uncorrected for pheophytin,Surface,Sample,216,0,0,0,1192,2.98821759839559,91,0.228127350213086,0,0,1132,2.83780396089245
+32,Oklawaha River Aquatic Preserve,Chlorophyll a uncorrected for pheophytin,Surface,Sample,1,0,0,0,1192,2.98821759839559,91,0.228127350213086,0,0,1132,2.83780396089245
+33,Pellicer Creek Aquatic Preserve,Chlorophyll a uncorrected for pheophytin,Surface,Sample,21,0,0,0,1192,2.98821759839559,91,0.228127350213086,0,0,1132,2.83780396089245
+34,Pine Island Sound Aquatic Preserve,Chlorophyll a uncorrected for pheophytin,Surface,Sample,160,160,0,0,1192,2.98821759839559,91,0.228127350213086,0,0,1132,2.83780396089245
+35,Pinellas County Aquatic Preserve,Chlorophyll a uncorrected for pheophytin,Surface,Sample,1291,1291,0,0,1192,2.98821759839559,91,0.228127350213086,0,0,1132,2.83780396089245
+36,Rainbow Springs Aquatic Preserve,Chlorophyll a uncorrected for pheophytin,Surface,Sample,1,0,0,0,1192,2.98821759839559,91,0.228127350213086,0,0,1132,2.83780396089245
+37,Rocky Bayou State Park Aquatic Preserve,Chlorophyll a uncorrected for pheophytin,Surface,Sample,386,386,0,0,1192,2.98821759839559,91,0.228127350213086,0,0,1132,2.83780396089245
+38,Rookery Bay Aquatic Preserve,Chlorophyll a uncorrected for pheophytin,Surface,Sample,604,604,0,0,1192,2.98821759839559,91,0.228127350213086,0,0,1132,2.83780396089245
+39,Rookery Bay National Estuarine Research Reserve,Chlorophyll a uncorrected for pheophytin,Surface,Sample,1021,1021,0,0,1192,2.98821759839559,91,0.228127350213086,0,0,1132,2.83780396089245
+12,Southeast Florida Coral Reef Ecosystem Conservation Area,Chlorophyll a uncorrected for pheophytin,Surface,Sample,143,0,0,0,1192,2.98821759839559,91,0.228127350213086,0,0,1132,2.83780396089245
+40,St. Andrews State Park Aquatic Preserve,Chlorophyll a uncorrected for pheophytin,Surface,Sample,670,670,0,0,1192,2.98821759839559,91,0.228127350213086,0,0,1132,2.83780396089245
+41,St. Joseph Bay Aquatic Preserve,Chlorophyll a uncorrected for pheophytin,Surface,Sample,698,698,0,0,1192,2.98821759839559,91,0.228127350213086,0,0,1132,2.83780396089245
+42,St. Joseph Bay State Buffer Preserve,Chlorophyll a uncorrected for pheophytin,Surface,Sample,41,0,0,0,1192,2.98821759839559,91,0.228127350213086,0,0,1132,2.83780396089245
+43,St. Martins Marsh Aquatic Preserve,Chlorophyll a uncorrected for pheophytin,Surface,Sample,175,175,0,0,1192,2.98821759839559,91,0.228127350213086,0,0,1132,2.83780396089245
+44,Terra Ceia Aquatic Preserve,Chlorophyll a uncorrected for pheophytin,Surface,Sample,71,71,0,0,1192,2.98821759839559,91,0.228127350213086,0,0,1132,2.83780396089245
+45,Tomoka Marsh Aquatic Preserve,Chlorophyll a uncorrected for pheophytin,Surface,Sample,37,0,0,0,1192,2.98821759839559,91,0.228127350213086,0,0,1132,2.83780396089245
+46,Wekiva River Aquatic Preserve,Chlorophyll a uncorrected for pheophytin,Surface,Sample,1,0,0,0,1192,2.98821759839559,91,0.228127350213086,0,0,1132,2.83780396089245
+47,Yellow River Marsh Aquatic Preserve,Chlorophyll a uncorrected for pheophytin,Surface,Sample,18,0,0,0,1192,2.98821759839559,91,0.228127350213086,0,0,1132,2.83780396089245

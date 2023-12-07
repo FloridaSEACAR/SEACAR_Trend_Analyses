@@ -1,0 +1,49 @@
+AreaID,ManagedAreaName,ParameterName,RelativeDepth,ActivityType,N_Total,N_AnalysisUse,N_H,perc_H,N_I,perc_I,N_Q,perc_Q,N_S,perc_S,N_U,perc_U
+1,Alligator Harbor Aquatic Preserve,pH,Bottom,Field,72,72,0,0,0,0,0,0,0,0,0,0
+2,Apalachicola Bay Aquatic Preserve,pH,Bottom,Field,599,599,0,0,0,0,0,0,0,0,0,0
+3,Apalachicola National Estuarine Research Reserve,pH,Bottom,Field,812,812,0,0,0,0,0,0,0,0,0,0
+4,Banana River Aquatic Preserve,pH,Bottom,Field,726,726,0,0,0,0,0,0,0,0,0,0
+5,Big Bend Seagrasses Aquatic Preserve,pH,Bottom,Field,885,885,0,0,0,0,0,0,0,0,0,0
+7,Biscayne Bay-Cape Florida to Monroe County Line Aquatic Preserve,pH,Bottom,Field,1,0,0,0,0,0,0,0,0,0,0,0
+6,Biscayne Bay Aquatic Preserve,pH,Bottom,Field,186,0,0,0,0,0,0,0,0,0,0,0
+8,Boca Ciega Bay Aquatic Preserve,pH,Bottom,Field,4062,4062,0,0,0,0,0,0,0,0,0,0
+9,Cape Haze Aquatic Preserve,pH,Bottom,Field,336,336,0,0,0,0,0,0,0,0,0,0
+10,Cape Romano-Ten Thousand Islands Aquatic Preserve,pH,Bottom,Field,7,0,0,0,0,0,0,0,0,0,0,0
+11,Cockroach Bay Aquatic Preserve,pH,Bottom,Field,3391,3391,0,0,0,0,0,0,0,0,0,0
+13,Coupon Bight Aquatic Preserve,pH,Bottom,Field,2,0,0,0,0,0,0,0,0,0,0,0
+14,Estero Bay Aquatic Preserve,pH,Bottom,Field,71,0,0,0,0,0,0,0,0,0,0,0
+15,Florida Keys National Marine Sanctuary,pH,Bottom,Field,1825,1825,0,0,0,0,0,0,0,0,0,0
+16,Fort Clinch State Park Aquatic Preserve,pH,Bottom,Field,15,0,0,0,0,0,0,0,0,0,0,0
+17,Fort Pickens State Park Aquatic Preserve,pH,Bottom,Field,10,0,0,0,0,0,0,0,0,0,0,0
+18,Gasparilla Sound-Charlotte Harbor Aquatic Preserve,pH,Bottom,Field,2048,2048,0,0,0,0,0,0,0,0,0,0
+19,Guana River Marsh Aquatic Preserve,pH,Bottom,Field,485,485,0,0,0,0,0,0,0,0,0,0
+20,Guana Tolomato Matanzas National Estuarine Research Reserve,pH,Bottom,Field,889,889,0,0,0,0,0,0,0,0,0,0
+21,Indian River-Malabar to Vero Beach Aquatic Preserve,pH,Bottom,Field,2994,2994,0,0,0,0,0,0,0,0,0,0
+22,Indian River-Vero Beach to Ft. Pierce Aquatic Preserve,pH,Bottom,Field,240,240,0,0,0,0,0,0,0,0,0,0
+23,Jensen Beach to Jupiter Inlet Aquatic Preserve,pH,Bottom,Field,76,76,0,0,0,0,0,0,0,0,0,0
+24,Lake Jackson Aquatic Preserve,pH,Bottom,Field,1,0,0,0,0,0,0,0,0,0,0,0
+25,Lemon Bay Aquatic Preserve,pH,Bottom,Field,360,360,0,0,0,0,0,0,0,0,0,0
+26,Lignumvitae Key Aquatic Preserve,pH,Bottom,Field,64,0,0,0,0,0,0,0,0,0,0,0
+27,Loxahatchee River-Lake Worth Creek Aquatic Preserve,pH,Bottom,Field,299,299,0,0,0,0,0,0,0,0,0,0
+28,Matlacha Pass Aquatic Preserve,pH,Bottom,Field,197,0,0,0,0,0,0,0,0,0,0,0
+29,Mosquito Lagoon Aquatic Preserve,pH,Bottom,Field,24,0,0,0,0,0,0,0,0,0,0,0
+30,Nassau River-St. Johns River Marshes Aquatic Preserve,pH,Bottom,Field,315,315,0,0,0,0,0,0,0,0,0,0
+48,Nature Coast Aquatic Preserve,pH,Bottom,Field,173,173,0,0,0,0,0,0,0,0,0,0
+31,North Fork St. Lucie Aquatic Preserve,pH,Bottom,Field,21,0,0,0,0,0,0,0,0,0,0,0
+32,Oklawaha River Aquatic Preserve,pH,Bottom,Field,1,0,0,0,0,0,0,0,0,0,0,0
+33,Pellicer Creek Aquatic Preserve,pH,Bottom,Field,55,0,0,0,0,0,0,0,0,0,0,0
+34,Pine Island Sound Aquatic Preserve,pH,Bottom,Field,98,98,0,0,0,0,0,0,0,0,0,0
+35,Pinellas County Aquatic Preserve,pH,Bottom,Field,12409,12409,0,0,0,0,0,0,0,0,0,0
+36,Rainbow Springs Aquatic Preserve,pH,Bottom,Field,1,0,0,0,0,0,0,0,0,0,0,0
+37,Rocky Bayou State Park Aquatic Preserve,pH,Bottom,Field,258,258,0,0,0,0,0,0,0,0,0,0
+38,Rookery Bay Aquatic Preserve,pH,Bottom,Field,28,0,0,0,0,0,0,0,0,0,0,0
+39,Rookery Bay National Estuarine Research Reserve,pH,Bottom,Field,44,44,0,0,0,0,0,0,0,0,0,0
+12,Southeast Florida Coral Reef Ecosystem Conservation Area,pH,Bottom,Field,1,0,0,0,0,0,0,0,0,0,0,0
+40,St. Andrews State Park Aquatic Preserve,pH,Bottom,Field,106,106,0,0,0,0,0,0,0,0,0,0
+41,St. Joseph Bay Aquatic Preserve,pH,Bottom,Field,123,123,0,0,0,0,0,0,0,0,0,0
+42,St. Joseph Bay State Buffer Preserve,pH,Bottom,Field,1,0,0,0,0,0,0,0,0,0,0,0
+43,St. Martins Marsh Aquatic Preserve,pH,Bottom,Field,103,103,0,0,0,0,0,0,0,0,0,0
+44,Terra Ceia Aquatic Preserve,pH,Bottom,Field,1951,1951,0,0,0,0,0,0,0,0,0,0
+45,Tomoka Marsh Aquatic Preserve,pH,Bottom,Field,182,182,0,0,0,0,0,0,0,0,0,0
+46,Wekiva River Aquatic Preserve,pH,Bottom,Field,1,0,0,0,0,0,0,0,0,0,0,0
+47,Yellow River Marsh Aquatic Preserve,pH,Bottom,Field,7,0,0,0,0,0,0,0,0,0,0,0

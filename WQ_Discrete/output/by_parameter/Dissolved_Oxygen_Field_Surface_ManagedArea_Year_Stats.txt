@@ -1,0 +1,1225 @@
+AreaID|ManagedAreaName|Year|ParameterName|RelativeDepth|ActivityType|N|Min|Max|Median|Mean|StandardDeviation|ProgramIDs
+1|Alligator Harbor Aquatic Preserve|1998|Dissolved Oxygen|Surface|Field|142|5.7|9.7|7.6|7.69084507042254|0.713686357555854|69, 5002
+1|Alligator Harbor Aquatic Preserve|1999|Dissolved Oxygen|Surface|Field|871|2.9|11.4|7.6|7.86084959816303|1.32144773068763|69, 5002
+1|Alligator Harbor Aquatic Preserve|2000|Dissolved Oxygen|Surface|Field|267|4.3|12.4|9.1|8.85767790262172|1.63262296489034|69, 5002
+1|Alligator Harbor Aquatic Preserve|2001|Dissolved Oxygen|Surface|Field|172|4.5|11.3|8|8.00872093023256|1.15570519370817|69, 5002
+1|Alligator Harbor Aquatic Preserve|2002|Dissolved Oxygen|Surface|Field|337|4.2|11.7|8|7.95964391691395|1.49822430340175|69, 5002
+1|Alligator Harbor Aquatic Preserve|2003|Dissolved Oxygen|Surface|Field|241|3.1|12|8.5|8.25103734439834|1.29550865278196|69, 5002
+1|Alligator Harbor Aquatic Preserve|2004|Dissolved Oxygen|Surface|Field|233|2.2|10.9|7.4|7.30901287553648|1.77934881657319|69, 95, 5002
+1|Alligator Harbor Aquatic Preserve|2005|Dissolved Oxygen|Surface|Field|103|4.36|11.1|8.1|8.1352427184466|1.35599095134076|69, 557, 5002
+1|Alligator Harbor Aquatic Preserve|2006|Dissolved Oxygen|Surface|Field|69|2.6|11.91|7.4|7.39434782608696|1.14767857544348|69, 557, 5002
+1|Alligator Harbor Aquatic Preserve|2007|Dissolved Oxygen|Surface|Field|156|2.3|9.4|5.4|5.84891025641026|1.83128742787882|69, 557, 5002
+1|Alligator Harbor Aquatic Preserve|2008|Dissolved Oxygen|Surface|Field|219|2|10.7|5|5.30109589041096|1.9422576679115|69, 95, 557, 5002
+1|Alligator Harbor Aquatic Preserve|2009|Dissolved Oxygen|Surface|Field|226|2.9|12|7.2|7.09929203539823|1.46541960123018|69, 95, 557, 5002
+1|Alligator Harbor Aquatic Preserve|2010|Dissolved Oxygen|Surface|Field|113|2.2|10.6|7.8|7.47433628318584|2.16067857896963|69, 95, 5002
+1|Alligator Harbor Aquatic Preserve|2011|Dissolved Oxygen|Surface|Field|87|4.4|9.5|7.1|7.13103448275862|0.928778936427071|69, 95, 5002
+1|Alligator Harbor Aquatic Preserve|2012|Dissolved Oxygen|Surface|Field|119|2.8|9.4|4.9|5.29915966386555|1.75945368053621|69, 5002
+1|Alligator Harbor Aquatic Preserve|2013|Dissolved Oxygen|Surface|Field|122|2.1|18.6|7.55|7.90245901639344|2.12421937493563|69, 5002
+1|Alligator Harbor Aquatic Preserve|2014|Dissolved Oxygen|Surface|Field|186|3.7|9.4|5.4|5.71397849462366|1.1180186526365|69, 95, 5002
+1|Alligator Harbor Aquatic Preserve|2015|Dissolved Oxygen|Surface|Field|174|4.1|10.5|6.75|7.06609195402299|1.32858728597962|69, 95, 5002
+1|Alligator Harbor Aquatic Preserve|2016|Dissolved Oxygen|Surface|Field|223|3.7|11.8|7.1|6.88941704035875|1.22312224941157|69, 95, 469, 5002
+1|Alligator Harbor Aquatic Preserve|2017|Dissolved Oxygen|Surface|Field|307|2.4|15.4|6.52|6.62078175895766|1.33913567429741|69, 95, 469, 557, 5002
+1|Alligator Harbor Aquatic Preserve|2018|Dissolved Oxygen|Surface|Field|111|3.5|9.24|6.59|6.85279279279279|1.34179674058275|95, 469, 557
+1|Alligator Harbor Aquatic Preserve|2019|Dissolved Oxygen|Surface|Field|104|5.06|10.41|6.71|6.97576923076923|1.2570891730291|469, 557, 5002
+1|Alligator Harbor Aquatic Preserve|2020|Dissolved Oxygen|Surface|Field|88|5.12|10.11|7.33|7.39090909090909|1.01271529439552|469, 5002
+1|Alligator Harbor Aquatic Preserve|2021|Dissolved Oxygen|Surface|Field|92|5.26|9.66|7.31|7.31739130434783|1.20773138484745|469, 5002
+1|Alligator Harbor Aquatic Preserve|2022|Dissolved Oxygen|Surface|Field|15|8.05|9.07|8.52|8.53066666666667|0.30108059354519|469, 5002
+2|Apalachicola Bay Aquatic Preserve|1992|Dissolved Oxygen|Surface|Field|2|4.4|6.6|5.5|5.5|1.5556349186104|115
+2|Apalachicola Bay Aquatic Preserve|1993|Dissolved Oxygen|Surface|Field|2|6.7|6.8|6.75|6.75|0.0707106781186545|115
+2|Apalachicola Bay Aquatic Preserve|1994|Dissolved Oxygen|Surface|Field|8|6.2|7.7|6.65|6.7875|0.556616051305951|115, 119
+2|Apalachicola Bay Aquatic Preserve|1995|Dissolved Oxygen|Surface|Field|690|4.8|11.7|8.8|8.72869565217391|1.37550192769823|95, 5002
+2|Apalachicola Bay Aquatic Preserve|1996|Dissolved Oxygen|Surface|Field|1326|2.1|11.9|8.1|7.99291101055807|1.84347362099928|95, 5002
+2|Apalachicola Bay Aquatic Preserve|1997|Dissolved Oxygen|Surface|Field|610|4.4|11.9|8|8.16606557377049|1.75019002363907|5002
+2|Apalachicola Bay Aquatic Preserve|1998|Dissolved Oxygen|Surface|Field|1233|1.9|12.6|8.1|8.13244120032441|1.70493514748577|69, 5002
+2|Apalachicola Bay Aquatic Preserve|1999|Dissolved Oxygen|Surface|Field|963|4.5|13|8.2|8.34299065420561|1.48336590721018|69, 95, 5002
+2|Apalachicola Bay Aquatic Preserve|2000|Dissolved Oxygen|Surface|Field|813|4.2|13.7|8.5|8.58346863468635|1.62202528727949|69, 95, 129, 5002
+2|Apalachicola Bay Aquatic Preserve|2001|Dissolved Oxygen|Surface|Field|1607|1|15.4|8|8.16611076540137|1.80329144070002|69, 95, 129, 5002
+2|Apalachicola Bay Aquatic Preserve|2002|Dissolved Oxygen|Surface|Field|1337|1.9|14.3|7.91|8.05451757666417|1.7859207595688|69, 115, 129, 5002
+2|Apalachicola Bay Aquatic Preserve|2003|Dissolved Oxygen|Surface|Field|1479|2|13.9|7.78|7.84386071670047|2.06249672248194|69, 95, 129, 355, 5002
+2|Apalachicola Bay Aquatic Preserve|2004|Dissolved Oxygen|Surface|Field|1090|2.7|15.4|8.3|8.36716513761468|1.95096631193331|69, 95, 103, 115, 129, 355, 5002
+2|Apalachicola Bay Aquatic Preserve|2005|Dissolved Oxygen|Surface|Field|1244|1.5|16.5|7.9|8.05549035369775|2.04247215863834|69, 95, 118, 129, 355, 5002
+2|Apalachicola Bay Aquatic Preserve|2006|Dissolved Oxygen|Surface|Field|1021|2.5|16.7|7.83|7.92351616062684|1.82891483870589|69, 118, 129, 355, 5002
+2|Apalachicola Bay Aquatic Preserve|2007|Dissolved Oxygen|Surface|Field|1320|1.6|13.4|6.87|7.00109090909091|2.15800504374599|69, 129, 355, 5002
+2|Apalachicola Bay Aquatic Preserve|2008|Dissolved Oxygen|Surface|Field|1386|1.41|16.8|7.1|7.1150937950938|1.98077774132037|69, 129, 355, 5002
+2|Apalachicola Bay Aquatic Preserve|2009|Dissolved Oxygen|Surface|Field|1707|0.1|16.7|8|7.85145284124195|2.03207232521591|69, 129, 355, 5002
+2|Apalachicola Bay Aquatic Preserve|2010|Dissolved Oxygen|Surface|Field|1460|1.5|14.8|7.4|7.81117123287671|2.37560657052561|69, 95, 129, 355, 5002
+2|Apalachicola Bay Aquatic Preserve|2011|Dissolved Oxygen|Surface|Field|1246|1|15.8|7.7|7.63535313001605|2.021198855867|69, 95, 129, 355, 5002
+2|Apalachicola Bay Aquatic Preserve|2012|Dissolved Oxygen|Surface|Field|1512|0.5|15.97|6.78|6.85013227513228|2.07943553239459|69, 129, 355, 5002
+2|Apalachicola Bay Aquatic Preserve|2013|Dissolved Oxygen|Surface|Field|1421|1.3|18.2|7.9|7.88358902181562|2.16185680754533|69, 95, 355, 5002
+2|Apalachicola Bay Aquatic Preserve|2014|Dissolved Oxygen|Surface|Field|1745|0.8|12.7|7|6.98845845272206|2.22073164874904|69, 95, 129, 355, 5002
+2|Apalachicola Bay Aquatic Preserve|2015|Dissolved Oxygen|Surface|Field|1609|2.4|18.2|7.48|7.61426973275326|1.9539460276426|69, 95, 129, 355, 5002
+2|Apalachicola Bay Aquatic Preserve|2016|Dissolved Oxygen|Surface|Field|1555|1.3|17.9|7.4|7.71488102893891|1.77465755265874|69, 95, 129, 355, 5002
+2|Apalachicola Bay Aquatic Preserve|2017|Dissolved Oxygen|Surface|Field|1698|2.43|13.3|7.6|7.57861012956419|1.60331317981446|69, 95, 129, 355, 5002
+2|Apalachicola Bay Aquatic Preserve|2018|Dissolved Oxygen|Surface|Field|249|1.3|12.06|8|8.10329317269076|1.89805343792511|95, 129, 355, 5002
+2|Apalachicola Bay Aquatic Preserve|2019|Dissolved Oxygen|Surface|Field|217|5.33|13|7.87|8.09654377880184|1.35707492463895|129, 355, 557, 5002
+2|Apalachicola Bay Aquatic Preserve|2020|Dissolved Oxygen|Surface|Field|58|5.86|10.03|8.26|8.21034482758621|1.13034533694896|129, 5002
+2|Apalachicola Bay Aquatic Preserve|2021|Dissolved Oxygen|Surface|Field|8|4.9|9.31|7.115|6.89|1.63803017589508|5002
+2|Apalachicola Bay Aquatic Preserve|2022|Dissolved Oxygen|Surface|Field|1|12.9|12.9|12.9|12.9||5002
+3|Apalachicola National Estuarine Research Reserve|1992|Dissolved Oxygen|Surface|Field|2|4.4|6.6|5.5|5.5|1.5556349186104|115
+3|Apalachicola National Estuarine Research Reserve|1993|Dissolved Oxygen|Surface|Field|2|6.7|6.8|6.75|6.75|0.0707106781186545|115
+3|Apalachicola National Estuarine Research Reserve|1994|Dissolved Oxygen|Surface|Field|8|6.2|7.7|6.65|6.7875|0.556616051305951|115, 119
+3|Apalachicola National Estuarine Research Reserve|1995|Dissolved Oxygen|Surface|Field|1113|2.6|11.8|8.8|8.74070080862534|1.40005339484807|95, 5002
+3|Apalachicola National Estuarine Research Reserve|1996|Dissolved Oxygen|Surface|Field|1780|2.1|11.9|8.2|8.09230337078652|1.76864269884176|95, 5002
+3|Apalachicola National Estuarine Research Reserve|1997|Dissolved Oxygen|Surface|Field|870|4.4|11.9|7.9|8.09965517241379|1.73491522446428|5002
+3|Apalachicola National Estuarine Research Reserve|1998|Dissolved Oxygen|Surface|Field|1899|1.9|12.6|8.1|8.13412322274882|1.67633199089926|69, 5002
+3|Apalachicola National Estuarine Research Reserve|1999|Dissolved Oxygen|Surface|Field|1286|4.5|13|8.3|8.35443234836703|1.48990630776755|69, 95, 5002
+3|Apalachicola National Estuarine Research Reserve|2000|Dissolved Oxygen|Surface|Field|1172|4.2|13.7|8.6|8.60751706484642|1.55873749375288|69, 95, 115, 118, 129, 5002
+3|Apalachicola National Estuarine Research Reserve|2001|Dissolved Oxygen|Surface|Field|2314|1|15.4|8|8.13462834917891|1.79257028525375|69, 95, 115, 118, 129, 5002
+3|Apalachicola National Estuarine Research Reserve|2002|Dissolved Oxygen|Surface|Field|2002|1.9|14.3|7.9|8.0185964035964|1.75199706937013|69, 115, 129, 5002
+3|Apalachicola National Estuarine Research Reserve|2003|Dissolved Oxygen|Surface|Field|2188|2|13.9|7.7|7.78704753199269|2.00363758443391|69, 95, 129, 355, 5002
+3|Apalachicola National Estuarine Research Reserve|2004|Dissolved Oxygen|Surface|Field|1634|2.7|15.4|8.3|8.33623623011016|1.8668772949894|69, 95, 103, 115, 129, 355, 5002
+3|Apalachicola National Estuarine Research Reserve|2005|Dissolved Oxygen|Surface|Field|1926|0.2|16.5|7.9|7.95780373831776|1.95225740928564|69, 95, 118, 129, 355, 5002
+3|Apalachicola National Estuarine Research Reserve|2006|Dissolved Oxygen|Surface|Field|1688|2.1|16.7|7.9|7.88774881516588|1.74464584372708|69, 118, 129, 355, 5002
+3|Apalachicola National Estuarine Research Reserve|2007|Dissolved Oxygen|Surface|Field|2366|1.6|13.4|7.175|7.15923076923077|2.00453380407271|69, 129, 355, 5002
+3|Apalachicola National Estuarine Research Reserve|2008|Dissolved Oxygen|Surface|Field|2313|1.2|16.8|7.2|7.28011240812797|1.99237202039071|69, 129, 355, 5002
+3|Apalachicola National Estuarine Research Reserve|2009|Dissolved Oxygen|Surface|Field|2747|0.1|16.7|8|7.8066654532217|2.03410384729965|69, 129, 355, 5002
+3|Apalachicola National Estuarine Research Reserve|2010|Dissolved Oxygen|Surface|Field|2203|1.2|16.1|7.55|7.86725374489333|2.41048463750091|69, 95, 129, 355, 5002
+3|Apalachicola National Estuarine Research Reserve|2011|Dissolved Oxygen|Surface|Field|1904|1|15.8|7.8|7.73219537815126|1.91024673187157|69, 95, 129, 355, 5002
+3|Apalachicola National Estuarine Research Reserve|2012|Dissolved Oxygen|Surface|Field|2234|0.5|15.97|7|7.01442256042972|1.98345296687069|69, 95, 129, 355, 5002
+3|Apalachicola National Estuarine Research Reserve|2013|Dissolved Oxygen|Surface|Field|2181|1.3|18.2|7.9|7.90164144887666|2.27585420233397|69, 95, 355, 5002
+3|Apalachicola National Estuarine Research Reserve|2014|Dissolved Oxygen|Surface|Field|2534|0.8|12.7|7|7.05243883188635|2.06132467767069|69, 95, 129, 355, 5002
+3|Apalachicola National Estuarine Research Reserve|2015|Dissolved Oxygen|Surface|Field|2290|2.4|18.2|7.3|7.4876768558952|1.89872172411211|69, 95, 129, 355, 5002
+3|Apalachicola National Estuarine Research Reserve|2016|Dissolved Oxygen|Surface|Field|2338|1.3|17.9|7.6|7.80245936698033|1.82821692708896|69, 95, 129, 355, 5002
+3|Apalachicola National Estuarine Research Reserve|2017|Dissolved Oxygen|Surface|Field|2475|2.43|13.3|7.46|7.48223838383838|1.61305428885229|69, 95, 129, 355, 5002
+3|Apalachicola National Estuarine Research Reserve|2018|Dissolved Oxygen|Surface|Field|342|0.15|12.06|7.8|7.90438596491228|2.04025918445275|95, 129, 355, 5002
+3|Apalachicola National Estuarine Research Reserve|2019|Dissolved Oxygen|Surface|Field|302|4.83|13|7.6|7.88788079470199|1.39559611539455|129, 355, 557, 5002
+3|Apalachicola National Estuarine Research Reserve|2020|Dissolved Oxygen|Surface|Field|76|2.16|10.03|7.795|7.68355263157895|1.53785626025093|129, 5002
+3|Apalachicola National Estuarine Research Reserve|2021|Dissolved Oxygen|Surface|Field|27|4.07|10.46|7.6|7.39259259259259|1.82250586702146|5002
+3|Apalachicola National Estuarine Research Reserve|2022|Dissolved Oxygen|Surface|Field|7|3.32|12.9|8.21|7.95714285714286|3.14752661776256|5002
+4|Banana River Aquatic Preserve|1990|Dissolved Oxygen|Surface|Field|69|1.7|13.1|6.2|6.31449275362319|2.05270806513786|69
+4|Banana River Aquatic Preserve|1991|Dissolved Oxygen|Surface|Field|153|2.7|11.2|6.6|6.60326797385621|1.50417919130657|69, 3001, 5002
+4|Banana River Aquatic Preserve|1992|Dissolved Oxygen|Surface|Field|419|1.1|10.6|6.5|6.2090692124105|2.00857345232381|69, 3001, 5002
+4|Banana River Aquatic Preserve|1993|Dissolved Oxygen|Surface|Field|411|1.1|11.1|6.7|6.52335766423358|1.86566915114132|69, 3001, 5002
+4|Banana River Aquatic Preserve|1994|Dissolved Oxygen|Surface|Field|381|0.6|11.6|6.5|6.39028871391076|1.98188776850538|69, 3001, 5002
+4|Banana River Aquatic Preserve|1995|Dissolved Oxygen|Surface|Field|306|1|12.2|6.8|6.69052287581699|1.79531495601141|69, 115, 3001, 5002
+4|Banana River Aquatic Preserve|1996|Dissolved Oxygen|Surface|Field|3954|0.5|13.7|7.1|7.20687910976227|1.88516200699485|69, 3001, 5002
+4|Banana River Aquatic Preserve|1997|Dissolved Oxygen|Surface|Field|1043|1|12.6|7.5|7.38919463087248|1.90586712157881|69, 3001, 5002
+4|Banana River Aquatic Preserve|1998|Dissolved Oxygen|Surface|Field|752|1.9|13.6|6.6|6.7942420212766|1.72359832009784|69, 3001, 5002
+4|Banana River Aquatic Preserve|1999|Dissolved Oxygen|Surface|Field|1089|1|12|7.2|7.08267217630854|1.51451316070221|69, 3001, 5002
+4|Banana River Aquatic Preserve|2000|Dissolved Oxygen|Surface|Field|841|0.6|12|6.8|6.50954815695601|1.88689731100065|69, 3001, 5002
+4|Banana River Aquatic Preserve|2001|Dissolved Oxygen|Surface|Field|952|0.8|10.8|5.8|5.77068277310924|1.81888106953362|69, 3001, 5002
+4|Banana River Aquatic Preserve|2002|Dissolved Oxygen|Surface|Field|1187|1.3|11.8|6.3|6.29005897219882|1.71043018362209|69, 3001, 5002
+4|Banana River Aquatic Preserve|2003|Dissolved Oxygen|Surface|Field|978|1.5|11.6|5.9|5.96368098159509|1.84545771408593|69, 3001, 3013, 5002
+4|Banana River Aquatic Preserve|2004|Dissolved Oxygen|Surface|Field|673|1.2|11.8|6.4|6.31955423476969|1.93919713162004|69, 3001, 3013, 5002
+4|Banana River Aquatic Preserve|2005|Dissolved Oxygen|Surface|Field|974|1|13.3|5.8|6.03405544147844|1.9247458905188|69, 118, 3001, 3013, 5002
+4|Banana River Aquatic Preserve|2006|Dissolved Oxygen|Surface|Field|721|1|13.7|6.63|6.64933425797504|1.87551588475005|69, 95, 118, 3001, 3013, 5002
+4|Banana River Aquatic Preserve|2007|Dissolved Oxygen|Surface|Field|990|1.4|18.93|6|6.10987878787879|2.15069518364576|69, 95, 3001, 3013, 5002
+4|Banana River Aquatic Preserve|2008|Dissolved Oxygen|Surface|Field|775|1.8|12.1|5.5|5.79082580645161|2.09033387275611|69, 95, 3001, 3013, 5002
+4|Banana River Aquatic Preserve|2009|Dissolved Oxygen|Surface|Field|857|2|12.1|5.35|5.75249708284714|2.16065298634148|69, 95, 3001, 3013, 5002
+4|Banana River Aquatic Preserve|2010|Dissolved Oxygen|Surface|Field|570|2.4|15.2|6.7|6.91994736842105|1.83242715453102|69, 95, 3001, 3013, 5002
+4|Banana River Aquatic Preserve|2011|Dissolved Oxygen|Surface|Field|477|2.2|11|6.1|6.29744234800839|1.78798374759064|69, 95, 3001, 3013, 5002
+4|Banana River Aquatic Preserve|2012|Dissolved Oxygen|Surface|Field|388|2.3|12.26|5.4|5.7059793814433|1.99690815782505|69, 95, 3001, 3013, 5002
+4|Banana River Aquatic Preserve|2013|Dissolved Oxygen|Surface|Field|435|2|16.73|6.59|6.49795402298851|1.66019520192064|69, 95, 3001, 3013, 5002
+4|Banana River Aquatic Preserve|2014|Dissolved Oxygen|Surface|Field|497|0|14.3|6.2|5.42277665995976|3.29938061397981|69, 95, 3001, 3013, 5002
+4|Banana River Aquatic Preserve|2015|Dissolved Oxygen|Surface|Field|494|0.13|15|6.5|5.85032388663968|3.76082166699101|69, 95, 3001, 3013, 5002
+4|Banana River Aquatic Preserve|2016|Dissolved Oxygen|Surface|Field|482|0.34|16.59|6.56|6.32186721991701|3.66982971600795|69, 95, 540, 3001, 3013, 5002
+4|Banana River Aquatic Preserve|2017|Dissolved Oxygen|Surface|Field|413|0.45|13.9|7.12|6.47384987893463|3.19031102156234|69, 95, 540, 3001, 3013, 5002
+4|Banana River Aquatic Preserve|2018|Dissolved Oxygen|Surface|Field|154|0.3|13.8|6.2|6.27438961038961|3.00059925455355|95, 540, 3001, 3013
+4|Banana River Aquatic Preserve|2019|Dissolved Oxygen|Surface|Field|127|0.3|10.31|5.5|5.29763779527559|2.03035044933913|540, 3001, 3013
+4|Banana River Aquatic Preserve|2020|Dissolved Oxygen|Surface|Field|247|0.12|16|6.25|6.26927125506073|2.33383318004961|540, 3001, 3013, 5002
+4|Banana River Aquatic Preserve|2021|Dissolved Oxygen|Surface|Field|68|4.38|13.1|7.005|7.19735294117647|1.73903955105698|5002
+5|Big Bend Seagrasses Aquatic Preserve|1982|Dissolved Oxygen|Surface|Field|1|5.6|5.6|5.6|5.6||60
+5|Big Bend Seagrasses Aquatic Preserve|1985|Dissolved Oxygen|Surface|Field|5|5.7|7.2|6.2|6.38|0.580517010948|60, 95
+5|Big Bend Seagrasses Aquatic Preserve|1986|Dissolved Oxygen|Surface|Field|3|5.2|5.6|5.6|5.46666666666667|0.23094010767585|60
+5|Big Bend Seagrasses Aquatic Preserve|1987|Dissolved Oxygen|Surface|Field|1|6.5|6.5|6.5|6.5||60
+5|Big Bend Seagrasses Aquatic Preserve|1989|Dissolved Oxygen|Surface|Field|5|4.8|8.5|6.9|6.5|1.57638827704344|5002
+5|Big Bend Seagrasses Aquatic Preserve|1990|Dissolved Oxygen|Surface|Field|9|4.5|10.1|5.8|6.16666666666667|1.6844880527923|60, 5002
+5|Big Bend Seagrasses Aquatic Preserve|1991|Dissolved Oxygen|Surface|Field|15|3.7|7.2|5.9|5.42|1.14342842864281|115, 5002
+5|Big Bend Seagrasses Aquatic Preserve|1992|Dissolved Oxygen|Surface|Field|15|3.4|8.1|5.9|5.82|1.30010988546573|60, 115, 5002
+5|Big Bend Seagrasses Aquatic Preserve|1993|Dissolved Oxygen|Surface|Field|14|4.8|11.6|6.55|6.77857142857143|1.62441874642478|60, 115, 5002
+5|Big Bend Seagrasses Aquatic Preserve|1994|Dissolved Oxygen|Surface|Field|12|5.1|8.1|6.65|6.61666666666667|0.949481517205654|60, 115, 5002
+5|Big Bend Seagrasses Aquatic Preserve|1995|Dissolved Oxygen|Surface|Field|3119|3|13.6|8.2|8.09387624238538|2.12748236597174|60, 5002
+5|Big Bend Seagrasses Aquatic Preserve|1996|Dissolved Oxygen|Surface|Field|4421|2|13.5|7.9|8.05308753675639|1.87709040968635|60, 69, 95, 5002
+5|Big Bend Seagrasses Aquatic Preserve|1997|Dissolved Oxygen|Surface|Field|4324|2.3|13.1|6.8|7.05404717853839|1.9628211681975|60, 69, 5002
+5|Big Bend Seagrasses Aquatic Preserve|1998|Dissolved Oxygen|Surface|Field|3627|2.7|14|7.2|7.30361180038599|1.61958697361075|69, 5002
+5|Big Bend Seagrasses Aquatic Preserve|1999|Dissolved Oxygen|Surface|Field|3572|1|13.6|7|7.0280235162374|1.80879373203765|69, 5002
+5|Big Bend Seagrasses Aquatic Preserve|2000|Dissolved Oxygen|Surface|Field|3076|0.8|13.4|6.3|6.52421976592978|1.63694993267776|60, 69, 115, 118, 5002
+5|Big Bend Seagrasses Aquatic Preserve|2001|Dissolved Oxygen|Surface|Field|3755|0.4|14.4|6.3|6.37|1.71240092908425|60, 69, 5002
+5|Big Bend Seagrasses Aquatic Preserve|2002|Dissolved Oxygen|Surface|Field|3310|2.6|14.9|7.3|7.33605438066465|1.83429099992669|69, 95, 115, 5002
+5|Big Bend Seagrasses Aquatic Preserve|2003|Dissolved Oxygen|Surface|Field|3914|1.13|18.6|7.1|7.31162493612673|1.91420218737717|69, 95, 103, 5002
+5|Big Bend Seagrasses Aquatic Preserve|2004|Dissolved Oxygen|Surface|Field|3886|0.58|14.3|6.7|6.74864642305713|1.89347337203381|60, 69, 95, 103, 115, 5002
+5|Big Bend Seagrasses Aquatic Preserve|2005|Dissolved Oxygen|Surface|Field|3691|1.7|14.1|6.8|6.98207802763479|1.731172821866|69, 95, 118, 5002
+5|Big Bend Seagrasses Aquatic Preserve|2006|Dissolved Oxygen|Surface|Field|3909|0|14.4|6.5|6.64674852903556|1.56930090030956|69, 95, 118, 5002
+5|Big Bend Seagrasses Aquatic Preserve|2007|Dissolved Oxygen|Surface|Field|4190|1.5|20.4|6.2|6.46636992840096|1.62798060829109|69, 5002
+5|Big Bend Seagrasses Aquatic Preserve|2008|Dissolved Oxygen|Surface|Field|4771|1.4|14.7|6.6|6.5495346887445|1.55956109553096|60, 69, 5002
+5|Big Bend Seagrasses Aquatic Preserve|2009|Dissolved Oxygen|Surface|Field|4008|1.49|15.09|6.6|6.8750748502994|1.64283954824231|60, 69, 95, 5002
+5|Big Bend Seagrasses Aquatic Preserve|2010|Dissolved Oxygen|Surface|Field|3941|0.91|15.9|7.3|7.55098198426795|2.10699855688391|60, 69, 95, 5002
+5|Big Bend Seagrasses Aquatic Preserve|2011|Dissolved Oxygen|Surface|Field|3714|0.51|18.5|6.9|7.05888529886914|2.08629075134513|60, 69, 95, 5002
+5|Big Bend Seagrasses Aquatic Preserve|2012|Dissolved Oxygen|Surface|Field|3825|0|15.4|6.1|6.41117908496732|2.00774200945985|60, 69, 95, 5002
+5|Big Bend Seagrasses Aquatic Preserve|2013|Dissolved Oxygen|Surface|Field|4238|1.54|16.3|6.7|6.84647239263804|1.86293165856198|60, 69, 95, 5002
+5|Big Bend Seagrasses Aquatic Preserve|2014|Dissolved Oxygen|Surface|Field|4329|0.375|15.6|6.9|7.13435781935782|1.81305103898061|60, 69, 95, 5002
+5|Big Bend Seagrasses Aquatic Preserve|2015|Dissolved Oxygen|Surface|Field|3916|0.95|17|6.8|6.98041368743616|1.7390582241489|60, 69, 95, 5002
+5|Big Bend Seagrasses Aquatic Preserve|2016|Dissolved Oxygen|Surface|Field|4652|1.3|14.6|6.9|6.90272785898538|1.67258214851542|69, 95, 5002
+5|Big Bend Seagrasses Aquatic Preserve|2017|Dissolved Oxygen|Surface|Field|4885|0.9|15.6|7|6.91132650972364|1.8269245741729|69, 95, 540, 5002
+5|Big Bend Seagrasses Aquatic Preserve|2018|Dissolved Oxygen|Surface|Field|688|1.31|14.1|7.4|7.5803488372093|1.86866543395152|95, 540, 5002
+5|Big Bend Seagrasses Aquatic Preserve|2019|Dissolved Oxygen|Surface|Field|188|3.81|11.62|7.02|6.94026595744681|1.31724409827863|540, 5002
+5|Big Bend Seagrasses Aquatic Preserve|2020|Dissolved Oxygen|Surface|Field|133|0.3|9.75|6.72|6.40157894736842|1.90081555148456|477, 5002
+5|Big Bend Seagrasses Aquatic Preserve|2021|Dissolved Oxygen|Surface|Field|144|0.84|9.56|6.88|6.55730430555556|1.61520795625275|477, 540, 5002, 5008
+5|Big Bend Seagrasses Aquatic Preserve|2022|Dissolved Oxygen|Surface|Field|1|9.19|9.19|9.19|9.19||5008
+6|Biscayne Bay Aquatic Preserve|1970|Dissolved Oxygen|Surface|Field|224|3.2|8.9|6.2|6.23214285714286|0.934847464665174|103
+6|Biscayne Bay Aquatic Preserve|1971|Dissolved Oxygen|Surface|Field|102|5|9.2|6.6|6.91764705882353|1.08631557917832|103
+6|Biscayne Bay Aquatic Preserve|1981|Dissolved Oxygen|Surface|Field|13|4.6|7|5.9|5.9|0.824621125123532|103
+6|Biscayne Bay Aquatic Preserve|1982|Dissolved Oxygen|Surface|Field|10|4.9|9.8|7.6|7.64|1.93057274173006|103
+6|Biscayne Bay Aquatic Preserve|1983|Dissolved Oxygen|Surface|Field|1|7|7|7|7||103
+6|Biscayne Bay Aquatic Preserve|1993|Dissolved Oxygen|Surface|Field|31|1.9|8.3|5.2|5.1741935483871|1.42383700891534|103, 509
+6|Biscayne Bay Aquatic Preserve|1994|Dissolved Oxygen|Surface|Field|29|4|7.9|6.2|6.0448275862069|0.942862740690951|103, 509
+6|Biscayne Bay Aquatic Preserve|1995|Dissolved Oxygen|Surface|Field|24|5.5|8.4|6.65|6.52916666666667|0.711690679430612|509
+6|Biscayne Bay Aquatic Preserve|1996|Dissolved Oxygen|Surface|Field|87|4.3|7.8|6.1|6.19655172413793|0.644376077512386|509
+6|Biscayne Bay Aquatic Preserve|1997|Dissolved Oxygen|Surface|Field|132|4.4|10.5|6.2|6.22348484848485|1.09173577378809|509
+6|Biscayne Bay Aquatic Preserve|1998|Dissolved Oxygen|Surface|Field|121|4.6|8.2|6.6|6.44380165289256|0.799467798182377|509
+6|Biscayne Bay Aquatic Preserve|1999|Dissolved Oxygen|Surface|Field|132|4.3|11.5|6.5|6.48787878787879|1.04866547712099|509
+6|Biscayne Bay Aquatic Preserve|2000|Dissolved Oxygen|Surface|Field|132|4.6|9|6.6|6.52878787878788|0.757207636677546|509
+6|Biscayne Bay Aquatic Preserve|2001|Dissolved Oxygen|Surface|Field|133|1.49|9.9|6.1|6.0812030075188|1.12488587811332|509, 5002
+6|Biscayne Bay Aquatic Preserve|2002|Dissolved Oxygen|Surface|Field|132|4.18|9.96|6.24|6.32613636363636|1.05970588439231|509
+6|Biscayne Bay Aquatic Preserve|2003|Dissolved Oxygen|Surface|Field|585|1.16|10|5.39|5.16721367521368|1.33732991383682|103, 509, 5002
+6|Biscayne Bay Aquatic Preserve|2004|Dissolved Oxygen|Surface|Field|134|4.28|8.3|5.805|5.81992537313433|0.80157598176301|103, 115, 509
+6|Biscayne Bay Aquatic Preserve|2005|Dissolved Oxygen|Surface|Field|168|0.15|8.63|6.48|6.06142857142857|1.5626935466098|509, 5002
+6|Biscayne Bay Aquatic Preserve|2006|Dissolved Oxygen|Surface|Field|184|1.06|9.51|6.7|6.66972826086957|1.44222825174309|118, 509, 4049, 5002
+6|Biscayne Bay Aquatic Preserve|2007|Dissolved Oxygen|Surface|Field|196|0.72|10.02|6.4|6.10790816326531|1.44588441987087|509, 4049, 5002
+6|Biscayne Bay Aquatic Preserve|2008|Dissolved Oxygen|Surface|Field|117|1.64|8.26|6.33|6.13982905982906|1.39502872477285|509, 5002
+6|Biscayne Bay Aquatic Preserve|2009|Dissolved Oxygen|Surface|Field|111|1.1|8.64|4.27|4.59135135135135|1.82791858108241|5002
+6|Biscayne Bay Aquatic Preserve|2010|Dissolved Oxygen|Surface|Field|89|0.6|8.15|4.38|4.23393258426966|1.8060168490465|5002
+6|Biscayne Bay Aquatic Preserve|2011|Dissolved Oxygen|Surface|Field|75|0.75|7.92|6.41|5.63213333333333|1.93991243417126|5002
+6|Biscayne Bay Aquatic Preserve|2012|Dissolved Oxygen|Surface|Field|26|0.76|7.4|5.625|5.23384615384615|1.71029839951531|5002
+6|Biscayne Bay Aquatic Preserve|2013|Dissolved Oxygen|Surface|Field|31|2.24|8.1|6.03|5.78225806451613|1.74923547047926|5002
+6|Biscayne Bay Aquatic Preserve|2014|Dissolved Oxygen|Surface|Field|28|1.66|8.38|5.305|5.16571428571429|1.57181053558893|5002
+6|Biscayne Bay Aquatic Preserve|2015|Dissolved Oxygen|Surface|Field|60|0.91|7.8|5.04|4.928|1.5479453851006|4057, 5002
+6|Biscayne Bay Aquatic Preserve|2016|Dissolved Oxygen|Surface|Field|261|0.45|10.09|4.59|5.11153256704981|2.15698399388981|4057, 4058, 5002
+6|Biscayne Bay Aquatic Preserve|2017|Dissolved Oxygen|Surface|Field|488|0.3|21.89|5.385|5.27324795081967|1.9308312181582|4057, 4058, 5002
+6|Biscayne Bay Aquatic Preserve|2018|Dissolved Oxygen|Surface|Field|479|1.9|8.22|5.24|5.21923799582464|0.938370063372458|4057, 4058
+6|Biscayne Bay Aquatic Preserve|2019|Dissolved Oxygen|Surface|Field|159|1.77|9.58|6.49|6.48150943396226|1.28997899535409|4057, 5026
+6|Biscayne Bay Aquatic Preserve|2020|Dissolved Oxygen|Surface|Field|715|0.18|11.04|6.39|6.15155244755245|1.65415383125497|5002, 5026
+6|Biscayne Bay Aquatic Preserve|2021|Dissolved Oxygen|Surface|Field|149|1.82|10.9|6.97|6.86677852348993|1.66705772061437|5002, 5026
+8|Boca Ciega Bay Aquatic Preserve|1974|Dissolved Oxygen|Surface|Field|2|5.98|6.21|6.095|6.095|0.162634559672906|95
+8|Boca Ciega Bay Aquatic Preserve|1985|Dissolved Oxygen|Surface|Field|1|5.6|5.6|5.6|5.6||95
+8|Boca Ciega Bay Aquatic Preserve|1989|Dissolved Oxygen|Surface|Field|72|5.3|11.1|8.1|7.99305555555556|1.35556509591553|69
+8|Boca Ciega Bay Aquatic Preserve|1990|Dissolved Oxygen|Surface|Field|70|3.4|8.4|6.9|6.54142857142857|1.23364581123499|69
+8|Boca Ciega Bay Aquatic Preserve|1991|Dissolved Oxygen|Surface|Field|120|4|11.7|7|7.16333333333333|1.41581305638995|69
+8|Boca Ciega Bay Aquatic Preserve|1992|Dissolved Oxygen|Surface|Field|106|4.2|12.2|7.6|7.62264150943396|1.33340116628888|69
+8|Boca Ciega Bay Aquatic Preserve|1993|Dissolved Oxygen|Surface|Field|115|3.7|11.9|7.3|6.83913043478261|1.50156033769869|69
+8|Boca Ciega Bay Aquatic Preserve|1994|Dissolved Oxygen|Surface|Field|115|1.7|10.7|6.4|6.20521739130435|1.52596495086677|69
+8|Boca Ciega Bay Aquatic Preserve|1995|Dissolved Oxygen|Surface|Field|525|2.8|14.1|7.5|7.62598095238095|1.72669820148913|69, 4067, 5002
+8|Boca Ciega Bay Aquatic Preserve|1996|Dissolved Oxygen|Surface|Field|716|0.58|13.8|6.1|6.02752793296089|2.04442059240735|69, 4067, 5002
+8|Boca Ciega Bay Aquatic Preserve|1997|Dissolved Oxygen|Surface|Field|982|0.23|14|6.3|5.94179226069246|2.22674738578563|69, 95, 4067, 5002
+8|Boca Ciega Bay Aquatic Preserve|1998|Dissolved Oxygen|Surface|Field|613|1.4|13.6|6.9|7.05200652528548|1.54573386761753|69, 4067, 5002
+8|Boca Ciega Bay Aquatic Preserve|1999|Dissolved Oxygen|Surface|Field|996|1.49|15.14|6.4|6.50498995983936|1.72458629512887|69, 4067, 5002
+8|Boca Ciega Bay Aquatic Preserve|2000|Dissolved Oxygen|Surface|Field|613|1.8|18.8|6.8|6.71543230016313|1.4124134599208|69, 115, 118, 4067, 5002
+8|Boca Ciega Bay Aquatic Preserve|2001|Dissolved Oxygen|Surface|Field|701|0.87|12.6|6.6|6.70844507845934|1.58080513172222|69, 95, 115, 118, 4067, 5002
+8|Boca Ciega Bay Aquatic Preserve|2002|Dissolved Oxygen|Surface|Field|776|0.6|16.25|6.5|6.55478092822165|1.54583125586265|69, 115, 4067, 5002
+8|Boca Ciega Bay Aquatic Preserve|2003|Dissolved Oxygen|Surface|Field|681|1.7|16.1|7|7.21723935389134|1.68382207474251|69, 103, 115, 4067, 5002
+8|Boca Ciega Bay Aquatic Preserve|2004|Dissolved Oxygen|Surface|Field|564|0.08|12.4|7.1|6.96946808510638|1.60159769277267|69, 4067, 5002
+8|Boca Ciega Bay Aquatic Preserve|2005|Dissolved Oxygen|Surface|Field|489|0|15.6|6.9|6.84243353783231|2.13874302563272|69, 95, 4067, 5002
+8|Boca Ciega Bay Aquatic Preserve|2006|Dissolved Oxygen|Surface|Field|585|0.31|14.3|6.51|6.58902564102564|1.97980996762393|69, 95, 4067, 5002
+8|Boca Ciega Bay Aquatic Preserve|2007|Dissolved Oxygen|Surface|Field|728|1.1|15.3|6.315|6.38763736263736|1.89986075514654|69, 4067, 5002
+8|Boca Ciega Bay Aquatic Preserve|2008|Dissolved Oxygen|Surface|Field|664|1.61|13.9|6.7|6.81894578313253|1.816301108438|69, 95, 4067, 5002
+8|Boca Ciega Bay Aquatic Preserve|2009|Dissolved Oxygen|Surface|Field|799|1.9|14.1|5.9|6.30352941176471|1.90970035540713|69, 95, 4067, 5002
+8|Boca Ciega Bay Aquatic Preserve|2010|Dissolved Oxygen|Surface|Field|788|1.1|16.5|6.85|7.12432741116751|2.42520436098459|69, 95, 4067, 5002
+8|Boca Ciega Bay Aquatic Preserve|2011|Dissolved Oxygen|Surface|Field|811|1.3|18.2|6.31|6.42274969173859|1.87799438861999|69, 95, 4067, 5002
+8|Boca Ciega Bay Aquatic Preserve|2012|Dissolved Oxygen|Surface|Field|587|1.9|14.2|6.6|6.89553662691653|1.87658433903356|69, 95, 4067, 5002
+8|Boca Ciega Bay Aquatic Preserve|2013|Dissolved Oxygen|Surface|Field|623|0.1|12.7|6.62|6.73428571428571|1.70038574077538|69, 95, 4067, 5002
+8|Boca Ciega Bay Aquatic Preserve|2014|Dissolved Oxygen|Surface|Field|552|0|11.8|7.1|6.90275362318841|1.82916214319148|69, 95, 4067, 5002
+8|Boca Ciega Bay Aquatic Preserve|2015|Dissolved Oxygen|Surface|Field|569|0|12.9|7.1|7.03405975395431|1.65859377586092|69, 95, 4067, 5002
+8|Boca Ciega Bay Aquatic Preserve|2016|Dissolved Oxygen|Surface|Field|879|1.6|17.24|7.1|7.09751990898749|2.02264480812118|69, 95, 4067, 5002
+8|Boca Ciega Bay Aquatic Preserve|2017|Dissolved Oxygen|Surface|Field|595|1.2|19.52|7.1|7.30526050420168|1.8461971263464|69, 95, 4067, 5002
+8|Boca Ciega Bay Aquatic Preserve|2018|Dissolved Oxygen|Surface|Field|28|3.6|9.41|7.335|7.09321428571429|1.20630152109179|95, 4067
+8|Boca Ciega Bay Aquatic Preserve|2020|Dissolved Oxygen|Surface|Field|110|2.16|11.39|6.395|6.38463636363636|1.58402152083931|5002
+8|Boca Ciega Bay Aquatic Preserve|2021|Dissolved Oxygen|Surface|Field|112|2.51|10.05|6.09|6.09455357142857|1.34575333964226|5002
+9|Cape Haze Aquatic Preserve|1989|Dissolved Oxygen|Surface|Field|22|3.8|13.7|8.25|8.11818181818182|1.8737882087051|69
+9|Cape Haze Aquatic Preserve|1990|Dissolved Oxygen|Surface|Field|24|6.9|13.2|7.85|8.6625|2.15180662215043|69
+9|Cape Haze Aquatic Preserve|1991|Dissolved Oxygen|Surface|Field|42|3.4|10.6|7.25|7.15|2.0352083850878|69
+9|Cape Haze Aquatic Preserve|1992|Dissolved Oxygen|Surface|Field|41|2.6|12.9|7|7.25853658536585|1.99837128804385|69
+9|Cape Haze Aquatic Preserve|1993|Dissolved Oxygen|Surface|Field|42|0.4|9.3|6.7|6.30238095238095|2.49619105890458|69
+9|Cape Haze Aquatic Preserve|1994|Dissolved Oxygen|Surface|Field|28|5.7|11|8.2|8.15357142857143|1.59709971924971|69
+9|Cape Haze Aquatic Preserve|1995|Dissolved Oxygen|Surface|Field|133|2|12.5|7.1|7.12857142857143|1.50048332761488|69, 5002
+9|Cape Haze Aquatic Preserve|1996|Dissolved Oxygen|Surface|Field|175|1|13.5|7.5|7.43657142857143|1.61957483930151|69, 5002
+9|Cape Haze Aquatic Preserve|1997|Dissolved Oxygen|Surface|Field|206|2.4|16.6|7.5|7.69174757281553|1.96758607940596|69, 5002
+9|Cape Haze Aquatic Preserve|1998|Dissolved Oxygen|Surface|Field|174|3.1|13.7|7.4|7.57413793103448|1.82822068444662|69, 95, 5002
+9|Cape Haze Aquatic Preserve|1999|Dissolved Oxygen|Surface|Field|172|1.7|10.9|7.1|6.86220930232558|1.55861004291576|69, 95, 5002
+9|Cape Haze Aquatic Preserve|2000|Dissolved Oxygen|Surface|Field|193|1.2|11.3|6.8|6.74559585492228|1.51715666845893|69, 5002
+9|Cape Haze Aquatic Preserve|2001|Dissolved Oxygen|Surface|Field|337|0.79|12.4|6.8|6.87424332344214|1.67432878524311|69, 479, 5002
+9|Cape Haze Aquatic Preserve|2002|Dissolved Oxygen|Surface|Field|363|1.7|14.5|7.4|7.2130303030303|1.83108205991127|69, 479, 5002
+9|Cape Haze Aquatic Preserve|2003|Dissolved Oxygen|Surface|Field|326|1.4|15.1|7.4|7.39996932515337|2.16063872300851|69, 479, 5002
+9|Cape Haze Aquatic Preserve|2004|Dissolved Oxygen|Surface|Field|308|0.79|12|7.2|7.18493506493507|1.82506784372696|69, 479, 5002
+9|Cape Haze Aquatic Preserve|2005|Dissolved Oxygen|Surface|Field|241|2.1|12.9|8.1|7.88651452282158|1.77090286788873|69, 479
+9|Cape Haze Aquatic Preserve|2006|Dissolved Oxygen|Surface|Field|244|1.1|12.2|7.04|6.59315573770492|2.06814529947999|69, 479, 5002
+9|Cape Haze Aquatic Preserve|2007|Dissolved Oxygen|Surface|Field|206|1.2|13.8|7.5|7.37898058252427|2.27414705095718|69, 479
+9|Cape Haze Aquatic Preserve|2008|Dissolved Oxygen|Surface|Field|262|2.7|12.7|7.2|7.06141221374046|1.76225427892942|69, 95, 479, 5002
+9|Cape Haze Aquatic Preserve|2009|Dissolved Oxygen|Surface|Field|390|0.53|13|6.4|6.1615641025641|2.10447005333691|69, 95, 479, 5002
+9|Cape Haze Aquatic Preserve|2010|Dissolved Oxygen|Surface|Field|341|0.4|12|7.3|7.13985337243402|2.0616650129194|69, 95, 479, 5002
+9|Cape Haze Aquatic Preserve|2011|Dissolved Oxygen|Surface|Field|373|2.2|17.43|6.71|6.75458445040214|2.3184817639476|69, 95, 479, 5002
+9|Cape Haze Aquatic Preserve|2012|Dissolved Oxygen|Surface|Field|307|3.1|14.9|6.38|6.53781758957655|1.80274684909219|69, 95, 479, 5002
+9|Cape Haze Aquatic Preserve|2013|Dissolved Oxygen|Surface|Field|312|1.7|12.3|6.715|6.8049358974359|1.81193701642873|69, 95, 479, 5002
+9|Cape Haze Aquatic Preserve|2014|Dissolved Oxygen|Surface|Field|329|0.4|12.2|6.3|5.95051671732523|2.47241945549223|69, 95, 479, 5002
+9|Cape Haze Aquatic Preserve|2015|Dissolved Oxygen|Surface|Field|345|0.9|16.5|6.8|6.73136231884058|2.20964209699938|69, 95, 479, 5002
+9|Cape Haze Aquatic Preserve|2016|Dissolved Oxygen|Surface|Field|523|1.7|14.9|7.1|7.04110898661568|2.34536134541985|69, 95, 479, 5002
+9|Cape Haze Aquatic Preserve|2017|Dissolved Oxygen|Surface|Field|544|1.1|13.9|6.4|6.518125|2.08724288234693|69, 95, 5002
+9|Cape Haze Aquatic Preserve|2018|Dissolved Oxygen|Surface|Field|109|3.66|12.3|6.92|6.84394495412844|1.31848118172825|95
+9|Cape Haze Aquatic Preserve|2020|Dissolved Oxygen|Surface|Field|17|4.95|7.13|6.49|6.42411764705882|0.530342564098072|479, 5002
+9|Cape Haze Aquatic Preserve|2021|Dissolved Oxygen|Surface|Field|3|4.1|6.1|5.65|5.28333333333333|1.04920604903581|476
+10|Cape Romano-Ten Thousand Islands Aquatic Preserve|1989|Dissolved Oxygen|Surface|Field|2|3.4|5.1|4.25|4.25|1.20208152801713|5002
+10|Cape Romano-Ten Thousand Islands Aquatic Preserve|1990|Dissolved Oxygen|Surface|Field|10|2.8|6.6|4.85|4.83|1.14022414950356|5002
+10|Cape Romano-Ten Thousand Islands Aquatic Preserve|1991|Dissolved Oxygen|Surface|Field|9|2|7.6|5.4|5.24444555555556|1.67787906795388|5002
+10|Cape Romano-Ten Thousand Islands Aquatic Preserve|1994|Dissolved Oxygen|Surface|Field|42|3.1|8.2|4.85|5.23571428571429|1.50200214812152|509, 5002
+10|Cape Romano-Ten Thousand Islands Aquatic Preserve|1995|Dissolved Oxygen|Surface|Field|319|1.9|12.3|6.7|6.3846394984326|1.63050203861627|509, 5002
+10|Cape Romano-Ten Thousand Islands Aquatic Preserve|1996|Dissolved Oxygen|Surface|Field|248|3|9.9|6|5.96048387096774|1.11011678623964|509, 5002
+10|Cape Romano-Ten Thousand Islands Aquatic Preserve|1997|Dissolved Oxygen|Surface|Field|341|2.9|8.9|6.4|6.31759530791789|0.883100201083881|95, 509, 5002
+10|Cape Romano-Ten Thousand Islands Aquatic Preserve|1998|Dissolved Oxygen|Surface|Field|394|2.1|9|6.6|6.40482233502538|1.16553653466867|509, 5002
+10|Cape Romano-Ten Thousand Islands Aquatic Preserve|1999|Dissolved Oxygen|Surface|Field|340|1.8|9.2|6.2|5.98705882352941|1.21425051093843|509, 5002
+10|Cape Romano-Ten Thousand Islands Aquatic Preserve|2000|Dissolved Oxygen|Surface|Field|329|2.1|8.5|6.6|6.26838905775076|1.2314616120006|509, 4043, 5002
+10|Cape Romano-Ten Thousand Islands Aquatic Preserve|2001|Dissolved Oxygen|Surface|Field|285|0.1|8.4|6.2|5.93298245614035|1.5357133096413|509, 4043, 5002
+10|Cape Romano-Ten Thousand Islands Aquatic Preserve|2002|Dissolved Oxygen|Surface|Field|275|2.89|13.2|5.7|5.68156363636364|1.23674760012303|354, 509, 4043, 5002
+10|Cape Romano-Ten Thousand Islands Aquatic Preserve|2003|Dissolved Oxygen|Surface|Field|293|2.69|9.8|6.3|5.74798634812287|1.44952532611399|354, 509, 4043, 5002
+10|Cape Romano-Ten Thousand Islands Aquatic Preserve|2004|Dissolved Oxygen|Surface|Field|280|1.53|8.2|5.745|5.69953571428571|1.33915294422964|354, 509, 4043, 5002
+10|Cape Romano-Ten Thousand Islands Aquatic Preserve|2005|Dissolved Oxygen|Surface|Field|229|3.9|8.39|6.04|6.09039301310044|1.11129974604739|354, 509, 4043, 5002
+10|Cape Romano-Ten Thousand Islands Aquatic Preserve|2006|Dissolved Oxygen|Surface|Field|215|1.63|10.23|6.31|6.37967441860465|1.52243238299477|354, 509, 4043, 5002
+10|Cape Romano-Ten Thousand Islands Aquatic Preserve|2007|Dissolved Oxygen|Surface|Field|307|2.33|9.99|5.66|5.77986970684039|1.34351601296221|95, 509, 4043
+10|Cape Romano-Ten Thousand Islands Aquatic Preserve|2008|Dissolved Oxygen|Surface|Field|324|0.28|10.3|5.7|5.71512345679012|1.98922429539877|95, 354, 509, 4043, 5002
+10|Cape Romano-Ten Thousand Islands Aquatic Preserve|2009|Dissolved Oxygen|Surface|Field|267|1.6|8.9|4.6|4.81734082397004|1.50620098208703|95, 354, 4043, 5002
+10|Cape Romano-Ten Thousand Islands Aquatic Preserve|2010|Dissolved Oxygen|Surface|Field|192|1.5|9.8|5.1|5.38802083333333|1.588476908745|95, 354, 4043, 5002
+10|Cape Romano-Ten Thousand Islands Aquatic Preserve|2011|Dissolved Oxygen|Surface|Field|274|1.7|13.8|5.1|5.6378102189781|2.13355203159978|95, 354, 4043, 5002
+10|Cape Romano-Ten Thousand Islands Aquatic Preserve|2012|Dissolved Oxygen|Surface|Field|172|1.6|11.5|5.7|5.59709302325581|1.65788660387135|95, 354, 4043, 5002
+10|Cape Romano-Ten Thousand Islands Aquatic Preserve|2013|Dissolved Oxygen|Surface|Field|128|1.9|10.1|5.5|5.80953125|2.19098218343957|95, 354, 5002
+10|Cape Romano-Ten Thousand Islands Aquatic Preserve|2014|Dissolved Oxygen|Surface|Field|113|1.1|7.2|4.8|4.59911504424779|1.73357061206165|95, 354, 5002
+10|Cape Romano-Ten Thousand Islands Aquatic Preserve|2015|Dissolved Oxygen|Surface|Field|169|0.2|9.5|5.16|4.8214201183432|1.83147133665089|95, 354, 4043, 5002
+10|Cape Romano-Ten Thousand Islands Aquatic Preserve|2016|Dissolved Oxygen|Surface|Field|312|1.91|7.9|5.35|5.24435897435897|1.22448476177383|95, 354, 4043, 5002
+10|Cape Romano-Ten Thousand Islands Aquatic Preserve|2017|Dissolved Oxygen|Surface|Field|305|0.12|9.5|5.4|4.97918032786885|2.09380626010978|95, 354, 4043, 5002
+10|Cape Romano-Ten Thousand Islands Aquatic Preserve|2018|Dissolved Oxygen|Surface|Field|121|3.34|8.7|5.57|5.82801652892562|1.3196360734654|95, 354, 4043
+10|Cape Romano-Ten Thousand Islands Aquatic Preserve|2019|Dissolved Oxygen|Surface|Field|99|2.11|7.6|4.38|4.62747474747475|1.22155082381869|354, 4043
+10|Cape Romano-Ten Thousand Islands Aquatic Preserve|2020|Dissolved Oxygen|Surface|Field|16|3.4|8.2|6.4|6.105625|1.03061126683795|4043, 5002
+10|Cape Romano-Ten Thousand Islands Aquatic Preserve|2021|Dissolved Oxygen|Surface|Field|48|2.47|7.9|5.565|5.453125|1.11669755567524|5002
+11|Cockroach Bay Aquatic Preserve|1989|Dissolved Oxygen|Surface|Field|31|2.5|12.3|6.6|6.67741935483871|2.49248332357101|69
+11|Cockroach Bay Aquatic Preserve|1990|Dissolved Oxygen|Surface|Field|55|3.6|15.3|6.5|6.47272727272727|2.20205750130582|69
+11|Cockroach Bay Aquatic Preserve|1991|Dissolved Oxygen|Surface|Field|48|4.9|9.8|7.4|7.2|1.15997065260015|69
+11|Cockroach Bay Aquatic Preserve|1992|Dissolved Oxygen|Surface|Field|80|3.9|10.3|5.7|6.18|1.58979339474495|69
+11|Cockroach Bay Aquatic Preserve|1993|Dissolved Oxygen|Surface|Field|36|2.7|7.7|5.5|5.56027777777778|1.06113278046519|69, 4067
+11|Cockroach Bay Aquatic Preserve|1994|Dissolved Oxygen|Surface|Field|35|3.3|10.9|5|5.52|1.74874745090846|69, 4067
+11|Cockroach Bay Aquatic Preserve|1995|Dissolved Oxygen|Surface|Field|46|0.4|11.9|5.95|5.93739130434783|2.6266754947251|69, 4067
+11|Cockroach Bay Aquatic Preserve|1996|Dissolved Oxygen|Surface|Field|182|0.41|11.8|5.1|5.12104395604396|3.07437825691073|69, 4067
+11|Cockroach Bay Aquatic Preserve|1997|Dissolved Oxygen|Surface|Field|222|2.4|12.4|6.4|6.49108108108108|1.8070116584205|69, 4067
+11|Cockroach Bay Aquatic Preserve|1998|Dissolved Oxygen|Surface|Field|224|2.4|10.6|4.955|5.38321428571429|1.75178561780165|69, 4067
+11|Cockroach Bay Aquatic Preserve|1999|Dissolved Oxygen|Surface|Field|202|0.83|12.7|5.555|5.82559405940594|1.92159497742838|69, 4067, 5002
+11|Cockroach Bay Aquatic Preserve|2000|Dissolved Oxygen|Surface|Field|202|2.6|13.5|5.95|6.20440594059406|2.14725021275664|69, 4067, 5002
+11|Cockroach Bay Aquatic Preserve|2001|Dissolved Oxygen|Surface|Field|824|2.2|12|5.3|5.59553398058252|1.76323565002856|69, 4067, 5002
+11|Cockroach Bay Aquatic Preserve|2002|Dissolved Oxygen|Surface|Field|1540|0.06|16.2|5.02|5.24004545454546|2.28979878820392|69, 4067, 5002
+11|Cockroach Bay Aquatic Preserve|2003|Dissolved Oxygen|Surface|Field|1065|0.3|16|5|5.76507042253521|2.79329251981224|69, 4067, 5002
+11|Cockroach Bay Aquatic Preserve|2004|Dissolved Oxygen|Surface|Field|1069|0.82|12.5|3.93|4.78811038353602|2.1106643750035|69, 4067, 5002
+11|Cockroach Bay Aquatic Preserve|2005|Dissolved Oxygen|Surface|Field|503|0.6|13.4|6.5|6.49848906560636|1.97302225938675|69, 95, 4067, 5002
+11|Cockroach Bay Aquatic Preserve|2006|Dissolved Oxygen|Surface|Field|1016|0.9|14.7|5.9|6.16300196850394|2.13857250487722|69, 4067, 5002
+11|Cockroach Bay Aquatic Preserve|2007|Dissolved Oxygen|Surface|Field|686|0.5|13.9|6|6.01752186588921|2.32103185811451|69, 4067, 5002
+11|Cockroach Bay Aquatic Preserve|2008|Dissolved Oxygen|Surface|Field|430|1.05|14.7|6.415|6.43123255813954|2.10760242639562|69, 4067, 5002
+11|Cockroach Bay Aquatic Preserve|2009|Dissolved Oxygen|Surface|Field|657|1.4|14.1|5.52|5.83882800608828|2.02179255074274|69, 4067, 5002
+11|Cockroach Bay Aquatic Preserve|2010|Dissolved Oxygen|Surface|Field|634|1.4|13.1|5.9|6.29184542586751|2.28242282125702|69, 5002
+11|Cockroach Bay Aquatic Preserve|2011|Dissolved Oxygen|Surface|Field|676|1.2|16|5.765|5.86192307692308|1.99816267457734|69, 95, 5002
+11|Cockroach Bay Aquatic Preserve|2012|Dissolved Oxygen|Surface|Field|636|2.23|17.6|5.84|6.04996855345912|1.73943641853552|69, 5002
+11|Cockroach Bay Aquatic Preserve|2013|Dissolved Oxygen|Surface|Field|650|1.9|11.1|5.925|6.12867692307692|1.89064645279916|69, 95, 5002
+11|Cockroach Bay Aquatic Preserve|2014|Dissolved Oxygen|Surface|Field|825|1.2|15.6|6.2|6.47757575757576|2.14392173984874|69, 95, 4067, 5002
+11|Cockroach Bay Aquatic Preserve|2015|Dissolved Oxygen|Surface|Field|681|2.45|20.2|6.2|6.33603524229075|1.8385161436661|69, 5002
+11|Cockroach Bay Aquatic Preserve|2016|Dissolved Oxygen|Surface|Field|670|2.26|15.3|5.8|6.31616417910448|2.07251767414098|69, 4067, 5002
+11|Cockroach Bay Aquatic Preserve|2017|Dissolved Oxygen|Surface|Field|517|1.2|12.5|6.7|6.68377176015474|1.9970516762012|69, 5002
+11|Cockroach Bay Aquatic Preserve|2020|Dissolved Oxygen|Surface|Field|64|2.67|8.29|4.79|5.313125|1.34022608256255|5002
+11|Cockroach Bay Aquatic Preserve|2021|Dissolved Oxygen|Surface|Field|175|2.35|11.67|5.66|5.58588571428571|1.66076674875199|5002
+13|Coupon Bight Aquatic Preserve|1995|Dissolved Oxygen|Surface|Field|4|6.2|8|7.15|7.125|0.956991814663706|297
+13|Coupon Bight Aquatic Preserve|1996|Dissolved Oxygen|Surface|Field|4|5.2|7.4|6.05|6.175|0.917877987534291|297
+13|Coupon Bight Aquatic Preserve|1997|Dissolved Oxygen|Surface|Field|4|4|8.1|6.2|6.125|2.02875166871979|297
+13|Coupon Bight Aquatic Preserve|1998|Dissolved Oxygen|Surface|Field|3|5.8|7.8|6.9|6.83333333333333|1.00166528008778|297
+13|Coupon Bight Aquatic Preserve|1999|Dissolved Oxygen|Surface|Field|3|7.05|7.31176|7.11|7.15725333333333|0.137128525600377|297
+13|Coupon Bight Aquatic Preserve|2000|Dissolved Oxygen|Surface|Field|6|5.72|8.4|6.45|6.61956833333333|0.982909476003089|69, 297
+13|Coupon Bight Aquatic Preserve|2001|Dissolved Oxygen|Surface|Field|4|5.19|7.2|6.45|6.3225|0.834680577626356|297
+13|Coupon Bight Aquatic Preserve|2002|Dissolved Oxygen|Surface|Field|4|4.86|8.15|5.745|6.125|1.41667450978221|297
+13|Coupon Bight Aquatic Preserve|2003|Dissolved Oxygen|Surface|Field|4|4.81|6.48|5.7085|5.67675|0.715123008066911|297
+13|Coupon Bight Aquatic Preserve|2004|Dissolved Oxygen|Surface|Field|3|3.15034|5.54906|5.05256|4.58398666666667|1.2661497289552|297
+13|Coupon Bight Aquatic Preserve|2005|Dissolved Oxygen|Surface|Field|4|3.20362|7.48115|3.44932|4.3958525|2.06577865847844|297
+13|Coupon Bight Aquatic Preserve|2006|Dissolved Oxygen|Surface|Field|4|3.08146|5.75324|5.19514|4.806245|1.22590694759703|297
+13|Coupon Bight Aquatic Preserve|2007|Dissolved Oxygen|Surface|Field|4|3.34611|6.2991|4.78616|4.8043825|1.24500088632833|297
+13|Coupon Bight Aquatic Preserve|2008|Dissolved Oxygen|Surface|Field|3|6.02396|7.05966|7.03392|6.70584666666667|0.590671403178903|297
+13|Coupon Bight Aquatic Preserve|2009|Dissolved Oxygen|Surface|Field|4|5.99531|6.92372|6.11665|6.2880825|0.429432708378158|297
+13|Coupon Bight Aquatic Preserve|2010|Dissolved Oxygen|Surface|Field|3|5.99012|7.08896|6.13497|6.40468333333333|0.597010299771565|297
+13|Coupon Bight Aquatic Preserve|2011|Dissolved Oxygen|Surface|Field|3|5.9783|7.54018|6.34302|6.6205|0.817076279425612|297
+13|Coupon Bight Aquatic Preserve|2020|Dissolved Oxygen|Surface|Field|10|1.17|14.47|6.025|6.154|3.56691338710532|5002
+13|Coupon Bight Aquatic Preserve|2021|Dissolved Oxygen|Surface|Field|5|1.83|6.16|3.65|4.078|1.76180872968663|5002
+14|Estero Bay Aquatic Preserve|1971|Dissolved Oxygen|Surface|Field|1|6|6|6|6||95
+14|Estero Bay Aquatic Preserve|1991|Dissolved Oxygen|Surface|Field|55|4|12.9|6.8|7.04727272727273|1.65952408901474|5002
+14|Estero Bay Aquatic Preserve|1992|Dissolved Oxygen|Surface|Field|79|3|9.9|5.7|5.99113924050633|1.55688626409827|5002
+14|Estero Bay Aquatic Preserve|1993|Dissolved Oxygen|Surface|Field|41|3.4|7.8|6.1|5.89512195121951|0.961496546928848|5002
+14|Estero Bay Aquatic Preserve|1994|Dissolved Oxygen|Surface|Field|54|2|7.1|5.2|5.04259259259259|1.09675367486976|5002
+14|Estero Bay Aquatic Preserve|1995|Dissolved Oxygen|Surface|Field|39|1.8|7|5.4|5.1025641025641|1.41560609661824|5002
+14|Estero Bay Aquatic Preserve|1996|Dissolved Oxygen|Surface|Field|54|1.8|7.4|5.3|5.18518518518519|1.40905527127655|5002
+14|Estero Bay Aquatic Preserve|1997|Dissolved Oxygen|Surface|Field|54|1.7|7.3|4.9|4.85925925925926|1.46410105313143|5002
+14|Estero Bay Aquatic Preserve|1998|Dissolved Oxygen|Surface|Field|68|1.1|8.8|5.25|5.14117647058824|1.58822488859467|5002
+14|Estero Bay Aquatic Preserve|1999|Dissolved Oxygen|Surface|Field|104|1|9.4|5.9|5.70653846153846|1.90996862132043|509, 5002
+14|Estero Bay Aquatic Preserve|2000|Dissolved Oxygen|Surface|Field|132|0.7|7.8|5.7|5.3069696969697|1.76257572600851|509, 5002
+14|Estero Bay Aquatic Preserve|2001|Dissolved Oxygen|Surface|Field|247|1.8|9.1|6|5.84283400809717|1.37439390365935|69, 509, 5002
+14|Estero Bay Aquatic Preserve|2002|Dissolved Oxygen|Surface|Field|217|1.1|9.3|6|5.98760368663595|1.61456127786664|509, 5002
+14|Estero Bay Aquatic Preserve|2003|Dissolved Oxygen|Surface|Field|232|2|9.8|6.6|6.43512931034483|1.54204198700942|69, 103, 115, 509, 5002
+14|Estero Bay Aquatic Preserve|2004|Dissolved Oxygen|Surface|Field|269|1.7|10.9|6.33|6.24613382899628|1.67212102680746|509, 5002
+14|Estero Bay Aquatic Preserve|2005|Dissolved Oxygen|Surface|Field|921|1.9|11.8|6.5|6.49514657980456|1.8008980263516|69, 95, 509, 5002
+14|Estero Bay Aquatic Preserve|2006|Dissolved Oxygen|Surface|Field|898|0.5|12.9|6.2|6.22601336302895|1.69331663097993|69, 509, 5002
+14|Estero Bay Aquatic Preserve|2007|Dissolved Oxygen|Surface|Field|928|0.8|12.8|6|6.10987068965517|1.96332654338164|69, 95, 509, 5002
+14|Estero Bay Aquatic Preserve|2008|Dissolved Oxygen|Surface|Field|270|1.2|9.3|5.9|5.90518518518519|1.31287241590676|95, 476, 509, 5002
+14|Estero Bay Aquatic Preserve|2009|Dissolved Oxygen|Surface|Field|261|1.7|9.6|5.7|5.58731800766284|1.49080969559571|5002
+14|Estero Bay Aquatic Preserve|2010|Dissolved Oxygen|Surface|Field|234|0.1|10.63|5.9|5.79542735042735|1.72336506743162|95, 5002
+14|Estero Bay Aquatic Preserve|2011|Dissolved Oxygen|Surface|Field|387|1|10.3548|6.1|6.06894780361757|1.3720950049865|4064, 5002
+14|Estero Bay Aquatic Preserve|2012|Dissolved Oxygen|Surface|Field|662|0.6|12.06|5.91|5.78896314199396|1.32656784747316|95, 4064, 5002
+14|Estero Bay Aquatic Preserve|2013|Dissolved Oxygen|Surface|Field|252|1.6|10.3|5.85|5.90115079365079|1.53891249213384|95, 5002
+14|Estero Bay Aquatic Preserve|2014|Dissolved Oxygen|Surface|Field|311|0.4|11.3|6|5.79282958199357|1.4608255619604|95, 5002
+14|Estero Bay Aquatic Preserve|2015|Dissolved Oxygen|Surface|Field|324|0.7|10.3|5.75|5.61756172839506|1.51947519635524|95, 5002
+14|Estero Bay Aquatic Preserve|2016|Dissolved Oxygen|Surface|Field|327|0.4|10.5|5.7|5.66134556574924|1.55578201978987|95, 4042, 5002
+14|Estero Bay Aquatic Preserve|2017|Dissolved Oxygen|Surface|Field|337|0.3|10.1|5.4|5.24646884272997|1.58290335445102|95, 4042, 5002
+14|Estero Bay Aquatic Preserve|2018|Dissolved Oxygen|Surface|Field|61|2.25|14.17|5.28|5.51196721311475|2.04684865070848|95, 4042
+14|Estero Bay Aquatic Preserve|2019|Dissolved Oxygen|Surface|Field|8|5.53|8.36|7.41|7.2|0.874561114420909|4042
+14|Estero Bay Aquatic Preserve|2020|Dissolved Oxygen|Surface|Field|153|0.3|8.8|5|5.21718954248366|1.62890642098034|476, 4042, 5002
+14|Estero Bay Aquatic Preserve|2021|Dissolved Oxygen|Surface|Field|265|0.2|9.2|5.4|5.30301886792453|1.51589780491486|476, 4042, 5002
+14|Estero Bay Aquatic Preserve|2022|Dissolved Oxygen|Surface|Field|1|4.19|4.19|4.19|4.19||476
+15|Florida Keys National Marine Sanctuary|1970|Dissolved Oxygen|Surface|Field|111|4.4|8.9|6.2|6.4009009009009|0.90418174917692|103
+15|Florida Keys National Marine Sanctuary|1971|Dissolved Oxygen|Surface|Field|85|5.6|9.2|6.8|7.13882352941177|1.03234524006161|103
+15|Florida Keys National Marine Sanctuary|1982|Dissolved Oxygen|Surface|Field|7|5.4|8.06|7.15|6.98142857142857|0.915340165756763|60, 103
+15|Florida Keys National Marine Sanctuary|1983|Dissolved Oxygen|Surface|Field|36|4.02|9.45|7.01|6.68277777777778|1.34045112046251|103
+15|Florida Keys National Marine Sanctuary|1984|Dissolved Oxygen|Surface|Field|35|4.55|11.3|7.32|7.45342857142857|1.47776847437802|103
+15|Florida Keys National Marine Sanctuary|1986|Dissolved Oxygen|Surface|Field|4|5.1|5.7|5.25|5.325|0.262995563967659|60
+15|Florida Keys National Marine Sanctuary|1987|Dissolved Oxygen|Surface|Field|1|6|6|6|6||60
+15|Florida Keys National Marine Sanctuary|1989|Dissolved Oxygen|Surface|Field|3|7.1|8.4|7.6|7.7|0.6557438524302|509
+15|Florida Keys National Marine Sanctuary|1990|Dissolved Oxygen|Surface|Field|3|6.8|7.8|7.4|7.33333333333333|0.503322295684717|509
+15|Florida Keys National Marine Sanctuary|1991|Dissolved Oxygen|Surface|Field|39|4.2|9|5.9|6.18974358974359|1.18805344372852|509
+15|Florida Keys National Marine Sanctuary|1992|Dissolved Oxygen|Surface|Field|48|4.7|8|6.45|6.43541666666667|0.833982902864024|509
+15|Florida Keys National Marine Sanctuary|1993|Dissolved Oxygen|Surface|Field|53|4.1|9.2|6.6|6.60943396226415|1.12374103075798|60, 509
+15|Florida Keys National Marine Sanctuary|1994|Dissolved Oxygen|Surface|Field|73|4|7.9|6.1|6.08219178082192|0.733587544149645|60, 95, 509
+15|Florida Keys National Marine Sanctuary|1995|Dissolved Oxygen|Surface|Field|458|4.4|9|6.3|6.43100436681223|0.687429706756579|60, 297, 509
+15|Florida Keys National Marine Sanctuary|1996|Dissolved Oxygen|Surface|Field|513|4.2|10.8|6|6.25791423001949|1.01994683170455|60, 95, 297, 509
+15|Florida Keys National Marine Sanctuary|1997|Dissolved Oxygen|Surface|Field|714|2.6|9.5|6.1|6.22114845938375|0.78269382192695|60, 69, 297, 509
+15|Florida Keys National Marine Sanctuary|1998|Dissolved Oxygen|Surface|Field|649|2.8|10.4|6.2|6.2039907550077|0.846461191843497|297, 509
+15|Florida Keys National Marine Sanctuary|1999|Dissolved Oxygen|Surface|Field|974|2.48|9.7|6.2|6.24714421971253|0.836297973678757|69, 297, 509
+15|Florida Keys National Marine Sanctuary|2000|Dissolved Oxygen|Surface|Field|1162|2.5|13.53|6.1|6.19958123063683|1.18408829433427|69, 115, 118, 297, 509
+15|Florida Keys National Marine Sanctuary|2001|Dissolved Oxygen|Surface|Field|694|1.3|12.2|5.6|5.7727869740634|1.16040736028945|60, 115, 118, 297, 509
+15|Florida Keys National Marine Sanctuary|2002|Dissolved Oxygen|Surface|Field|713|2.26|10.9|5.81|6.0328064516129|1.08021878979896|60, 115, 297, 509
+15|Florida Keys National Marine Sanctuary|2003|Dissolved Oxygen|Surface|Field|863|2.646|9.01|5.67|5.69538933951333|1.00458335904446|60, 95, 103, 115, 297, 509, 5002
+15|Florida Keys National Marine Sanctuary|2004|Dissolved Oxygen|Surface|Field|672|0.90811|9.315|6.05155|5.99985644345238|0.882100162777607|103, 115, 297, 509
+15|Florida Keys National Marine Sanctuary|2005|Dissolved Oxygen|Surface|Field|922|0|14.53161|5.48037|5.55265387201735|1.32977848991144|95, 118, 297, 509, 5002
+15|Florida Keys National Marine Sanctuary|2006|Dissolved Oxygen|Surface|Field|1140|0.67|14.80096|5.62|5.63708880701754|1.44044537016307|60, 69, 95, 118, 297, 509, 4049, 5002
+15|Florida Keys National Marine Sanctuary|2007|Dissolved Oxygen|Surface|Field|967|2.06909|10.5|5.78124|5.56356043433299|1.26104666474283|69, 95, 297, 509, 4049
+15|Florida Keys National Marine Sanctuary|2008|Dissolved Oxygen|Surface|Field|755|2.18|11.8|6.37889|6.40216103311258|0.862049757285083|60, 69, 95, 297, 509, 4049
+15|Florida Keys National Marine Sanctuary|2009|Dissolved Oxygen|Surface|Field|737|3.6|9.58|6.31948|6.49132690637721|0.729926964122382|60, 69, 95, 297
+15|Florida Keys National Marine Sanctuary|2010|Dissolved Oxygen|Surface|Field|754|2.58|10.07|6.53074|6.62403774535809|0.866826395179433|60, 95, 297, 4049, 5002
+15|Florida Keys National Marine Sanctuary|2011|Dissolved Oxygen|Surface|Field|667|4.69|11.02|6.63173|6.7282375862069|0.726620584549675|60, 95, 297, 4049, 5002
+15|Florida Keys National Marine Sanctuary|2012|Dissolved Oxygen|Surface|Field|599|3.13|8.88|6.36526|6.39436262103506|0.671618473166851|60, 95, 297, 4049, 5002
+15|Florida Keys National Marine Sanctuary|2013|Dissolved Oxygen|Surface|Field|553|3.76|16.09|6.50943|6.40530481012658|0.702837620283833|95, 297, 4049, 5002
+15|Florida Keys National Marine Sanctuary|2014|Dissolved Oxygen|Surface|Field|517|2.92|9.09329|6.47295|6.41444874274662|0.443024261506629|95, 297, 4049, 5002
+15|Florida Keys National Marine Sanctuary|2015|Dissolved Oxygen|Surface|Field|966|0|9.3|6.32905|6.22942065217391|1.07888366204002|95, 297, 3000, 4049, 4057, 5002
+15|Florida Keys National Marine Sanctuary|2016|Dissolved Oxygen|Surface|Field|1115|0|12.1|6.22|5.97336677130045|1.37518355699128|60, 95, 297, 3000, 4049, 4057, 5002
+15|Florida Keys National Marine Sanctuary|2017|Dissolved Oxygen|Surface|Field|1107|1.09|9.9|6.47271|6.28626516711834|1.01490021922674|95, 297, 3000, 4049, 4057, 5002
+15|Florida Keys National Marine Sanctuary|2018|Dissolved Oxygen|Surface|Field|908|0|9.79|6.4039|6.29728627753304|0.849706183641011|95, 297, 3000, 4049, 4057
+15|Florida Keys National Marine Sanctuary|2019|Dissolved Oxygen|Surface|Field|552|3.5|7.09|6.405735|6.46949657608696|0.286903698328184|297, 4049, 5002
+15|Florida Keys National Marine Sanctuary|2020|Dissolved Oxygen|Surface|Field|1419|0.05|12.02|6.28|6.16956154334038|0.942036141574475|297, 5002
+15|Florida Keys National Marine Sanctuary|2021|Dissolved Oxygen|Surface|Field|369|0.18|9.17|6.64|6.43555555555556|1.32602432833024|5002
+16|Fort Clinch State Park Aquatic Preserve|1994|Dissolved Oxygen|Surface|Field|1|6|6|6|6||115
+16|Fort Clinch State Park Aquatic Preserve|2001|Dissolved Oxygen|Surface|Field|40|4.2|7.6|5.5|5.705|0.889525946927019|69
+16|Fort Clinch State Park Aquatic Preserve|2002|Dissolved Oxygen|Surface|Field|42|5.7|8.8|7.2|7.24285714285714|0.89255534969256|69
+16|Fort Clinch State Park Aquatic Preserve|2003|Dissolved Oxygen|Surface|Field|28|5.6|9.9|7.8|7.80357142857143|1.06926147682412|69
+16|Fort Clinch State Park Aquatic Preserve|2004|Dissolved Oxygen|Surface|Field|56|4.9|15|7.45|8.07357142857143|2.60507506684474|69, 103, 5002
+16|Fort Clinch State Park Aquatic Preserve|2005|Dissolved Oxygen|Surface|Field|48|4.6|10.7|6.8|7.23333333333333|1.5791639766814|69
+16|Fort Clinch State Park Aquatic Preserve|2006|Dissolved Oxygen|Surface|Field|34|4.3|9.3|7.35|7.02941176470588|1.46091076029796|69
+16|Fort Clinch State Park Aquatic Preserve|2007|Dissolved Oxygen|Surface|Field|67|4.46|11.7|8.1|7.88373134328358|1.9339853935559|69, 103
+16|Fort Clinch State Park Aquatic Preserve|2008|Dissolved Oxygen|Surface|Field|43|5|13.2|7.4|8.58837209302326|2.11144379652155|69, 5002
+16|Fort Clinch State Park Aquatic Preserve|2009|Dissolved Oxygen|Surface|Field|27|5.7|9.8|7.4|7.5962962962963|1.10852690938556|69
+16|Fort Clinch State Park Aquatic Preserve|2010|Dissolved Oxygen|Surface|Field|36|4.4|13.9|8.1|8.38611111111111|2.49080053428357|69
+16|Fort Clinch State Park Aquatic Preserve|2011|Dissolved Oxygen|Surface|Field|35|6.2|12.1|8.5|8.26285714285714|1.437335302951|69
+16|Fort Clinch State Park Aquatic Preserve|2012|Dissolved Oxygen|Surface|Field|34|3.2|13.3|6.95|7.22058823529412|2.53314745072807|69
+16|Fort Clinch State Park Aquatic Preserve|2013|Dissolved Oxygen|Surface|Field|54|4.7|9.6|6.55|6.63703703703704|0.91928321057435|69, 5002
+16|Fort Clinch State Park Aquatic Preserve|2014|Dissolved Oxygen|Surface|Field|58|3.2|9.8|6.9|6.89810344827586|1.31897681888645|69, 95, 5002
+16|Fort Clinch State Park Aquatic Preserve|2015|Dissolved Oxygen|Surface|Field|55|5.02|10.9|6.4|7.24981818181818|1.72244388277033|69, 95
+16|Fort Clinch State Park Aquatic Preserve|2016|Dissolved Oxygen|Surface|Field|64|5.1|11|7.335|7.2896875|1.35158104801935|69, 95
+16|Fort Clinch State Park Aquatic Preserve|2017|Dissolved Oxygen|Surface|Field|54|4.8|13.3|7.88|7.85259259259259|1.68754391717577|69, 95
+16|Fort Clinch State Park Aquatic Preserve|2018|Dissolved Oxygen|Surface|Field|10|5.09|10.02|7.38|7.35|1.45141310452951|95
+16|Fort Clinch State Park Aquatic Preserve|2019|Dissolved Oxygen|Surface|Field|6|5.39|7.27|6.79|6.64666666666667|0.741314148432813|5002
+16|Fort Clinch State Park Aquatic Preserve|2020|Dissolved Oxygen|Surface|Field|2|5.39|7.18|6.285|6.285|1.26572113832392|5002
+16|Fort Clinch State Park Aquatic Preserve|2021|Dissolved Oxygen|Surface|Field|4|6.23|8.63|7.02|7.225|1.10684235553217|5002
+17|Fort Pickens State Park Aquatic Preserve|1982|Dissolved Oxygen|Surface|Field|1|6.9|6.9|6.9|6.9||60
+17|Fort Pickens State Park Aquatic Preserve|1983|Dissolved Oxygen|Surface|Field|2|6.2|6.4|6.3|6.3|0.14142135623731|60
+17|Fort Pickens State Park Aquatic Preserve|1991|Dissolved Oxygen|Surface|Field|2|6.8|6.8|6.8|6.8|0|115
+17|Fort Pickens State Park Aquatic Preserve|1992|Dissolved Oxygen|Surface|Field|1|6.2|6.2|6.2|6.2||115
+17|Fort Pickens State Park Aquatic Preserve|1993|Dissolved Oxygen|Surface|Field|37|5.8|11.5|8.2|8.27837837837838|1.47669584905986|103
+17|Fort Pickens State Park Aquatic Preserve|1994|Dissolved Oxygen|Surface|Field|1|7.8|7.8|7.8|7.8||69
+17|Fort Pickens State Park Aquatic Preserve|1996|Dissolved Oxygen|Surface|Field|22|4.55|8.8|7.37|7.32363636363636|1.07001800365159|69, 95, 103, 5002
+17|Fort Pickens State Park Aquatic Preserve|1997|Dissolved Oxygen|Surface|Field|52|4.5|10.7|7.55|7.66038461538462|1.34879170551153|5002
+17|Fort Pickens State Park Aquatic Preserve|1998|Dissolved Oxygen|Surface|Field|46|5.05|10.5|7.78|7.725|1.43805539995277|5002
+17|Fort Pickens State Park Aquatic Preserve|1999|Dissolved Oxygen|Surface|Field|57|5.12|10.58|7.1|7.38701754385965|1.15298210386353|5002
+17|Fort Pickens State Park Aquatic Preserve|2000|Dissolved Oxygen|Surface|Field|55|5.02|10.71|7.16|7.41636363636364|1.17678526886751|95, 5002
+17|Fort Pickens State Park Aquatic Preserve|2001|Dissolved Oxygen|Surface|Field|47|5.49|10.49|7.54|7.70829787234043|1.02095930836797|5002
+17|Fort Pickens State Park Aquatic Preserve|2002|Dissolved Oxygen|Surface|Field|64|5.0783|10.75|7.74|7.6918078125|1.28397618559539|95, 505, 5002
+17|Fort Pickens State Park Aquatic Preserve|2003|Dissolved Oxygen|Surface|Field|67|5.6615|11.1|8.48|8.45261641791045|1.02166027853018|69, 95, 505, 5002
+17|Fort Pickens State Park Aquatic Preserve|2004|Dissolved Oxygen|Surface|Field|49|5.64|10.69|8.33|8.2248|1.04659326388048|505, 5002
+17|Fort Pickens State Park Aquatic Preserve|2005|Dissolved Oxygen|Surface|Field|2|8.1|8.8|8.45|8.45|0.494974746830584|95
+17|Fort Pickens State Park Aquatic Preserve|2006|Dissolved Oxygen|Surface|Field|11|6.74|9.84|7.95|8.19909090909091|1.06787128948628|5002
+17|Fort Pickens State Park Aquatic Preserve|2007|Dissolved Oxygen|Surface|Field|1|7.87|7.87|7.87|7.87||5002
+17|Fort Pickens State Park Aquatic Preserve|2009|Dissolved Oxygen|Surface|Field|9|5.96|7.83|7.09|6.91111111111111|0.639266072235271|60, 505, 5002
+17|Fort Pickens State Park Aquatic Preserve|2010|Dissolved Oxygen|Surface|Field|11|5.4|9.16|7.5|7.61|1.09462322284885|60, 505, 5002
+17|Fort Pickens State Park Aquatic Preserve|2011|Dissolved Oxygen|Surface|Field|35|4.92|9.59|6.51|6.726|0.900039868397996|60, 103, 505, 5002
+17|Fort Pickens State Park Aquatic Preserve|2012|Dissolved Oxygen|Surface|Field|21|5.13|8.59|6.94|7.01761904761905|0.892238223581039|103, 505, 5002
+17|Fort Pickens State Park Aquatic Preserve|2013|Dissolved Oxygen|Surface|Field|2|6.8|9.53|8.165|8.165|1.93040151263927|60, 103
+17|Fort Pickens State Park Aquatic Preserve|2014|Dissolved Oxygen|Surface|Field|25|5.45|9.49|7.4997|7.562084|0.926591333274816|103, 505, 5002
+17|Fort Pickens State Park Aquatic Preserve|2015|Dissolved Oxygen|Surface|Field|14|5.9006|8.4638|6.4719|6.78900714285714|0.798952584964827|505
+17|Fort Pickens State Park Aquatic Preserve|2016|Dissolved Oxygen|Surface|Field|37|5.38|11.07|8.37|8.4192027027027|1.37033037409201|95, 505, 4065
+17|Fort Pickens State Park Aquatic Preserve|2017|Dissolved Oxygen|Surface|Field|62|5.83|12.7|7.92|8.02532258064516|1.2274720359967|69, 95, 4065
+17|Fort Pickens State Park Aquatic Preserve|2018|Dissolved Oxygen|Surface|Field|50|5.78|11.6|8.755|8.732|1.46289341472889|95, 4065
+17|Fort Pickens State Park Aquatic Preserve|2019|Dissolved Oxygen|Surface|Field|43|6.28|10.19|7.3|7.54046511627907|0.870218783351066|4065
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|1989|Dissolved Oxygen|Surface|Field|208|1.5|11.6|6.5|6.68990384615385|1.6491086716768|69
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|1990|Dissolved Oxygen|Surface|Field|351|1.2|14.6|7.1|7.1037037037037|1.57248228260306|69
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|1991|Dissolved Oxygen|Surface|Field|368|3.2|13.5|6.45|6.60298913043478|1.74063998374593|69
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|1992|Dissolved Oxygen|Surface|Field|272|1.6|11.6|6.6|6.55036764705882|1.48619721173193|69
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|1993|Dissolved Oxygen|Surface|Field|297|3.91|11.6|7.4|7.39212121212121|1.36402742754529|69, 5002
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|1994|Dissolved Oxygen|Surface|Field|324|0.4|11.5|6.5|6.51228395061728|1.04793281677418|69, 5002
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|1995|Dissolved Oxygen|Surface|Field|503|2.3|12.7|6.7|6.64741550695825|1.47045175604325|69, 5002
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|1996|Dissolved Oxygen|Surface|Field|667|2.2|15.4|6.7|6.91842578710645|1.54498668423685|69, 95, 5002
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|1997|Dissolved Oxygen|Surface|Field|933|0.9|12.9|6.49|6.63047159699893|1.45878123644794|69, 95, 5002
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|1998|Dissolved Oxygen|Surface|Field|772|1.4|14.4|6.8|6.86849740932643|1.62056444706804|69, 95, 5002
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|1999|Dissolved Oxygen|Surface|Field|782|1.6|13.2|6.7|6.64590792838875|1.4441998016397|69, 95, 5002
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|2000|Dissolved Oxygen|Surface|Field|747|1.5|16.2|6.7|6.77020080321285|1.42164655032382|69, 115, 118, 5002
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|2001|Dissolved Oxygen|Surface|Field|1497|0.17|15.2|6.5|6.40988643954576|1.74693740431134|69, 115, 118, 479, 513, 5002
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|2002|Dissolved Oxygen|Surface|Field|1759|0.82|14.5|6.68|6.68263786242183|1.57995887828257|69, 95, 115, 479, 5002
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|2003|Dissolved Oxygen|Surface|Field|2013|0.23|12.7|6.79|6.75741977148535|1.71952299813057|69, 95, 103, 115, 479, 5002
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|2004|Dissolved Oxygen|Surface|Field|2037|0.1|16.6|6.8|6.7309852724595|1.99797545265444|69, 103, 115, 479, 513, 5002
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|2005|Dissolved Oxygen|Surface|Field|1898|0.11|15.85|7.1|7.07927818756586|1.76057155008879|69, 479, 5002
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|2006|Dissolved Oxygen|Surface|Field|1710|0.13|14.5|6.7|6.70605263157895|1.80323820537246|69, 95, 118, 479, 5002
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|2007|Dissolved Oxygen|Surface|Field|1399|1.09|16.5|6.8|6.81850607576841|1.62196854417599|69, 95, 479, 5002
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|2008|Dissolved Oxygen|Surface|Field|1356|1.14|18.3|7|6.94910766961652|1.60879286420335|69, 95, 476, 479, 5002
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|2009|Dissolved Oxygen|Surface|Field|1616|0.47|17.3|6.7|6.45368811881188|1.90096387785223|69, 95, 479, 5002
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|2010|Dissolved Oxygen|Surface|Field|1714|0.9|14.7|7.1|7.06124970828472|1.88446581893204|69, 95, 479, 5002
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|2011|Dissolved Oxygen|Surface|Field|1550|0.38|13.3|6.9|6.75605806451613|1.77850547923991|69, 95, 479, 5002
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|2012|Dissolved Oxygen|Surface|Field|1496|0.87|15.2|6.68|6.75706550802139|1.5587690490301|69, 95, 479, 5002
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|2013|Dissolved Oxygen|Surface|Field|1291|0.48|15.6|7|6.90408210689388|1.52790640245029|69, 95, 479, 5002
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|2014|Dissolved Oxygen|Surface|Field|1989|0.3|14.8|6.4|6.20164906988436|2.11581336433096|69, 95, 479, 5002
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|2015|Dissolved Oxygen|Surface|Field|2187|0.1|17.2|6.4|6.33090077732053|2.08613651642773|69, 95, 479, 5002
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|2016|Dissolved Oxygen|Surface|Field|1808|0.3|14.6|6.8|6.63478982300885|2.05407812002134|69, 95, 479, 5002
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|2017|Dissolved Oxygen|Surface|Field|1677|0.5|15.3|6.3|6.23691115086464|2.05352932697711|69, 95, 5002
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|2018|Dissolved Oxygen|Surface|Field|65|2.76|9.27|6.71|6.63353846153846|1.20411200523616|95
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|2020|Dissolved Oxygen|Surface|Field|285|1.65|8.6|7.05|6.726|1.23373907803719|476, 479, 5002
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|2021|Dissolved Oxygen|Surface|Field|52|1.99|8|5.375|5.38480769230769|1.66178204651986|476, 5002
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|2022|Dissolved Oxygen|Surface|Field|1|4.38|4.38|4.38|4.38||476
+19|Guana River Marsh Aquatic Preserve|1986|Dissolved Oxygen|Surface|Field|1|6.3|6.3|6.3|6.3||60
+19|Guana River Marsh Aquatic Preserve|1995|Dissolved Oxygen|Surface|Field|148|2|9.8|5.7|5.89932432432433|2.11030824783985|5002
+19|Guana River Marsh Aquatic Preserve|1996|Dissolved Oxygen|Surface|Field|225|3.5|8.8|6|6.16888888888889|1.0918166018446|5002
+19|Guana River Marsh Aquatic Preserve|1997|Dissolved Oxygen|Surface|Field|512|2.4|11.3|6.49|6.5150390625|1.65142137629132|5002
+19|Guana River Marsh Aquatic Preserve|1998|Dissolved Oxygen|Surface|Field|261|3.52|15.1|7.2|7.45900383141763|1.80677266565827|5002
+19|Guana River Marsh Aquatic Preserve|1999|Dissolved Oxygen|Surface|Field|301|1.3|11.4|6.55|6.6790365448505|1.89550206242568|5002
+19|Guana River Marsh Aquatic Preserve|2000|Dissolved Oxygen|Surface|Field|237|2.6|8.6|5.4|5.20763713080169|1.45119628733613|5002
+19|Guana River Marsh Aquatic Preserve|2001|Dissolved Oxygen|Surface|Field|217|2.06|9.63|6.5|6.37806451612903|1.31329347637063|69, 5002
+19|Guana River Marsh Aquatic Preserve|2002|Dissolved Oxygen|Surface|Field|227|3.1|9.54|6.4|6.06264317180617|1.66052664385192|5002
+19|Guana River Marsh Aquatic Preserve|2003|Dissolved Oxygen|Surface|Field|225|3.3|9.8|5.4|5.54124444444445|1.46520057676713|5002
+19|Guana River Marsh Aquatic Preserve|2004|Dissolved Oxygen|Surface|Field|152|2.58|9.2|4.95|5.17098684210526|1.63744460898921|5002
+19|Guana River Marsh Aquatic Preserve|2005|Dissolved Oxygen|Surface|Field|173|2.96|11.6|5.86|6.68878612716763|2.13535009531783|5002
+19|Guana River Marsh Aquatic Preserve|2006|Dissolved Oxygen|Surface|Field|162|0|8.45|4.74|5.05765432098766|1.26640320289804|118, 5002
+19|Guana River Marsh Aquatic Preserve|2007|Dissolved Oxygen|Surface|Field|119|2.48|10.2|5.77|6.20218487394958|2.08185915920177|95, 5002
+19|Guana River Marsh Aquatic Preserve|2008|Dissolved Oxygen|Surface|Field|179|2.9|9.86|4.8|5.35469273743017|1.42770550991332|5002
+19|Guana River Marsh Aquatic Preserve|2009|Dissolved Oxygen|Surface|Field|215|0.3|13.9|4.8|5.75279069767442|2.84273374874753|69, 5002
+19|Guana River Marsh Aquatic Preserve|2010|Dissolved Oxygen|Surface|Field|167|1.2|13.5|7.6|7.53874251497006|2.45569615179252|69, 5002
+19|Guana River Marsh Aquatic Preserve|2011|Dissolved Oxygen|Surface|Field|77|2.86|8.57|4.6|5.24519480519481|1.45841623759403|95, 5002
+19|Guana River Marsh Aquatic Preserve|2012|Dissolved Oxygen|Surface|Field|112|2.2|9.99|5.275|5.03464285714286|2.01771431141057|95, 5002
+19|Guana River Marsh Aquatic Preserve|2013|Dissolved Oxygen|Surface|Field|94|3.45|10.5|6.8|6.82904255319149|1.28153811244677|95, 5002
+19|Guana River Marsh Aquatic Preserve|2014|Dissolved Oxygen|Surface|Field|138|0.22|9|3.95|3.555|2.68976194914451|95, 4054, 5002
+19|Guana River Marsh Aquatic Preserve|2015|Dissolved Oxygen|Surface|Field|121|0.21|9.7|0.48|2.06917355371901|2.74192742025777|95, 4054, 5002
+19|Guana River Marsh Aquatic Preserve|2016|Dissolved Oxygen|Surface|Field|143|0.44|10.3|0.68|2.37916083916084|2.72363274822213|95, 4054, 5002
+19|Guana River Marsh Aquatic Preserve|2017|Dissolved Oxygen|Surface|Field|167|0.07|12|4.6|4.21778443113772|3.11947813854571|95, 4054, 5002, 5014
+19|Guana River Marsh Aquatic Preserve|2018|Dissolved Oxygen|Surface|Field|88|2|11.25|5.91|6.07840909090909|1.914781513519|95, 4054, 5014
+19|Guana River Marsh Aquatic Preserve|2019|Dissolved Oxygen|Surface|Field|32|2.45|9.7|5.83|6.14375|2.0299527246998|4054, 5014
+19|Guana River Marsh Aquatic Preserve|2020|Dissolved Oxygen|Surface|Field|49|1.53|9.66|5.69|5.75448979591837|1.72887856381973|5002, 5014
+19|Guana River Marsh Aquatic Preserve|2021|Dissolved Oxygen|Surface|Field|41|2.89|8.6|6.18|5.73512195121951|1.38937417917424|5002, 5014
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|1986|Dissolved Oxygen|Surface|Field|1|6.3|6.3|6.3|6.3||60
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|1995|Dissolved Oxygen|Surface|Field|291|2|11.1|6.1|6.20790378006873|2.38965574010715|5002
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|1996|Dissolved Oxygen|Surface|Field|735|3|8.8|6.1|6.20884353741497|0.979276074863191|5002
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|1997|Dissolved Oxygen|Surface|Field|1343|2.4|11.4|6.9|6.93854802680566|1.56707970419306|5002
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|1998|Dissolved Oxygen|Surface|Field|759|3.52|15.1|7.7|7.74056653491436|1.57943815216169|5002
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|1999|Dissolved Oxygen|Surface|Field|721|1.3|11.4|7.1|7.07628294036061|1.67212167215793|5002
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2000|Dissolved Oxygen|Surface|Field|534|2|9.9|5.95|5.66548689138577|1.6682044944453|5002
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2001|Dissolved Oxygen|Surface|Field|522|2.06|9.63|6.5|6.39132183908046|1.27055807703659|69, 5002
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2002|Dissolved Oxygen|Surface|Field|756|2.7|10.05|6.8|6.29108465608466|1.95940513698344|5002
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2003|Dissolved Oxygen|Surface|Field|594|3.3|10.6|5.7|5.91540404040404|1.64241398502209|5002
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2004|Dissolved Oxygen|Surface|Field|447|2.58|9.9|5.26|5.48161073825503|1.69125092363628|5002
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2005|Dissolved Oxygen|Surface|Field|551|2.96|11.6|5.5|5.95230490018149|1.6777610474443|5002
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2006|Dissolved Oxygen|Surface|Field|442|0|9.8|5.3|5.52746606334842|1.50527173550556|118, 5002
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2007|Dissolved Oxygen|Surface|Field|526|2.48|10.3|6.4|6.33505703422053|2.15699912722192|95, 5002
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2008|Dissolved Oxygen|Surface|Field|516|0.78|9.86|5|5.36782945736434|1.34044925738927|5002
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2009|Dissolved Oxygen|Surface|Field|532|0.3|13.9|4.8|5.32494360902256|2.2356470426394|69, 5002
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2010|Dissolved Oxygen|Surface|Field|283|1.2|13.6|6.8|7.21812720848057|2.26511245272215|69, 5002
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2011|Dissolved Oxygen|Surface|Field|189|2.86|9.71|5|5.4084126984127|1.38759918911231|95, 5002
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2012|Dissolved Oxygen|Surface|Field|349|2.1|9.99|5|4.87997134670487|1.72751906664251|95, 5002
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2013|Dissolved Oxygen|Surface|Field|347|0.6|10.5|6.8|6.78046109510087|1.07951997229873|95, 4054, 5002
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2014|Dissolved Oxygen|Surface|Field|456|0.22|9|4.84|4.49824561403509|2.1476162080092|95, 4054, 5002
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2015|Dissolved Oxygen|Surface|Field|429|0.21|11.1|4.69|4.08752913752914|2.55573524951646|95, 4054, 5002
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2016|Dissolved Oxygen|Surface|Field|485|0.44|10.3|4.68|4.24488659793814|3.05611077274617|95, 4054, 5002
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2017|Dissolved Oxygen|Surface|Field|551|0.07|12|5.02|4.60199637023594|2.82783142225877|95, 4054, 5002, 5014
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2018|Dissolved Oxygen|Surface|Field|308|2|11.25|5.8|6.05811688311688|1.6201784473562|95, 4054, 5014
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2019|Dissolved Oxygen|Surface|Field|177|2.45|11.19|5.69|5.93677966101695|1.90435962812184|4054, 5014
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2020|Dissolved Oxygen|Surface|Field|208|1.53|10.22|5.785|5.77144230769231|1.57177423257967|4054, 5002, 5014
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2021|Dissolved Oxygen|Surface|Field|102|2.89|8.61|6.31|6.01450980392157|1.36465033961373|5002, 5014
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2022|Dissolved Oxygen|Surface|Field|1|7.78|7.78|7.78|7.78||5002
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|1991|Dissolved Oxygen|Surface|Field|40|2.5|7.9|6.4|5.9425|1.52633086106384|69, 3001, 5002
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|1992|Dissolved Oxygen|Surface|Field|95|2.7|8.8|6.4|6.26631578947368|1.3126723211146|69, 3001, 5002
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|1993|Dissolved Oxygen|Surface|Field|15|6.8|8.9|7.9|7.78|0.622437604446078|69, 3001, 5002
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|1994|Dissolved Oxygen|Surface|Field|208|0.5|10|6.2|6.09663461538462|1.78832451235823|115, 3001, 5002
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|1995|Dissolved Oxygen|Surface|Field|796|1|12|6.7|6.72173366834171|2.01889626970931|69, 115, 3001, 5002
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|1996|Dissolved Oxygen|Surface|Field|1232|1.5|11.5|6.8|6.68668831168831|1.39219178263478|69, 95, 3001, 5002
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|1997|Dissolved Oxygen|Surface|Field|1381|1.8|14|6.5|6.4274112961622|1.75856751041406|69, 3001, 5002
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|1998|Dissolved Oxygen|Surface|Field|1265|0.9|17.5|6.9|6.95992885375494|1.74001361608888|69, 3001, 5002
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|1999|Dissolved Oxygen|Surface|Field|1631|0.5|14.7|6.5|6.52076640098099|1.82370891250365|69, 3001, 5002
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|2000|Dissolved Oxygen|Surface|Field|1140|1.1|12|6.4|6.38735964912281|1.7033510205874|69, 118, 3001, 5002
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|2001|Dissolved Oxygen|Surface|Field|1874|0|15.3|6|6.08372998932764|1.73654695193377|69, 3001, 5002
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|2002|Dissolved Oxygen|Surface|Field|1987|1|15.9|6.4|6.59047810770005|1.88967942818031|69, 95, 3001, 5002
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|2003|Dissolved Oxygen|Surface|Field|2047|0|11.5|6.2|6.13802149487054|1.68809561546936|69, 3001, 3013, 5002
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|2004|Dissolved Oxygen|Surface|Field|2329|0.17|13.2|6.1|5.97644053241735|1.88155475029466|69, 103, 3001, 3013, 5002
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|2005|Dissolved Oxygen|Surface|Field|2295|1.26|13.3|6.3|6.34002614379085|1.58181313070934|69, 95, 118, 3001, 3013, 5002
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|2006|Dissolved Oxygen|Surface|Field|1969|0|12.4|6.44|6.4509751142712|1.74337942310234|69, 118, 3001, 3013, 5002
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|2007|Dissolved Oxygen|Surface|Field|2213|0.22|14|6.25|6.22586534116584|1.85101541800701|69, 95, 3001, 3013, 5002
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|2008|Dissolved Oxygen|Surface|Field|2113|0.11|14.6|6.44|6.47952673923332|1.99409636807267|69, 95, 3001, 3013, 5002
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|2009|Dissolved Oxygen|Surface|Field|2045|0.4|12.8|6.04|6.15786797066015|1.86709359836742|69, 95, 3001, 3013, 5002
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|2010|Dissolved Oxygen|Surface|Field|2047|0.08|16.5|6.51|6.67300928187592|2.01755071340115|69, 95, 3001, 3013, 5002
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|2011|Dissolved Oxygen|Surface|Field|1834|0.07|14|6.145|6.20429116684842|1.7818991885712|69, 95, 3001, 3013, 5002
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|2012|Dissolved Oxygen|Surface|Field|1489|0.9|14|6.33|6.22528878441907|1.91804265285223|69, 95, 3001, 3013, 5002
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|2013|Dissolved Oxygen|Surface|Field|1376|0|14|6.6|6.57811046511628|1.56955861478415|69, 95, 3001, 3013, 5002
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|2014|Dissolved Oxygen|Surface|Field|1337|0.14|11.95|6.27|5.61437546746447|2.67419117319143|69, 95, 3001, 3013, 5002
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|2015|Dissolved Oxygen|Surface|Field|1419|0.15|12.9|5.9|5.06494009866103|3.03448850725136|69, 95, 3001, 3013, 5002
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|2016|Dissolved Oxygen|Surface|Field|1331|0.17|13.5|5.9|5.29484222389181|3.10044867197785|69, 95, 540, 3001, 3013, 5002
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|2017|Dissolved Oxygen|Surface|Field|1497|0.44|16.1|6.6|6.15759519038076|2.42150461229305|69, 95, 540, 3001, 3013, 5002
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|2018|Dissolved Oxygen|Surface|Field|327|2.25|11.83|6.1|6.1665871559633|1.57873297732693|95, 540, 3001, 3013
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|2019|Dissolved Oxygen|Surface|Field|227|0|19.2|5.75|6.27118942731278|2.02440418291825|540, 3001, 3013
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|2020|Dissolved Oxygen|Surface|Field|233|1.95|12.09|6.3|6.45304721030043|1.5326401838352|540, 3001, 3013, 5002
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|2021|Dissolved Oxygen|Surface|Field|100|0.86|11.86|6.45|6.7299|1.69592351111586|5002
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|1992|Dissolved Oxygen|Surface|Field|42|1.4|9.1|4.4|4.83571428571429|1.94194037091286|3001
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|1993|Dissolved Oxygen|Surface|Field|16|2.7|8.5|7.3|6.56875|1.82709924926553|3001
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|1994|Dissolved Oxygen|Surface|Field|3|6.7|7.2|7.2|7.03333333333333|0.288675134594813|115
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|1995|Dissolved Oxygen|Surface|Field|100|4.4|11.9|7.75|8.076|1.9231245619585|115, 5002
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|1996|Dissolved Oxygen|Surface|Field|205|2.3|10.4|6.4|6.27121951219512|1.36101208578639|95, 3001, 5002
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|1997|Dissolved Oxygen|Surface|Field|224|2|11.3|6.955|7.10473214285714|1.59127157311712|5002
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|1998|Dissolved Oxygen|Surface|Field|219|1.5|11.9|7.1|7.11397260273973|1.58470215972143|69, 5002
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|1999|Dissolved Oxygen|Surface|Field|378|2.7|11.9|7.245|7.27703703703704|1.55500601846344|69, 3001, 3013, 5002
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|2000|Dissolved Oxygen|Surface|Field|227|2.7|9.3|6.6|6.44392070484582|1.39882411200956|69, 5002
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|2001|Dissolved Oxygen|Surface|Field|333|0.8|9.8|6|5.75183183183183|1.5803762539865|69, 3001, 5002
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|2002|Dissolved Oxygen|Surface|Field|257|1.2|10.4|5.9|5.72821011673152|1.89643927929515|69, 95, 5002
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|2003|Dissolved Oxygen|Surface|Field|393|0.9|10|6.2|5.90335877862595|1.74685064021365|69, 95, 3013, 5002
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|2004|Dissolved Oxygen|Surface|Field|216|2.1|9.25|5.7|5.53925925925926|1.82794901140211|69, 3013, 5002
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|2005|Dissolved Oxygen|Surface|Field|246|3.1|9.6|5.8|5.95113821138211|1.52859823915181|69, 3013, 5002
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|2006|Dissolved Oxygen|Surface|Field|218|2.6|10.1|6.255|6.48082568807339|1.78870116276019|69, 118, 3013, 5002
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|2007|Dissolved Oxygen|Surface|Field|247|2.6|10.5|6.8|6.64388663967611|1.3289146326677|69, 95, 3013, 5002
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|2008|Dissolved Oxygen|Surface|Field|236|2.8|9.8|6.245|6.0789406779661|1.52657931499695|69, 95, 3001, 3013, 5002
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|2009|Dissolved Oxygen|Surface|Field|156|2.4|10.9|5.255|5.36038461538462|2.05941297135871|69, 3013, 5002
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|2010|Dissolved Oxygen|Surface|Field|144|3.5|10.9|6.855|6.956875|1.57587070781909|69, 3013, 5002
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|2011|Dissolved Oxygen|Surface|Field|132|1.8|13|6.195|6.28409090909091|2.00313340595531|69, 3013, 5002
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|2012|Dissolved Oxygen|Surface|Field|165|1|8.8|6|5.45163636363636|2.03976065397362|69, 95, 3013, 5002
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|2013|Dissolved Oxygen|Surface|Field|165|2.1|11.5|6.1|6.1769696969697|1.97845542866714|69, 95, 3013, 5002
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|2014|Dissolved Oxygen|Surface|Field|183|2.8|13|5.62|5.95934426229508|2.08570925206007|69, 95, 3013, 5002
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|2015|Dissolved Oxygen|Surface|Field|206|1.5|15.5|5.2|5.42553398058252|2.18593250879025|69, 95, 3013, 5002
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|2016|Dissolved Oxygen|Surface|Field|205|0.4|19.1|6.2|5.51843902439024|2.84959070030311|69, 95, 540, 3013, 5002
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|2017|Dissolved Oxygen|Surface|Field|219|0.59|9.89|6.2|5.16054794520548|2.84738438984209|69, 95, 540, 3013, 5002
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|2018|Dissolved Oxygen|Surface|Field|34|6.05|8.7|6.77|7.06411764705882|0.744755878844258|95, 540, 3013
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|2019|Dissolved Oxygen|Surface|Field|32|1.7|7.94|6.485|6.300625|1.31076175217609|540, 3001, 3013
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|2020|Dissolved Oxygen|Surface|Field|67|1.8|10.9|6.35|6.27955223880597|1.64128154181496|540, 3001, 3013, 5002
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|2021|Dissolved Oxygen|Surface|Field|20|5.15|8.69|6.085|6.378|0.965840784525395|5002
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|1972|Dissolved Oxygen|Surface|Field|1|8.3|8.3|8.3|8.3||95
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|1991|Dissolved Oxygen|Surface|Field|5|5.82|7.24|7.1|6.758|0.604168850570765|10000
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|1992|Dissolved Oxygen|Surface|Field|8|5.65|8.6|6.58|6.82125|1.04043174417437|5002, 10000
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|1993|Dissolved Oxygen|Surface|Field|27|5|8.2|6.5|6.43666666666667|1.0114384273438|3001, 5002, 10000
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|1994|Dissolved Oxygen|Surface|Field|25|5.55|7.9|6.9|6.9248|0.621122102864378|115, 3001, 5002, 10000
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|1995|Dissolved Oxygen|Surface|Field|63|1|8.87|5.7|5.60952380952381|1.55975435263153|115, 3001, 5002, 10000
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|1996|Dissolved Oxygen|Surface|Field|164|1.8|9.2|6.35|6.22134146341463|1.1798234891328|3001, 5002, 10000
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|1997|Dissolved Oxygen|Surface|Field|160|0.4|8.7|5.85|5.443875|1.60060404773013|3001, 5002, 10000
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|1998|Dissolved Oxygen|Surface|Field|208|1.7|14.9|6.4|6.45399038461539|1.65665804678125|69, 3001, 5002, 10000
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|1999|Dissolved Oxygen|Surface|Field|281|0|11.2|6|5.68192170818505|1.67632970917075|69, 3001, 5002, 10000
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|2000|Dissolved Oxygen|Surface|Field|328|1.3|10.8|6.065|5.97304878048781|1.36482969467715|69, 3001, 5002, 10000
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|2001|Dissolved Oxygen|Surface|Field|391|1.4|12.56|6.2|6.13084398976982|1.59835189274274|69, 3001, 5002, 10000
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|2002|Dissolved Oxygen|Surface|Field|392|2.2|12.62|6|6.0047193877551|1.35951997050848|69, 3001, 5002, 10000
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|2003|Dissolved Oxygen|Surface|Field|419|1.9|17.4|6.5|6.47355608591886|1.65494647959254|69, 3001, 3013, 5002, 10000
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|2004|Dissolved Oxygen|Surface|Field|283|1.9|18.4|6.3|6.24353356890459|1.81597136778665|69, 3001, 3013, 5002, 10000
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|2005|Dissolved Oxygen|Surface|Field|319|2.1|18.6|6.02|6.06188087774295|1.60203552857665|69, 118, 3001, 3013, 5002, 10000, 10001
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|2006|Dissolved Oxygen|Surface|Field|411|2.3|10.8|6.1|6.14330900243309|1.10816206853432|69, 118, 3001, 3013, 5002, 10000, 10001
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|2007|Dissolved Oxygen|Surface|Field|454|2.1|13.1|6.3|6.30960352422907|1.41687147874192|69, 3001, 3013, 5002, 10000, 10001
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|2008|Dissolved Oxygen|Surface|Field|462|2.95|13.2|6.575|6.52705627705628|1.29870550979212|69, 3001, 3013, 5002, 10000, 10001
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|2009|Dissolved Oxygen|Surface|Field|365|2.12|12.9|6.3|6.41843835616438|1.60398885497263|69, 95, 3001, 3013, 5002, 10000, 10001
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|2010|Dissolved Oxygen|Surface|Field|303|4|11.61|6.93|6.97085808580858|1.40856271785278|69, 3001, 3013, 5002, 10000, 10001
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|2011|Dissolved Oxygen|Surface|Field|293|2.1|12.2|6.4|6.54262798634812|1.51640128744226|69, 3001, 3013, 5002, 10000, 10001
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|2012|Dissolved Oxygen|Surface|Field|266|3.41|10.3|6.51|6.685|1.25305430622125|69, 3001, 3013, 5002, 10000, 10001
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|2013|Dissolved Oxygen|Surface|Field|247|3.6|14|6.69|7.02445344129555|1.61304451474946|69, 3001, 3013, 5002, 10000, 10001
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|2014|Dissolved Oxygen|Surface|Field|288|3|13.35|6.665|6.74975694444444|1.59581299170085|69, 3001, 3013, 5002, 10000, 10001
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|2015|Dissolved Oxygen|Surface|Field|313|2.5|10|6.5|6.31012779552716|1.20494865685939|69, 3001, 3013, 5002, 10000, 10001
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|2016|Dissolved Oxygen|Surface|Field|167|1.9|9.25|6.6|6.59191616766467|1.16407258402628|69, 3013, 5002, 10000
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|2017|Dissolved Oxygen|Surface|Field|161|2.8|10.3|6.72|6.73478260869565|1.2615085646541|69, 95, 3013, 5002, 10000
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|2018|Dissolved Oxygen|Surface|Field|30|2.1|8.42|6.22|5.71966666666667|1.53072550599794|95, 3013, 10000
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|2019|Dissolved Oxygen|Surface|Field|30|3.5|7.36|6.26|6.05566666666667|0.955534453567229|3013, 10000
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|2020|Dissolved Oxygen|Surface|Field|142|1.69|7.54|6.3|6.1162676056338|1.08317736519698|3013, 5002, 10000
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|2021|Dissolved Oxygen|Surface|Field|194|4.04|8.14|6.5|6.39917525773196|0.700904922267081|5002, 10000
+25|Lemon Bay Aquatic Preserve|1971|Dissolved Oxygen|Surface|Field|1|8.5|8.5|8.5|8.5||95
+25|Lemon Bay Aquatic Preserve|1985|Dissolved Oxygen|Surface|Field|5|4.8|7.1|5.4|5.8|0.961769203083567|95
+25|Lemon Bay Aquatic Preserve|1986|Dissolved Oxygen|Surface|Field|1|4.6|4.6|4.6|4.6||60
+25|Lemon Bay Aquatic Preserve|1989|Dissolved Oxygen|Surface|Field|12|4.4|8|7.8|7.06666666666667|1.45560567420846|69
+25|Lemon Bay Aquatic Preserve|1990|Dissolved Oxygen|Surface|Field|4|10|10.1|10|10.025|0.0499999999999998|69
+25|Lemon Bay Aquatic Preserve|1991|Dissolved Oxygen|Surface|Field|7|5.9|8.8|8|7.81428571428571|0.895225430508189|69
+25|Lemon Bay Aquatic Preserve|1992|Dissolved Oxygen|Surface|Field|5|3.2|7.8|5.3|5.46|2.30173847341526|69
+25|Lemon Bay Aquatic Preserve|1993|Dissolved Oxygen|Surface|Field|4|5.8|7.1|6.45|6.45|0.750555349946513|69
+25|Lemon Bay Aquatic Preserve|1995|Dissolved Oxygen|Surface|Field|221|2.8|10.3|6.43|6.52719457013575|1.39007857958639|69, 5002
+25|Lemon Bay Aquatic Preserve|1996|Dissolved Oxygen|Surface|Field|174|3.2|11.2|6.55|6.59770114942529|1.42787906188668|69, 95, 5002
+25|Lemon Bay Aquatic Preserve|1997|Dissolved Oxygen|Surface|Field|215|4|11.3|6.4|6.64069767441861|1.35543591523969|69, 95, 5002
+25|Lemon Bay Aquatic Preserve|1998|Dissolved Oxygen|Surface|Field|427|2|12|6.4|6.41826697892272|1.47375914031849|69, 95, 5002
+25|Lemon Bay Aquatic Preserve|1999|Dissolved Oxygen|Surface|Field|363|1.6|13.4|6.3|6.03388429752066|1.37275504643588|69, 95, 5002
+25|Lemon Bay Aquatic Preserve|2000|Dissolved Oxygen|Surface|Field|398|1.6|11.4|6.2|6.18316582914573|1.28780094040343|69, 5002
+25|Lemon Bay Aquatic Preserve|2001|Dissolved Oxygen|Surface|Field|365|1.7|9.9|6.1|6.05624657534247|1.27838793340063|69, 479, 5002
+25|Lemon Bay Aquatic Preserve|2002|Dissolved Oxygen|Surface|Field|264|1.5|12.9|6.5|6.74617424242424|1.51119628283873|69, 95, 479, 5002
+25|Lemon Bay Aquatic Preserve|2003|Dissolved Oxygen|Surface|Field|255|0.8|11.1|6.4|6.25541176470588|1.35530356852374|69, 95, 479, 5002
+25|Lemon Bay Aquatic Preserve|2004|Dissolved Oxygen|Surface|Field|255|1.5|10.5|6.5|6.52780392156863|1.24592433225973|69, 95, 479, 5002
+25|Lemon Bay Aquatic Preserve|2005|Dissolved Oxygen|Surface|Field|261|3.06|14.6|6.8|6.92195402298851|1.85301241584146|69, 95, 118, 479, 5002
+25|Lemon Bay Aquatic Preserve|2006|Dissolved Oxygen|Surface|Field|247|2|12.1|6.1|6.34825910931174|1.49855750615587|69, 95, 479, 5002
+25|Lemon Bay Aquatic Preserve|2007|Dissolved Oxygen|Surface|Field|267|1.69|12.2|6.18|6.23861423220974|1.72934164019678|69, 95, 479, 5002
+25|Lemon Bay Aquatic Preserve|2008|Dissolved Oxygen|Surface|Field|257|3.27|11.1|6.2|6.28793774319066|1.59670706920805|69, 95, 476, 479, 5002
+25|Lemon Bay Aquatic Preserve|2009|Dissolved Oxygen|Surface|Field|576|1.3|14.4|5.9|5.84666666666667|2.08167039950467|69, 95, 479, 5002
+25|Lemon Bay Aquatic Preserve|2010|Dissolved Oxygen|Surface|Field|621|2|11.9|5.7|6.08357487922705|1.89385784107642|69, 95, 5002
+25|Lemon Bay Aquatic Preserve|2011|Dissolved Oxygen|Surface|Field|410|1.5|13|4.75|5.13026829268293|1.53256282990243|69, 95, 479, 5002
+25|Lemon Bay Aquatic Preserve|2012|Dissolved Oxygen|Surface|Field|261|3.7|11.1|6.2|6.37053639846743|1.26578817784417|69, 95, 479, 5002
+25|Lemon Bay Aquatic Preserve|2013|Dissolved Oxygen|Surface|Field|222|2.8|11|6.6|6.59806306306306|1.49850735253379|69, 95, 479, 5002
+25|Lemon Bay Aquatic Preserve|2014|Dissolved Oxygen|Surface|Field|202|2.6|10.7|5.8|5.7139603960396|1.31976183529693|69, 95, 479, 5002
+25|Lemon Bay Aquatic Preserve|2015|Dissolved Oxygen|Surface|Field|281|3.53|12|6.3|6.37153024911032|1.01176232738595|69, 95, 479, 5002
+25|Lemon Bay Aquatic Preserve|2016|Dissolved Oxygen|Surface|Field|413|0.2|11.7|6.8|6.87874092009685|1.427362753573|69, 95, 479, 5002
+25|Lemon Bay Aquatic Preserve|2017|Dissolved Oxygen|Surface|Field|472|2.7|12.6|6.6|6.65694915254237|1.34978523634153|69, 95, 5002
+25|Lemon Bay Aquatic Preserve|2018|Dissolved Oxygen|Surface|Field|78|0.85|9.8|7|6.67217948717949|1.78602340514608|95
+25|Lemon Bay Aquatic Preserve|2020|Dissolved Oxygen|Surface|Field|87|2.3|8.69|6.49|6.15471264367816|1.30283665388211|476, 479, 5002
+25|Lemon Bay Aquatic Preserve|2021|Dissolved Oxygen|Surface|Field|111|1.54|9|6.01|5.94558558558559|1.51972167588476|476, 5002
+25|Lemon Bay Aquatic Preserve|2022|Dissolved Oxygen|Surface|Field|2|3.34|5.11|4.225|4.225|1.25157900270019|476
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|1991|Dissolved Oxygen|Surface|Field|30|3.85|7.93|5.705|5.867|1.23760098856479|5002, 10000
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|1992|Dissolved Oxygen|Surface|Field|44|3.3|8.9|6.065|6.04159090909091|1.52353008561561|5002, 10000
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|1993|Dissolved Oxygen|Surface|Field|47|3.9|8.41|6.04|5.80340425531915|1.13472133448615|5002, 10000
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|1994|Dissolved Oxygen|Surface|Field|108|0.92|7.5|5.17|5.17740740740741|1.17989257420902|5002, 10000
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|1995|Dissolved Oxygen|Surface|Field|116|3.13|8.4|6.25|5.96215517241379|1.31864608168971|5002, 10000
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|1996|Dissolved Oxygen|Surface|Field|112|1.01|7.79|6.1|5.98866071428571|1.14208714860964|5002, 10000
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|1997|Dissolved Oxygen|Surface|Field|104|3|8.25|6.365|6.08759615384615|1.19912872511776|5002, 10000
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|1998|Dissolved Oxygen|Surface|Field|147|3|8.3|5.83|5.81340136054422|1.08954904370032|5002, 10000
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|1999|Dissolved Oxygen|Surface|Field|106|2.68|8.62|5.74|5.68|1.32144293428488|5002, 10000
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|2000|Dissolved Oxygen|Surface|Field|114|2.54|8.16|5.685|5.64649122807018|1.20557039153627|5002, 10000
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|2001|Dissolved Oxygen|Surface|Field|119|2.52|8.4|6.25|6.13924369747899|1.07509413041872|5002, 10000
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|2002|Dissolved Oxygen|Surface|Field|140|0.2|9.2|5.805|5.89914285714286|1.46050128662114|5002, 10000
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|2003|Dissolved Oxygen|Surface|Field|136|0.45|8.48|5.71|5.65411764705882|1.14686398211124|5002, 10000, 10001
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|2004|Dissolved Oxygen|Surface|Field|207|0.2|8.28|6.1|5.576038647343|1.5819997049495|3013, 5002, 10000, 10001
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|2005|Dissolved Oxygen|Surface|Field|196|2.24|8|6.255|6.1459693877551|1.07952011137031|3013, 5002, 10000, 10001
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|2006|Dissolved Oxygen|Surface|Field|248|0.48|7.6|5.675|5.51866935483871|1.22905029147554|3013, 5002, 10000, 10001
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|2007|Dissolved Oxygen|Surface|Field|334|0.16|9.1|5.96|5.6784131736527|1.39177513088899|3013, 5002, 10000, 10001
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|2008|Dissolved Oxygen|Surface|Field|278|1.45|8.06|6.135|5.78410071942446|1.20988247956887|3013, 5002, 10000, 10001
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|2009|Dissolved Oxygen|Surface|Field|392|0.21|8.6|6.095|5.73772959183674|1.46897538915934|3013, 5002, 10000, 10001
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|2010|Dissolved Oxygen|Surface|Field|372|0.95|9.86|6.46|6.23344086021505|1.41857583540878|3013, 5002, 10000, 10001
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|2011|Dissolved Oxygen|Surface|Field|347|0.6|9.32|6.04|5.64400576368876|1.56173363355062|3013, 5002, 10000, 10001
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|2012|Dissolved Oxygen|Surface|Field|359|0.52|9.81|5.91|5.68935933147632|1.40417071556602|3013, 5002, 10000, 10001
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|2013|Dissolved Oxygen|Surface|Field|407|0.63|7.81|5.4|5.33213759213759|1.06451802305826|3013, 5002, 10000, 10001
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|2014|Dissolved Oxygen|Surface|Field|484|0.4|9.4|5.66|5.53268595041322|1.15247066337809|69, 3013, 5002, 10000, 10001
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|2015|Dissolved Oxygen|Surface|Field|518|0.93|12.6|5.415|5.38581081081081|1.45746090216956|69, 3013, 5002, 10000, 10001
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|2016|Dissolved Oxygen|Surface|Field|480|0.42|10.54|5.485|5.230875|1.41014948533168|69, 95, 3013, 5002, 10000, 10001
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|2017|Dissolved Oxygen|Surface|Field|396|0.61|8.1|5.8|5.50305555555556|1.36505445968958|69, 3013, 5002, 10000, 10001
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|2018|Dissolved Oxygen|Surface|Field|163|2.1|8.3|5.72|5.47073619631902|1.32669856572585|3013, 10000, 10001
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|2019|Dissolved Oxygen|Surface|Field|182|1.67|8.01|5.74|5.45675824175824|1.34560012975098|3013, 10000, 10001
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|2020|Dissolved Oxygen|Surface|Field|403|0.44|8.62|5.65|5.57171215880893|1.29994921313963|3013, 5002, 10000
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|2021|Dissolved Oxygen|Surface|Field|552|0.3|9.91|5.66|5.42797101449275|1.45367106943273|5002, 10000
+28|Matlacha Pass Aquatic Preserve|1990|Dissolved Oxygen|Surface|Field|16|6.3|12.5|9.35|9.25|2.04971542740287|69
+28|Matlacha Pass Aquatic Preserve|1992|Dissolved Oxygen|Surface|Field|55|5.5|11|7.3|7.54|1.34682067326201|69
+28|Matlacha Pass Aquatic Preserve|1993|Dissolved Oxygen|Surface|Field|60|2.3|12.1|6.15|6.61|1.55962837816132|69
+28|Matlacha Pass Aquatic Preserve|1994|Dissolved Oxygen|Surface|Field|20|2.2|8.4|3.9|4.685|1.87848623266602|69
+28|Matlacha Pass Aquatic Preserve|1995|Dissolved Oxygen|Surface|Field|139|2|11.5|6.1|6.43021582733813|1.62782217258053|69, 5002
+28|Matlacha Pass Aquatic Preserve|1996|Dissolved Oxygen|Surface|Field|166|0.2|11.8|6.4|6.53433734939759|1.82566596750326|69, 95, 5002
+28|Matlacha Pass Aquatic Preserve|1997|Dissolved Oxygen|Surface|Field|157|2.6|12|6.5|6.47885350318471|1.67906298966802|69, 5002
+28|Matlacha Pass Aquatic Preserve|1998|Dissolved Oxygen|Surface|Field|160|2.7|13.7|6.75|6.973125|1.77614244835693|69, 5002
+28|Matlacha Pass Aquatic Preserve|1999|Dissolved Oxygen|Surface|Field|221|1.7|13.1|6.4|6.37285067873303|1.47459871902401|69, 5002
+28|Matlacha Pass Aquatic Preserve|2000|Dissolved Oxygen|Surface|Field|250|0.7|11.2|6.6|6.5356|1.5223016287832|69, 5002
+28|Matlacha Pass Aquatic Preserve|2001|Dissolved Oxygen|Surface|Field|342|2.2|11.3|6.6|6.62982456140351|1.57414575770217|69, 115, 118, 5002
+28|Matlacha Pass Aquatic Preserve|2002|Dissolved Oxygen|Surface|Field|329|2.5|14.3|6.5|6.9|2.0643164580617|69, 5002
+28|Matlacha Pass Aquatic Preserve|2003|Dissolved Oxygen|Surface|Field|384|1.8|14.5|6.885|7.30919270833333|1.94775149854989|69, 5002
+28|Matlacha Pass Aquatic Preserve|2004|Dissolved Oxygen|Surface|Field|362|2|13.1|7.35|7.39033149171271|1.88516306430121|69, 5002
+28|Matlacha Pass Aquatic Preserve|2005|Dissolved Oxygen|Surface|Field|392|0.24|14.9|7.2|7.17423469387755|1.8276052913001|69, 95, 118, 5002
+28|Matlacha Pass Aquatic Preserve|2006|Dissolved Oxygen|Surface|Field|300|2.3|14.9|6.5|6.54666666666667|1.75758905507249|69, 95, 5002
+28|Matlacha Pass Aquatic Preserve|2007|Dissolved Oxygen|Surface|Field|325|1.5|14.1|6.4|6.57636923076923|2.12621564044375|69, 95, 476, 5002
+28|Matlacha Pass Aquatic Preserve|2008|Dissolved Oxygen|Surface|Field|321|2|12.5|7|6.99520249221184|1.85088155671663|69, 95, 476, 5002
+28|Matlacha Pass Aquatic Preserve|2009|Dissolved Oxygen|Surface|Field|324|2|13.1|6.7|6.65679012345679|1.90138865802878|69, 95, 5002
+28|Matlacha Pass Aquatic Preserve|2010|Dissolved Oxygen|Surface|Field|351|2|13.9|6.8|6.95752136752137|2.440944514843|69, 95, 5002
+28|Matlacha Pass Aquatic Preserve|2011|Dissolved Oxygen|Surface|Field|306|1.8|12.9|6.75|6.83398692810458|1.89498608148157|69, 95, 5002
+28|Matlacha Pass Aquatic Preserve|2012|Dissolved Oxygen|Surface|Field|264|1.4|12|7|6.87083333333333|1.925400967244|69, 95, 5002
+28|Matlacha Pass Aquatic Preserve|2013|Dissolved Oxygen|Surface|Field|262|1.5|15.2|6.7|6.61412213740458|1.5565923929358|69, 95, 5002
+28|Matlacha Pass Aquatic Preserve|2014|Dissolved Oxygen|Surface|Field|220|2.6|12.1|6.7|6.78118181818182|1.92256498750361|69, 95, 5002
+28|Matlacha Pass Aquatic Preserve|2015|Dissolved Oxygen|Surface|Field|180|1|12.4|6.8|6.35255555555556|2.07246894086807|69, 95, 5002
+28|Matlacha Pass Aquatic Preserve|2016|Dissolved Oxygen|Surface|Field|285|2.8|15.3|8|8.00685614035088|1.89667165769905|69, 95, 5002
+28|Matlacha Pass Aquatic Preserve|2017|Dissolved Oxygen|Surface|Field|286|1.4|15.4|6.8|6.67534965034965|2.13825860861489|69, 95, 5002
+28|Matlacha Pass Aquatic Preserve|2018|Dissolved Oxygen|Surface|Field|50|4.07|13.77|6.99|7.405|2.00826074614075|95
+28|Matlacha Pass Aquatic Preserve|2019|Dissolved Oxygen|Surface|Field|7|4.65|8.71179|7.2|6.97835285714286|1.24935102219398|303
+28|Matlacha Pass Aquatic Preserve|2020|Dissolved Oxygen|Surface|Field|28|3.2|8.7|5.965|6.0575|1.58033195059585|476, 513, 5002
+28|Matlacha Pass Aquatic Preserve|2021|Dissolved Oxygen|Surface|Field|72|2.27|8.79|6.7|6.37986111111111|1.55654591699243|476, 513, 5002
+28|Matlacha Pass Aquatic Preserve|2022|Dissolved Oxygen|Surface|Field|1|6.5|6.5|6.5|6.5||476
+29|Mosquito Lagoon Aquatic Preserve|1991|Dissolved Oxygen|Surface|Field|2|6.2|6.6|6.4|6.4|0.282842712474619|103
+29|Mosquito Lagoon Aquatic Preserve|1992|Dissolved Oxygen|Surface|Field|5|2.9|7.1|5.5|5.32|1.5626899884494|103
+29|Mosquito Lagoon Aquatic Preserve|1993|Dissolved Oxygen|Surface|Field|3|4.8|7.2|6.9|6.3|1.3076696830622|103
+29|Mosquito Lagoon Aquatic Preserve|1995|Dissolved Oxygen|Surface|Field|126|2.1|11.7|7.9|7.76746031746032|2.10435089716822|5002
+29|Mosquito Lagoon Aquatic Preserve|1996|Dissolved Oxygen|Surface|Field|155|2.6|8.6|5.1|5.28967741935484|1.21821533259302|5002
+29|Mosquito Lagoon Aquatic Preserve|1997|Dissolved Oxygen|Surface|Field|223|2.9|11|6.4|6.21964125560538|1.6304884738984|5002
+29|Mosquito Lagoon Aquatic Preserve|1998|Dissolved Oxygen|Surface|Field|154|3.2|11.5|6.75|6.40207792207792|1.776190634577|5002
+29|Mosquito Lagoon Aquatic Preserve|1999|Dissolved Oxygen|Surface|Field|199|2.96|9.4|6.4|6.32427135678392|1.16164518772094|5002
+29|Mosquito Lagoon Aquatic Preserve|2000|Dissolved Oxygen|Surface|Field|94|2.5|11.4|5.3|5.74276595744681|2.48552731440566|5002
+29|Mosquito Lagoon Aquatic Preserve|2001|Dissolved Oxygen|Surface|Field|304|2|10.2|5.1|5.1977302631579|1.61590172833894|5002
+29|Mosquito Lagoon Aquatic Preserve|2002|Dissolved Oxygen|Surface|Field|250|2.4|10.8|5.3|5.71884|2.00067213966751|5002
+29|Mosquito Lagoon Aquatic Preserve|2003|Dissolved Oxygen|Surface|Field|209|2.5|11|5.2|5.35057416267943|1.83721247240277|5002
+29|Mosquito Lagoon Aquatic Preserve|2004|Dissolved Oxygen|Surface|Field|150|2.3|9.4|4.75|5.16406666666667|1.78991548548812|5002
+29|Mosquito Lagoon Aquatic Preserve|2005|Dissolved Oxygen|Surface|Field|175|2|7.7|4.8|4.80005714285714|1.24164217231546|5002
+29|Mosquito Lagoon Aquatic Preserve|2006|Dissolved Oxygen|Surface|Field|119|3.8|8.5|5.4|5.57336134453782|1.15024704591174|69, 118, 5002
+29|Mosquito Lagoon Aquatic Preserve|2007|Dissolved Oxygen|Surface|Field|180|2.4|9.9|6.3|6.31655555555556|1.7932802322308|69, 95, 5002
+29|Mosquito Lagoon Aquatic Preserve|2008|Dissolved Oxygen|Surface|Field|143|2.9|9|4.6|4.81839160839161|1.15295129586349|69, 95, 5002
+29|Mosquito Lagoon Aquatic Preserve|2009|Dissolved Oxygen|Surface|Field|152|2.4|8.4|4.9|4.96276315789474|1.46665145367967|69, 3001, 3013, 5002
+29|Mosquito Lagoon Aquatic Preserve|2010|Dissolved Oxygen|Surface|Field|104|2.8|9.78|4.7|5.26538461538462|1.62296380154341|95, 3013, 5002
+29|Mosquito Lagoon Aquatic Preserve|2011|Dissolved Oxygen|Surface|Field|124|3.5|12.85|5.1|5.29725806451613|1.33752491882246|3013, 5002
+29|Mosquito Lagoon Aquatic Preserve|2012|Dissolved Oxygen|Surface|Field|74|2|11.61|4.47|4.78662162162162|1.80629058860556|3013, 5002
+29|Mosquito Lagoon Aquatic Preserve|2013|Dissolved Oxygen|Surface|Field|75|3.8|8.8|5.9|6.00226666666667|1.35630516909422|69, 95, 5002
+29|Mosquito Lagoon Aquatic Preserve|2014|Dissolved Oxygen|Surface|Field|85|2.4|10.9|4.9|5.16082352941177|1.79710098012691|69, 95, 5002
+29|Mosquito Lagoon Aquatic Preserve|2015|Dissolved Oxygen|Surface|Field|71|1.6|7.51|5.1|4.31915492957747|1.90950685217704|69, 5002
+29|Mosquito Lagoon Aquatic Preserve|2016|Dissolved Oxygen|Surface|Field|79|0.37|9|3.8|4.07645569620253|3.11984098788363|69, 95, 5002
+29|Mosquito Lagoon Aquatic Preserve|2017|Dissolved Oxygen|Surface|Field|75|0.48|8|4.6|3.55466666666667|2.47263473293621|95, 5002
+29|Mosquito Lagoon Aquatic Preserve|2018|Dissolved Oxygen|Surface|Field|26|2.25|9|4.75|5.01730769230769|1.86252207008091|95, 3001
+29|Mosquito Lagoon Aquatic Preserve|2019|Dissolved Oxygen|Surface|Field|41|3.65|7.7|5.5|5.63170731707317|0.953991358553693|3001, 3013
+29|Mosquito Lagoon Aquatic Preserve|2020|Dissolved Oxygen|Surface|Field|44|2.95|9.91|5.625|5.86318181818182|1.3880868090394|3001, 5002
+29|Mosquito Lagoon Aquatic Preserve|2021|Dissolved Oxygen|Surface|Field|10|5.41|8.87|7.36|7.465|1.276229254919|5002
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|1982|Dissolved Oxygen|Surface|Field|2|1.15|6.1|3.625|3.625|3.50017856687341|103
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|1984|Dissolved Oxygen|Surface|Field|14|8.5|10.1|9.55|9.43214285714286|0.409317980048774|103
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|1985|Dissolved Oxygen|Surface|Field|82|2.1|12.1|7.7|7.34939024390244|1.46326402228579|103
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|1986|Dissolved Oxygen|Surface|Field|77|4.1|12.8|8|7.68896103896104|2.04114943392686|60, 103
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|1987|Dissolved Oxygen|Surface|Field|38|3.65|10.4|7.475|7.31710526315789|1.80034817637805|103
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|1988|Dissolved Oxygen|Surface|Field|32|3.1|11.25|6.55|6.859375|1.76714812621919|103
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|1989|Dissolved Oxygen|Surface|Field|30|3.64|8.57|6.97|6.505|1.33866055031345|103
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|1990|Dissolved Oxygen|Surface|Field|38|2.55|9|5.92|6.00973684210526|1.42347023026258|103
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|1991|Dissolved Oxygen|Surface|Field|12|6.93|7.72|7.26|7.29|0.236796805875264|103
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|1992|Dissolved Oxygen|Surface|Field|20|3.72|11.81|4.8|5.7495|2.53622071719237|103
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|1995|Dissolved Oxygen|Surface|Field|2|6|6|6|6|0|115
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|1997|Dissolved Oxygen|Surface|Field|12265|0.31|9.99|5.43|5.31433836119038|1.73518705732949|103, 5002
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|1998|Dissolved Oxygen|Surface|Field|5208|1.81|9.34|6.39|6.20672619047619|1.47587003902932|103
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|1999|Dissolved Oxygen|Surface|Field|3|4.98|8.11|4.99|6.02666666666667|1.80422651940751|5002
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|2000|Dissolved Oxygen|Surface|Field|13|5.7|8.3|6.86|6.98|0.958853482029449|5002
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|2001|Dissolved Oxygen|Surface|Field|319|2.3|9.34|5.4|5.69416927899687|1.598484694067|69, 5002
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|2002|Dissolved Oxygen|Surface|Field|535|2.8|10.8|6.9|7.01771962616822|1.85176847244747|69, 5002
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|2003|Dissolved Oxygen|Surface|Field|499|1.7|11.3|7.6|7.58833667334669|1.55404751975362|69, 5002
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|2004|Dissolved Oxygen|Surface|Field|518|1.7|17|6.9|7.71828185328185|2.82272635635849|69, 103, 5002
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|2005|Dissolved Oxygen|Surface|Field|501|2.3|11.3|7|7.18928143712575|2.06055164522385|69, 118, 5002
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|2006|Dissolved Oxygen|Surface|Field|531|2.7|10.7|7|6.7613747645951|1.81796822959446|69, 118, 5002
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|2007|Dissolved Oxygen|Surface|Field|531|3.7|16.1|8|8.17308851224106|2.01180175269603|69, 5002
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|2008|Dissolved Oxygen|Surface|Field|601|1.8|14.1|7.3|7.60730449251248|2.34599162874248|69, 103, 5002
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|2009|Dissolved Oxygen|Surface|Field|502|3.7|13.4|7.05|7.43876494023904|2.09292565394474|69, 5002
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|2010|Dissolved Oxygen|Surface|Field|525|2.2|14.9|7.6|7.86175238095238|2.49477277484539|69, 5002
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|2011|Dissolved Oxygen|Surface|Field|511|2.9|14.9|7.4|7.50802348336595|2.12079734530191|69, 5002
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|2012|Dissolved Oxygen|Surface|Field|496|2.4|21.8|6.9|6.92612903225806|2.16307028691749|69, 5002
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|2013|Dissolved Oxygen|Surface|Field|486|3.7|10.8|6.4|6.46997942386831|1.30887163160845|69, 95, 5002
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|2014|Dissolved Oxygen|Surface|Field|552|3.4|12.8|6.435|6.8370652173913|1.77034825167765|69, 95, 5002
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|2015|Dissolved Oxygen|Surface|Field|636|3.14|14.1|6.5|6.71811320754717|1.7645343950341|69, 95, 5002
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|2016|Dissolved Oxygen|Surface|Field|522|3.1|12.1|7.2|7.09526819923372|1.71163569749656|69, 95, 5002
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|2017|Dissolved Oxygen|Surface|Field|549|2.5|20.2|7.1|7.22440801457195|2.28016956270365|69, 95, 5002
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|2018|Dissolved Oxygen|Surface|Field|122|4.53|9.9|7.8|7.76934426229508|1.06049009230445|95, 5002
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|2019|Dissolved Oxygen|Surface|Field|15|3.64|7.21|5.87|5.69933333333333|1.27117755681588|5002
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|2020|Dissolved Oxygen|Surface|Field|51|3.63|7.64|5.25|5.39862745098039|1.15329444567785|5002
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|2021|Dissolved Oxygen|Surface|Field|82|4.62|8.19|6.88|6.66012195121951|1.06899571411496|5002
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|2022|Dissolved Oxygen|Surface|Field|1|8.42|8.42|8.42|8.42||5002
+48|Nature Coast Aquatic Preserve|1982|Dissolved Oxygen|Surface|Field|1|6.8|6.8|6.8|6.8||95
+48|Nature Coast Aquatic Preserve|1986|Dissolved Oxygen|Surface|Field|2|5.2|5.4|5.3|5.3|0.14142135623731|60
+48|Nature Coast Aquatic Preserve|1991|Dissolved Oxygen|Surface|Field|2|6.1|6.1|6.1|6.1|0|115
+48|Nature Coast Aquatic Preserve|1992|Dissolved Oxygen|Surface|Field|1|5.4|5.4|5.4|5.4||115
+48|Nature Coast Aquatic Preserve|1993|Dissolved Oxygen|Surface|Field|4|5.4|6.5|5.85|5.9|0.535412613473634|60, 115
+48|Nature Coast Aquatic Preserve|1994|Dissolved Oxygen|Surface|Field|1|5.4|5.4|5.4|5.4||115
+48|Nature Coast Aquatic Preserve|1995|Dissolved Oxygen|Surface|Field|43|5.5|11.6|9|8.68837209302326|1.88138870978272|5002
+48|Nature Coast Aquatic Preserve|1996|Dissolved Oxygen|Surface|Field|45|3.5|10.8|8.4|8.28222222222222|1.62498795644333|95, 479, 5002
+48|Nature Coast Aquatic Preserve|1997|Dissolved Oxygen|Surface|Field|153|1.6|11.9|6.2|6.2202614379085|2.45615123283746|479, 5002
+48|Nature Coast Aquatic Preserve|1998|Dissolved Oxygen|Surface|Field|236|3.8|11.5|7.8|7.62771186440678|1.52700619960951|479, 5002
+48|Nature Coast Aquatic Preserve|1999|Dissolved Oxygen|Surface|Field|242|2.1|10.3|6.7|6.7251652892562|1.59934380136753|479, 5002
+48|Nature Coast Aquatic Preserve|2000|Dissolved Oxygen|Surface|Field|475|1.9|12.3|6.7|6.76018947368421|1.61746473164543|479, 5002
+48|Nature Coast Aquatic Preserve|2001|Dissolved Oxygen|Surface|Field|492|2.8|10.77|7.13|7.15200609756098|1.39917379532889|479, 5002
+48|Nature Coast Aquatic Preserve|2002|Dissolved Oxygen|Surface|Field|481|3.2|11.28|7|7.1037422037422|1.46094893821423|479, 5002
+48|Nature Coast Aquatic Preserve|2003|Dissolved Oxygen|Surface|Field|501|3.42|11.32|7.19|7.20125548902196|1.50582593369712|69, 479, 5002
+48|Nature Coast Aquatic Preserve|2004|Dissolved Oxygen|Surface|Field|513|2.4|12.1|6.95|7.15286549707602|1.55199650130944|60, 69, 95, 479, 5002
+48|Nature Coast Aquatic Preserve|2005|Dissolved Oxygen|Surface|Field|89|2.7|10.7|7.3|7.16966292134832|1.70093386745354|69, 95, 118, 5002
+48|Nature Coast Aquatic Preserve|2006|Dissolved Oxygen|Surface|Field|51|3.6|10.6|7.8|7.37450980392157|1.61800409607082|5002
+48|Nature Coast Aquatic Preserve|2007|Dissolved Oxygen|Surface|Field|470|2.2|11.13|5.96|5.97148936170213|1.74628949151036|69, 479, 5002
+48|Nature Coast Aquatic Preserve|2008|Dissolved Oxygen|Surface|Field|457|3.23|18.58|6.97|7.01606126914661|1.73401718351609|69, 479, 5002
+48|Nature Coast Aquatic Preserve|2009|Dissolved Oxygen|Surface|Field|435|3.93|12.45|6.86|6.93544827586207|1.35983885903767|479, 5002
+48|Nature Coast Aquatic Preserve|2010|Dissolved Oxygen|Surface|Field|41|4.2|11.6|8|8.28536585365854|1.9564714380243|5002
+48|Nature Coast Aquatic Preserve|2011|Dissolved Oxygen|Surface|Field|35|4|11.6|7.6|7.57142857142857|2.00258236645931|60, 5002
+48|Nature Coast Aquatic Preserve|2012|Dissolved Oxygen|Surface|Field|44|3.4|10.4|6.85|6.77954545454545|1.62460435905707|95, 5002
+48|Nature Coast Aquatic Preserve|2013|Dissolved Oxygen|Surface|Field|39|5|9.9|7.5|7.51282051282051|1.36308077668885|5002
+48|Nature Coast Aquatic Preserve|2014|Dissolved Oxygen|Surface|Field|111|0.361|10|6.8|7.00145045045045|1.57617513873842|95, 5002
+48|Nature Coast Aquatic Preserve|2015|Dissolved Oxygen|Surface|Field|208|3.69|11.25|7.155|7.24966346153846|1.48277921003487|60, 95, 479, 5002
+48|Nature Coast Aquatic Preserve|2016|Dissolved Oxygen|Surface|Field|73|3.2|9.1|7.1|6.72352054794521|1.65983874810501|95, 5002
+48|Nature Coast Aquatic Preserve|2017|Dissolved Oxygen|Surface|Field|88|3.8|10.51|7.45|7.29034090909091|1.62589282200643|95, 540, 5002
+48|Nature Coast Aquatic Preserve|2018|Dissolved Oxygen|Surface|Field|48|3.35|10.77|6.005|6.528125|1.49297597456834|95, 540, 5002
+48|Nature Coast Aquatic Preserve|2019|Dissolved Oxygen|Surface|Field|44|3.56|10.54|6.68|6.84068181818182|1.5974898882051|479, 540, 5002
+48|Nature Coast Aquatic Preserve|2020|Dissolved Oxygen|Surface|Field|18|2.82|9.39|7.605|7.03888888888889|1.77442248728951|5002
+48|Nature Coast Aquatic Preserve|2021|Dissolved Oxygen|Surface|Field|464|3.6|12.49|7.28|7.1895474137931|1.39763577367153|5008
+48|Nature Coast Aquatic Preserve|2022|Dissolved Oxygen|Surface|Field|52|7.61|10|8.62|8.64057692307692|0.538026216510954|5008
+31|North Fork St. Lucie Aquatic Preserve|1989|Dissolved Oxygen|Surface|Field|2|6.3|10.6|8.45|8.45|3.04055915910215|5002
+31|North Fork St. Lucie Aquatic Preserve|1990|Dissolved Oxygen|Surface|Field|17|5.5|11.6|7.4|7.53529411764706|1.55721754118949|5002
+31|North Fork St. Lucie Aquatic Preserve|1994|Dissolved Oxygen|Surface|Field|35|4.93|7.68|6.86|6.55885714285714|0.854557922962206|5002
+31|North Fork St. Lucie Aquatic Preserve|1995|Dissolved Oxygen|Surface|Field|58|3.69|10.97|7.32|7.14155172413793|1.86493949078656|5002
+31|North Fork St. Lucie Aquatic Preserve|1996|Dissolved Oxygen|Surface|Field|59|5.49|8.66|7.4|7.42423728813559|0.748290473264711|5002
+31|North Fork St. Lucie Aquatic Preserve|1997|Dissolved Oxygen|Surface|Field|32|4.29|9.41|7.255|7.2553125|1.24624852379632|5002
+31|North Fork St. Lucie Aquatic Preserve|1998|Dissolved Oxygen|Surface|Field|58|4.5|11.55|7.525|7.50827586206897|1.62734541986251|69, 5002
+31|North Fork St. Lucie Aquatic Preserve|1999|Dissolved Oxygen|Surface|Field|105|1.58|9.9|6.69|6.52771428571429|1.75935262194696|69, 5002
+31|North Fork St. Lucie Aquatic Preserve|2000|Dissolved Oxygen|Surface|Field|91|3.9|10.72|7.34|7.47791208791209|1.51201669338486|69, 5002
+31|North Fork St. Lucie Aquatic Preserve|2001|Dissolved Oxygen|Surface|Field|85|0.2|8.6|6.01|5.87047058823529|1.55450030700601|69, 5002
+31|North Fork St. Lucie Aquatic Preserve|2002|Dissolved Oxygen|Surface|Field|117|3.07|11.55|6.56|6.53358974358974|1.57523094176502|69, 5002
+31|North Fork St. Lucie Aquatic Preserve|2003|Dissolved Oxygen|Surface|Field|71|3|10|7.06|7.04760563380282|1.44327847504882|69, 5002
+31|North Fork St. Lucie Aquatic Preserve|2004|Dissolved Oxygen|Surface|Field|85|1.2|13.8|6.9|6.83423529411765|2.24385211743777|69, 5002
+31|North Fork St. Lucie Aquatic Preserve|2005|Dissolved Oxygen|Surface|Field|365|0.66|13.09|6.85|7.09093150684932|1.77138153329671|69, 5002
+31|North Fork St. Lucie Aquatic Preserve|2006|Dissolved Oxygen|Surface|Field|252|2.6|14.28|7.755|7.54230158730159|1.97267313640781|69, 5002
+31|North Fork St. Lucie Aquatic Preserve|2007|Dissolved Oxygen|Surface|Field|95|4.49|10.22|7.38|7.13715789473684|0.962441115256381|69, 5002
+31|North Fork St. Lucie Aquatic Preserve|2008|Dissolved Oxygen|Surface|Field|104|0.96|9.6|6.775|6.67423076923077|1.51884900999427|69, 5002
+31|North Fork St. Lucie Aquatic Preserve|2009|Dissolved Oxygen|Surface|Field|71|3.2|11.8|6.22|6.22112676056338|1.78861842077364|69, 3001, 5002
+31|North Fork St. Lucie Aquatic Preserve|2010|Dissolved Oxygen|Surface|Field|50|6.06|8.8|7.09|7.1162|0.665318367860264|69, 5002
+31|North Fork St. Lucie Aquatic Preserve|2011|Dissolved Oxygen|Surface|Field|91|2.88|9.71|6.13|5.9821978021978|1.58829734285758|69, 5002
+31|North Fork St. Lucie Aquatic Preserve|2012|Dissolved Oxygen|Surface|Field|103|2.79|9.9|5.83|5.98368932038835|1.73802795070558|69, 5002
+31|North Fork St. Lucie Aquatic Preserve|2013|Dissolved Oxygen|Surface|Field|156|4.24|11.5|6.815|6.8575641025641|1.75760114077623|69, 5002
+31|North Fork St. Lucie Aquatic Preserve|2014|Dissolved Oxygen|Surface|Field|280|2.8|10|5.9|5.96914285714286|1.36535525106016|69, 5002
+31|North Fork St. Lucie Aquatic Preserve|2015|Dissolved Oxygen|Surface|Field|227|0.25|9.6|6.2|6.08251101321586|1.64082521425279|69, 5002
+31|North Fork St. Lucie Aquatic Preserve|2016|Dissolved Oxygen|Surface|Field|174|0.3|11.2|6.1|5.92954022988506|1.86878211897449|69, 5002
+31|North Fork St. Lucie Aquatic Preserve|2017|Dissolved Oxygen|Surface|Field|170|0.8|9.1|5.85|5.71952941176471|1.68455490294123|69, 5002
+31|North Fork St. Lucie Aquatic Preserve|2020|Dissolved Oxygen|Surface|Field|50|2.06|8.18|5.07|4.94|1.64866303285977|5002
+31|North Fork St. Lucie Aquatic Preserve|2021|Dissolved Oxygen|Surface|Field|134|3.52|9.47|6.07|6.06828358208955|1.48118501944682|5002
+33|Pellicer Creek Aquatic Preserve|2004|Dissolved Oxygen|Surface|Field|1|3.4|3.4|3.4|3.4||5002
+33|Pellicer Creek Aquatic Preserve|2005|Dissolved Oxygen|Surface|Field|1|6.7|6.7|6.7|6.7||5002
+33|Pellicer Creek Aquatic Preserve|2009|Dissolved Oxygen|Surface|Field|4|3.55|7.73|4.74|5.19|1.86583314723834|5002
+33|Pellicer Creek Aquatic Preserve|2013|Dissolved Oxygen|Surface|Field|2|4.62|4.62|4.62|4.62|0|4054
+33|Pellicer Creek Aquatic Preserve|2014|Dissolved Oxygen|Surface|Field|32|2.8|7.3|4.79|5.02875|1.26150895308344|95, 4054, 5002
+33|Pellicer Creek Aquatic Preserve|2015|Dissolved Oxygen|Surface|Field|25|2.23|9.03|5.4|5.4744|1.57687211487383|95, 4054, 5002
+33|Pellicer Creek Aquatic Preserve|2016|Dissolved Oxygen|Surface|Field|117|1.99|8.95|4.68|5.0034188034188|1.80009681846568|95, 4054
+33|Pellicer Creek Aquatic Preserve|2017|Dissolved Oxygen|Surface|Field|148|1.66|10|5.585|5.73641891891892|1.98117638733528|95, 4054, 5002
+33|Pellicer Creek Aquatic Preserve|2018|Dissolved Oxygen|Surface|Field|158|3.85|9.72|5.525|5.875|1.34726746336219|95, 4054
+33|Pellicer Creek Aquatic Preserve|2019|Dissolved Oxygen|Surface|Field|131|2.59|11.19|5.53|5.7524427480916|1.88687494657296|4054
+33|Pellicer Creek Aquatic Preserve|2020|Dissolved Oxygen|Surface|Field|112|2.8|10.22|5.745|5.76901785714286|1.61440361332143|4054, 5002
+33|Pellicer Creek Aquatic Preserve|2021|Dissolved Oxygen|Surface|Field|18|3.5|7.82|5.45|5.51888888888889|1.17774904392129|5002
+33|Pellicer Creek Aquatic Preserve|2022|Dissolved Oxygen|Surface|Field|1|7.78|7.78|7.78|7.78||5002
+34|Pine Island Sound Aquatic Preserve|1985|Dissolved Oxygen|Surface|Field|1|7.2|7.2|7.2|7.2||95
+34|Pine Island Sound Aquatic Preserve|1986|Dissolved Oxygen|Surface|Field|1|4.6|4.6|4.6|4.6||95
+34|Pine Island Sound Aquatic Preserve|1987|Dissolved Oxygen|Surface|Field|1|8.8|8.8|8.8|8.8||5002
+34|Pine Island Sound Aquatic Preserve|1990|Dissolved Oxygen|Surface|Field|1|7.2|7.2|7.2|7.2||69
+34|Pine Island Sound Aquatic Preserve|1991|Dissolved Oxygen|Surface|Field|7|6.2|6.9|6.9|6.8|0.264575131106459|69
+34|Pine Island Sound Aquatic Preserve|1992|Dissolved Oxygen|Surface|Field|10|5.4|12.2|5.8|7.19|2.72537459199037|69
+34|Pine Island Sound Aquatic Preserve|1993|Dissolved Oxygen|Surface|Field|19|6.4|10.9|8.1|8.12631578947369|1.4658490544024|69
+34|Pine Island Sound Aquatic Preserve|1994|Dissolved Oxygen|Surface|Field|140|1.1|12.4|7|6.78457142857143|1.90550938125623|69, 5002
+34|Pine Island Sound Aquatic Preserve|1995|Dissolved Oxygen|Surface|Field|359|2.3|10.5|6.7|6.6716713091922|1.38365841404025|69, 5002
+34|Pine Island Sound Aquatic Preserve|1996|Dissolved Oxygen|Surface|Field|493|0.5|16.7|6.8|6.86215010141988|1.9424783645992|69, 95, 5002
+34|Pine Island Sound Aquatic Preserve|1997|Dissolved Oxygen|Surface|Field|477|1.3|13.4|6.9|7.11012578616352|1.7129110513564|69, 95, 5002
+34|Pine Island Sound Aquatic Preserve|1998|Dissolved Oxygen|Surface|Field|311|2.9|14.1|7|7.07041800643087|1.65413250401412|69, 95, 5002
+34|Pine Island Sound Aquatic Preserve|1999|Dissolved Oxygen|Surface|Field|444|2.6|11.6|6.8|6.67342342342342|1.20259913816909|69, 95, 509, 5002
+34|Pine Island Sound Aquatic Preserve|2000|Dissolved Oxygen|Surface|Field|491|2.6|11.4|6.9|6.83755600814664|1.17294750583669|69, 509, 5002
+34|Pine Island Sound Aquatic Preserve|2001|Dissolved Oxygen|Surface|Field|837|2.4|13.2|6.6|6.72563918757467|1.48753303330079|69, 509, 5002
+34|Pine Island Sound Aquatic Preserve|2002|Dissolved Oxygen|Surface|Field|648|1|12.2|7.015|7.07313271604938|1.41715976297545|69, 95, 115, 509, 5002
+34|Pine Island Sound Aquatic Preserve|2003|Dissolved Oxygen|Surface|Field|695|3.3|14.8|7.48|7.58234532374101|1.67557967823118|69, 95, 103, 115, 509, 5002
+34|Pine Island Sound Aquatic Preserve|2004|Dissolved Oxygen|Surface|Field|969|1.6|14.1|7.7|7.67934984520124|2.07975684231187|69, 103, 115, 509, 5002
+34|Pine Island Sound Aquatic Preserve|2005|Dissolved Oxygen|Surface|Field|1111|0.9|15.6|7.4|7.35690369036904|1.91753519264717|69, 95, 509, 5002
+34|Pine Island Sound Aquatic Preserve|2006|Dissolved Oxygen|Surface|Field|954|1.2|17.8|7.4|7.44962264150943|2.09326553809116|69, 118, 509, 5002
+34|Pine Island Sound Aquatic Preserve|2007|Dissolved Oxygen|Surface|Field|919|1.2|16.2|7.23|7.4516648531012|2.17048591308103|69, 95, 509, 5002
+34|Pine Island Sound Aquatic Preserve|2008|Dissolved Oxygen|Surface|Field|1101|1.1|15.1|7.2|7.20553133514986|1.74100499037688|69, 95, 476, 509, 5002
+34|Pine Island Sound Aquatic Preserve|2009|Dissolved Oxygen|Surface|Field|1126|0.3|15.7|7.05|7.13694493783304|2.04397501410824|69, 95, 5002
+34|Pine Island Sound Aquatic Preserve|2010|Dissolved Oxygen|Surface|Field|1225|1|14.9|7.2|7.48182857142857|2.15547393754247|69, 95, 5002
+34|Pine Island Sound Aquatic Preserve|2011|Dissolved Oxygen|Surface|Field|1103|0.5|15.6|6.8|6.71378059836809|2.02560527014518|69, 95, 5002
+34|Pine Island Sound Aquatic Preserve|2012|Dissolved Oxygen|Surface|Field|1001|1.9|14.2|7.2|7.31508491508492|1.98703855467935|69, 95, 5002
+34|Pine Island Sound Aquatic Preserve|2013|Dissolved Oxygen|Surface|Field|781|2.6|15.6|7.3|7.49577464788732|1.82010708910712|69, 95, 5002
+34|Pine Island Sound Aquatic Preserve|2014|Dissolved Oxygen|Surface|Field|925|1.1|18|7.1|7.04259459459459|2.12875041414637|69, 95, 5002
+34|Pine Island Sound Aquatic Preserve|2015|Dissolved Oxygen|Surface|Field|813|1.4|15.4|7.1|7.09254612546125|2.07377883513279|69, 95, 5002
+34|Pine Island Sound Aquatic Preserve|2016|Dissolved Oxygen|Surface|Field|1227|1.4|17.02|7.3|7.48655256723716|1.92576166947889|69, 95, 5002
+34|Pine Island Sound Aquatic Preserve|2017|Dissolved Oxygen|Surface|Field|1321|0.4|15.2|7|7.12817562452687|1.91594800161441|69, 95, 5002
+34|Pine Island Sound Aquatic Preserve|2018|Dissolved Oxygen|Surface|Field|304|2.22|16.48|7.04|7.19246710526316|1.55628699372422|95
+34|Pine Island Sound Aquatic Preserve|2019|Dissolved Oxygen|Surface|Field|34|4.09574|9.80185|6.042295|6.19508117647059|1.38782492918861|303
+34|Pine Island Sound Aquatic Preserve|2020|Dissolved Oxygen|Surface|Field|126|2.2|9.34|6.3|6.1755423015873|1.3759686604246|303, 476, 5002
+34|Pine Island Sound Aquatic Preserve|2021|Dissolved Oxygen|Surface|Field|186|2.01|8.61|6.2|6.07736559139785|1.35091082215083|476, 5002
+34|Pine Island Sound Aquatic Preserve|2022|Dissolved Oxygen|Surface|Field|1|6.78|6.78|6.78|6.78||476
+35|Pinellas County Aquatic Preserve|1974|Dissolved Oxygen|Surface|Field|2|5.98|6.21|6.095|6.095|0.162634559672906|95
+35|Pinellas County Aquatic Preserve|1982|Dissolved Oxygen|Surface|Field|3|5.5|6.6|5.9|6|0.556776436283002|95
+35|Pinellas County Aquatic Preserve|1985|Dissolved Oxygen|Surface|Field|1|5.6|5.6|5.6|5.6||95
+35|Pinellas County Aquatic Preserve|1989|Dissolved Oxygen|Surface|Field|245|2.7|15.9|7.2|7.15795918367347|1.64575581768437|69
+35|Pinellas County Aquatic Preserve|1990|Dissolved Oxygen|Surface|Field|322|1.4|11|6.8|6.72142857142857|1.23442589839179|69
+35|Pinellas County Aquatic Preserve|1991|Dissolved Oxygen|Surface|Field|258|3.2|11.7|7.1|7.08255813953488|1.29300950735128|69
+35|Pinellas County Aquatic Preserve|1992|Dissolved Oxygen|Surface|Field|265|4.2|12.2|7.1|7.29924528301887|1.2203760117533|69
+35|Pinellas County Aquatic Preserve|1993|Dissolved Oxygen|Surface|Field|349|2.65|11.9|6.9|6.90031518624642|1.68346630747934|69, 4067
+35|Pinellas County Aquatic Preserve|1994|Dissolved Oxygen|Surface|Field|357|1|12.9|6.5|6.38235294117647|1.51983036413831|69, 4067
+35|Pinellas County Aquatic Preserve|1995|Dissolved Oxygen|Surface|Field|783|2.8|14.1|7.4|7.41219667943806|1.70803001259567|69, 4067, 5002
+35|Pinellas County Aquatic Preserve|1996|Dissolved Oxygen|Surface|Field|1033|0.5|13.8|6.4|6.3333591481123|2.005489424828|69, 4067, 5002
+35|Pinellas County Aquatic Preserve|1997|Dissolved Oxygen|Surface|Field|1484|0.23|14|6.4|6.11095013477089|2.06061574839055|69, 95, 4067, 5002
+35|Pinellas County Aquatic Preserve|1998|Dissolved Oxygen|Surface|Field|1089|1.2|15.9|6.9|7.04401285583104|1.56477221955762|69, 95, 4067, 5002
+35|Pinellas County Aquatic Preserve|1999|Dissolved Oxygen|Surface|Field|2071|0.33|15.14|6.7|6.73271849348141|1.72062481557761|69, 4067, 5002
+35|Pinellas County Aquatic Preserve|2000|Dissolved Oxygen|Surface|Field|1668|0.16|14|6.8|6.77721223021583|1.64931916601367|69, 95, 115, 118, 4067, 5002
+35|Pinellas County Aquatic Preserve|2001|Dissolved Oxygen|Surface|Field|1865|0.18|13.64|6.7|6.80230026809652|1.70336939380891|69, 95, 115, 118, 4067, 5002
+35|Pinellas County Aquatic Preserve|2002|Dissolved Oxygen|Surface|Field|2429|0.1|16.25|6.6|6.62093042361877|1.96825798514264|69, 95, 115, 4067, 5002
+35|Pinellas County Aquatic Preserve|2003|Dissolved Oxygen|Surface|Field|3198|0.18|16.1|6.9|6.96086616635397|1.68785044676942|69, 95, 103, 115, 4067, 5002
+35|Pinellas County Aquatic Preserve|2004|Dissolved Oxygen|Surface|Field|2671|0.08|13.9|7.1|7.14434294271808|1.78041700938012|69, 95, 115, 4067, 5002
+35|Pinellas County Aquatic Preserve|2005|Dissolved Oxygen|Surface|Field|2270|0|16.7|6.83|6.76729515418502|1.89160158101972|69, 95, 4067, 5002
+35|Pinellas County Aquatic Preserve|2006|Dissolved Oxygen|Surface|Field|2098|0.31|15.54|6.8|6.76963775023832|1.78991626905001|69, 95, 118, 4067, 5002
+35|Pinellas County Aquatic Preserve|2007|Dissolved Oxygen|Surface|Field|2650|0.08|15.3|6.6|6.54369056603774|1.70800355512074|69, 4067, 5002
+35|Pinellas County Aquatic Preserve|2008|Dissolved Oxygen|Surface|Field|2233|0.99|14.52|6.8|6.8515539632781|1.66658011976195|60, 69, 95, 4067, 5002
+35|Pinellas County Aquatic Preserve|2009|Dissolved Oxygen|Surface|Field|2862|0.15|14.1|6.335|6.47492662473795|1.79835764666063|60, 69, 95, 4067, 5002
+35|Pinellas County Aquatic Preserve|2010|Dissolved Oxygen|Surface|Field|2525|1.1|16.5|7|7.1651798019802|2.07449891744167|69, 95, 4067, 5002
+35|Pinellas County Aquatic Preserve|2011|Dissolved Oxygen|Surface|Field|2551|0.27|20.26|6.6|6.64083888671109|1.890923003667|69, 95, 4067, 5002
+35|Pinellas County Aquatic Preserve|2012|Dissolved Oxygen|Surface|Field|2371|0.1|16.8|6.7|6.85829607760439|1.75549080928935|69, 95, 4067, 5002
+35|Pinellas County Aquatic Preserve|2013|Dissolved Oxygen|Surface|Field|2342|0.02|14.6|6.9|6.95263450042699|1.72770781782479|60, 69, 95, 4067, 5002
+35|Pinellas County Aquatic Preserve|2014|Dissolved Oxygen|Surface|Field|2071|0|15.4|7.1|7.02659295026557|1.84658999603527|60, 69, 95, 4067, 5002
+35|Pinellas County Aquatic Preserve|2015|Dissolved Oxygen|Surface|Field|2093|0|14.49|7.02|7.01183803153368|1.66304273765644|69, 95, 4067, 5002
+35|Pinellas County Aquatic Preserve|2016|Dissolved Oxygen|Surface|Field|2597|0.04|17.24|7|7.12822448979592|1.83438188874634|69, 95, 4067, 5002
+35|Pinellas County Aquatic Preserve|2017|Dissolved Oxygen|Surface|Field|2131|0.206|19.52|7.12|7.20308212106992|1.79497399416589|69, 95, 4067, 5002
+35|Pinellas County Aquatic Preserve|2018|Dissolved Oxygen|Surface|Field|208|1.02|14.42|6.95|6.92578846153846|1.46886104730548|95, 4067
+35|Pinellas County Aquatic Preserve|2020|Dissolved Oxygen|Surface|Field|507|0.78|11.39|6.39|6.36765285996055|1.59859567008352|5002
+35|Pinellas County Aquatic Preserve|2021|Dissolved Oxygen|Surface|Field|490|0.73|12.41|6.4|6.38144897959184|1.43561468079235|5002, 5008
+35|Pinellas County Aquatic Preserve|2022|Dissolved Oxygen|Surface|Field|2|8.05|8.1|8.075|8.075|0.0353553390593266|5008
+37|Rocky Bayou State Park Aquatic Preserve|1994|Dissolved Oxygen|Surface|Field|5|5.6|7.3|7.3|6.64|0.904433524367601|69, 102
+37|Rocky Bayou State Park Aquatic Preserve|1995|Dissolved Oxygen|Surface|Field|3|8.3|9.1|8.5|8.63333333333333|0.416333199893226|69
+37|Rocky Bayou State Park Aquatic Preserve|2001|Dissolved Oxygen|Surface|Field|11|5.2|9.09|7.06|6.96818181818182|1.31362717832586|5002
+37|Rocky Bayou State Park Aquatic Preserve|2002|Dissolved Oxygen|Surface|Field|11|5.28|9.07|6.93|7.28090909090909|1.45080291249676|5002
+37|Rocky Bayou State Park Aquatic Preserve|2003|Dissolved Oxygen|Surface|Field|12|5.5|10.49|6.615|7.1675|1.68377889392769|5002
+37|Rocky Bayou State Park Aquatic Preserve|2004|Dissolved Oxygen|Surface|Field|11|5.8|9.64|7.64|8.08636363636364|1.11174882709426|5002
+37|Rocky Bayou State Park Aquatic Preserve|2005|Dissolved Oxygen|Surface|Field|8|5.47|11|7.6|7.70875|1.75752616318669|5002
+37|Rocky Bayou State Park Aquatic Preserve|2006|Dissolved Oxygen|Surface|Field|11|5.55|9.45|6.75|7.48090909090909|1.38143732789768|5002
+37|Rocky Bayou State Park Aquatic Preserve|2007|Dissolved Oxygen|Surface|Field|9|5.76|9.7|7.23|7.23222222222222|1.26441466475379|5002
+37|Rocky Bayou State Park Aquatic Preserve|2008|Dissolved Oxygen|Surface|Field|12|6.4|10.73|7.575|8.0675|1.24256424747009|537, 5002
+37|Rocky Bayou State Park Aquatic Preserve|2009|Dissolved Oxygen|Surface|Field|16|6.37|10.84|7.425|7.88375|1.45416127028607|537, 5002
+37|Rocky Bayou State Park Aquatic Preserve|2010|Dissolved Oxygen|Surface|Field|15|5.55|9.48|6.56|7.036|1.20803145654408|537, 5002
+37|Rocky Bayou State Park Aquatic Preserve|2011|Dissolved Oxygen|Surface|Field|20|5.88|9.01|7.08|7.125|0.996512339163577|537, 5002
+37|Rocky Bayou State Park Aquatic Preserve|2012|Dissolved Oxygen|Surface|Field|24|4.78|10.42|7.955|7.99833333333333|1.38434623297556|537, 5002
+37|Rocky Bayou State Park Aquatic Preserve|2013|Dissolved Oxygen|Surface|Field|29|6.08|12.87|8.31|8.41655172413793|1.99881442692925|537, 5002
+37|Rocky Bayou State Park Aquatic Preserve|2014|Dissolved Oxygen|Surface|Field|24|6.25|11.35|8.11|8.31333333333333|1.43235490703601|537, 5002
+37|Rocky Bayou State Park Aquatic Preserve|2015|Dissolved Oxygen|Surface|Field|23|6.45|9.94|8.04|8.03565217391304|1.16149913351416|537, 5002
+37|Rocky Bayou State Park Aquatic Preserve|2016|Dissolved Oxygen|Surface|Field|15|6.02|11.66|7.44|7.944|1.71499604331072|537, 5002
+37|Rocky Bayou State Park Aquatic Preserve|2017|Dissolved Oxygen|Surface|Field|16|6.71|9.9|7.7|7.873125|0.851921113327597|69, 537
+37|Rocky Bayou State Park Aquatic Preserve|2018|Dissolved Oxygen|Surface|Field|10|6.36|9.06|7.225|7.385|0.977118780451543|537
+37|Rocky Bayou State Park Aquatic Preserve|2020|Dissolved Oxygen|Surface|Field|8|6.18|9.15|7.795|7.56125|1.09788676881674|537
+37|Rocky Bayou State Park Aquatic Preserve|2021|Dissolved Oxygen|Surface|Field|12|3.95|10.32|7.655|7.7|1.90442069454682|537
+38|Rookery Bay Aquatic Preserve|1989|Dissolved Oxygen|Surface|Field|10|4.12|5.65|5.21|5.037|0.517108413305287|5002
+38|Rookery Bay Aquatic Preserve|1990|Dissolved Oxygen|Surface|Field|20|4|10.7|5.355|6.032005|1.93304223834784|5002
+38|Rookery Bay Aquatic Preserve|1991|Dissolved Oxygen|Surface|Field|14|2.8|6.6|5.355|5.20571428571429|1.15359447804687|5002
+38|Rookery Bay Aquatic Preserve|1992|Dissolved Oxygen|Surface|Field|1|6.6|6.6|6.6|6.6||5002
+38|Rookery Bay Aquatic Preserve|1995|Dissolved Oxygen|Surface|Field|31|3.7|8|6.4|6.29677419354839|1.05403474672889|5002
+38|Rookery Bay Aquatic Preserve|1996|Dissolved Oxygen|Surface|Field|29|2.6|7.6|5.4|5.43793103448276|1.02309537088731|5002
+38|Rookery Bay Aquatic Preserve|1997|Dissolved Oxygen|Surface|Field|31|4.6|7.6|6.4|6.3258064516129|0.622879197456181|95, 5002
+38|Rookery Bay Aquatic Preserve|1998|Dissolved Oxygen|Surface|Field|41|5.63|7.9|6.5|6.62268292682927|0.568106611430653|572, 5002
+38|Rookery Bay Aquatic Preserve|1999|Dissolved Oxygen|Surface|Field|163|2.8|12.17|5.7|5.7598773006135|1.4159213672324|509, 572, 5002
+38|Rookery Bay Aquatic Preserve|2000|Dissolved Oxygen|Surface|Field|159|2.5|8.5|6.2|6.0785534591195|1.18609498439099|509, 572, 5002
+38|Rookery Bay Aquatic Preserve|2001|Dissolved Oxygen|Surface|Field|178|2|8.9|5.6|5.50876404494382|1.34830072608653|69, 509, 572, 5002
+38|Rookery Bay Aquatic Preserve|2002|Dissolved Oxygen|Surface|Field|242|2.95|11.9|5.715|5.82822314049587|1.36177687186885|354, 509, 572, 4043, 5002
+38|Rookery Bay Aquatic Preserve|2003|Dissolved Oxygen|Surface|Field|250|2.93|8.8|5.54|5.593092|1.26580215512523|95, 354, 509, 572, 4043, 5002
+38|Rookery Bay Aquatic Preserve|2004|Dissolved Oxygen|Surface|Field|257|2.93|9.01|5.7|5.65268482490272|1.0730852268962|354, 509, 572, 4043, 5002
+38|Rookery Bay Aquatic Preserve|2005|Dissolved Oxygen|Surface|Field|297|1.81|8.51|5.97|5.89683501683502|1.02347385546663|354, 509, 572, 4043, 5002
+38|Rookery Bay Aquatic Preserve|2006|Dissolved Oxygen|Surface|Field|285|2.63|10.91|6.43|6.30414035087719|1.56020416051419|354, 509, 4043, 5002
+38|Rookery Bay Aquatic Preserve|2007|Dissolved Oxygen|Surface|Field|140|2.5|9.17|6.2|6.2025|1.26524893049356|509, 4043
+38|Rookery Bay Aquatic Preserve|2008|Dissolved Oxygen|Surface|Field|134|3.54|9.9|6.325|6.35238805970149|1.01832619491735|354, 509, 4043, 5002
+38|Rookery Bay Aquatic Preserve|2009|Dissolved Oxygen|Surface|Field|54|2.2|8.7|5|4.83388888888889|1.23122031299012|95, 354, 4043, 5002
+38|Rookery Bay Aquatic Preserve|2010|Dissolved Oxygen|Surface|Field|54|0.34|13.4|5.175|5.56|2.13326218434814|95, 354, 5002
+38|Rookery Bay Aquatic Preserve|2011|Dissolved Oxygen|Surface|Field|55|0.2|9.7|5.2|5.352|1.94752397408341|95, 354, 5002
+38|Rookery Bay Aquatic Preserve|2012|Dissolved Oxygen|Surface|Field|53|3.2|9.6|6.1|6.0722641509434|1.52439602353678|95, 354, 5002
+38|Rookery Bay Aquatic Preserve|2013|Dissolved Oxygen|Surface|Field|36|2.9|10.6|5|5.57166666666667|2.22250502168804|95, 354, 5002
+38|Rookery Bay Aquatic Preserve|2014|Dissolved Oxygen|Surface|Field|38|1.3|7.4|5.4|5.14078947368421|1.61010051990878|95, 354, 5002
+38|Rookery Bay Aquatic Preserve|2015|Dissolved Oxygen|Surface|Field|61|2.81|8|5.5|5.4916393442623|1.20115108726015|95, 354, 5002
+38|Rookery Bay Aquatic Preserve|2016|Dissolved Oxygen|Surface|Field|61|2.88|13.1|6.2|6.17377049180328|1.44004764265449|95, 354, 5002
+38|Rookery Bay Aquatic Preserve|2017|Dissolved Oxygen|Surface|Field|64|1.51|7.5|6.23|5.930625|1.22223302664777|95, 354, 5002
+38|Rookery Bay Aquatic Preserve|2018|Dissolved Oxygen|Surface|Field|30|4.24|7.83|5.505|5.76366666666667|1.15612755331764|95, 354
+38|Rookery Bay Aquatic Preserve|2019|Dissolved Oxygen|Surface|Field|24|3.03|6.27|4.895|4.9125|0.906422734662499|354
+38|Rookery Bay Aquatic Preserve|2020|Dissolved Oxygen|Surface|Field|4|3.52|4.91|4.305|4.26|0.743550043148857|5002
+38|Rookery Bay Aquatic Preserve|2021|Dissolved Oxygen|Surface|Field|28|4.11|7.18|6.065|5.88857142857143|0.830161583047694|5002
+39|Rookery Bay National Estuarine Research Reserve|1989|Dissolved Oxygen|Surface|Field|13|3.4|5.65|5.1|4.91769230769231|0.639389733080874|5002
+39|Rookery Bay National Estuarine Research Reserve|1990|Dissolved Oxygen|Surface|Field|30|2.8|10.7|5.15|5.63133666666667|1.78431383904161|5002
+39|Rookery Bay National Estuarine Research Reserve|1991|Dissolved Oxygen|Surface|Field|23|2|7.6|5.4|5.22087|1.34554122587091|5002
+39|Rookery Bay National Estuarine Research Reserve|1992|Dissolved Oxygen|Surface|Field|1|6.6|6.6|6.6|6.6||5002
+39|Rookery Bay National Estuarine Research Reserve|1994|Dissolved Oxygen|Surface|Field|42|3.1|8.2|4.85|5.23571428571429|1.50200214812152|509, 5002
+39|Rookery Bay National Estuarine Research Reserve|1995|Dissolved Oxygen|Surface|Field|343|0.75|12.3|6.7|6.34825072886297|1.63028174513799|509, 5002
+39|Rookery Bay National Estuarine Research Reserve|1996|Dissolved Oxygen|Surface|Field|272|2.6|9.9|6|5.89448529411765|1.12725661815656|509, 5002
+39|Rookery Bay National Estuarine Research Reserve|1997|Dissolved Oxygen|Surface|Field|414|0.1|8.9|6.2|5.78756038647343|1.64508839447686|95, 509, 5002
+39|Rookery Bay National Estuarine Research Reserve|1998|Dissolved Oxygen|Surface|Field|479|0.1|9|6.4|5.94933194154489|1.71302369521828|509, 572, 5002
+39|Rookery Bay National Estuarine Research Reserve|1999|Dissolved Oxygen|Surface|Field|493|1.8|12.17|6.1|5.90559837728195|1.29367437603783|509, 572, 5002
+39|Rookery Bay National Estuarine Research Reserve|2000|Dissolved Oxygen|Surface|Field|482|2.1|8.5|6.5|6.2050622406639|1.22854226967742|509, 572, 4043, 5002
+39|Rookery Bay National Estuarine Research Reserve|2001|Dissolved Oxygen|Surface|Field|470|0.1|10.33|6|5.80648936170213|1.5258224441319|69, 509, 572, 4043, 5002
+39|Rookery Bay National Estuarine Research Reserve|2002|Dissolved Oxygen|Surface|Field|526|2.89|13.2|5.715|5.77136882129278|1.33212241282825|354, 509, 572, 4043, 5002
+39|Rookery Bay National Estuarine Research Reserve|2003|Dissolved Oxygen|Surface|Field|548|2.69|13.47|5.71|5.68546167883212|1.40197146525457|95, 354, 509, 572, 4043, 5002
+39|Rookery Bay National Estuarine Research Reserve|2004|Dissolved Oxygen|Surface|Field|545|1.53|13.51|5.74|5.72915596330275|1.33183021168732|354, 509, 572, 4043, 5002
+39|Rookery Bay National Estuarine Research Reserve|2005|Dissolved Oxygen|Surface|Field|536|1.81|15.92|6.02|6.01542910447761|1.18898708269472|354, 509, 572, 4043, 5002
+39|Rookery Bay National Estuarine Research Reserve|2006|Dissolved Oxygen|Surface|Field|530|0.82|12.3|6.4|6.36109433962264|1.60126991503608|354, 509, 4043, 5002
+39|Rookery Bay National Estuarine Research Reserve|2007|Dissolved Oxygen|Surface|Field|458|2.28|9.99|5.83|5.91945414847162|1.34492543580347|95, 509, 4043, 5002
+39|Rookery Bay National Estuarine Research Reserve|2008|Dissolved Oxygen|Surface|Field|466|0.28|11.47|5.96|5.89268240343348|1.79586918303406|95, 354, 509, 4043, 5002
+39|Rookery Bay National Estuarine Research Reserve|2009|Dissolved Oxygen|Surface|Field|322|1.6|9.19|4.7|4.86142857142857|1.47642464370076|95, 354, 4043, 5002
+39|Rookery Bay National Estuarine Research Reserve|2010|Dissolved Oxygen|Surface|Field|265|0.34|14.1|5.2|5.50920754716981|1.8430156175707|95, 354, 4043, 5002
+39|Rookery Bay National Estuarine Research Reserve|2011|Dissolved Oxygen|Surface|Field|332|0.2|13.8|5.15|5.58659638554217|2.11035860837407|95, 354, 4043, 5002
+39|Rookery Bay National Estuarine Research Reserve|2012|Dissolved Oxygen|Surface|Field|235|1.6|12.4|5.8|5.76378723404255|1.67602262361791|95, 354, 4043, 5002
+39|Rookery Bay National Estuarine Research Reserve|2013|Dissolved Oxygen|Surface|Field|174|1.9|10.6|5.5|5.72574712643678|2.15825134322693|95, 354, 5002
+39|Rookery Bay National Estuarine Research Reserve|2014|Dissolved Oxygen|Surface|Field|162|1.1|9.04|5|4.85104938271605|1.78076423262727|95, 354, 5002
+39|Rookery Bay National Estuarine Research Reserve|2015|Dissolved Oxygen|Surface|Field|235|0.2|9.79|5.22|5.05531914893617|1.77752042202055|95, 354, 4043, 5002
+39|Rookery Bay National Estuarine Research Reserve|2016|Dissolved Oxygen|Surface|Field|365|1.91|13.1|5.5|5.40175342465753|1.31684446106515|95, 354, 4043, 5002
+39|Rookery Bay National Estuarine Research Reserve|2017|Dissolved Oxygen|Surface|Field|361|0.12|9.5|5.6|5.1487811634349|2.00643095494899|95, 354, 4043, 5002
+39|Rookery Bay National Estuarine Research Reserve|2018|Dissolved Oxygen|Surface|Field|151|3.34|8.7|5.57|5.81523178807947|1.28539116455502|95, 354, 4043
+39|Rookery Bay National Estuarine Research Reserve|2019|Dissolved Oxygen|Surface|Field|123|2.11|7.6|4.73|4.68308943089431|1.16892982448028|354, 4043
+39|Rookery Bay National Estuarine Research Reserve|2020|Dissolved Oxygen|Surface|Field|20|3.4|8.2|5.855|5.7365|1.22455695532797|4043, 5002
+39|Rookery Bay National Estuarine Research Reserve|2021|Dissolved Oxygen|Surface|Field|82|1.46|7.9|5.655|5.49353658536585|1.13634390111794|5002
+12|Southeast Florida Coral Reef Ecosystem Conservation Area|1970|Dissolved Oxygen|Surface|Field|7|5.2|7.3|5.9|6.1|0.640312423743285|103
+12|Southeast Florida Coral Reef Ecosystem Conservation Area|1972|Dissolved Oxygen|Surface|Field|20|5.3|10.2|7.1|7.4225|1.43035466709632|95
+12|Southeast Florida Coral Reef Ecosystem Conservation Area|1986|Dissolved Oxygen|Surface|Field|2|5.9|6|5.95|5.95|0.0707106781186545|60
+12|Southeast Florida Coral Reef Ecosystem Conservation Area|1996|Dissolved Oxygen|Surface|Field|5|5|6.3|5.6|5.72|0.535723809439155|5002
+12|Southeast Florida Coral Reef Ecosystem Conservation Area|1997|Dissolved Oxygen|Surface|Field|1|6.7|6.7|6.7|6.7||5002
+12|Southeast Florida Coral Reef Ecosystem Conservation Area|1998|Dissolved Oxygen|Surface|Field|37|5|8.1|7.1|6.85135135135135|0.762532921555821|69, 5002
+12|Southeast Florida Coral Reef Ecosystem Conservation Area|1999|Dissolved Oxygen|Surface|Field|3|3.3|8.1|7.2|6.2|2.55147016443461|3001
+12|Southeast Florida Coral Reef Ecosystem Conservation Area|2000|Dissolved Oxygen|Surface|Field|19|3|9.6|5.3|5.54473684210526|1.79342121352537|95, 3001
+12|Southeast Florida Coral Reef Ecosystem Conservation Area|2001|Dissolved Oxygen|Surface|Field|31|3.3|12|5.6|5.89290322580645|1.76543515607982|95, 3001
+12|Southeast Florida Coral Reef Ecosystem Conservation Area|2002|Dissolved Oxygen|Surface|Field|39|3.5|6.6|5.4|5.33410256410256|0.730615162393697|95, 3001
+12|Southeast Florida Coral Reef Ecosystem Conservation Area|2003|Dissolved Oxygen|Surface|Field|18|2|7.4|5.85|5.67222222222222|1.62183830178109|3001, 5002
+12|Southeast Florida Coral Reef Ecosystem Conservation Area|2004|Dissolved Oxygen|Surface|Field|9|4.6|7.2|6.8|6.23333333333333|1.01118742080783|5002
+12|Southeast Florida Coral Reef Ecosystem Conservation Area|2009|Dissolved Oxygen|Surface|Field|12|6.5829|8.3374|6.61305|6.82799166666667|0.499450811953095|5058
+12|Southeast Florida Coral Reef Ecosystem Conservation Area|2010|Dissolved Oxygen|Surface|Field|62|4.5524|7.431|6.5413|6.49078064516129|0.564292595547506|5058
+12|Southeast Florida Coral Reef Ecosystem Conservation Area|2011|Dissolved Oxygen|Surface|Field|60|0|7.2667|6.4641|6.36790833333333|1.15844757769541|5002, 5058
+12|Southeast Florida Coral Reef Ecosystem Conservation Area|2016|Dissolved Oxygen|Surface|Field|25|3.53|8.17|5.91|5.7408|1.19291631447195|95
+12|Southeast Florida Coral Reef Ecosystem Conservation Area|2018|Dissolved Oxygen|Surface|Field|2|6.76|8.01|7.385|7.385|0.883883476483184|95
+40|St. Andrews State Park Aquatic Preserve|1983|Dissolved Oxygen|Surface|Field|1|5.4|5.4|5.4|5.4||60
+40|St. Andrews State Park Aquatic Preserve|1996|Dissolved Oxygen|Surface|Field|3|6.5|7.1|6.5|6.7|0.346410161513775|95
+40|St. Andrews State Park Aquatic Preserve|1998|Dissolved Oxygen|Surface|Field|4|3.4|6.7|5.95|5.5|1.44452991200136|95
+40|St. Andrews State Park Aquatic Preserve|1999|Dissolved Oxygen|Surface|Field|8|6.2|7.9|6.4|6.5625|0.562995813229802|95
+40|St. Andrews State Park Aquatic Preserve|2000|Dissolved Oxygen|Surface|Field|21|5.9|10.9|6.8|7.32380952380952|1.37328247709813|95, 115, 118
+40|St. Andrews State Park Aquatic Preserve|2001|Dissolved Oxygen|Surface|Field|10|4.2|10|6.45|6.95|1.56719849129302|69, 95, 115, 118
+40|St. Andrews State Park Aquatic Preserve|2002|Dissolved Oxygen|Surface|Field|4|5.4|5.5|5.45|5.45|0.0577350269189624|69, 115
+40|St. Andrews State Park Aquatic Preserve|2003|Dissolved Oxygen|Surface|Field|10|3.6|9.9|6.75|6.47|1.80496229569731|69, 95, 103, 115
+40|St. Andrews State Park Aquatic Preserve|2005|Dissolved Oxygen|Surface|Field|4|4|8.23|6.4|6.2575|2.22168667157785|95, 5002
+40|St. Andrews State Park Aquatic Preserve|2008|Dissolved Oxygen|Surface|Field|20|5.8|9.2|7.2|7.435|1.0653761381735|69
+40|St. Andrews State Park Aquatic Preserve|2009|Dissolved Oxygen|Surface|Field|16|6.7|8.3|7.4|7.43125|0.496277811983033|69
+40|St. Andrews State Park Aquatic Preserve|2010|Dissolved Oxygen|Surface|Field|48|4.2|10.7|7.05|7.35541666666667|1.82128544543651|69, 95, 5002
+40|St. Andrews State Park Aquatic Preserve|2011|Dissolved Oxygen|Surface|Field|65|3.1|10|6.79|6.60107692307692|1.66984572928621|69, 95, 5002
+40|St. Andrews State Park Aquatic Preserve|2012|Dissolved Oxygen|Surface|Field|59|3.8|9.42|6.98|6.97322033898305|0.927306891650942|69, 95, 5002
+40|St. Andrews State Park Aquatic Preserve|2013|Dissolved Oxygen|Surface|Field|58|3.2|10.1|6.95|6.63741379310345|1.57320051514708|69, 95
+40|St. Andrews State Park Aquatic Preserve|2014|Dissolved Oxygen|Surface|Field|81|3.8|10.6|7|7.2|1.71646438937719|69, 95
+40|St. Andrews State Park Aquatic Preserve|2015|Dissolved Oxygen|Surface|Field|61|5.3|9.7|7.22|7.35327868852459|1.13681825183488|69, 95, 557
+40|St. Andrews State Park Aquatic Preserve|2016|Dissolved Oxygen|Surface|Field|117|4.1|10.1|6.69|6.86923076923077|1.02645200254462|69, 95, 470, 557
+40|St. Andrews State Park Aquatic Preserve|2017|Dissolved Oxygen|Surface|Field|163|2.5|17.2|7.04|6.76803680981595|1.66735276948099|69, 95, 470, 557
+40|St. Andrews State Park Aquatic Preserve|2018|Dissolved Oxygen|Surface|Field|110|5.1|9.28|7.37|7.43727272727273|1.05965799319975|95, 470
+40|St. Andrews State Park Aquatic Preserve|2019|Dissolved Oxygen|Surface|Field|77|5.24|10.13|7.42|7.5561038961039|1.13168964948336|470, 557
+40|St. Andrews State Park Aquatic Preserve|2020|Dissolved Oxygen|Surface|Field|26|5.76|8.9|7.95|7.70423076923077|0.933000206117547|470
+40|St. Andrews State Park Aquatic Preserve|2021|Dissolved Oxygen|Surface|Field|25|6.05|9.51|7.8|7.9188|1.07951887431392|470, 5002
+40|St. Andrews State Park Aquatic Preserve|2022|Dissolved Oxygen|Surface|Field|2|8.2|8.41|8.305|8.305|0.148492424049176|470
+41|St. Joseph Bay Aquatic Preserve|1991|Dissolved Oxygen|Surface|Field|2|6.7|6.7|6.7|6.7|0|115
+41|St. Joseph Bay Aquatic Preserve|1995|Dissolved Oxygen|Surface|Field|221|5.7|9.6|8.3|8.27556561085973|0.838852176539311|5002
+41|St. Joseph Bay Aquatic Preserve|1996|Dissolved Oxygen|Surface|Field|148|5.2|10|8.15|8.05743243243243|1.35747320371524|5002
+41|St. Joseph Bay Aquatic Preserve|1997|Dissolved Oxygen|Surface|Field|136|4.3|10.2|6.75|6.78161764705882|1.20831699335357|95, 5002
+41|St. Joseph Bay Aquatic Preserve|1998|Dissolved Oxygen|Surface|Field|160|3.8|10|7|7.266875|1.35059837076738|5002
+41|St. Joseph Bay Aquatic Preserve|1999|Dissolved Oxygen|Surface|Field|151|2.71|10.2|7.1|7.24827814569536|1.45229279030982|95, 5002
+41|St. Joseph Bay Aquatic Preserve|2000|Dissolved Oxygen|Surface|Field|186|4.5|10.3|7.7|8.00591397849462|1.5162095245348|95, 5002
+41|St. Joseph Bay Aquatic Preserve|2001|Dissolved Oxygen|Surface|Field|97|3.3|15.2|7.5|7.42371134020619|2.03489215499845|69, 95, 5002
+41|St. Joseph Bay Aquatic Preserve|2002|Dissolved Oxygen|Surface|Field|106|6.1|10.9|8.9|8.57264150943396|1.45605684209217|95, 5002
+41|St. Joseph Bay Aquatic Preserve|2003|Dissolved Oxygen|Surface|Field|102|5.09|11.4|8.9|8.95303921568628|1.61222851070316|95, 557, 5002
+41|St. Joseph Bay Aquatic Preserve|2004|Dissolved Oxygen|Surface|Field|36|5.05|10.8|8.37|8.23916666666667|1.51289197990377|95, 557, 5002
+41|St. Joseph Bay Aquatic Preserve|2005|Dissolved Oxygen|Surface|Field|126|2.11|10.2|7.815|7.65912698412698|1.43431155323592|95, 557, 5002
+41|St. Joseph Bay Aquatic Preserve|2006|Dissolved Oxygen|Surface|Field|138|2.61|11.9|7.04|6.96775362318841|1.3617260505203|95, 557, 5002
+41|St. Joseph Bay Aquatic Preserve|2007|Dissolved Oxygen|Surface|Field|104|3.6|11.38|5.86|6.01730769230769|1.86004866350853|95, 557, 5002
+41|St. Joseph Bay Aquatic Preserve|2008|Dissolved Oxygen|Surface|Field|71|2.2|9.67|5.8|5.41802816901408|2.03097979149988|95, 557, 5002
+41|St. Joseph Bay Aquatic Preserve|2009|Dissolved Oxygen|Surface|Field|157|2.74|10.1|7.9|7.64815286624204|1.61713097548304|95, 557, 5002
+41|St. Joseph Bay Aquatic Preserve|2010|Dissolved Oxygen|Surface|Field|61|3.6|11.2|6.84|7.28688524590164|2.39166855353022|95, 5002
+41|St. Joseph Bay Aquatic Preserve|2011|Dissolved Oxygen|Surface|Field|81|1.3|9.45|6.4|6.33185185185185|1.4871945998348|95, 5002
+41|St. Joseph Bay Aquatic Preserve|2012|Dissolved Oxygen|Surface|Field|21|3|10.2|7.15|6.98619047619048|1.44660456307339|95, 5002
+41|St. Joseph Bay Aquatic Preserve|2013|Dissolved Oxygen|Surface|Field|37|4.8|12.83|7|7.25540540540541|1.78077011211223|95, 5002
+41|St. Joseph Bay Aquatic Preserve|2014|Dissolved Oxygen|Surface|Field|145|1.6|13.2|5.7|5.70365517241379|2.1520354750384|60, 95, 5002
+41|St. Joseph Bay Aquatic Preserve|2015|Dissolved Oxygen|Surface|Field|129|1.4|8.6|5|5.18573643410853|1.60281528450421|95, 557, 5002
+41|St. Joseph Bay Aquatic Preserve|2016|Dissolved Oxygen|Surface|Field|226|2.5|10.15|6.685|6.50849557522124|1.14878581021795|95, 469, 540, 557, 5002
+41|St. Joseph Bay Aquatic Preserve|2017|Dissolved Oxygen|Surface|Field|397|2.3|15.6|7.1|7.00423173803527|1.39576206573387|69, 95, 469, 540, 557, 5002
+41|St. Joseph Bay Aquatic Preserve|2018|Dissolved Oxygen|Surface|Field|182|1.37|12.87|7.185|7.15758241758242|1.55153806466293|95, 469, 540, 557
+41|St. Joseph Bay Aquatic Preserve|2019|Dissolved Oxygen|Surface|Field|147|2.73|10.54|7.02|7.08047619047619|1.35287382261195|469, 540, 557, 5002
+41|St. Joseph Bay Aquatic Preserve|2020|Dissolved Oxygen|Surface|Field|109|3.57|9.57|7.08|7.22467889908257|1.16064762318232|469, 557, 5002
+41|St. Joseph Bay Aquatic Preserve|2021|Dissolved Oxygen|Surface|Field|94|3.73|10.3|7.545|7.51265957446809|1.26380137912375|469, 5002
+41|St. Joseph Bay Aquatic Preserve|2022|Dissolved Oxygen|Surface|Field|14|7.73|10.2|8.76|8.75928571428571|0.570417718541748|469, 5002
+43|St. Martins Marsh Aquatic Preserve|1991|Dissolved Oxygen|Surface|Field|2|4.9|4.9|4.9|4.9|0|115
+43|St. Martins Marsh Aquatic Preserve|1995|Dissolved Oxygen|Surface|Field|181|4.3|12|8.8|8.36906077348066|2.12831015431321|5002
+43|St. Martins Marsh Aquatic Preserve|1996|Dissolved Oxygen|Surface|Field|219|4.1|11.8|8.7|8.52785388127854|1.6794222621231|479, 5002
+43|St. Martins Marsh Aquatic Preserve|1997|Dissolved Oxygen|Surface|Field|230|2|13|6.7|6.77869565217391|2.57973764677377|479, 5002
+43|St. Martins Marsh Aquatic Preserve|1998|Dissolved Oxygen|Surface|Field|322|2.8|15.4|7.6|7.68844720496894|1.89356018309055|479, 5002
+43|St. Martins Marsh Aquatic Preserve|1999|Dissolved Oxygen|Surface|Field|319|2.3|10.6|6.9|6.82959247648903|1.8967551297101|479, 5002
+43|St. Martins Marsh Aquatic Preserve|2000|Dissolved Oxygen|Surface|Field|232|2.8|12|7.2|6.90991379310345|1.57274843979381|479, 5002
+43|St. Martins Marsh Aquatic Preserve|2001|Dissolved Oxygen|Surface|Field|259|2.9|12.58|6.85|6.9588416988417|1.97192764906276|479, 5002
+43|St. Martins Marsh Aquatic Preserve|2002|Dissolved Oxygen|Surface|Field|218|3.2|11.8|7.41|7.4401376146789|1.89126794797062|479, 5002
+43|St. Martins Marsh Aquatic Preserve|2003|Dissolved Oxygen|Surface|Field|298|3.8|12.94|7.6|7.64640939597315|1.56348964140049|69, 479, 5002
+43|St. Martins Marsh Aquatic Preserve|2004|Dissolved Oxygen|Surface|Field|228|2.4|11.9|6.735|7.15526315789474|2.20157401062863|69, 103, 479, 5002
+43|St. Martins Marsh Aquatic Preserve|2005|Dissolved Oxygen|Surface|Field|170|3.2|11.6|8|8.00823529411765|1.66226563608251|5002
+43|St. Martins Marsh Aquatic Preserve|2006|Dissolved Oxygen|Surface|Field|212|2.6|10.4|7.55|7.17344339622642|1.58923718075246|69, 479, 5002
+43|St. Martins Marsh Aquatic Preserve|2007|Dissolved Oxygen|Surface|Field|322|2.54|11.32|6|6.17931677018634|1.7975565361318|69, 479, 5002
+43|St. Martins Marsh Aquatic Preserve|2008|Dissolved Oxygen|Surface|Field|304|2.39|11.1|7.14|7.25825657894737|1.70495412478264|69, 479, 5002
+43|St. Martins Marsh Aquatic Preserve|2009|Dissolved Oxygen|Surface|Field|203|3.8|11.42|6.6|6.83098522167488|1.61213253231883|479, 5002
+43|St. Martins Marsh Aquatic Preserve|2010|Dissolved Oxygen|Surface|Field|193|1|12.1|8.5|8.47072538860104|2.27238436913098|479, 5002
+43|St. Martins Marsh Aquatic Preserve|2011|Dissolved Oxygen|Surface|Field|154|4.4|12.8|7.4|7.72785714285714|1.79297247053937|95, 479, 5002
+43|St. Martins Marsh Aquatic Preserve|2012|Dissolved Oxygen|Surface|Field|185|0.61|11.6|6.4|6.58772972972973|1.95121986159841|95, 479, 5002
+43|St. Martins Marsh Aquatic Preserve|2013|Dissolved Oxygen|Surface|Field|165|4.5|11.3|7.7|7.53369696969697|1.33713847370294|479, 5002
+43|St. Martins Marsh Aquatic Preserve|2014|Dissolved Oxygen|Surface|Field|240|4.3|11.4|7.1|7.54620833333333|1.79446598107973|95, 479, 5002
+43|St. Martins Marsh Aquatic Preserve|2015|Dissolved Oxygen|Surface|Field|184|3.4|10.4|7.745|7.46266304347826|1.62734151622517|95, 479, 5002
+43|St. Martins Marsh Aquatic Preserve|2016|Dissolved Oxygen|Surface|Field|219|3.41|10.6|7.7|7.3537899543379|1.61321684775491|95, 479, 5002
+43|St. Martins Marsh Aquatic Preserve|2017|Dissolved Oxygen|Surface|Field|223|4.2|12|8.5|8.20829596412556|1.8655670254443|95, 479, 5002
+43|St. Martins Marsh Aquatic Preserve|2018|Dissolved Oxygen|Surface|Field|30|4.17|9.8|8.25|7.78866666666667|1.7986426555319|95, 479, 540, 5002
+43|St. Martins Marsh Aquatic Preserve|2019|Dissolved Oxygen|Surface|Field|20|4.07|10.6|6.095|6.6635|1.95150758187235|479, 540, 5002
+43|St. Martins Marsh Aquatic Preserve|2020|Dissolved Oxygen|Surface|Field|11|2.26|7.89|5.92|5.84727272727273|1.85095159801163|5002
+43|St. Martins Marsh Aquatic Preserve|2021|Dissolved Oxygen|Surface|Field|60|4.32|12.96|7.295|7.32716666666667|1.92026665844825|479, 5002, 5008
+43|St. Martins Marsh Aquatic Preserve|2022|Dissolved Oxygen|Surface|Field|5|7.74|11.08|8.55|8.984|1.3048486502273|5008
+44|Terra Ceia Aquatic Preserve|1989|Dissolved Oxygen|Surface|Field|19|4.2|9.8|6.8|6.73684210526316|1.59937853427712|69
+44|Terra Ceia Aquatic Preserve|1990|Dissolved Oxygen|Surface|Field|74|1.4|8.1|6.1|5.93783783783784|1.3005481144505|69
+44|Terra Ceia Aquatic Preserve|1991|Dissolved Oxygen|Surface|Field|72|4.5|9.3|6.85|6.90833333333333|0.927475750413796|69
+44|Terra Ceia Aquatic Preserve|1992|Dissolved Oxygen|Surface|Field|68|5.9|9.1|6.7|7.02352941176471|0.777696108983456|69
+44|Terra Ceia Aquatic Preserve|1993|Dissolved Oxygen|Surface|Field|88|4|13.4|7.1|6.92204545454545|1.48189158327349|69, 4067
+44|Terra Ceia Aquatic Preserve|1994|Dissolved Oxygen|Surface|Field|125|3.5|10.2|7|6.88624|1.55953397919316|69, 4067
+44|Terra Ceia Aquatic Preserve|1995|Dissolved Oxygen|Surface|Field|352|1.3|11.2|7.2|7.06383522727273|1.3479135744222|69, 4067, 5002
+44|Terra Ceia Aquatic Preserve|1996|Dissolved Oxygen|Surface|Field|468|1.1|12.6|6.51|6.62363247863248|1.4627734831223|69, 4067, 5002
+44|Terra Ceia Aquatic Preserve|1997|Dissolved Oxygen|Surface|Field|673|2.2|13.5|6.9|6.99416047548291|1.13595181840301|69, 4067, 5002
+44|Terra Ceia Aquatic Preserve|1998|Dissolved Oxygen|Surface|Field|764|2.1|12|7.1|7.0317277486911|1.09748773007094|69, 4067, 5002
+44|Terra Ceia Aquatic Preserve|1999|Dissolved Oxygen|Surface|Field|594|2.7|12.2|6.87|6.89496632996633|1.09202169468548|69, 95, 4067, 5002
+44|Terra Ceia Aquatic Preserve|2000|Dissolved Oxygen|Surface|Field|589|3.3|17.5|6.7|6.66261460101868|1.08852563139074|69, 95, 4067, 5002
+44|Terra Ceia Aquatic Preserve|2001|Dissolved Oxygen|Surface|Field|608|3.3|15.2|6.6|6.68041118421053|1.3301302392562|69, 4067, 5002
+44|Terra Ceia Aquatic Preserve|2002|Dissolved Oxygen|Surface|Field|641|1.3|12.9|6.4|6.54003120124805|1.71339921618546|69, 95, 4067, 5002
+44|Terra Ceia Aquatic Preserve|2003|Dissolved Oxygen|Surface|Field|995|1.9|13.3|6.7|6.90317587939699|1.54689556192333|69, 95, 4067, 5002
+44|Terra Ceia Aquatic Preserve|2004|Dissolved Oxygen|Surface|Field|1181|1.3|19.7|6.8|6.89772226926334|2.34351441376963|69, 95, 4067, 5002
+44|Terra Ceia Aquatic Preserve|2005|Dissolved Oxygen|Surface|Field|463|1.5|12.8|6.6|6.67691144708423|1.65195023363069|69, 95, 4067, 5002
+44|Terra Ceia Aquatic Preserve|2006|Dissolved Oxygen|Surface|Field|1119|0.3|17|4.9|5.15917783735478|2.28426656545348|69, 95, 4067, 5002
+44|Terra Ceia Aquatic Preserve|2007|Dissolved Oxygen|Surface|Field|812|0.7|13.9|5.7|5.62424876847291|2.30007801340614|69, 95, 4067, 5002
+44|Terra Ceia Aquatic Preserve|2008|Dissolved Oxygen|Surface|Field|468|1.3|11.2|6.66|6.54264957264957|1.67114054996922|69, 95, 4067, 5002
+44|Terra Ceia Aquatic Preserve|2009|Dissolved Oxygen|Surface|Field|539|1.8|13.3|6.7|6.58545454545455|2.05272054660316|69, 4067, 5002
+44|Terra Ceia Aquatic Preserve|2010|Dissolved Oxygen|Surface|Field|603|2.3|15.8|6.4|6.62205638474295|1.93623931231559|69, 4067, 5002
+44|Terra Ceia Aquatic Preserve|2011|Dissolved Oxygen|Surface|Field|569|1.5|17.1|6.3|6.32330404217926|1.79169867291023|69, 95, 4067, 5002
+44|Terra Ceia Aquatic Preserve|2012|Dissolved Oxygen|Surface|Field|503|0.7|16.9|7.3|7.46602385685885|2.1332548349095|69, 95, 4067, 5002
+44|Terra Ceia Aquatic Preserve|2013|Dissolved Oxygen|Surface|Field|517|1.4|14.4|6.7|6.82404255319149|1.81983752738883|69, 95, 4067, 5002
+44|Terra Ceia Aquatic Preserve|2014|Dissolved Oxygen|Surface|Field|604|1.03|14.8|6.7|6.58561258278146|2.00674760309511|69, 95, 4067, 5002
+44|Terra Ceia Aquatic Preserve|2015|Dissolved Oxygen|Surface|Field|606|2.1|16.44|7.4|7.53846534653465|1.88765965238969|69, 95, 4067, 5002
+44|Terra Ceia Aquatic Preserve|2016|Dissolved Oxygen|Surface|Field|1039|3|15.1|7.2|7.32990375360924|1.70235301012291|69, 95, 4067, 5002
+44|Terra Ceia Aquatic Preserve|2017|Dissolved Oxygen|Surface|Field|987|1.4|15.3|7|7.06015197568389|1.47282892000052|69, 95, 4067, 5002
+44|Terra Ceia Aquatic Preserve|2018|Dissolved Oxygen|Surface|Field|229|3.12|12.65|6.44|6.65203930131004|1.39363876968835|95, 4067, 5002
+44|Terra Ceia Aquatic Preserve|2019|Dissolved Oxygen|Surface|Field|62|3.73|8.42|6.675|6.74661290322581|0.852986928480529|5002
+44|Terra Ceia Aquatic Preserve|2020|Dissolved Oxygen|Surface|Field|76|3.28|8.18|6.71|6.63223684210526|1.03196072106673|5002
+44|Terra Ceia Aquatic Preserve|2021|Dissolved Oxygen|Surface|Field|78|4.53|8.19|6.35|6.29948717948718|0.821925040718904|5002
+45|Tomoka Marsh Aquatic Preserve|1997|Dissolved Oxygen|Surface|Field|2|3.46|6.8|5.13|5.13|2.36173664916307|5002
+45|Tomoka Marsh Aquatic Preserve|1998|Dissolved Oxygen|Surface|Field|5|3.2|6.65|6.12|5.368|1.42203023877835|5002
+45|Tomoka Marsh Aquatic Preserve|1999|Dissolved Oxygen|Surface|Field|8|2|7.77|4.86|4.94375|1.75128473249946|5002
+45|Tomoka Marsh Aquatic Preserve|2000|Dissolved Oxygen|Surface|Field|9|3.83|8.9|6.33|6.12777777777778|1.83347196445554|5002
+45|Tomoka Marsh Aquatic Preserve|2001|Dissolved Oxygen|Surface|Field|11|1.4|6.34|4.77|4.07909090909091|1.58260831885501|69, 5002
+45|Tomoka Marsh Aquatic Preserve|2002|Dissolved Oxygen|Surface|Field|7|2.66|8.18|6.68|5.67428571428571|2.18887229064692|5002
+45|Tomoka Marsh Aquatic Preserve|2003|Dissolved Oxygen|Surface|Field|8|4.96|8.53|5.745|6.3875|1.48198467314226|5002
+45|Tomoka Marsh Aquatic Preserve|2004|Dissolved Oxygen|Surface|Field|11|3.43|8.86|5.4|6.12454545454546|1.80243370827536|69, 5002
+45|Tomoka Marsh Aquatic Preserve|2005|Dissolved Oxygen|Surface|Field|40|2.13|8.88|5.93|5.54175|1.83667604935013|5002
+45|Tomoka Marsh Aquatic Preserve|2006|Dissolved Oxygen|Surface|Field|9|3.88|7.67|5.21|5.68555555555556|1.35757238399202|5002
+45|Tomoka Marsh Aquatic Preserve|2007|Dissolved Oxygen|Surface|Field|7|3.37|8.31|6.28|6.46714285714286|1.73014175031715|5002
+45|Tomoka Marsh Aquatic Preserve|2008|Dissolved Oxygen|Surface|Field|9|1.85|7.76|3.88|4.37888888888889|2.02755668505497|5002
+45|Tomoka Marsh Aquatic Preserve|2009|Dissolved Oxygen|Surface|Field|12|3.13|8.4|6.025|5.94416666666667|2.05161780214069|5002
+45|Tomoka Marsh Aquatic Preserve|2010|Dissolved Oxygen|Surface|Field|3|5.79|9.02|6.21|7.00666666666667|1.75619854610273|5002
+45|Tomoka Marsh Aquatic Preserve|2011|Dissolved Oxygen|Surface|Field|6|3.64|5.37|4.795|4.67166666666667|0.658586871009943|5002
+45|Tomoka Marsh Aquatic Preserve|2012|Dissolved Oxygen|Surface|Field|9|1.22|6.65|4.95|4.45888888888889|1.67147722422745|5002
+45|Tomoka Marsh Aquatic Preserve|2013|Dissolved Oxygen|Surface|Field|11|2.87|7.62|3.97|4.84363636363636|1.55324996524882|5002
+45|Tomoka Marsh Aquatic Preserve|2014|Dissolved Oxygen|Surface|Field|21|1.72|7.98|4.4|4.6052380952381|1.81952911229147|5002
+45|Tomoka Marsh Aquatic Preserve|2016|Dissolved Oxygen|Surface|Field|5|1.28|6.04|4.84|4.402|1.85790742503495|5002
+45|Tomoka Marsh Aquatic Preserve|2017|Dissolved Oxygen|Surface|Field|33|2.4|8.29|4.54|4.71363636363636|1.46958076118203|95, 5002
+45|Tomoka Marsh Aquatic Preserve|2020|Dissolved Oxygen|Surface|Field|32|2.38|7.97|5.175|5.2615625|1.6664257856843|5002
+45|Tomoka Marsh Aquatic Preserve|2021|Dissolved Oxygen|Surface|Field|30|4.45|9.24|6.775|6.739|1.14555317160118|5002
+47|Yellow River Marsh Aquatic Preserve|1977|Dissolved Oxygen|Surface|Field|2|9|10.4|9.7|9.7|0.989949493661167|103
+47|Yellow River Marsh Aquatic Preserve|1995|Dissolved Oxygen|Surface|Field|22|5.6|8.8|7.85|7.82727272727273|0.81893183516661|5002
+47|Yellow River Marsh Aquatic Preserve|1996|Dissolved Oxygen|Surface|Field|18|6.4|10|8.65|8.38333333333333|1.05342578397956|5002
+47|Yellow River Marsh Aquatic Preserve|1997|Dissolved Oxygen|Surface|Field|14|5.3|9.7|8|7.75714285714286|1.47006765187827|5002
+47|Yellow River Marsh Aquatic Preserve|1998|Dissolved Oxygen|Surface|Field|24|5.1|9.6|8.3|7.89166666666667|1.29511344699208|5002
+47|Yellow River Marsh Aquatic Preserve|1999|Dissolved Oxygen|Surface|Field|22|5.1|8.6|7.25|7.20454545454545|0.891482058002437|5002
+47|Yellow River Marsh Aquatic Preserve|2000|Dissolved Oxygen|Surface|Field|25|6|9.5|7.5|7.468|0.862998648125631|95, 5002
+47|Yellow River Marsh Aquatic Preserve|2001|Dissolved Oxygen|Surface|Field|26|5|9.7|7.75|7.74615384615385|1.481143009768|5002
+47|Yellow River Marsh Aquatic Preserve|2002|Dissolved Oxygen|Surface|Field|30|4.8|10.8|7.5|7.53129|1.47473573350945|505, 5002
+47|Yellow River Marsh Aquatic Preserve|2003|Dissolved Oxygen|Surface|Field|29|4.2|11.8|6.3745|7.04509655172414|2.28838294801666|69, 505, 5002
+47|Yellow River Marsh Aquatic Preserve|2004|Dissolved Oxygen|Surface|Field|24|5.09|11.4|7.3|7.6279875|1.61255632441232|69, 103, 115, 505, 5002
+47|Yellow River Marsh Aquatic Preserve|2005|Dissolved Oxygen|Surface|Field|14|3.8|9.7|4.9|6.05714285714286|2.21245227178917|5002
+47|Yellow River Marsh Aquatic Preserve|2006|Dissolved Oxygen|Surface|Field|23|4.5|9.1|6.6|6.61739130434783|1.13404031270058|5002
+47|Yellow River Marsh Aquatic Preserve|2007|Dissolved Oxygen|Surface|Field|12|3.6|9.5|5.4|5.49916666666667|1.63523953393175|5002
+47|Yellow River Marsh Aquatic Preserve|2008|Dissolved Oxygen|Surface|Field|12|3.7|9.7|7.55|7.35833333333333|2.02370422440602|5002
+47|Yellow River Marsh Aquatic Preserve|2009|Dissolved Oxygen|Surface|Field|13|5.38|13|7.4|9.03538461538461|3.04136103136029|505, 5002
+47|Yellow River Marsh Aquatic Preserve|2010|Dissolved Oxygen|Surface|Field|10|5.4|9.7|8.3|7.845|1.52072533863139|505, 5002
+47|Yellow River Marsh Aquatic Preserve|2011|Dissolved Oxygen|Surface|Field|10|4.44|7.5|6.52|6.26|1.11893798855085|505, 5002
+47|Yellow River Marsh Aquatic Preserve|2012|Dissolved Oxygen|Surface|Field|9|3.9|9.6|8.4|7.35111111111111|2.08297530256869|505, 5002
+47|Yellow River Marsh Aquatic Preserve|2013|Dissolved Oxygen|Surface|Field|3|8.7|12.3|8.9|9.96666666666667|2.02319878739914|5002
+47|Yellow River Marsh Aquatic Preserve|2014|Dissolved Oxygen|Surface|Field|31|5.02|11.3|8.2|7.90967741935484|1.89126321783611|95, 5002
+47|Yellow River Marsh Aquatic Preserve|2015|Dissolved Oxygen|Surface|Field|7|4.4|7.7|5.3|5.51428571428571|1.29798378447572|95, 5002
+47|Yellow River Marsh Aquatic Preserve|2016|Dissolved Oxygen|Surface|Field|21|5.2|10.9|7.1|7.39047619047619|1.55270884646954|5002
+47|Yellow River Marsh Aquatic Preserve|2017|Dissolved Oxygen|Surface|Field|78|4.4|10.7|7.6|7.74320512820513|1.77084211648916|69, 540, 5002
+47|Yellow River Marsh Aquatic Preserve|2018|Dissolved Oxygen|Surface|Field|3|7.2|9.6|8.38|8.39333333333333|1.20005555426961|540
+47|Yellow River Marsh Aquatic Preserve|2019|Dissolved Oxygen|Surface|Field|5|6.4|8.9|8.7|8.022|1.08647135259058|540
+47|Yellow River Marsh Aquatic Preserve|2020|Dissolved Oxygen|Surface|Field|7|5.42|8.9|6.25|7.09142857142857|1.41645600674628|540, 5002
+47|Yellow River Marsh Aquatic Preserve|2021|Dissolved Oxygen|Surface|Field|3|6.7|8.1|6.73|7.17666666666667|0.799770800500576|540

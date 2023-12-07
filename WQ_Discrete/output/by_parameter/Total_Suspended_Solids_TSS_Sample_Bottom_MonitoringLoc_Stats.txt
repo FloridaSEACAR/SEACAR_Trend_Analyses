@@ -1,0 +1,16 @@
+AreaID|ManagedAreaName|ProgramID|ProgramName|ProgramLocationID|ParameterName|RelativeDepth|ActivityType|EarliestSampleDate|LastSampleDate|N|Min|Max|Median|Mean|StandardDeviation
+5|Big Bend Seagrasses Aquatic Preserve|5002|Florida STORET / WIN|STORET_21FLGW_3528|Total Suspended Solids, TSS|Bottom|Sample|1999-10-11|2000-03-13|2|5|6|5.5|5.5|0.707106781186548
+5|Big Bend Seagrasses Aquatic Preserve|5002|Florida STORET / WIN|STORET_21FLGW_9683|Total Suspended Solids, TSS|Bottom|Sample|2001-10-22|2001-10-22|1|4|4|4|4|
+5|Big Bend Seagrasses Aquatic Preserve|5002|Florida STORET / WIN|STORET_21FLGW_9693|Total Suspended Solids, TSS|Bottom|Sample|2001-10-03|2002-04-09|3|4|4|4|4|0
+5|Big Bend Seagrasses Aquatic Preserve|5002|Florida STORET / WIN|STORET_21FLGW_9695|Total Suspended Solids, TSS|Bottom|Sample|2001-09-27|2001-09-27|1|4|4|4|4|
+5|Big Bend Seagrasses Aquatic Preserve|5002|Florida STORET / WIN|STORET_21FLGW_9717|Total Suspended Solids, TSS|Bottom|Sample|2001-09-25|2001-09-25|1|4|4|4|4|
+5|Big Bend Seagrasses Aquatic Preserve|5002|Florida STORET / WIN|WIN_21FLTLHR_9717|Total Suspended Solids, TSS|Bottom|Sample|2021-03-29|2021-03-29|1|2|2|2|2|
+5|Big Bend Seagrasses Aquatic Preserve|5002|Florida STORET / WIN|WIN_21FLTLHR_G1TLHR0001|Total Suspended Solids, TSS|Bottom|Sample|2016-08-03|2016-08-03|1|5|5|5|5|
+5|Big Bend Seagrasses Aquatic Preserve|5002|Florida STORET / WIN|WIN_21FLTLHR_G1TLHR0019|Total Suspended Solids, TSS|Bottom|Sample|2018-04-11|2018-11-20|5|2|3|2|2.4|0.547722557505166
+5|Big Bend Seagrasses Aquatic Preserve|5002|Florida STORET / WIN|WIN_21FLTLHR_G1TLHR0031|Total Suspended Solids, TSS|Bottom|Sample|2018-02-13|2018-02-13|1|3|3|3|3|
+5|Big Bend Seagrasses Aquatic Preserve|5002|Florida STORET / WIN|WIN_21FLTLHR_G1TLHR0032|Total Suspended Solids, TSS|Bottom|Sample|2018-04-24|2018-04-24|1|4|4|4|4|
+5|Big Bend Seagrasses Aquatic Preserve|5002|Florida STORET / WIN|WIN_21FLTLHR_G1TLHR0043|Total Suspended Solids, TSS|Bottom|Sample|2018-02-13|2018-02-13|1|4|4|4|4|
+5|Big Bend Seagrasses Aquatic Preserve|5002|Florida STORET / WIN|WIN_21FLTLHR_G1TLHR0091|Total Suspended Solids, TSS|Bottom|Sample|2018-09-12|2019-01-28|2|2|6|4|4|2.82842712474619
+5|Big Bend Seagrasses Aquatic Preserve|5002|Florida STORET / WIN|WIN_21FLTLHR_HAB_072820_0001|Total Suspended Solids, TSS|Bottom|Sample|2020-07-28|2020-07-28|1|3|3|3|3|
+5|Big Bend Seagrasses Aquatic Preserve|5002|Florida STORET / WIN|WIN_21FLWQA_44059|Total Suspended Solids, TSS|Bottom|Sample|2018-04-19|2021-10-18|6|2|2|2|2|0
+5|Big Bend Seagrasses Aquatic Preserve|5002|Florida STORET / WIN|WIN_21FLWQA_G1WA0011|Total Suspended Solids, TSS|Bottom|Sample|2017-10-11|2017-10-11|1|7|7|7|7|

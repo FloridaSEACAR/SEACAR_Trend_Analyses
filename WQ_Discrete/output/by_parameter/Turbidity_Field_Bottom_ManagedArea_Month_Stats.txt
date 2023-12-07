@@ -1,0 +1,73 @@
+AreaID|ManagedAreaName|Month|ParameterName|RelativeDepth|ActivityType|N|Min|Max|Median|Mean|StandardDeviation|ProgramIDs
+2|Apalachicola Bay Aquatic Preserve|1|Turbidity|Bottom|Field|31|1.4|13.5|4.02|6.13064516129032|4.21719965180993|129, 355
+2|Apalachicola Bay Aquatic Preserve|2|Turbidity|Bottom|Field|20|1.29|42.2|6.75|8.8895|9.23888149700977|129, 355
+2|Apalachicola Bay Aquatic Preserve|3|Turbidity|Bottom|Field|31|0.3|55|7.24|15.6767741935484|16.5236697673563|129, 355
+2|Apalachicola Bay Aquatic Preserve|4|Turbidity|Bottom|Field|35|2.4|33.4|8.5|11.6654285714286|8.07173257254532|129, 355
+2|Apalachicola Bay Aquatic Preserve|5|Turbidity|Bottom|Field|21|2.6|58|7.9|11.7047619047619|11.9547256844512|129, 355
+2|Apalachicola Bay Aquatic Preserve|6|Turbidity|Bottom|Field|49|2.96|74.1|12.9|15.4585714285714|12.9398480155938|129, 355
+2|Apalachicola Bay Aquatic Preserve|7|Turbidity|Bottom|Field|9|2.6|33.4|12.5|12.23|9.68350659626976|129, 355
+2|Apalachicola Bay Aquatic Preserve|8|Turbidity|Bottom|Field|13|3.25|24.4|10.6|10.8669230769231|6.34516007759114|129, 355
+2|Apalachicola Bay Aquatic Preserve|9|Turbidity|Bottom|Field|55|1.26|55.4|6.2|8.85236363636364|9.84031559333495|129, 355
+2|Apalachicola Bay Aquatic Preserve|10|Turbidity|Bottom|Field|33|2.5|41.8|10.24|11.4684848484848|7.92101402962877|129, 355
+2|Apalachicola Bay Aquatic Preserve|11|Turbidity|Bottom|Field|24|1.56|41.3|5.97|7.79333333333333|8.3955586947565|129, 355
+2|Apalachicola Bay Aquatic Preserve|12|Turbidity|Bottom|Field|42|2.3|61|8.09|11.1657142857143|10.6847066779779|129, 355
+3|Apalachicola National Estuarine Research Reserve|1|Turbidity|Bottom|Field|36|0.45|13.5|4.01|5.95888888888889|4.30897454010831|129, 355
+3|Apalachicola National Estuarine Research Reserve|2|Turbidity|Bottom|Field|26|1.22|42.2|4.8|7.38461538461539|8.5758690432022|129, 355
+3|Apalachicola National Estuarine Research Reserve|3|Turbidity|Bottom|Field|36|0.3|55|6.5|14.1102777777778|15.817346081549|129, 355
+3|Apalachicola National Estuarine Research Reserve|4|Turbidity|Bottom|Field|39|2.4|33.4|8.5|11.4151282051282|7.80371769425009|129, 355
+3|Apalachicola National Estuarine Research Reserve|5|Turbidity|Bottom|Field|26|2.6|58|7.475|10.6280769230769|10.9531259535279|129, 355
+3|Apalachicola National Estuarine Research Reserve|6|Turbidity|Bottom|Field|52|2.96|74.1|11.79|14.8763461538462|12.7826543054842|129, 355
+3|Apalachicola National Estuarine Research Reserve|7|Turbidity|Bottom|Field|11|2.6|33.4|10.4|11.3790909090909|8.95682807085796|129, 355
+3|Apalachicola National Estuarine Research Reserve|8|Turbidity|Bottom|Field|16|3.25|24.4|7.74|9.660625|6.2457990881872|129, 355
+3|Apalachicola National Estuarine Research Reserve|9|Turbidity|Bottom|Field|60|0.9|55.4|4.77|8.36416666666667|9.56629859377757|129, 355
+3|Apalachicola National Estuarine Research Reserve|10|Turbidity|Bottom|Field|40|2.5|41.8|9.435|10.88375|7.65416350166734|129, 355
+3|Apalachicola National Estuarine Research Reserve|11|Turbidity|Bottom|Field|31|1.56|41.3|6.54|8.40806451612903|8.01097972341912|129, 355
+3|Apalachicola National Estuarine Research Reserve|12|Turbidity|Bottom|Field|45|2.3|61|7.88|10.8724444444444|10.3805679813853|129, 355
+4|Banana River Aquatic Preserve|1|Turbidity|Bottom|Field|6|2.93|8.87|5.345|5.945|2.35331893291156|3013, 5002
+4|Banana River Aquatic Preserve|2|Turbidity|Bottom|Field|6|0.92|16.8|6.54|7.60333333333333|6.40976026592779|3013, 5002
+4|Banana River Aquatic Preserve|3|Turbidity|Bottom|Field|6|1.9|10.5|3.365|4.9|3.3700860523138|3013, 5002
+4|Banana River Aquatic Preserve|4|Turbidity|Bottom|Field|11|1.65|9.58|5.12|5.03272727272727|2.25472433307973|3013, 5002
+4|Banana River Aquatic Preserve|5|Turbidity|Bottom|Field|12|1.61|10.6|3.555|4.55583333333333|2.4906824852687|3013, 5002
+4|Banana River Aquatic Preserve|6|Turbidity|Bottom|Field|3|2.82|7.67|5.21|5.23333333333333|2.42508419097839|3013, 5002
+4|Banana River Aquatic Preserve|7|Turbidity|Bottom|Field|4|2.11|45.3|8.455|16.08|19.9967714060712|3013
+4|Banana River Aquatic Preserve|8|Turbidity|Bottom|Field|6|1.95|19.5|5.84|7.7|6.08669696962154|3013, 5002
+4|Banana River Aquatic Preserve|9|Turbidity|Bottom|Field|2|1.89|5.4|3.645|3.645|2.48194480196478|3013, 5002
+4|Banana River Aquatic Preserve|10|Turbidity|Bottom|Field|4|1.99|10.4|4.795|5.495|3.72981232771838|3013, 5002
+4|Banana River Aquatic Preserve|11|Turbidity|Bottom|Field|4|2.94|9.41|5.125|5.65|2.89156243808314|3013, 5002
+4|Banana River Aquatic Preserve|12|Turbidity|Bottom|Field|6|1.69|9.87|4.875|5.035|3.23011919284722|3013, 5002
+15|Florida Keys National Marine Sanctuary|1|Turbidity|Bottom|Field|779|0|23.8948|0.795|1.64501051322208|2.57870822773963|297
+15|Florida Keys National Marine Sanctuary|2|Turbidity|Bottom|Field|610|0|23.658614|0.5775|1.34988267655738|2.44040645148|297
+15|Florida Keys National Marine Sanctuary|3|Turbidity|Bottom|Field|633|0|27|0.555|1.02825930047393|2.17619776495065|297
+15|Florida Keys National Marine Sanctuary|4|Turbidity|Bottom|Field|558|0|11.179982|0.54503055|0.879950132616487|1.26823393518467|297
+15|Florida Keys National Marine Sanctuary|5|Turbidity|Bottom|Field|977|0|28.52|0.58|1.26899092405322|2.63230667785549|297
+15|Florida Keys National Marine Sanctuary|6|Turbidity|Bottom|Field|478|0|4.4|0.295|0.563918259414226|0.726658475426775|297
+15|Florida Keys National Marine Sanctuary|7|Turbidity|Bottom|Field|1006|0|21.779155|0.61135555|1.06010604552684|1.89480638907709|297
+15|Florida Keys National Marine Sanctuary|8|Turbidity|Bottom|Field|519|0|11.288878|0.4097784|0.634805384393064|1.00337838075585|297
+15|Florida Keys National Marine Sanctuary|9|Turbidity|Bottom|Field|625|0|5.62|0.305|0.5534143888|0.700446521932673|297
+15|Florida Keys National Marine Sanctuary|10|Turbidity|Bottom|Field|679|0|9.1|0.565|0.886982976583211|1.02021576206938|297
+15|Florida Keys National Marine Sanctuary|11|Turbidity|Bottom|Field|634|0|80|0.545|1.08623329747634|3.36102879111394|297
+15|Florida Keys National Marine Sanctuary|12|Turbidity|Bottom|Field|639|0|83|0.44|0.913622910813772|3.41439829992917|297
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|1|Turbidity|Bottom|Field|11|0.15|6.1|2.58|2.67818181818182|1.42098429394429|3013
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|2|Turbidity|Bottom|Field|7|1.59|7.16|2.62|3.50714285714286|2.0590427734404|3013
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|3|Turbidity|Bottom|Field|7|1.58|7.15|4.34|4.41714285714286|2.16889153167937|3013
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|4|Turbidity|Bottom|Field|12|1|5.88|3.645|3.52916666666667|1.65940547038737|3013, 5002
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|5|Turbidity|Bottom|Field|13|1.47|7.69|2.99|3.14923076923077|1.54134930898473|3013, 5002
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|6|Turbidity|Bottom|Field|8|3.01|9.03|5.11|5.30125|2.1067879241022|3013
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|7|Turbidity|Bottom|Field|12|2.01|11.3|3.905|5.08166666666667|2.93637944455825|3013
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|8|Turbidity|Bottom|Field|2|2.31|2.63|2.47|2.47|0.226274169979695|3013
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|9|Turbidity|Bottom|Field|5|1.61|12|2.81|5.544|4.82779245618533|3013, 5002
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|10|Turbidity|Bottom|Field|2|5.94|6.91|6.425|6.425|0.685893577750951|3013
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|11|Turbidity|Bottom|Field|3|2.51|15.1|3.21|6.94|7.07542931559633|3013
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|12|Turbidity|Bottom|Field|4|1.88|4.33|2.195|2.65|1.12980824331683|3013
+37|Rocky Bayou State Park Aquatic Preserve|1|Turbidity|Bottom|Field|9|0|16.5|0.3|3.11111111111111|5.50895735244984|5002
+37|Rocky Bayou State Park Aquatic Preserve|2|Turbidity|Bottom|Field|13|0|16|0.8|2.52307692307692|4.49928769291204|5002
+37|Rocky Bayou State Park Aquatic Preserve|3|Turbidity|Bottom|Field|13|0|28.1|1.4|5.34615384615385|8.33552791615658|5002
+37|Rocky Bayou State Park Aquatic Preserve|4|Turbidity|Bottom|Field|11|0|40.6|3|11.3545454545455|13.620158856369|5002
+37|Rocky Bayou State Park Aquatic Preserve|5|Turbidity|Bottom|Field|14|0|50.5|2.1|9.14285714285714|16.2926464906819|5002
+37|Rocky Bayou State Park Aquatic Preserve|6|Turbidity|Bottom|Field|11|0|39.5|4.3|8.51818181818182|11.5324601175827|5002
+37|Rocky Bayou State Park Aquatic Preserve|7|Turbidity|Bottom|Field|12|0|41.9|3.55|7.9|11.7757840889297|5002
+37|Rocky Bayou State Park Aquatic Preserve|8|Turbidity|Bottom|Field|14|0|25.3|2.95|6.33571428571429|8.59235860364466|5002
+37|Rocky Bayou State Park Aquatic Preserve|9|Turbidity|Bottom|Field|13|0|29.3|2.3|5.26153846153846|8.46724457950937|5002
+37|Rocky Bayou State Park Aquatic Preserve|10|Turbidity|Bottom|Field|12|0|30|3.15|6.70833333333333|9.39133627178247|5002
+37|Rocky Bayou State Park Aquatic Preserve|11|Turbidity|Bottom|Field|10|0|6|0.8|1.85|2.32056027717446|5002
+37|Rocky Bayou State Park Aquatic Preserve|12|Turbidity|Bottom|Field|10|0|76.7|4.35|12.35|23.1012866404546|5002

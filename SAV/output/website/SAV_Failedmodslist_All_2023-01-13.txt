@@ -1,0 +1,46 @@
+model|error
+SAV_BBpct_BRAP_lme_TuGr.rds|"Error in MEEM(object, conLin, control$niterEM) : Overfitted model!
+"
+SAV_BBpct_BBAP_lme_WiGr.rds|"Error in MEEM(object, conLin, control$niterEM) : Overfitted model!
+"
+SAV_BBpct_EBAP_lme_StGr.rds|"Error in MEestimate(lmeSt, grps) : 
+  Singularity in backsolve at level 0, block 1
+"
+SAV_BBpct_EBAP_lme_UnHa.rds|"Error in lme.formula(formula_j, random = list(LocationID = ~relyear),  : 
+  nlminb problem, convergence error code = 1
+  message = false convergence (8)
+"
+SAV_BBpct_JBJIAP_lme_WiGr.rds|"Error in MEEM(object, conLin, control$niterEM) : Overfitted model!
+"
+SAV_BBpct_LRLWCAP_lme_WiGr.rds|"Error in MEEM(object, conLin, control$niterEM) : Overfitted model!
+"
+SAV_BBpct_MLAP_lme_MaGr.rds|"Error in MEEM(object, conLin, control$niterEM) : Overfitted model!
+"
+SAV_BBpct_MLAP_lme_TuGr.rds|"Error in MEEM(object, conLin, control$niterEM) : Overfitted model!
+"
+SAV_BBpct_MLAP_lme_WiGr.rds|"Error in MEEM(object, conLin, control$niterEM) : Overfitted model!
+"
+SAV_PC_BRAP_lme_TuGr.rds|"Error in MEEM(object, conLin, control$niterEM) : Overfitted model!
+"
+SAV_PC_JBJIAP_lme_WiGr.rds|"Error in MEEM(object, conLin, control$niterEM) : Overfitted model!
+"
+SAV_PC_LRLWCAP_lme_WiGr.rds|"Error in MEEM(object, conLin, control$niterEM) : Overfitted model!
+"
+SAV_PC_MLAP_lme_MaGr.rds|"Error in MEEM(object, conLin, control$niterEM) : Overfitted model!
+"
+SAV_PC_MLAP_lme_TuGr.rds|"Error in MEEM(object, conLin, control$niterEM) : Overfitted model!
+"
+SAV_PC_MLAP_lme_WiGr.rds|"Error in MEEM(object, conLin, control$niterEM) : Overfitted model!
+"
+SAV_PC_PCAP_lme_DrAl.rds|"Error in lme.formula(formula_j, random = list(LocationID = ~relyear),  : 
+  nlminb problem, convergence error code = 1
+  message = function evaluation limit reached without convergence (9)
+"
+SAV_PC_RBAP_lme_StGr.rds|"Error in lme.formula(formula_j, random = list(LocationID = ~relyear),  : 
+  nlminb problem, convergence error code = 1
+  message = false convergence (8)
+"
+SAV_PC_RBNERR_lme_StGr.rds|"Error in lme.formula(formula_j, random = list(LocationID = ~relyear),  : 
+  nlminb problem, convergence error code = 1
+  message = false convergence (8)
+"

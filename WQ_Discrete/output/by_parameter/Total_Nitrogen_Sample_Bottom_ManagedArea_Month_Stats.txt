@@ -1,0 +1,25 @@
+AreaID|ManagedAreaName|Month|ParameterName|RelativeDepth|ActivityType|N|Min|Max|Median|Mean|StandardDeviation|ProgramIDs
+15|Florida Keys National Marine Sanctuary|1|Total Nitrogen|Bottom|Sample|696|0.01886983|0.92270957|0.130718295|0.150535227485632|0.0864517291660725|297
+15|Florida Keys National Marine Sanctuary|2|Total Nitrogen|Bottom|Sample|584|0.0217372|0.77546987|0.11966484|0.144089221181507|0.0833601914058047|297
+15|Florida Keys National Marine Sanctuary|3|Total Nitrogen|Bottom|Sample|594|0.02435204|1.07642652|0.11958273|0.133731667003367|0.0811785721137624|297
+15|Florida Keys National Marine Sanctuary|4|Total Nitrogen|Bottom|Sample|554|0|0.78909583|0.11928203|0.147177484476534|0.115213944942277|297
+15|Florida Keys National Marine Sanctuary|5|Total Nitrogen|Bottom|Sample|861|0.01339376|1.10382833|0.12486153|0.160432137421603|0.12301653552583|297
+15|Florida Keys National Marine Sanctuary|6|Total Nitrogen|Bottom|Sample|441|0.02076322|0.40091139|0.12165939|0.136731991405896|0.0604481625259812|297
+15|Florida Keys National Marine Sanctuary|7|Total Nitrogen|Bottom|Sample|895|0.01238543|1.34295563|0.15326902|0.178694749150838|0.105974924818736|297
+15|Florida Keys National Marine Sanctuary|8|Total Nitrogen|Bottom|Sample|431|0.01|0.79660321|0.1421882|0.155053451647332|0.0822630910718141|297
+15|Florida Keys National Marine Sanctuary|9|Total Nitrogen|Bottom|Sample|616|0.0340326|2.15358301|0.115756555|0.138183833863636|0.125078688536561|297
+15|Florida Keys National Marine Sanctuary|10|Total Nitrogen|Bottom|Sample|663|0.0275576|0.9484868|0.15855234|0.180258854087481|0.112478969065436|297
+15|Florida Keys National Marine Sanctuary|11|Total Nitrogen|Bottom|Sample|627|0.00932154|1.91705745|0.11738245|0.137789612711324|0.108511725478083|297
+15|Florida Keys National Marine Sanctuary|12|Total Nitrogen|Bottom|Sample|592|0.0111986|0.38604301|0.120410695|0.126422810185811|0.0563748364059464|297
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|1|Total Nitrogen|Bottom|Sample|42|0.188|1.05|0.5295|0.56002380952381|0.208649722588728|479, 5002
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|2|Total Nitrogen|Bottom|Sample|45|0.169|1.43|0.565|0.584777777777778|0.284303286273407|479, 5002
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|3|Total Nitrogen|Bottom|Sample|50|0.141|1.328|0.559|0.56236|0.24223616070071|479, 5002
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|4|Total Nitrogen|Bottom|Sample|46|0.316|0.961|0.572|0.5835|0.170936757636007|479, 5002
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|5|Total Nitrogen|Bottom|Sample|38|0.172|1.522|0.558|0.569173684210526|0.243529445119299|5002
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|6|Total Nitrogen|Bottom|Sample|36|0.199|1.22|0.56|0.629836111111111|0.293352807727465|5002
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|7|Total Nitrogen|Bottom|Sample|38|0.369|2.119|0.76587|0.887651052631579|0.40337620963756|5002
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|8|Total Nitrogen|Bottom|Sample|36|0.428|1.812|0.8945|0.94975|0.336594658730222|5002
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|9|Total Nitrogen|Bottom|Sample|39|0.493|2.081|0.98|0.995394871794872|0.345480012331217|479, 5002
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|10|Total Nitrogen|Bottom|Sample|43|0.203|1.499|0.665|0.744255813953488|0.303753510112837|5002
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|11|Total Nitrogen|Bottom|Sample|45|0.321|1.57|0.666|0.763844444444445|0.369065463246856|479, 5002
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|12|Total Nitrogen|Bottom|Sample|47|0.113|1.83|0.559|0.589425531914894|0.318920239768426|479, 5002

@@ -1,0 +1,492 @@
+AreaID|ManagedAreaName|ParameterName|RelativeDepth|ActivityType|SufficientData|N_Data|N_Years|EarliestYear|LatestYear|Season|Median|Independent|tau|z|p_z|chi_sq|p_chi_sq|SennSlope|SennIntercept|Trend
+1|Alligator Harbor Aquatic Preserve|Turbidity|Surface|Sample|TRUE|3540|18|1998|2022|All|5.3|TRUE|-0.1436|-11.8869|0|203.6889|0|-0.15|5.76527777777778|-1
+1|Alligator Harbor Aquatic Preserve|Turbidity|Surface|Sample|TRUE|3540|18|1998|2022|1|1|TRUE|-0.2371|-8.3331|0|||-0.255555555555556|7.78888888888889|-2
+1|Alligator Harbor Aquatic Preserve|Turbidity|Surface|Sample|TRUE|3540|18|1998|2022|2|2|TRUE|-0.1085|-6.3088|0|||-0.125|6.175|-1
+1|Alligator Harbor Aquatic Preserve|Turbidity|Surface|Sample|TRUE|3540|18|1998|2022|3|3.4|TRUE|-0.1928|-0.0738|0.9412|||-0.333333333333333|9.46666666666667|-1
+1|Alligator Harbor Aquatic Preserve|Turbidity|Surface|Sample|TRUE|3540|18|1998|2022|4|7|TRUE|-0.0689|2.7299|0.0063|||-0.1|4.4|-1
+1|Alligator Harbor Aquatic Preserve|Turbidity|Surface|Sample|TRUE|3540|18|1998|2022|5|6.3|TRUE|-0.3788|3.3932|0.0007|||-1.325|3.8|-2
+1|Alligator Harbor Aquatic Preserve|Turbidity|Surface|Sample|TRUE|3540|18|1998|2022|6|5.3|TRUE|-0.2453|-6.8364|0|||-0.4|9.4|-1
+1|Alligator Harbor Aquatic Preserve|Turbidity|Surface|Sample|TRUE|3540|18|1998|2022|7|6|TRUE|-0.4534|-7.4809|0|||-0.0833333333333334|1.41666666666667|-1
+1|Alligator Harbor Aquatic Preserve|Turbidity|Surface|Sample|TRUE|3540|18|1998|2022|8|7.8|TRUE|-0.2446|-5.0034|0|||-0.135|2.54|-1
+1|Alligator Harbor Aquatic Preserve|Turbidity|Surface|Sample|TRUE|3540|18|1998|2022|9|7|TRUE|-0.0032|-7.1945|0|||0|3.4|-1
+1|Alligator Harbor Aquatic Preserve|Turbidity|Surface|Sample|TRUE|3540|18|1998|2022|10|5.55|TRUE|0.0935|-2.9078|0.0036|||0.166666666666667|6.33333333333333|1
+1|Alligator Harbor Aquatic Preserve|Turbidity|Surface|Sample|TRUE|3540|18|1998|2022|11|4.3|TRUE|0.1193|-1.1898|0.2341|||0.188888888888889|5.35555555555556|1
+1|Alligator Harbor Aquatic Preserve|Turbidity|Surface|Sample|TRUE|3540|18|1998|2022|12|3.8|TRUE|-0.2184|-8.8697|0|||-0.233333333333333|6.7|-1
+2|Apalachicola Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|15504|24|1992|2022|All|5.6|TRUE|0.0155|2.8269|0.0047|299.1482|0|0.0111111111111111|5.28384615384615|1
+2|Apalachicola Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|15504|24|1992|2022|1|5.4|TRUE|0.2207|1.1101|0.2669|||0.236363636363636|3.07272727272727|1
+2|Apalachicola Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|15504|24|1992|2022|2|7.2|TRUE|0.0514|-3.0936|0.002|||0.0454545454545455|4.3|1
+2|Apalachicola Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|15504|24|1992|2022|3|9.1|TRUE|0.0379|-10.8651|0|||0.06|8.06|1
+2|Apalachicola Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|15504|24|1992|2022|4|8.6|TRUE|-0.0034|1.8909|0.0586|||0|5.4|-1
+2|Apalachicola Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|15504|24|1992|2022|5|5.4|TRUE|0.0121|0.6333|0.5265|||0.00769230769230767|5.30769230769231|1
+2|Apalachicola Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|15504|24|1992|2022|6|4.8|TRUE|-0.0582|2.7598|0.0058|||-0.0818181818181818|7.77272727272727|-1
+2|Apalachicola Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|15504|24|1992|2022|7|5.4|TRUE|-0.1825|-0.2054|0.8373|||-0.336363636363636|12.1272727272727|-1
+2|Apalachicola Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|15504|24|1992|2022|8|5.1|TRUE|0.021|7.239|0|||0.02|5.26|1
+2|Apalachicola Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|15504|24|1992|2022|9|5.8|TRUE|0.1056|1.8439|0.0652|||0.09|4.29|1
+2|Apalachicola Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|15504|24|1992|2022|10|5.3|TRUE|0.0346|0.9193|0.358|||0.0399999999999999|5.48|1
+2|Apalachicola Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|15504|24|1992|2022|11|3.4|TRUE|0.02|-1.9155|0.0554|||0.0166666666666666|5.15|1
+2|Apalachicola Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|15504|24|1992|2022|12|5.2|TRUE|-0.0402|10.3868|0|||-0.0200000000000001|3.62|-1
+3|Apalachicola National Estuarine Research Reserve|Turbidity|Surface|Sample|TRUE|22861|29|1992|2022|All|5.1|TRUE|0.0494|9.5053|0|405.6823|0|0.0384615384615385|4.51944444444444|1
+3|Apalachicola National Estuarine Research Reserve|Turbidity|Surface|Sample|TRUE|22861|29|1992|2022|1|4.9|TRUE|0.1219|7.2942|0|||0.1|3.5|1
+3|Apalachicola National Estuarine Research Reserve|Turbidity|Surface|Sample|TRUE|22861|29|1992|2022|2|6.4|TRUE|-0.1255|-0.8099|0.418|||-0.18|8.62|-1
+3|Apalachicola National Estuarine Research Reserve|Turbidity|Surface|Sample|TRUE|22861|29|1992|2022|3|7|TRUE|0.1053|-9.4659|0|||0.107407407407407|4.04074074074074|1
+3|Apalachicola National Estuarine Research Reserve|Turbidity|Surface|Sample|TRUE|22861|29|1992|2022|4|6.9|TRUE|0.0167|5.804|0|||0.0111111111111111|4.48888888888889|1
+3|Apalachicola National Estuarine Research Reserve|Turbidity|Surface|Sample|TRUE|22861|29|1992|2022|5|5.1|TRUE|0.093|3.7456|0.0002|||0.0727272727272727|4.24545454545455|1
+3|Apalachicola National Estuarine Research Reserve|Turbidity|Surface|Sample|TRUE|22861|29|1992|2022|6|4.6|TRUE|0.0593|7.3824|0|||0.05|4.55|1
+3|Apalachicola National Estuarine Research Reserve|Turbidity|Surface|Sample|TRUE|22861|29|1992|2022|7|5.3|TRUE|0.2654|2.1898|0.0285|||0.276923076923077|2.24615384615385|1
+3|Apalachicola National Estuarine Research Reserve|Turbidity|Surface|Sample|TRUE|22861|29|1992|2022|8|4.9|TRUE|0.0882|7.0294|0|||0.125|5.775|1
+3|Apalachicola National Estuarine Research Reserve|Turbidity|Surface|Sample|TRUE|22861|29|1992|2022|9|5.2|TRUE|-0.0117|0.7177|0.4729|||-0.00833333333333334|6.46666666666667|-1
+3|Apalachicola National Estuarine Research Reserve|Turbidity|Surface|Sample|TRUE|22861|29|1992|2022|10|4.6|TRUE|0.0114|1.0057|0.3146|||0.0076923076923077|5.13076923076923|1
+3|Apalachicola National Estuarine Research Reserve|Turbidity|Surface|Sample|TRUE|22861|29|1992|2022|11|3|TRUE|0.0149|0.8726|0.3829|||0|3|-1
+3|Apalachicola National Estuarine Research Reserve|Turbidity|Surface|Sample|TRUE|22861|29|1992|2022|12|4.6|TRUE|0.0335|15.7121|0|||0.0272727272727273|5.02727272727273|1
+4|Banana River Aquatic Preserve|Turbidity|Surface|Sample|TRUE|12853|25|1996|2021|All|3.2|TRUE|-0.1118|-18.8929|0|426.4158|0|-0.0571428571428571|3.27272727272727|-1
+4|Banana River Aquatic Preserve|Turbidity|Surface|Sample|TRUE|12853|25|1996|2021|1|3.9|TRUE|-0.1378|-3.2472|0.0012|||-0.0923076923076923|4.16923076923077|-1
+4|Banana River Aquatic Preserve|Turbidity|Surface|Sample|TRUE|12853|25|1996|2021|2|3.8|TRUE|-0.2251|-7.5574|0|||-0.109090909090909|3.34545454545455|-1
+4|Banana River Aquatic Preserve|Turbidity|Surface|Sample|TRUE|12853|25|1996|2021|3|3.4|TRUE|0.071|-18.346|0|||0.0357142857142857|3.18571428571429|1
+4|Banana River Aquatic Preserve|Turbidity|Surface|Sample|TRUE|12853|25|1996|2021|4|2.9|TRUE|-0.3869|-9.7259|0|||-0.25|4.775|-1
+4|Banana River Aquatic Preserve|Turbidity|Surface|Sample|TRUE|12853|25|1996|2021|5|2.8|TRUE|-0.1057|-12.8019|0|||-0.0428571428571428|3.05714285714286|-1
+4|Banana River Aquatic Preserve|Turbidity|Surface|Sample|TRUE|12853|25|1996|2021|6|2.56352|TRUE|0.0216|-7.2394|0|||0.0111111111111111|2.87777777777778|1
+4|Banana River Aquatic Preserve|Turbidity|Surface|Sample|TRUE|12853|25|1996|2021|7|2.8|TRUE|-0.0176|-5.3153|0|||-0.00571428571428572|3.12857142857143|-1
+4|Banana River Aquatic Preserve|Turbidity|Surface|Sample|TRUE|12853|25|1996|2021|8|3.4|TRUE|-0.1309|3.9328|0.0001|||-0.08|4.16|-1
+4|Banana River Aquatic Preserve|Turbidity|Surface|Sample|TRUE|12853|25|1996|2021|9|2.9|TRUE|-0.1421|0.9222|0.3564|||-0.0600000000000001|2.80352|-1
+4|Banana River Aquatic Preserve|Turbidity|Surface|Sample|TRUE|12853|25|1996|2021|10|3.1|TRUE|-0.1899|-0.9422|0.3461|||-0.1|3.5|-1
+4|Banana River Aquatic Preserve|Turbidity|Surface|Sample|TRUE|12853|25|1996|2021|11|3.2|TRUE|-0.0736|-0.3423|0.7321|||-0.04875|4.1925|-1
+4|Banana River Aquatic Preserve|Turbidity|Surface|Sample|TRUE|12853|25|1996|2021|12|4|TRUE|-0.0075|-4.9913|0|||0|3.2|-1
+5|Big Bend Seagrasses Aquatic Preserve|Turbidity|Surface|Sample|TRUE|41216|32|1990|2021|All|3.5|TRUE|0.0098|3.3496|0.0008|421.9463|0|0|3.12|-1
+5|Big Bend Seagrasses Aquatic Preserve|Turbidity|Surface|Sample|TRUE|41216|32|1990|2021|1|2.6|TRUE|0.1364|-0.8178|0.4135|||0.12|3.04|1
+5|Big Bend Seagrasses Aquatic Preserve|Turbidity|Surface|Sample|TRUE|41216|32|1990|2021|2|2.9|TRUE|0.0333|-0.5023|0.6155|||0.0214285714285714|3.72142857142857|1
+5|Big Bend Seagrasses Aquatic Preserve|Turbidity|Surface|Sample|TRUE|41216|32|1990|2021|3|3.7|TRUE|-0.0875|-9.438|0|||-0.0666666666666667|5.03333333333333|-1
+5|Big Bend Seagrasses Aquatic Preserve|Turbidity|Surface|Sample|TRUE|41216|32|1990|2021|4|4.1|TRUE|0.0498|-7.8372|0|||0.0285714285714286|3.02857142857143|1
+5|Big Bend Seagrasses Aquatic Preserve|Turbidity|Surface|Sample|TRUE|41216|32|1990|2021|5|4.2|TRUE|-0.0099|4.6056|0|||0|2.6|-1
+5|Big Bend Seagrasses Aquatic Preserve|Turbidity|Surface|Sample|TRUE|41216|32|1990|2021|6|3.6|TRUE|-0.006|0.321|0.7482|||0|2.9|-1
+5|Big Bend Seagrasses Aquatic Preserve|Turbidity|Surface|Sample|TRUE|41216|32|1990|2021|7|3.4|TRUE|0.0766|4.5184|0|||0.05|3.2|1
+5|Big Bend Seagrasses Aquatic Preserve|Turbidity|Surface|Sample|TRUE|41216|32|1990|2021|8|3.9|TRUE|-0.1012|7.3375|0|||-0.08|4.98|-1
+5|Big Bend Seagrasses Aquatic Preserve|Turbidity|Surface|Sample|TRUE|41216|32|1990|2021|9|4.6|TRUE|-0.0617|12.0537|0|||-0.0285714285714286|2.87142857142857|-1
+5|Big Bend Seagrasses Aquatic Preserve|Turbidity|Surface|Sample|TRUE|41216|32|1990|2021|10|4|TRUE|0.0164|3.1097|0.0019|||0.00714285714285712|2.8|1
+5|Big Bend Seagrasses Aquatic Preserve|Turbidity|Surface|Sample|TRUE|41216|32|1990|2021|11|2.9|TRUE|0.052|1.3891|0.1648|||0.04|3.6|1
+5|Big Bend Seagrasses Aquatic Preserve|Turbidity|Surface|Sample|TRUE|41216|32|1990|2021|12|2.5|TRUE|0.0039|-5.083|0|||0|3.6|-1
+7|Biscayne Bay-Cape Florida to Monroe County Line Aquatic Preserve|Turbidity|Surface|Sample|FALSE|0|0|||||||||||||
+6|Biscayne Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|8583|26|1994|2021|All|0.8|TRUE|-0.1249|-17.1968|0|26.6673|0.0052|-0.0166666666666667|1.19333333333333|-1
+6|Biscayne Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|8583|26|1994|2021|1|0.9|TRUE|-0.1996|-8.0333|0|||-0.0285714285714286|1.58571428571429|-1
+6|Biscayne Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|8583|26|1994|2021|2|0.7|TRUE|-0.1018|-5.9735|0|||-0.0142857142857143|1.04285714285714|-1
+6|Biscayne Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|8583|26|1994|2021|3|0.8|TRUE|-0.108|-4.9703|0|||-0.0111111111111111|0.955555555555556|-1
+6|Biscayne Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|8583|26|1994|2021|4|0.7|TRUE|-0.0918|-5.9341|0|||-0.0118181818181818|0.983636363636364|-1
+6|Biscayne Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|8583|26|1994|2021|5|0.83|TRUE|-0.076|-5.6|0|||-0.00785714285714286|0.888571428571429|-1
+6|Biscayne Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|8583|26|1994|2021|6|0.7|TRUE|-0.0869|-3.5515|0.0004|||-0.0107142857142857|1.13571428571429|-1
+6|Biscayne Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|8583|26|1994|2021|7|0.9|TRUE|-0.1615|-3.5951|0.0003|||-0.025|1.325|-1
+6|Biscayne Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|8583|26|1994|2021|8|0.8|TRUE|-0.181|-7.1786|0|||-0.025|1.4|-1
+6|Biscayne Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|8583|26|1994|2021|9|0.7|TRUE|-0.0925|-4.6094|0|||-0.0133333333333333|1.20666666666667|-1
+6|Biscayne Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|8583|26|1994|2021|10|0.7|TRUE|-0.1213|-2.9889|0.0028|||-0.0203333333333333|1.26766666666667|-1
+6|Biscayne Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|8583|26|1994|2021|11|0.9|TRUE|-0.153|-3.8934|0.0001|||-0.02|1.18|-1
+6|Biscayne Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|8583|26|1994|2021|12|0.7|TRUE|-0.1354|-3.9738|0.0001|||-0.0222222222222222|1.34111111111111|-1
+8|Boca Ciega Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|5826|25|1995|2021|All|2.4|TRUE|0.1792|20.7671|0|113.7306|0|0.06875|1.77|1
+8|Boca Ciega Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|5826|25|1995|2021|1|2.8|TRUE|0.2037|4.497|0|||0.1|1.8|1
+8|Boca Ciega Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|5826|25|1995|2021|2|3|TRUE|0.2807|6.1703|0|||0.1|1.2|1
+8|Boca Ciega Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|5826|25|1995|2021|3|2.9|TRUE|-0.045|6.8923|0|||-0.0111111111111111|1.98888888888889|-1
+8|Boca Ciega Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|5826|25|1995|2021|4|2|TRUE|0.0656|4.5697|0|||0.0272727272727273|2.4|1
+8|Boca Ciega Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|5826|25|1995|2021|5|2.1|TRUE|0.1555|10.1963|0|||0.0555555555555556|1.5|1
+8|Boca Ciega Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|5826|25|1995|2021|6|2.4|TRUE|0.2153|9.9622|0|||0.0714285714285715|1.28571428571429|1
+8|Boca Ciega Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|5826|25|1995|2021|7|2.7|TRUE|0.2118|4.7785|0|||0.1125|2.1|1
+8|Boca Ciega Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|5826|25|1995|2021|8|2.3|TRUE|0.3008|7.1924|0|||0.106666666666667|1.54666666666667|1
+8|Boca Ciega Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|5826|25|1995|2021|9|2|TRUE|0.144|8.1594|0|||0.0642857142857143|2.35|1
+8|Boca Ciega Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|5826|25|1995|2021|10|2.1|TRUE|0.1475|6.4593|0|||0.05|2.25|1
+8|Boca Ciega Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|5826|25|1995|2021|11|1.9|TRUE|0.1876|-1.3635|0.1727|||0.0636363636363637|1.65454545454545|1
+8|Boca Ciega Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|5826|25|1995|2021|12|2.7|TRUE|0.2263|2.3024|0.0213|||0.08|1.74|1
+9|Cape Haze Aquatic Preserve|Turbidity|Surface|Sample|TRUE|1597|25|1995|2021|All|2.2|TRUE|0.1127|6.0479|0|46.7183|0|0.0333333333333333|1.98173076923077|1
+9|Cape Haze Aquatic Preserve|Turbidity|Surface|Sample|TRUE|1597|25|1995|2021|1|2.15|TRUE|-0.0357|0.7848|0.4326|||-0.0076923076923077|2.46153846153846|-1
+9|Cape Haze Aquatic Preserve|Turbidity|Surface|Sample|TRUE|1597|25|1995|2021|2|2|TRUE|0.2805|3.7|0.0002|||0.0916666666666667|1.53833333333333|1
+9|Cape Haze Aquatic Preserve|Turbidity|Surface|Sample|TRUE|1597|25|1995|2021|3|2.2|TRUE|0.0521|-0.6205|0.5349|||0.0151923076923077|2.02846153846154|1
+9|Cape Haze Aquatic Preserve|Turbidity|Surface|Sample|TRUE|1597|25|1995|2021|4|2|TRUE|0.0096|0.6183|0.5364|||0|2.2|-1
+9|Cape Haze Aquatic Preserve|Turbidity|Surface|Sample|TRUE|1597|25|1995|2021|5|2|TRUE|0.079|5.3208|0|||0.0253333333333333|2.058|1
+9|Cape Haze Aquatic Preserve|Turbidity|Surface|Sample|TRUE|1597|25|1995|2021|6|2.4|TRUE|0.1306|2.3651|0.018|||0.052|2.088|1
+9|Cape Haze Aquatic Preserve|Turbidity|Surface|Sample|TRUE|1597|25|1995|2021|7|2.4|TRUE|-0.0395|-0.7701|0.4413|||-0.01|2.29|-1
+9|Cape Haze Aquatic Preserve|Turbidity|Surface|Sample|TRUE|1597|25|1995|2021|8|2.4|TRUE|0.2367|1.4117|0.158|||0.0823529411764706|1.34117647058824|1
+9|Cape Haze Aquatic Preserve|Turbidity|Surface|Sample|TRUE|1597|25|1995|2021|9|2.18|TRUE|0.0357|4.9949|0|||0.00999999999999996|1.935|1
+9|Cape Haze Aquatic Preserve|Turbidity|Surface|Sample|TRUE|1597|25|1995|2021|10|2.2|TRUE|0.2949|0.159|0.8737|||0.1|1.3|1
+9|Cape Haze Aquatic Preserve|Turbidity|Surface|Sample|TRUE|1597|25|1995|2021|11|2.24|TRUE|0.1538|3.3797|0.0007|||0.04625|1.38375|1
+9|Cape Haze Aquatic Preserve|Turbidity|Surface|Sample|TRUE|1597|25|1995|2021|12|1.8|TRUE|0.2161|2.322|0.0202|||0.0615384615384616|1.62461538461538|1
+10|Cape Romano-Ten Thousand Islands Aquatic Preserve|Turbidity|Surface|Sample|TRUE|3390|27|1989|2021|All|3.2|TRUE|0.1862|15.4535|0|110.8807|0|0.130769230769231|2.04711538461538|1
+10|Cape Romano-Ten Thousand Islands Aquatic Preserve|Turbidity|Surface|Sample|TRUE|3390|27|1989|2021|1|3|TRUE|0.2572|3.6008|0.0003|||0.133333333333333|0.79|1
+10|Cape Romano-Ten Thousand Islands Aquatic Preserve|Turbidity|Surface|Sample|TRUE|3390|27|1989|2021|2|3.5|TRUE|0.1192|8.7656|0|||0.08|2.6|1
+10|Cape Romano-Ten Thousand Islands Aquatic Preserve|Turbidity|Surface|Sample|TRUE|3390|27|1989|2021|3|4.6|TRUE|0.2404|5.1299|0|||0.145454545454545|2.3|1
+10|Cape Romano-Ten Thousand Islands Aquatic Preserve|Turbidity|Surface|Sample|TRUE|3390|27|1989|2021|4|3.8|TRUE|0.2578|3.2987|0.001|||0.31|1.5|1
+10|Cape Romano-Ten Thousand Islands Aquatic Preserve|Turbidity|Surface|Sample|TRUE|3390|27|1989|2021|5|2.4|TRUE|0.0262|11.3427|0|||0.0222222222222222|2.35555555555556|1
+10|Cape Romano-Ten Thousand Islands Aquatic Preserve|Turbidity|Surface|Sample|TRUE|3390|27|1989|2021|6|2.6|TRUE|0.111|0.7225|0.47|||0.0846153846153846|2.06923076923077|1
+10|Cape Romano-Ten Thousand Islands Aquatic Preserve|Turbidity|Surface|Sample|TRUE|3390|27|1989|2021|7|3.9|TRUE|0.1384|5.3421|0|||0.075|2.025|1
+10|Cape Romano-Ten Thousand Islands Aquatic Preserve|Turbidity|Surface|Sample|TRUE|3390|27|1989|2021|8|3.4|TRUE|0.1205|3.2122|0.0013|||0.109090909090909|2.49090909090909|1
+10|Cape Romano-Ten Thousand Islands Aquatic Preserve|Turbidity|Surface|Sample|TRUE|3390|27|1989|2021|9|2.39|TRUE|0.4145|6.0153|0|||0.328571428571429|-1.21428571428571|2
+10|Cape Romano-Ten Thousand Islands Aquatic Preserve|Turbidity|Surface|Sample|TRUE|3390|27|1989|2021|10|3|TRUE|0.3706|2.8363|0.0046|||0.3|0.5|2
+10|Cape Romano-Ten Thousand Islands Aquatic Preserve|Turbidity|Surface|Sample|TRUE|3390|27|1989|2021|11|2.8|TRUE|0.0117|6.6892|0|||0.0111111111111111|4.13444444444444|1
+10|Cape Romano-Ten Thousand Islands Aquatic Preserve|Turbidity|Surface|Sample|TRUE|3390|27|1989|2021|12|4.29|TRUE|0.267|0.3043|0.7609|||0.127272727272727|1.27272727272727|1
+11|Cockroach Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|829|21|1999|2021|All|3.2|TRUE|-0.0426|-1.7706|0.0766|15.3896|0.1653|-0.02|3.66881168831169|0
+11|Cockroach Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|829|21|1999|2021|1|2.7|TRUE|-0.0377|-0.2193|0.8264|||-0.0249999999999999|4.475|0
+11|Cockroach Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|829|21|1999|2021|2|2.7|TRUE|-0.0181|1.6439|0.1002|||0|2.7|0
+11|Cockroach Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|829|21|1999|2021|3|3.8|TRUE|0.0505|0.3902|0.6964|||0.0333333333333333|2.85|0
+11|Cockroach Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|829|21|1999|2021|4|3.6|TRUE|-0.1444|-0.3738|0.7086|||-0.0666666666666667|4.65|0
+11|Cockroach Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|829|21|1999|2021|5|3.25|TRUE|0.1284|0.6248|0.5321|||0.0454545454545455|2.15454545454545|0
+11|Cockroach Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|829|21|1999|2021|6|3.6|TRUE|0.0344|-1.2159|0.224|||0.0185909090909091|3.57690909090909|0
+11|Cockroach Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|829|21|1999|2021|7|3.6|TRUE|-0.0754|0.2449|0.8066|||-0.025|2.6|0
+11|Cockroach Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|829|21|1999|2021|8|4.2|TRUE|0.0206|-0.4587|0.6465|||0.0142857142857142|3.44285714285714|0
+11|Cockroach Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|829|21|1999|2021|9|3.85|TRUE|-0.2025|-1.7954|0.0726|||-0.0845804195804196|4.51496503496504|0
+11|Cockroach Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|829|21|1999|2021|10|3.5|TRUE|-0.0306|-2.5767|0.01|||-0.0133928571428571|3.76071428571429|0
+11|Cockroach Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|829|21|1999|2021|11|3.1|TRUE|-0.1034|-1.6657|0.0958|||-0.06|4.38|0
+11|Cockroach Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|829|21|1999|2021|12|2.3|TRUE|-0.1403|-0.8561|0.3919|||-0.0566964285714286|3.80870535714286|0
+13|Coupon Bight Aquatic Preserve|Turbidity|Surface|Sample|FALSE|31|3|2019|2021|||||||||||
+14|Estero Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|490|18|2003|2022|All|3.41|TRUE|0.0694|2.0821|0.0373|29.4326|0.0019|0.0428571428571429|1.79964285714286|1
+14|Estero Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|490|18|2003|2022|1|3.41|TRUE|0.2508|0.7942|0.4271|||0.180714285714286|-0.406428571428572|1
+14|Estero Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|490|18|2003|2022|2|6.15|TRUE|0.1216|3.0727|0.0021|||0.0661904761904762|1.11428571428571|1
+14|Estero Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|490|18|2003|2022|3|5.015|TRUE|-0.0065|2.3612|0.0182|||-0.00230769230769229|3.66692307692308|-1
+14|Estero Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|490|18|2003|2022|4|6.08|TRUE|0.0795|2.1495|0.0316|||0.0290909090909091|2.53727272727273|1
+14|Estero Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|490|18|2003|2022|5|3|TRUE|0.0138|0.4482|0.654|||0.035|2.485|1
+14|Estero Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|490|18|2003|2022|6|3.1|TRUE|-0.0275|1.2649|0.2059|||-0.0251428571428571|4.48414285714286|-1
+14|Estero Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|490|18|2003|2022|7|3.755|TRUE|0.2048|-0.2894|0.7723|||0.2125|-0.294999999999999|1
+14|Estero Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|490|18|2003|2022|8|3.6|TRUE|0.2357|-0.0674|0.9463|||0.537708333333333|-12.2135416666667|2
+14|Estero Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|490|18|2003|2022|9|2.555|TRUE|0.1026|-1.4524|0.1464|||0.110714285714286|1.00714285714286|1
+14|Estero Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|490|18|2003|2022|10|2.285|TRUE|-0.1826|-1.9998|0.0455|||-0.0883035714285714|4.84580357142857|-1
+14|Estero Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|490|18|2003|2022|11|3.38|TRUE|0.2962|2.8274|0.0047|||0.266674208144796|-1.85022624434389|1
+14|Estero Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|490|18|2003|2022|12|3.5|TRUE|-0.1305|0.121|0.9037|||-0.0635714285714286|4.39857142857143|-1
+15|Florida Keys National Marine Sanctuary|Turbidity|Surface|Sample|TRUE|1590|27|1994|2021|All|0.6|TRUE|0.068|3.8613|0.0001|7.5495|0.753|0.00357142857142857|0.55|1
+15|Florida Keys National Marine Sanctuary|Turbidity|Surface|Sample|TRUE|1590|27|1994|2021|1|0.7|TRUE|0.1189|1.5027|0.1329|||0.01|0.41|1
+15|Florida Keys National Marine Sanctuary|Turbidity|Surface|Sample|TRUE|1590|27|1994|2021|2|0.55|TRUE|0.0688|1.7075|0.0877|||0.00400641025641026|0.527884615384615|1
+15|Florida Keys National Marine Sanctuary|Turbidity|Surface|Sample|TRUE|1590|27|1994|2021|3|0.755|TRUE|0.1658|0.9133|0.3611|||0.0126666666666667|0.324333333333333|1
+15|Florida Keys National Marine Sanctuary|Turbidity|Surface|Sample|TRUE|1590|27|1994|2021|4|0.565|TRUE|0.0683|2.7707|0.0056|||0|0.6|-1
+15|Florida Keys National Marine Sanctuary|Turbidity|Surface|Sample|TRUE|1590|27|1994|2021|5|0.6|TRUE|0.0237|0.6225|0.5336|||0|0.55|-1
+15|Florida Keys National Marine Sanctuary|Turbidity|Surface|Sample|TRUE|1590|27|1994|2021|6|0.55|TRUE|0.0138|0.4328|0.6652|||0|0.6|-1
+15|Florida Keys National Marine Sanctuary|Turbidity|Surface|Sample|TRUE|1590|27|1994|2021|7|0.6|TRUE|0.033|1.1537|0.2486|||0|0.6|-1
+15|Florida Keys National Marine Sanctuary|Turbidity|Surface|Sample|TRUE|1590|27|1994|2021|8|0.6|TRUE|-0.0077|-0.1334|0.8938|||0|0.6|-1
+15|Florida Keys National Marine Sanctuary|Turbidity|Surface|Sample|TRUE|1590|27|1994|2021|9|0.6|TRUE|0.0946|1.2245|0.2207|||0.00833333333333334|0.55|1
+15|Florida Keys National Marine Sanctuary|Turbidity|Surface|Sample|TRUE|1590|27|1994|2021|10|0.6|TRUE|0.1066|0.2265|0.8208|||0.01|0.34|1
+15|Florida Keys National Marine Sanctuary|Turbidity|Surface|Sample|TRUE|1590|27|1994|2021|11|0.6|TRUE|0.0524|1.92|0.0549|||0.00297058823529412|0.701529411764706|1
+15|Florida Keys National Marine Sanctuary|Turbidity|Surface|Sample|TRUE|1590|27|1994|2021|12|0.6|TRUE|0.1102|1.8869|0.0592|||0.01|0.41|1
+16|Fort Clinch State Park Aquatic Preserve|Turbidity|Surface|Sample|FALSE|34|5|2013|2021|||||||||||
+17|Fort Pickens State Park Aquatic Preserve|Turbidity|Surface|Sample|TRUE|309|18|1996|2016|All|1.0699|TRUE|-0.2587|-6.6897|0|14.2266|0.2207|-0.0409090909090909|1.61271944444444|-1
+17|Fort Pickens State Park Aquatic Preserve|Turbidity|Surface|Sample|TRUE|309|18|1996|2016|1|2.97495|TRUE|-0.2714|0|1|||-0.03114|1.21798|-1
+17|Fort Pickens State Park Aquatic Preserve|Turbidity|Surface|Sample|TRUE|309|18|1996|2016|2|2|TRUE|-0.3667|-0.0667|0.9469|||-0.0372727272727273|1.22363636363636|-1
+17|Fort Pickens State Park Aquatic Preserve|Turbidity|Surface|Sample|TRUE|309|18|1996|2016|3|1.945|TRUE|-0.2954|-3.5566|0.0004|||-0.0322055555555556|1.22543888888889|-1
+17|Fort Pickens State Park Aquatic Preserve|Turbidity|Surface|Sample|TRUE|309|18|1996|2016|4|2.02975|TRUE|-0.1842|-0.5795|0.5622|||-0.0279928571428571|1.15396071428571|-1
+17|Fort Pickens State Park Aquatic Preserve|Turbidity|Surface|Sample|TRUE|309|18|1996|2016|5|1|TRUE|-0.5109|-2.4282|0.0152|||-0.142857142857143|2.80214285714286|-2
+17|Fort Pickens State Park Aquatic Preserve|Turbidity|Surface|Sample|TRUE|309|18|1996|2016|6|1.7|TRUE|-0.3393|-2.3942|0.0167|||-0.0856875|2|-1
+17|Fort Pickens State Park Aquatic Preserve|Turbidity|Surface|Sample|TRUE|309|18|1996|2016|7|1.3145|TRUE|-0.0158|-2.9834|0.0029|||0|2|-1
+17|Fort Pickens State Park Aquatic Preserve|Turbidity|Surface|Sample|TRUE|309|18|1996|2016|8|1|TRUE|0.0043|-2.1526|0.0313|||0|2.97495|-1
+17|Fort Pickens State Park Aquatic Preserve|Turbidity|Surface|Sample|TRUE|309|18|1996|2016|9|1|TRUE|-0.279|-1.9433|0.052|||-0.0642857142857143|2.08571428571429|-1
+17|Fort Pickens State Park Aquatic Preserve|Turbidity|Surface|Sample|TRUE|309|18|1996|2016|10|1|TRUE|-0.2857|-1.1554|0.2479|||-0.01574375|1.11020625|-1
+17|Fort Pickens State Park Aquatic Preserve|Turbidity|Surface|Sample|TRUE|309|18|1996|2016|11|1|TRUE|-0.3333|-2.3604|0.0183|||-0.0231823529411765|1.12750294117647|-1
+17|Fort Pickens State Park Aquatic Preserve|Turbidity|Surface|Sample|TRUE|309|18|1996|2016|12|1|TRUE|-0.0909|-2.3375|0.0194|||0|2.02975|-1
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|Turbidity|Surface|Sample|TRUE|8786|26|1995|2022|All|2|TRUE|-0.0149|-1.9876|0.0469|88.3581|0|0|2.07280701754386|-1
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|Turbidity|Surface|Sample|TRUE|8786|26|1995|2022|1|1.9|TRUE|-0.0151|-2.3535|0.0186|||0|2|-1
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|Turbidity|Surface|Sample|TRUE|8786|26|1995|2022|2|1.9|TRUE|0.0222|-3.9882|0.0001|||0.00666666666666667|2.32|1
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|Turbidity|Surface|Sample|TRUE|8786|26|1995|2022|3|2.2|TRUE|-0.0955|-4.0189|0.0001|||-0.025|2.175|-1
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|Turbidity|Surface|Sample|TRUE|8786|26|1995|2022|4|2|TRUE|0.0237|-0.6568|0.5113|||0.00555555555555556|1.75555555555556|1
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|Turbidity|Surface|Sample|TRUE|8786|26|1995|2022|5|1.8|TRUE|0.074|3.1426|0.0017|||0.0230769230769231|1.59230769230769|1
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|Turbidity|Surface|Sample|TRUE|8786|26|1995|2022|6|1.8|TRUE|-0.1244|1.0259|0.3049|||-0.0315789473684211|2.07894736842105|-1
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|Turbidity|Surface|Sample|TRUE|8786|26|1995|2022|7|2.2|TRUE|-0.0613|-0.6294|0.5291|||-0.0166666666666667|2.06666666666667|-1
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|Turbidity|Surface|Sample|TRUE|8786|26|1995|2022|8|2.4|TRUE|0.059|0.7957|0.4262|||0.016|1.56|1
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|Turbidity|Surface|Sample|TRUE|8786|26|1995|2022|9|2.2|TRUE|0.0871|3.3779|0.0007|||0.025|1.95|1
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|Turbidity|Surface|Sample|TRUE|8786|26|1995|2022|10|2.2|TRUE|-0.038|-1.6488|0.0992|||-0.0125|2.3125|-1
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|Turbidity|Surface|Sample|TRUE|8786|26|1995|2022|11|1.7|TRUE|-0.0157|-4.8095|0|||0|2.2|-1
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|Turbidity|Surface|Sample|TRUE|8786|26|1995|2022|12|1.72|TRUE|-0.1015|2.377|0.0175|||-0.0333333333333333|2.53333333333333|-1
+19|Guana River Marsh Aquatic Preserve|Turbidity|Surface|Sample|TRUE|4769|27|1995|2021|All|5.1|TRUE|0.1941|19.3547|0|54.445|0|0.153333333333333|4.39376888736264|1
+19|Guana River Marsh Aquatic Preserve|Turbidity|Surface|Sample|TRUE|4769|27|1995|2021|1|3.3|TRUE|0.2322|4.0552|0.0001|||0.122222222222222|2.96666666666667|1
+19|Guana River Marsh Aquatic Preserve|Turbidity|Surface|Sample|TRUE|4769|27|1995|2021|2|3.7|TRUE|0.3393|6.7341|0|||0.196372307692308|3.52176615384615|1
+19|Guana River Marsh Aquatic Preserve|Turbidity|Surface|Sample|TRUE|4769|27|1995|2021|3|5.15|TRUE|0.3227|4.2091|0|||0.432492445054945|4.53753777472528|1
+19|Guana River Marsh Aquatic Preserve|Turbidity|Surface|Sample|TRUE|4769|27|1995|2021|4|5.5|TRUE|0.228|5.5644|0|||0.276565098039216|4.91717450980392|1
+19|Guana River Marsh Aquatic Preserve|Turbidity|Surface|Sample|TRUE|4769|27|1995|2021|5|6.3|TRUE|0.0792|5.6199|0|||0.0571428571428571|5.34846|1
+19|Guana River Marsh Aquatic Preserve|Turbidity|Surface|Sample|TRUE|4769|27|1995|2021|6|6.3|TRUE|0.1272|6.6052|0|||0.075|2.775|1
+19|Guana River Marsh Aquatic Preserve|Turbidity|Surface|Sample|TRUE|4769|27|1995|2021|7|6.16|TRUE|0.1796|4.5292|0|||0.2|5.1|1
+19|Guana River Marsh Aquatic Preserve|Turbidity|Surface|Sample|TRUE|4769|27|1995|2021|8|6.7|TRUE|0.2314|10.1891|0|||0.212857142857143|4.22642857142857|1
+19|Guana River Marsh Aquatic Preserve|Turbidity|Surface|Sample|TRUE|4769|27|1995|2021|9|4.865|TRUE|0.1347|6.299|0|||0.136228380681818|5.20640133522727|1
+19|Guana River Marsh Aquatic Preserve|Turbidity|Surface|Sample|TRUE|4769|27|1995|2021|10|5.74846|TRUE|0.1693|2.5206|0.0117|||0.136363636363636|4.54545454545455|1
+19|Guana River Marsh Aquatic Preserve|Turbidity|Surface|Sample|TRUE|4769|27|1995|2021|11|4.7|TRUE|0.1582|9.4366|0|||0.15|4.25|1
+19|Guana River Marsh Aquatic Preserve|Turbidity|Surface|Sample|TRUE|4769|27|1995|2021|12|4.60101|TRUE|0.1769|4.3256|0|||0.110011428571429|3.94094142857143|1
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|Turbidity|Surface|Sample|TRUE|14227|27|1995|2021|All|4.4|TRUE|0.1021|17.1562|0|125.1|0|0.0666666666666667|4.05538543478261|1
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|Turbidity|Surface|Sample|TRUE|14227|27|1995|2021|1|2.7|TRUE|-0.0456|4.5015|0|||-0.0363636363636364|4.71818181818182|-1
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|Turbidity|Surface|Sample|TRUE|14227|27|1995|2021|2|3.1|TRUE|0.1577|7.7093|0|||0.08|2.54|1
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|Turbidity|Surface|Sample|TRUE|14227|27|1995|2021|3|4.5|TRUE|0.1888|-2.422|0.0154|||0.133333333333333|3.9|1
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|Turbidity|Surface|Sample|TRUE|14227|27|1995|2021|4|4.8|TRUE|0.1129|6.5087|0|||0.0984613043478261|4.11077086956522|1
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|Turbidity|Surface|Sample|TRUE|14227|27|1995|2021|5|4.8|TRUE|0.0839|5.6866|0|||0.0357142857142857|2.41428571428571|1
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|Turbidity|Surface|Sample|TRUE|14227|27|1995|2021|6|5.3|TRUE|0.1276|5.5383|0|||0.1|4|1
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|Turbidity|Surface|Sample|TRUE|14227|27|1995|2021|7|5|TRUE|0.1025|2.4694|0.0135|||0.0950959999999998|4.229424|1
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|Turbidity|Surface|Sample|TRUE|14227|27|1995|2021|8|4.8|TRUE|0.1964|5.7069|0|||0.116666666666667|3.68333333333333|1
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|Turbidity|Surface|Sample|TRUE|14227|27|1995|2021|9|4.7|TRUE|0.0502|9.9673|0|||0.0333333333333338|4.9|1
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|Turbidity|Surface|Sample|TRUE|14227|27|1995|2021|10|5.1|TRUE|0.0414|2.5723|0.0101|||0.0333333333333333|4.76666666666667|1
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|Turbidity|Surface|Sample|TRUE|14227|27|1995|2021|11|4.5|TRUE|0.1076|9.3031|0|||0.100959166666667|4.694245|1
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|Turbidity|Surface|Sample|TRUE|14227|27|1995|2021|12|3.48448|TRUE|0.168|7.3159|0|||0.0833333333333333|2.90114666666667|1
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|Turbidity|Surface|Sample|TRUE|13798|26|1995|2021|All|2.8|TRUE|-0.0207|-4.1723|0|407.2901|0|-0.00833333333333334|2.55909090909091|-1
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|Turbidity|Surface|Sample|TRUE|13798|26|1995|2021|1|2.5|TRUE|-0.2202|5.1385|0|||-0.1|3.54|-1
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|Turbidity|Surface|Sample|TRUE|13798|26|1995|2021|2|2.4|TRUE|0.106|5.4219|0|||0.04|2.12|1
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|Turbidity|Surface|Sample|TRUE|13798|26|1995|2021|3|2.94|TRUE|-0.1556|-10.5081|0|||-0.0625|3.4375|-1
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|Turbidity|Surface|Sample|TRUE|13798|26|1995|2021|4|3|TRUE|-0.0534|-8.7645|0|||-0.0194871428571429|2.39743571428571|-1
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|Turbidity|Surface|Sample|TRUE|13798|26|1995|2021|5|2.4|TRUE|0.1605|-5.0045|0|||0.1|2.5|1
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|Turbidity|Surface|Sample|TRUE|13798|26|1995|2021|6|2.3|TRUE|-0.1028|-2.632|0.0085|||-0.0363636363636364|2.61818181818182|-1
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|Turbidity|Surface|Sample|TRUE|13798|26|1995|2021|7|2.377305|TRUE|-0.0809|1.2772|0.2015|||-0.0363636363636364|3.61818181818182|-1
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|Turbidity|Surface|Sample|TRUE|13798|26|1995|2021|8|2.7|TRUE|0.0175|5.7435|0|||0.00666666666666664|3.06|1
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|Turbidity|Surface|Sample|TRUE|13798|26|1995|2021|9|3.1|TRUE|-0.1254|0.9506|0.3418|||-0.06|3.82|-1
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|Turbidity|Surface|Sample|TRUE|13798|26|1995|2021|10|3.4|TRUE|0.0234|-4.4855|0|||0.00571428571428572|2.337305|1
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|Turbidity|Surface|Sample|TRUE|13798|26|1995|2021|11|3.4|TRUE|0.1033|-6.0252|0|||0.0387638461538462|2.22865307692308|1
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|Turbidity|Surface|Sample|TRUE|13798|26|1995|2021|12|3|TRUE|0.1154|7.1919|0|||0.0461538461538462|2.46923076923077|1
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|Turbidity|Surface|Sample|TRUE|3744|26|1995|2021|All|2.6|TRUE|-0.0009|-1.1379|0.2552|157.9977|0|0|2.576705|0
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|Turbidity|Surface|Sample|TRUE|3744|26|1995|2021|1|2|TRUE|0.0396|-2.5993|0.0093|||0.0222222222222222|3.52222222222222|0
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|Turbidity|Surface|Sample|TRUE|3744|26|1995|2021|2|2.5|TRUE|-0.1464|4.8843|0|||-0.1|4.7|0
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|Turbidity|Surface|Sample|TRUE|3744|26|1995|2021|3|3.1|TRUE|0.192|-7.2244|0|||0.0590531212121212|2.14568127272727|0
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|Turbidity|Surface|Sample|TRUE|3744|26|1995|2021|4|2.5|TRUE|0.1167|1.8063|0.0709|||0.05|2.8|0
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|Turbidity|Surface|Sample|TRUE|3744|26|1995|2021|5|1.9|TRUE|-0.0937|-0.4068|0.6842|||-0.0230769230769231|2.13846153846154|0
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|Turbidity|Surface|Sample|TRUE|3744|26|1995|2021|6|2|TRUE|-0.2729|4.0692|0|||-0.1625|4.4|0
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|Turbidity|Surface|Sample|TRUE|3744|26|1995|2021|7|2.2|TRUE|0.0612|-3.7504|0.0002|||0.02|2.34|0
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|Turbidity|Surface|Sample|TRUE|3744|26|1995|2021|8|3.1|TRUE|-0.015|2.1336|0.0329|||0|1.9|0
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|Turbidity|Surface|Sample|TRUE|3744|26|1995|2021|9|3.1|TRUE|0.0888|2.8735|0.0041|||0.03856875|2.90715625|0
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|Turbidity|Surface|Sample|TRUE|3744|26|1995|2021|10|3.9|TRUE|-0.129|-4.2256|0|||-0.04375|2.6375|0
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|Turbidity|Surface|Sample|TRUE|3744|26|1995|2021|11|3.7|TRUE|0.1733|0.986|0.3241|||0.0555555555555556|1.72222222222222|0
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|Turbidity|Surface|Sample|TRUE|3744|26|1995|2021|12|2.9|TRUE|0.1244|3.113|0.0019|||0.064015|2.51591|0
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|Turbidity|Surface|Sample|TRUE|474|31|1991|2021|All|2.2|TRUE|-0.0412|-0.9846|0.3248|28.3857|0.0016|-0.00714285714285715|2.32307692307692|0
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|Turbidity|Surface|Sample|TRUE|474|31|1991|2021|1|2.6|TRUE|0.2048|1.6777|0.0934|||0.0413793103448276|2.13793103448276|0
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|Turbidity|Surface|Sample|TRUE|474|31|1991|2021|2|2.8|TRUE|-0.0281|1.3593|0.1741|||-0.005|1.275|0
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|Turbidity|Surface|Sample|TRUE|474|31|1991|2021|3|2.61|TRUE|0.0231|0.1089|0.9133|||0|1.4|0
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|Turbidity|Surface|Sample|TRUE|474|31|1991|2021|4|2|TRUE|-0.0366|-0.1499|0.8809|||-0.00769230769230769|2.32307692307692|0
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|Turbidity|Surface|Sample|TRUE|474|31|1991|2021|5|2.3|TRUE|-0.026|-2.4312|0.0151|||0|2|0
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|Turbidity|Surface|Sample|TRUE|474|31|1991|2021|6|2.7|TRUE|0.0338|-0.9211|0.357|||0.0157894736842105|3.06315789473684|0
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|Turbidity|Surface|Sample|TRUE|474|31|1991|2021|7|1.4|TRUE|0.1449|0.2672|0.7893|||0.037|1.971|0
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|Turbidity|Surface|Sample|TRUE|474|31|1991|2021|8|2.1|TRUE|-0.1583|-0.2818|0.7781|||-0.0357142857142857|3.52142857142857|0
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|Turbidity|Surface|Sample|TRUE|474|31|1991|2021|9|1.2|TRUE|0.0114|-0.2764|0.7823|||0.00388157894736843|2.55177631578947|0
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|Turbidity|Surface|Sample|TRUE|474|31|1991|2021|10|3.3|TRUE|-0.2174|-4.2574|0|||-0.075|3.2|0
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|Turbidity|Surface|Sample|TRUE|474|31|1991|2021|11|3.3|TRUE|-0.4512|0.3659|0.7144|||-0.192857142857143|8.7|0
+24|Lake Jackson Aquatic Preserve|Turbidity|Surface|Sample|FALSE|0|0|||||||||||||
+25|Lemon Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|4406|26|1995|2022|All|2.6|TRUE|0.0758|7.0549|0|73.9962|0|0.025|2.44714285714286|1
+25|Lemon Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|4406|26|1995|2022|1|2.1|TRUE|0.1043|0.1916|0.848|||0.0357142857142857|2.51428571428571|1
+25|Lemon Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|4406|26|1995|2022|2|2.8|TRUE|0.1261|-1.9855|0.0471|||0.04|1.64|1
+25|Lemon Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|4406|26|1995|2022|3|2.7|TRUE|0.0069|2.7977|0.0051|||0|2.1|-1
+25|Lemon Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|4406|26|1995|2022|4|2.9|TRUE|0.1005|3.0518|0.0023|||0.0368421052631579|2.56842105263158|1
+25|Lemon Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|4406|26|1995|2022|5|3|TRUE|0.0253|7.0663|0|||0.0083333333333333|2.66666666666667|1
+25|Lemon Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|4406|26|1995|2022|6|2.8|TRUE|0.1077|3.2199|0.0013|||0.0421052631578948|2.27894736842105|1
+25|Lemon Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|4406|26|1995|2022|7|2.7|TRUE|0.0313|-1.3156|0.1883|||0.01|2.38|1
+25|Lemon Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|4406|26|1995|2022|8|2.75|TRUE|0.2563|0.7893|0.4299|||0.0933333333333333|2.06666666666667|1
+25|Lemon Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|4406|26|1995|2022|9|2.2|TRUE|0.1289|3.51|0.0004|||0.04|2.58|1
+25|Lemon Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|4406|26|1995|2022|10|2.9|TRUE|-0.0739|3.9583|0.0001|||-0.0285714285714286|3.05714285714286|-1
+25|Lemon Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|4406|26|1995|2022|11|2.5|TRUE|-0.0403|0.8059|0.4203|||-0.0142857142857143|2.82857142857143|-1
+25|Lemon Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|4406|26|1995|2022|12|2.2|TRUE|0.1784|4.5516|0|||0.04|1.8|1
+26|Lignumvitae Key Aquatic Preserve|Turbidity|Surface|Sample|FALSE|54|5|2016|2021|||||||||||
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|Turbidity|Surface|Sample|TRUE|3716|31|1991|2021|All|2.6|TRUE|0.169|14.7094|0|74.9773|0|0.04|1.926|1
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|Turbidity|Surface|Sample|TRUE|3716|31|1991|2021|1|3|TRUE|0.0996|6.0359|0|||0.02|1.94|1
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|Turbidity|Surface|Sample|TRUE|3716|31|1991|2021|2|2.5|TRUE|0.1954|2.3009|0.0214|||0.0388888888888889|1.68888888888889|1
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|Turbidity|Surface|Sample|TRUE|3716|31|1991|2021|3|2.9|TRUE|0.0641|3.3795|0.0007|||0.0136363636363636|2.28181818181818|1
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|Turbidity|Surface|Sample|TRUE|3716|31|1991|2021|4|3.04|TRUE|0.2867|6.3341|0|||0.0708333333333333|0.870833333333333|1
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|Turbidity|Surface|Sample|TRUE|3716|31|1991|2021|5|2.8|TRUE|0.2846|5.1163|0|||0.0521739130434783|1.55304347826087|1
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|Turbidity|Surface|Sample|TRUE|3716|31|1991|2021|6|2.7|TRUE|0.0309|2.0443|0.0409|||0.00818181818181817|2.26181818181818|1
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|Turbidity|Surface|Sample|TRUE|3716|31|1991|2021|7|2.44|TRUE|0.1185|9.5611|0|||0.0557777777777778|1.47288888888889|1
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|Turbidity|Surface|Sample|TRUE|3716|31|1991|2021|8|2.5|TRUE|0.1569|5.2409|0|||0.0414285714285714|2.13714285714286|1
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|Turbidity|Surface|Sample|TRUE|3716|31|1991|2021|9|2.35|TRUE|0.1873|6.3287|0|||0.0500000000000003|2.175|1
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|Turbidity|Surface|Sample|TRUE|3716|31|1991|2021|10|2.4|TRUE|0.3334|2.0355|0.0418|||0.105|0.519999999999995|1
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|Turbidity|Surface|Sample|TRUE|3716|31|1991|2021|11|2.5|TRUE|0.1062|2.0432|0.041|||0.0314285714285715|2.39714285714286|1
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|Turbidity|Surface|Sample|TRUE|3716|31|1991|2021|12|2.45|TRUE|0.1325|0.5067|0.6124|||0.028|1.912|1
+28|Matlacha Pass Aquatic Preserve|Turbidity|Surface|Sample|TRUE|1827|26|1995|2022|All|1.6|TRUE|0.0015|0.1679|0.8667|24.5502|0.0106|0|1.6979797979798|0
+28|Matlacha Pass Aquatic Preserve|Turbidity|Surface|Sample|TRUE|1827|26|1995|2022|1|1.3|TRUE|0.0616|-0.8158|0.4146|||0.0222222222222222|1.86666666666667|0
+28|Matlacha Pass Aquatic Preserve|Turbidity|Surface|Sample|TRUE|1827|26|1995|2022|2|1.4|TRUE|0.061|-0.3841|0.7009|||0.0184615384615385|2.00769230769231|0
+28|Matlacha Pass Aquatic Preserve|Turbidity|Surface|Sample|TRUE|1827|26|1995|2022|3|1.8|TRUE|0.065|0.2435|0.8076|||0.0166666666666667|1.90666666666667|0
+28|Matlacha Pass Aquatic Preserve|Turbidity|Surface|Sample|TRUE|1827|26|1995|2022|4|1.6|TRUE|0.0431|-0.97|0.332|||0.00630681818181818|1.45585227272727|0
+28|Matlacha Pass Aquatic Preserve|Turbidity|Surface|Sample|TRUE|1827|26|1995|2022|5|1.8|TRUE|-0.0194|3.013|0.0026|||0|1.4|0
+28|Matlacha Pass Aquatic Preserve|Turbidity|Surface|Sample|TRUE|1827|26|1995|2022|6|2|TRUE|0.0138|1.2491|0.2116|||0|1.8|0
+28|Matlacha Pass Aquatic Preserve|Turbidity|Surface|Sample|TRUE|1827|26|1995|2022|7|1.8|TRUE|-0.0511|-2.147|0.0318|||-0.00800000000000001|1.372|0
+28|Matlacha Pass Aquatic Preserve|Turbidity|Surface|Sample|TRUE|1827|26|1995|2022|8|2.1|TRUE|-0.0995|1.1399|0.2543|||-0.025|1.975|0
+28|Matlacha Pass Aquatic Preserve|Turbidity|Surface|Sample|TRUE|1827|26|1995|2022|9|1.99|TRUE|-0.0851|1.0184|0.3085|||-0.0140588235294118|1.44058823529412|0
+28|Matlacha Pass Aquatic Preserve|Turbidity|Surface|Sample|TRUE|1827|26|1995|2022|10|1.5|TRUE|0.1482|0.7372|0.461|||0.05|1.5|0
+28|Matlacha Pass Aquatic Preserve|Turbidity|Surface|Sample|TRUE|1827|26|1995|2022|11|1.5|TRUE|-0.1001|-1.6446|0.1001|||-0.0272727272727273|1.71818181818182|0
+28|Matlacha Pass Aquatic Preserve|Turbidity|Surface|Sample|TRUE|1827|26|1995|2022|12|1.3|TRUE|-0.0483|-1.3624|0.1731|||-0.0111111111111111|1.67777777777778|0
+29|Mosquito Lagoon Aquatic Preserve|Turbidity|Surface|Sample|TRUE|3400|25|1995|2021|All|4.6|TRUE|-0.0585|-5.0059|0|48.3819|0|-0.0307692307692308|4.78805222222222|-1
+29|Mosquito Lagoon Aquatic Preserve|Turbidity|Surface|Sample|TRUE|3400|25|1995|2021|1|1.8|TRUE|-0.0622|-0.4083|0.6831|||-0.0142857142857143|1.95714285714286|-1
+29|Mosquito Lagoon Aquatic Preserve|Turbidity|Surface|Sample|TRUE|3400|25|1995|2021|2|1.8|TRUE|-0.1896|-1.4387|0.1502|||-0.0999999999999996|4.48|-1
+29|Mosquito Lagoon Aquatic Preserve|Turbidity|Surface|Sample|TRUE|3400|25|1995|2021|3|2.6|TRUE|0.0388|-4.8657|0|||0.0166666666666667|3.8|1
+29|Mosquito Lagoon Aquatic Preserve|Turbidity|Surface|Sample|TRUE|3400|25|1995|2021|4|4|TRUE|-0.0115|0.9462|0.3441|||-0.00769230769230767|6.73461538461539|-1
+29|Mosquito Lagoon Aquatic Preserve|Turbidity|Surface|Sample|TRUE|3400|25|1995|2021|5|5.4|TRUE|-0.1502|-0.3304|0.7411|||-0.166666666666667|9.16666666666667|-1
+29|Mosquito Lagoon Aquatic Preserve|Turbidity|Surface|Sample|TRUE|3400|25|1995|2021|6|5.5|TRUE|-0.1913|1.3594|0.174|||-0.0538461538461538|3.19230769230769|-1
+29|Mosquito Lagoon Aquatic Preserve|Turbidity|Surface|Sample|TRUE|3400|25|1995|2021|7|7.1|TRUE|-0.0157|-2.1195|0.034|||-0.0125|5.5125|-1
+29|Mosquito Lagoon Aquatic Preserve|Turbidity|Surface|Sample|TRUE|3400|25|1995|2021|8|6.65|TRUE|-0.0777|-0.3106|0.7561|||-0.0750000000000002|8|-1
+29|Mosquito Lagoon Aquatic Preserve|Turbidity|Surface|Sample|TRUE|3400|25|1995|2021|9|7.1|TRUE|-0.0158|-1.9938|0.0462|||0|1.8|-1
+29|Mosquito Lagoon Aquatic Preserve|Turbidity|Surface|Sample|TRUE|3400|25|1995|2021|10|7.5|TRUE|0.0489|-3.8227|0.0001|||0.0367177777777778|5.09610444444444|1
+29|Mosquito Lagoon Aquatic Preserve|Turbidity|Surface|Sample|TRUE|3400|25|1995|2021|11|4.4|TRUE|0.0059|0.126|0.8997|||0|4.4|-1
+29|Mosquito Lagoon Aquatic Preserve|Turbidity|Surface|Sample|TRUE|3400|25|1995|2021|12|3.38|TRUE|-0.0734|-4.7014|0|||-0.0733333333333333|7.90666666666667|-1
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|Turbidity|Surface|Sample|TRUE|344|17|1997|2021|All|7.5606|TRUE|0.0908|2.7806|0.0054|29.9525|0.0016|0.106376363636364|3.42071875|1
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|Turbidity|Surface|Sample|TRUE|344|17|1997|2021|1|6.79301|TRUE|0.2698|2.0372|0.0416|||0.266261666666667|-1.72736333333333|1
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|Turbidity|Surface|Sample|TRUE|344|17|1997|2021|2|5.7|TRUE|-0.0615|0.3447|0.7303|||-0.117847692307692|12.9246692307692|-1
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|Turbidity|Surface|Sample|TRUE|344|17|1997|2021|3|6.85116|TRUE|0.246|2.2576|0.024|||0.268979047619048|-2.69759619047619|1
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|Turbidity|Surface|Sample|TRUE|344|17|1997|2021|4|7|TRUE|-0.3857|1.3349|0.1819|||-0.466433566433566|21.816336993007|-1
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|Turbidity|Surface|Sample|TRUE|344|17|1997|2021|5|3.8|TRUE|0.0988|0.926|0.3544|||0.0842539423076923|1.77790538461538|1
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|Turbidity|Surface|Sample|TRUE|344|17|1997|2021|6|8.91873|TRUE|-0.0121|2.5763|0.01|||-0.00435416666666659|7.29804166666667|-1
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|Turbidity|Surface|Sample|TRUE|344|17|1997|2021|7|7.672355|TRUE|0.1586|0.1266|0.8993|||0.16380875|2.0857375|1
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|Turbidity|Surface|Sample|TRUE|344|17|1997|2021|8|8.8|TRUE|0.3183|-0.461|0.6448|||0.25|0.91873|1
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|Turbidity|Surface|Sample|TRUE|344|17|1997|2021|9|7.82333|TRUE|-0.2067|-2.4559|0.0141|||-0.161201538461538|13.9972476923077|-1
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|Turbidity|Surface|Sample|TRUE|344|17|1997|2021|10|7.15|TRUE|0.05|-0.0852|0.9321|||0.02698|4.7557|1
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|Turbidity|Surface|Sample|TRUE|344|17|1997|2021|11|9|TRUE|0.0217|-1.4428|0.1491|||0.0110185897435898|7.3528158974359|1
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|Turbidity|Surface|Sample|TRUE|344|17|1997|2021|12|6.95991|TRUE|0.4286|2.7386|0.0062|||0.511003333333333|-8.88119333333334|1
+48|Nature Coast Aquatic Preserve|Turbidity|Surface|Sample|TRUE|1023|24|1995|2020|All|1|TRUE|-0.0687|-2.1663|0.0303|29.9448|0.0016|-0.005|1.14267857142857|-1
+48|Nature Coast Aquatic Preserve|Turbidity|Surface|Sample|TRUE|1023|24|1995|2020|1|1.015|TRUE|-0.0832|1.8614|0.0627|||-0.005|0.815|-1
+48|Nature Coast Aquatic Preserve|Turbidity|Surface|Sample|TRUE|1023|24|1995|2020|2|0.9|TRUE|-0.0686|-2.2324|0.0256|||-0.00785714285714286|1.14535714285714|-1
+48|Nature Coast Aquatic Preserve|Turbidity|Surface|Sample|TRUE|1023|24|1995|2020|3|1.1|TRUE|0.0078|-2.8077|0.005|||0|1.2|-1
+48|Nature Coast Aquatic Preserve|Turbidity|Surface|Sample|TRUE|1023|24|1995|2020|4|1|TRUE|0.0098|-1.191|0.2337|||0.00157894736842105|1.06842105263158|1
+48|Nature Coast Aquatic Preserve|Turbidity|Surface|Sample|TRUE|1023|24|1995|2020|5|0.76|TRUE|-0.2417|-1.1584|0.2467|||-0.04|1.46|-1
+48|Nature Coast Aquatic Preserve|Turbidity|Surface|Sample|TRUE|1023|24|1995|2020|6|0.76|TRUE|-0.174|-1.5316|0.1256|||-0.0195238095238095|1.16380952380952|-1
+48|Nature Coast Aquatic Preserve|Turbidity|Surface|Sample|TRUE|1023|24|1995|2020|7|1.1|TRUE|-0.1473|0.1568|0.8754|||-0.02|1.14|-1
+48|Nature Coast Aquatic Preserve|Turbidity|Surface|Sample|TRUE|1023|24|1995|2020|8|1.2|TRUE|-0.3631|-1.7671|0.0772|||-0.05|1.25|-1
+48|Nature Coast Aquatic Preserve|Turbidity|Surface|Sample|TRUE|1023|24|1995|2020|9|1.35|TRUE|0.1077|1.1917|0.2334|||0.0252777777777778|1.07194444444444|1
+48|Nature Coast Aquatic Preserve|Turbidity|Surface|Sample|TRUE|1023|24|1995|2020|10|1.2|TRUE|0.1147|0.131|0.8958|||0.0125657894736842|0.763684210526316|1
+48|Nature Coast Aquatic Preserve|Turbidity|Surface|Sample|TRUE|1023|24|1995|2020|11|0.91|TRUE|-0.1275|-1.8683|0.0617|||-0.022967032967033|0.966703296703297|-1
+48|Nature Coast Aquatic Preserve|Turbidity|Surface|Sample|TRUE|1023|24|1995|2020|12|0.7|TRUE|-0.1828|-3.7907|0.0002|||-0.0499999999999999|1.55|-1
+31|North Fork St. Lucie Aquatic Preserve|Turbidity|Surface|Sample|TRUE|254|12|1999|2021|All|5|TRUE|-0.1248|-3.3233|0.0009|29.3896|0.002|-0.1|5.39|-1
+31|North Fork St. Lucie Aquatic Preserve|Turbidity|Surface|Sample|TRUE|254|12|1999|2021|1||TRUE|-0.5048|||||-0.331009615384615|9.17908653846154|
+31|North Fork St. Lucie Aquatic Preserve|Turbidity|Surface|Sample|TRUE|254|12|1999|2021|2|3.1|TRUE|-0.2867|1.2024|0.2292|||-0.146153846153846|6.56923076923077|-1
+31|North Fork St. Lucie Aquatic Preserve|Turbidity|Surface|Sample|TRUE|254|12|1999|2021|3|4.6|TRUE|0.0308|0.0462|0.9631|||0.040625|4.325|1
+31|North Fork St. Lucie Aquatic Preserve|Turbidity|Surface|Sample|TRUE|254|12|1999|2021|4|5|TRUE|-0.114|1.7675|0.0771|||-0.0666666666666667|4.46666666666667|-1
+31|North Fork St. Lucie Aquatic Preserve|Turbidity|Surface|Sample|TRUE|254|12|1999|2021|5|5.2|TRUE|0.0667|-3.6061|0.0003|||0.00624999999999998|5.9625|1
+31|North Fork St. Lucie Aquatic Preserve|Turbidity|Surface|Sample|TRUE|254|12|1999|2021|6|4.65|TRUE|-0.4189|0.2037|0.8386|||-0.355050505050505|7.33030303030303|-1
+31|North Fork St. Lucie Aquatic Preserve|Turbidity|Surface|Sample|TRUE|254|12|1999|2021|7|6|TRUE|-0.2208|0.3201|0.7489|||-0.11|5.08|-1
+31|North Fork St. Lucie Aquatic Preserve|Turbidity|Surface|Sample|TRUE|254|12|1999|2021|8|5.4|TRUE|0.0117|-2.026|0.0428|||0.03|4.39|1
+31|North Fork St. Lucie Aquatic Preserve|Turbidity|Surface|Sample|TRUE|254|12|1999|2021|9|4|TRUE|0.1895|-0.8495|0.3956|||0.1|2.3|1
+31|North Fork St. Lucie Aquatic Preserve|Turbidity|Surface|Sample|TRUE|254|12|1999|2021|10|4.2|TRUE|0.2762|-1.4449|0.1485|||0.4|1.8|1
+31|North Fork St. Lucie Aquatic Preserve|Turbidity|Surface|Sample|TRUE|254|12|1999|2021|11|5.4|TRUE|-0.281|-1.8264|0.0678|||-0.4|8.6|-1
+31|North Fork St. Lucie Aquatic Preserve|Turbidity|Surface|Sample|TRUE|254|12|1999|2021|12|6.2|TRUE|-0.0556|-2.7184|0.0066|||-0.1|5.7|-1
+32|Oklawaha River Aquatic Preserve|Turbidity|Surface|Sample|FALSE|0|0|||||||||||||
+33|Pellicer Creek Aquatic Preserve|Turbidity|Surface|Sample|FALSE|139|9|2004|2021|||||||||||
+34|Pine Island Sound Aquatic Preserve|Turbidity|Surface|Sample|TRUE|4252|25|1995|2022|All|1.9|TRUE|-0.0081|-0.6936|0.4879|67.0881|0|0|1.8875|0
+34|Pine Island Sound Aquatic Preserve|Turbidity|Surface|Sample|TRUE|4252|25|1995|2022|1|1.8|TRUE|-0.2134|0.3025|0.7623|||-0.0966666666666667|2.47|0
+34|Pine Island Sound Aquatic Preserve|Turbidity|Surface|Sample|TRUE|4252|25|1995|2022|2|2|TRUE|0.1582|3.5335|0.0004|||0.035|1.79|0
+34|Pine Island Sound Aquatic Preserve|Turbidity|Surface|Sample|TRUE|4252|25|1995|2022|3|2|TRUE|0.0062|-3.2292|0.0012|||0|1.9|0
+34|Pine Island Sound Aquatic Preserve|Turbidity|Surface|Sample|TRUE|4252|25|1995|2022|4|1.9|TRUE|-0.1022|-0.7681|0.4424|||-0.0375|2.3|0
+34|Pine Island Sound Aquatic Preserve|Turbidity|Surface|Sample|TRUE|4252|25|1995|2022|5|2|TRUE|0.0858|1.5807|0.114|||0.0363636363636364|1.78181818181818|0
+34|Pine Island Sound Aquatic Preserve|Turbidity|Surface|Sample|TRUE|4252|25|1995|2022|6|2|TRUE|0.0115|2.934|0.0033|||0|1.8|0
+34|Pine Island Sound Aquatic Preserve|Turbidity|Surface|Sample|TRUE|4252|25|1995|2022|7|2.2|TRUE|-0.0328|-2.0355|0.0418|||-0.00555555555555555|1.34444444444444|0
+34|Pine Island Sound Aquatic Preserve|Turbidity|Surface|Sample|TRUE|4252|25|1995|2022|8|1.9|TRUE|0.0581|0.1951|0.8453|||0.025|1.875|0
+34|Pine Island Sound Aquatic Preserve|Turbidity|Surface|Sample|TRUE|4252|25|1995|2022|9|1.8|TRUE|-0.0664|0.163|0.8705|||-0.0200000000000001|2.36|0
+34|Pine Island Sound Aquatic Preserve|Turbidity|Surface|Sample|TRUE|4252|25|1995|2022|10|1.3|TRUE|0.0057|-0.8388|0.4016|||0|1.8|0
+34|Pine Island Sound Aquatic Preserve|Turbidity|Surface|Sample|TRUE|4252|25|1995|2022|11|2|TRUE|0.0337|0.793|0.4277|||0.0113392857142857|1.920625|0
+34|Pine Island Sound Aquatic Preserve|Turbidity|Surface|Sample|TRUE|4252|25|1995|2022|12|1.6|TRUE|-0.0255|-5.2332|0|||-0.00743421052631579|1.94460526315789|0
+35|Pinellas County Aquatic Preserve|Turbidity|Surface|Sample|TRUE|15980|25|1995|2021|All|2.4|TRUE|0.0626|12.6687|0|191.4186|0|0.026|2.13333333333333|1
+35|Pinellas County Aquatic Preserve|Turbidity|Surface|Sample|TRUE|15980|25|1995|2021|1|2.3|TRUE|0.1165|-0.031|0.9753|||0.0428571428571429|1.84285714285714|1
+35|Pinellas County Aquatic Preserve|Turbidity|Surface|Sample|TRUE|15980|25|1995|2021|2|2.3|TRUE|0.1738|1.537|0.1243|||0.0727272727272727|1.92727272727273|1
+35|Pinellas County Aquatic Preserve|Turbidity|Surface|Sample|TRUE|15980|25|1995|2021|3|2.6|TRUE|0.1431|2.4875|0.0129|||0.0545454545454546|2.04545454545455|1
+35|Pinellas County Aquatic Preserve|Turbidity|Surface|Sample|TRUE|15980|25|1995|2021|4|2.2|TRUE|-0.0516|2.8472|0.0044|||-0.02|2.36|-1
+35|Pinellas County Aquatic Preserve|Turbidity|Surface|Sample|TRUE|15980|25|1995|2021|5|2.4|TRUE|0.1125|7.2411|0|||0.0453333333333333|1.91066666666667|1
+35|Pinellas County Aquatic Preserve|Turbidity|Surface|Sample|TRUE|15980|25|1995|2021|6|2.8|TRUE|0.08|9.9211|0|||0.0272727272727273|2.1|1
+35|Pinellas County Aquatic Preserve|Turbidity|Surface|Sample|TRUE|15980|25|1995|2021|7|3|TRUE|0.0389|1.9782|0.0479|||0.0166666666666667|2.8|1
+35|Pinellas County Aquatic Preserve|Turbidity|Surface|Sample|TRUE|15980|25|1995|2021|8|2.7|TRUE|-0.0631|7.689|0|||-0.02|2.44|-1
+35|Pinellas County Aquatic Preserve|Turbidity|Surface|Sample|TRUE|15980|25|1995|2021|9|2.5|TRUE|0.0568|7.1145|0|||0.0222222222222222|1.95555555555556|1
+35|Pinellas County Aquatic Preserve|Turbidity|Surface|Sample|TRUE|15980|25|1995|2021|10|2.4|TRUE|-0.0006|4.4119|0|||0|2.3|-1
+35|Pinellas County Aquatic Preserve|Turbidity|Surface|Sample|TRUE|15980|25|1995|2021|11|2.2|TRUE|0.0469|-2.9988|0.0027|||0.02|2.36|1
+35|Pinellas County Aquatic Preserve|Turbidity|Surface|Sample|TRUE|15980|25|1995|2021|12|2.1|TRUE|0.0301|-3.0656|0.0022|||0.0111111111111111|2.16666666666667|1
+36|Rainbow Springs Aquatic Preserve|Turbidity|Surface|Sample|FALSE|0|0|||||||||||||
+37|Rocky Bayou State Park Aquatic Preserve|Turbidity|Surface|Sample|TRUE|119|11|2008|2018|All|0.7|TRUE|-0.0763|-1.2097|0.2264|10.5097|0.4852|0|1.1|0
+37|Rocky Bayou State Park Aquatic Preserve|Turbidity|Surface|Sample|TRUE|119|11|2008|2018|1|3.6|TRUE|0.2667|0.5738|0.5661|||0.6|-4.5|0
+37|Rocky Bayou State Park Aquatic Preserve|Turbidity|Surface|Sample|TRUE|119|11|2008|2018|2|0.8|TRUE|-0.0182|-0.396|0.6921|||0|1|0
+37|Rocky Bayou State Park Aquatic Preserve|Turbidity|Surface|Sample|TRUE|119|11|2008|2018|3|0.8|TRUE|-0.4727|-1.3468|0.1781|||-0.4|6.8|0
+37|Rocky Bayou State Park Aquatic Preserve|Turbidity|Surface|Sample|TRUE|119|11|2008|2018|4|1.2|TRUE|0.0952|-2.0173|0.0437|||0|0|0
+37|Rocky Bayou State Park Aquatic Preserve|Turbidity|Surface|Sample|TRUE|119|11|2008|2018|5|1|TRUE|-0.1786|0|1|||-0.2625|4.63125|0
+37|Rocky Bayou State Park Aquatic Preserve|Turbidity|Surface|Sample|TRUE|119|11|2008|2018|6|1.35|TRUE|-0.3556|-0.4987|0.618|||-0.65|8.875|0
+37|Rocky Bayou State Park Aquatic Preserve|Turbidity|Surface|Sample|TRUE|119|11|2008|2018|7|1.2|TRUE|-0.3273|0|1|||-0.2|3.4|0
+37|Rocky Bayou State Park Aquatic Preserve|Turbidity|Surface|Sample|TRUE|119|11|2008|2018|8|1.15|TRUE|0|0.9878|0.3232|||0|1.2|0
+37|Rocky Bayou State Park Aquatic Preserve|Turbidity|Surface|Sample|TRUE|119|11|2008|2018|9|0|TRUE|0.0128|0|1|||0|0|0
+37|Rocky Bayou State Park Aquatic Preserve|Turbidity|Surface|Sample|TRUE|119|11|2008|2018|10|0.1|TRUE|0.0769|0.3242|0.7458|||0|0.1|0
+37|Rocky Bayou State Park Aquatic Preserve|Turbidity|Surface|Sample|TRUE|119|11|2008|2018|11|0|TRUE|0.2667|0.25|0.8026|||0.111111111111111|-0.127777777777778|0
+37|Rocky Bayou State Park Aquatic Preserve|Turbidity|Surface|Sample|TRUE|119|11|2008|2018|12|0.75|TRUE|-0.1091|-1.4105|0.1584|||-0.05|1.45|0
+38|Rookery Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|711|28|1989|2021|All|4.405|TRUE|0.1802|6.8066|0|23.2773|0.0161|0.133333333333333|3.05125|1
+38|Rookery Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|711|28|1989|2021|1|3.6475|TRUE|0.2994|1.232|0.2179|||0.240833333333333|0.469166666666667|1
+38|Rookery Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|711|28|1989|2021|2|6.755|TRUE|0.0876|2.4735|0.0134|||0.0858333333333334|3.92666666666667|1
+38|Rookery Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|711|28|1989|2021|3|5.3|TRUE|0.244|0.8828|0.3773|||0.2375|3.1925|1
+38|Rookery Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|711|28|1989|2021|4|5.6|TRUE|0.1113|0.1799|0.8572|||0.07|2.6675|1
+38|Rookery Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|711|28|1989|2021|5|3.9275|TRUE|0.0766|5.6552|0|||0.055|3.43|1
+38|Rookery Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|711|28|1989|2021|6|3.6|TRUE|0.4913|3.5913|0.0003|||0.415694444444445|-1.47652777777778|2
+38|Rookery Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|711|28|1989|2021|7|4.8325|TRUE|0.1797|1.4029|0.1607|||0.0826086956521739|2.13086956521739|1
+38|Rookery Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|711|28|1989|2021|8|5.3|TRUE|0.1428|2.0654|0.0389|||0.096|2.8445|1
+38|Rookery Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|711|28|1989|2021|9|3.37|TRUE|0.151|2.0293|0.0424|||0.105|3.2575|1
+38|Rookery Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|711|28|1989|2021|10|4.0925|TRUE|0.2156|1.5834|0.1133|||0.11|2.91|1
+38|Rookery Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|711|28|1989|2021|11|4.45|TRUE|0.1648|2.3473|0.0189|||0.15|3.65|1
+38|Rookery Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|711|28|1989|2021|12|4.2|TRUE|0.0139|0.8305|0.4062|||0.011764705882353|5.45882352941176|1
+39|Rookery Bay National Estuarine Research Reserve|Turbidity|Surface|Sample|TRUE|3982|29|1989|2021|All|3.4|TRUE|0.1908|17.3316|0|123.4998|0|0.135714285714286|2.105|1
+39|Rookery Bay National Estuarine Research Reserve|Turbidity|Surface|Sample|TRUE|3982|29|1989|2021|1|3.1|TRUE|0.0942|3.734|0.0002|||0.09|1.81|1
+39|Rookery Bay National Estuarine Research Reserve|Turbidity|Surface|Sample|TRUE|3982|29|1989|2021|2|3.615|TRUE|0.0116|9.1963|0|||0.01|4.09|1
+39|Rookery Bay National Estuarine Research Reserve|Turbidity|Surface|Sample|TRUE|3982|29|1989|2021|3|5|TRUE|0.2291|5.1188|0|||0.241666666666667|2.1|1
+39|Rookery Bay National Estuarine Research Reserve|Turbidity|Surface|Sample|TRUE|3982|29|1989|2021|4|4|TRUE|0.0925|2.7856|0.0053|||0.09|2.92|1
+39|Rookery Bay National Estuarine Research Reserve|Turbidity|Surface|Sample|TRUE|3982|29|1989|2021|5|2.6|TRUE|0.1209|12.8277|0|||0.09|2.11|1
+39|Rookery Bay National Estuarine Research Reserve|Turbidity|Surface|Sample|TRUE|3982|29|1989|2021|6|2.8|TRUE|0.3616|2.7986|0.0051|||0.3|0.315|2
+39|Rookery Bay National Estuarine Research Reserve|Turbidity|Surface|Sample|TRUE|3982|29|1989|2021|7|4|TRUE|0.2577|5.4632|0|||0.124142156862745|0.965294117647059|1
+39|Rookery Bay National Estuarine Research Reserve|Turbidity|Surface|Sample|TRUE|3982|29|1989|2021|8|3.7|TRUE|0.1333|3.7869|0.0002|||0.0738461538461538|2.14|1
+39|Rookery Bay National Estuarine Research Reserve|Turbidity|Surface|Sample|TRUE|3982|29|1989|2021|9|2.455|TRUE|0.4365|6.6409|0|||0.342307692307692|-1.50769230769231|2
+39|Rookery Bay National Estuarine Research Reserve|Turbidity|Surface|Sample|TRUE|3982|29|1989|2021|10|3.1|TRUE|0.2681|3.3264|0.0009|||0.133333333333333|1.4|1
+39|Rookery Bay National Estuarine Research Reserve|Turbidity|Surface|Sample|TRUE|3982|29|1989|2021|11|3|TRUE|0.2288|7.2502|0|||0.138461538461538|2.47692307692308|1
+39|Rookery Bay National Estuarine Research Reserve|Turbidity|Surface|Sample|TRUE|3982|29|1989|2021|12|4.23|TRUE|0.1284|0.3217|0.7477|||0.0916666666666667|2.78333333333333|1
+12|Southeast Florida Coral Reef Ecosystem Conservation Area|Turbidity|Surface|Sample|FALSE|4602|6|2011|2021|||||||||||
+40|St. Andrews State Park Aquatic Preserve|Turbidity|Surface|Sample|TRUE|141|17|2003|2022|All|0.7|TRUE|-0.1358|-2.2475|0.0246|8.4297|0.6744|-0.0384615384615385|1.25857128982129|-1
+40|St. Andrews State Park Aquatic Preserve|Turbidity|Surface|Sample|TRUE|141|17|2003|2022|1|0.8|TRUE|-0.1556|-0.5839|0.5593|||-0.0666666666666667|1.93333333333333|-1
+40|St. Andrews State Park Aquatic Preserve|Turbidity|Surface|Sample|TRUE|141|17|2003|2022|2|0.75|TRUE|-0.3048|-0.5742|0.5658|||-0.0809090909090909|1.62090909090909|-2
+40|St. Andrews State Park Aquatic Preserve|Turbidity|Surface|Sample|TRUE|141|17|2003|2022|3|0.65|TRUE|-0.2667|-1.576|0.115|||-0.163636363636364|1.79318181818182|-2
+40|St. Andrews State Park Aquatic Preserve|Turbidity|Surface|Sample|TRUE|141|17|2003|2022|4|1|TRUE|0|-0.6427|0.5204|||-0.00673076923076923|1.26057692307692|-1
+40|St. Andrews State Park Aquatic Preserve|Turbidity|Surface|Sample|TRUE|141|17|2003|2022|5|0.975|TRUE|-0.0364|-1.4508|0.1468|||0|0.6|-1
+40|St. Andrews State Park Aquatic Preserve|Turbidity|Surface|Sample|TRUE|141|17|2003|2022|6|0.6|TRUE|-0.4|-0.084|0.9331|||-0.0875|1.875|-2
+40|St. Andrews State Park Aquatic Preserve|Turbidity|Surface|Sample|TRUE|141|17|2003|2022|7|1.2|TRUE|0.2436|0|1|||0.0211111111111111|0.212222222222222|1
+40|St. Andrews State Park Aquatic Preserve|Turbidity|Surface|Sample|TRUE|141|17|2003|2022|8|0.475|TRUE|-0.2667|-1.6633|0.0962|||-0.04|1.115|-1
+40|St. Andrews State Park Aquatic Preserve|Turbidity|Surface|Sample|TRUE|141|17|2003|2022|9|0.95|TRUE|-0.1282|-0.8297|0.4067|||-0.0297979797979798|1.25656565656566|-1
+40|St. Andrews State Park Aquatic Preserve|Turbidity|Surface|Sample|TRUE|141|17|2003|2022|10|0.975|TRUE|-0.1795|0.2826|0.7775|||-0.0785714285714286|2.20714285714286|-1
+40|St. Andrews State Park Aquatic Preserve|Turbidity|Surface|Sample|TRUE|141|17|2003|2022|11|0.55|TRUE|0.0889|1.1526|0.2491|||0.00416666666666667|0.908333333333333|1
+40|St. Andrews State Park Aquatic Preserve|Turbidity|Surface|Sample|TRUE|141|17|2003|2022|12|0.475|TRUE|-0.1944|-1.0655|0.2866|||-0.028125|1.225|-1
+41|St. Joseph Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|2537|23|1995|2022|All|0.9|TRUE|-0.0307|-2.2738|0.023|132.4182|0|-0.00166666666666665|0.883333333333333|-1
+41|St. Joseph Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|2537|23|1995|2022|1|0.8|TRUE|0.0191|2.0376|0.0416|||0|0.82|-1
+41|St. Joseph Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|2537|23|1995|2022|2|0.8|TRUE|-0.3868|-0.8207|0.4118|||-0.1|2.1|-2
+41|St. Joseph Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|2537|23|1995|2022|3|1.1|TRUE|0.1079|-8.8595|0|||0.0111111111111111|0.744444444444445|1
+41|St. Joseph Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|2537|23|1995|2022|4|0.94|TRUE|0.0266|0.7489|0.4539|||0|0.92|-1
+41|St. Joseph Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|2537|23|1995|2022|5|0.92|TRUE|-0.15|0.6029|0.5466|||-0.02|1|-1
+41|St. Joseph Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|2537|23|1995|2022|6|0.9|TRUE|0.0379|-1.066|0.2864|||0.005|0.905|1
+41|St. Joseph Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|2537|23|1995|2022|7|0.9|TRUE|-0.1366|-4.3233|0|||-0.02|0.95|-1
+41|St. Joseph Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|2537|23|1995|2022|8|1|TRUE|-0.0373|5.211|0|||0|0.9|-1
+41|St. Joseph Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|2537|23|1995|2022|9|0.82|TRUE|-0.0453|0.3132|0.7541|||-0.00166666666666667|0.816666666666667|-1
+41|St. Joseph Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|2537|23|1995|2022|10|0.85|TRUE|0.0164|-2.2571|0.024|||0|0.68|-1
+41|St. Joseph Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|2537|23|1995|2022|11|0.68|TRUE|0.1872|0.2873|0.7739|||0.0333333333333333|0.866666666666667|1
+41|St. Joseph Bay Aquatic Preserve|Turbidity|Surface|Sample|TRUE|2537|23|1995|2022|12|0.8|TRUE|0.0374|0.6879|0.4915|||0.00538461538461539|0.783846153846154|1
+42|St. Joseph Bay State Buffer Preserve|Turbidity|Surface|Sample|FALSE|0|0|||||||||||||
+43|St. Martins Marsh Aquatic Preserve|Turbidity|Surface|Sample|TRUE|2943|27|1995|2021|All|1.1|TRUE|-0.1074|-8.8733|0|120.3336|0|-0.0166666666666667|1.38571428571429|-1
+43|St. Martins Marsh Aquatic Preserve|Turbidity|Surface|Sample|TRUE|2943|27|1995|2021|1|0.8|TRUE|-0.0116|-2.4562|0.014|||0|1|-1
+43|St. Martins Marsh Aquatic Preserve|Turbidity|Surface|Sample|TRUE|2943|27|1995|2021|2|0.86|TRUE|-0.0372|-8.4861|0|||-0.002|0.978|-1
+43|St. Martins Marsh Aquatic Preserve|Turbidity|Surface|Sample|TRUE|2943|27|1995|2021|3|1.1|TRUE|0.0074|-7.1768|0|||0|1.4|-1
+43|St. Martins Marsh Aquatic Preserve|Turbidity|Surface|Sample|TRUE|2943|27|1995|2021|4|1.3|TRUE|-0.32|-1.136|0.256|||-0.0666666666666667|1.7|-1
+43|St. Martins Marsh Aquatic Preserve|Turbidity|Surface|Sample|TRUE|2943|27|1995|2021|5|0.96|TRUE|-0.0928|-0.9666|0.3337|||-0.0272727272727273|1.79090909090909|-1
+43|St. Martins Marsh Aquatic Preserve|Turbidity|Surface|Sample|TRUE|2943|27|1995|2021|6|1|TRUE|-0.0065|-0.2815|0.7783|||0|2.2|-1
+43|St. Martins Marsh Aquatic Preserve|Turbidity|Surface|Sample|TRUE|2943|27|1995|2021|7|2.2|TRUE|-0.3793|-0.118|0.9061|||-0.0642857142857143|1.57857142857143|-1
+43|St. Martins Marsh Aquatic Preserve|Turbidity|Surface|Sample|TRUE|2943|27|1995|2021|8|1.6|TRUE|-0.108|-1.8162|0.0693|||-0.0106666666666667|0.817333333333333|-1
+43|St. Martins Marsh Aquatic Preserve|Turbidity|Surface|Sample|TRUE|2943|27|1995|2021|9|1.6|TRUE|-0.2875|1.9617|0.0498|||-0.0333333333333334|1.26|-1
+43|St. Martins Marsh Aquatic Preserve|Turbidity|Surface|Sample|TRUE|2943|27|1995|2021|10|1.4|TRUE|-0.0441|0.1885|0.8505|||-0.00714285714285715|1.37142857142857|-1
+43|St. Martins Marsh Aquatic Preserve|Turbidity|Surface|Sample|TRUE|2943|27|1995|2021|11|1|TRUE|0.0926|-6.9939|0|||0.0171428571428571|1.42857142857143|1
+43|St. Martins Marsh Aquatic Preserve|Turbidity|Surface|Sample|TRUE|2943|27|1995|2021|12|0.7|TRUE|-0.1013|-2.4725|0.0134|||-0.01|0.9|-1
+44|Terra Ceia Aquatic Preserve|Turbidity|Surface|Sample|TRUE|6905|27|1995|2021|All|1.8|TRUE|0.0051|0.8569|0.3915|116.9249|0|0|1.85384615384615|0
+44|Terra Ceia Aquatic Preserve|Turbidity|Surface|Sample|TRUE|6905|27|1995|2021|1|1.9|TRUE|0.0499|-0.6453|0.5187|||0.01375|1.9175|0
+44|Terra Ceia Aquatic Preserve|Turbidity|Surface|Sample|TRUE|6905|27|1995|2021|2|2|TRUE|0.0027|-6.7076|0|||0|1.9|0
+44|Terra Ceia Aquatic Preserve|Turbidity|Surface|Sample|TRUE|6905|27|1995|2021|3|1.8|TRUE|0.1047|-3.0653|0.0022|||0.034375|1.359375|0
+44|Terra Ceia Aquatic Preserve|Turbidity|Surface|Sample|TRUE|6905|27|1995|2021|4|1.9|TRUE|-0.2012|-1.6365|0.1017|||-0.0571428571428571|2.42857142857143|0
+44|Terra Ceia Aquatic Preserve|Turbidity|Surface|Sample|TRUE|6905|27|1995|2021|5|1.6|TRUE|-0.083|1.3447|0.1787|||-0.0208333333333333|1.96666666666667|0
+44|Terra Ceia Aquatic Preserve|Turbidity|Surface|Sample|TRUE|6905|27|1995|2021|6|1.6|TRUE|0.0527|3.8219|0.0001|||0.0153846153846154|1.80769230769231|0
+44|Terra Ceia Aquatic Preserve|Turbidity|Surface|Sample|TRUE|6905|27|1995|2021|7|1.8|TRUE|0.0357|2.2053|0.0274|||0.00857142857142857|1.53142857142857|0
+44|Terra Ceia Aquatic Preserve|Turbidity|Surface|Sample|TRUE|6905|27|1995|2021|8|1.9|TRUE|-0.0186|2.1291|0.0332|||0|1.9|0
+44|Terra Ceia Aquatic Preserve|Turbidity|Surface|Sample|TRUE|6905|27|1995|2021|9|2.1|TRUE|-0.0444|5.1247|0|||-0.0125|1.9875|0
+44|Terra Ceia Aquatic Preserve|Turbidity|Surface|Sample|TRUE|6905|27|1995|2021|10|1.9|TRUE|0.0558|0.0947|0.9246|||0.0153846153846154|1.69230769230769|0
+44|Terra Ceia Aquatic Preserve|Turbidity|Surface|Sample|TRUE|6905|27|1995|2021|11|2|TRUE|-0.063|1.5389|0.1238|||-0.0166666666666667|1.71666666666667|0
+44|Terra Ceia Aquatic Preserve|Turbidity|Surface|Sample|TRUE|6905|27|1995|2021|12|1.6|TRUE|0.1551|-2.2978|0.0216|||0.0666666666666667|1.7|0
+45|Tomoka Marsh Aquatic Preserve|Turbidity|Surface|Sample|TRUE|275|22|1997|2021|All|7.5|TRUE|0.0645|1.8383|0.066|29.4397|0.0019|0.0740581818181819|7.6757775|0
+45|Tomoka Marsh Aquatic Preserve|Turbidity|Surface|Sample|TRUE|275|22|1997|2021|1|3.21146|TRUE|0.0814|-2.2176|0.0266|||0.040583947368421|5.47532842105263|0
+45|Tomoka Marsh Aquatic Preserve|Turbidity|Surface|Sample|TRUE|275|22|1997|2021|2|6|TRUE|0.0294|0.0595|0.9525|||0.021873455882353|9.58397088235294|0
+45|Tomoka Marsh Aquatic Preserve|Turbidity|Surface|Sample|TRUE|275|22|1997|2021|3|6.77643|TRUE|-0.1905|1.8386|0.066|||-0.210321222222222|9.40061322222222|0
+45|Tomoka Marsh Aquatic Preserve|Turbidity|Surface|Sample|TRUE|275|22|1997|2021|4|8.7|TRUE|0.0667|3.1626|0.0016|||0.0769003125|8.5987071875|0
+45|Tomoka Marsh Aquatic Preserve|Turbidity|Surface|Sample|TRUE|275|22|1997|2021|5|10.02144|TRUE|0.4163|0.126|0.8997|||0.383333333333333|5.63333333333334|0
+45|Tomoka Marsh Aquatic Preserve|Turbidity|Surface|Sample|TRUE|275|22|1997|2021|6|9.29081|TRUE|0.367|0.5113|0.6091|||0.4|6.9|0
+45|Tomoka Marsh Aquatic Preserve|Turbidity|Surface|Sample|TRUE|275|22|1997|2021|7|8.90943|TRUE|-0.419|-0.8662|0.3864|||-0.397226071428571|11.1559814285714|0
+45|Tomoka Marsh Aquatic Preserve|Turbidity|Surface|Sample|TRUE|275|22|1997|2021|8|10.1|TRUE|-0.1503|2.7848|0.0054|||-0.160905833333333|12.6102641666667|0
+45|Tomoka Marsh Aquatic Preserve|Turbidity|Surface|Sample|TRUE|275|22|1997|2021|9|9.3144|TRUE|0.4667|0.3627|0.7168|||0.953975555555556|-10.8721177777778|0
+45|Tomoka Marsh Aquatic Preserve|Turbidity|Surface|Sample|TRUE|275|22|1997|2021|10|5.41|TRUE|0.0089|-1.1661|0.2436|||0.00556090909090911|5.94717136363636|0
+45|Tomoka Marsh Aquatic Preserve|Turbidity|Surface|Sample|TRUE|275|22|1997|2021|11|5.40451|TRUE|-0.1552|-0.9662|0.3339|||-0.0762697222222222|5.94388805555556|0
+45|Tomoka Marsh Aquatic Preserve|Turbidity|Surface|Sample|TRUE|275|22|1997|2021|12|5.8|TRUE|0.0762|0.6526|0.514|||0.037515|8.451555|0
+46|Wekiva River Aquatic Preserve|Turbidity|Surface|Sample|FALSE|0|0|||||||||||||
+47|Yellow River Marsh Aquatic Preserve|Turbidity|Surface|Sample|TRUE|563|23|1995|2021|All|2.4|TRUE|-0.0777|-3.7591|0.0002|45.5181|0|-0.0454545454545455|2.32583333333333|-1
+47|Yellow River Marsh Aquatic Preserve|Turbidity|Surface|Sample|TRUE|563|23|1995|2021|1|1.8|TRUE|0.6429|1.5114|0.1307|||0.593333333333333|-17.4816666666667|2
+47|Yellow River Marsh Aquatic Preserve|Turbidity|Surface|Sample|TRUE|563|23|1995|2021|2|1.9|TRUE|0.0678|-0.6222|0.5338|||0.025|1.425|1
+47|Yellow River Marsh Aquatic Preserve|Turbidity|Surface|Sample|TRUE|563|23|1995|2021|3|3.3|TRUE|0.1299|-3.2593|0.0011|||0.0478125|1.156875|1
+47|Yellow River Marsh Aquatic Preserve|Turbidity|Surface|Sample|TRUE|563|23|1995|2021|4|2.65|TRUE|-0.2544|-2.8163|0.0049|||-0.18|7.62|-1
+47|Yellow River Marsh Aquatic Preserve|Turbidity|Surface|Sample|TRUE|563|23|1995|2021|5|2.65|TRUE|-0.0587|-3.4489|0.0006|||-0.0233333333333333|2.57666666666667|-1
+47|Yellow River Marsh Aquatic Preserve|Turbidity|Surface|Sample|TRUE|563|23|1995|2021|6|2.4|TRUE|-0.262|1.4147|0.1572|||-0.1|5.2|-1
+47|Yellow River Marsh Aquatic Preserve|Turbidity|Surface|Sample|TRUE|563|23|1995|2021|7|5.8|TRUE|-0.1472|1.4446|0.1486|||-0.05|3.675|-1
+47|Yellow River Marsh Aquatic Preserve|Turbidity|Surface|Sample|TRUE|563|23|1995|2021|8|2.395|TRUE|0.1311|2.2993|0.0215|||0.0333333333333333|0.866666666666666|1
+47|Yellow River Marsh Aquatic Preserve|Turbidity|Surface|Sample|TRUE|563|23|1995|2021|9|2.3|TRUE|-0.0802|-1.1752|0.2399|||-0.0333333333333334|3|-1
+47|Yellow River Marsh Aquatic Preserve|Turbidity|Surface|Sample|TRUE|563|23|1995|2021|10|2.05|TRUE|-0.1092|0.689|0.4908|||-0.025|2.075|-1
+47|Yellow River Marsh Aquatic Preserve|Turbidity|Surface|Sample|TRUE|563|23|1995|2021|11|1.4|TRUE|-0.2261|-0.9199|0.3576|||-0.1|5.25|-1
+47|Yellow River Marsh Aquatic Preserve|Turbidity|Surface|Sample|TRUE|563|23|1995|2021|12|2.2|TRUE|0.8333|-0.6596|0.5095|||0.709|-22.56|2

@@ -4,7 +4,7 @@ library(data.table)
 library(dplyr)
 
 #List all of the files in the "tables" directory that are LME results
-files <- list.files("output/tables", pattern="lmeresults", full.names=TRUE)
+files <- list.files("SAV/output/tables", pattern="lmeresults", full.names=TRUE)
 
 #Include only those that are BBpct
 files <- files[grep("BBpct", files)]
@@ -36,10 +36,6 @@ for (i in 1:length(files)) {
    }
 }
 
-#Add statistical trend column to denote where p<=0.05 and whether LME_slope increase or decreasing
-output$StatisticalTrend <- ifelse(output$p <= 0.05 & output$LME_Slope > 0, "Significantly increasing trend",
-                                  ifelse(output$p <= 0.05 & output$LME_Slope <0, "Significantly decreasing trend", "No significant trend"))
-
 #Change column names to better match other outputs
 setnames(output, c("managed_area", "species"), c("ManagedAreaName", "Species"))
 
@@ -50,45 +46,55 @@ output$ManagedAreaName[output$ManagedAreaName=="St. Andrews Aquatic Preserve"] <
    "St. Andrews State Park Aquatic Preserve"
 
 #Loads data file with list on managed area names and corresponding area IDs and short names
-MA_All <- fread("data/ManagedArea.csv", sep = ",", header = TRUE, stringsAsFactors = FALSE,
+MA_All <- fread("ManagedArea.csv", sep = ",", header = TRUE, stringsAsFactors = FALSE,
                 na.strings = "")
+MA_All[, MAName := ManagedAreaName]
 
-stats <- fread("output/SAV_BBpct_Stats.txt", sep = "|", header = TRUE, stringsAsFactors = FALSE,
-               na.strings = "")
+# stats <- fread("SAV/output/data/SAV_BBpct_Stats.txt", sep = "|", header = TRUE, stringsAsFactors = FALSE,
+#                na.strings = "")
+
+stats <- openxlsx::read.xlsx(here::here("SAV/output/data/SAV_BBpct_PA_Stats.xlsx"), sheet = 1)
+
 setnames(stats, c("ManagedAreaName", "analysisunit"), c("ShortName","Species"))
-
-stats$Species[stats$Species=="Thalassia testudinum"] <- "Turtle grass"
-stats$Species[stats$Species=="Syringodium filiforme"] <- "Manatee grass"
-stats$Species[stats$Species=="Halodule wrightii"] <- "Shoal grass"
-stats$Species[stats$Species=="Ruppia maritima"] <- "Widgeon grass"
 
 stats <- merge.data.frame(MA_All[,c("AreaID", "ManagedAreaName", "ShortName")],
                           stats, by="ShortName", all=TRUE)
 
 stats$ShortName <- NULL
-stats$AreaID <- NULL
 
 stats <-  merge.data.frame(stats, output,
                               by=c("ManagedAreaName", "Species"), all=TRUE)
 
+
 stats <- merge.data.frame(MA_All[,c("AreaID", "ManagedAreaName")],
-                         stats, by=c("ManagedAreaName"), all=TRUE)
+                         stats, by=c("AreaID", "ManagedAreaName"), all=TRUE)
 
 stats <- as.data.table(stats[order(stats$ManagedAreaName, stats$Species), ])
-stats <- stats %>% select(AreaID, everything())
 
 stats$EarliestYear[stats$EarliestYear=="Inf"] <- NA
 stats$LatestYear[stats$LatestYear=="-Inf"] <- NA
 
-#filling remaining values in StatisticalTrend column
-stats$StatisticalTrend[stats$SufficientData==FALSE] <- "Insufficient data to calculate trend"
-stats$StatisticalTrend[stats$SufficientData==TRUE & is.na(stats$LME_Slope)] <- "Model did not fit the available data"
+sp_abbrevs <- data.table(name = c("Shoal grass", "Turtle grass", "Manatee grass", "Widgeon grass", "Paddle grass", "Star grass", "Johnson's seagrass", 
+                                  "Unidentified Halophila", "Halophila spp.", "Total seagrass", "Attached algae", "Drift algae","Total SAV", 
+                                  "Thalassia testudinum", "Syringodium filiforme", "Halodule wrightii", "Ruppia maritima", "Halophila decipiens", 
+                                  "Halophila engelmannii", "Halophila johnsonii"),
+                         abbrev = c("_ShGr", "_TuGr", "_MaGr", "_WiGr", "_PaGr", "_StGr", "_JoSe", "_UnHa", "_HaSp", "_ToSe", "_AtAl", "_DrAl", "_To", 
+                                    "_ThTe", "_SyFi", "_HaWr", "_RuMa", "_HaDe", "_HaEn", "_HaJo"))
 
-#drop rows where ManagedArea does not contain data
-stats <- stats[!apply(stats[, -c(1, 2), drop = FALSE], 1, function(row) all(is.na(row))), ]
+setDT(stats)
+for(row in seq(1:nrow(stats))){
+  stats$Model_Failed[row] <- ifelse(TRUE %in% str_detect(failedmodslist[str_detect(model, "_BBpct_"), model], 
+                                                         paste0(MA_All[MAName == stats[row, ManagedAreaName], Filenames_SAVscript], "_lme", sp_abbrevs[name == stats[row, Species], abbrev])), 
+                                    TRUE, FALSE)
+}
+stats[is.na(ParameterName), Model_Failed := NA]
 
 #Write output table to a pipe-delimited txt file
-fwrite(stats, "output/website/SAV_BBpct_LMEresults_All.txt", sep="|")
+fwrite(stats, paste0("SAV/output/website/SAV_BBpct_LMEresults_All_", Sys.Date(), ".txt"), sep="|")
 
-#excel format
-openxlsx::write.xlsx(stats, here::here("output/website/SAV_BBpct_LMEresults_All.xlsx"), colNames = c(TRUE, TRUE), colWidths = c("auto", "auto"), firstRow = c(TRUE, TRUE))
+#Save failedmodslist to the same location
+fwrite(failedmodslist, paste0("SAV/output/website/SAV_Failedmodslist_All_", Sys.Date(), ".txt"), sep="|")
+
+#Save xlsx version
+sheets <- list("SAV LME results" = stats, "Failed models" = failedmodslist[str_detect(model, "_BBpct_"), ])
+openxlsx::write.xlsx(sheets, here::here(paste0("SAV/output/website/SAV_BBpct_LMEresults_All_", Sys.Date(), ".xlsx")), colNames = c(TRUE, TRUE), colWidths = c("auto", "auto"), firstRow = c(TRUE, TRUE))

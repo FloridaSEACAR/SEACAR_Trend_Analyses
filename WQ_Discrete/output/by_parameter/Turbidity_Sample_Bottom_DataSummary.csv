@@ -1,0 +1,49 @@
+AreaID,ManagedAreaName,ParameterName,RelativeDepth,ActivityType,N_Total,N_AnalysisUse,N_H,perc_H,N_I,perc_I,N_Q,perc_Q,N_S,perc_S,N_U,perc_U
+1,Alligator Harbor Aquatic Preserve,Turbidity,Bottom,Sample,1,0,0,0,843,17.3671199011125,21,0.432632880098888,0,0,19,0.391429748660898
+2,Apalachicola Bay Aquatic Preserve,Turbidity,Bottom,Sample,2,0,0,0,843,17.3671199011125,21,0.432632880098888,0,0,19,0.391429748660898
+3,Apalachicola National Estuarine Research Reserve,Turbidity,Bottom,Sample,4,0,0,0,843,17.3671199011125,21,0.432632880098888,0,0,19,0.391429748660898
+4,Banana River Aquatic Preserve,Turbidity,Bottom,Sample,28,0,0,0,843,17.3671199011125,21,0.432632880098888,0,0,19,0.391429748660898
+5,Big Bend Seagrasses Aquatic Preserve,Turbidity,Bottom,Sample,89,89,0,0,843,17.3671199011125,21,0.432632880098888,0,0,19,0.391429748660898
+7,Biscayne Bay-Cape Florida to Monroe County Line Aquatic Preserve,Turbidity,Bottom,Sample,1,0,0,0,843,17.3671199011125,21,0.432632880098888,0,0,19,0.391429748660898
+6,Biscayne Bay Aquatic Preserve,Turbidity,Bottom,Sample,1,0,0,0,843,17.3671199011125,21,0.432632880098888,0,0,19,0.391429748660898
+8,Boca Ciega Bay Aquatic Preserve,Turbidity,Bottom,Sample,29,0,0,0,843,17.3671199011125,21,0.432632880098888,0,0,19,0.391429748660898
+9,Cape Haze Aquatic Preserve,Turbidity,Bottom,Sample,50,0,0,0,843,17.3671199011125,21,0.432632880098888,0,0,19,0.391429748660898
+10,Cape Romano-Ten Thousand Islands Aquatic Preserve,Turbidity,Bottom,Sample,2,0,0,0,843,17.3671199011125,21,0.432632880098888,0,0,19,0.391429748660898
+11,Cockroach Bay Aquatic Preserve,Turbidity,Bottom,Sample,5,0,0,0,843,17.3671199011125,21,0.432632880098888,0,0,19,0.391429748660898
+13,Coupon Bight Aquatic Preserve,Turbidity,Bottom,Sample,1,0,0,0,843,17.3671199011125,21,0.432632880098888,0,0,19,0.391429748660898
+14,Estero Bay Aquatic Preserve,Turbidity,Bottom,Sample,22,0,0,0,843,17.3671199011125,21,0.432632880098888,0,0,19,0.391429748660898
+15,Florida Keys National Marine Sanctuary,Turbidity,Bottom,Sample,1,0,0,0,843,17.3671199011125,21,0.432632880098888,0,0,19,0.391429748660898
+16,Fort Clinch State Park Aquatic Preserve,Turbidity,Bottom,Sample,1,0,0,0,843,17.3671199011125,21,0.432632880098888,0,0,19,0.391429748660898
+17,Fort Pickens State Park Aquatic Preserve,Turbidity,Bottom,Sample,1,0,0,0,843,17.3671199011125,21,0.432632880098888,0,0,19,0.391429748660898
+18,Gasparilla Sound-Charlotte Harbor Aquatic Preserve,Turbidity,Bottom,Sample,375,375,0,0,843,17.3671199011125,21,0.432632880098888,0,0,19,0.391429748660898
+19,Guana River Marsh Aquatic Preserve,Turbidity,Bottom,Sample,32,0,0,0,843,17.3671199011125,21,0.432632880098888,0,0,19,0.391429748660898
+20,Guana Tolomato Matanzas National Estuarine Research Reserve,Turbidity,Bottom,Sample,42,0,0,0,843,17.3671199011125,21,0.432632880098888,0,0,19,0.391429748660898
+21,Indian River-Malabar to Vero Beach Aquatic Preserve,Turbidity,Bottom,Sample,7,0,0,0,843,17.3671199011125,21,0.432632880098888,0,0,19,0.391429748660898
+22,Indian River-Vero Beach to Ft. Pierce Aquatic Preserve,Turbidity,Bottom,Sample,3,0,0,0,843,17.3671199011125,21,0.432632880098888,0,0,19,0.391429748660898
+23,Jensen Beach to Jupiter Inlet Aquatic Preserve,Turbidity,Bottom,Sample,1,0,0,0,843,17.3671199011125,21,0.432632880098888,0,0,19,0.391429748660898
+24,Lake Jackson Aquatic Preserve,Turbidity,Bottom,Sample,1,0,0,0,843,17.3671199011125,21,0.432632880098888,0,0,19,0.391429748660898
+25,Lemon Bay Aquatic Preserve,Turbidity,Bottom,Sample,69,0,0,0,843,17.3671199011125,21,0.432632880098888,0,0,19,0.391429748660898
+26,Lignumvitae Key Aquatic Preserve,Turbidity,Bottom,Sample,1,0,0,0,843,17.3671199011125,21,0.432632880098888,0,0,19,0.391429748660898
+27,Loxahatchee River-Lake Worth Creek Aquatic Preserve,Turbidity,Bottom,Sample,1,0,0,0,843,17.3671199011125,21,0.432632880098888,0,0,19,0.391429748660898
+28,Matlacha Pass Aquatic Preserve,Turbidity,Bottom,Sample,2,0,0,0,843,17.3671199011125,21,0.432632880098888,0,0,19,0.391429748660898
+29,Mosquito Lagoon Aquatic Preserve,Turbidity,Bottom,Sample,9,0,0,0,843,17.3671199011125,21,0.432632880098888,0,0,19,0.391429748660898
+30,Nassau River-St. Johns River Marshes Aquatic Preserve,Turbidity,Bottom,Sample,1,0,0,0,843,17.3671199011125,21,0.432632880098888,0,0,19,0.391429748660898
+48,Nature Coast Aquatic Preserve,Turbidity,Bottom,Sample,18,0,0,0,843,17.3671199011125,21,0.432632880098888,0,0,19,0.391429748660898
+31,North Fork St. Lucie Aquatic Preserve,Turbidity,Bottom,Sample,1,0,0,0,843,17.3671199011125,21,0.432632880098888,0,0,19,0.391429748660898
+32,Oklawaha River Aquatic Preserve,Turbidity,Bottom,Sample,1,0,0,0,843,17.3671199011125,21,0.432632880098888,0,0,19,0.391429748660898
+33,Pellicer Creek Aquatic Preserve,Turbidity,Bottom,Sample,3,0,0,0,843,17.3671199011125,21,0.432632880098888,0,0,19,0.391429748660898
+34,Pine Island Sound Aquatic Preserve,Turbidity,Bottom,Sample,12,0,0,0,843,17.3671199011125,21,0.432632880098888,0,0,19,0.391429748660898
+35,Pinellas County Aquatic Preserve,Turbidity,Bottom,Sample,123,0,0,0,843,17.3671199011125,21,0.432632880098888,0,0,19,0.391429748660898
+36,Rainbow Springs Aquatic Preserve,Turbidity,Bottom,Sample,1,0,0,0,843,17.3671199011125,21,0.432632880098888,0,0,19,0.391429748660898
+37,Rocky Bayou State Park Aquatic Preserve,Turbidity,Bottom,Sample,102,102,0,0,843,17.3671199011125,21,0.432632880098888,0,0,19,0.391429748660898
+38,Rookery Bay Aquatic Preserve,Turbidity,Bottom,Sample,4,0,0,0,843,17.3671199011125,21,0.432632880098888,0,0,19,0.391429748660898
+39,Rookery Bay National Estuarine Research Reserve,Turbidity,Bottom,Sample,8,0,0,0,843,17.3671199011125,21,0.432632880098888,0,0,19,0.391429748660898
+12,Southeast Florida Coral Reef Ecosystem Conservation Area,Turbidity,Bottom,Sample,3757,0,0,0,843,17.3671199011125,21,0.432632880098888,0,0,19,0.391429748660898
+40,St. Andrews State Park Aquatic Preserve,Turbidity,Bottom,Sample,1,0,0,0,843,17.3671199011125,21,0.432632880098888,0,0,19,0.391429748660898
+41,St. Joseph Bay Aquatic Preserve,Turbidity,Bottom,Sample,1,0,0,0,843,17.3671199011125,21,0.432632880098888,0,0,19,0.391429748660898
+42,St. Joseph Bay State Buffer Preserve,Turbidity,Bottom,Sample,1,0,0,0,843,17.3671199011125,21,0.432632880098888,0,0,19,0.391429748660898
+43,St. Martins Marsh Aquatic Preserve,Turbidity,Bottom,Sample,6,0,0,0,843,17.3671199011125,21,0.432632880098888,0,0,19,0.391429748660898
+44,Terra Ceia Aquatic Preserve,Turbidity,Bottom,Sample,10,0,0,0,843,17.3671199011125,21,0.432632880098888,0,0,19,0.391429748660898
+45,Tomoka Marsh Aquatic Preserve,Turbidity,Bottom,Sample,21,0,0,0,843,17.3671199011125,21,0.432632880098888,0,0,19,0.391429748660898
+46,Wekiva River Aquatic Preserve,Turbidity,Bottom,Sample,1,0,0,0,843,17.3671199011125,21,0.432632880098888,0,0,19,0.391429748660898
+47,Yellow River Marsh Aquatic Preserve,Turbidity,Bottom,Sample,1,0,0,0,843,17.3671199011125,21,0.432632880098888,0,0,19,0.391429748660898

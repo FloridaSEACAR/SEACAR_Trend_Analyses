@@ -1,0 +1,49 @@
+AreaID,ManagedAreaName,ParameterName,RelativeDepth,ActivityType,N_Total,N_AnalysisUse,N_H,perc_H,N_I,perc_I,N_Q,perc_Q,N_S,perc_S,N_U,perc_U
+1,Alligator Harbor Aquatic Preserve,Salinity,Bottom,Field,2445,2445,0,0,0,0,0,0,0,0,0,0
+2,Apalachicola Bay Aquatic Preserve,Salinity,Bottom,Field,14716,14716,0,0,0,0,0,0,0,0,0,0
+3,Apalachicola National Estuarine Research Reserve,Salinity,Bottom,Field,21090,21090,0,0,0,0,0,0,0,0,0,0
+4,Banana River Aquatic Preserve,Salinity,Bottom,Field,5978,5978,0,0,0,0,0,0,0,0,0,0
+5,Big Bend Seagrasses Aquatic Preserve,Salinity,Bottom,Field,32647,32647,0,0,0,0,0,0,0,0,0,0
+7,Biscayne Bay-Cape Florida to Monroe County Line Aquatic Preserve,Salinity,Bottom,Field,1,0,0,0,0,0,0,0,0,0,0,0
+6,Biscayne Bay Aquatic Preserve,Salinity,Bottom,Field,3249,3249,0,0,0,0,0,0,0,0,0,0
+8,Boca Ciega Bay Aquatic Preserve,Salinity,Bottom,Field,4025,4025,0,0,0,0,0,0,0,0,0,0
+9,Cape Haze Aquatic Preserve,Salinity,Bottom,Field,620,620,0,0,0,0,0,0,0,0,0,0
+10,Cape Romano-Ten Thousand Islands Aquatic Preserve,Salinity,Bottom,Field,4870,4870,0,0,0,0,0,0,0,0,0,0
+11,Cockroach Bay Aquatic Preserve,Salinity,Bottom,Field,3856,3856,0,0,0,0,0,0,0,0,0,0
+13,Coupon Bight Aquatic Preserve,Salinity,Bottom,Field,51,51,0,0,0,0,0,0,0,0,0,0
+14,Estero Bay Aquatic Preserve,Salinity,Bottom,Field,419,419,0,0,0,0,0,0,0,0,0,0
+15,Florida Keys National Marine Sanctuary,Salinity,Bottom,Field,16877,16877,0,0,0,0,0,0,0,0,0,0
+16,Fort Clinch State Park Aquatic Preserve,Salinity,Bottom,Field,13,0,0,0,0,0,0,0,0,0,0,0
+17,Fort Pickens State Park Aquatic Preserve,Salinity,Bottom,Field,14,14,0,0,0,0,0,0,0,0,0,0
+18,Gasparilla Sound-Charlotte Harbor Aquatic Preserve,Salinity,Bottom,Field,3970,3970,0,0,0,0,0,0,0,0,0,0
+19,Guana River Marsh Aquatic Preserve,Salinity,Bottom,Field,2306,2306,0,0,0,0,0,0,0,0,0,0
+20,Guana Tolomato Matanzas National Estuarine Research Reserve,Salinity,Bottom,Field,6169,6169,0,0,0,0,0,0,0,0,0,0
+21,Indian River-Malabar to Vero Beach Aquatic Preserve,Salinity,Bottom,Field,9804,9804,0,0,0,0,0,0,0,0,0,0
+22,Indian River-Vero Beach to Ft. Pierce Aquatic Preserve,Salinity,Bottom,Field,2182,2182,0,0,0,0,0,0,0,0,0,0
+23,Jensen Beach to Jupiter Inlet Aquatic Preserve,Salinity,Bottom,Field,257,257,0,0,0,0,0,0,0,0,0,0
+24,Lake Jackson Aquatic Preserve,Salinity,Bottom,Field,1,0,0,0,0,0,0,0,0,0,0,0
+25,Lemon Bay Aquatic Preserve,Salinity,Bottom,Field,1919,1919,0,0,0,0,0,0,0,0,0,0
+26,Lignumvitae Key Aquatic Preserve,Salinity,Bottom,Field,64,0,0,0,0,0,0,0,0,0,0,0
+27,Loxahatchee River-Lake Worth Creek Aquatic Preserve,Salinity,Bottom,Field,266,266,0,0,0,0,0,0,0,0,0,0
+28,Matlacha Pass Aquatic Preserve,Salinity,Bottom,Field,726,726,0,0,0,0,0,0,0,0,0,0
+29,Mosquito Lagoon Aquatic Preserve,Salinity,Bottom,Field,1179,1179,0,0,0,0,0,0,0,0,0,0
+30,Nassau River-St. Johns River Marshes Aquatic Preserve,Salinity,Bottom,Field,375,375,0,0,0,0,0,0,0,0,0,0
+48,Nature Coast Aquatic Preserve,Salinity,Bottom,Field,883,883,0,0,0,0,0,0,0,0,0,0
+31,North Fork St. Lucie Aquatic Preserve,Salinity,Bottom,Field,21,0,0,0,0,0,0,0,0,0,0,0
+32,Oklawaha River Aquatic Preserve,Salinity,Bottom,Field,1,0,0,0,0,0,0,0,0,0,0,0
+33,Pellicer Creek Aquatic Preserve,Salinity,Bottom,Field,54,0,0,0,0,0,0,0,0,0,0,0
+34,Pine Island Sound Aquatic Preserve,Salinity,Bottom,Field,2383,2383,0,0,0,0,0,0,0,0,0,0
+35,Pinellas County Aquatic Preserve,Salinity,Bottom,Field,12545,12545,0,0,0,0,0,0,0,0,0,0
+36,Rainbow Springs Aquatic Preserve,Salinity,Bottom,Field,1,0,0,0,0,0,0,0,0,0,0,0
+37,Rocky Bayou State Park Aquatic Preserve,Salinity,Bottom,Field,259,259,0,0,0,0,0,0,0,0,0,0
+38,Rookery Bay Aquatic Preserve,Salinity,Bottom,Field,1659,1659,0,0,0,0,0,0,0,0,0,0
+39,Rookery Bay National Estuarine Research Reserve,Salinity,Bottom,Field,6414,6414,0,0,0,0,0,0,0,0,0,0
+12,Southeast Florida Coral Reef Ecosystem Conservation Area,Salinity,Bottom,Field,148,0,0,0,0,0,0,0,0,0,0,0
+40,St. Andrews State Park Aquatic Preserve,Salinity,Bottom,Field,97,97,0,0,0,0,0,0,0,0,0,0
+41,St. Joseph Bay Aquatic Preserve,Salinity,Bottom,Field,1997,1997,0,0,0,0,0,0,0,0,0,0
+42,St. Joseph Bay State Buffer Preserve,Salinity,Bottom,Field,1,0,0,0,0,0,0,0,0,0,0,0
+43,St. Martins Marsh Aquatic Preserve,Salinity,Bottom,Field,2833,2833,0,0,0,0,0,0,0,0,0,0
+44,Terra Ceia Aquatic Preserve,Salinity,Bottom,Field,3085,3085,0,0,0,0,0,0,0,0,0,0
+45,Tomoka Marsh Aquatic Preserve,Salinity,Bottom,Field,189,189,0,0,0,0,0,0,0,0,0,0
+46,Wekiva River Aquatic Preserve,Salinity,Bottom,Field,1,0,0,0,0,0,0,0,0,0,0,0
+47,Yellow River Marsh Aquatic Preserve,Salinity,Bottom,Field,397,397,0,0,0,0,0,0,0,0,0,0

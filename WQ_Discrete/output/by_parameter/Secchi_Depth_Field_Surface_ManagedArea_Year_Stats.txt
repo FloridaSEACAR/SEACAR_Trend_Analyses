@@ -1,0 +1,832 @@
+AreaID|ManagedAreaName|Year|ParameterName|RelativeDepth|ActivityType|N|Min|Max|Median|Mean|StandardDeviation|ProgramIDs
+1|Alligator Harbor Aquatic Preserve|1998|Secchi Depth|Surface|Field|8|0.5|1|0.7|0.7125|0.216712449375401|69
+1|Alligator Harbor Aquatic Preserve|1999|Secchi Depth|Surface|Field|34|0.3|2.4|0.7|0.879411764705882|0.509770840829905|69
+1|Alligator Harbor Aquatic Preserve|2000|Secchi Depth|Surface|Field|44|0.3|2.7|0.8|0.902272727272727|0.517816810726978|69
+1|Alligator Harbor Aquatic Preserve|2001|Secchi Depth|Surface|Field|64|0.3|2.9|0.85345038|1.0718125146875|0.638257413470935|69, 514
+1|Alligator Harbor Aquatic Preserve|2002|Secchi Depth|Surface|Field|60|0.45720556|3.4|0.91441112|1.23119564333333|0.723526731291662|69, 514
+1|Alligator Harbor Aquatic Preserve|2003|Secchi Depth|Surface|Field|27|0.5|2.5|0.8|1.05131178444444|0.560100699017747|69, 514
+1|Alligator Harbor Aquatic Preserve|2004|Secchi Depth|Surface|Field|20|0.6|2.7|0.8|1.16|0.750017543654463|69
+1|Alligator Harbor Aquatic Preserve|2005|Secchi Depth|Surface|Field|27|0.5|2.3|1|1.30740740740741|0.652171476935043|69, 557
+1|Alligator Harbor Aquatic Preserve|2006|Secchi Depth|Surface|Field|86|0.30480371|2.74323336|1.06681297|1.22508435313953|0.630904470942785|69, 514
+1|Alligator Harbor Aquatic Preserve|2007|Secchi Depth|Surface|Field|90|0.45720556|4.11485004|1.21921483|1.31686634711111|0.633922645694034|69, 514
+1|Alligator Harbor Aquatic Preserve|2008|Secchi Depth|Surface|Field|155|0.3|9.99|1.52401853|2.18007938258065|2.3790219226226|69, 514, 558
+1|Alligator Harbor Aquatic Preserve|2009|Secchi Depth|Surface|Field|144|0.3|9.99|1.41628871|2.00928171305556|2.19927705303215|69, 514, 558
+1|Alligator Harbor Aquatic Preserve|2010|Secchi Depth|Surface|Field|144|0.31|9.99|1.1|1.44649706027778|1.39495089319066|69, 514, 558
+1|Alligator Harbor Aquatic Preserve|2011|Secchi Depth|Surface|Field|101|0.3|9.99|1.4|2.31853274148515|2.89378448423576|69, 514, 558
+1|Alligator Harbor Aquatic Preserve|2012|Secchi Depth|Surface|Field|85|0.3|9.99|0.96|1.54517647058824|1.97450271724102|69, 558
+1|Alligator Harbor Aquatic Preserve|2013|Secchi Depth|Surface|Field|87|0.34|9.99|1|1.78406896551724|2.48408196412493|69, 558
+1|Alligator Harbor Aquatic Preserve|2014|Secchi Depth|Surface|Field|95|0.34|9.99|1.1|2.24968421052632|2.87234038040728|69, 558
+1|Alligator Harbor Aquatic Preserve|2015|Secchi Depth|Surface|Field|45|0.3|2.2|1|1.08444444444444|0.622661280879959|69
+1|Alligator Harbor Aquatic Preserve|2016|Secchi Depth|Surface|Field|73|0.1|2.6|1.1|1.20531343835616|0.551519306571603|69, 514
+1|Alligator Harbor Aquatic Preserve|2017|Secchi Depth|Surface|Field|149|0.3|9.99|1.15825408|1.33961913080537|1.20513843417813|69, 514, 557, 558
+1|Alligator Harbor Aquatic Preserve|2018|Secchi Depth|Surface|Field|84|0.15240185|2.0726652|0.76200927|0.907282776547619|0.429294175526835|514, 557
+1|Alligator Harbor Aquatic Preserve|2019|Secchi Depth|Surface|Field|61|0.4|2.1|1.00585223|1.02665963147541|0.396776436897182|514, 557, 5002
+1|Alligator Harbor Aquatic Preserve|2020|Secchi Depth|Surface|Field|89|0.3048|2.52987|0.91441|0.972453370786517|0.463067852896566|514, 5002
+1|Alligator Harbor Aquatic Preserve|2021|Secchi Depth|Surface|Field|78|0.39624|2.19459|1.00585|1.09974461538462|0.432327706670582|514, 5002
+1|Alligator Harbor Aquatic Preserve|2022|Secchi Depth|Surface|Field|1|1.4|1.4|1.4|1.4||5002
+2|Apalachicola Bay Aquatic Preserve|1998|Secchi Depth|Surface|Field|148|0.1|2.3|0.6|0.711486486486487|0.407501704624564|69
+2|Apalachicola Bay Aquatic Preserve|1999|Secchi Depth|Surface|Field|212|0.1|2.7|0.7|0.752830188679245|0.382609535081798|69
+2|Apalachicola Bay Aquatic Preserve|2000|Secchi Depth|Surface|Field|317|0.2|3.9|0.7|0.808958990536278|0.463893663021368|69, 129
+2|Apalachicola Bay Aquatic Preserve|2001|Secchi Depth|Surface|Field|793|0.1|2.8|0.6|0.760870113493064|0.440499744352776|69, 129
+2|Apalachicola Bay Aquatic Preserve|2002|Secchi Depth|Surface|Field|804|0.1|3.2|0.7|0.804539800995025|0.417847371132214|69, 129
+2|Apalachicola Bay Aquatic Preserve|2003|Secchi Depth|Surface|Field|922|0.1|2.2|0.7|0.782104121475054|0.339635939092229|69, 129
+2|Apalachicola Bay Aquatic Preserve|2004|Secchi Depth|Surface|Field|929|0.2|3.1|0.7|0.797362755651238|0.382272919340834|69, 129
+2|Apalachicola Bay Aquatic Preserve|2005|Secchi Depth|Surface|Field|960|0.2|3.3|0.7|0.8134375|0.404351533854066|69, 129
+2|Apalachicola Bay Aquatic Preserve|2006|Secchi Depth|Surface|Field|824|0.1|2.3|0.8|0.900728155339806|0.405460245974085|69, 129
+2|Apalachicola Bay Aquatic Preserve|2007|Secchi Depth|Surface|Field|950|0.1|9|0.8|0.860457475084211|0.478306792786975|69, 129, 514
+2|Apalachicola Bay Aquatic Preserve|2008|Secchi Depth|Surface|Field|992|0.15240185|2.6|0.7|0.787744678699597|0.363103913032459|69, 129, 514
+2|Apalachicola Bay Aquatic Preserve|2009|Secchi Depth|Surface|Field|937|0.1|15|0.7|0.762006403415155|0.623718710536635|69, 129
+2|Apalachicola Bay Aquatic Preserve|2010|Secchi Depth|Surface|Field|917|0.1|2.5|0.7|0.752071973827699|0.385243731688628|69, 129
+2|Apalachicola Bay Aquatic Preserve|2011|Secchi Depth|Surface|Field|1005|0.2|2.4|0.7|0.821243781094527|0.398501857401221|69, 129, 355
+2|Apalachicola Bay Aquatic Preserve|2012|Secchi Depth|Surface|Field|1085|0.2|3.2|0.7|0.800506912442396|0.401268998582487|69, 129, 355, 5002
+2|Apalachicola Bay Aquatic Preserve|2013|Secchi Depth|Surface|Field|1007|0.1|2|0.7|0.752234359483615|0.358997489554071|69, 355
+2|Apalachicola Bay Aquatic Preserve|2014|Secchi Depth|Surface|Field|941|0.1|2.6|0.7|0.766950053134963|0.323547731774926|69, 129, 355
+2|Apalachicola Bay Aquatic Preserve|2015|Secchi Depth|Surface|Field|977|0.2|2.5|0.7|0.765404298874104|0.338384035427679|69, 129, 355
+2|Apalachicola Bay Aquatic Preserve|2016|Secchi Depth|Surface|Field|969|0.1|2.2|0.7|0.742208462332301|0.380712242869157|69, 129, 355
+2|Apalachicola Bay Aquatic Preserve|2017|Secchi Depth|Surface|Field|1058|0.1|10.4|0.8|0.849338374291115|0.490481331431178|69, 129, 355
+2|Apalachicola Bay Aquatic Preserve|2018|Secchi Depth|Surface|Field|223|0.2|2|0.9|0.983856502242153|0.386144510409305|129, 355, 5002
+2|Apalachicola Bay Aquatic Preserve|2019|Secchi Depth|Surface|Field|210|0.3|1.6|0.9|0.922619047619048|0.311079764258536|129, 355, 557, 5002
+2|Apalachicola Bay Aquatic Preserve|2020|Secchi Depth|Surface|Field|56|0.3|1.5|0.8|0.826785714285714|0.328351846446666|129, 5002
+2|Apalachicola Bay Aquatic Preserve|2021|Secchi Depth|Surface|Field|10|0.2|1.8|0.85|0.89|0.422821212544709|5002
+2|Apalachicola Bay Aquatic Preserve|2022|Secchi Depth|Surface|Field|2|0.5|1.3|0.9|0.9|0.565685424949238|5002
+3|Apalachicola National Estuarine Research Reserve|1998|Secchi Depth|Surface|Field|201|0.1|2.5|0.6|0.736318407960199|0.437063357088481|69
+3|Apalachicola National Estuarine Research Reserve|1999|Secchi Depth|Surface|Field|311|0.1|3.5|0.7|0.797749196141479|0.473042398827062|69
+3|Apalachicola National Estuarine Research Reserve|2000|Secchi Depth|Surface|Field|470|0.2|3.9|0.7|0.845191489361702|0.466963910537041|69, 129
+3|Apalachicola National Estuarine Research Reserve|2001|Secchi Depth|Surface|Field|1242|0.1|3.2|0.7|0.822238325281804|0.499179163016103|69, 115, 129
+3|Apalachicola National Estuarine Research Reserve|2002|Secchi Depth|Surface|Field|1241|0.1|4|0.8|0.895044319097502|0.520186863573306|69, 129
+3|Apalachicola National Estuarine Research Reserve|2003|Secchi Depth|Surface|Field|1408|0.1|2.5|0.7|0.823899147727273|0.391267774929041|69, 129, 5002
+3|Apalachicola National Estuarine Research Reserve|2004|Secchi Depth|Surface|Field|1433|0.2|3.4|0.7|0.837892533147244|0.429578066547226|69, 115, 129, 5002
+3|Apalachicola National Estuarine Research Reserve|2005|Secchi Depth|Surface|Field|1467|0.2|3.5|0.7|0.832344921608725|0.430776079902475|69, 129, 5002
+3|Apalachicola National Estuarine Research Reserve|2006|Secchi Depth|Surface|Field|1363|0.1|3.5|0.9|0.948862802641233|0.440435755176235|69, 129, 5002
+3|Apalachicola National Estuarine Research Reserve|2007|Secchi Depth|Surface|Field|1770|0.09144111|9|0.9|0.934295576248588|0.468482715993992|69, 129, 514, 5002
+3|Apalachicola National Estuarine Research Reserve|2008|Secchi Depth|Surface|Field|1846|0.15240185|9.99|0.8|0.826326994479957|0.428667368268215|69, 129, 514, 558, 5002
+3|Apalachicola National Estuarine Research Reserve|2009|Secchi Depth|Surface|Field|1586|0.1|15|0.7|0.844861286254729|0.688671110710642|69, 129, 558, 5002
+3|Apalachicola National Estuarine Research Reserve|2010|Secchi Depth|Surface|Field|1424|0.1|2.7|0.7|0.786762640449438|0.421132709249769|69, 129, 5002
+3|Apalachicola National Estuarine Research Reserve|2011|Secchi Depth|Surface|Field|1607|0.2|9.99|0.8|0.915052893590541|0.719129113240013|69, 129, 355, 558, 5002
+3|Apalachicola National Estuarine Research Reserve|2012|Secchi Depth|Surface|Field|1689|0.2|9.99|0.7|0.873280047365305|0.667984896093114|69, 129, 355, 558, 5002
+3|Apalachicola National Estuarine Research Reserve|2013|Secchi Depth|Surface|Field|1626|0.1|9.99|0.7|0.857435424354244|0.817163953314542|69, 355, 558, 5002
+3|Apalachicola National Estuarine Research Reserve|2014|Secchi Depth|Surface|Field|1571|0.1|9.99|0.7|0.895149586250796|0.936265531993734|69, 129, 355, 558, 5002
+3|Apalachicola National Estuarine Research Reserve|2015|Secchi Depth|Surface|Field|1515|0.2|4.2|0.7|0.793729372937294|0.378130202219008|69, 129, 355, 5002
+3|Apalachicola National Estuarine Research Reserve|2016|Secchi Depth|Surface|Field|1527|0.1|2.4|0.7|0.771381794368042|0.39530284723409|69, 129, 355, 5002
+3|Apalachicola National Estuarine Research Reserve|2017|Secchi Depth|Surface|Field|1667|0.1|10.4|0.8|0.888657468506299|0.611617244614861|69, 129, 355, 558, 5002
+3|Apalachicola National Estuarine Research Reserve|2018|Secchi Depth|Surface|Field|285|0.2|2.2|1|1.00842105263158|0.387297377618485|129, 355, 5002
+3|Apalachicola National Estuarine Research Reserve|2019|Secchi Depth|Surface|Field|287|0.3|1.7|0.9|0.915853658536585|0.310088899128044|129, 355, 557, 5002
+3|Apalachicola National Estuarine Research Reserve|2020|Secchi Depth|Surface|Field|72|0.3|1.5|0.8|0.820833333333333|0.315754183227004|129, 5002
+3|Apalachicola National Estuarine Research Reserve|2021|Secchi Depth|Surface|Field|29|0.2|2.1|0.9|0.955172413793104|0.454018727505935|5002
+3|Apalachicola National Estuarine Research Reserve|2022|Secchi Depth|Surface|Field|8|0.5|1.3|0.7|0.7875|0.247487373415292|5002
+4|Banana River Aquatic Preserve|1991|Secchi Depth|Surface|Field|7|0.3|1.2|0.8|0.742857142857143|0.320713490294909|3001
+4|Banana River Aquatic Preserve|1992|Secchi Depth|Surface|Field|115|0.2|1.5|0.8|0.770434782608696|0.232444640850804|3001
+4|Banana River Aquatic Preserve|1993|Secchi Depth|Surface|Field|113|0.3|1.9|0.8|0.825663716814159|0.281824020908549|3001
+4|Banana River Aquatic Preserve|1994|Secchi Depth|Surface|Field|138|0.3|2.2|0.9|0.898550724637681|0.355762880772064|69, 3001
+4|Banana River Aquatic Preserve|1995|Secchi Depth|Surface|Field|151|0.2|1.8|0.8|0.787417218543046|0.291502918398562|69, 3001
+4|Banana River Aquatic Preserve|1996|Secchi Depth|Surface|Field|157|0.2|2.1|0.6|0.696815286624204|0.332322901007517|69, 3001
+4|Banana River Aquatic Preserve|1997|Secchi Depth|Surface|Field|237|0|2.8|0.8|0.869409282700422|0.384419644573226|69, 3001
+4|Banana River Aquatic Preserve|1998|Secchi Depth|Surface|Field|144|0.3|6.5|0.9|0.981944444444444|0.558112801313408|69, 3001
+4|Banana River Aquatic Preserve|1999|Secchi Depth|Surface|Field|152|0.3|2.5|0.89|0.91296052631579|0.367911303045082|69, 3001, 5002
+4|Banana River Aquatic Preserve|2000|Secchi Depth|Surface|Field|151|0.25|9|0.9|1.01748344370861|0.751261355803732|69, 3001
+4|Banana River Aquatic Preserve|2001|Secchi Depth|Surface|Field|244|0.2|8.9|0.8|0.909508196721312|0.624375707906622|69, 3001
+4|Banana River Aquatic Preserve|2002|Secchi Depth|Surface|Field|248|0.2|1.9|0.8|0.853427419354839|0.31985312098246|69, 3001
+4|Banana River Aquatic Preserve|2003|Secchi Depth|Surface|Field|193|0.3|2|0.7|0.818911917098446|0.330509955587816|69, 3001, 3013
+4|Banana River Aquatic Preserve|2004|Secchi Depth|Surface|Field|174|0.2|1.4|0.7|0.727011494252874|0.233198989391562|69, 3001, 3013
+4|Banana River Aquatic Preserve|2005|Secchi Depth|Surface|Field|200|0|2.3|1|1.0511|0.396285250797957|69, 3001, 3013, 5002
+4|Banana River Aquatic Preserve|2006|Secchi Depth|Surface|Field|221|0|2.6|0.7|0.817873303167421|0.373903855243374|69, 3001, 3013
+4|Banana River Aquatic Preserve|2007|Secchi Depth|Surface|Field|244|0.1|2.9|0.875|1.02229508196721|0.549216107121225|69, 3001, 3013
+4|Banana River Aquatic Preserve|2008|Secchi Depth|Surface|Field|224|0.06|2.4|0.825|0.932321428571429|0.439179794316709|69, 3001, 3013
+4|Banana River Aquatic Preserve|2009|Secchi Depth|Surface|Field|211|0.1|2.4|0.9|0.991943127962085|0.387920606245878|69, 3001, 3013
+4|Banana River Aquatic Preserve|2010|Secchi Depth|Surface|Field|223|0.2|2.6|0.8|0.832847533632287|0.342207439434402|69, 3001, 3013, 5002
+4|Banana River Aquatic Preserve|2011|Secchi Depth|Surface|Field|205|0.2|1.9|0.5|0.553658536585366|0.22848344962546|69, 3001, 3013
+4|Banana River Aquatic Preserve|2012|Secchi Depth|Surface|Field|131|0.4|2.05|0.9|0.942977099236641|0.369391796703068|69, 3001, 3013
+4|Banana River Aquatic Preserve|2013|Secchi Depth|Surface|Field|204|0.1|2.1|0.9|0.967156862745098|0.335685101826308|69, 3001, 3013, 5002
+4|Banana River Aquatic Preserve|2014|Secchi Depth|Surface|Field|235|0.3|2|0.9|0.922723404255319|0.349868455263348|69, 3001, 3013
+4|Banana River Aquatic Preserve|2015|Secchi Depth|Surface|Field|248|0.3|2.1|0.8|0.87116935483871|0.307933959526295|69, 3001, 3013, 5002
+4|Banana River Aquatic Preserve|2016|Secchi Depth|Surface|Field|208|0.3|1.6|0.7|0.707932692307692|0.315043215022712|69, 3001, 3013, 5002
+4|Banana River Aquatic Preserve|2017|Secchi Depth|Surface|Field|118|0.4|1.65|0.8|0.815677966101695|0.280924842622837|69, 3001, 3013
+4|Banana River Aquatic Preserve|2018|Secchi Depth|Surface|Field|242|0.2|1.7|0.4|0.519214876033058|0.25493592740273|3001, 3013, 5002
+4|Banana River Aquatic Preserve|2019|Secchi Depth|Surface|Field|258|0.09|2.5|0.6|0.800581395348837|0.448077444280287|3001, 3013, 5002
+4|Banana River Aquatic Preserve|2020|Secchi Depth|Surface|Field|398|0.07|2.9|0.9|0.895778894472362|0.474354150724016|3001, 3013, 5002
+4|Banana River Aquatic Preserve|2021|Secchi Depth|Surface|Field|200|0.1|2.1|1.2|1.0963|0.521890947233251|5002
+5|Big Bend Seagrasses Aquatic Preserve|1986|Secchi Depth|Surface|Field|2|8|12|10|10|2.82842712474619|60
+5|Big Bend Seagrasses Aquatic Preserve|1990|Secchi Depth|Surface|Field|1|10|10|10|10||60
+5|Big Bend Seagrasses Aquatic Preserve|1993|Secchi Depth|Surface|Field|3|0.54864667|0.85345038|0.76200927|0.721368773333333|0.156413116088217|514
+5|Big Bend Seagrasses Aquatic Preserve|1994|Secchi Depth|Surface|Field|10|0.54864667|1.37161668|1.00585223|0.981467936|0.275936686818049|514
+5|Big Bend Seagrasses Aquatic Preserve|1995|Secchi Depth|Surface|Field|8|0.60960741|0.91441112|0.91441112|0.8382101925|0.141096700601622|514
+5|Big Bend Seagrasses Aquatic Preserve|1996|Secchi Depth|Surface|Field|324|0.1|9.14411119|1.1|1.80198701907407|1.7932539589089|69, 514
+5|Big Bend Seagrasses Aquatic Preserve|1997|Secchi Depth|Surface|Field|636|0.1|9.14411119|1|1.6171591833805|1.59675947061899|69, 514
+5|Big Bend Seagrasses Aquatic Preserve|1998|Secchi Depth|Surface|Field|500|0.1|9.4489149|0.6|0.96507622522|1.35644698188394|69, 514
+5|Big Bend Seagrasses Aquatic Preserve|1999|Secchi Depth|Surface|Field|624|0.2|9.4489149|0.7|1.16724215935897|1.50101931849019|69, 514, 5002
+5|Big Bend Seagrasses Aquatic Preserve|2000|Secchi Depth|Surface|Field|679|0.1|9.75371861|0.8|1.19035868606775|1.47577823776904|69, 115, 514
+5|Big Bend Seagrasses Aquatic Preserve|2001|Secchi Depth|Surface|Field|1488|0.1|10.05852231|0.7|1.13383355555108|1.22706923535424|69, 514, 5002
+5|Big Bend Seagrasses Aquatic Preserve|2002|Secchi Depth|Surface|Field|1513|0.1|9.75371861|0.8|1.19400853820886|1.13307016530749|69, 115, 514
+5|Big Bend Seagrasses Aquatic Preserve|2003|Secchi Depth|Surface|Field|1496|0.1|10.05852231|0.7|1.01017127195187|1.10299160611502|69, 514, 5002
+5|Big Bend Seagrasses Aquatic Preserve|2004|Secchi Depth|Surface|Field|1496|0.09|9.4489149|0.7|1.00570819265374|1.11663280090469|69, 115, 514, 5002
+5|Big Bend Seagrasses Aquatic Preserve|2005|Secchi Depth|Surface|Field|1559|0|9.75371861|0.7|0.964721741391918|0.981580396273375|69, 514, 5002
+5|Big Bend Seagrasses Aquatic Preserve|2006|Secchi Depth|Surface|Field|1631|0.2|9.75371861|0.7|1.13617334887799|1.16696930284221|69, 514, 5002
+5|Big Bend Seagrasses Aquatic Preserve|2007|Secchi Depth|Surface|Field|1618|0.1|9.4489149|0.7|1.10132763303461|1.15519343273317|69, 514, 5002
+5|Big Bend Seagrasses Aquatic Preserve|2008|Secchi Depth|Surface|Field|2014|0.1|10.21092416|0.8|1.18185027412115|1.09498533074904|60, 69, 514, 5002
+5|Big Bend Seagrasses Aquatic Preserve|2009|Secchi Depth|Surface|Field|1924|0.2|11|0.8|1.14454563588877|1.03553404603046|60, 69, 514, 5002
+5|Big Bend Seagrasses Aquatic Preserve|2010|Secchi Depth|Surface|Field|2017|0.1|9.60131675|0.8|1.17071228379276|1.06335682805839|69, 514, 5002
+5|Big Bend Seagrasses Aquatic Preserve|2011|Secchi Depth|Surface|Field|1986|0.1|9.4489149|0.9|1.26528065390735|1.13227424826094|69, 514, 5002
+5|Big Bend Seagrasses Aquatic Preserve|2012|Secchi Depth|Surface|Field|1976|0.1|9.29651305|0.731004635|1.10744281288968|1.050236146578|69, 514, 5002
+5|Big Bend Seagrasses Aquatic Preserve|2013|Secchi Depth|Surface|Field|1993|0.1|9.4489149|0.7|1.04403591501756|0.924775511699835|69, 514, 5002
+5|Big Bend Seagrasses Aquatic Preserve|2014|Secchi Depth|Surface|Field|1971|0.1|9.38795416|0.8|1.07126453449011|0.864318789016732|60, 69, 514, 5002
+5|Big Bend Seagrasses Aquatic Preserve|2015|Secchi Depth|Surface|Field|1963|0.1|9.54035601|0.7|1.10480680568518|1.00339796032953|69, 514, 5002
+5|Big Bend Seagrasses Aquatic Preserve|2016|Secchi Depth|Surface|Field|1958|0.1|9.4489149|0.8|1.14420997993361|1.00516554991275|69, 514, 5002
+5|Big Bend Seagrasses Aquatic Preserve|2017|Secchi Depth|Surface|Field|1998|0.1|9.54035601|0.7|1.11681237442943|1.03356599972662|69, 514, 5002
+5|Big Bend Seagrasses Aquatic Preserve|2018|Secchi Depth|Surface|Field|130|0.2|9.38795416|1.8|2.44369226061539|2.22448212512605|514, 5002
+5|Big Bend Seagrasses Aquatic Preserve|2019|Secchi Depth|Surface|Field|56|0.30480371|9.29651|1.083406485|2.27429646267857|2.39151992664924|477, 514, 5002
+5|Big Bend Seagrasses Aquatic Preserve|2020|Secchi Depth|Surface|Field|156|0.2|9.44891|1.21921|2.07045820512821|2.06687385386083|477, 514, 5002
+5|Big Bend Seagrasses Aquatic Preserve|2021|Secchi Depth|Surface|Field|128|0.3048|9.23555|1.48153|2.208038828125|2.00790466325879|477, 514, 5002
+6|Biscayne Bay Aquatic Preserve|2000|Secchi Depth|Surface|Field|23|0.70104852|3.04803706|1.67642039|1.85665214217391|0.638430530113824|514
+6|Biscayne Bay Aquatic Preserve|2001|Secchi Depth|Surface|Field|23|0.91441112|3.35284077|1.52401853|1.79569140086957|0.67526939507108|514
+6|Biscayne Bay Aquatic Preserve|2002|Secchi Depth|Surface|Field|19|0.91441112|2.43842965|1.52401853|1.50797623210526|0.542151695119732|514
+6|Biscayne Bay Aquatic Preserve|2003|Secchi Depth|Surface|Field|3|1.21921483|2.43842965|1.52401853|1.72722100333333|0.634499510010446|514
+6|Biscayne Bay Aquatic Preserve|2004|Secchi Depth|Surface|Field|12|0.64008778|3.13947818|1.447817605|1.818662115|0.920976237738213|514
+6|Biscayne Bay Aquatic Preserve|2005|Secchi Depth|Surface|Field|24|0.67056815|3.04803706|2.05|2.02378484916667|0.73002220525443|514, 4049
+6|Biscayne Bay Aquatic Preserve|2006|Secchi Depth|Surface|Field|18|1.6|4.3|1.925|2.26111111111111|0.714463096555637|4049
+6|Biscayne Bay Aquatic Preserve|2007|Secchi Depth|Surface|Field|38|0.55|3|1.675|1.75052631578947|0.577159621784556|4049, 5002
+6|Biscayne Bay Aquatic Preserve|2009|Secchi Depth|Surface|Field|45|0.3|2.5|1.1|1.14444444444444|0.590668171555645|5002
+6|Biscayne Bay Aquatic Preserve|2010|Secchi Depth|Surface|Field|2|1|1.1|1.05|1.05|0.0707106781186548|5002
+6|Biscayne Bay Aquatic Preserve|2013|Secchi Depth|Surface|Field|2|1.05|2.2|1.625|1.625|0.81317279836453|5002
+6|Biscayne Bay Aquatic Preserve|2014|Secchi Depth|Surface|Field|1|1|1|1|1||5002
+6|Biscayne Bay Aquatic Preserve|2015|Secchi Depth|Surface|Field|8|2.5|4|3.15|3.1875|0.628916301494654|5002
+6|Biscayne Bay Aquatic Preserve|2016|Secchi Depth|Surface|Field|13|0.8|3.6|1.9|2.13076923076923|1.08273158830233|5002
+6|Biscayne Bay Aquatic Preserve|2017|Secchi Depth|Surface|Field|7|0.5|2.5|1|1.34285714285714|0.741298731635101|5002
+6|Biscayne Bay Aquatic Preserve|2019|Secchi Depth|Surface|Field|164|0.4572|3.5|1.2803|1.52242926829268|0.718967063588183|5026
+6|Biscayne Bay Aquatic Preserve|2020|Secchi Depth|Surface|Field|140|0.1524|3.2918|1.2096|1.33481142857143|0.595540463090293|5002, 5026
+8|Boca Ciega Bay Aquatic Preserve|1994|Secchi Depth|Surface|Field|20|0.4|1.4|0.75|0.765|0.236809939336213|69
+8|Boca Ciega Bay Aquatic Preserve|1995|Secchi Depth|Surface|Field|87|0.3|4.5|1|1.13103448275862|0.702538643285009|69
+8|Boca Ciega Bay Aquatic Preserve|1996|Secchi Depth|Surface|Field|147|0.2|3.4|0.8|0.854421768707483|0.431663125329756|69
+8|Boca Ciega Bay Aquatic Preserve|1997|Secchi Depth|Surface|Field|200|0.2|2.1|0.8|0.848|0.395319348039877|69
+8|Boca Ciega Bay Aquatic Preserve|1998|Secchi Depth|Surface|Field|166|0.4|2.5|0.9|0.914457831325301|0.359674105055381|69
+8|Boca Ciega Bay Aquatic Preserve|1999|Secchi Depth|Surface|Field|137|0.1|2.1|1|0.933576642335766|0.403710250686345|69
+8|Boca Ciega Bay Aquatic Preserve|2000|Secchi Depth|Surface|Field|117|0.3|2.2|0.9|1.0025641025641|0.44749523951649|69, 115
+8|Boca Ciega Bay Aquatic Preserve|2001|Secchi Depth|Surface|Field|218|0.3|3.2|1|0.992201834862385|0.470301124828605|69, 115
+8|Boca Ciega Bay Aquatic Preserve|2002|Secchi Depth|Surface|Field|267|0.3|2|1|0.995131086142322|0.429038400282815|69, 115
+8|Boca Ciega Bay Aquatic Preserve|2003|Secchi Depth|Surface|Field|292|0.2|2.8|1|1.02157534246575|0.510690104290417|69
+8|Boca Ciega Bay Aquatic Preserve|2004|Secchi Depth|Surface|Field|234|0.3|2.4|1|0.997435897435897|0.426375388909908|69
+8|Boca Ciega Bay Aquatic Preserve|2005|Secchi Depth|Surface|Field|231|0.3|3|0.7|0.876190476190476|0.519360173336417|69
+8|Boca Ciega Bay Aquatic Preserve|2006|Secchi Depth|Surface|Field|228|0.2|4|0.8|1.02456140350877|0.679149689080218|69
+8|Boca Ciega Bay Aquatic Preserve|2007|Secchi Depth|Surface|Field|222|0.3|2.8|0.8|0.999099099099099|0.545071790779212|69
+8|Boca Ciega Bay Aquatic Preserve|2008|Secchi Depth|Surface|Field|322|0.2|2.8|1|1.02236024844721|0.46187686391289|69
+8|Boca Ciega Bay Aquatic Preserve|2009|Secchi Depth|Surface|Field|326|0.2|2.4|1|1.07085889570552|0.493942256074541|69
+8|Boca Ciega Bay Aquatic Preserve|2010|Secchi Depth|Surface|Field|299|0.3|3.2|1|1.12307692307692|0.586969149660856|69, 5002
+8|Boca Ciega Bay Aquatic Preserve|2011|Secchi Depth|Surface|Field|318|0.3|2.5|1|1.02578616352201|0.490311667632722|69
+8|Boca Ciega Bay Aquatic Preserve|2012|Secchi Depth|Surface|Field|307|0.3|3.7|1|1.10944625407166|0.52606134816823|69
+8|Boca Ciega Bay Aquatic Preserve|2013|Secchi Depth|Surface|Field|297|0.3|3.1|1|1.15521885521886|0.540627796897658|69
+8|Boca Ciega Bay Aquatic Preserve|2014|Secchi Depth|Surface|Field|297|0.3|2.8|1|1.05723905723906|0.467912760503869|69
+8|Boca Ciega Bay Aquatic Preserve|2015|Secchi Depth|Surface|Field|304|0.3|3.1|1.1|1.17532894736842|0.559835451736196|69
+8|Boca Ciega Bay Aquatic Preserve|2016|Secchi Depth|Surface|Field|404|0.2|3.6|1|1.17995049504951|0.660076691179114|69, 5002
+8|Boca Ciega Bay Aquatic Preserve|2017|Secchi Depth|Surface|Field|317|0.2|3.5|1|1.20157728706625|0.655862586324847|69
+8|Boca Ciega Bay Aquatic Preserve|2020|Secchi Depth|Surface|Field|50|0.192|2.1|1.1|1.1494|0.458129471050377|5002
+8|Boca Ciega Bay Aquatic Preserve|2021|Secchi Depth|Surface|Field|94|0.351|5.6|1.1435|1.50424468085106|0.978630068235834|5002
+9|Cape Haze Aquatic Preserve|1994|Secchi Depth|Surface|Field|5|0.3|0.7|0.5|0.52|0.178885438199983|69
+9|Cape Haze Aquatic Preserve|1995|Secchi Depth|Surface|Field|31|0.2|1.5|0.7|0.741935483870968|0.366764405350708|69
+9|Cape Haze Aquatic Preserve|1996|Secchi Depth|Surface|Field|71|0.2|2|0.7|0.788732394366197|0.375518420995618|69
+9|Cape Haze Aquatic Preserve|1997|Secchi Depth|Surface|Field|82|0.3|2.6|0.8|0.830487804878049|0.388948892002772|69
+9|Cape Haze Aquatic Preserve|1998|Secchi Depth|Surface|Field|105|0.2|2.3|0.7|0.796190476190476|0.390247409079215|69
+9|Cape Haze Aquatic Preserve|1999|Secchi Depth|Surface|Field|101|0.2|2|0.8|0.90990099009901|0.458803868879732|69
+9|Cape Haze Aquatic Preserve|2000|Secchi Depth|Surface|Field|122|0.3|2|0.9|0.891803278688525|0.335401612954727|69
+9|Cape Haze Aquatic Preserve|2001|Secchi Depth|Surface|Field|205|0.3|2.2|0.7|0.858048780487805|0.380783631580177|69, 479
+9|Cape Haze Aquatic Preserve|2002|Secchi Depth|Surface|Field|247|0.3|2.6|0.9|1.03603238866397|0.45509452132162|69, 479
+9|Cape Haze Aquatic Preserve|2003|Secchi Depth|Surface|Field|245|0.3|2.4|0.8|0.935510204081633|0.437677651165645|69, 479
+9|Cape Haze Aquatic Preserve|2004|Secchi Depth|Surface|Field|233|0.2|2.2|0.9|0.937768240343348|0.463344473613699|69, 479
+9|Cape Haze Aquatic Preserve|2005|Secchi Depth|Surface|Field|193|0.3|2.3|0.7|0.87979274611399|0.435717749032682|69, 479
+9|Cape Haze Aquatic Preserve|2006|Secchi Depth|Surface|Field|203|0.3|3|0.8|0.926600985221675|0.468916777221098|69, 479
+9|Cape Haze Aquatic Preserve|2007|Secchi Depth|Surface|Field|190|0.3|3|0.9|1.02368421052632|0.536120796290334|69, 479
+9|Cape Haze Aquatic Preserve|2008|Secchi Depth|Surface|Field|226|0.3|2.7|0.8|0.957522123893805|0.43242064083421|69, 479, 5002
+9|Cape Haze Aquatic Preserve|2009|Secchi Depth|Surface|Field|246|0.3|2.7|1|1.06178861788618|0.441245052042005|69, 479
+9|Cape Haze Aquatic Preserve|2010|Secchi Depth|Surface|Field|217|0.3|2.2|1|1.05944700460829|0.471714434372272|69, 479
+9|Cape Haze Aquatic Preserve|2011|Secchi Depth|Surface|Field|317|0.3|2|0.8|0.873186119873817|0.317735669631377|69, 479, 5002
+9|Cape Haze Aquatic Preserve|2012|Secchi Depth|Surface|Field|266|0.2|2.1|0.9|0.978571428571428|0.351105301319355|69, 479
+9|Cape Haze Aquatic Preserve|2013|Secchi Depth|Surface|Field|281|0.3|2.9|0.9|0.987544483985765|0.455546789559968|69, 479
+9|Cape Haze Aquatic Preserve|2014|Secchi Depth|Surface|Field|315|0.3|2.5|0.8|0.946031746031746|0.414861421427662|69, 479
+9|Cape Haze Aquatic Preserve|2015|Secchi Depth|Surface|Field|321|0.3|2.4|0.9|0.966978193146417|0.407775860796069|69, 479
+9|Cape Haze Aquatic Preserve|2016|Secchi Depth|Surface|Field|420|0.3|2|0.7|0.823571428571429|0.342239719950849|69, 479
+9|Cape Haze Aquatic Preserve|2017|Secchi Depth|Surface|Field|332|0.2|2.2|0.7|0.832831325301205|0.40567030261484|69, 5002
+9|Cape Haze Aquatic Preserve|2020|Secchi Depth|Surface|Field|16|0.65|2.4|1.5|1.471875|0.489206415193696|479, 5002
+9|Cape Haze Aquatic Preserve|2021|Secchi Depth|Surface|Field|3|1.5|2.3|1.8|1.86666666666667|0.404145188432738|476
+11|Cockroach Bay Aquatic Preserve|1995|Secchi Depth|Surface|Field|30|0.2|2|0.5|0.74|0.52166841099925|69
+11|Cockroach Bay Aquatic Preserve|1996|Secchi Depth|Surface|Field|114|0.2|2.1|0.8|0.862280701754386|0.396308262711375|69
+11|Cockroach Bay Aquatic Preserve|1997|Secchi Depth|Surface|Field|149|0.3|1.9|0.8|0.842281879194631|0.302954195104771|69
+11|Cockroach Bay Aquatic Preserve|1998|Secchi Depth|Surface|Field|136|0.2|2|0.7|0.802205882352941|0.369477491273466|69
+11|Cockroach Bay Aquatic Preserve|1999|Secchi Depth|Surface|Field|146|0.1|2.3|0.9|0.906164383561644|0.390618007731467|69
+11|Cockroach Bay Aquatic Preserve|2000|Secchi Depth|Surface|Field|167|0.3|2|1|0.97185628742515|0.3561653581622|69
+11|Cockroach Bay Aquatic Preserve|2001|Secchi Depth|Surface|Field|520|0.2|2.3|0.7|0.773658723019231|0.348438284508892|69, 514
+11|Cockroach Bay Aquatic Preserve|2002|Secchi Depth|Surface|Field|1136|0.1|2.6|0.7|0.758714788732394|0.340605477451681|69
+11|Cockroach Bay Aquatic Preserve|2003|Secchi Depth|Surface|Field|831|0.2|2|0.6|0.718170878459687|0.313925053858514|69
+11|Cockroach Bay Aquatic Preserve|2004|Secchi Depth|Surface|Field|381|0.2|2.2|0.8|0.875853018372703|0.389864510098427|69
+11|Cockroach Bay Aquatic Preserve|2005|Secchi Depth|Surface|Field|361|0.1|2.1|0.8|0.824376731301939|0.360345069052425|69
+11|Cockroach Bay Aquatic Preserve|2006|Secchi Depth|Surface|Field|792|0.1|2.8|0.6|0.684469696969697|0.393819151048935|69, 5002
+11|Cockroach Bay Aquatic Preserve|2007|Secchi Depth|Surface|Field|501|0.1|2.5|0.7|0.780239520958084|0.375604502788465|69, 5002
+11|Cockroach Bay Aquatic Preserve|2008|Secchi Depth|Surface|Field|354|0.3|2.7|0.8|0.911581920903955|0.425206212676018|69
+11|Cockroach Bay Aquatic Preserve|2009|Secchi Depth|Surface|Field|370|0.2|2.2|0.8|0.921351351351351|0.370970032626046|69
+11|Cockroach Bay Aquatic Preserve|2010|Secchi Depth|Surface|Field|376|0.3|2.3|0.8|0.879521276595745|0.373924462353159|69
+11|Cockroach Bay Aquatic Preserve|2011|Secchi Depth|Surface|Field|409|0.2|1.7|0.8|0.807823960880196|0.285237101773929|69
+11|Cockroach Bay Aquatic Preserve|2012|Secchi Depth|Surface|Field|377|0.3|2.3|0.8|0.891246684350133|0.397469101095184|69
+11|Cockroach Bay Aquatic Preserve|2013|Secchi Depth|Surface|Field|385|0.3|2.3|0.7|0.847012987012987|0.406006545433771|69, 5002
+11|Cockroach Bay Aquatic Preserve|2014|Secchi Depth|Surface|Field|528|0.3|2.5|0.8|0.882575757575758|0.352921385986075|69, 5002
+11|Cockroach Bay Aquatic Preserve|2015|Secchi Depth|Surface|Field|421|0.2|2.2|0.8|0.906175771971497|0.386879897054549|69
+11|Cockroach Bay Aquatic Preserve|2016|Secchi Depth|Surface|Field|415|0.3|2.5|1|0.980963855421687|0.410724629055327|69
+11|Cockroach Bay Aquatic Preserve|2017|Secchi Depth|Surface|Field|373|0.3|2.5|0.8|0.914209115281501|0.417605474697511|69, 5002
+11|Cockroach Bay Aquatic Preserve|2020|Secchi Depth|Surface|Field|59|0.2|1.3|0.7|0.78135593220339|0.187978883875737|5002
+11|Cockroach Bay Aquatic Preserve|2021|Secchi Depth|Surface|Field|88|0.2|1|0.75|0.755681818181818|0.154516639393723|5002
+14|Estero Bay Aquatic Preserve|2001|Secchi Depth|Surface|Field|42|0.7|1.4|1.1|1.00714285714286|0.227813420815879|69
+14|Estero Bay Aquatic Preserve|2003|Secchi Depth|Surface|Field|2|1.3|1.3|1.3|1.3|0|69
+14|Estero Bay Aquatic Preserve|2005|Secchi Depth|Surface|Field|646|0.2|2.5|0.7|0.822136222910217|0.362192830590043|69
+14|Estero Bay Aquatic Preserve|2006|Secchi Depth|Surface|Field|635|0.2|2.9|0.8|0.885275590551181|0.404362696711216|69, 5002
+14|Estero Bay Aquatic Preserve|2007|Secchi Depth|Surface|Field|651|0.3|2|0.9|0.952227342549923|0.319866006449582|69, 5002
+14|Estero Bay Aquatic Preserve|2009|Secchi Depth|Surface|Field|24|0.25|1.4|1|0.985416666666667|0.235667030522647|5002
+14|Estero Bay Aquatic Preserve|2010|Secchi Depth|Surface|Field|45|0.2|1.9|0.9|0.916666666666667|0.339786028927832|5002
+14|Estero Bay Aquatic Preserve|2011|Secchi Depth|Surface|Field|21|0.54864667|1.7|1.2|1.17088398904762|0.292776737043072|514, 5002
+14|Estero Bay Aquatic Preserve|2012|Secchi Depth|Surface|Field|33|0.3|1.8|1.06681297|1.10212291242424|0.261920847141572|514, 5002
+14|Estero Bay Aquatic Preserve|2013|Secchi Depth|Surface|Field|14|0.60960741|2.83467447|1.34113631|1.46741213|0.564169682911602|514
+14|Estero Bay Aquatic Preserve|2014|Secchi Depth|Surface|Field|15|0.45720556|2.2860278|1.31065594|1.23547102266667|0.574278779136886|514
+14|Estero Bay Aquatic Preserve|2015|Secchi Depth|Surface|Field|21|0.15240185|1.37161668|1|0.870339405714286|0.351390320129146|514, 5002
+14|Estero Bay Aquatic Preserve|2016|Secchi Depth|Surface|Field|5|0.60960741|1.82882224|1.00585223|1.164350158|0.481165259949145|514
+14|Estero Bay Aquatic Preserve|2017|Secchi Depth|Surface|Field|3|0.54864667|1.98122409|1.21921483|1.24969519666667|0.71677493373971|514
+14|Estero Bay Aquatic Preserve|2018|Secchi Depth|Surface|Field|3|0.30480371|1.82882224|1.67642039|1.27001544666667|0.839363957660899|514
+14|Estero Bay Aquatic Preserve|2020|Secchi Depth|Surface|Field|20|0.3|1.8|1.025|1.115|0.456272079494588|476
+14|Estero Bay Aquatic Preserve|2021|Secchi Depth|Surface|Field|26|0.45|2|1.3|1.25384615384615|0.417833238726427|476, 5002
+14|Estero Bay Aquatic Preserve|2022|Secchi Depth|Surface|Field|2|0.15|0.9|0.525|0.525|0.530330085889911|476
+15|Florida Keys National Marine Sanctuary|1996|Secchi Depth|Surface|Field|7|15|26|21|20.5714285714286|3.69039938476144|60
+15|Florida Keys National Marine Sanctuary|1997|Secchi Depth|Surface|Field|38|0.5|21|1.65|5.28421052631579|7.58984123025158|60, 69
+15|Florida Keys National Marine Sanctuary|1998|Secchi Depth|Surface|Field|10|0.45720556|3.53572299|1.295415755|1.603267496|0.908089992171065|514
+15|Florida Keys National Marine Sanctuary|1999|Secchi Depth|Surface|Field|616|0.45720556|9|1.9|2.24431386714286|1.27887742034973|69, 514
+15|Florida Keys National Marine Sanctuary|2000|Secchi Depth|Surface|Field|742|0.39624482|9.5|1.8|2.22344546828841|1.43100045622566|69, 514
+15|Florida Keys National Marine Sanctuary|2001|Secchi Depth|Surface|Field|187|0.39624482|6.09607413|2.13362594|2.36988839326203|1.44481186910682|115, 514
+15|Florida Keys National Marine Sanctuary|2002|Secchi Depth|Surface|Field|180|0.91441112|20.8|2.43842965|3.49123939938889|3.60427618772908|60, 514
+15|Florida Keys National Marine Sanctuary|2003|Secchi Depth|Surface|Field|219|0.91441112|6.88856376|3.04803706|3.30426702917808|1.53992904965299|514
+15|Florida Keys National Marine Sanctuary|2004|Secchi Depth|Surface|Field|202|1.06681297|6.82760302|3.81004633|3.52848013391089|1.59904681486143|514
+15|Florida Keys National Marine Sanctuary|2005|Secchi Depth|Surface|Field|56|0|5.5|2.13362594|2.30350262910714|1.03765734138472|514, 4049, 5002
+15|Florida Keys National Marine Sanctuary|2006|Secchi Depth|Surface|Field|112|0.60960741|4.5720556|1.25|1.488141938125|0.719136144463213|69, 514, 4049
+15|Florida Keys National Marine Sanctuary|2007|Secchi Depth|Surface|Field|141|0.6|4.26725189|1.67642039|1.90924040304965|0.827369873634518|69, 514, 4049
+15|Florida Keys National Marine Sanctuary|2008|Secchi Depth|Surface|Field|130|0.6|5.18166301|2.05|2.17127754938462|0.988305217039003|69, 514, 4049
+15|Florida Keys National Marine Sanctuary|2009|Secchi Depth|Surface|Field|100|0.60960741|4.8768593|2.057425015|2.110345281|0.899002082242748|69, 514
+15|Florida Keys National Marine Sanctuary|2010|Secchi Depth|Surface|Field|155|0.6|9|2|2.22941548458065|1.0667957891557|60, 514, 4049, 5002
+15|Florida Keys National Marine Sanctuary|2011|Secchi Depth|Surface|Field|69|0.91441112|4.5720556|2.4|2.49972159492754|0.958491001830399|514, 4049
+15|Florida Keys National Marine Sanctuary|2012|Secchi Depth|Surface|Field|67|0.60960741|5.18166301|2.7|2.45441872477612|0.821553670799283|514, 4049
+15|Florida Keys National Marine Sanctuary|2013|Secchi Depth|Surface|Field|66|0.91441112|4.5720556|2.72161668|2.62137819272727|0.855709594110564|514, 4049
+15|Florida Keys National Marine Sanctuary|2014|Secchi Depth|Surface|Field|57|0.91441112|4.96830041|2.5908315|2.52959184052632|0.875728777018246|514, 4049
+15|Florida Keys National Marine Sanctuary|2015|Secchi Depth|Surface|Field|210|0|7.2|1.82882224|2.05531311485714|1.71777312130245|514, 3000, 4049, 5002
+15|Florida Keys National Marine Sanctuary|2016|Secchi Depth|Surface|Field|337|0|14|1.6|1.95499655136499|2.20208270838113|514, 3000, 4049, 5002
+15|Florida Keys National Marine Sanctuary|2017|Secchi Depth|Surface|Field|214|0|16|1.9|2.66206408341122|3.0081276309006|514, 3000, 4049, 5002
+15|Florida Keys National Marine Sanctuary|2018|Secchi Depth|Surface|Field|109|0|6.40087783|2.13362594|1.99538965623853|1.69415541160157|514, 3000, 4049
+15|Florida Keys National Marine Sanctuary|2019|Secchi Depth|Surface|Field|39|0.76200927|7.01048525|2.74323336|3.05596426871795|1.451683413445|514, 4049
+15|Florida Keys National Marine Sanctuary|2020|Secchi Depth|Surface|Field|43|0.70105|3.96245|3.04804|2.79923209302326|0.681754290169532|514
+15|Florida Keys National Marine Sanctuary|2021|Secchi Depth|Surface|Field|46|0.91441|4.11485|2.74323|2.4788497826087|0.893422323892145|514
+16|Fort Clinch State Park Aquatic Preserve|2001|Secchi Depth|Surface|Field|40|0.3|2.2|0.95|0.915|0.396491019072473|69
+16|Fort Clinch State Park Aquatic Preserve|2002|Secchi Depth|Surface|Field|42|0.2|2.1|1|0.966666666666667|0.406452029189818|69
+16|Fort Clinch State Park Aquatic Preserve|2003|Secchi Depth|Surface|Field|28|0.4|2.5|1|1.175|0.616816798541482|69
+16|Fort Clinch State Park Aquatic Preserve|2004|Secchi Depth|Surface|Field|47|0.3|2|0.8|0.787234042553192|0.449935754484723|69
+16|Fort Clinch State Park Aquatic Preserve|2005|Secchi Depth|Surface|Field|48|0.1|2|0.7|0.829166666666667|0.411514242318787|69
+16|Fort Clinch State Park Aquatic Preserve|2006|Secchi Depth|Surface|Field|34|0.3|1.6|1|0.926470588235294|0.392589556298681|69
+16|Fort Clinch State Park Aquatic Preserve|2007|Secchi Depth|Surface|Field|57|0.3|1.8|0.8|0.859824561403509|0.391200036645805|69, 103
+16|Fort Clinch State Park Aquatic Preserve|2008|Secchi Depth|Surface|Field|42|0.3|2.6|1|1.03333333333333|0.508305010539772|69
+16|Fort Clinch State Park Aquatic Preserve|2009|Secchi Depth|Surface|Field|36|0.1|1.4|0.95|0.855555555555556|0.381309356555573|69
+16|Fort Clinch State Park Aquatic Preserve|2010|Secchi Depth|Surface|Field|36|0.2|1.4|0.8|0.858333333333333|0.314756141435602|69
+16|Fort Clinch State Park Aquatic Preserve|2011|Secchi Depth|Surface|Field|35|0.2|2.4|0.7|0.857142857142857|0.634908846762651|69
+16|Fort Clinch State Park Aquatic Preserve|2012|Secchi Depth|Surface|Field|34|0.2|2|0.7|0.776470588235294|0.393168036810395|69
+16|Fort Clinch State Park Aquatic Preserve|2013|Secchi Depth|Surface|Field|55|0.1|1.9|0.8|0.836363636363636|0.430917899013531|69, 5002
+16|Fort Clinch State Park Aquatic Preserve|2014|Secchi Depth|Surface|Field|51|0.3|1.4|0.7|0.786274509803922|0.324973603754605|69, 5002
+16|Fort Clinch State Park Aquatic Preserve|2015|Secchi Depth|Surface|Field|43|0.3|1.6|0.8|0.867441860465116|0.344840149463734|69
+16|Fort Clinch State Park Aquatic Preserve|2016|Secchi Depth|Surface|Field|54|0.4|2.3|0.8|0.959259259259259|0.468042297120443|69
+16|Fort Clinch State Park Aquatic Preserve|2017|Secchi Depth|Surface|Field|44|0.3|1.9|0.75|0.809090909090909|0.411360862242874|69
+17|Fort Pickens State Park Aquatic Preserve|1987|Secchi Depth|Surface|Field|6|1|3|2|2.16666666666667|0.752772652709081|103
+17|Fort Pickens State Park Aquatic Preserve|1988|Secchi Depth|Surface|Field|6|2|3|2.5|2.5|0.547722557505166|103
+17|Fort Pickens State Park Aquatic Preserve|1996|Secchi Depth|Surface|Field|1|2.6|2.6|2.6|2.6||69
+17|Fort Pickens State Park Aquatic Preserve|1999|Secchi Depth|Surface|Field|5|2|3|2.2|2.3|0.412310562561766|5002
+17|Fort Pickens State Park Aquatic Preserve|2003|Secchi Depth|Surface|Field|2|0.9|0.9|0.9|0.9|0|69
+17|Fort Pickens State Park Aquatic Preserve|2009|Secchi Depth|Surface|Field|5|1.8|2.2|2|1.96|0.167332005306815|5002
+17|Fort Pickens State Park Aquatic Preserve|2010|Secchi Depth|Surface|Field|3|4.5|10.3|5|6.6|3.21403173599764|60, 5002
+17|Fort Pickens State Park Aquatic Preserve|2011|Secchi Depth|Surface|Field|12|4.2|6.5|5.1|5.325|0.80693020989201|5002
+17|Fort Pickens State Park Aquatic Preserve|2012|Secchi Depth|Surface|Field|8|4.1|8.2|6.55|6.4625|1.1734412152785|5002
+17|Fort Pickens State Park Aquatic Preserve|2013|Secchi Depth|Surface|Field|1|9|9|9|9||60
+17|Fort Pickens State Park Aquatic Preserve|2014|Secchi Depth|Surface|Field|4|0.5|4.2|2.15|2.25|1.78232058470598|5002
+17|Fort Pickens State Park Aquatic Preserve|2016|Secchi Depth|Surface|Field|24|1|6.1|2.45|2.72916666666667|1.09513912821382|4065
+17|Fort Pickens State Park Aquatic Preserve|2017|Secchi Depth|Surface|Field|52|0.3|5.5|2.5|2.12692307692308|1.43018789175812|69, 4065
+17|Fort Pickens State Park Aquatic Preserve|2018|Secchi Depth|Surface|Field|48|1|6|2.5|2.67708333333333|1.05673918023108|4065
+17|Fort Pickens State Park Aquatic Preserve|2019|Secchi Depth|Surface|Field|48|2|6.5|3.5|3.5625|1.23178213741008|4065
+17|Fort Pickens State Park Aquatic Preserve|2020|Secchi Depth|Surface|Field|4|2.22507|3.29188|2.819435|2.788955|0.536372858404798|514
+17|Fort Pickens State Park Aquatic Preserve|2021|Secchi Depth|Surface|Field|9|1.98122|3.65764|3.35284|3.11915555555556|0.541402071710829|514
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|1994|Secchi Depth|Surface|Field|54|0.3|2.9|0.9|1.24444444444444|0.664651040990164|69
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|1995|Secchi Depth|Surface|Field|160|0.2|4|1.2|1.3075|0.72411733299907|69
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|1996|Secchi Depth|Surface|Field|223|0.2|3.5|0.9|1.29506726457399|0.880122263187223|69
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|1997|Secchi Depth|Surface|Field|283|0.2|3.6|0.8|1.04028268551237|0.715038007681859|69
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|1998|Secchi Depth|Surface|Field|295|0.2|3.1|0.8|0.93864406779661|0.550199276289651|69
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|1999|Secchi Depth|Surface|Field|355|0.2|4|1|1.20535211267606|0.675603582380367|69
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|2000|Secchi Depth|Surface|Field|362|0.15240185|3.3|0.9|1.04058361994475|0.607854511880066|69, 514
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|2001|Secchi Depth|Surface|Field|769|0.2|4|0.9|1.04434206006502|0.626687670546967|69, 479, 513, 514
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|2002|Secchi Depth|Surface|Field|841|0.2|4.5|1|1.16171381305589|0.643666608590852|69, 479, 514
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|2003|Secchi Depth|Surface|Field|942|0.2|4.7|1|1.18343746102972|0.72160945218379|69, 479, 514, 5002
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|2004|Secchi Depth|Surface|Field|998|0.1|4.5|0.8|1.06603185641283|0.68293311280093|69, 115, 479, 513, 514
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|2005|Secchi Depth|Surface|Field|1023|0.3|4|1|1.22665122565982|0.757049049566387|69, 479, 514, 5002
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|2006|Secchi Depth|Surface|Field|986|0.2|5.3|1|1.4105476673428|0.95502427973475|69, 479
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|2007|Secchi Depth|Surface|Field|986|0.3|4.8|1|1.44371330299189|0.945545998995195|69, 479, 514, 5002
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|2008|Secchi Depth|Surface|Field|1054|0.2|4.5|1.2|1.46205328039848|0.919734287704601|69, 479, 514, 5002
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|2009|Secchi Depth|Surface|Field|976|0.2|4.2|1.2|1.44976645040984|0.865890199626414|69, 479, 514, 5002
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|2010|Secchi Depth|Surface|Field|1067|0.3|5.7|1.2|1.48537956888472|0.9270441240577|69, 479, 5002
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|2011|Secchi Depth|Surface|Field|1283|0.2|6|1|1.31215900233827|0.851634346713405|69, 479, 5002
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|2012|Secchi Depth|Surface|Field|1248|0.3|5|1.2|1.41666666666667|0.852532118514078|69, 479, 5002
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|2013|Secchi Depth|Surface|Field|1152|0.2|4.9|1.2|1.49201388888889|0.914924297798351|69, 479, 5002
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|2014|Secchi Depth|Surface|Field|1780|0.1|5.3|1|1.33199438202247|0.884972416291209|69, 479, 5002
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|2015|Secchi Depth|Surface|Field|2008|0.2|5.2|0.8|1.1156374501992|0.766302306368227|69, 479
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|2016|Secchi Depth|Surface|Field|1509|0.3|4.4|0.8|1.09171636845593|0.693560019321801|69, 476, 479, 5002
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|2017|Secchi Depth|Surface|Field|1305|0.2|5|0.8|1.1183908045977|0.825689255063701|69
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|2020|Secchi Depth|Surface|Field|152|0.46|4.4|1.7|1.99578947368421|1.05170597855053|476, 479, 5002
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|2021|Secchi Depth|Surface|Field|36|0.25|2.3|1|1.09861111111111|0.535255094205572|476, 5002
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|2022|Secchi Depth|Surface|Field|2|0.45|1|0.725|0.725|0.388908729652601|476
+19|Guana River Marsh Aquatic Preserve|1999|Secchi Depth|Surface|Field|38|0.3|1.4|0.7|0.765789473684211|0.2704114140697|5002
+19|Guana River Marsh Aquatic Preserve|2000|Secchi Depth|Surface|Field|37|0.15|1.2|0.7|0.737837837837838|0.285872301863914|5002
+19|Guana River Marsh Aquatic Preserve|2001|Secchi Depth|Surface|Field|21|0.1|1.2|0.7|0.657142857142857|0.284291098297904|69, 5002
+19|Guana River Marsh Aquatic Preserve|2002|Secchi Depth|Surface|Field|11|0.16|1.3|0.7|0.691818181818182|0.311987761997748|5002
+19|Guana River Marsh Aquatic Preserve|2004|Secchi Depth|Surface|Field|21|0.3|1|0.5|0.552380952380952|0.199045340611248|5002
+19|Guana River Marsh Aquatic Preserve|2005|Secchi Depth|Surface|Field|98|0.25|1.7|0.6|0.645918367346939|0.303813686581115|5002
+19|Guana River Marsh Aquatic Preserve|2006|Secchi Depth|Surface|Field|23|0.4|1|0.6|0.626086956521739|0.132175473258942|5002
+19|Guana River Marsh Aquatic Preserve|2009|Secchi Depth|Surface|Field|84|0.1|1.4|0.3|0.342857142857143|0.193437960096244|69, 5002
+19|Guana River Marsh Aquatic Preserve|2010|Secchi Depth|Surface|Field|94|0.05|1|0.2|0.283510638297872|0.190836908621109|69, 5002
+19|Guana River Marsh Aquatic Preserve|2014|Secchi Depth|Surface|Field|68|0.2|1.3|0.6|0.645588235294118|0.211909459354705|5002
+19|Guana River Marsh Aquatic Preserve|2017|Secchi Depth|Surface|Field|48|0.1|0.91|0.386|0.411708333333333|0.170848689847757|5014
+19|Guana River Marsh Aquatic Preserve|2018|Secchi Depth|Surface|Field|62|0.15|1.4|0.75|0.700225806451613|0.323362072826702|5014
+19|Guana River Marsh Aquatic Preserve|2019|Secchi Depth|Surface|Field|26|0.15|1.4|0.95|0.901923076923077|0.341022218991892|5014
+19|Guana River Marsh Aquatic Preserve|2020|Secchi Depth|Surface|Field|48|0.3|1.6|0.7|0.784375|0.34412334657732|5002, 5014
+19|Guana River Marsh Aquatic Preserve|2021|Secchi Depth|Surface|Field|49|0.2|1.6|0.7|0.69469387755102|0.33235963228116|5002, 5014
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|1999|Secchi Depth|Surface|Field|38|0.3|1.4|0.7|0.765789473684211|0.2704114140697|5002
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2000|Secchi Depth|Surface|Field|37|0.15|1.2|0.7|0.737837837837838|0.285872301863914|5002
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2001|Secchi Depth|Surface|Field|25|0.1|1.2|0.6|0.632|0.266098352744494|69, 5002
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2002|Secchi Depth|Surface|Field|11|0.16|1.3|0.7|0.691818181818182|0.311987761997748|5002
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2004|Secchi Depth|Surface|Field|28|0.3|2.5|0.6|0.746428571428571|0.470997478059728|5002
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2005|Secchi Depth|Surface|Field|114|0.25|2|0.6|0.708771929824561|0.355503233872194|5002
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2006|Secchi Depth|Surface|Field|23|0.4|1|0.6|0.626086956521739|0.132175473258942|5002
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2008|Secchi Depth|Surface|Field|6|0.2|0.7|0.325|0.366666666666667|0.177951304200522|5002
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2009|Secchi Depth|Surface|Field|101|0.1|1.4|0.3|0.378217821782178|0.229174152292984|69, 5002
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2010|Secchi Depth|Surface|Field|105|0.05|1|0.2|0.284285714285714|0.189040375941923|69, 5002
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2011|Secchi Depth|Surface|Field|3|0.2|0.6|0.4|0.4|0.2|5002
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2014|Secchi Depth|Surface|Field|118|0.2|1.4|0.6|0.64364406779661|0.229970883531373|5002
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2015|Secchi Depth|Surface|Field|29|0.2|1.3|0.6|0.586206896551724|0.264540218291276|5002
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2017|Secchi Depth|Surface|Field|65|0.1|2|0.44|0.577046153846154|0.372799520133192|5002, 5014
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2018|Secchi Depth|Surface|Field|68|0.15|1.4|0.8|0.744323529411765|0.339990273837025|5014
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2019|Secchi Depth|Surface|Field|26|0.15|1.4|0.95|0.901923076923077|0.341022218991892|5014
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2020|Secchi Depth|Surface|Field|109|0.2|2.3|0.8|0.805733944954129|0.401258913416674|5002, 5014
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2021|Secchi Depth|Surface|Field|109|0.11|3.5|0.7|0.825614678899083|0.565096876457953|5002, 5014
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2022|Secchi Depth|Surface|Field|1|0.7|0.7|0.7|0.7||5002
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|1991|Secchi Depth|Surface|Field|11|0.6|2.1|1.3|1.25454545454545|0.537333483720559|3001
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|1992|Secchi Depth|Surface|Field|34|0.4|1.8|0.8|0.879411764705882|0.40360452573123|3001
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|1993|Secchi Depth|Surface|Field|5|0.4|0.8|0.7|0.68|0.16431676725155|3001
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|1994|Secchi Depth|Surface|Field|67|0.3|2.6667|0.8|0.860697014925373|0.338842332589349|3001
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|1995|Secchi Depth|Surface|Field|187|0.2|1.6|0.7|0.739572192513369|0.232877809293406|69, 3001
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|1996|Secchi Depth|Surface|Field|137|0.1|9.9|0.7|0.937956204379562|1.22433243436272|69, 3001
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|1997|Secchi Depth|Surface|Field|215|0|1.9|0.9|0.915209302325581|0.331229411854606|69, 3001
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|1998|Secchi Depth|Surface|Field|279|0.2|1.7|0.7|0.730824372759857|0.293177275871247|69, 3001
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|1999|Secchi Depth|Surface|Field|314|0.1|1.8|0.6|0.701910828025478|0.335297557531892|69, 3001
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|2000|Secchi Depth|Surface|Field|344|0.2|2|0.7|0.714854651162791|0.276411789463469|69, 3001
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|2001|Secchi Depth|Surface|Field|649|0.07|6|0.7|0.744006163328197|0.396670136880531|69, 3001
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|2002|Secchi Depth|Surface|Field|736|0.09|14|0.8|0.917622282608696|0.868408458234224|69, 3001
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|2003|Secchi Depth|Surface|Field|934|0.2|2.3|0.8|0.854336188436831|0.385001410663791|69, 3001, 3013
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|2004|Secchi Depth|Surface|Field|1069|0.1|2.1|0.7|0.74021515434986|0.384084653534858|69, 3001, 3013
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|2005|Secchi Depth|Surface|Field|1136|0.1|3|0.8|0.832051056338028|0.396788119136486|69, 3001, 3013, 5002
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|2006|Secchi Depth|Surface|Field|961|0.2|2.3|0.8|0.87426638917794|0.391361283167978|69, 3001, 3013, 5002
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|2007|Secchi Depth|Surface|Field|1185|0.1|2.6|0.8|0.829552742616034|0.3685738389955|69, 3001, 3013
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|2008|Secchi Depth|Surface|Field|1160|0.1|2.3|0.7|0.808577586206897|0.407874340959505|69, 3001, 3013, 5002
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|2009|Secchi Depth|Surface|Field|1095|0.1|2.7|0.8|0.824785388127854|0.368495290758211|69, 3001, 3013
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|2010|Secchi Depth|Surface|Field|1165|0.1|2.5|0.7|0.774892703862661|0.329516087436881|69, 3001, 3013, 5002
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|2011|Secchi Depth|Surface|Field|1026|0.1|1.7|0.6|0.661666666666667|0.258653266353089|69, 3001, 3013
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|2012|Secchi Depth|Surface|Field|876|0.2|2.5|0.8|0.868184931506849|0.377201142311702|69, 3001, 3013
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|2013|Secchi Depth|Surface|Field|831|0.1|2.6|0.9|0.940794223826715|0.397780704572822|69, 3001, 3013, 5002
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|2014|Secchi Depth|Surface|Field|879|0.2|2.4|0.85|0.92778156996587|0.402839825363788|69, 3001, 3013
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|2015|Secchi Depth|Surface|Field|884|0.1|2.2|0.7|0.820757918552036|0.356601855817605|69, 3001, 3013, 5002
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|2016|Secchi Depth|Surface|Field|835|0.008|2.2|0.7|0.782452694610779|0.374752933609232|69, 3001, 3013, 5002
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|2017|Secchi Depth|Surface|Field|821|0.04|2|0.78|0.818952496954933|0.362157658612832|69, 3001, 3013
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|2018|Secchi Depth|Surface|Field|396|0|2.1|1|0.917323232323232|0.405226495898134|3001, 3013, 5002
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|2019|Secchi Depth|Surface|Field|274|0.08|5|1.1|1.10510948905109|0.462581729103198|3001, 3013, 5002
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|2020|Secchi Depth|Surface|Field|202|0.4|2.7|1.1|1.09519801980198|0.334395140285868|3001, 3013, 5002
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|2021|Secchi Depth|Surface|Field|179|0.05|3|1|1.0159217877095|0.329600736549336|5002
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|1992|Secchi Depth|Surface|Field|31|0.4|1.2|0.6|0.690322580645161|0.215026880040113|3001
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|1993|Secchi Depth|Surface|Field|15|0.6|1.2|0.9|0.893333333333333|0.228243812830136|3001
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|1996|Secchi Depth|Surface|Field|2|1|1|1|1|0|3001
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|1997|Secchi Depth|Surface|Field|24|0.3|1.5|1|1.02083333333333|0.255341487742041|69
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|1998|Secchi Depth|Surface|Field|20|0.3|2|0.75|0.75|0.34105100714363|69
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|1999|Secchi Depth|Surface|Field|24|0.5|2|0.9|0.9875|0.385962940325037|69, 3001
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|2000|Secchi Depth|Surface|Field|25|0.4|1.7|1.1|1.008|0.335310801098523|69
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|2001|Secchi Depth|Surface|Field|92|0.6|1.7|0.9|0.972282608695652|0.26317212543563|69, 3001
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|2002|Secchi Depth|Surface|Field|42|0.5|1.6|0.9|0.957142857142857|0.264245688653808|69
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|2003|Secchi Depth|Surface|Field|64|0.4|1.3|0.8|0.85703125|0.253994623662011|69, 3013
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|2004|Secchi Depth|Surface|Field|48|0.5|1.7|0.9|0.9125|0.284062474399035|69, 3013
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|2005|Secchi Depth|Surface|Field|59|0.2|1.7|1|0.990677966101695|0.343972053830659|69, 3013
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|2006|Secchi Depth|Surface|Field|68|0.6|1.55|1|1.03588235294118|0.246862311578668|69, 3013
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|2007|Secchi Depth|Surface|Field|77|0.3|2|0.9|0.90987012987013|0.303967161949122|69, 3013, 5002
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|2008|Secchi Depth|Surface|Field|83|0.3|1.85|0.9|0.975301204819277|0.371838993971255|69, 3001, 3013
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|2009|Secchi Depth|Surface|Field|69|0.3|2|1|0.984057971014493|0.292742201586892|69, 3013
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|2010|Secchi Depth|Surface|Field|70|0.3|2.2|1.1|1.07142857142857|0.446124326969368|69, 3013
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|2011|Secchi Depth|Surface|Field|63|0.3|1.7|0.8|0.780952380952381|0.335942171894424|69, 3013
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|2012|Secchi Depth|Surface|Field|61|0.5|2|1|1.04409836065574|0.333128488970749|69, 3013
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|2013|Secchi Depth|Surface|Field|62|0.5|2.1|1|1.07983870967742|0.339051192689071|69, 3013
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|2014|Secchi Depth|Surface|Field|67|0.2|1.9|0.9|0.941791044776119|0.40821089830423|69, 3013
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|2015|Secchi Depth|Surface|Field|77|0.4|2.1|1|0.98961038961039|0.326800444334079|69, 3013
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|2016|Secchi Depth|Surface|Field|73|0.3|1.5|0.8|0.876027397260274|0.271583523708777|69, 3013
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|2017|Secchi Depth|Surface|Field|59|0.4|1.5|0.9|0.917796610169492|0.315786198933055|69, 3013
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|2018|Secchi Depth|Surface|Field|13|0.5|1.5|1.2|1.07692307692308|0.334549065045887|3013
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|2019|Secchi Depth|Surface|Field|16|0.16|1.95|1.05|1.063125|0.396177043756955|3001, 3013, 5002
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|2020|Secchi Depth|Surface|Field|53|0.1|2.1|0.7|0.761509433962264|0.542793331638136|3001, 3013, 5002
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|2021|Secchi Depth|Surface|Field|42|0.3|2|0.4|0.813095238095238|0.559078021935148|5002
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|1993|Secchi Depth|Surface|Field|5|1.4|1.7|1.6|1.58|0.109544511501033|3001
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|1994|Secchi Depth|Surface|Field|10|1.1|1.7|1.4|1.4|0.176383420737639|3001, 10000
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|1995|Secchi Depth|Surface|Field|41|0.2|3|0.8|0.895121951219512|0.634409654526236|3001, 10000
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|1996|Secchi Depth|Surface|Field|80|0.3|5|1.1|1.21625|0.779555821273251|3001, 10000
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|1997|Secchi Depth|Surface|Field|115|0.5|3.5|1|1.12173913043478|0.389057026599708|69, 3001, 10000
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|1998|Secchi Depth|Surface|Field|126|0.2|2.4|1|0.998412698412698|0.40948438348423|69, 3001, 10000
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|1999|Secchi Depth|Surface|Field|122|0.2|3.8|1|0.996448360655738|0.451521282958215|69, 3001, 10000
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|2000|Secchi Depth|Surface|Field|120|0.35|2.7|0.9|1.02458333333333|0.384248466169354|69, 3001, 5002, 10000
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|2001|Secchi Depth|Surface|Field|204|0.1|2.9|1|1.03495098039216|0.386047927738706|69, 3001, 5002, 10000
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|2002|Secchi Depth|Surface|Field|179|0.3|2.8|1|1.02988826815642|0.384405259038163|69, 3001, 10000
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|2003|Secchi Depth|Surface|Field|226|0.1|2.7|1.1|1.11946902654867|0.373953866930049|69, 3001, 3013, 10000
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|2004|Secchi Depth|Surface|Field|162|0.2|3.2|1|1.05851851851852|0.516796417288293|69, 3001, 3013, 10000
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|2005|Secchi Depth|Surface|Field|141|0.2|2.85|0.8|0.945035460992908|0.432777778861615|69, 3001, 3013, 10000
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|2006|Secchi Depth|Surface|Field|229|0.2|7.3|1|1.18384279475983|0.701674745777793|69, 3001, 3013, 10000
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|2007|Secchi Depth|Surface|Field|241|0.2|5.4|1|1.12323651452282|0.736220289492985|69, 3001, 3013, 5002, 10000
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|2008|Secchi Depth|Surface|Field|243|0.1|3.6|1|1.06465020576132|0.53877595148514|69, 3001, 3013, 10000
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|2009|Secchi Depth|Surface|Field|198|0.3|5.7|1|1.22626262626263|0.721386265377503|69, 3001, 3013, 10000
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|2010|Secchi Depth|Surface|Field|195|0.3|4.8|1.2|1.39615384615385|0.755442846107587|69, 3001, 3013, 10000
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|2011|Secchi Depth|Surface|Field|190|0.1|4.8|1.1|1.27736842105263|0.66359484440132|69, 3001, 3013, 10000
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|2012|Secchi Depth|Surface|Field|179|0.1|5.4|1.1|1.34469273743017|0.859244043568318|69, 3001, 3013, 10000
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|2013|Secchi Depth|Surface|Field|267|0|5.2|1.1|1.24157303370787|0.852162528458734|69, 3001, 3013, 3016, 10000
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|2014|Secchi Depth|Surface|Field|222|0.3|5.7|1|1.12130630630631|0.57918307725073|69, 3001, 3013, 10000
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|2015|Secchi Depth|Surface|Field|235|0.1|5.2|0.9|0.978297872340426|0.561588555585568|69, 3001, 3013, 10000
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|2016|Secchi Depth|Surface|Field|142|0.2|4|0.8|1.01161971830986|0.630311908968214|69, 3013, 10000
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|2017|Secchi Depth|Surface|Field|155|0.4|3.8|0.85|0.982258064516129|0.533785243536208|69, 3013, 10000
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|2018|Secchi Depth|Surface|Field|25|0.5|2.3|0.9|0.99|0.421060169888659|3013, 10000
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|2019|Secchi Depth|Surface|Field|31|0.4|3.9|1.25|1.41709677419355|0.839202770683332|3013, 10000
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|2020|Secchi Depth|Surface|Field|43|0.45|4.8|1.3|1.30906976744186|0.713595236589538|3013, 5002, 10000
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|2021|Secchi Depth|Surface|Field|78|0.2|3.7|1.4|1.43717948717949|0.627375273341031|5002, 10000
+25|Lemon Bay Aquatic Preserve|1995|Secchi Depth|Surface|Field|4|0.5|2.5|1.05|1.275|0.9322910847298|69
+25|Lemon Bay Aquatic Preserve|1996|Secchi Depth|Surface|Field|5|0.3|2.4|0.6|1.02|0.837854402626136|69
+25|Lemon Bay Aquatic Preserve|1997|Secchi Depth|Surface|Field|1|0.8|0.8|0.8|0.8||69
+25|Lemon Bay Aquatic Preserve|1998|Secchi Depth|Surface|Field|4|0.4|1.3|0.45|0.65|0.435889894354067|69
+25|Lemon Bay Aquatic Preserve|1999|Secchi Depth|Surface|Field|8|0.3|0.9|0.6|0.6125|0.216712449375401|69
+25|Lemon Bay Aquatic Preserve|2000|Secchi Depth|Surface|Field|7|0.4|1.4|0.7|0.742857142857143|0.315473944286703|69
+25|Lemon Bay Aquatic Preserve|2001|Secchi Depth|Surface|Field|30|0.4|2.14|1.15|1.21033333333333|0.452734856814353|69, 479
+25|Lemon Bay Aquatic Preserve|2002|Secchi Depth|Surface|Field|34|0.3|2.38|0.9|1.05147058823529|0.579001922606015|69, 479
+25|Lemon Bay Aquatic Preserve|2003|Secchi Depth|Surface|Field|24|0.7|2|1.255|1.24125|0.316905039953337|69, 479
+25|Lemon Bay Aquatic Preserve|2004|Secchi Depth|Surface|Field|27|0.3|2|1.1|1.11888888888889|0.452109017939882|69, 479
+25|Lemon Bay Aquatic Preserve|2005|Secchi Depth|Surface|Field|27|0.5|2.6|1.2|1.3337037037037|0.612147218015582|69, 479
+25|Lemon Bay Aquatic Preserve|2006|Secchi Depth|Surface|Field|27|0.6|2.1|1|1.17703703703704|0.50155768756955|69, 479
+25|Lemon Bay Aquatic Preserve|2007|Secchi Depth|Surface|Field|38|0|5.2|1.15|1.28605263157895|0.803699350381533|69, 479, 5002
+25|Lemon Bay Aquatic Preserve|2008|Secchi Depth|Surface|Field|35|0.7|2|1.2|1.25228571428571|0.391911497469441|69, 479
+25|Lemon Bay Aquatic Preserve|2009|Secchi Depth|Surface|Field|218|0.3|4|0.8|1.05045871559633|0.597016214217751|69, 479
+25|Lemon Bay Aquatic Preserve|2010|Secchi Depth|Surface|Field|116|0.3|2.2|0.9|0.937068965517241|0.442430082398445|69
+25|Lemon Bay Aquatic Preserve|2011|Secchi Depth|Surface|Field|24|0.3|2.5|1|1.025|0.565877540908232|69, 479
+25|Lemon Bay Aquatic Preserve|2012|Secchi Depth|Surface|Field|61|0.3|2.2|1.3|1.24426229508197|0.454064822892038|69, 479
+25|Lemon Bay Aquatic Preserve|2013|Secchi Depth|Surface|Field|65|0.3|2.5|1.4|1.42|0.419150927471239|69, 479
+25|Lemon Bay Aquatic Preserve|2014|Secchi Depth|Surface|Field|64|0.4|1.9|1.3|1.2671875|0.334784786354761|69, 479
+25|Lemon Bay Aquatic Preserve|2015|Secchi Depth|Surface|Field|72|0.5|2.3|1.45|1.46111111111111|0.370973426615824|69, 479
+25|Lemon Bay Aquatic Preserve|2016|Secchi Depth|Surface|Field|36|0.5|3.6|1.15|1.46111111111111|0.80650136047278|69, 479
+25|Lemon Bay Aquatic Preserve|2017|Secchi Depth|Surface|Field|14|0.7|3|1.3|1.42857142857143|0.769043933353987|69, 5002
+25|Lemon Bay Aquatic Preserve|2020|Secchi Depth|Surface|Field|60|0.5|2.6|1.5|1.49333333333333|0.48707590563803|476, 479, 5002
+25|Lemon Bay Aquatic Preserve|2021|Secchi Depth|Surface|Field|65|0.3|3.1|1.4|1.56769230769231|0.548964278297007|476, 5002
+25|Lemon Bay Aquatic Preserve|2022|Secchi Depth|Surface|Field|3|0.9|1.2|1.2|1.1|0.173205080756888|476
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|1994|Secchi Depth|Surface|Field|46|0.3|2.6|1.2|1.21304347826087|0.506231697349115|10000
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|1995|Secchi Depth|Surface|Field|52|0.5|2.4|1.4|1.43461538461538|0.402874288466877|10000
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|1996|Secchi Depth|Surface|Field|52|0.2|3.3|1.3|1.27307692307692|0.580099850977461|10000
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|1997|Secchi Depth|Surface|Field|45|0.2|3.6|1.4|1.37333333333333|0.641163714733538|10000
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|1998|Secchi Depth|Surface|Field|48|0.4|2.8|1.4|1.32916666666667|0.533538302811875|10000
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|1999|Secchi Depth|Surface|Field|66|0.1|2|1.1|1.11363636363636|0.423860050791936|10000
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|2000|Secchi Depth|Surface|Field|64|0.5|2.1|1.15|1.1234375|0.437431967499492|10000
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|2001|Secchi Depth|Surface|Field|72|0.4|2.8|1.2|1.21357358625|0.480867372914548|514, 10000
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|2002|Secchi Depth|Surface|Field|79|0.3|2.04218483|1.1|1.07693893759494|0.437278011652153|514, 10000
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|2003|Secchi Depth|Surface|Field|79|0.2|2.22506706|1.1|1.03571404329114|0.604029546384762|514, 10000
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|2004|Secchi Depth|Surface|Field|84|0.3|2|1|0.997260975833333|0.436215619445228|514, 3013, 10000
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|2005|Secchi Depth|Surface|Field|91|0.3|2.1|1.1|1.14832967571429|0.319907314596543|514, 3013, 10000
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|2006|Secchi Depth|Surface|Field|94|0.6|3|1.1|1.17373279489362|0.358949243815634|514, 3013, 10000
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|2007|Secchi Depth|Surface|Field|180|0.4|3.8|1.2|1.23150762672222|0.4061806130428|514, 3013, 5002, 10000
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|2008|Secchi Depth|Surface|Field|147|0.3|2.9|1.2|1.19497472829932|0.375828068352232|514, 3013, 10000
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|2009|Secchi Depth|Surface|Field|134|0.4|2.3|1.4|1.39529537753731|0.364045511492765|514, 3013, 10000
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|2010|Secchi Depth|Surface|Field|130|0.4|2.4|1.4|1.45699538569231|0.340566814025155|514, 3013, 5002, 10000
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|2011|Secchi Depth|Surface|Field|136|0.4|2.8|1.4|1.38622439654412|0.41389755097122|514, 3013, 5002, 10000
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|2012|Secchi Depth|Surface|Field|150|0.5|2.6|1.4|1.43028391453333|0.44161684525753|514, 3013, 5002, 10000
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|2013|Secchi Depth|Surface|Field|148|0.09|3.7|1.5|1.50019275135135|0.523241549096174|514, 3013, 5002, 10000
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|2014|Secchi Depth|Surface|Field|224|0.3|2.4|1.2|1.20525971459821|0.447893104575267|69, 514, 3013, 5002, 10000
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|2015|Secchi Depth|Surface|Field|278|0.3|2.5|1.1|1.11828787158273|0.429808249173035|69, 514, 3013, 5002, 10000
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|2016|Secchi Depth|Surface|Field|198|0.3|2.7|1.2|1.24399900010101|0.470264854250495|69, 514, 3013, 5002, 10000
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|2017|Secchi Depth|Surface|Field|221|0.2|4.08436967|1.1|1.09033300565611|0.480076181788131|69, 514, 3013, 5002, 10000
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|2018|Secchi Depth|Surface|Field|150|0.4|2.5|1.3|1.30343208986667|0.32329975471873|514, 3013, 5002, 10000
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|2019|Secchi Depth|Surface|Field|117|0.7|2.5|1.4|1.42408357769231|0.360774643769756|514, 3013, 5002, 10000
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|2020|Secchi Depth|Surface|Field|107|0.3|3.1|1.3|1.2661791588785|0.466462678021534|514, 3013, 5002, 10000
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|2021|Secchi Depth|Surface|Field|138|0.2|3.5|1.4|1.39169804347826|0.542903233381283|514, 5002, 10000
+28|Matlacha Pass Aquatic Preserve|1994|Secchi Depth|Surface|Field|7|0.4|1.6|1|0.971428571428571|0.482059075613096|69
+28|Matlacha Pass Aquatic Preserve|1995|Secchi Depth|Surface|Field|31|0.5|2.2|0.8|0.932258064516129|0.36367301868042|69
+28|Matlacha Pass Aquatic Preserve|1996|Secchi Depth|Surface|Field|55|0.4|3.3|0.8|0.876363636363636|0.534707824809454|69
+28|Matlacha Pass Aquatic Preserve|1997|Secchi Depth|Surface|Field|56|0.3|2.5|0.8|0.860714285714286|0.424126298268708|69
+28|Matlacha Pass Aquatic Preserve|1998|Secchi Depth|Surface|Field|78|0.3|3|0.8|0.962820512820513|0.522260067165371|69
+28|Matlacha Pass Aquatic Preserve|1999|Secchi Depth|Surface|Field|99|0.1|2.5|1|1.12222222222222|0.547266967564139|69
+28|Matlacha Pass Aquatic Preserve|2000|Secchi Depth|Surface|Field|108|0.3|2.5|0.9|1.09074074074074|0.554596264203614|69
+28|Matlacha Pass Aquatic Preserve|2001|Secchi Depth|Surface|Field|163|0.2|2.5|0.8|0.934355828220859|0.44045155954817|69
+28|Matlacha Pass Aquatic Preserve|2002|Secchi Depth|Surface|Field|194|0.2|2.5|0.8|0.933505154639175|0.45917371437539|69
+28|Matlacha Pass Aquatic Preserve|2003|Secchi Depth|Surface|Field|212|0.2|2.5|0.8|0.942452830188679|0.514702898373273|69
+28|Matlacha Pass Aquatic Preserve|2004|Secchi Depth|Surface|Field|283|0.3|3.1|0.7|0.948056537102473|0.607186369718856|69
+28|Matlacha Pass Aquatic Preserve|2005|Secchi Depth|Surface|Field|289|0.2|3.1|0.8|0.942906574394464|0.564050204859869|69, 5002
+28|Matlacha Pass Aquatic Preserve|2006|Secchi Depth|Surface|Field|243|0.3|3|0.9|1.03744855967078|0.519094961403526|69
+28|Matlacha Pass Aquatic Preserve|2007|Secchi Depth|Surface|Field|274|0.3|3.4|0.9|1.08532846715328|0.623654655886865|69, 476
+28|Matlacha Pass Aquatic Preserve|2008|Secchi Depth|Surface|Field|230|0.4|3|0.8|0.919434782608696|0.404678029988277|69, 476
+28|Matlacha Pass Aquatic Preserve|2009|Secchi Depth|Surface|Field|206|0.4|3.1|0.9|1.05291262135922|0.600785065365937|69
+28|Matlacha Pass Aquatic Preserve|2010|Secchi Depth|Surface|Field|166|0.3|3.4|0.9|1.14036144578313|0.713419330613099|69
+28|Matlacha Pass Aquatic Preserve|2011|Secchi Depth|Surface|Field|166|0.3|2.3|0.9|0.998795180722892|0.425546059438819|69
+28|Matlacha Pass Aquatic Preserve|2012|Secchi Depth|Surface|Field|139|0.3|2.2|0.8|0.913669064748201|0.421728918847875|69
+28|Matlacha Pass Aquatic Preserve|2013|Secchi Depth|Surface|Field|137|0.4|2.5|0.8|0.981751824817518|0.496490474125517|69
+28|Matlacha Pass Aquatic Preserve|2014|Secchi Depth|Surface|Field|154|0.4|2.8|0.8|0.971428571428571|0.490393237661727|69
+28|Matlacha Pass Aquatic Preserve|2015|Secchi Depth|Surface|Field|137|0.3|3.1|0.8|1.00802919708029|0.554269311553055|69
+28|Matlacha Pass Aquatic Preserve|2016|Secchi Depth|Surface|Field|167|0.4|2.4|0.8|0.931736526946108|0.422712101228738|69
+28|Matlacha Pass Aquatic Preserve|2017|Secchi Depth|Surface|Field|174|0.3|2.9|0.8|0.983333333333333|0.538257017204911|69
+28|Matlacha Pass Aquatic Preserve|2019|Secchi Depth|Surface|Field|2|2|3.3|2.65|2.65|0.919238815542512|303
+28|Matlacha Pass Aquatic Preserve|2020|Secchi Depth|Surface|Field|15|0.8|3.05|1.8|1.72666666666667|0.602633111160237|476, 513
+28|Matlacha Pass Aquatic Preserve|2021|Secchi Depth|Surface|Field|45|0.8|3|1.4|1.482|0.481383423063155|476, 513
+28|Matlacha Pass Aquatic Preserve|2022|Secchi Depth|Surface|Field|1|1.9|1.9|1.9|1.9||476
+29|Mosquito Lagoon Aquatic Preserve|2006|Secchi Depth|Surface|Field|2|0.6|0.6|0.6|0.6|0|69
+29|Mosquito Lagoon Aquatic Preserve|2007|Secchi Depth|Surface|Field|19|0.2|0.8|0.6|0.531578947368421|0.160043853639305|69
+29|Mosquito Lagoon Aquatic Preserve|2008|Secchi Depth|Surface|Field|7|0.3|0.6|0.5|0.471428571428571|0.111269728052837|69
+29|Mosquito Lagoon Aquatic Preserve|2009|Secchi Depth|Surface|Field|28|0.3|0.9|0.6|0.630357142857143|0.152351497649281|69, 3001, 3013
+29|Mosquito Lagoon Aquatic Preserve|2010|Secchi Depth|Surface|Field|6|0.3|0.55|0.425|0.425|0.103682206766639|3013
+29|Mosquito Lagoon Aquatic Preserve|2011|Secchi Depth|Surface|Field|6|0.45|0.95|0.625|0.65|0.197484176581315|3013
+29|Mosquito Lagoon Aquatic Preserve|2012|Secchi Depth|Surface|Field|2|0.1|0.2|0.15|0.15|0.0707106781186548|3013
+29|Mosquito Lagoon Aquatic Preserve|2013|Secchi Depth|Surface|Field|6|0.36|0.8|0.6|0.61|0.171464281994822|69, 3013
+29|Mosquito Lagoon Aquatic Preserve|2014|Secchi Depth|Surface|Field|9|0.3|1.2|0.9|0.811111111111111|0.314024061356946|69
+29|Mosquito Lagoon Aquatic Preserve|2015|Secchi Depth|Surface|Field|5|0.4|1.1|0.9|0.88|0.286356421265527|69
+29|Mosquito Lagoon Aquatic Preserve|2016|Secchi Depth|Surface|Field|8|0.3|0.8|0.45|0.5|0.2|69
+29|Mosquito Lagoon Aquatic Preserve|2018|Secchi Depth|Surface|Field|26|0|1.3|0.6|0.678461538461538|0.284164632671869|3001, 5002
+29|Mosquito Lagoon Aquatic Preserve|2019|Secchi Depth|Surface|Field|45|0.5|1.5|0.8|0.903111111111111|0.27552282715381|3001, 3013, 5002
+29|Mosquito Lagoon Aquatic Preserve|2020|Secchi Depth|Surface|Field|55|0.3|1.4|0.8|0.826909090909091|0.278573567165358|3001, 5002
+29|Mosquito Lagoon Aquatic Preserve|2021|Secchi Depth|Surface|Field|40|0.5|1.5|0.7|0.855|0.349321687024498|5002
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|1982|Secchi Depth|Surface|Field|2|0.9|1|0.95|0.95|0.0707106781186547|103
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|1997|Secchi Depth|Surface|Field|1|1.1|1.1|1.1|1.1||103
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|2001|Secchi Depth|Surface|Field|304|0.2|2|0.7|0.693421052631579|0.281596357572729|69
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|2002|Secchi Depth|Surface|Field|526|0.1|2.3|0.7|0.738593155893536|0.383285443638876|69, 5002
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|2003|Secchi Depth|Surface|Field|489|0.2|2.1|0.8|0.794069529652352|0.333979978895834|69, 5002
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|2004|Secchi Depth|Surface|Field|493|0.1|2.2|0.6|0.63448275862069|0.327992145898703|69, 5002
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|2005|Secchi Depth|Surface|Field|501|0.2|3|0.6|0.636327345309381|0.362653670367113|69
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|2006|Secchi Depth|Surface|Field|518|0.1|2.4|0.7|0.805019305019305|0.398175116279602|69
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|2007|Secchi Depth|Surface|Field|511|0.1|2.7|0.7|0.765753424657534|0.342684571511433|69, 5002
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|2008|Secchi Depth|Surface|Field|537|0.1|1.91|0.6|0.701303538175047|0.328655213119452|69, 103, 5002
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|2009|Secchi Depth|Surface|Field|477|0.2|2|0.6|0.711740041928721|0.353476895246503|69, 5002
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|2010|Secchi Depth|Surface|Field|491|0.1|2.2|0.6|0.710997963340122|0.320381185585977|69, 5002
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|2011|Secchi Depth|Surface|Field|482|0.2|2.2|0.7|0.759336099585062|0.337851188045502|69
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|2012|Secchi Depth|Surface|Field|491|0.1|1.8|0.6|0.693075356415479|0.323363876075603|69
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|2013|Secchi Depth|Surface|Field|452|0.1|2.3|0.7|0.767256637168142|0.400817895046004|69, 5002
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|2014|Secchi Depth|Surface|Field|494|0.2|1.9|0.6|0.686234817813765|0.280633869452426|69, 5002
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|2015|Secchi Depth|Surface|Field|533|0.2|2.4|0.6|0.691369606003752|0.304848970950381|69, 5002
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|2016|Secchi Depth|Surface|Field|472|0.1|2.2|0.7|0.745762711864407|0.341305491117474|69, 5002
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|2017|Secchi Depth|Surface|Field|483|0.1|1.9|0.6|0.646997929606625|0.305153342168111|69, 5002
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|2020|Secchi Depth|Surface|Field|32|0.1|1.1|0.7|0.671875|0.209814626323702|5002
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|2021|Secchi Depth|Surface|Field|8|0.6|2|0.75|0.925|0.474341649025257|5002
+48|Nature Coast Aquatic Preserve|1986|Secchi Depth|Surface|Field|2|7|12|9.5|9.5|3.53553390593274|60
+48|Nature Coast Aquatic Preserve|2003|Secchi Depth|Surface|Field|4|1.6|2|1.8|1.8|0.23094010767585|69
+48|Nature Coast Aquatic Preserve|2004|Secchi Depth|Surface|Field|16|0.3|6|1|1.19375|1.36453594065284|60, 69
+48|Nature Coast Aquatic Preserve|2005|Secchi Depth|Surface|Field|36|0.3|3.5|1.3|1.35555555555556|0.817468022771514|69
+48|Nature Coast Aquatic Preserve|2007|Secchi Depth|Surface|Field|426|0.35|4|1.8|1.77504694835681|0.730436854074783|69, 479
+48|Nature Coast Aquatic Preserve|2008|Secchi Depth|Surface|Field|403|0.3|3.8|1.6|1.63647642679901|0.646871146300064|69, 479
+48|Nature Coast Aquatic Preserve|2009|Secchi Depth|Surface|Field|266|0.3|21.02|2|2.21992481203008|1.90777337218247|479
+48|Nature Coast Aquatic Preserve|2011|Secchi Depth|Surface|Field|1|8.5|8.5|8.5|8.5||60
+48|Nature Coast Aquatic Preserve|2015|Secchi Depth|Surface|Field|134|0.5|6|1.715|1.79865671641791|0.748978041623551|60, 479, 5002
+48|Nature Coast Aquatic Preserve|2016|Secchi Depth|Surface|Field|1|1|1|1|1||5002
+48|Nature Coast Aquatic Preserve|2019|Secchi Depth|Surface|Field|11|1.58|3.51|2.25|2.35184181818182|0.614990987931013|479, 514
+48|Nature Coast Aquatic Preserve|2020|Secchi Depth|Surface|Field|14|1|2.43843|1.44782|1.53467928571429|0.384191427355292|514, 5002
+48|Nature Coast Aquatic Preserve|2021|Secchi Depth|Surface|Field|5|1.46306|2.68227|1.82882|1.98732|0.547967476726493|514
+31|North Fork St. Lucie Aquatic Preserve|1996|Secchi Depth|Surface|Field|1|1|1|1|1||3001
+31|North Fork St. Lucie Aquatic Preserve|1998|Secchi Depth|Surface|Field|16|0.2|1.4|0.55|0.58125|0.31030898579749|69
+31|North Fork St. Lucie Aquatic Preserve|1999|Secchi Depth|Surface|Field|44|0.1|2.1|0.8|0.869318181818182|0.449057916849252|69, 5002
+31|North Fork St. Lucie Aquatic Preserve|2000|Secchi Depth|Surface|Field|26|0.5|1.8|0.9|0.988461538461539|0.301100545435472|69, 5002
+31|North Fork St. Lucie Aquatic Preserve|2001|Secchi Depth|Surface|Field|38|0.5|1.6|0.8|0.802631578947369|0.230729562188528|69, 5002
+31|North Fork St. Lucie Aquatic Preserve|2002|Secchi Depth|Surface|Field|44|0.4|1.8|0.8|0.943181818181818|0.357249002649821|69, 5002
+31|North Fork St. Lucie Aquatic Preserve|2003|Secchi Depth|Surface|Field|36|0.3|1.7|0.9|0.894444444444445|0.358524312341133|69
+31|North Fork St. Lucie Aquatic Preserve|2004|Secchi Depth|Surface|Field|44|0.1|1.3|0.65|0.7|0.30803201283346|69
+31|North Fork St. Lucie Aquatic Preserve|2005|Secchi Depth|Surface|Field|45|0.2|1.5|0.7|0.746666666666667|0.304959013639538|69, 5002
+31|North Fork St. Lucie Aquatic Preserve|2006|Secchi Depth|Surface|Field|48|0.2|1.5|0.95|0.8625|0.301503325552388|69
+31|North Fork St. Lucie Aquatic Preserve|2007|Secchi Depth|Surface|Field|58|0.2|1.6|0.7|0.791379310344828|0.305668369062175|69, 5002
+31|North Fork St. Lucie Aquatic Preserve|2008|Secchi Depth|Surface|Field|59|0.5|1.6|0.9|0.876271186440678|0.262178527653126|69, 5002
+31|North Fork St. Lucie Aquatic Preserve|2009|Secchi Depth|Surface|Field|28|0.2|1.6|0.9|0.882142857142857|0.344322815186855|69, 3001, 5002
+31|North Fork St. Lucie Aquatic Preserve|2010|Secchi Depth|Surface|Field|15|0.5|1|0.6|0.746666666666667|0.247463320995446|69
+31|North Fork St. Lucie Aquatic Preserve|2011|Secchi Depth|Surface|Field|43|0.5|1.5|0.9|0.881395348837209|0.218496827865705|69, 5002
+31|North Fork St. Lucie Aquatic Preserve|2012|Secchi Depth|Surface|Field|20|0.2|1.5|0.75|0.8|0.358358832222089|69
+31|North Fork St. Lucie Aquatic Preserve|2013|Secchi Depth|Surface|Field|23|0.4|2|0.7|0.843478260869565|0.479418290465854|69
+31|North Fork St. Lucie Aquatic Preserve|2014|Secchi Depth|Surface|Field|140|0.3|1.4|0.8|0.814285714285714|0.220715458143545|69
+31|North Fork St. Lucie Aquatic Preserve|2015|Secchi Depth|Surface|Field|169|0.3|1.3|0.7|0.723076923076923|0.203247444779815|69
+31|North Fork St. Lucie Aquatic Preserve|2016|Secchi Depth|Surface|Field|145|0.2|1.5|0.7|0.737931034482759|0.227629378814811|69
+31|North Fork St. Lucie Aquatic Preserve|2017|Secchi Depth|Surface|Field|152|0.3|1.3|0.7|0.725|0.202386424694598|69, 5002
+31|North Fork St. Lucie Aquatic Preserve|2020|Secchi Depth|Surface|Field|7|0.6|1.2|0.8|0.871428571428572|0.236038737740833|5002
+31|North Fork St. Lucie Aquatic Preserve|2021|Secchi Depth|Surface|Field|30|0.5|1.2|0.7|0.746666666666667|0.173668994182122|5002
+34|Pine Island Sound Aquatic Preserve|1994|Secchi Depth|Surface|Field|27|0.3|2|0.9|1.0037037037037|0.546655201047158|69
+34|Pine Island Sound Aquatic Preserve|1995|Secchi Depth|Surface|Field|107|0.2|2.8|1|1.02056074766355|0.477560293092986|69
+34|Pine Island Sound Aquatic Preserve|1996|Secchi Depth|Surface|Field|191|0.2|3.1|0.8|0.92565445026178|0.529768038582713|69
+34|Pine Island Sound Aquatic Preserve|1997|Secchi Depth|Surface|Field|202|0.2|3.8|0.8|0.957920792079208|0.514430210481544|69
+34|Pine Island Sound Aquatic Preserve|1998|Secchi Depth|Surface|Field|122|0.3|3.2|1|1.06885245901639|0.541208010180152|69
+34|Pine Island Sound Aquatic Preserve|1999|Secchi Depth|Surface|Field|165|0.3|3|1.5|1.41333333333333|0.599545898620652|69
+34|Pine Island Sound Aquatic Preserve|2000|Secchi Depth|Surface|Field|168|0.3|2.8|1.2|1.24880952380952|0.5259707984925|69
+34|Pine Island Sound Aquatic Preserve|2001|Secchi Depth|Surface|Field|353|0.3|2.9|1.2|1.17367994966006|0.462854163719671|69, 514
+34|Pine Island Sound Aquatic Preserve|2002|Secchi Depth|Surface|Field|366|0.2|2.3|1.2|1.2475875536612|0.511877965221592|69, 514
+34|Pine Island Sound Aquatic Preserve|2003|Secchi Depth|Surface|Field|417|0.3|3.2|1.3|1.34892086330935|0.695386608001416|69
+34|Pine Island Sound Aquatic Preserve|2004|Secchi Depth|Surface|Field|736|0.3|3.2|0.9|1.11317934782609|0.602265745044943|69, 115
+34|Pine Island Sound Aquatic Preserve|2005|Secchi Depth|Surface|Field|806|0.3|3.2|0.9|1.13672456575682|0.601460905575871|69, 5002
+34|Pine Island Sound Aquatic Preserve|2006|Secchi Depth|Surface|Field|758|0.3|3|0.9|1.18522427440633|0.645372217949143|69
+34|Pine Island Sound Aquatic Preserve|2007|Secchi Depth|Surface|Field|747|0.3|3.5|1|1.19611780455154|0.680225027457944|69
+34|Pine Island Sound Aquatic Preserve|2008|Secchi Depth|Surface|Field|791|0.1|3.2|1|1.19886219974716|0.579184253907507|69
+34|Pine Island Sound Aquatic Preserve|2009|Secchi Depth|Surface|Field|748|0.2|3.2|1.1|1.23368983957219|0.613165482579116|69
+34|Pine Island Sound Aquatic Preserve|2010|Secchi Depth|Surface|Field|843|0.3|3.5|1.1|1.23167259786477|0.590949497298623|69
+34|Pine Island Sound Aquatic Preserve|2011|Secchi Depth|Surface|Field|748|0.3|3.5|1|1.10989304812834|0.522411757879629|69
+34|Pine Island Sound Aquatic Preserve|2012|Secchi Depth|Surface|Field|623|0.3|2.7|1|1.16966292134831|0.536747123531881|69
+34|Pine Island Sound Aquatic Preserve|2013|Secchi Depth|Surface|Field|636|0.1|3|1.1|1.21194968553459|0.600300688946387|69
+34|Pine Island Sound Aquatic Preserve|2014|Secchi Depth|Surface|Field|639|0.3|3.3|1.1|1.23145539906103|0.598270425742392|69
+34|Pine Island Sound Aquatic Preserve|2015|Secchi Depth|Surface|Field|664|0.3|3.1|1.1|1.23117469879518|0.576258127460658|69
+34|Pine Island Sound Aquatic Preserve|2016|Secchi Depth|Surface|Field|725|0.3|3.1|0.9|1.13337931034483|0.579903093316155|69
+34|Pine Island Sound Aquatic Preserve|2017|Secchi Depth|Surface|Field|644|0.3|2.7|1|1.10201863354037|0.52780742484716|69
+34|Pine Island Sound Aquatic Preserve|2019|Secchi Depth|Surface|Field|2|2|2.25|2.125|2.125|0.176776695296637|303
+34|Pine Island Sound Aquatic Preserve|2020|Secchi Depth|Surface|Field|28|0.9|3.6|1.7|1.79464285714286|0.630158605213694|476, 5002
+34|Pine Island Sound Aquatic Preserve|2021|Secchi Depth|Surface|Field|55|0.4|3|1.7|1.69454545454545|0.479261848254083|476, 5002
+34|Pine Island Sound Aquatic Preserve|2022|Secchi Depth|Surface|Field|1|1.9|1.9|1.9|1.9||476
+35|Pinellas County Aquatic Preserve|1994|Secchi Depth|Surface|Field|23|0.3|1.4|0.8|0.791304347826087|0.290631043011677|69
+35|Pinellas County Aquatic Preserve|1995|Secchi Depth|Surface|Field|186|0.3|4.5|0.9|1.06397849462366|0.582393272505223|69
+35|Pinellas County Aquatic Preserve|1996|Secchi Depth|Surface|Field|331|0.2|4|0.8|0.967673716012085|0.595091306366611|69
+35|Pinellas County Aquatic Preserve|1997|Secchi Depth|Surface|Field|512|0.2|4|0.8|0.9720703125|0.538989787595816|69
+35|Pinellas County Aquatic Preserve|1998|Secchi Depth|Surface|Field|398|0.2|2.5|0.9|0.955527638190955|0.413691494820233|69
+35|Pinellas County Aquatic Preserve|1999|Secchi Depth|Surface|Field|342|0.1|2.4|1|0.985672514619883|0.423779238030188|69, 5002
+35|Pinellas County Aquatic Preserve|2000|Secchi Depth|Surface|Field|338|0.1|4.2|0.9|1.0405325443787|0.584707957086402|69, 115
+35|Pinellas County Aquatic Preserve|2001|Secchi Depth|Surface|Field|616|0.3|4|0.90720556|1.00334674472403|0.504542948916273|69, 115, 514
+35|Pinellas County Aquatic Preserve|2002|Secchi Depth|Surface|Field|847|0.3|3.96244818|1.1|1.21261741958678|0.630093583123612|69, 115, 514
+35|Pinellas County Aquatic Preserve|2003|Secchi Depth|Surface|Field|1284|0.1|3.96244818|1.1|1.1973006071028|0.573350073425287|69, 514, 5002
+35|Pinellas County Aquatic Preserve|2004|Secchi Depth|Surface|Field|1034|0.1|3.81004633|1|1.03340700509671|0.560133472475053|69, 115, 514, 5002
+35|Pinellas County Aquatic Preserve|2005|Secchi Depth|Surface|Field|1010|0.2|5|0.8|0.976812706930693|0.604583803739634|69, 514, 5002
+35|Pinellas County Aquatic Preserve|2006|Secchi Depth|Surface|Field|791|0.1|5.1|1|1.19532051450063|0.879367950263233|69, 514, 5002
+35|Pinellas County Aquatic Preserve|2007|Secchi Depth|Surface|Field|670|0.2|3.74908559|1|1.10546575823881|0.633335764005178|69, 514
+35|Pinellas County Aquatic Preserve|2008|Secchi Depth|Surface|Field|853|0.15|8|1|1.16939899424385|0.806234129358044|60, 69, 514, 5002
+35|Pinellas County Aquatic Preserve|2009|Secchi Depth|Surface|Field|950|0.1|4.5|1.05|1.25283144035789|0.69815993983786|69, 514, 5002
+35|Pinellas County Aquatic Preserve|2010|Secchi Depth|Surface|Field|969|0.2|5.8|1|1.19386627993808|0.667322807716411|69, 514, 5002
+35|Pinellas County Aquatic Preserve|2011|Secchi Depth|Surface|Field|790|0.2|10|0.9|1.05795969029114|0.691253863518107|60, 69, 514, 5002
+35|Pinellas County Aquatic Preserve|2012|Secchi Depth|Surface|Field|818|0.3|4|1|1.1680847053423|0.605371781366243|69, 514, 5002
+35|Pinellas County Aquatic Preserve|2013|Secchi Depth|Surface|Field|741|0.1|9|1|1.16882591093117|0.743830370213559|60, 69
+35|Pinellas County Aquatic Preserve|2014|Secchi Depth|Surface|Field|718|0.2|10|1|1.17005571030641|0.727144735871738|60, 69, 5002
+35|Pinellas County Aquatic Preserve|2015|Secchi Depth|Surface|Field|739|0.2|4.9|1|1.24492557510149|0.754775645434611|69, 5002
+35|Pinellas County Aquatic Preserve|2016|Secchi Depth|Surface|Field|985|0.2|4.4|1|1.33431472081218|0.854340996945326|69, 5002
+35|Pinellas County Aquatic Preserve|2017|Secchi Depth|Surface|Field|844|0.2|4.8|1|1.30118483412322|0.794075643200576|69, 5002
+35|Pinellas County Aquatic Preserve|2018|Secchi Depth|Surface|Field|27|1.21921483|2.43842965|1.52401853|1.60981513148148|0.319908434550625|514
+35|Pinellas County Aquatic Preserve|2019|Secchi Depth|Surface|Field|50|0.76200927|2.2860278|1.52401853|1.5429163626|0.36674234702083|514
+35|Pinellas County Aquatic Preserve|2020|Secchi Depth|Surface|Field|264|0.192|4.05389|1.21921|1.3454221969697|0.6215498729003|514, 5002
+35|Pinellas County Aquatic Preserve|2021|Secchi Depth|Surface|Field|384|0.08|5.6|1|1.209135078125|0.737045140117095|514, 5002
+37|Rocky Bayou State Park Aquatic Preserve|1995|Secchi Depth|Surface|Field|2|0.7|2.7|1.7|1.7|1.4142135623731|69
+37|Rocky Bayou State Park Aquatic Preserve|2001|Secchi Depth|Surface|Field|23|1.8288|4.26725189|2.43842965|2.79623552043478|0.907010047846033|514, 537
+37|Rocky Bayou State Park Aquatic Preserve|2002|Secchi Depth|Surface|Field|21|1.8288|4.26725189|3.048|2.96094304666667|0.73497945951428|514, 537
+37|Rocky Bayou State Park Aquatic Preserve|2003|Secchi Depth|Surface|Field|23|0.9144|4.26725189|1.52401853|1.88182126521739|0.917415557094833|514, 537
+37|Rocky Bayou State Park Aquatic Preserve|2004|Secchi Depth|Surface|Field|22|0.9144|3.9625|2.74321668|2.63238418590909|0.801184136845203|514, 537
+37|Rocky Bayou State Park Aquatic Preserve|2005|Secchi Depth|Surface|Field|16|1.3716|3.35284077|1.98121112|2.175530726875|0.677720253887114|514, 537
+37|Rocky Bayou State Park Aquatic Preserve|2006|Secchi Depth|Surface|Field|21|1.524|4.358693|2.8956|2.85208145952381|0.674954952380267|514, 537
+37|Rocky Bayou State Park Aquatic Preserve|2007|Secchi Depth|Surface|Field|17|2.1336|4.2673|3.3528|3.07492016705882|0.754810781997366|514, 537
+37|Rocky Bayou State Park Aquatic Preserve|2008|Secchi Depth|Surface|Field|12|1.8288|3.65764448|2.28601297|2.61621590583333|0.737599111559962|514, 537
+37|Rocky Bayou State Park Aquatic Preserve|2009|Secchi Depth|Surface|Field|15|1.2192|3.96244818|1.8288|2.03201396133333|0.938877123576608|514, 537
+37|Rocky Bayou State Park Aquatic Preserve|2010|Secchi Depth|Surface|Field|15|1.8288|4.1149|3.20043892|3.16995421333333|0.790236743994815|514, 537
+37|Rocky Bayou State Park Aquatic Preserve|2011|Secchi Depth|Surface|Field|20|1.46305779|4.41965374|2.590814825|2.8270558105|0.887104307766589|514, 537
+37|Rocky Bayou State Park Aquatic Preserve|2012|Secchi Depth|Surface|Field|24|1.8288|3.9625|2.66701575|2.70766562833333|0.537171241039836|514, 537
+37|Rocky Bayou State Park Aquatic Preserve|2013|Secchi Depth|Surface|Field|29|1.2|3.65764448|1.9812|2.19128533413793|0.78554626680714|514, 537, 5002
+37|Rocky Bayou State Park Aquatic Preserve|2014|Secchi Depth|Surface|Field|21|1.2192|4.358693|2.4384|2.45584345238095|1.08214921726741|514, 537
+37|Rocky Bayou State Park Aquatic Preserve|2015|Secchi Depth|Surface|Field|28|1.2192|3.9625|2.438414825|2.53744063178571|0.883844053776777|514, 537, 5002
+37|Rocky Bayou State Park Aquatic Preserve|2016|Secchi Depth|Surface|Field|29|1.3|3.9625|2.3|2.52629721241379|0.713996703094525|514, 537, 5002
+37|Rocky Bayou State Park Aquatic Preserve|2017|Secchi Depth|Surface|Field|28|0.9|3.9625|2.3622139|2.15551160964286|0.96322842616656|69, 514, 537
+37|Rocky Bayou State Park Aquatic Preserve|2018|Secchi Depth|Surface|Field|13|1.06681297|2.74323336|1.67642039|1.81006337615385|0.504775861514291|514, 537
+37|Rocky Bayou State Park Aquatic Preserve|2019|Secchi Depth|Surface|Field|10|1.37161668|32.91880029|1.996464275|5.07498171|9.79175812044422|514
+37|Rocky Bayou State Park Aquatic Preserve|2020|Secchi Depth|Surface|Field|10|0.76201|2.89564|1.95074|1.810533|0.579074629867919|514
+37|Rocky Bayou State Park Aquatic Preserve|2021|Secchi Depth|Surface|Field|9|1.15825|2.59083|1.82882|1.78140666666667|0.544848542876825|514
+38|Rookery Bay Aquatic Preserve|1998|Secchi Depth|Surface|Field|2|1.2|1.2|1.2|1.2|0|572
+38|Rookery Bay Aquatic Preserve|1999|Secchi Depth|Surface|Field|3|2|2.5|2.5|2.33333333333333|0.288675134594813|572
+38|Rookery Bay Aquatic Preserve|2001|Secchi Depth|Surface|Field|37|0.5|3.5|0.9|0.981315038378378|0.515053619478235|69, 514, 572
+38|Rookery Bay Aquatic Preserve|2002|Secchi Depth|Surface|Field|6|0.54864667|2.2860278|0.94489149|1.09221328|0.62863994222058|514
+38|Rookery Bay Aquatic Preserve|2003|Secchi Depth|Surface|Field|12|0.67056815|2.5|1.447817605|1.587671705|0.665035408346396|514, 572
+38|Rookery Bay Aquatic Preserve|2004|Secchi Depth|Surface|Field|33|0.60960741|2.5908315|1.52401853|1.4787598|0.473067307565467|514
+38|Rookery Bay Aquatic Preserve|2005|Secchi Depth|Surface|Field|31|0.60960741|2.13362594|1.31065594|1.31852184|0.366353914626987|514
+38|Rookery Bay Aquatic Preserve|2006|Secchi Depth|Surface|Field|29|0.3|2.43842965|1.21921483|1.19456482482759|0.460378707877735|514, 5002
+38|Rookery Bay Aquatic Preserve|2007|Secchi Depth|Surface|Field|20|0.70104852|3.65764448|1.417337235|1.530114605|0.615244284002121|514
+38|Rookery Bay Aquatic Preserve|2008|Secchi Depth|Surface|Field|20|1.06681297|2.74323336|1.34113631|1.5529748855|0.468506721930216|514
+38|Rookery Bay Aquatic Preserve|2009|Secchi Depth|Surface|Field|20|0.76200927|1.82882224|1.37161668|1.32894416|0.30853476894279|514
+38|Rookery Bay Aquatic Preserve|2010|Secchi Depth|Surface|Field|28|0.3|1.98122409|0.91441112|0.979828961785714|0.380939746966662|514, 5002
+38|Rookery Bay Aquatic Preserve|2011|Secchi Depth|Surface|Field|19|0.45720556|1.67642039|1.06681297|1.07643835315789|0.353135938768388|514
+38|Rookery Bay Aquatic Preserve|2015|Secchi Depth|Surface|Field|17|0.2|2.1|1|1.00588235294118|0.423483453388816|5002
+38|Rookery Bay Aquatic Preserve|2016|Secchi Depth|Surface|Field|5|0.2|1.2|0.9|0.8|0.380788655293195|5002
+38|Rookery Bay Aquatic Preserve|2017|Secchi Depth|Surface|Field|4|0.5|1.2|0.65|0.75|0.33166247903554|5002
+38|Rookery Bay Aquatic Preserve|2020|Secchi Depth|Surface|Field|4|1|1.9|1.05|1.25|0.435889894354067|5002
+38|Rookery Bay Aquatic Preserve|2021|Secchi Depth|Surface|Field|28|0.6|2.5|1.2|1.15|0.406885187191123|5002
+39|Rookery Bay National Estuarine Research Reserve|1998|Secchi Depth|Surface|Field|2|1.2|1.2|1.2|1.2|0|572
+39|Rookery Bay National Estuarine Research Reserve|1999|Secchi Depth|Surface|Field|3|2|2.5|2.5|2.33333333333333|0.288675134594813|572
+39|Rookery Bay National Estuarine Research Reserve|2001|Secchi Depth|Surface|Field|49|0.30480371|3.5|0.8|0.904591712244898|0.473541570538931|69, 514, 572
+39|Rookery Bay National Estuarine Research Reserve|2002|Secchi Depth|Surface|Field|6|0.54864667|2.2860278|0.94489149|1.09221328|0.62863994222058|514
+39|Rookery Bay National Estuarine Research Reserve|2003|Secchi Depth|Surface|Field|12|0.67056815|2.5|1.447817605|1.587671705|0.665035408346396|514, 572
+39|Rookery Bay National Estuarine Research Reserve|2004|Secchi Depth|Surface|Field|33|0.60960741|2.5908315|1.52401853|1.4787598|0.473067307565467|514
+39|Rookery Bay National Estuarine Research Reserve|2005|Secchi Depth|Surface|Field|31|0.60960741|2.13362594|1.31065594|1.31852184|0.366353914626987|514
+39|Rookery Bay National Estuarine Research Reserve|2006|Secchi Depth|Surface|Field|40|0.2|2.43842965|1|1.064809498|0.522735834402873|514, 5002
+39|Rookery Bay National Estuarine Research Reserve|2007|Secchi Depth|Surface|Field|20|0.70104852|3.65764448|1.417337235|1.530114605|0.615244284002121|514
+39|Rookery Bay National Estuarine Research Reserve|2008|Secchi Depth|Surface|Field|20|1.06681297|2.74323336|1.34113631|1.5529748855|0.468506721930216|514
+39|Rookery Bay National Estuarine Research Reserve|2009|Secchi Depth|Surface|Field|20|0.76200927|1.82882224|1.37161668|1.32894416|0.30853476894279|514
+39|Rookery Bay National Estuarine Research Reserve|2010|Secchi Depth|Surface|Field|39|0.3|1.98122409|0.91441112|0.977825921282051|0.353937399055816|514, 5002
+39|Rookery Bay National Estuarine Research Reserve|2011|Secchi Depth|Surface|Field|19|0.45720556|1.67642039|1.06681297|1.07643835315789|0.353135938768388|514
+39|Rookery Bay National Estuarine Research Reserve|2015|Secchi Depth|Surface|Field|23|0.2|3.50524262|1.1|1.27357166304348|0.684595809404622|514, 5002
+39|Rookery Bay National Estuarine Research Reserve|2016|Secchi Depth|Surface|Field|20|0.2|2.2860278|1.0363326|1.202804195|0.503681563566721|514, 5002
+39|Rookery Bay National Estuarine Research Reserve|2017|Secchi Depth|Surface|Field|15|0.3|2.0726652|1|1.05820694133333|0.55754114997341|514, 5002
+39|Rookery Bay National Estuarine Research Reserve|2020|Secchi Depth|Surface|Field|12|0.6|1.9|1.05|1.14166666666667|0.448144321991625|5002
+39|Rookery Bay National Estuarine Research Reserve|2021|Secchi Depth|Surface|Field|82|0.3|3.6|1.2|1.17317073170732|0.525885210327723|5002
+12|Southeast Florida Coral Reef Ecosystem Conservation Area|1997|Secchi Depth|Surface|Field|4|1.5|2|1.9|1.825|0.23629078131263|69
+12|Southeast Florida Coral Reef Ecosystem Conservation Area|1998|Secchi Depth|Surface|Field|1|1|1|1|1||69
+12|Southeast Florida Coral Reef Ecosystem Conservation Area|1999|Secchi Depth|Surface|Field|3|0.8|1.2|1.15|1.05|0.217944947177034|3001
+12|Southeast Florida Coral Reef Ecosystem Conservation Area|2000|Secchi Depth|Surface|Field|17|0.2|1.3|1|0.970588235294118|0.301588929427029|3001
+12|Southeast Florida Coral Reef Ecosystem Conservation Area|2001|Secchi Depth|Surface|Field|29|0.3|1.2|0.5|0.532758620689655|0.224513705463356|3001
+12|Southeast Florida Coral Reef Ecosystem Conservation Area|2002|Secchi Depth|Surface|Field|35|0.2|1.1|0.5|0.514285714285714|0.251048222626717|3001
+12|Southeast Florida Coral Reef Ecosystem Conservation Area|2003|Secchi Depth|Surface|Field|15|0.2|1.5|0.4|0.533333333333333|0.357903950935496|3001
+12|Southeast Florida Coral Reef Ecosystem Conservation Area|2016|Secchi Depth|Surface|Field|34|1|8.8|5|4.53823529411765|2.17088373373224|5033
+12|Southeast Florida Coral Reef Ecosystem Conservation Area|2017|Secchi Depth|Surface|Field|502|0.5|16|4.5|4.99641434262948|2.86662032147588|5033
+12|Southeast Florida Coral Reef Ecosystem Conservation Area|2018|Secchi Depth|Surface|Field|1249|0.9|20.7|5|6.19927942353883|3.83334406542685|5033
+12|Southeast Florida Coral Reef Ecosystem Conservation Area|2019|Secchi Depth|Surface|Field|1239|0.5|33|5.2|6.41226795803067|4.10993452685744|5033
+12|Southeast Florida Coral Reef Ecosystem Conservation Area|2020|Secchi Depth|Surface|Field|1152|0.5|39|5.8|6.94557291666667|4.47215513170619|5033
+12|Southeast Florida Coral Reef Ecosystem Conservation Area|2021|Secchi Depth|Surface|Field|621|1|22|6|7.23719806763285|4.38006310247623|5033
+40|St. Andrews State Park Aquatic Preserve|1991|Secchi Depth|Surface|Field|12|2.13362594|5.94367228|4.03864911|4.06404941833333|1.32595716883809|514
+40|St. Andrews State Park Aquatic Preserve|1992|Secchi Depth|Surface|Field|11|3.04803706|6.55327969|3.96244818|4.36423488727273|1.19472308107638|514
+40|St. Andrews State Park Aquatic Preserve|1993|Secchi Depth|Surface|Field|12|3.65764448|10.05852231|5.63886857|6.22307567166667|2.16392417907853|514
+40|St. Andrews State Park Aquatic Preserve|1994|Secchi Depth|Surface|Field|10|2.43842965|8.53450378|3.81004633|4.511094854|2.07624803290823|514
+40|St. Andrews State Park Aquatic Preserve|1995|Secchi Depth|Surface|Field|10|0.60960741|9.14411119|5.48646672|5.486466715|2.52985036214709|514
+40|St. Andrews State Park Aquatic Preserve|1996|Secchi Depth|Surface|Field|4|3.96244818|6.40087783|4.72445745|4.9530602275|1.20323491107019|514
+40|St. Andrews State Park Aquatic Preserve|1997|Secchi Depth|Surface|Field|6|3.04803706|8.83930749|5.18166301|5.58806795|2.22039964111606|514
+40|St. Andrews State Park Aquatic Preserve|2001|Secchi Depth|Surface|Field|11|1.82882224|9.4489149|3.04803706|4.03080845|2.530085961216|69, 514
+40|St. Andrews State Park Aquatic Preserve|2002|Secchi Depth|Surface|Field|2|3.5|3.5|3.5|3.5|0|69
+40|St. Andrews State Park Aquatic Preserve|2003|Secchi Depth|Surface|Field|26|1.7|9.5|5|4.99528163884615|1.94756485292205|69, 470, 514
+40|St. Andrews State Park Aquatic Preserve|2004|Secchi Depth|Surface|Field|23|2.74323336|9.14411119|4.5720556|4.95496750565217|1.66515818157642|470, 514
+40|St. Andrews State Park Aquatic Preserve|2005|Secchi Depth|Surface|Field|37|1.21921483|9.5|4.26725189|4.5870783|1.77599426665922|470, 514
+40|St. Andrews State Park Aquatic Preserve|2006|Secchi Depth|Surface|Field|33|1.82882224|10|5.79127042|5.38692151939394|1.99423400026578|470, 514
+40|St. Andrews State Park Aquatic Preserve|2007|Secchi Depth|Surface|Field|33|0.7|7.92489637|3.35284077|3.41888526787879|1.93624095043733|470, 514
+40|St. Andrews State Park Aquatic Preserve|2008|Secchi Depth|Surface|Field|45|0.9|8.53450378|2|2.71348018088889|1.75457201372332|69, 470, 514
+40|St. Andrews State Park Aquatic Preserve|2009|Secchi Depth|Surface|Field|91|0.9|8.83930749|1.7|2.25550468802198|1.42703898692101|69, 470, 514
+40|St. Andrews State Park Aquatic Preserve|2010|Secchi Depth|Surface|Field|93|0.7|7.45|1.65|2.17415369451613|1.33524621005121|69, 470, 514, 5002
+40|St. Andrews State Park Aquatic Preserve|2011|Secchi Depth|Surface|Field|107|1|13.4|2|3.22663015878505|2.6524079143192|69, 470, 514, 5002
+40|St. Andrews State Park Aquatic Preserve|2012|Secchi Depth|Surface|Field|105|0.9|24|1.7|2.95463986733333|3.11648871538435|69, 470, 514, 5002
+40|St. Andrews State Park Aquatic Preserve|2013|Secchi Depth|Surface|Field|86|0.6|6.70568154|1.8|2.18367783232558|1.27617296649593|69, 470, 514
+40|St. Andrews State Park Aquatic Preserve|2014|Secchi Depth|Surface|Field|79|0.7|7.62009266|1.6|2.50752687683544|1.85735705885473|69, 470, 514
+40|St. Andrews State Park Aquatic Preserve|2015|Secchi Depth|Surface|Field|41|1|6.70568154|2.5|2.8183845702439|1.65739101994347|69, 514
+40|St. Andrews State Park Aquatic Preserve|2016|Secchi Depth|Surface|Field|49|1|8.83930749|1.82882224|2.6865264322449|1.90881893200222|69, 514
+40|St. Andrews State Park Aquatic Preserve|2017|Secchi Depth|Surface|Field|61|0.3|6.40087783|1.4|2.16545304852459|1.68212422587946|69, 514
+40|St. Andrews State Park Aquatic Preserve|2018|Secchi Depth|Surface|Field|16|2.74323336|7.31528895|3.96244818|4.339642769375|1.31863569580867|514
+40|St. Andrews State Park Aquatic Preserve|2019|Secchi Depth|Surface|Field|10|1.98122409|8.22970007|4.49585467|4.495854669|2.24243156777539|514
+40|St. Andrews State Park Aquatic Preserve|2020|Secchi Depth|Surface|Field|19|1.82882|6.70568|4.26725|4.24318789473684|1.53352445136315|514
+40|St. Andrews State Park Aquatic Preserve|2021|Secchi Depth|Surface|Field|16|1.21921|8.2297|3.04804|3.400465625|1.83365851516567|514, 5002
+41|St. Joseph Bay Aquatic Preserve|2001|Secchi Depth|Surface|Field|46|0.30480371|6.09607413|2.43842965|2.47509515152174|1.33317162882952|69, 514
+41|St. Joseph Bay Aquatic Preserve|2002|Secchi Depth|Surface|Field|40|0.09144111|5.18166301|2.057425015|2.11512801725|1.11541453382938|69, 514
+41|St. Joseph Bay Aquatic Preserve|2003|Secchi Depth|Surface|Field|36|0.30480371|4.26725189|1.752621315|1.89655639583333|0.808837728399716|514
+41|St. Joseph Bay Aquatic Preserve|2004|Secchi Depth|Surface|Field|15|0.91441112|2.89563521|1.58497927|1.69267658333333|0.63570461339217|514
+41|St. Joseph Bay Aquatic Preserve|2005|Secchi Depth|Surface|Field|24|0.42672519|6.40087783|1.051572785|1.42876737375|1.27030276500774|514
+41|St. Joseph Bay Aquatic Preserve|2006|Secchi Depth|Surface|Field|53|0.48768593|5.48646672|1.43257742|1.66894406811321|1.06300291666247|514
+41|St. Joseph Bay Aquatic Preserve|2007|Secchi Depth|Surface|Field|47|0.76200927|3.96244818|1.73738113|1.80353001659574|0.777757788018216|514
+41|St. Joseph Bay Aquatic Preserve|2008|Secchi Depth|Surface|Field|45|0.60960741|4.11485004|1.37161668|1.59446205577778|0.792911086922492|514
+41|St. Joseph Bay Aquatic Preserve|2009|Secchi Depth|Surface|Field|42|0.67056815|4.0538893|1.688210195|1.77391460833333|0.739311738460195|514, 5002
+41|St. Joseph Bay Aquatic Preserve|2010|Secchi Depth|Surface|Field|27|0.45720556|6.7|1.52401853|1.98278288111111|1.52057628310486|514, 5002
+41|St. Joseph Bay Aquatic Preserve|2011|Secchi Depth|Surface|Field|24|0.45720556|8.5|2.286027795|3.52853775458333|2.56576149938655|514, 5002
+41|St. Joseph Bay Aquatic Preserve|2012|Secchi Depth|Surface|Field|26|1.00585223|7.8|1.874542795|2.80790145|1.75497432905046|514, 5002
+41|St. Joseph Bay Aquatic Preserve|2013|Secchi Depth|Surface|Field|15|0.91441112|3.65764448|1.61545964|1.887750956|1.00930777462721|514
+41|St. Joseph Bay Aquatic Preserve|2014|Secchi Depth|Surface|Field|5|1.52401853|11|2.37746891|3.97395757|3.99576488717872|60, 514
+41|St. Joseph Bay Aquatic Preserve|2015|Secchi Depth|Surface|Field|10|0.91441112|3.29188003|1.56973909|1.780053646|0.828308705321671|514
+41|St. Joseph Bay Aquatic Preserve|2016|Secchi Depth|Surface|Field|30|0.60960741|4.41965374|1.996464275|2.185442575|1.05872377403731|514
+41|St. Joseph Bay Aquatic Preserve|2017|Secchi Depth|Surface|Field|179|0.3|4.5720556|0.9|1.28070807078212|0.97457598283928|69, 514
+41|St. Joseph Bay Aquatic Preserve|2018|Secchi Depth|Surface|Field|58|0.30480371|6.85808339|1.82882224|2.12994727948276|1.17633750079882|514
+41|St. Joseph Bay Aquatic Preserve|2019|Secchi Depth|Surface|Field|24|0.9|4.11485004|2.74323336|2.74390290958333|0.863284410631414|514, 557
+41|St. Joseph Bay Aquatic Preserve|2020|Secchi Depth|Surface|Field|66|0.39624|5.94367|2.10315|2.03248727272727|1.01350572311169|514
+41|St. Joseph Bay Aquatic Preserve|2021|Secchi Depth|Surface|Field|60|0.39624|4.26725|1.92026|1.96192016666667|0.911927330478067|514
+43|St. Martins Marsh Aquatic Preserve|2000|Secchi Depth|Surface|Field|6|0.60960741|0.91441112|0.76200927|0.787409576666667|0.114723948001924|514
+43|St. Martins Marsh Aquatic Preserve|2003|Secchi Depth|Surface|Field|12|0.9|1.5|1.2|1.2|0.217422922601844|69
+43|St. Martins Marsh Aquatic Preserve|2004|Secchi Depth|Surface|Field|2|0.2|0.5|0.35|0.35|0.212132034355964|69, 115
+43|St. Martins Marsh Aquatic Preserve|2006|Secchi Depth|Surface|Field|14|0.4|1.9|1|1.10357142857143|0.391969526736595|69, 479
+43|St. Martins Marsh Aquatic Preserve|2007|Secchi Depth|Surface|Field|176|0.3|2.6|0.9|0.911164772727273|0.38561480574414|69, 479
+43|St. Martins Marsh Aquatic Preserve|2008|Secchi Depth|Surface|Field|115|0.3|2.2|0.7|0.850260869565217|0.424913739170763|69, 479
+43|St. Martins Marsh Aquatic Preserve|2009|Secchi Depth|Surface|Field|17|0.4|2.34|1.25|1.14058823529412|0.568555962375685|479
+43|St. Martins Marsh Aquatic Preserve|2010|Secchi Depth|Surface|Field|5|0.9|1.5|1.3|1.28|0.236114379062352|479
+43|St. Martins Marsh Aquatic Preserve|2011|Secchi Depth|Surface|Field|3|1.1|1.4|1.2|1.23333333333333|0.152752523165195|479
+43|St. Martins Marsh Aquatic Preserve|2012|Secchi Depth|Surface|Field|4|1|1.5|1.25|1.25|0.208166599946613|479
+43|St. Martins Marsh Aquatic Preserve|2013|Secchi Depth|Surface|Field|2|1.5|1.75|1.625|1.625|0.176776695296637|479
+43|St. Martins Marsh Aquatic Preserve|2015|Secchi Depth|Surface|Field|13|0.6|2.6|1.16|1.26769230769231|0.589168253361661|479, 5002
+43|St. Martins Marsh Aquatic Preserve|2016|Secchi Depth|Surface|Field|1|1|1|1|1||479
+43|St. Martins Marsh Aquatic Preserve|2017|Secchi Depth|Surface|Field|14|0.3|1.39|0.95|0.902142857142857|0.319378689415476|479
+43|St. Martins Marsh Aquatic Preserve|2019|Secchi Depth|Surface|Field|1|1.2|1.2|1.2|1.2||479
+43|St. Martins Marsh Aquatic Preserve|2021|Secchi Depth|Surface|Field|2|0.9|1|0.95|0.95|0.0707106781186547|479
+44|Terra Ceia Aquatic Preserve|1995|Secchi Depth|Surface|Field|43|0.2|3|0.7|1.02325581395349|0.721716607521634|69
+44|Terra Ceia Aquatic Preserve|1996|Secchi Depth|Surface|Field|75|0.3|3.5|0.8|1.076|0.757635011605728|69
+44|Terra Ceia Aquatic Preserve|1997|Secchi Depth|Surface|Field|117|0.4|4.6|0.9|1.07948717948718|0.659615674613852|69
+44|Terra Ceia Aquatic Preserve|1998|Secchi Depth|Surface|Field|119|0.3|3.5|0.9|1.04453781512605|0.526693793746857|69
+44|Terra Ceia Aquatic Preserve|1999|Secchi Depth|Surface|Field|99|0.3|2.5|1|1.07575757575758|0.479815208708883|69
+44|Terra Ceia Aquatic Preserve|2000|Secchi Depth|Surface|Field|119|0.3|4.2|0.8|0.964705882352941|0.556256896402744|69, 5002
+44|Terra Ceia Aquatic Preserve|2001|Secchi Depth|Surface|Field|210|0.3|2.7|1|1.01571428571429|0.481316689194686|69
+44|Terra Ceia Aquatic Preserve|2002|Secchi Depth|Surface|Field|250|0.3|3.2|0.85|1.0184|0.615382990421086|69
+44|Terra Ceia Aquatic Preserve|2003|Secchi Depth|Surface|Field|312|0.2|3.1|0.8|0.890064102564103|0.513731693700491|69
+44|Terra Ceia Aquatic Preserve|2004|Secchi Depth|Surface|Field|701|0.2|3|0.7|0.827674750356633|0.412489151100766|69
+44|Terra Ceia Aquatic Preserve|2005|Secchi Depth|Surface|Field|210|0.2|3.5|0.8|0.877142857142857|0.487304301116391|69, 5002
+44|Terra Ceia Aquatic Preserve|2006|Secchi Depth|Surface|Field|763|0.1|4.5|0.5|0.61913499344692|0.528232616349986|69
+44|Terra Ceia Aquatic Preserve|2007|Secchi Depth|Surface|Field|476|0.2|5.5|0.6|0.772268907563025|0.566715280931926|69
+44|Terra Ceia Aquatic Preserve|2008|Secchi Depth|Surface|Field|226|0.3|3.5|1|1.01637168141593|0.529525677810964|69
+44|Terra Ceia Aquatic Preserve|2009|Secchi Depth|Surface|Field|230|0.3|3.7|1|1.13391304347826|0.635195799888457|69
+44|Terra Ceia Aquatic Preserve|2010|Secchi Depth|Surface|Field|208|0.3|4|0.9|1.09903846153846|0.755078802850116|69
+44|Terra Ceia Aquatic Preserve|2011|Secchi Depth|Surface|Field|266|0.2|4|0.9|1.01616541353383|0.591258615069245|69
+44|Terra Ceia Aquatic Preserve|2012|Secchi Depth|Surface|Field|241|0.2|4.8|1|1.19709543568465|0.771653977950878|69
+44|Terra Ceia Aquatic Preserve|2013|Secchi Depth|Surface|Field|219|0.3|4.2|1|1.20821917808219|0.788580205642667|69
+44|Terra Ceia Aquatic Preserve|2014|Secchi Depth|Surface|Field|372|0.3|3.8|0.8|0.935752688172043|0.588007942369191|69
+44|Terra Ceia Aquatic Preserve|2015|Secchi Depth|Surface|Field|349|0.3|3.4|0.9|1.02320916905444|0.595341121501085|69
+44|Terra Ceia Aquatic Preserve|2016|Secchi Depth|Surface|Field|474|0.3|4.7|1|1.42025316455696|0.877322432381586|69
+44|Terra Ceia Aquatic Preserve|2017|Secchi Depth|Surface|Field|316|0.3|4.5|1.05|1.39905063291139|0.859512071237381|69
+44|Terra Ceia Aquatic Preserve|2018|Secchi Depth|Surface|Field|61|0.3|4.5|2.5|2.18688524590164|1.07323116643714|5002
+44|Terra Ceia Aquatic Preserve|2019|Secchi Depth|Surface|Field|61|0.2|3.5|2.5|2.17868852459016|0.917808032596933|5002
+44|Terra Ceia Aquatic Preserve|2020|Secchi Depth|Surface|Field|57|0.5|4|2|2.1140350877193|0.840798641703068|5002
+44|Terra Ceia Aquatic Preserve|2021|Secchi Depth|Surface|Field|42|0.5|3|2|1.91666666666667|0.617199286575733|5002

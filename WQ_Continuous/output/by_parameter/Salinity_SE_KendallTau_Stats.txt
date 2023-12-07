@@ -1,0 +1,107 @@
+AreaID|ManagedAreaName|ProgramID|ProgramName|ProgramLocationID|ParameterName|RelativeDepth|N_Data|N_Years|EarliestYear|LatestYear|SufficientData|Season|Median|Independent|tau|z|p_z|chi_sq|p_chi_sq|SennSlope|SennIntercept|Trend
+1|Alligator Harbor Aquatic Preserve||||Salinity||0|0|||FALSE|||||||||||
+2|Apalachicola Bay Aquatic Preserve||||Salinity||0|0|||FALSE|||||||||||
+3|Apalachicola National Estuarine Research Reserve||||Salinity||0|0|||FALSE|||||||||||
+4|Banana River Aquatic Preserve||||Salinity||0|0|||FALSE|||||||||||
+5|Big Bend Seagrasses Aquatic Preserve||||Salinity||0|0|||FALSE|||||||||||
+7|Biscayne Bay-Cape Florida to Monroe County Line Aquatic Preserve||||Salinity||0|0|||FALSE|||||||||||
+6|Biscayne Bay Aquatic Preserve|5077|Biscayne Bay Aquatic Preserves Continuous Water Quality Monitoring|BBBB14|Salinity|bottom|883|3|2019|2021|FALSE|||||||||||
+6|Biscayne Bay Aquatic Preserve|5077|Biscayne Bay Aquatic Preserves Continuous Water Quality Monitoring|BBJT71|Salinity|bottom|893|3|2019|2021|FALSE|||||||||||
+6|Biscayne Bay Aquatic Preserve|5077|Biscayne Bay Aquatic Preserves Continuous Water Quality Monitoring|BBLR03|Salinity|bottom|866|3|2019|2021|FALSE|||||||||||
+6|Biscayne Bay Aquatic Preserve|5077|Biscayne Bay Aquatic Preserves Continuous Water Quality Monitoring|BBMRDW|Salinity|bottom|253|1|2021|2021|FALSE|||||||||||
+8|Boca Ciega Bay Aquatic Preserve||||Salinity||0|0|||FALSE|||||||||||
+9|Cape Haze Aquatic Preserve||||Salinity||0|0|||FALSE|||||||||||
+10|Cape Romano-Ten Thousand Islands Aquatic Preserve||||Salinity||0|0|||FALSE|||||||||||
+11|Cockroach Bay Aquatic Preserve||||Salinity||0|0|||FALSE|||||||||||
+13|Coupon Bight Aquatic Preserve||||Salinity||0|0|||FALSE|||||||||||
+14|Estero Bay Aquatic Preserve||||Salinity||0|0|||FALSE|||||||||||
+15|Florida Keys National Marine Sanctuary|2|Atlantic Oceanographic and Meteorological Laboratory (AOML) South Florida Program Moored Instrument Array|1B|Salinity|Surface|1800|6|2003|2008|FALSE|||||||||||
+15|Florida Keys National Marine Sanctuary|7|National Water Information System|245323080410100|Salinity|surface|165|3|2002|2004|FALSE|||||||||||
+15|Florida Keys National Marine Sanctuary|7|National Water Information System|245622080364200|Salinity|surface|165|3|2002|2004|FALSE|||||||||||
+16|Fort Clinch State Park Aquatic Preserve||||Salinity||0|0|||FALSE|||||||||||
+17|Fort Pickens State Park Aquatic Preserve||||Salinity||0|0|||FALSE|||||||||||
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve||||Salinity||0|0|||FALSE|||||||||||
+19|Guana River Marsh Aquatic Preserve||||Salinity||0|0|||FALSE|||||||||||
+20|Guana Tolomato Matanzas National Estuarine Research Reserve||||Salinity||0|0|||FALSE|||||||||||
+21|Indian River-Malabar to Vero Beach Aquatic Preserve||||Salinity||0|0|||FALSE|||||||||||
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve||||Salinity||0|0|||FALSE|||||||||||
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve||||Salinity||0|0|||FALSE|||||||||||
+24|Lake Jackson Aquatic Preserve||||Salinity||0|0|||FALSE|||||||||||
+25|Lemon Bay Aquatic Preserve||||Salinity||0|0|||FALSE|||||||||||
+26|Lignumvitae Key Aquatic Preserve|7|National Water Information System|245323080410100|Salinity|surface|165|3|2002|2004|FALSE|||||||||||
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve||||Salinity||0|0|||FALSE|||||||||||
+28|Matlacha Pass Aquatic Preserve||||Salinity||0|0|||FALSE|||||||||||
+29|Mosquito Lagoon Aquatic Preserve||||Salinity||0|0|||FALSE|||||||||||
+30|Nassau River-St. Johns River Marshes Aquatic Preserve||||Salinity||0|0|||FALSE|||||||||||
+48|Nature Coast Aquatic Preserve||||Salinity||0|0|||FALSE|||||||||||
+31|North Fork St. Lucie Aquatic Preserve||||Salinity||0|0|||FALSE|||||||||||
+32|Oklawaha River Aquatic Preserve||||Salinity||0|0|||FALSE|||||||||||
+33|Pellicer Creek Aquatic Preserve||||Salinity||0|0|||FALSE|||||||||||
+34|Pine Island Sound Aquatic Preserve||||Salinity||0|0|||FALSE|||||||||||
+35|Pinellas County Aquatic Preserve||||Salinity||0|0|||FALSE|||||||||||
+36|Rainbow Springs Aquatic Preserve||||Salinity||0|0|||FALSE|||||||||||
+37|Rocky Bayou State Park Aquatic Preserve||||Salinity||0|0|||FALSE|||||||||||
+38|Rookery Bay Aquatic Preserve||||Salinity||0|0|||FALSE|||||||||||
+39|Rookery Bay National Estuarine Research Reserve||||Salinity||0|0|||FALSE|||||||||||
+12|Southeast Florida Coral Reef Ecosystem Conservation Area||||Salinity||0|0|||FALSE|||||||||||
+40|St. Andrews State Park Aquatic Preserve||||Salinity||0|0|||FALSE|||||||||||
+41|St. Joseph Bay Aquatic Preserve||||Salinity||0|0|||FALSE|||||||||||
+42|St. Joseph Bay State Buffer Preserve||||Salinity||0|0|||FALSE|||||||||||
+43|St. Martins Marsh Aquatic Preserve||||Salinity||0|0|||FALSE|||||||||||
+44|Terra Ceia Aquatic Preserve||||Salinity||0|0|||FALSE|||||||||||
+45|Tomoka Marsh Aquatic Preserve||||Salinity||0|0|||FALSE|||||||||||
+46|Wekiva River Aquatic Preserve||||Salinity||0|0|||FALSE|||||||||||
+47|Yellow River Marsh Aquatic Preserve||||Salinity||0|0|||FALSE|||||||||||
+||||||||||||||||||||||
+||||||||||||||||||||||
+||||||||||||||||||||||
+||||||||||||||||||||||
+||||||||||||||||||||||
+||||||||||||||||||||||
+||||||||||||||||||||||
+||||||||||||||||||||||
+||||||||||||||||||||||
+||||||||||||||||||||||
+||||||||||||||||||||||
+||||||||||||||||||||||
+||||||||||||||||||||||
+||||||||||||||||||||||
+||||||||||||||||||||||
+||||||||||||||||||||||
+||||||||||||||||||||||
+||||||||||||||||||||||
+||||||||||||||||||||||
+||||||||||||||||||||||
+||||||||||||||||||||||
+||||||||||||||||||||||
+||||||||||||||||||||||
+||||||||||||||||||||||
+||||||||||||||||||||||
+||||||||||||||||||||||
+||||||||||||||||||||||
+||||||||||||||||||||||
+||||||||||||||||||||||
+||||||||||||||||||||||
+||||||||||||||||||||||
+||||||||||||||||||||||
+||||||||||||||||||||||
+||||||||||||||||||||||
+||||||||||||||||||||||
+||||||||||||||||||||||
+||||||||||||||||||||||
+||||||||||||||||||||||
+||||||||||||||||||||||
+||||||||||||||||||||||
+||||||||||||||||||||||
+||||||||||||||||||||||
+||||||||||||||||||||||
+||||||||||||||||||||||
+||||||||||||||||||||||
+||||||||||||||||||||||
+||||||||||||||||||||||
+||||||||||||||||||||||
+||||||||||||||||||||||
+||||||||||||||||||||||
+||||||||||||||||||||||
+||||||||||||||||||||||
+||||||||||||||||||||||

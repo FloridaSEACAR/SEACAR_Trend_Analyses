@@ -1,0 +1,376 @@
+AreaID|ManagedAreaName|ParameterName|RelativeDepth|ActivityType|SufficientData|N_Data|N_Years|EarliestYear|LatestYear|Season|Median|Independent|tau|z|p_z|chi_sq|p_chi_sq|SennSlope|SennIntercept|Trend
+1|Alligator Harbor Aquatic Preserve|pH|Bottom|Field|TRUE|72|12|2005|2022|All|8.1|TRUE|-0.5343|-5.6172|0|10.8688|0.2092|-0.0227272727272727|8.92|-1
+1|Alligator Harbor Aquatic Preserve|pH|Bottom|Field|TRUE|72|12|2005|2022|1|8.06|TRUE|-1|-2.104|0.0354|||-0.11|10.6|-1
+1|Alligator Harbor Aquatic Preserve|pH|Bottom|Field|TRUE|72|12|2005|2022|2|8.4|TRUE|-0.5|-1.0445|0.2963|||-0.0719999999999999|9.537|-1
+1|Alligator Harbor Aquatic Preserve|pH|Bottom|Field|TRUE|72|12|2005|2022|3||TRUE|-0.3516|||||-0.0172727272727272|8.46545454545454|
+1|Alligator Harbor Aquatic Preserve|pH|Bottom|Field|TRUE|72|12|2005|2022|4|7.9|TRUE|-0.5455|-1.0445|0.2963|||-0.023|8.483|-1
+1|Alligator Harbor Aquatic Preserve|pH|Bottom|Field|TRUE|72|12|2005|2022|5|8.025|TRUE|0|-0.7223|0.4701|||0.00181818181818186|8.15727272727273|1
+1|Alligator Harbor Aquatic Preserve|pH|Bottom|Field|TRUE|72|12|2005|2022|6|8|TRUE|-0.8|-4.0046|0.0001|||-0.112666666666667|10.5386666666667|-1
+1|Alligator Harbor Aquatic Preserve|pH|Bottom|Field|TRUE|72|12|2005|2022|7|8.18|TRUE|-0.5636|-2.787|0.0053|||-0.0181818181818183|8.52545454545455|-1
+1|Alligator Harbor Aquatic Preserve|pH|Bottom|Field|TRUE|72|12|2005|2022|8|8.04|TRUE|-0.4|-0.7807|0.435|||-0.04|8.92|-1
+1|Alligator Harbor Aquatic Preserve|pH|Bottom|Field|TRUE|72|12|2005|2022|9|8.12|TRUE|-1|-1.9284|0.0538|||-0.255|13|-1
+2|Apalachicola Bay Aquatic Preserve|pH|Bottom|Field|TRUE|599|20|1992|2022|All|8.01|TRUE|-0.0501|-1.7011|0.0889|45.2811|0|-0.00666666666666682|8.80250000000001|0
+2|Apalachicola Bay Aquatic Preserve|pH|Bottom|Field|TRUE|599|20|1992|2022|1|8.08|TRUE|0.0725|-1.7454|0.0809|||0.01|7.465|0
+2|Apalachicola Bay Aquatic Preserve|pH|Bottom|Field|TRUE|599|20|1992|2022|2|8.2|TRUE|-0.322|3.9266|0.0001|||-0.0328174603174603|9.67214285714286|0
+2|Apalachicola Bay Aquatic Preserve|pH|Bottom|Field|TRUE|599|20|1992|2022|3|7.905|TRUE|-0.1174|-1.3077|0.191|||-0.026|9.283|0
+2|Apalachicola Bay Aquatic Preserve|pH|Bottom|Field|TRUE|599|20|1992|2022|4|8|TRUE|-0.1173|-0.5997|0.5487|||-0.0100000000000004|8.66000000000002|0
+2|Apalachicola Bay Aquatic Preserve|pH|Bottom|Field|TRUE|599|20|1992|2022|5|7.98|TRUE|-0.2483|-2.2861|0.0222|||-0.03|9.68|0
+2|Apalachicola Bay Aquatic Preserve|pH|Bottom|Field|TRUE|599|20|1992|2022|6|7.96|TRUE|-0.2294|-0.9906|0.3219|||-0.0377777777777778|10.02|0
+2|Apalachicola Bay Aquatic Preserve|pH|Bottom|Field|TRUE|599|20|1992|2022|7|7.93|TRUE|-0.1878|2.0473|0.0406|||-0.0166666666666663|8.97999999999998|0
+2|Apalachicola Bay Aquatic Preserve|pH|Bottom|Field|TRUE|599|20|1992|2022|8|8|TRUE|0.4564|0.5314|0.5951|||0.17|-0.809999999999997|0
+2|Apalachicola Bay Aquatic Preserve|pH|Bottom|Field|TRUE|599|20|1992|2022|9|7.995|TRUE|0.0616|0.9624|0.3358|||0.00486842105263157|7.7371052631579|0
+2|Apalachicola Bay Aquatic Preserve|pH|Bottom|Field|TRUE|599|20|1992|2022|10|7.9|TRUE|0.2195|-2.7108|0.0067|||0.0149999999999999|7.135|0
+2|Apalachicola Bay Aquatic Preserve|pH|Bottom|Field|TRUE|599|20|1992|2022|11|8.06|TRUE|-0.0578|-2.6283|0.0086|||-0.0175000000000001|8.945|0
+2|Apalachicola Bay Aquatic Preserve|pH|Bottom|Field|TRUE|599|20|1992|2022|12|8.12|TRUE|-0.0723|-1.1965|0.2315|||-0.0125000000000002|8.63500000000001|0
+3|Apalachicola National Estuarine Research Reserve|pH|Bottom|Field|TRUE|812|24|1992|2022|All|7.95|TRUE|-0.0626|-2.761|0.0058|49.2932|0|-0.0125000000000002|9.53125|-1
+3|Apalachicola National Estuarine Research Reserve|pH|Bottom|Field|TRUE|812|24|1992|2022|1|8.005|TRUE|0.1158|-3.2328|0.0012|||0.0200000000000014|6.91999999999993|1
+3|Apalachicola National Estuarine Research Reserve|pH|Bottom|Field|TRUE|812|24|1992|2022|2|8.12|TRUE|-0.0235|4.7666|0|||-0.00249999999999995|8.0225|-1
+3|Apalachicola National Estuarine Research Reserve|pH|Bottom|Field|TRUE|812|24|1992|2022|3|7.8|TRUE|-0.1321|-1.591|0.1116|||-0.0335416666666667|9.57770833333334|-1
+3|Apalachicola National Estuarine Research Reserve|pH|Bottom|Field|TRUE|812|24|1992|2022|4|7.775|TRUE|0.4687|-0.9983|0.3181|||0.15|0.169999999999989|1
+3|Apalachicola National Estuarine Research Reserve|pH|Bottom|Field|TRUE|812|24|1992|2022|5|7.92|TRUE|-0.0821|-1.8158|0.0694|||-0.0323611111111112|9.52250000000001|-1
+3|Apalachicola National Estuarine Research Reserve|pH|Bottom|Field|TRUE|812|24|1992|2022|6|7.92|TRUE|-0.1397|-1.9189|0.055|||-0.0363636363636364|9.90181818181818|-1
+3|Apalachicola National Estuarine Research Reserve|pH|Bottom|Field|TRUE|812|24|1992|2022|7|7.89|TRUE|-0.2699|-0.2644|0.7915|||-0.0571428571428569|11.0907142857143|-1
+3|Apalachicola National Estuarine Research Reserve|pH|Bottom|Field|TRUE|812|24|1992|2022|8|7.9|TRUE|-0.0836|-0.9432|0.3456|||-0.0147058823529412|8.69411764705883|-1
+3|Apalachicola National Estuarine Research Reserve|pH|Bottom|Field|TRUE|812|24|1992|2022|9|7.98|TRUE|-0.1475|1.6817|0.0926|||-0.028|9.547|-1
+3|Apalachicola National Estuarine Research Reserve|pH|Bottom|Field|TRUE|812|24|1992|2022|10|7.86|TRUE|-0.1956|-2.0146|0.0439|||-0.03125|9.5475|-1
+3|Apalachicola National Estuarine Research Reserve|pH|Bottom|Field|TRUE|812|24|1992|2022|11|8.035|TRUE|-0.0263|-1.8572|0.0633|||-0.00249999999999995|8.2425|-1
+3|Apalachicola National Estuarine Research Reserve|pH|Bottom|Field|TRUE|812|24|1992|2022|12|8.11|TRUE|-0.1228|-0.2789|0.7803|||-0.03|9.54|-1
+4|Banana River Aquatic Preserve|pH|Bottom|Field|TRUE|726|26|1995|2021|All|8.22|TRUE|0.0727|2.9263|0.0034|29.8292|0.0017|0.00500000000000002|8.1509375|1
+4|Banana River Aquatic Preserve|pH|Bottom|Field|TRUE|726|26|1995|2021|1|8.275|TRUE|0.087|1.3885|0.165|||0.00312500000000004|8.27625|1
+4|Banana River Aquatic Preserve|pH|Bottom|Field|TRUE|726|26|1995|2021|2|8.23|TRUE|-0.0609|0.1183|0.9058|||-0.00436507936507939|8.21738095238095|-1
+4|Banana River Aquatic Preserve|pH|Bottom|Field|TRUE|726|26|1995|2021|3|8.22|TRUE|0.0734|1.5838|0.1132|||0.00381944444444441|8.09034722222222|1
+4|Banana River Aquatic Preserve|pH|Bottom|Field|TRUE|726|26|1995|2021|4|8.23|TRUE|0.2028|0.041|0.9673|||0.0177777777777778|7.90111111111111|1
+4|Banana River Aquatic Preserve|pH|Bottom|Field|TRUE|726|26|1995|2021|5|8.25|TRUE|-0.3078|1.4646|0.143|||-0.0238461538461538|8.49|-1
+4|Banana River Aquatic Preserve|pH|Bottom|Field|TRUE|726|26|1995|2021|6|8.32|TRUE|0.2544|1.0241|0.3058|||0.02|7.88|1
+4|Banana River Aquatic Preserve|pH|Bottom|Field|TRUE|726|26|1995|2021|7|8.255|TRUE|0.1441|2.0408|0.0413|||0.00999999999999979|8.09|1
+4|Banana River Aquatic Preserve|pH|Bottom|Field|TRUE|726|26|1995|2021|8|8.15|TRUE|0.0111|2.4481|0.0144|||0|8.23|-1
+4|Banana River Aquatic Preserve|pH|Bottom|Field|TRUE|726|26|1995|2021|9|8.12|TRUE|0.1252|2.7217|0.0065|||0.0100000000000001|8.155|1
+4|Banana River Aquatic Preserve|pH|Bottom|Field|TRUE|726|26|1995|2021|10|8.14|TRUE|0.1716|0.7878|0.4308|||0.0110000000000001|8.09|1
+4|Banana River Aquatic Preserve|pH|Bottom|Field|TRUE|726|26|1995|2021|11|8.165|TRUE|0.0034|-0.5908|0.5547|||0|8.23|-1
+4|Banana River Aquatic Preserve|pH|Bottom|Field|TRUE|726|26|1995|2021|12|8.18|TRUE|0.1284|-3.3585|0.0008|||0.00687499999999996|8.146875|1
+5|Big Bend Seagrasses Aquatic Preserve|pH|Bottom|Field|TRUE|885|32|1990|2021|All|7.4|TRUE|0.1355|5.4648|0|51.1283|0|0.013|6.33861111111111|1
+5|Big Bend Seagrasses Aquatic Preserve|pH|Bottom|Field|TRUE|885|32|1990|2021|1|7.44|TRUE|0.3069|3.3894|0.0007|||0.03|5.91|1
+5|Big Bend Seagrasses Aquatic Preserve|pH|Bottom|Field|TRUE|885|32|1990|2021|2|7.4|TRUE|-0.0044|2.7543|0.0059|||0|7.4|-1
+5|Big Bend Seagrasses Aquatic Preserve|pH|Bottom|Field|TRUE|885|32|1990|2021|3|7.3|TRUE|0.2946|2.9299|0.0034|||0.02875|6.06|1
+5|Big Bend Seagrasses Aquatic Preserve|pH|Bottom|Field|TRUE|885|32|1990|2021|4|7.32|TRUE|0.1052|3.8747|0.0001|||0.0109999999999999|6.894|1
+5|Big Bend Seagrasses Aquatic Preserve|pH|Bottom|Field|TRUE|885|32|1990|2021|5|7.5|TRUE|0.2566|3.8284|0.0001|||0.0249999999999999|6.4|1
+5|Big Bend Seagrasses Aquatic Preserve|pH|Bottom|Field|TRUE|885|32|1990|2021|6|7.4|TRUE|-0.0764|-0.0585|0.9534|||-0.00809523809523809|7.68928571428571|-1
+5|Big Bend Seagrasses Aquatic Preserve|pH|Bottom|Field|TRUE|885|32|1990|2021|7|7.4|TRUE|0.2095|-2.4642|0.0137|||0.0238888888888889|6.27722222222222|1
+5|Big Bend Seagrasses Aquatic Preserve|pH|Bottom|Field|TRUE|885|32|1990|2021|8|7.365|TRUE|0.2795|-0.1877|0.8511|||0.0277272727272727|6.21068181818182|1
+5|Big Bend Seagrasses Aquatic Preserve|pH|Bottom|Field|TRUE|885|32|1990|2021|9|7.325|TRUE|0.3269|-0.8891|0.3739|||0.0427272727272727|5.36363636363637|1
+5|Big Bend Seagrasses Aquatic Preserve|pH|Bottom|Field|TRUE|885|32|1990|2021|10|7.4|TRUE|-0.184|1.2859|0.1985|||-0.0148148148148148|8.05185185185185|-1
+5|Big Bend Seagrasses Aquatic Preserve|pH|Bottom|Field|TRUE|885|32|1990|2021|11|7.5|TRUE|-0.0146|3.4276|0.0006|||0|7.365|-1
+5|Big Bend Seagrasses Aquatic Preserve|pH|Bottom|Field|TRUE|885|32|1990|2021|12|7.5|TRUE|0.2336|3.2419|0.0012|||0.0308333333333333|5.82|1
+7|Biscayne Bay-Cape Florida to Monroe County Line Aquatic Preserve|pH|Bottom|Field|FALSE|0|0|||||||||||||
+6|Biscayne Bay Aquatic Preserve|pH|Bottom|Field|FALSE|186|7|2004|2020|||||||||||
+8|Boca Ciega Bay Aquatic Preserve|pH|Bottom|Field|TRUE|4062|26|1995|2021|All|8.09|TRUE|0.1721|17.0208|0|278.9527|0|0.0199999999999996|7.94897727272727|1
+8|Boca Ciega Bay Aquatic Preserve|pH|Bottom|Field|TRUE|4062|26|1995|2021|1|8.07|TRUE|-0.1996|-2.4025|0.0163|||-0.0059090909090909|8.24727272727273|-1
+8|Boca Ciega Bay Aquatic Preserve|pH|Bottom|Field|TRUE|4062|26|1995|2021|2|8.01|TRUE|0.195|3.2974|0.001|||0.00800000000000001|7.794|1
+8|Boca Ciega Bay Aquatic Preserve|pH|Bottom|Field|TRUE|4062|26|1995|2021|3|8|TRUE|0.1689|3.5025|0.0005|||0.00533333333333334|7.971|1
+8|Boca Ciega Bay Aquatic Preserve|pH|Bottom|Field|TRUE|4062|26|1995|2021|4|8.04|TRUE|0.151|0.7103|0.4775|||0.00499999999999998|7.935|1
+8|Boca Ciega Bay Aquatic Preserve|pH|Bottom|Field|TRUE|4062|26|1995|2021|5|8.12|TRUE|0.0483|3.7136|0.0002|||0.00199999999999996|7.986|1
+8|Boca Ciega Bay Aquatic Preserve|pH|Bottom|Field|TRUE|4062|26|1995|2021|6|8.07|TRUE|0.2193|-3.4827|0.0005|||0.0200000000000005|7.59999999999999|1
+8|Boca Ciega Bay Aquatic Preserve|pH|Bottom|Field|TRUE|4062|26|1995|2021|7|8.115|TRUE|0.0021|2.5317|0.0113|||0|8.05|-1
+8|Boca Ciega Bay Aquatic Preserve|pH|Bottom|Field|TRUE|4062|26|1995|2021|8|8.07|TRUE|0.2388|5.3208|0|||0.00764705882352941|7.79352941176471|1
+8|Boca Ciega Bay Aquatic Preserve|pH|Bottom|Field|TRUE|4062|26|1995|2021|9|8.1|TRUE|-0.1713|16.0174|0|||-0.00749999999999984|8.295|-1
+8|Boca Ciega Bay Aquatic Preserve|pH|Bottom|Field|TRUE|4062|26|1995|2021|10|8.09|TRUE|0.1903|6.2392|0|||0.0119999999999997|7.82600000000001|1
+8|Boca Ciega Bay Aquatic Preserve|pH|Bottom|Field|TRUE|4062|26|1995|2021|11|8.025|TRUE|0.0229|0.3119|0.7551|||0.00238636363636363|7.96295454545455|1
+8|Boca Ciega Bay Aquatic Preserve|pH|Bottom|Field|TRUE|4062|26|1995|2021|12|8.05|TRUE|0.2244|0.0225|0.982|||0.00727272727272728|7.90181818181818|1
+9|Cape Haze Aquatic Preserve|pH|Bottom|Field|TRUE|336|11|2010|2021|All|8.05|TRUE|-0.1144|-3.0871|0.002|19.6582|0.0503|-0.0133333333333336|8.3175|-1
+9|Cape Haze Aquatic Preserve|pH|Bottom|Field|TRUE|336|11|2010|2021|1|8|TRUE|-0.1077|0.1406|0.8882|||-0.0194444444444445|8.47611111111111|-1
+9|Cape Haze Aquatic Preserve|pH|Bottom|Field|TRUE|336|11|2010|2021|2|8.02|TRUE|0.0533|-1.2987|0.1941|||0.0109999999999999|7.755|1
+9|Cape Haze Aquatic Preserve|pH|Bottom|Field|TRUE|336|11|2010|2021|3|7.99|TRUE|-0.1149|-0.7623|0.4459|||-0.0130000000000001|8.292|-1
+9|Cape Haze Aquatic Preserve|pH|Bottom|Field|TRUE|336|11|2010|2021|4|8.03|TRUE|-0.0185|0.3588|0.7198|||-0.000714285714285699|8.20785714285714|-1
+9|Cape Haze Aquatic Preserve|pH|Bottom|Field|TRUE|336|11|2010|2021|5|8.19|TRUE|-0.0462|-0.1445|0.8851|||-0.00333333333333341|7.98|-1
+9|Cape Haze Aquatic Preserve|pH|Bottom|Field|TRUE|336|11|2010|2021|6|8.185|TRUE|-0.17|-0.9664|0.3339|||-0.0200000000000004|8.52000000000001|-1
+9|Cape Haze Aquatic Preserve|pH|Bottom|Field|TRUE|336|11|2010|2021|7|8.065|TRUE|-0.2222|0.4029|0.687|||-0.0300000000000003|8.77000000000001|-1
+9|Cape Haze Aquatic Preserve|pH|Bottom|Field|TRUE|336|11|2010|2021|8|8.14|TRUE|0.0212|-4.5409|0|||0.00166666666666663|7.95666666666667|1
+9|Cape Haze Aquatic Preserve|pH|Bottom|Field|TRUE|336|11|2010|2021|9|8.05|TRUE|-0.1354|-1.6273|0.1037|||-0.0140000000000001|8.535|-1
+9|Cape Haze Aquatic Preserve|pH|Bottom|Field|TRUE|336|11|2010|2021|10|8.09|TRUE|-0.0667|-0.5115|0.609|||-0.0110000000000002|8.34300000000001|-1
+9|Cape Haze Aquatic Preserve|pH|Bottom|Field|TRUE|336|11|2010|2021|11|7.98|TRUE|-0.577|-0.8881|0.3745|||-0.0600000000000001|9.55|-1
+9|Cape Haze Aquatic Preserve|pH|Bottom|Field|TRUE|336|11|2010|2021|12|7.895|TRUE|0.0616|-0.3144|0.7532|||0.00928571428571422|7.8375|1
+10|Cape Romano-Ten Thousand Islands Aquatic Preserve|pH|Bottom|Field|FALSE|7|4|1994|2018|||||||||||
+11|Cockroach Bay Aquatic Preserve|pH|Bottom|Field|TRUE|3391|25|1995|2021|All|7.28|TRUE|-0.0288|4.4891|0|237.8225|0|0.0100000000000001|7.5595|1
+11|Cockroach Bay Aquatic Preserve|pH|Bottom|Field|TRUE|3391|25|1995|2021|1|7.53|TRUE|-0.0049|-1.9859|0.047|||0|7.26|-1
+11|Cockroach Bay Aquatic Preserve|pH|Bottom|Field|TRUE|3391|25|1995|2021|2|7.57|TRUE|0.0027|-5.2914|0|||0|7.37|-1
+11|Cockroach Bay Aquatic Preserve|pH|Bottom|Field|TRUE|3391|25|1995|2021|3|7.43|TRUE|-0.139|-1.1569|0.2473|||-0.0157894736842105|7.40026315789474|-1
+11|Cockroach Bay Aquatic Preserve|pH|Bottom|Field|TRUE|3391|25|1995|2021|4|7.37|TRUE|-0.2939|-4.7903|0|||-0.0233333333333334|7.99|-1
+11|Cockroach Bay Aquatic Preserve|pH|Bottom|Field|TRUE|3391|25|1995|2021|5|7.37|TRUE|-0.0801|0.051|0.9593|||-0.01|7.545|-1
+11|Cockroach Bay Aquatic Preserve|pH|Bottom|Field|TRUE|3391|25|1995|2021|6|7.305|TRUE|-0.1085|-1.5191|0.1287|||-0.0133333333333333|7.86333333333333|-1
+11|Cockroach Bay Aquatic Preserve|pH|Bottom|Field|TRUE|3391|25|1995|2021|7|7.26|TRUE|0.2249|-0.0875|0.9303|||0.0599999999999999|6.23|1
+11|Cockroach Bay Aquatic Preserve|pH|Bottom|Field|TRUE|3391|25|1995|2021|8|7.13|TRUE|-0.2919|11.5097|0|||-0.0333333333333334|8.40333333333333|-1
+11|Cockroach Bay Aquatic Preserve|pH|Bottom|Field|TRUE|3391|25|1995|2021|9|7.195|TRUE|-0.0616|-6.0031|0|||-0.00600000000000005|7.574|-1
+11|Cockroach Bay Aquatic Preserve|pH|Bottom|Field|TRUE|3391|25|1995|2021|10|7.3|TRUE|-0.1582|-3.1024|0.0019|||-0.00999999999999979|7.54|-1
+11|Cockroach Bay Aquatic Preserve|pH|Bottom|Field|TRUE|3391|25|1995|2021|11|7.38|TRUE|-0.2541|-3.0258|0.0025|||-0.03|8.09|-1
+11|Cockroach Bay Aquatic Preserve|pH|Bottom|Field|TRUE|3391|25|1995|2021|12|7.43|TRUE|-0.1641|-5.2388|0|||-0.0275|8.04|-1
+13|Coupon Bight Aquatic Preserve|pH|Bottom|Field|FALSE|2|1|2020|2020|||||||||||
+14|Estero Bay Aquatic Preserve|pH|Bottom|Field|FALSE|71|9|2003|2022|||||||||||
+15|Florida Keys National Marine Sanctuary|pH|Bottom|Field|TRUE|1825|22|2000|2021|All|8.07|TRUE|-0.1204|-10.1593|0|114.6111|0|-0.0119999999999997|8.41|-1
+15|Florida Keys National Marine Sanctuary|pH|Bottom|Field|TRUE|1825|22|2000|2021|1||TRUE||||||||
+15|Florida Keys National Marine Sanctuary|pH|Bottom|Field|TRUE|1825|22|2000|2021|2|8.13|TRUE|-0.2376|3.4779|0.0005|||-0.0125|8.64|-1
+15|Florida Keys National Marine Sanctuary|pH|Bottom|Field|TRUE|1825|22|2000|2021|3||TRUE|0.0031|||||0.000999999999999979|7.975|
+15|Florida Keys National Marine Sanctuary|pH|Bottom|Field|TRUE|1825|22|2000|2021|4|8.17|TRUE|-0.2036|-0.2852|0.7755|||-0.0126363636363636|8.6255|-1
+15|Florida Keys National Marine Sanctuary|pH|Bottom|Field|TRUE|1825|22|2000|2021|5|8.09|TRUE|0.1054|-10.3487|0|||0.00733333333333341|7.756|1
+15|Florida Keys National Marine Sanctuary|pH|Bottom|Field|TRUE|1825|22|2000|2021|7||TRUE||||||||
+15|Florida Keys National Marine Sanctuary|pH|Bottom|Field|TRUE|1825|22|2000|2021|8|8.025|TRUE|-0.004|0.2807|0.7789|||-0.0140000000000001|8.884|-1
+15|Florida Keys National Marine Sanctuary|pH|Bottom|Field|TRUE|1825|22|2000|2021|9||TRUE|-0.0161|||||-0.0100000000000001|8.41|
+15|Florida Keys National Marine Sanctuary|pH|Bottom|Field|TRUE|1825|22|2000|2021|10||TRUE||||||||
+15|Florida Keys National Marine Sanctuary|pH|Bottom|Field|TRUE|1825|22|2000|2021|11||TRUE|0.0067|||||0.00249999999999995|8.1825|
+16|Fort Clinch State Park Aquatic Preserve|pH|Bottom|Field|FALSE|15|3|2008|2014|||||||||||
+17|Fort Pickens State Park Aquatic Preserve|pH|Bottom|Field|FALSE|10|5|1991|2017|||||||||||
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|pH|Bottom|Field|TRUE|2048|18|2000|2022|All|7.91|TRUE|-0.1057|-7.3117|0|46.6682|0|-0.011111111111111|8.53999999999999|-1
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|pH|Bottom|Field|TRUE|2048|18|2000|2022|1|7.94|TRUE|-0.2253|-0.4301|0.6671|||-0.0199999999999996|9.12999999999997|-1
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|pH|Bottom|Field|TRUE|2048|18|2000|2022|2|7.97|TRUE|-0.0208|-4.0533|0.0001|||-0.00199999999999996|8.056|-1
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|pH|Bottom|Field|TRUE|2048|18|2000|2022|3|7.94|TRUE|-0.2347|-3.7365|0.0002|||-0.0466666666666667|10.4866666666667|-1
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|pH|Bottom|Field|TRUE|2048|18|2000|2022|4|7.97|TRUE|-0.1292|-1.5784|0.1145|||-0.0166666666666669|8.93666666666668|-1
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|pH|Bottom|Field|TRUE|2048|18|2000|2022|5|7.975|TRUE|0.0671|1.1512|0.2496|||0.00999999999999979|7.39500000000001|1
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|pH|Bottom|Field|TRUE|2048|18|2000|2022|6|7.97|TRUE|-0.0358|-2.5333|0.0113|||-0.00749999999999984|8.29749999999999|-1
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|pH|Bottom|Field|TRUE|2048|18|2000|2022|7|7.87|TRUE|-0.1656|-0.6902|0.4901|||-0.0141428571428571|8.70528571428572|-1
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|pH|Bottom|Field|TRUE|2048|18|2000|2022|8|7.78|TRUE|-0.1917|-4.6682|0|||-0.00999999999999979|8.52999999999999|-1
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|pH|Bottom|Field|TRUE|2048|18|2000|2022|9|7.78|TRUE|-0.0834|-3.2612|0.0011|||-0.00999999999999979|8.54999999999999|-1
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|pH|Bottom|Field|TRUE|2048|18|2000|2022|10|7.835|TRUE|-0.1348|1.6307|0.103|||-0.0112500000000001|8.52250000000001|-1
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|pH|Bottom|Field|TRUE|2048|18|2000|2022|11|7.885|TRUE|0.0831|-3.4635|0.0005|||0.0149999999999997|6.96500000000002|1
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|pH|Bottom|Field|TRUE|2048|18|2000|2022|12|7.87|TRUE|-0.1621|-2.9011|0.0037|||-0.0366666666666668|9.90666666666667|-1
+19|Guana River Marsh Aquatic Preserve|pH|Bottom|Field|TRUE|485|25|1997|2021|All|7.51|TRUE|0.1677|4.7167|0|36.4539|0.0001|0.00950000000000002|7.365|1
+19|Guana River Marsh Aquatic Preserve|pH|Bottom|Field|TRUE|485|25|1997|2021|1|7.83|TRUE|0.1135|0.2847|0.7759|||0.00591666666666666|7.41758333333333|1
+19|Guana River Marsh Aquatic Preserve|pH|Bottom|Field|TRUE|485|25|1997|2021|2|7.71|TRUE|0.2979|-1.4368|0.1508|||0.0183333333333333|7.36|1
+19|Guana River Marsh Aquatic Preserve|pH|Bottom|Field|TRUE|485|25|1997|2021|3|7.615|TRUE|0.3986|2.7159|0.0066|||0.0211805555555556|7.25493055555556|1
+19|Guana River Marsh Aquatic Preserve|pH|Bottom|Field|TRUE|485|25|1997|2021|4|7.58|TRUE|0.0011|2.9614|0.0031|||0|7.37|-1
+19|Guana River Marsh Aquatic Preserve|pH|Bottom|Field|TRUE|485|25|1997|2021|5|7.43|TRUE|0.2667|2.6199|0.0088|||0.016875|7.176875|1
+19|Guana River Marsh Aquatic Preserve|pH|Bottom|Field|TRUE|485|25|1997|2021|6|7.37|TRUE|0.5328|0|1|||0.0425|6.605|1
+19|Guana River Marsh Aquatic Preserve|pH|Bottom|Field|TRUE|485|25|1997|2021|7|7.475|TRUE|0.3721|3.5767|0.0003|||0.0266666666666667|7.08833333333333|1
+19|Guana River Marsh Aquatic Preserve|pH|Bottom|Field|TRUE|485|25|1997|2021|8|7.365|TRUE|0.0433|-1.2142|0.2247|||0.004|7.762|1
+19|Guana River Marsh Aquatic Preserve|pH|Bottom|Field|TRUE|485|25|1997|2021|9|7.37|TRUE|0.2402|3.8978|0.0001|||0.0142857142857143|7.48857142857143|1
+19|Guana River Marsh Aquatic Preserve|pH|Bottom|Field|TRUE|485|25|1997|2021|10|7.45|TRUE|0.2628|2.5914|0.0096|||0.0133333333333333|7.19666666666667|1
+19|Guana River Marsh Aquatic Preserve|pH|Bottom|Field|TRUE|485|25|1997|2021|11|7.53|TRUE|-0.1161|1.1477|0.2511|||-0.00764705882352941|7.46823529411765|-1
+19|Guana River Marsh Aquatic Preserve|pH|Bottom|Field|TRUE|485|25|1997|2021|12|7.76|TRUE|-0.1469|2.0909|0.0365|||-0.00818181818181821|7.84909090909091|-1
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|pH|Bottom|Field|TRUE|889|26|1997|2022|All|7.7|TRUE|0.0917|3.6169|0.0003|29.8272|0.0017|0.00666666666666653|7.44666666666667|1
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|pH|Bottom|Field|TRUE|889|26|1997|2022|1|7.87|TRUE|0.0564|0.2857|0.7751|||0.004|7.664|1
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|pH|Bottom|Field|TRUE|889|26|1997|2022|2|7.82|TRUE|-0.1006|-0.596|0.5512|||-0.00693750000000002|7.9618125|-1
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|pH|Bottom|Field|TRUE|889|26|1997|2022|3|7.695|TRUE|-0.0178|3.1019|0.0019|||-0.000954545454545434|7.53218181818182|-1
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|pH|Bottom|Field|TRUE|889|26|1997|2022|4|7.665|TRUE|0.1857|1.7831|0.0746|||0.0221052631578947|7.15789473684211|1
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|pH|Bottom|Field|TRUE|889|26|1997|2022|5|7.56|TRUE|0.1288|4.5023|0|||0.01|7.485|1
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|pH|Bottom|Field|TRUE|889|26|1997|2022|6|7.515|TRUE|0.1268|-0.233|0.8158|||0.00999999999999996|7.4|1
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|pH|Bottom|Field|TRUE|889|26|1997|2022|7|7.62|TRUE|0.0276|2.0699|0.0385|||0.0014285714285714|7.84285714285714|1
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|pH|Bottom|Field|TRUE|889|26|1997|2022|8|7.465|TRUE|0.0388|0.5147|0.6068|||0.00333333333333334|7.40833333333333|1
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|pH|Bottom|Field|TRUE|889|26|1997|2022|9|7.6|TRUE|-0.0427|2.0663|0.0388|||-0.00250000000000017|7.8675|-1
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|pH|Bottom|Field|TRUE|889|26|1997|2022|10|7.6|TRUE|0.2956|1.6199|0.1053|||0.0250000000000004|7.21999999999999|1
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|pH|Bottom|Field|TRUE|889|26|1997|2022|11|7.74|TRUE|0.1603|0.728|0.4666|||0.0171428571428572|7.31142857142857|1
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|pH|Bottom|Field|TRUE|889|26|1997|2022|12|7.83|TRUE|0.3535|-1.3231|0.1858|||0.0275|7.065|1
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|pH|Bottom|Field|TRUE|2994|27|1994|2021|All|7.94|TRUE|-0.0903|-7.4716|0|23.3903|0.0156|-0.00700000000000003|8.18333333333334|-1
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|pH|Bottom|Field|TRUE|2994|27|1994|2021|1|8|TRUE|-0.0733|-2.4033|0.0162|||-0.00499999999999997|8.1|-1
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|pH|Bottom|Field|TRUE|2994|27|1994|2021|2|8.01|TRUE|-0.065|1.6869|0.0916|||-0.00500000000000004|8.01|-1
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|pH|Bottom|Field|TRUE|2994|27|1994|2021|3|7.98|TRUE|-0.1366|-3.1081|0.0019|||-0.0100000000000007|8.18000000000002|-1
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|pH|Bottom|Field|TRUE|2994|27|1994|2021|4|7.955|TRUE|-0.1358|-3.0485|0.0023|||-0.00999999999999979|8.22|-1
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|pH|Bottom|Field|TRUE|2994|27|1994|2021|5|7.96|TRUE|-0.0566|-1.7217|0.0851|||-0.00666666666666667|8.06|-1
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|pH|Bottom|Field|TRUE|2994|27|1994|2021|6|7.95|TRUE|-0.057|-1.3868|0.1655|||-0.00399999999999992|8.062|-1
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|pH|Bottom|Field|TRUE|2994|27|1994|2021|7|7.94|TRUE|-0.1599|-2.3486|0.0188|||-0.0133333333333333|8.30333333333333|-1
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|pH|Bottom|Field|TRUE|2994|27|1994|2021|8|7.93|TRUE|-0.1057|-3.8062|0.0001|||-0.00666666666666662|8.18666666666667|-1
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|pH|Bottom|Field|TRUE|2994|27|1994|2021|9|7.91|TRUE|0.0743|-3.3003|0.001|||0.00500000000000012|7.87|1
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|pH|Bottom|Field|TRUE|2994|27|1994|2021|10|7.88|TRUE|-0.1318|-1.3303|0.1834|||-0.0100000000000002|8.26000000000001|-1
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|pH|Bottom|Field|TRUE|2994|27|1994|2021|11|7.88|TRUE|-0.1236|-1.5271|0.1267|||-0.00999999999999979|8.22499999999999|-1
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|pH|Bottom|Field|TRUE|2994|27|1994|2021|12|7.95|TRUE|-0.099|-3.1232|0.0018|||-0.00999999999999979|8.22|-1
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|pH|Bottom|Field|TRUE|240|19|1995|2021|All|8.1|TRUE|0.1369|2.3796|0.0173|17.4383|0.0956|0.015|7.95832352941176|1
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|pH|Bottom|Field|TRUE|240|19|1995|2021|1|8.08|TRUE|0.2026|0.6857|0.4929|||0.0700000000000003|8.315|1
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|pH|Bottom|Field|TRUE|240|19|1995|2021|2|8.005|TRUE|-0.1773|1.362|0.1732|||-0.00999999999999991|8.15|-1
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|pH|Bottom|Field|TRUE|240|19|1995|2021|3|8.025|TRUE|0.1333|1.0905|0.2755|||0.0250000000000001|7.855|1
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|pH|Bottom|Field|TRUE|240|19|1995|2021|4|8.04|TRUE|0.011|-1.3559|0.1751|||0.00090909090909097|8.17090909090909|1
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|pH|Bottom|Field|TRUE|240|19|1995|2021|5|8.225|TRUE|-0.0143|2.3973|0.0165|||-0.00875000000000004|8.2875|-1
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|pH|Bottom|Field|TRUE|240|19|1995|2021|6|9.05|TRUE|0.3895|1.1487|0.2507|||0.103541666666667|7.24135416666667|1
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|pH|Bottom|Field|TRUE|240|19|1995|2021|7|8.18|TRUE|-0.0797|0|1|||-0.0119999999999999|7.974|-1
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|pH|Bottom|Field|TRUE|240|19|1995|2021|8|9.06|TRUE|0.2211|0.8278|0.4078|||0.04|7.605|1
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|pH|Bottom|Field|TRUE|240|19|1995|2021|9|8.49|TRUE|0.3529|2.0308|0.0423|||0.160714285714286|7.04357142857143|1
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|pH|Bottom|Field|TRUE|240|19|1995|2021|10|8.2|TRUE|0.1538|-0.0611|0.9513|||0.00823529411764704|7.94264705882353|1
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|pH|Bottom|Field|TRUE|240|19|1995|2021|11|7.965|TRUE|0.5098|2.9483|0.0032|||0.0900000000000008|7.19999999999999|1
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|pH|Bottom|Field|TRUE|240|19|1995|2021|12|7.86|TRUE|0.1583|-0.5248|0.5997|||0.02|8.86|1
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|pH|Bottom|Field|TRUE|76|16|1994|2019|All|8.03|TRUE|0.378|3.717|0.0002|12.3241|0.264|0.0129425837320575|7.34727272727273|1
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|pH|Bottom|Field|TRUE|76|16|1994|2019|1||TRUE|0.5|||||0.0249999999999999|7.08|
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|pH|Bottom|Field|TRUE|76|16|1994|2019|2|7.965|TRUE|0.033|0.1114|0.9113|||0.00250000000000017|7.85999999999999|1
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|pH|Bottom|Field|TRUE|76|16|1994|2019|3||TRUE|0.5897|||||0.0106066176470588|7.61694852941177|
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|pH|Bottom|Field|TRUE|76|16|1994|2019|4||TRUE||||||||
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|pH|Bottom|Field|TRUE|76|16|1994|2019|5|8.1|TRUE|0.2|1.6641|0.0961|||0.0326893939393939|6.81897727272728|1
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|pH|Bottom|Field|TRUE|76|16|1994|2019|6|8.04|TRUE|0.7|1.928|0.0539|||0.0316666666666669|6.77333333333333|1
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|pH|Bottom|Field|TRUE|76|16|1994|2019|7|8.025|TRUE|0.5278|0|1|||0.0483333333333335|6.15499999999999|1
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|pH|Bottom|Field|TRUE|76|16|1994|2019|8|8.02|TRUE|0.7|2.7897|0.0053|||0.0163636363636363|7.34727272727273|1
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|pH|Bottom|Field|TRUE|76|16|1994|2019|9|8.29|TRUE|0.6667|0.2611|0.794|||0.0125|7.495|1
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|pH|Bottom|Field|TRUE|76|16|1994|2019|10|7.915|TRUE|-1|1.9137|0.0557|||-0.0999999999999996|11.65|-1
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|pH|Bottom|Field|TRUE|76|16|1994|2019|11||TRUE|0.5714|||||0.0175|7.25|
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|pH|Bottom|Field|TRUE|76|16|1994|2019|12|8.03|TRUE|0.0667|1.0106|0.3122|||0.00916666666666669|7.60333333333333|1
+24|Lake Jackson Aquatic Preserve|pH|Bottom|Field|FALSE|0|0|||||||||||||
+25|Lemon Bay Aquatic Preserve|pH|Bottom|Field|TRUE|360|11|2011|2022|All|8.02|TRUE|-0.3272|-8.3459|0|22.9263|0.0181|-0.0212500000000001|9.21|-1
+25|Lemon Bay Aquatic Preserve|pH|Bottom|Field|TRUE|360|11|2011|2022|1|8.04|TRUE|-0.1256|-1.1638|0.2445|||-0.00714285714285724|8.47571428571429|-1
+25|Lemon Bay Aquatic Preserve|pH|Bottom|Field|TRUE|360|11|2011|2022|2|8.02|TRUE|0.0129|-2.6478|0.0081|||0|7.94|-1
+25|Lemon Bay Aquatic Preserve|pH|Bottom|Field|TRUE|360|11|2011|2022|3|7.94|TRUE|-0.3636|0.0874|0.9304|||-0.0100000000000003|8.76500000000002|-1
+25|Lemon Bay Aquatic Preserve|pH|Bottom|Field|TRUE|360|11|2011|2022|4|8.05|TRUE|-0.3768|-1.742|0.0815|||-0.0200000000000001|9.2|-1
+25|Lemon Bay Aquatic Preserve|pH|Bottom|Field|TRUE|360|11|2011|2022|5|8.185|TRUE|-0.4283|-4.0115|0.0001|||-0.0300000000000001|9.99|-1
+25|Lemon Bay Aquatic Preserve|pH|Bottom|Field|TRUE|360|11|2011|2022|6|8.175|TRUE|-0.3118|-1.6863|0.0917|||-0.0328571428571427|10.1257142857143|-1
+25|Lemon Bay Aquatic Preserve|pH|Bottom|Field|TRUE|360|11|2011|2022|7|8.02|TRUE|-0.6368|-3.5761|0.0003|||-0.0433333333333334|10.7416666666667|-1
+25|Lemon Bay Aquatic Preserve|pH|Bottom|Field|TRUE|360|11|2011|2022|8|7.99|TRUE|-0.2404|-2.5084|0.0121|||-0.0117142857142857|8.75142857142857|-1
+25|Lemon Bay Aquatic Preserve|pH|Bottom|Field|TRUE|360|11|2011|2022|9|8|TRUE|-0.6695|-2.9148|0.0036|||-0.0500000000000007|11.26|-1
+25|Lemon Bay Aquatic Preserve|pH|Bottom|Field|TRUE|360|11|2011|2022|10|8.01|TRUE|-0.3182|-5.0257|0|||-0.02|9.22|-1
+25|Lemon Bay Aquatic Preserve|pH|Bottom|Field|TRUE|360|11|2011|2022|11|8.04|TRUE|-0.5281|-4.273|0|||-0.0350000000000001|10.12|-1
+25|Lemon Bay Aquatic Preserve|pH|Bottom|Field|TRUE|360|11|2011|2022|12|7.99|TRUE|-0.2172|-2.1809|0.0292|||-0.0114285714285713|8.75857142857142|-1
+26|Lignumvitae Key Aquatic Preserve|pH|Bottom|Field|FALSE|64|3|2001|2021|||||||||||
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|pH|Bottom|Field|TRUE|299|17|2003|2019|All|7.99|TRUE|0.0035|1.6741|0.0941|22.6982|0.0195|0.00363636363636364|8.16416666666666|0
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|pH|Bottom|Field|TRUE|299|17|2003|2019|1|8.005|TRUE|0.1361|0|1|||0.00666666666666653|7.86666666666667|0
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|pH|Bottom|Field|TRUE|299|17|2003|2019|2|8|TRUE|-0.5556|1.1522|0.2493|||-0.0733333333333333|8.92666666666667|0
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|pH|Bottom|Field|TRUE|299|17|2003|2019|3|8.015|TRUE|0.2227|-1.4446|0.1486|||0.011111111111111|7.73666666666667|0
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|pH|Bottom|Field|TRUE|299|17|2003|2019|4|8|TRUE|-0.0755|-0.6986|0.4848|||-0.00333333333333326|8.07333333333333|0
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|pH|Bottom|Field|TRUE|299|17|2003|2019|5|7.97|TRUE|0.0321|-1.2702|0.204|||0.00183333333333329|8.02516666666667|0
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|pH|Bottom|Field|TRUE|299|17|2003|2019|6|7.975|TRUE|-0.4286|0.9443|0.345|||-0.0199999999999999|8.27|0
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|pH|Bottom|Field|TRUE|299|17|2003|2019|7|7.9|TRUE|0.0244|-2.0762|0.0379|||0.00155555555555552|7.94888888888889|0
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|pH|Bottom|Field|TRUE|299|17|2003|2019|8|7.97|TRUE|-0.8333|2.3114|0.0208|||-0.135|10.04|0
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|pH|Bottom|Field|TRUE|299|17|2003|2019|9|7.86|TRUE|-0.7333|-2.0556|0.0398|||-0.116666666666667|9.37666666666667|0
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|pH|Bottom|Field|TRUE|299|17|2003|2019|10|7.98|TRUE|0.0887|0.2219|0.8244|||0.00437499999999996|7.883125|0
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|pH|Bottom|Field|TRUE|299|17|2003|2019|11|7.995|TRUE|-0.2444|-0.9298|0.3525|||-0.0199999999999996|8.255|0
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|pH|Bottom|Field|TRUE|299|17|2003|2019|12|8.06|TRUE|-0.1667|0.2549|0.7988|||-0.0199999999999999|8.285|0
+28|Matlacha Pass Aquatic Preserve|pH|Bottom|Field|FALSE|197|9|2001|2021|||||||||||
+29|Mosquito Lagoon Aquatic Preserve|pH|Bottom|Field|FALSE|24|8|1998|2021|||||||||||
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|pH|Bottom|Field|TRUE|315|22|1995|2021|All|7.82|TRUE|-0.1031|-2.3766|0.0175|6.8704|0.8095|-0.00750000000000006|7.98829166666667|-1
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|pH|Bottom|Field|TRUE|315|22|1995|2021|1|7.88|TRUE|-0.0695|-0.2059|0.8369|||-0.00651515151515147|8.02893939393939|-1
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|pH|Bottom|Field|TRUE|315|22|1995|2021|2|7.935|TRUE|-0.1108|0.0919|0.9268|||-0.00624999999999998|7.96|-1
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|pH|Bottom|Field|TRUE|315|22|1995|2021|3|7.825|TRUE|-0.1976|-1.209|0.2267|||-0.0114583333333333|8.16666666666666|-1
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|pH|Bottom|Field|TRUE|315|22|1995|2021|4|7.84|TRUE|-0.1563|-0.5686|0.5696|||-0.012125|8.2069375|-1
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|pH|Bottom|Field|TRUE|315|22|1995|2021|5|7.76|TRUE|-0.0996|-0.8346|0.4039|||-0.00968750000000002|7.9309375|-1
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|pH|Bottom|Field|TRUE|315|22|1995|2021|6|7.755|TRUE|-0.0733|-2.8263|0.0047|||-0.00408333333333341|8.01658333333334|-1
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|pH|Bottom|Field|TRUE|315|22|1995|2021|7|7.74|TRUE|-0.028|0.0141|0.9887|||-0.00166666666666678|7.92833333333334|-1
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|pH|Bottom|Field|TRUE|315|22|1995|2021|8|7.75|TRUE|-0.4329|-0.6311|0.528|||-0.025|8.58|-1
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|pH|Bottom|Field|TRUE|315|22|1995|2021|9|7.65|TRUE|-0.0996|-0.6286|0.5296|||-0.00641025641025634|7.94871794871795|-1
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|pH|Bottom|Field|TRUE|315|22|1995|2021|10|7.885|TRUE|-0.0652|-0.4263|0.6699|||-0.00714285714285724|8.09571428571429|-1
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|pH|Bottom|Field|TRUE|315|22|1995|2021|11|7.89|TRUE|0.003|-0.4968|0.6193|||0|7.74|-1
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|pH|Bottom|Field|TRUE|315|22|1995|2021|12|7.8|TRUE|0.025|-1.3123|0.1894|||0.00201923076923076|7.87038461538462|1
+48|Nature Coast Aquatic Preserve|pH|Bottom|Field|TRUE|173|15|1991|2022|All|8.03|TRUE|0.049|0.1141|0.9092|10.5975|0.4776|0|7.87442307692308|0
+48|Nature Coast Aquatic Preserve|pH|Bottom|Field|TRUE|173|15|1991|2022|1|8.145|TRUE|0.0952|0.3162|0.7518|||0.0130000000000001|7.719|0
+48|Nature Coast Aquatic Preserve|pH|Bottom|Field|TRUE|173|15|1991|2022|2|8.17|TRUE|0.0588|2.0062|0.0448|||0.00333333333333356|8.06499999999999|0
+48|Nature Coast Aquatic Preserve|pH|Bottom|Field|TRUE|173|15|1991|2022|3|8|TRUE|-0.0897|1.3398|0.1803|||-0.00666666666666667|8.36333333333333|0
+48|Nature Coast Aquatic Preserve|pH|Bottom|Field|TRUE|173|15|1991|2022|4|7.995|TRUE|0.6667|1.388|0.1651|||0.0303846153846154|7.20346153846154|0
+48|Nature Coast Aquatic Preserve|pH|Bottom|Field|TRUE|173|15|1991|2022|5||TRUE|-0.019|||||-0.000769230769230753|7.87384615384615|
+48|Nature Coast Aquatic Preserve|pH|Bottom|Field|TRUE|173|15|1991|2022|6|7.86|TRUE|-0.1281|-0.054|0.9569|||-0.00599999999999987|8.208|0
+48|Nature Coast Aquatic Preserve|pH|Bottom|Field|TRUE|173|15|1991|2022|7|7.805|TRUE|0.3846|-0.2103|0.8334|||0.0371428571428571|7.50142857142857|0
+48|Nature Coast Aquatic Preserve|pH|Bottom|Field|TRUE|173|15|1991|2022|8|7.94|TRUE|-0.1397|0.1604|0.8725|||-0.0083333333333333|8.21|0
+48|Nature Coast Aquatic Preserve|pH|Bottom|Field|TRUE|173|15|1991|2022|9|8.07|TRUE|0.303|-1.0023|0.3162|||0.00666666666666682|7.875|0
+48|Nature Coast Aquatic Preserve|pH|Bottom|Field|TRUE|173|15|1991|2022|10|8.17|TRUE|0.0429|-0.3948|0.693|||0.00153846153846151|7.94230769230769|0
+48|Nature Coast Aquatic Preserve|pH|Bottom|Field|TRUE|173|15|1991|2022|11|8.06|TRUE|0.2576|-0.7718|0.4402|||0.0146153846153846|7.56153846153846|0
+48|Nature Coast Aquatic Preserve|pH|Bottom|Field|TRUE|173|15|1991|2022|12|7.97|TRUE|-0.0606|0.2512|0.8017|||-0.00250000000000002|7.8575|0
+31|North Fork St. Lucie Aquatic Preserve|pH|Bottom|Field|FALSE|21|5|1996|2021|||||||||||
+32|Oklawaha River Aquatic Preserve|pH|Bottom|Field|FALSE|0|0|||||||||||||
+33|Pellicer Creek Aquatic Preserve|pH|Bottom|Field|FALSE|55|9|2004|2022|||||||||||
+34|Pine Island Sound Aquatic Preserve|pH|Bottom|Field|TRUE|98|10|2000|2021|All|8.04|TRUE|0.1965|2.5952|0.0095|18.4278|0.0482|0.0115490196078431|7.55|1
+34|Pine Island Sound Aquatic Preserve|pH|Bottom|Field|TRUE|98|10|2000|2021|1|7.93|TRUE|-0.4|1.6193|0.1054|||-0.21|21.11|-1
+34|Pine Island Sound Aquatic Preserve|pH|Bottom|Field|TRUE|98|10|2000|2021|2|7.98|TRUE|0.4643|1.3248|0.1852|||0.0237500000000001|6.8375|1
+34|Pine Island Sound Aquatic Preserve|pH|Bottom|Field|TRUE|98|10|2000|2021|3||TRUE||||||||
+34|Pine Island Sound Aquatic Preserve|pH|Bottom|Field|TRUE|98|10|2000|2021|4|7.91|TRUE|0.3571|0.6514|0.5148|||0.01125|7.4825|1
+34|Pine Island Sound Aquatic Preserve|pH|Bottom|Field|TRUE|98|10|2000|2021|5|8.2|TRUE|0.1636|0|1|||0.019375|6.728125|1
+34|Pine Island Sound Aquatic Preserve|pH|Bottom|Field|TRUE|98|10|2000|2021|6||TRUE|0.5818|||||0.0187499999999999|7.0675|
+34|Pine Island Sound Aquatic Preserve|pH|Bottom|Field|TRUE|98|10|2000|2021|7|8.09|TRUE|-0.6667|1.1555|0.2479|||-0.029375|9.539375|-1
+34|Pine Island Sound Aquatic Preserve|pH|Bottom|Field|TRUE|98|10|2000|2021|8|8.17|TRUE|0.3333|0.5659|0.5714|||0.0146666666666667|7.08533333333333|1
+34|Pine Island Sound Aquatic Preserve|pH|Bottom|Field|TRUE|98|10|2000|2021|9||TRUE|-0.0095|||||0|7.92|
+34|Pine Island Sound Aquatic Preserve|pH|Bottom|Field|TRUE|98|10|2000|2021|10||TRUE|-0.0278|||||-0.00825|8.7115|
+34|Pine Island Sound Aquatic Preserve|pH|Bottom|Field|TRUE|98|10|2000|2021|11||TRUE|0.1556|||||0.01|7.55|
+34|Pine Island Sound Aquatic Preserve|pH|Bottom|Field|TRUE|98|10|2000|2021|12|7.92|TRUE|0.6|0|1|||0.00941176470588236|7.61705882352941|1
+35|Pinellas County Aquatic Preserve|pH|Bottom|Field|TRUE|12409|28|1993|2021|All|8.09|TRUE|0.0704|11.1843|0|121.4867|0|0.00499999999999989|7.90841666666667|1
+35|Pinellas County Aquatic Preserve|pH|Bottom|Field|TRUE|12409|28|1993|2021|1|8.065|TRUE|-0.0104|2.6113|0.009|||0|8.08|-1
+35|Pinellas County Aquatic Preserve|pH|Bottom|Field|TRUE|12409|28|1993|2021|2|8.075|TRUE|0.0528|5.839|0|||0.00249999999999995|7.9575|1
+35|Pinellas County Aquatic Preserve|pH|Bottom|Field|TRUE|12409|28|1993|2021|3|8.09|TRUE|0.0477|3.6665|0.0002|||0.00235294117647054|7.98235294117647|1
+35|Pinellas County Aquatic Preserve|pH|Bottom|Field|TRUE|12409|28|1993|2021|4|8.04|TRUE|0.1591|5.9043|0|||0.00666666666666662|7.73666666666667|1
+35|Pinellas County Aquatic Preserve|pH|Bottom|Field|TRUE|12409|28|1993|2021|5|8.08|TRUE|0.0183|2.2875|0.0222|||0.000588235294117635|8.03176470588235|1
+35|Pinellas County Aquatic Preserve|pH|Bottom|Field|TRUE|12409|28|1993|2021|6|8.07|TRUE|-0.0628|-2.4051|0.0162|||-0.00222222222222217|8.18333333333333|-1
+35|Pinellas County Aquatic Preserve|pH|Bottom|Field|TRUE|12409|28|1993|2021|7|8.1|TRUE|0.1351|1.6976|0.0896|||0.00666666666666653|7.72000000000001|1
+35|Pinellas County Aquatic Preserve|pH|Bottom|Field|TRUE|12409|28|1993|2021|8|8.06|TRUE|0.1634|1.1263|0.26|||0.00600000000000001|7.772|1
+35|Pinellas County Aquatic Preserve|pH|Bottom|Field|TRUE|12409|28|1993|2021|9|8.11|TRUE|0.0776|10.2321|0|||0.00374999999999992|7.87750000000001|1
+35|Pinellas County Aquatic Preserve|pH|Bottom|Field|TRUE|12409|28|1993|2021|10|8.08|TRUE|0.1095|-0.5513|0.5814|||0.00428571428571419|7.87571428571429|1
+35|Pinellas County Aquatic Preserve|pH|Bottom|Field|TRUE|12409|28|1993|2021|11|8.07|TRUE|0.0625|1.9983|0.0457|||0.00266666666666673|7.93933333333333|1
+35|Pinellas County Aquatic Preserve|pH|Bottom|Field|TRUE|12409|28|1993|2021|12|8.09|TRUE|0.1031|4.9211|0|||0.00666666666666712|7.81666666666665|1
+36|Rainbow Springs Aquatic Preserve|pH|Bottom|Field|FALSE|0|0|||||||||||||
+37|Rocky Bayou State Park Aquatic Preserve|pH|Bottom|Field|TRUE|258|18|2001|2018|All|7.84|TRUE|0.0399|0.792|0.4283|8.0713|0.7069|0.00333333333333326|7.70181818181819|0
+37|Rocky Bayou State Park Aquatic Preserve|pH|Bottom|Field|TRUE|258|18|2001|2018|1|8.13|TRUE|0.1014|0.1362|0.8917|||0.0113392857142857|7.60589285714286|0
+37|Rocky Bayou State Park Aquatic Preserve|pH|Bottom|Field|TRUE|258|18|2001|2018|2|7.975|TRUE|-0.2065|-1.3978|0.1622|||-0.0244444444444444|8.39055555555555|0
+37|Rocky Bayou State Park Aquatic Preserve|pH|Bottom|Field|TRUE|258|18|2001|2018|3|7.815|TRUE|0.1861|1.1926|0.233|||0.0342857142857143|7.30071428571429|0
+37|Rocky Bayou State Park Aquatic Preserve|pH|Bottom|Field|TRUE|258|18|2001|2018|4|7.57|TRUE|0.0333|-0.1701|0.8649|||0.00249999999999995|8.08375|0
+37|Rocky Bayou State Park Aquatic Preserve|pH|Bottom|Field|TRUE|258|18|2001|2018|5|7.945|TRUE|-0.0303|0.2746|0.7836|||-0.00909090909090914|7.73363636363637|0
+37|Rocky Bayou State Park Aquatic Preserve|pH|Bottom|Field|TRUE|258|18|2001|2018|6|7.78|TRUE|0.0751|-0.3338|0.7385|||0.00274999999999999|7.556|0
+37|Rocky Bayou State Park Aquatic Preserve|pH|Bottom|Field|TRUE|258|18|2001|2018|7|7.57|TRUE|0.1345|1.6691|0.0951|||0.0433333333333333|7.46333333333333|0
+37|Rocky Bayou State Park Aquatic Preserve|pH|Bottom|Field|TRUE|258|18|2001|2018|8|7.6|TRUE|-0.1107|0.4794|0.6316|||-0.00968749999999999|8.0546875|0
+37|Rocky Bayou State Park Aquatic Preserve|pH|Bottom|Field|TRUE|258|18|2001|2018|9|7.81|TRUE|-0.0571|0.6755|0.4994|||-0.0140000000000001|8.018|0
+37|Rocky Bayou State Park Aquatic Preserve|pH|Bottom|Field|TRUE|258|18|2001|2018|10|7.89|TRUE|0.0435|-0.7172|0.4733|||0.00333333333333356|7.88833333333333|0
+37|Rocky Bayou State Park Aquatic Preserve|pH|Bottom|Field|TRUE|258|18|2001|2018|11|7.85|TRUE|0.0877|0.4931|0.622|||0.00999999999999979|7.67|0
+37|Rocky Bayou State Park Aquatic Preserve|pH|Bottom|Field|TRUE|258|18|2001|2018|12|8.2|TRUE|0.2667|0.7753|0.4382|||0.025|7.17|0
+38|Rookery Bay Aquatic Preserve|pH|Bottom|Field|FALSE|28|8|1989|2021|||||||||||
+39|Rookery Bay National Estuarine Research Reserve|pH|Bottom|Field|TRUE|44|10|1989|2021|All|7.845|TRUE|0.072|1.0456|0.2958|4.2743|0.5106|0.00466666666666666|7.55165384615385|0
+39|Rookery Bay National Estuarine Research Reserve|pH|Bottom|Field|TRUE|44|10|1989|2021|1||TRUE||||||||
+39|Rookery Bay National Estuarine Research Reserve|pH|Bottom|Field|TRUE|44|10|1989|2021|2||TRUE||||||||
+39|Rookery Bay National Estuarine Research Reserve|pH|Bottom|Field|TRUE|44|10|1989|2021|3||TRUE|0.2857|||||0.0015|7.936|
+39|Rookery Bay National Estuarine Research Reserve|pH|Bottom|Field|TRUE|44|10|1989|2021|4|7.77|TRUE|0.1667|0.8961|0.3702|||0.0979999999999999|1.17700000000001|0
+39|Rookery Bay National Estuarine Research Reserve|pH|Bottom|Field|TRUE|44|10|1989|2021|6||TRUE||||||||
+39|Rookery Bay National Estuarine Research Reserve|pH|Bottom|Field|TRUE|44|10|1989|2021|7||TRUE|-0.2|||||-0.00249999999999998|7.975|
+39|Rookery Bay National Estuarine Research Reserve|pH|Bottom|Field|TRUE|44|10|1989|2021|8|7.885|TRUE|-0.6667|-0.451|0.652|||-0.105|14.74|0
+39|Rookery Bay National Estuarine Research Reserve|pH|Bottom|Field|TRUE|44|10|1989|2021|9|7.575|TRUE|0.1524|0.4111|0.681|||0.031|6.716|0
+39|Rookery Bay National Estuarine Research Reserve|pH|Bottom|Field|TRUE|44|10|1989|2021|12||TRUE|0.2|||||0.00769230769230767|7.16730769230769|
+12|Southeast Florida Coral Reef Ecosystem Conservation Area|pH|Bottom|Field|FALSE|0|0|||||||||||||
+40|St. Andrews State Park Aquatic Preserve|pH|Bottom|Field|TRUE|106|11|2000|2021|All|8.16|TRUE|0.0517|1.3396|0.1804|10.3787|0.4079|0.0150000000000006|8.15|0
+40|St. Andrews State Park Aquatic Preserve|pH|Bottom|Field|TRUE|106|11|2000|2021|1||TRUE||||||||
+40|St. Andrews State Park Aquatic Preserve|pH|Bottom|Field|TRUE|106|11|2000|2021|2|8.32|TRUE|0|-1.5439|0.1226|||0|8.15|0
+40|St. Andrews State Park Aquatic Preserve|pH|Bottom|Field|TRUE|106|11|2000|2021|3|8.3|TRUE|-0.4|-0.2158|0.8291|||-0.0333333333333332|8.93333333333333|0
+40|St. Andrews State Park Aquatic Preserve|pH|Bottom|Field|TRUE|106|11|2000|2021|4||TRUE|0.025|||||0.0175000000000005|7.85499999999999|
+40|St. Andrews State Park Aquatic Preserve|pH|Bottom|Field|TRUE|106|11|2000|2021|5|8.035|TRUE|-0.1333|1.4896|0.1363|||-0.0100000000000007|8.48000000000001|0
+40|St. Andrews State Park Aquatic Preserve|pH|Bottom|Field|TRUE|106|11|2000|2021|6|8.17|TRUE|-0.4167|0.1337|0.8936|||-0.068|9.612|0
+40|St. Andrews State Park Aquatic Preserve|pH|Bottom|Field|TRUE|106|11|2000|2021|7|8.15|TRUE|0.0654|0|1|||0.0199999999999996|7.73000000000001|0
+40|St. Andrews State Park Aquatic Preserve|pH|Bottom|Field|TRUE|106|11|2000|2021|8|8.35|TRUE|0.2667|0.5738|0.5661|||0.0142857142857144|8.19285714285714|0
+40|St. Andrews State Park Aquatic Preserve|pH|Bottom|Field|TRUE|106|11|2000|2021|9|8.3|TRUE|0.1846|-0.7807|0.435|||0.02|7.615|0
+40|St. Andrews State Park Aquatic Preserve|pH|Bottom|Field|TRUE|106|11|2000|2021|10|8.09|TRUE|0.1429|0.5337|0.5935|||0.0333333333333332|7.68666666666667|0
+40|St. Andrews State Park Aquatic Preserve|pH|Bottom|Field|TRUE|106|11|2000|2021|11|8.4|TRUE|0|0|1|||0|8.4|0
+40|St. Andrews State Park Aquatic Preserve|pH|Bottom|Field|TRUE|106|11|2000|2021|12|8.3|TRUE|0.6|1.5215|0.1281|||0.0333333333333332|7.7|0
+41|St. Joseph Bay Aquatic Preserve|pH|Bottom|Field|TRUE|123|13|1991|2020|All|8.11|TRUE|-0.236|-4.3912|0|26.9423|0.0007|-0.0233333333333328|8.32|-1
+41|St. Joseph Bay Aquatic Preserve|pH|Bottom|Field|TRUE|123|13|1991|2020|1||TRUE||||||||
+41|St. Joseph Bay Aquatic Preserve|pH|Bottom|Field|TRUE|123|13|1991|2020|3||TRUE||||||||
+41|St. Joseph Bay Aquatic Preserve|pH|Bottom|Field|TRUE|123|13|1991|2020|4|8.095|TRUE|-0.3778|-1.7984|0.0721|||-0.16|12.575|-1
+41|St. Joseph Bay Aquatic Preserve|pH|Bottom|Field|TRUE|123|13|1991|2020|5|8.08|TRUE|1|-0.1971|0.8437|||0.0999999999999996|5.80000000000001|1
+41|St. Joseph Bay Aquatic Preserve|pH|Bottom|Field|TRUE|123|13|1991|2020|6|8.2|TRUE|0.0476|-3.6074|0.0003|||0.00454545454545461|8.03727272727273|1
+41|St. Joseph Bay Aquatic Preserve|pH|Bottom|Field|TRUE|123|13|1991|2020|7|8.16|TRUE|-0.0316|0.3052|0.7603|||-0.00999999999999979|8.32|-1
+41|St. Joseph Bay Aquatic Preserve|pH|Bottom|Field|TRUE|123|13|1991|2020|8||TRUE|-0.2778|||||-0.0196428571428571|8.47142857142857|
+41|St. Joseph Bay Aquatic Preserve|pH|Bottom|Field|TRUE|123|13|1991|2020|9|8|TRUE|-0.4815|-0.9879|0.3232|||-0.0264285714285714|8.86071428571429|-1
+41|St. Joseph Bay Aquatic Preserve|pH|Bottom|Field|TRUE|123|13|1991|2020|10|7.91|TRUE|0|-4.0499|0.0001|||0|8.1|-1
+41|St. Joseph Bay Aquatic Preserve|pH|Bottom|Field|TRUE|123|13|1991|2020|11|8.4|TRUE|0.3333|0|1|||0.0333333333333332|7.56666666666667|1
+41|St. Joseph Bay Aquatic Preserve|pH|Bottom|Field|TRUE|123|13|1991|2020|12||TRUE|-0.5455|||||-0.06|9.59|
+42|St. Joseph Bay State Buffer Preserve|pH|Bottom|Field|FALSE|0|0|||||||||||||
+43|St. Martins Marsh Aquatic Preserve|pH|Bottom|Field|TRUE|103|10|1991|2022|All|7.99|TRUE|-0.0896|-1.5859|0.1128|14.7731|0.1931|-0.00666666666666667|7.9515|0
+43|St. Martins Marsh Aquatic Preserve|pH|Bottom|Field|TRUE|103|10|1991|2022|1|8.115|TRUE|-0.1429|1.0722|0.2836|||-0.0083333333333333|7.94|0
+43|St. Martins Marsh Aquatic Preserve|pH|Bottom|Field|TRUE|103|10|1991|2022|2||TRUE|-0.2|||||-0.00683333333333334|7.963|
+43|St. Martins Marsh Aquatic Preserve|pH|Bottom|Field|TRUE|103|10|1991|2022|3|7.93|TRUE|0.2857|0.1656|0.8685|||0.0304166666666668|7.51770833333333|0
+43|St. Martins Marsh Aquatic Preserve|pH|Bottom|Field|TRUE|103|10|1991|2022|4|7.97|TRUE|0.3214|-2.1865|0.0288|||0.0471428571428572|7.26642857142857|0
+43|St. Martins Marsh Aquatic Preserve|pH|Bottom|Field|TRUE|103|10|1991|2022|5|8.105|TRUE|-0.0667|0|1|||-0.0141666666666667|8.23791666666667|0
+43|St. Martins Marsh Aquatic Preserve|pH|Bottom|Field|TRUE|103|10|1991|2022|6|7.79|TRUE|0.1667|-0.3288|0.7423|||0.0107692307692308|7.91653846153846|0
+43|St. Martins Marsh Aquatic Preserve|pH|Bottom|Field|TRUE|103|10|1991|2022|7|7.84|TRUE|0.5|-1.0124|0.3113|||0.0466666666666666|7.21|0
+43|St. Martins Marsh Aquatic Preserve|pH|Bottom|Field|TRUE|103|10|1991|2022|8|7.96|TRUE|-0.5833|-0.9527|0.3408|||-0.0285714285714287|8.48428571428572|0
+43|St. Martins Marsh Aquatic Preserve|pH|Bottom|Field|TRUE|103|10|1991|2022|9|7.99|TRUE|-0.3818|0|1|||-0.0185714285714286|8.65571428571429|0
+43|St. Martins Marsh Aquatic Preserve|pH|Bottom|Field|TRUE|103|10|1991|2022|10|8.21|TRUE|0.0545|-1.624|0.1044|||0.00192307692307692|7.89538461538462|0
+43|St. Martins Marsh Aquatic Preserve|pH|Bottom|Field|TRUE|103|10|1991|2022|11|8.05|TRUE|-0.3333|0.9191|0.358|||-0.165|10.93|0
+43|St. Martins Marsh Aquatic Preserve|pH|Bottom|Field|TRUE|103|10|1991|2022|12|8.12|TRUE|-0.0897|-0.3825|0.7021|||-0.00583333333333336|8.225|0
+44|Terra Ceia Aquatic Preserve|pH|Bottom|Field|TRUE|1951|29|1993|2021|All|8.06|TRUE|0.0442|4.3241|0|93.947|0|0.00307692307692308|8.05666666666667|1
+44|Terra Ceia Aquatic Preserve|pH|Bottom|Field|TRUE|1951|29|1993|2021|1|8|TRUE|0.0569|-0.5713|0.5678|||0.00166666666666663|8.06583333333333|1
+44|Terra Ceia Aquatic Preserve|pH|Bottom|Field|TRUE|1951|29|1993|2021|2|8.05|TRUE|0.0287|1.909|0.0563|||0.000833333333333316|8.075|1
+44|Terra Ceia Aquatic Preserve|pH|Bottom|Field|TRUE|1951|29|1993|2021|3|8.1|TRUE|0.1987|1.4121|0.1579|||0.00999999999999979|7.94|1
+44|Terra Ceia Aquatic Preserve|pH|Bottom|Field|TRUE|1951|29|1993|2021|4|8.1|TRUE|-0.0143|0.9022|0.367|||0|8.04|-1
+44|Terra Ceia Aquatic Preserve|pH|Bottom|Field|TRUE|1951|29|1993|2021|5|8.1|TRUE|0.1656|0.7365|0.4614|||0.0044444444444445|8.00222222222222|1
+44|Terra Ceia Aquatic Preserve|pH|Bottom|Field|TRUE|1951|29|1993|2021|6|8.1|TRUE|-0.049|2.0361|0.0417|||-0.000714285714285763|8.115|-1
+44|Terra Ceia Aquatic Preserve|pH|Bottom|Field|TRUE|1951|29|1993|2021|7|8.03|TRUE|-0.0965|-1.147|0.2514|||-0.00199999999999996|8.072|-1
+44|Terra Ceia Aquatic Preserve|pH|Bottom|Field|TRUE|1951|29|1993|2021|8|8.05|TRUE|0.1499|-5.6904|0|||0.00499999999999989|7.945|1
+44|Terra Ceia Aquatic Preserve|pH|Bottom|Field|TRUE|1951|29|1993|2021|9|8.04|TRUE|0.1052|7.1737|0|||0.00250000000000009|8.0475|1
+44|Terra Ceia Aquatic Preserve|pH|Bottom|Field|TRUE|1951|29|1993|2021|10|8.08|TRUE|-0.0446|0.9176|0.3588|||0|8|-1
+44|Terra Ceia Aquatic Preserve|pH|Bottom|Field|TRUE|1951|29|1993|2021|11|8.1|TRUE|0.0742|-0.5935|0.5529|||0.00142857142857165|8.07|1
+44|Terra Ceia Aquatic Preserve|pH|Bottom|Field|TRUE|1951|29|1993|2021|12|8.04|TRUE|-0.1893|-0.1587|0.8739|||-0.00700000000000003|8.12|-1
+45|Tomoka Marsh Aquatic Preserve|pH|Bottom|Field|TRUE|182|22|1997|2021|All|7.5|TRUE|0.1126|2.2092|0.0272|8.957|0.6259|0.00937499999999997|7.48415178571429|1
+45|Tomoka Marsh Aquatic Preserve|pH|Bottom|Field|TRUE|182|22|1997|2021|1|7.8|TRUE|0.1111|0.1881|0.8508|||0.0233333333333333|7.02333333333333|1
+45|Tomoka Marsh Aquatic Preserve|pH|Bottom|Field|TRUE|182|22|1997|2021|2|7.65|TRUE|0.3368|2.0555|0.0398|||0.04|7.31|1
+45|Tomoka Marsh Aquatic Preserve|pH|Bottom|Field|TRUE|182|22|1997|2021|3|7.64|TRUE|0.3392|0|1|||0.0150000000000001|7.18|1
+45|Tomoka Marsh Aquatic Preserve|pH|Bottom|Field|TRUE|182|22|1997|2021|4|7.665|TRUE|0.2222|0.9075|0.3642|||0.0103125|7.425|1
+45|Tomoka Marsh Aquatic Preserve|pH|Bottom|Field|TRUE|182|22|1997|2021|5|7.59|TRUE|-0.0152|0.8148|0.4152|||-0.00571428571428572|7.49642857142857|-1
+45|Tomoka Marsh Aquatic Preserve|pH|Bottom|Field|TRUE|182|22|1997|2021|6|7.5|TRUE|0.175|0.335|0.7376|||0.00750000000000006|7.58625|1
+45|Tomoka Marsh Aquatic Preserve|pH|Bottom|Field|TRUE|182|22|1997|2021|7|7.42|TRUE|0.1417|0.3768|0.7063|||0.012|7.546|1
+45|Tomoka Marsh Aquatic Preserve|pH|Bottom|Field|TRUE|182|22|1997|2021|8|7.3|TRUE|0.0571|2.0315|0.0422|||0.00312499999999999|7.471875|1
+45|Tomoka Marsh Aquatic Preserve|pH|Bottom|Field|TRUE|182|22|1997|2021|9|7.18|TRUE|-0.0079|-1.0585|0.2898|||-0.00125000000000002|7.27125|-1
+45|Tomoka Marsh Aquatic Preserve|pH|Bottom|Field|TRUE|182|22|1997|2021|10|7.26|TRUE|0.0513|-0.0265|0.9788|||0.00173611111111107|7.77048611111111|1
+45|Tomoka Marsh Aquatic Preserve|pH|Bottom|Field|TRUE|182|22|1997|2021|11|7.405|TRUE|0.0182|0|1|||0.0014285714285714|7.61571428571429|1
+45|Tomoka Marsh Aquatic Preserve|pH|Bottom|Field|TRUE|182|22|1997|2021|12|7.66|TRUE|-0.2545|0.7226|0.4699|||-0.0233333333333333|7.57666666666667|-1
+46|Wekiva River Aquatic Preserve|pH|Bottom|Field|FALSE|0|0|||||||||||||
+47|Yellow River Marsh Aquatic Preserve|pH|Bottom|Field|FALSE|7|2|2004|2020|||||||||||

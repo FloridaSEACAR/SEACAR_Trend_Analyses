@@ -1,0 +1,49 @@
+AreaID,ManagedAreaName,ParameterName,RelativeDepth,ActivityType,N_Total,N_AnalysisUse,N_H,perc_H,N_I,perc_I,N_Q,perc_Q,N_S,perc_S,N_U,perc_U
+1,Alligator Harbor Aquatic Preserve,Total Phosphorus,Surface,Sample,807,807,0,0,11403,11.9774379227764,1225,1.28671064240998,0,0,2876,3.02088147556825
+2,Apalachicola Bay Aquatic Preserve,Total Phosphorus,Surface,Sample,1898,1898,0,0,11403,11.9774379227764,1225,1.28671064240998,0,0,2876,3.02088147556825
+3,Apalachicola National Estuarine Research Reserve,Total Phosphorus,Surface,Sample,2660,2660,0,0,11403,11.9774379227764,1225,1.28671064240998,0,0,2876,3.02088147556825
+4,Banana River Aquatic Preserve,Total Phosphorus,Surface,Sample,3412,3412,0,0,11403,11.9774379227764,1225,1.28671064240998,0,0,2876,3.02088147556825
+5,Big Bend Seagrasses Aquatic Preserve,Total Phosphorus,Surface,Sample,5052,5052,0,0,11403,11.9774379227764,1225,1.28671064240998,0,0,2876,3.02088147556825
+7,Biscayne Bay-Cape Florida to Monroe County Line Aquatic Preserve,Total Phosphorus,Surface,Sample,1,0,0,0,11403,11.9774379227764,1225,1.28671064240998,0,0,2876,3.02088147556825
+6,Biscayne Bay Aquatic Preserve,Total Phosphorus,Surface,Sample,2263,2263,0,0,11403,11.9774379227764,1225,1.28671064240998,0,0,2876,3.02088147556825
+8,Boca Ciega Bay Aquatic Preserve,Total Phosphorus,Surface,Sample,1581,1581,0,0,11403,11.9774379227764,1225,1.28671064240998,0,0,2876,3.02088147556825
+9,Cape Haze Aquatic Preserve,Total Phosphorus,Surface,Sample,357,357,0,0,11403,11.9774379227764,1225,1.28671064240998,0,0,2876,3.02088147556825
+10,Cape Romano-Ten Thousand Islands Aquatic Preserve,Total Phosphorus,Surface,Sample,1682,1682,0,0,11403,11.9774379227764,1225,1.28671064240998,0,0,2876,3.02088147556825
+11,Cockroach Bay Aquatic Preserve,Total Phosphorus,Surface,Sample,1090,1090,0,0,11403,11.9774379227764,1225,1.28671064240998,0,0,2876,3.02088147556825
+13,Coupon Bight Aquatic Preserve,Total Phosphorus,Surface,Sample,99,99,0,0,11403,11.9774379227764,1225,1.28671064240998,0,0,2876,3.02088147556825
+14,Estero Bay Aquatic Preserve,Total Phosphorus,Surface,Sample,678,678,0,0,11403,11.9774379227764,1225,1.28671064240998,0,0,2876,3.02088147556825
+15,Florida Keys National Marine Sanctuary,Total Phosphorus,Surface,Sample,18008,18008,0,0,11403,11.9774379227764,1225,1.28671064240998,0,0,2876,3.02088147556825
+16,Fort Clinch State Park Aquatic Preserve,Total Phosphorus,Surface,Sample,40,0,0,0,11403,11.9774379227764,1225,1.28671064240998,0,0,2876,3.02088147556825
+17,Fort Pickens State Park Aquatic Preserve,Total Phosphorus,Surface,Sample,98,98,0,0,11403,11.9774379227764,1225,1.28671064240998,0,0,2876,3.02088147556825
+18,Gasparilla Sound-Charlotte Harbor Aquatic Preserve,Total Phosphorus,Surface,Sample,2957,2957,0,0,11403,11.9774379227764,1225,1.28671064240998,0,0,2876,3.02088147556825
+19,Guana River Marsh Aquatic Preserve,Total Phosphorus,Surface,Sample,1951,1951,0,0,11403,11.9774379227764,1225,1.28671064240998,0,0,2876,3.02088147556825
+20,Guana Tolomato Matanzas National Estuarine Research Reserve,Total Phosphorus,Surface,Sample,3928,3928,0,0,11403,11.9774379227764,1225,1.28671064240998,0,0,2876,3.02088147556825
+21,Indian River-Malabar to Vero Beach Aquatic Preserve,Total Phosphorus,Surface,Sample,5224,5224,0,0,11403,11.9774379227764,1225,1.28671064240998,0,0,2876,3.02088147556825
+22,Indian River-Vero Beach to Ft. Pierce Aquatic Preserve,Total Phosphorus,Surface,Sample,1666,1666,0,0,11403,11.9774379227764,1225,1.28671064240998,0,0,2876,3.02088147556825
+23,Jensen Beach to Jupiter Inlet Aquatic Preserve,Total Phosphorus,Surface,Sample,552,552,0,0,11403,11.9774379227764,1225,1.28671064240998,0,0,2876,3.02088147556825
+24,Lake Jackson Aquatic Preserve,Total Phosphorus,Surface,Sample,1,0,0,0,11403,11.9774379227764,1225,1.28671064240998,0,0,2876,3.02088147556825
+25,Lemon Bay Aquatic Preserve,Total Phosphorus,Surface,Sample,1543,1543,0,0,11403,11.9774379227764,1225,1.28671064240998,0,0,2876,3.02088147556825
+26,Lignumvitae Key Aquatic Preserve,Total Phosphorus,Surface,Sample,121,0,0,0,11403,11.9774379227764,1225,1.28671064240998,0,0,2876,3.02088147556825
+27,Loxahatchee River-Lake Worth Creek Aquatic Preserve,Total Phosphorus,Surface,Sample,3921,3921,0,0,11403,11.9774379227764,1225,1.28671064240998,0,0,2876,3.02088147556825
+28,Matlacha Pass Aquatic Preserve,Total Phosphorus,Surface,Sample,701,701,0,0,11403,11.9774379227764,1225,1.28671064240998,0,0,2876,3.02088147556825
+29,Mosquito Lagoon Aquatic Preserve,Total Phosphorus,Surface,Sample,698,698,0,0,11403,11.9774379227764,1225,1.28671064240998,0,0,2876,3.02088147556825
+30,Nassau River-St. Johns River Marshes Aquatic Preserve,Total Phosphorus,Surface,Sample,764,764,0,0,11403,11.9774379227764,1225,1.28671064240998,0,0,2876,3.02088147556825
+48,Nature Coast Aquatic Preserve,Total Phosphorus,Surface,Sample,4257,4257,0,0,11403,11.9774379227764,1225,1.28671064240998,0,0,2876,3.02088147556825
+31,North Fork St. Lucie Aquatic Preserve,Total Phosphorus,Surface,Sample,428,428,0,0,11403,11.9774379227764,1225,1.28671064240998,0,0,2876,3.02088147556825
+32,Oklawaha River Aquatic Preserve,Total Phosphorus,Surface,Sample,1,0,0,0,11403,11.9774379227764,1225,1.28671064240998,0,0,2876,3.02088147556825
+33,Pellicer Creek Aquatic Preserve,Total Phosphorus,Surface,Sample,748,748,0,0,11403,11.9774379227764,1225,1.28671064240998,0,0,2876,3.02088147556825
+34,Pine Island Sound Aquatic Preserve,Total Phosphorus,Surface,Sample,1002,1002,0,0,11403,11.9774379227764,1225,1.28671064240998,0,0,2876,3.02088147556825
+35,Pinellas County Aquatic Preserve,Total Phosphorus,Surface,Sample,10133,10133,0,0,11403,11.9774379227764,1225,1.28671064240998,0,0,2876,3.02088147556825
+36,Rainbow Springs Aquatic Preserve,Total Phosphorus,Surface,Sample,1,0,0,0,11403,11.9774379227764,1225,1.28671064240998,0,0,2876,3.02088147556825
+37,Rocky Bayou State Park Aquatic Preserve,Total Phosphorus,Surface,Sample,415,415,0,0,11403,11.9774379227764,1225,1.28671064240998,0,0,2876,3.02088147556825
+38,Rookery Bay Aquatic Preserve,Total Phosphorus,Surface,Sample,1235,1235,0,0,11403,11.9774379227764,1225,1.28671064240998,0,0,2876,3.02088147556825
+39,Rookery Bay National Estuarine Research Reserve,Total Phosphorus,Surface,Sample,3116,3116,0,0,11403,11.9774379227764,1225,1.28671064240998,0,0,2876,3.02088147556825
+12,Southeast Florida Coral Reef Ecosystem Conservation Area,Total Phosphorus,Surface,Sample,4801,4801,0,0,11403,11.9774379227764,1225,1.28671064240998,0,0,2876,3.02088147556825
+40,St. Andrews State Park Aquatic Preserve,Total Phosphorus,Surface,Sample,804,804,0,0,11403,11.9774379227764,1225,1.28671064240998,0,0,2876,3.02088147556825
+41,St. Joseph Bay Aquatic Preserve,Total Phosphorus,Surface,Sample,934,934,0,0,11403,11.9774379227764,1225,1.28671064240998,0,0,2876,3.02088147556825
+42,St. Joseph Bay State Buffer Preserve,Total Phosphorus,Surface,Sample,54,0,0,0,11403,11.9774379227764,1225,1.28671064240998,0,0,2876,3.02088147556825
+43,St. Martins Marsh Aquatic Preserve,Total Phosphorus,Surface,Sample,991,991,0,0,11403,11.9774379227764,1225,1.28671064240998,0,0,2876,3.02088147556825
+44,Terra Ceia Aquatic Preserve,Total Phosphorus,Surface,Sample,2075,2075,0,0,11403,11.9774379227764,1225,1.28671064240998,0,0,2876,3.02088147556825
+45,Tomoka Marsh Aquatic Preserve,Total Phosphorus,Surface,Sample,391,391,0,0,11403,11.9774379227764,1225,1.28671064240998,0,0,2876,3.02088147556825
+46,Wekiva River Aquatic Preserve,Total Phosphorus,Surface,Sample,1,0,0,0,11403,11.9774379227764,1225,1.28671064240998,0,0,2876,3.02088147556825
+47,Yellow River Marsh Aquatic Preserve,Total Phosphorus,Surface,Sample,64,64,0,0,11403,11.9774379227764,1225,1.28671064240998,0,0,2876,3.02088147556825

@@ -1,0 +1,25 @@
+AreaID|ManagedAreaName|Month|ParameterName|RelativeDepth|ActivityType|N|Min|Max|Median|Mean|StandardDeviation|ProgramIDs
+15|Florida Keys National Marine Sanctuary|1|Total Phosphorus|Bottom|Sample|699|0.00111223|0.04203761|0.00588793|0.00685052264663805|0.00393756931253101|297
+15|Florida Keys National Marine Sanctuary|2|Total Phosphorus|Bottom|Sample|593|0.00172657|0.0334999|0.00557569|0.00689591360876897|0.00441764323891295|297, 5002
+15|Florida Keys National Marine Sanctuary|3|Total Phosphorus|Bottom|Sample|595|0.00030974|0.03288414|0.00581532|0.00657778352941176|0.00379060057822282|297, 5002
+15|Florida Keys National Marine Sanctuary|4|Total Phosphorus|Bottom|Sample|568|0.00049852|0.032|0.00527483|0.00624159283450704|0.00343787362993109|297, 5002
+15|Florida Keys National Marine Sanctuary|5|Total Phosphorus|Bottom|Sample|877|0.00185068|0.038011|0.00541022|0.00642315092360319|0.00388320425244586|297, 5002
+15|Florida Keys National Marine Sanctuary|6|Total Phosphorus|Bottom|Sample|441|0.00046461|0.02744275|0.00627219|0.00690647519274376|0.00326007106717107|297
+15|Florida Keys National Marine Sanctuary|7|Total Phosphorus|Bottom|Sample|884|0.00101439|0.05196947|0.00547291|0.00616749846153846|0.00333848482803207|297
+15|Florida Keys National Marine Sanctuary|8|Total Phosphorus|Bottom|Sample|472|0.00038562|0.0463574|0.005346145|0.00624234419491526|0.00370982873506552|297, 5002
+15|Florida Keys National Marine Sanctuary|9|Total Phosphorus|Bottom|Sample|618|0.00129315|0.06076|0.00549124|0.00624677194174757|0.00382813873009744|297
+15|Florida Keys National Marine Sanctuary|10|Total Phosphorus|Bottom|Sample|688|0.00092921|0.04960031|0.005653995|0.00699480322674419|0.00443239486475163|297, 5002
+15|Florida Keys National Marine Sanctuary|11|Total Phosphorus|Bottom|Sample|631|0.00132965|0.02213274|0.00525609|0.0059568787163233|0.00272081387801152|297, 5002
+15|Florida Keys National Marine Sanctuary|12|Total Phosphorus|Bottom|Sample|595|0.00137007|0.06333504|0.00530735|0.00637634514285714|0.00414961065748315|297
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|1|Total Phosphorus|Bottom|Sample|23|0.028|0.192|0.132|0.127913043478261|0.0466952528670336|476, 479
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|2|Total Phosphorus|Bottom|Sample|27|0.039|0.2|0.073|0.0872222222222222|0.041388713932975|476, 479, 5002
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|3|Total Phosphorus|Bottom|Sample|28|0.019|0.177|0.068|0.0909642857142857|0.045462627828806|476, 479
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|4|Total Phosphorus|Bottom|Sample|17|0.052|0.253|0.087|0.103235294117647|0.0488883030639292|479
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|5|Total Phosphorus|Bottom|Sample|12|0.059|0.294|0.1695|0.175416666666667|0.067603736224525|476, 479, 5002
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|6|Total Phosphorus|Bottom|Sample|15|0.013|0.26|0.155|0.149733333333333|0.0710889449579757|476, 479, 5002
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|7|Total Phosphorus|Bottom|Sample|16|0.015|0.364|0.166|0.1794375|0.111149730094139|479, 5002
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|8|Total Phosphorus|Bottom|Sample|17|0.052|0.54|0.293|0.269235294117647|0.141717381349186|476, 479, 5002
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|9|Total Phosphorus|Bottom|Sample|23|0.052|0.602|0.329|0.313434782608696|0.152019982564182|476, 479, 5002
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|10|Total Phosphorus|Bottom|Sample|11|0.015|0.386|0.122|0.156272727272727|0.128090663913566|476, 479, 5002
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|11|Total Phosphorus|Bottom|Sample|21|0.058|0.37|0.161|0.175380952380952|0.0801432942862197|476, 479
+18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|12|Total Phosphorus|Bottom|Sample|14|0.056|0.255|0.1375|0.146357142857143|0.0597090473016471|476, 479
