@@ -32,7 +32,8 @@ all_params_short <- c(
 get_files <- function(p, a, d, filetype) {
   
   # Declaring RDS file list of respective tables
-  files <- list.files(here::here("output/tables/disc"),pattern = "\\.rds$")
+  # files <- list.files(here::here("output/tables/disc"),pattern = "\\.rds$")
+  files <- list.files("output/tables/disc",pattern = "\\.rds$")
   
   # "data" contains overall data for each param, regardless of depth/activity
   if (filetype == "data") {

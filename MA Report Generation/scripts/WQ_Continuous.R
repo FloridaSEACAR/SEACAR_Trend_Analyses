@@ -19,7 +19,8 @@ cont_param_df <- data.frame(param_short = cont_params_short,
 load_cont_data_table <- function(param, region, table) {
   
   # Declaring RDS file list of respective tables
-  files <- list.files(here::here("output/tables/cont"),pattern = "\\.rds$")
+  # files <- list.files(here::here("output/tables/cont"),pattern = "\\.rds$")
+  files <- list.files("output/tables/cont",pattern = "\\.rds$")
   file_path <- paste0("_",param,"_", region,"_", table) 
   
   # subset file list to select desired table RDS file

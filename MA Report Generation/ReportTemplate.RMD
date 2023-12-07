@@ -1,16 +1,16 @@
 ---
 date: "Last compiled on `r format(Sys.time(), '%d %B, %Y')`"
 output:
-  word_document:
+  bookdown::word_document2:
     toc: TRUE
     toc_depth: 3
-  html_document:
+  bookdown::html_document2:
     toc: TRUE
     toc_float: TRUE
     toc_depth: 3
     dev: png
     keep_md: yes
-  pdf_document:
+  bookdown::pdf_document2:
     toc: TRUE
     toc_depth: 3
     dev: png
@@ -33,6 +33,13 @@ knitr::opts_chunk$set(
    )
 ```
 
+
+```{r intro, results='asis'}
+
+# Introduction text for the report
+cat(knitr::knit_child('Introduction.Rmd', quiet=TRUE))
+
+```
 
 
 ```{r descriptive snippet, results='asis'}

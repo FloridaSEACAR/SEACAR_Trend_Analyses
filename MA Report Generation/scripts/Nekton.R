@@ -19,7 +19,9 @@ param_file <- "SpeciesRichness"
 nek_data_out <- "output/Data/Nekton"
 
 #Import data from nekton file
-data <- fread(here::here(nekton_file_in), sep="|", header=TRUE, stringsAsFactors=FALSE,
+# data <- fread(here::here(nekton_file_in), sep="|", header=TRUE, stringsAsFactors=FALSE,
+#               na.strings=c("NULL","","NA"))
+data <- fread(nekton_file_in, sep="|", header=TRUE, stringsAsFactors=FALSE,
               na.strings=c("NULL","","NA"))
 
 #################

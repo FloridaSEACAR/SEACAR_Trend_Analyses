@@ -13,11 +13,13 @@ ma_halspp <- c("Banana River Aquatic Preserve", "Indian River-Malabar to Vero Be
                "Loxahatchee River-Lake Worth Creek Aquatic Preserve", "Mosquito Lagoon Aquatic Preserve", 
                "Biscayne Bay Aquatic Preserve", "Florida Keys National Marine Sanctuary")
 
-files <- list.files(here::here("output/Figures/BB/")) #get file list
+# files <- list.files(here::here("output/Figures/BB/")) #get file list
+files <- list.files("output/Figures/BB/") #get file list
 trendplots <- stringr::str_subset(files, "_trendplot") #identify map file
 trendplots <- stringr::str_subset(trendplots, "_BBpct_")
 
-mods <- list.files(here::here("output/models/"))
+# mods <- list.files(here::here("output/models/"))
+mods <- list.files("output/models/")
 models2 <- str_subset(mods, paste0(str_sub(trendplots[1], 1, str_locate_all(trendplots[1], "_")[[1]][2])))
 
 malist <- c()
@@ -26,7 +28,8 @@ for(pl in trendplots){
   malist <- append(malist, ma_p)
 }
 
-failedmodslist <- readRDS(here::here("output/models/failedmodslist.rds"))
+# failedmodslist <- readRDS(here::here("output/models/failedmodslist.rds"))
+failedmodslist <- readRDS("output/models/failedmodslist.rds")
 
 find_exact_matches <- function(pattern, filenames) {
   regex <- paste0("(_|^)", pattern, "(_|$)")
