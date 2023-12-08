@@ -1,3 +1,8 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
 \newpage
 
 # Threshold Filtering
@@ -34,7 +39,7 @@ cont_threshold_values_df <- data.frame(
   )
 )
 
-kable(cont_threshold_values_df, col.names = c("*Parameter Name*", "*Units*", "*Low Threshold*", "*High Threshold*","Sensor Type"), 
+kable(cont_threshold_values_df, col.names = c("*Parameter Name*", "*Units*", "*Low Threshold*", "*High Threshold*","*Sensor Type*"), 
       escape = F, caption = "Continuous Water Quality threshold values",
       format = "simple") %>%
   kable_styling(latex_options = "scale_down",
@@ -98,7 +103,7 @@ vq_df <- data.frame(vq = c("H","J","V","Y"),
                     inc = c(0, 0, 0, 0), 
                     mdl = c(0, 0, 0, 0),
                     qual_soruce = c("STORET-WIN", "STORET-WIN", "STORET-WIN", "STORET-WIN"))
-kable(vq_df, col.names = c("*Value Qualifier*", "*Include YN/10*", "*MDL YN/10*", "*Qualifier Source*"),
+kable(vq_df, col.names = c("*Value Qualifier*", "*Include YN*", "*MDL YN*", "*Qualifier Source*"),
       escape = F, 
       caption = "Value Qualifier codes excluded from analysis",
       format = "simple") %>%
@@ -116,10 +121,11 @@ swmp <- data.frame(qs = c("SWMP", "SWMP", "SWMP", "SWMP", "SWMP", "SWMP", "SWMP"
                    inc = c(1, 0, 0, 0, 0, 1, 0, 1, 1, 1, 1),
                    desc = c("Optional parameter not collected","Missing data","Data rejected due to QA/QC","Outside low sensor range",
                             "Outside high sensor range","Passed initial QA/QC checks","Suspect data","Reserved for future use",
-                            "Calculated data: non-vented depth/level sensor correction for changes in barometric pressure",
+                            "Calculated data: non-vented depth/level sensor\ncorrection for changes in barometric pressure",
                             "Historical: Pre-auto QA/QC","Corrected data"))
+swmp$desc <- linebreak(swmp$desc)
 
-kable(swmp, col.names = c("*Qualifier Source*", "*ValueQualifier*", "*Include YN*", "Description"),
+swmp %>% kable(col.names = c("*Qualifier Source*", "*ValueQualifier*", "*Include YN*", "*Description*"),
       escape = F, 
       caption = "SWMP Value Qualifier codes",
       format = "simple") %>%

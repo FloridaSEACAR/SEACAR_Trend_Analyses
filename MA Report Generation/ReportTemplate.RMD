@@ -17,6 +17,8 @@ output:
     extra_dependencies: ["longtable", "float"]
     keep_md: yes
     fig_crop: no
+    includes:
+      in_header: "preamble.tex"
 urlcolor: blue
 title: '`r paste(ma)`'
 subtitle: "SEACAR Habitat Analyses"
@@ -200,7 +202,7 @@ if(in_continuous){
 ```
 
 
-```{r SAV scope_plots, warning=FALSE, fig.height=15, fig.width=12, results="asis", echo=FALSE}
+```{r SAV scope_plots, warning=FALSE, results="asis", echo=FALSE, fig.height=20, fig.width=15}
 
 if(in_sav){
   cat("\\newpage")
@@ -214,16 +216,26 @@ if(in_sav){
 ```
 
 
+```{r SAV maps, warning=FALSE, fig.height=6, fig.width=10, results="asis", eval=TRUE, echo=FALSE}
+
+if(in_sav){
+  cat("  \n")
+  cat("**Sampling locations by Program:**  \n")
+  cat("  \n")
+  cat("  \n")
+  sav_maps(ma, ma_abrev)
+}
+
+```
+
+
 ```{r plotting SAV, warning=FALSE, fig.height=9, fig.width=10, results="asis", eval=TRUE, echo=FALSE}
 
 
 if(in_sav){
-
-  # cat("  \n")
-  # sav_maps(ma, ma_abrev)
   
   cat("  \n")
-  plot_sav_trendplot(ma_abrev)
+  plot_sav_trendplot(ma, ma_abrev)
   
   cat("  \n")
   plot_sav_barplot(ma_abrev)

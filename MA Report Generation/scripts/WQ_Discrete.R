@@ -274,7 +274,8 @@ plot_trendlines <- function(p, a, d, activity_label, depth_label, y_labels, para
     
     program_kable <- kable(program_table %>% select(-ProgramName),
                            format="simple",
-                           caption=paste0("Programs contributing data for ", parameter))
+                           caption=paste0("Programs contributing data for ", parameter),
+                           col.names = c("*ProgramID*","*N_Data*","*YearMin*","*YearMax*"))
     
     print(program_kable)
     cat("  \n")
@@ -455,11 +456,21 @@ plot_vq_barplot <- function(p, a, d, activity_label, depth_label, y_labels, para
     plot_data[plot_data == 0] <- NA
     options(knitr.kable.NA = "")
     
+    # italicized col_names determined dynamically
+    col_names <- list()
+    for (k in 1:length(names(plot_data))){
+      col <- names(plot_data)[k]
+      new_col <- paste0("*",col,"*")
+      col_names <- c(col_names, new_col)
+    }
+    
     # add text table beneath plot
     vq_table <- kable(plot_data, 
                       format="simple",
                       digits = 1,
-                      caption=paste0("Value Qualifiers for ", parameter)) %>%
+                      caption=paste0("Value Qualifiers for ", parameter),
+                      col.names = col_names,
+                      row.names = FALSE) %>%
       kable_styling(latex_options="scale_down",
                     position = "center")
     

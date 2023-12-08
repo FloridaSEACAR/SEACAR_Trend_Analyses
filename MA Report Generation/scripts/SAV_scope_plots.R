@@ -115,6 +115,8 @@ pnames <- distinct(SAV4[, .(ProgramID, ProgramName)])
 locs_pts_rcp <- merge(locs_pts_rcp, pnames, by = "ProgramID", all.x = TRUE)
 locs_lns_rcp <- merge(locs_lns_rcp, pnames, by = "ProgramID", all.x = TRUE)
 
+MA_All <- fread("data/ManagedArea.csv", sep = ",", header = TRUE, stringsAsFactors = FALSE,
+                na.strings = "")
 
 #Create map(s) for the managed area-------------------------------------------
 
@@ -299,6 +301,14 @@ for (i in unique(SAV4$ManagedAreaName)){
   area <- st_area(rcp_i)
   xyratio <- as.numeric((area/maxdist)/maxdist)
   
+  ###############
+  
+  bbox <- st_bbox(rotate_sf(rcp_i, x_add = xadd, y_add = yadd+maxydist, ma = i, coast = corners[LONG_NAME == i, Coast[1]]))
+  max_width <- bbox$xmax - bbox$xmin
+  x_increment <- max_width + 0.5
+  
+  ###############
+  
   MApolycoords <- setDT(as.data.frame(st_coordinates(base$layers[[2]]$data)))
   xmax_y <- MApolycoords[X == max(X), Y]
   base <- base + annotate("text", x = xlab, y = xmax_y, label = paste0(startyear), hjust = "left")
@@ -307,22 +317,20 @@ for (i in unique(SAV4$ManagedAreaName)){
   MApolycoords[, Yrnd := round(Y, 3)][, xdists := max(X) - min(X), by = Yrnd]
   maxydist <- max(MApolycoords$ydists) + ((max(MApolycoords$ydists)/25) / xyratio)
   
-  x_increment <- (max(MApolycoords$xdists) + ((max(MApolycoords$xdists)/25) / xyratio)) * 2
-  
   maxxdist <- 0
   
   if(length(subset(locs_pts_rcp_i, locs_pts_rcp_i$LocationID %in% unique(SAV4[ManagedAreaName == i & !is.na(BB_pct) & Year == startyear, LocationID]))$LocationID) > 0){
     base <- base +
       geom_sf(data = rotate_sf(subset(locs_pts_rcp_i, locs_pts_rcp_i$LocationID %in% unique(SAV4[ManagedAreaName == i & !is.na(BB_pct) & Year == startyear, LocationID])),
                                ma = i, coast = corners[LONG_NAME == i, Coast[1]]),
-              aes(fill = droplevels(as.factor(ProgramName))), shape = 21, color = "black", size=pt_size)
+              aes(fill = droplevels(as.factor(ProgramName))), shape = 21, color = "black", size=pt_size, alpha=0.5)
   }
   
   if(length(subset(locs_lns_rcp_i, locs_lns_rcp_i$LocationID %in% unique(SAV4[ManagedAreaName == i & !is.na(BB_pct) & Year == startyear, LocationID]))$LocationID) > 0){
     base <- base +
       geom_sf(data = rotate_sf(subset(locs_lns_rcp_i, locs_lns_rcp_i$LocationID %in% unique(SAV4[ManagedAreaName == i & !is.na(BB_pct) & Year == startyear, LocationID])),
                                ma = i, coast = corners[LONG_NAME == i, Coast[1]]),
-              aes(color = droplevels(as.factor(ProgramName))), shape = 21, size=pt_size)
+              aes(color = droplevels(as.factor(ProgramName))), shape = 21, size=pt_size, alpha=0.5)
   }
   
   years <- sort(unique(SAV4[ManagedAreaName == i & !is.na(BB_pct) & Year != startyear, Year]))
@@ -341,14 +349,14 @@ for (i in unique(SAV4$ManagedAreaName)){
       base <- base +
         geom_sf(data = rotate_sf(subset(locs_pts_rcp_i, locs_pts_rcp_i$LocationID %in% unique(SAV4[ManagedAreaName == i & !is.na(BB_pct) & Year == y, LocationID])),
                                  x_add = xadd + maxxdist, y_add = yadd + maxydist, ma = i, coast = corners[LONG_NAME == i, Coast[1]]), 
-                aes(fill = droplevels(as.factor(ProgramName))), shape = 21, color = "black", size=pt_size)
+                aes(fill = droplevels(as.factor(ProgramName))), shape = 21, color = "black", size=pt_size, alpha=0.5)
     }
     
     if(length(subset(locs_lns_rcp_i, locs_lns_rcp_i$LocationID %in% unique(SAV4[ManagedAreaName == i & !is.na(BB_pct) & Year == startyear, LocationID]))$LocationID) > 0){
       base <- base +
         geom_sf(data = rotate_sf(subset(locs_lns_rcp_i, locs_lns_rcp_i$LocationID %in% unique(SAV4[ManagedAreaName == i & !is.na(BB_pct) & Year == startyear, LocationID])),
                                  x_add = xadd + maxxdist, y_add = yadd + maxydist, ma = i, coast = corners[LONG_NAME == i, Coast[1]]),
-                aes(color = droplevels(as.factor(ProgramName))), shape = 21, size=pt_size)
+                aes(color = droplevels(as.factor(ProgramName))), shape = 21, size=pt_size, alpha=0.5)
     }
     
     yadd <- yadd + maxydist
@@ -377,6 +385,7 @@ for (i in unique(SAV4$ManagedAreaName)){
          dpi = 300,
          limitsize = FALSE)
   
+  rm(base)
   print(paste0(i, " - SAV Scope plot object created"))
 }
 

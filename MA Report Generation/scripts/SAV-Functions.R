@@ -1,7 +1,110 @@
+# Contains all SAV-related functions
+# Generates LMEresults tables for use in report
 library(mgcv)
 library(tidymv)
+library(data.table)
+library(dplyr)
 
-# source(here::here("scripts/load_shape_files.R"))
+# SAV LMEResults Table Generation
+# This script is designed to read the file names for the LME results of the BBpct analysis,
+# import each one, extract the intercept, slope, and p values, produce them for display in reports
+
+#List all of the files in the "tables" directory that are LME results
+files <- list.files("output/tables/SAV", pattern="lmeresults", full.names=TRUE)
+
+#Include only those that are BBpct
+files <- files[grep("BBpct", files)]
+
+#For loop cycles through each file name
+for (i in 1:length(files)) {
+  #Get filename from list
+  filename <- files[i]
+  
+  #Read in file
+  table <- readRDS(filename)
+  
+  #Keep only rows that are values with "fixed" in the effect column
+  table <- table[table$effect=="fixed" & !is.na(table$effect),]
+  
+  #For each managed area and species, get the LME intercept, slope, and p values
+  table <- table %>%
+    group_by(managed_area, species) %>%
+    summarise(LME_Intercept = estimate[term == "(Intercept)"],
+              LME_Slope = estimate[term == "relyear"],
+              p = p.value[term == "relyear"], .groups = "keep")
+  
+  #If this is the first file, the table from above is stored as the output table
+  #If not the first file, the table is added to the end of the output table
+  if(i==1) {
+    output <- table
+  } else {
+    output <- bind_rows(output, table)
+  }
+}
+
+#Add statistical trend column to denote where p<=0.05 and whether LME_slope increase or decreasing
+output$StatisticalTrend <- ifelse(output$p <= 0.05 & output$LME_Slope > 0, "Significantly increasing trend",
+                                  ifelse(output$p <= 0.05 & output$LME_Slope <0, "Significantly decreasing trend", "No significant trend"))
+
+#Change column names to better match other outputs
+output <- setnames(output, c("managed_area", "species"), c("ManagedAreaName", "Species"))
+
+# round P-val, LME_slope and LME_intercept
+output$p <- round(output$p,4)
+output$LME_Intercept <- round(output$LME_Intercept,4)
+output$LME_Slope <- round(output$LME_Slope,4)
+
+#Loads data file with list on managed area names and corresponding area IDs and short names
+MA_All <- fread("data/ManagedArea.csv", sep = ",", header = TRUE, stringsAsFactors = FALSE,
+                na.strings = "")
+
+stats <- fread("output/Data/SAV/SAV_BBpct_Stats.txt", sep = "|", header = TRUE, stringsAsFactors = FALSE,
+               na.strings = "")
+setnames(stats, c("analysisunit"), c("Species"))
+
+stats <-  merge.data.frame(stats, output,
+                           by=c("ManagedAreaName", "Species"), all=TRUE)
+
+stats <- merge.data.frame(MA_All[,c("AreaID", "ManagedAreaName")],
+                          stats, by=c("ManagedAreaName"), all=TRUE)
+
+stats <- as.data.table(stats[order(stats$ManagedAreaName, stats$Species), ])
+stats <- stats %>% select(AreaID, everything())
+
+stats$EarliestYear[stats$EarliestYear=="Inf"] <- NA
+stats$LatestYear[stats$LatestYear=="-Inf"] <- NA
+
+#filling remaining values in StatisticalTrend column
+stats$StatisticalTrend[stats$SufficientData==FALSE] <- "Insufficient data to calculate trend"
+stats$StatisticalTrend[stats$SufficientData==TRUE & is.na(stats$LME_Slope)] <- "Model did not fit the available data"
+
+#drop rows where ManagedArea does not contain data
+sav_stats_table <- stats[!apply(stats[, -c(1, 2), drop = FALSE], 1, function(row) all(is.na(row))), ]
+
+#create Period of Record column (mirroring atlas)
+sav_stats_table$years <- paste0(sav_stats_table$EarliestYear," - ",sav_stats_table$LatestYear)
+sav_stats_table$years[sav_stats_table$SufficientData==FALSE] <- NA
+
+#Write output table to a pipe-delimited txt file
+# fwrite(stats, "output/tables/SAV/SAV_BBpct_LMEresults_All.txt", sep="|")
+
+# SAV LMEResults Table Function
+# For use in report generation
+sav_trend_table <- function(ma){
+  table <- sav_stats_table[ManagedAreaName == ma, c("Species","StatisticalTrend","years","LME_Intercept","LME_Slope","p")]
+  
+  caption <- paste0("Percent Cover Trend Analysis for ", ma)
+  
+  sav_kable <- table %>%
+    kable(format="simple",caption=caption,
+          col.names = c("*Species*","*Trend Significance* (0.05)","*Period of Record*","*LME_Intercept*","*LME_Slope*","*p*")) %>%
+    kable_styling()
+  
+  print(sav_kable)
+  cat("\n")
+}
+
+source(here::here("scripts/load_shape_files.R"))
 
 ##############################
 ### SAV PLOTTING FUNCTIONS ###
@@ -37,11 +140,18 @@ find_exact_matches <- function(pattern, filenames) {
   return(matched_files)
 }
 
-plot_sav_trendplot <- function(ma_abrev){
+plot_sav_trendplot <- function(ma,ma_abrev){
   if(ma_abrev %in% malist){
     plot_file <- lapply(ma_abrev, find_exact_matches, filenames = trendplots)
     plot <- readRDS(here::here(paste0("SAV/output/Figures/BB/", plot_file)))
     print(plot)
+    cat("  \n")
+    
+    #############
+    sav_trend_table(ma)
+    cat("  \n")
+    #############
+    
   }
 }
 
@@ -192,19 +302,15 @@ sav_maps <- function(ma, ma_abrev){
   pal <- colorFactor("plasma", sav_df$ProgramID)
   
   # leaflet map
-  map <- leaflet(sav_df, options = leafletOptions(zoomControl = FALSE)) %>%
-    addTiles() %>%
-    addPolygons(data=ma_shape, color="#ff962b", weight = 1, smoothFactor = 0.5, opacity = 1.0, fillOpacity = 0.3) %>%
-    setView(
-      lng=(shape_coordinates$xmin + shape_coordinates$xmax) / 2,
-      lat=(shape_coordinates$ymin + shape_coordinates$ymax) / 2,
-      zoom=8.5) %>%
-    setMaxBounds(lng1=shape_coordinates$xmin,
-                 lat1=shape_coordinates$ymin,
-                 lng2=shape_coordinates$xmax,
-                 lat2=shape_coordinates$ymax) %>%
+  map <- leaflet(sav_df, options = leafletOptions(zoomControl = FALSE,attributionControl=FALSE)) %>%
+    addProviderTiles(providers$CartoDB.PositronNoLabels) %>%
+    addPolygons(data=ma_shape, color="#4e809c", weight = 1, smoothFactor = 0.5, opacity = 1.0, fillOpacity = 0.2) %>%
     addCircleMarkers(lat=~Latitude_D, lng=~Longitude_, color=~pal(ProgramID), weight=0.5, radius=sqrt(sav_df$n_data), fillOpacity=0.3) %>%
-    addLegend(pal=pal, values=~ProgramID, labFormat=labelFormat(prefix="Program "))
+    addLegend(pal=pal, values=~ProgramID, labFormat=labelFormat(prefix="Program "), title="") %>%
+    fitBounds(lng1=shape_coordinates$xmin,
+              lat1=shape_coordinates$ymin,
+              lng2=shape_coordinates$xmax,
+              lat2=shape_coordinates$ymax)
   
   # map output filepath
   map_out <- paste0(map_output, ma_abrev, "_sav.png")
