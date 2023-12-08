@@ -9,7 +9,7 @@ The logic for calculated Total Nitrogen was provided by Kevin O’Donnell and co
 5)	TN = TKN + NO3;
 6)	TN = ORGN + NH4 + NO3;
 
-```{r echo=FALSE, fig.align='right', eval=FALSE}
+```{r echo=FALSE, fig.align='right'}
 knitr::include_graphics("images/TN_Calculation.png")
 ```
 

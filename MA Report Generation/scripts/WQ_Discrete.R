@@ -156,7 +156,7 @@ plot_theme <- theme_bw() +
 load_data_table <- function(p, a="All", d="All", table) {
   
   # Declaring RDS file list of respective tables
-  files <- list.files(here::here("output/tables/disc"),pattern = "\\.rds$")
+  files <- list.files("output/tables/disc/", pattern = "\\.rds$")
   
   if (table == "data") {
     filename_string <- paste0(p,"_",table)

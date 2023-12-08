@@ -14,12 +14,12 @@ ma_halspp <- c("Banana River Aquatic Preserve", "Indian River-Malabar to Vero Be
                "Biscayne Bay Aquatic Preserve", "Florida Keys National Marine Sanctuary")
 
 # files <- list.files(here::here("output/Figures/BB/")) #get file list
-files <- list.files("output/Figures/BB/") #get file list
+files <- list.files(here::here("SAV/output/Figures/BB/"), pattern = ".rds") #get file list
 trendplots <- stringr::str_subset(files, "_trendplot") #identify map file
 trendplots <- stringr::str_subset(trendplots, "_BBpct_")
 
 # mods <- list.files(here::here("output/models/"))
-mods <- list.files("output/models/")
+mods <- list.files(here::here("SAV/output/models/"), pattern = ".rds")
 models2 <- str_subset(mods, paste0(str_sub(trendplots[1], 1, str_locate_all(trendplots[1], "_")[[1]][2])))
 
 malist <- c()
@@ -29,7 +29,7 @@ for(pl in trendplots){
 }
 
 # failedmodslist <- readRDS(here::here("output/models/failedmodslist.rds"))
-failedmodslist <- readRDS("output/models/failedmodslist.rds")
+failedmodslist <- readRDS(here::here("SAV/output/models/failedmodslist.rds"))
 
 find_exact_matches <- function(pattern, filenames) {
   regex <- paste0("(_|^)", pattern, "(_|$)")
@@ -40,7 +40,7 @@ find_exact_matches <- function(pattern, filenames) {
 plot_sav_trendplot <- function(ma_abrev){
   if(ma_abrev %in% malist){
     plot_file <- lapply(ma_abrev, find_exact_matches, filenames = trendplots)
-    plot <- readRDS(here::here(paste0("output/Figures/BB/", plot_file)))
+    plot <- readRDS(here::here(paste0("SAV/output/Figures/BB/", plot_file)))
     print(plot)
   }
 }
@@ -57,7 +57,7 @@ for(pl in barplots){
 plot_sav_barplot <- function(ma_abrev){
   if(ma_abrev %in% malist2){
     plot_file <- lapply(ma_abrev, find_exact_matches, filenames = barplots)
-    plot <- readRDS(here::here(paste0("output/Figures/BB/", plot_file)))
+    plot <- readRDS(here::here(paste0("SAV/output/Figures/BB/", plot_file)))
     print(plot)
   }
 }
@@ -219,11 +219,12 @@ sav_maps <- function(ma, ma_abrev){
 }
 
 sav_scope_plots <- function(ma_abrev){
-  scope_files <- list.files(here::here("output/Figures/BB/maps"))
+  scope_files <- list.files(here::here("SAV/output/Figures/BB/"), pattern = "_map_bypr.rds")
+  scope_files <- str_subset(scope_files, "_BBpct_")
   
   ma_scope_file <- lapply(ma_abrev, find_exact_matches, filenames = scope_files)
   
-  base <- readRDS(paste0("output/Figures/BB/maps/",ma_scope_file))
+  base <- readRDS(here::here(paste0("SAV/output/Figures/BB/", ma_scope_file)))
   
   print(base)
 }

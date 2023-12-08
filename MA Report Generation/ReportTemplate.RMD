@@ -154,13 +154,15 @@ if(in_continuous){
   cat("\\newpage")
   cat("# Water Quality - Continuous  \n")
   
-  cont_file_list <- list.files("data/cont", full=TRUE)
+  # cont_file_list <- list.files("data/cont/", full=TRUE)
+  cont_file_list <- list.files("data/", pattern = "Combined_WQ_WC_NUT_cont_", full=TRUE)
   cat("The following files were used in the continuous analysis:  \n\n")
 
   for (param in cont_params_long){
     p <- str_replace_all(param, " ", "_")
     par_reg <- paste0(p, "_", region)
-    file_name <- str_split(str_subset(cont_file_list, par_reg), "data/cont/")[[1]][2]
+    # file_name <- str_split(str_subset(cont_file_list, par_reg), "data/cont/")[[1]][2]
+    file_name <- str_split(str_subset(cont_file_list, par_reg), "data/")[[1]][2]
     
     cat(paste0("* *", file_name, "*\n"))
     cat("  \n")

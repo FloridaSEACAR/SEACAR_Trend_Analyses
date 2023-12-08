@@ -21,6 +21,7 @@ library(gridExtra)
 library(ggpubr)
 library(glue)
 library(kableExtra)
+library(extrafont)
 
 # Gets directory of this script and sets it as the working directory
 wd <- dirname(getActiveDocumentContext()$path)
@@ -41,6 +42,12 @@ report_out_dir <- "output/Reports"
 #Loads data file with list on managed area names and corresponding area IDs and short names
 MA_All <- fread("data/ManagedArea.csv", sep = ",", header = TRUE, stringsAsFactors = FALSE,
                 na.strings = "")
+MA_All[, `:=` (Abbreviation = abbreviate(ManagedAreaName, minlength = 1),
+               Abbreviation2 = gsub('\\b(\\pL)\\pL{2,}|.','\\U\\1', ManagedAreaName, perl = TRUE),
+               Region = fcase(str_detect(ManagedAreaName, "Alligator|Apalachicola|Bend|Pickens|Rocky|^St\\.|Yellow|Nature|Rainbow|Jackson"), "NW",
+                              str_detect(ManagedAreaName, "Pinellas|Boca|Cockroach|Terra|Lemon|Haze|Gasparilla|Pine|Matlacha|Estero|Rookery|Romano"), "SW",
+                              str_detect(ManagedAreaName, "Coupon|Lignumvitae|Biscayne|Keys|Coral"), "SE",
+                              str_detect(ManagedAreaName, "Loxahatchee|Jensen|Lucie|Indian|Banana|Mosquito|Wekiva|Oklawaha|Tomoka|Pellicer|Guana|Nassau|Clinch"), "NE"))]
 
 #Gets the desired file locations
 files <- list.files("data", full=TRUE)
@@ -104,7 +111,7 @@ for (i in seq_len(nrow(MA_All))) {
   ma_short <- MA_All[i, ]$ShortName
   
   # MA abbreviation
-  ma_abrev <- MA_All[i, ]$Abbreviation
+  ma_abrev <- MA_All[i, ]$Abbreviation2
   
   # perform checks for habitats in each MA
   # Check which habitats to include in each MA
@@ -121,7 +128,7 @@ for (i in seq_len(nrow(MA_All))) {
   
   if(in_sav | in_nekton | in_coral | in_cw | in_discrete | in_continuous){
     
-    ma_report_out_dir <- paste0(report_out_dir, "/", ma_abrev)
+    ma_report_out_dir <- paste0(report_out_dir, "/", ma_abrev, "/")
     
     file_out <-  paste0(ma_abrev, "_Report")
     
