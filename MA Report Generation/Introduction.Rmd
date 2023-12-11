@@ -88,7 +88,7 @@ Designated in 1990, the FKNMS is administered by NOAA and is jointly managed wit
 
 The SEACAR assessment is divided into four regions: northwest, southwest, northeast and southeast. These regions mirror Office of Resilience and Coastal Protection's (RCP)'s management regions and were developed based on location and management needs. Aquatic preserve offices gain local support for their science-based management through coordination with the regional research reserves and the Coral Reef Conservation Program.
 
-```{r StateMap, out.width = '100%', fig.cap = "The Office of Resilience and Coastal Protection oversees a total of 45 managed areas around the state that include a wide variety of marine, estuarine, aquatic, and upland habitats."}
+```{r StateMap, echo = FALSE, out.width = '100%', fig.cap = "The Office of Resilience and Coastal Protection oversees a total of 45 managed areas around the state that include a wide variety of marine, estuarine, aquatic, and upland habitats."}
 
 knitr::include_graphics("images/ORCP_AP_Map_forReport.png")
 

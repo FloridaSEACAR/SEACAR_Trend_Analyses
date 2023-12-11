@@ -1,16 +1,7 @@
 ---
 date: "Last compiled on `r format(Sys.time(), '%d %B, %Y')`"
 output:
-  bookdown::word_document2:
-    toc: TRUE
-    toc_depth: 3
-  bookdown::html_document2:
-    toc: TRUE
-    toc_float: TRUE
-    toc_depth: 3
-    dev: png
-    keep_md: yes
-  bookdown::pdf_document2:
+  pdf_document2:
     toc: TRUE
     toc_depth: 3
     dev: png
@@ -19,10 +10,20 @@ output:
     fig_crop: no
     includes:
       in_header: "preamble.tex"
+  word_document2:
+    toc: TRUE
+    toc_depth: 3
+  html_document2:
+    toc: TRUE
+    toc_float: TRUE
+    toc_depth: 3
+    dev: png
+    keep_md: yes
 urlcolor: blue
 title: '`r paste(ma)`'
 subtitle: "SEACAR Habitat Analyses"
 geometry: margin=0.75in
+
 ---
 
 ```{r libraries, message=FALSE, warning=FALSE, echo=FALSE}

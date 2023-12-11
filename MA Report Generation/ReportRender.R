@@ -22,6 +22,8 @@ library(ggpubr)
 library(glue)
 library(kableExtra)
 library(extrafont)
+library(bookdown)
+loadfonts()
 
 # Gets directory of this script and sets it as the working directory
 wd <- dirname(getActiveDocumentContext()$path)
@@ -43,7 +45,7 @@ report_out_dir <- "output/Reports"
 MA_All <- fread("data/ManagedArea.csv", sep = ",", header = TRUE, stringsAsFactors = FALSE,
                 na.strings = "")
 MA_All[, `:=` (Abbreviation = abbreviate(ManagedAreaName, minlength = 1),
-               Abbreviation2 = gsub('\\b(\\pL)\\pL{2,}|.','\\U\\1', ManagedAreaName, perl = TRUE),
+               # Abbreviation2 = gsub('\\b(\\pL)\\pL{2,}|.','\\U\\1', ManagedAreaName, perl = TRUE),
                Region = fcase(str_detect(ManagedAreaName, "Alligator|Apalachicola|Bend|Pickens|Rocky|^St\\.|Yellow|Nature|Rainbow|Jackson"), "NW",
                               str_detect(ManagedAreaName, "Pinellas|Boca|Cockroach|Terra|Lemon|Haze|Gasparilla|Pine|Matlacha|Estero|Rookery|Romano"), "SW",
                               str_detect(ManagedAreaName, "Coupon|Lignumvitae|Biscayne|Keys|Coral"), "SE",
@@ -75,7 +77,7 @@ source("scripts/WQ_Continuous.R")
 source("scripts/WQ_Discrete.R")
 source("scripts/Nekton.R")
 source("scripts/CoastalWetlands.R")
-# creates source files (.rds objects) for SAV
+# # creates source files (.rds objects) for SAV
 # source("scripts/SAV.R")
 # source("scripts/SAV_scope_plots.R")
 source("scripts/SAV-Functions.R")
@@ -101,7 +103,7 @@ wq_cont_files <- wq_cont_file %>%
 
 # Subset for MAs
 # MA_All <- MA_All[c(14,5,32,27,9,33)]
-MA_All <- MA_All[c(14,5,32)]
+# MA_All <- MA_All[c(14,5,32)]
 
 # iterate through every possible MA
 # apply checks for coral, sav, etc. within .Rmd doc
@@ -111,7 +113,7 @@ for (i in seq_len(nrow(MA_All))) {
   ma_short <- MA_All[i, ]$ShortName
   
   # MA abbreviation
-  ma_abrev <- MA_All[i, ]$Abbreviation2
+  ma_abrev <- MA_All[i, ]$Abbreviation
   
   # perform checks for habitats in each MA
   # Check which habitats to include in each MA

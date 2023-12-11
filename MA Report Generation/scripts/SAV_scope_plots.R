@@ -89,12 +89,12 @@ rotate_sf <- function(data, x_add = 0, y_add = 0, ma, coast = "Atlantic"){
 
 #Create model objects, tables and plots for all MAs w/ >5 yrs of data-------------------------------------------------
 #Load geospatial data
-GeoDBdate <- "6june2023"
-locs_pts <- st_read(here::here(paste0("data/shapes/SampleLocations", GeoDBdate, "/seacar_dbo_vw_SampleLocation_Point.shp")))
-locs_lns <- st_read(here::here(paste0("data/shapes/SampleLocations", GeoDBdate, "/seacar_dbo_vw_SampleLocation_Line.shp")))
-rcp <- st_read(here::here("data/shapes/orcp_all_sites/ORCP_Managed_Areas.shp"))
-counties <- st_read(here::here("data/shapes/FLCounties/Counties_-_Detailed_Shoreline.shp"))
-corners <- fread(here::here("data/shapes/MApolygons_corners.csv"))
+GeoDBdate <- "26jan2023"
+locs_pts <- st_read(here::here(paste0("SAV/mapping/SampleLocations", GeoDBdate, "/seacar_dbo_vw_SampleLocation_Point.shp")))
+locs_lns <- st_read(here::here(paste0("SAV/mapping/SampleLocations", GeoDBdate, "/seacar_dbo_vw_SampleLocation_Line.shp")))
+rcp <- st_read(here::here("SAV/mapping/orcp_all_sites/ORCP_Managed_Areas.shp"))
+counties <- st_read(here::here("SAV/mapping/FLCounties/Counties_-_Detailed_Shoreline.shp"))
+corners <- fread(here::here("SAV/mapping/MApolygons_corners.csv"))
 #add 20% of difference (xmax-xmin) to xmax to help prevent year labels from getting cut off map images and 10% to ymax
 corners[, `:=` (xmax = xmax + (xmax-xmin)*0.25, ymax = ymax + (ymax-ymin)*0.1)]
 
@@ -115,8 +115,11 @@ pnames <- distinct(SAV4[, .(ProgramID, ProgramName)])
 locs_pts_rcp <- merge(locs_pts_rcp, pnames, by = "ProgramID", all.x = TRUE)
 locs_lns_rcp <- merge(locs_lns_rcp, pnames, by = "ProgramID", all.x = TRUE)
 
-MA_All <- fread("data/ManagedArea.csv", sep = ",", header = TRUE, stringsAsFactors = FALSE,
-                na.strings = "")
+saveRDS(locs_pts_rcp, "output/Data/SAV/locs_pts_rcp.rds")
+saveRDS(locs_lns_rcp, "output/Data/SAV/locs_lns_rcp.rds")
+
+# MA_All <- fread("data/ManagedArea.csv", sep = ",", header = TRUE, stringsAsFactors = FALSE,
+#                 na.strings = "")
 
 #Create map(s) for the managed area-------------------------------------------
 
@@ -301,14 +304,7 @@ for (i in unique(SAV4$ManagedAreaName)){
   area <- st_area(rcp_i)
   xyratio <- as.numeric((area/maxdist)/maxdist)
   
-  ###############
-  
-  bbox <- st_bbox(rotate_sf(rcp_i, x_add = xadd, y_add = yadd+maxydist, ma = i, coast = corners[LONG_NAME == i, Coast[1]]))
-  max_width <- bbox$xmax - bbox$xmin
-  x_increment <- max_width + 0.5
-  
-  ###############
-  
+ 
   MApolycoords <- setDT(as.data.frame(st_coordinates(base$layers[[2]]$data)))
   xmax_y <- MApolycoords[X == max(X), Y]
   base <- base + annotate("text", x = xlab, y = xmax_y, label = paste0(startyear), hjust = "left")
@@ -316,6 +312,14 @@ for (i in unique(SAV4$ManagedAreaName)){
   MApolycoords[, Xrnd := round(X, 3)][, ydists := max(Y) - min(Y), by = Xrnd]
   MApolycoords[, Yrnd := round(Y, 3)][, xdists := max(X) - min(X), by = Yrnd]
   maxydist <- max(MApolycoords$ydists) + ((max(MApolycoords$ydists)/25) / xyratio)
+  
+  ###############
+  
+  bbox <- st_bbox(rotate_sf(rcp_i, x_add = xadd, y_add = yadd+maxydist, ma = i, coast = corners[LONG_NAME == i, Coast[1]]))
+  max_width <- bbox$xmax - bbox$xmin
+  x_increment <- max_width + 0.5
+  
+  ###############
   
   maxxdist <- 0
   
@@ -373,14 +377,14 @@ for (i in unique(SAV4$ManagedAreaName)){
           legend.justification='left',
           legend.direction='vertical')
   
-  saveRDS(base, here::here(paste0("output/Figures/BB/maps/SAV_", 
-                                  ma_abrev,
-                                  "_map_bypr.rds")))
+  saveRDS(base, paste0("output/Figures/BB/maps/SAV_", 
+                       ma_abrev,
+                       "_map_bypr.rds"))
   
   
-  ggsave(filename = here::here(paste0("output/Figures/BB/img/SAV_",
-                                      ma_abrev,
-                                      "_map_bypr.jpg")),
+  ggsave(filename = paste0("output/Figures/BB/img/SAV_",
+                           ma_abrev,
+                           "_map_bypr.jpg"),
          plot = base,
          dpi = 300,
          limitsize = FALSE)

@@ -55,8 +55,8 @@ output$LME_Intercept <- round(output$LME_Intercept,4)
 output$LME_Slope <- round(output$LME_Slope,4)
 
 #Loads data file with list on managed area names and corresponding area IDs and short names
-MA_All <- fread("data/ManagedArea.csv", sep = ",", header = TRUE, stringsAsFactors = FALSE,
-                na.strings = "")
+# MA_All <- fread("data/ManagedArea.csv", sep = ",", header = TRUE, stringsAsFactors = FALSE,
+#                 na.strings = "")
 
 stats <- fread("output/Data/SAV/SAV_BBpct_Stats.txt", sep = "|", header = TRUE, stringsAsFactors = FALSE,
                na.strings = "")
@@ -104,7 +104,7 @@ sav_trend_table <- function(ma){
   cat("\n")
 }
 
-source(here::here("scripts/load_shape_files.R"))
+source("scripts/load_shape_files.R")
 
 ##############################
 ### SAV PLOTTING FUNCTIONS ###
@@ -117,12 +117,12 @@ ma_halspp <- c("Banana River Aquatic Preserve", "Indian River-Malabar to Vero Be
                "Biscayne Bay Aquatic Preserve", "Florida Keys National Marine Sanctuary")
 
 # files <- list.files(here::here("output/Figures/BB/")) #get file list
-files <- list.files(here::here("SAV/output/Figures/BB/"), pattern = ".rds") #get file list
+files <- list.files("output/Figures/BB/", pattern = ".rds") #get file list
 trendplots <- stringr::str_subset(files, "_trendplot") #identify map file
 trendplots <- stringr::str_subset(trendplots, "_BBpct_")
 
 # mods <- list.files(here::here("output/models/"))
-mods <- list.files(here::here("SAV/output/models/"), pattern = ".rds")
+mods <- list.files("output/models/")
 models2 <- str_subset(mods, paste0(str_sub(trendplots[1], 1, str_locate_all(trendplots[1], "_")[[1]][2])))
 
 malist <- c()
@@ -132,7 +132,7 @@ for(pl in trendplots){
 }
 
 # failedmodslist <- readRDS(here::here("output/models/failedmodslist.rds"))
-failedmodslist <- readRDS(here::here("SAV/output/models/failedmodslist.rds"))
+failedmodslist <- readRDS("output/models/failedmodslist.rds")
 
 find_exact_matches <- function(pattern, filenames) {
   regex <- paste0("(_|^)", pattern, "(_|$)")
@@ -143,7 +143,7 @@ find_exact_matches <- function(pattern, filenames) {
 plot_sav_trendplot <- function(ma,ma_abrev){
   if(ma_abrev %in% malist){
     plot_file <- lapply(ma_abrev, find_exact_matches, filenames = trendplots)
-    plot <- readRDS(here::here(paste0("SAV/output/Figures/BB/", plot_file)))
+    plot <- readRDS(paste0("output/Figures/BB/", plot_file))
     print(plot)
     cat("  \n")
     
@@ -167,7 +167,7 @@ for(pl in barplots){
 plot_sav_barplot <- function(ma_abrev){
   if(ma_abrev %in% malist2){
     plot_file <- lapply(ma_abrev, find_exact_matches, filenames = barplots)
-    plot <- readRDS(here::here(paste0("SAV/output/Figures/BB/", plot_file)))
+    plot <- readRDS(paste0("output/Figures/BB/", plot_file))
     print(plot)
   }
 }
@@ -177,6 +177,8 @@ sav_managed_areas <- unique(c(malist, malist2))
 sp_to_skip <- c("Drift algae", "Total seagrass", "Attached algae", "Total SAV")
 
 ggplot_gam <- function(ma, hal = "all") {
+  
+  SAV4 <- readRDS("output/Data/SAV/SAV4.rds")
   
   data <- SAV4 %>% filter(ManagedAreaName==ma)
   
@@ -271,11 +273,16 @@ ggplot_gam <- function(ma, hal = "all") {
       print(plot)
     }
   }
+  
+  rm(SAV4)
 }
 
 sav_maps <- function(ma, ma_abrev){
   
   map_output <- "output/maps/"
+  SAV4 <- readRDS("output/Data/SAV/SAV4.rds")
+  locs_pts_rcp <- readRDS("output/Data/SAV/locs_pts_rcp.rds")
+  locs_lns_rcp <- readRDS("output/Data/SAV/locs_lns_rcp.rds")
   
   # Grab a list of programs within SAV data for each MA
   sav_programs <- SAV4 %>% filter(ManagedAreaName == ma) %>% distinct(ProgramID)
@@ -320,17 +327,18 @@ sav_maps <- function(ma, ma_abrev){
   
   # draw .png with ggplot
   p1 <- ggdraw() + draw_image(map_out, scale = 1)
+  
+  rm(SAV4, locs_pts_rcp, locs_lns_rcp)
 
   print(plot_grid(p1))
 }
 
 sav_scope_plots <- function(ma_abrev){
-  scope_files <- list.files(here::here("SAV/output/Figures/BB/"), pattern = "_map_bypr.rds")
-  scope_files <- str_subset(scope_files, "_BBpct_")
+  scope_files <- list.files("output/Figures/BB/maps/", pattern = "_map_bypr.rds")
   
   ma_scope_file <- lapply(ma_abrev, find_exact_matches, filenames = scope_files)
   
-  base <- readRDS(here::here(paste0("SAV/output/Figures/BB/", ma_scope_file)))
-  
+  base <- readRDS(paste0("output/Figures/BB/maps/", ma_scope_file))
+
   print(base)
 }

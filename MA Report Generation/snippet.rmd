@@ -1,8 +1,3 @@
----
-output:
-  pdf_document: default
-  html_document: default
----
 \newpage
 
 # Threshold Filtering
@@ -115,13 +110,13 @@ kable(vq_df, col.names = c("*Value Qualifier*", "*Include YN*", "*MDL YN*", "*Qu
 
 Value qualifier codes from the SWMP continuous program are examined with the database and used to populate the Include_YN column in data exports. SWMP Qualifier Codes are indicated by QualifierSource=SWMP.
 
-```{r, results='asis', echo=FALSE, warning=FALSE}
+```{r, results='asis', echo=FALSE, warning=FALSE, out.width = '100%'}
 swmp <- data.frame(qs = c("SWMP", "SWMP", "SWMP", "SWMP", "SWMP", "SWMP", "SWMP", "SWMP", "SWMP", "SWMP", "SWMP"),
                    vq = c(-1, -2, -3, -4, -5, 0, 1, 2, 3, 4, 5),
                    inc = c(1, 0, 0, 0, 0, 1, 0, 1, 1, 1, 1),
                    desc = c("Optional parameter not collected","Missing data","Data rejected due to QA/QC","Outside low sensor range",
                             "Outside high sensor range","Passed initial QA/QC checks","Suspect data","Reserved for future use",
-                            "Calculated data: non-vented depth/level sensor\ncorrection for changes in barometric pressure",
+                            "Calculated data: non-vented depth/level sensor correction for changes in barometric pressure",
                             "Historical: Pre-auto QA/QC","Corrected data"))
 swmp$desc <- linebreak(swmp$desc)
 
@@ -129,6 +124,7 @@ swmp %>% kable(col.names = c("*Qualifier Source*", "*ValueQualifier*", "*Include
       escape = F, 
       caption = "SWMP Value Qualifier codes",
       format = "simple") %>%
-  kable_styling(latex_options = c("scale_down","HOLD_position"),
+  column_spec(4, width = "20em") %>% 
+  kable_styling(#latex_options = c("scale_down","HOLD_position"),
                 position = "center")
 ```

@@ -465,7 +465,9 @@ setDT(stats_pa)
 stats_pa[N_Years == 0, `:=` (EarliestYear = NA, LatestYear = NA)]
 
 statpardat <- list("BB_pct" = stats_pct, "PA" = stats_pa)
-openxlsx::write.xlsx(statpardat, here::here(paste0("output/Data/SAV/SAV_BBpct_PA_Stats_", Sys.Date(), ".xlsx")), colNames = c(TRUE, TRUE), colWidths = c("auto", "auto"), firstRow = c(TRUE, TRUE))
+openxlsx::write.xlsx(statpardat, paste0("output/Data/SAV/SAV_BBpct_PA_Stats_", Sys.Date(), ".xlsx"), colNames = c(TRUE, TRUE), colWidths = c("auto", "auto"), firstRow = c(TRUE, TRUE))
+
+saveRDS(SAV4, "output/Data/SAV/SAV4.rds")
 
 ######################
 #### START SCRIPT ####
@@ -589,10 +591,10 @@ for(p in parameters$column){
                   model_j))
         
         #Save the model object as .rds
-        saveRDS(model_j, here::here(paste0("output/models/SAV_", parameters[column == p, type], "_", 
-                                           ma_abrev, "_",
-                                           gsub('\\b(\\p{Lu}\\p{Ll})|.','\\1', str_to_title(j), perl = TRUE), 
-                                           ".rds")))
+        saveRDS(model_j, paste0("output/models/SAV_", parameters[column == p, type], "_", 
+                                ma_abrev, "_",
+                                gsub('\\b(\\p{Lu}\\p{Ll})|.','\\1', str_to_title(j), perl = TRUE), 
+                                ".rds"))
         
         print(paste0("  Model object saved: ", 
                      ma_abrev, 
@@ -708,12 +710,12 @@ for(p in parameters$column){
       }
       
       #Save the plot object as .rds
-      saveRDS(plot_i, here::here(paste0("output/Figures/BB/SAV_", parameters[column == p, type], "_",
-                                        paste0(str_sub(ma_abrev, 1, -1), "_trendplot.rds"))))
+      saveRDS(plot_i, paste0("output/Figures/BB/SAV_", parameters[column == p, type], "_",
+                             paste0(str_sub(ma_abrev, 1, -1), "_trendplot.rds")))
       
       #Save the results table objects as .rds
-      saveRDS(lmemodresults, here::here(paste0("output/tables/SAV/SAV_", parameters[column == p, type], "_", 
-                                               paste0(str_sub(ma_abrev, 1, -1), "_lmeresults.rds"))))
+      saveRDS(lmemodresults, paste0("output/tables/SAV/SAV_", parameters[column == p, type], "_", 
+                                    paste0(str_sub(ma_abrev, 1, -1), "_lmeresults.rds")))
     }
     
     ###### BAR PLOTS ######
@@ -773,8 +775,8 @@ for(p in parameters$column){
                              aesthetics = c("color", "fill"))
       }
       
-      saveRDS(barplot_sp, here::here(paste0("output/Figures/BB/SAV_", parameters[column == p, type], "_",
-                                            ma_abrev, "_barplot_sp.rds")))
+      saveRDS(barplot_sp, paste0("output/Figures/BB/SAV_", parameters[column == p, type], "_",
+                                 ma_abrev, "_barplot_sp.rds"))
     }
     
     print(paste0("  Plot objects and results tables saved: ",
@@ -785,18 +787,18 @@ for(p in parameters$column){
 }
 
 #Save failedmodslist-----------------------------------------------------
-saveRDS(failedmods, here::here("output/models/failedmodslist.rds"))
+saveRDS(failedmods, "output/models/failedmodslist.rds")
 
 #Get rid of eval(p)'s from plot file mappings---------------------------------------
-files <- list.files(here::here("output/Figures/BB/")) #get file list
-files <- str_subset(files, ".rds") #exclude non-.RDS files
+files <- list.files("output/Figures/BB/", pattern = "\\.rds$") #get file list
+# files <- str_subset(files, ".rds") #exclude non-.RDS files
 
 filesupdated <- list()
 for(f in seq_along(files)){
-  file_f <- readRDS(here::here(paste0("output/Figures/BB/", files[f])))
+  file_f <- readRDS(paste0("output/Figures/BB/", files[f]))
   if(paste0(as_label(file_f$mapping$y)) == "eval(p)"){
     file_f$mapping$y <- parameters[name %in% file_f$labels$y, column][[1]]
-    saveRDS(file_f, here::here(paste0("output/Figures/BB/", files[f])))
+    saveRDS(file_f, paste0("output/Figures/BB/", files[f]))
     rm(file_f)
     filesupdated <- append(filesupdated, files[f])
   } else {
