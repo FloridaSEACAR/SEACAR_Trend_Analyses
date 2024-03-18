@@ -1,8 +1,11 @@
 # SEACAR Trend Analyses
 
-The *SEACAR Trend Analyses* repository contains the analysis scripts used to generate habitat-specific reports. Updated forms of these scripts can be found in the *MA Report Generation/scripts/* sub-folder where they are used to generate **Managed Area Reports** for each Managed Area which include analyses for each habitat (except Oyster - in development). The **Managed Area Reports** can be found in the *MA Report Generation/output/* sub-folder.
+The *SEACAR Trend Analyses* repository contains the analysis scripts used to generate habitat-specific reports. Updated forms of these scripts can be found in the *MA Report Generation/scripts/* sub-folder where they are used to generate **Managed Area Reports** for each Managed Area which include analyses for each habitat (except Oyster - in development).
 
 ## Managed Area Reports overview
+
+The **Managed Area Reports** can be found in the [MA Report Generation/output/Reports/](MA%20Report%20Generation/output/Reports/) sub-folder.
+
 Managed Area Reports contain the following information and visualizations if the habitats are included for a given Managed Area:
 * Introduction
   + Threshold filtering
@@ -31,7 +34,7 @@ Managed Area Reports contain the following information and visualizations if the
     - All stations combined for each parameter ("*combined continuous trendplots*")
     - For MAs with lots of continuous stations, the combined trendplots will be combined by ProgramID 
 * Submerged Aquatic Vegetation (SAV)
-  + Spatio-temporal sample locations plot ("*SAV temporal scope plot*")
+  + [Spatio-temporal sample locations plot](MA%20Report%20Generation/output/SAV-Temporal-Scope-Plots) ("*SAV temporal scope plot*")
   + Map of SAV sample locations ("*SAV maps*")
   + Program Summary tables / program-level overview
     - N_Data, Year Min and Max, Collection method, Number of sample locations
