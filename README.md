@@ -4,7 +4,9 @@ The *SEACAR Trend Analyses* repository contains the analysis scripts used to gen
 
 ## Managed Area Reports overview
 
-The **Managed Area Reports** can be found in the [MA Report Generation/output/Reports/](MA%20Report%20Generation/output/Reports/) sub-folder.
+A [**Managed Area Reports Directory**](https://floridaseacar.github.io/SEACAR_Trend_Analyses/MA%20Report%20Generation/) can be used to easily locate HTML and PDF versions for each Managed Area.
+
+The **Managed Area Reports** are located in the [MA Report Generation/output/Reports/](MA%20Report%20Generation/output/Reports/) sub-folder, in both HTML and PDF formats.
 
 Managed Area Reports contain the following information and visualizations if the habitats are included for a given Managed Area:
 * Introduction
