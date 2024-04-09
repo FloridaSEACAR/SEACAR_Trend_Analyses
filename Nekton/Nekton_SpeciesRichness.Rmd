@@ -97,9 +97,9 @@ The `ManagedAreaName` values from the data are actually shortened versions, and 
 # Filter data for the desired parameter
 data <- data[data$ParameterName==param_name,]
 
-if (param_name=="Presence"){
-         parameter <- "Species Richness"
-      }
+if(param_name=="Presence/Absence"){
+  parameter <- "Species Richness"
+}
 # Makes sure EffortCorrection is numeric value
 data$EffortCorrection_100m2 <- as.numeric(data$EffortCorrection_100m2)
 

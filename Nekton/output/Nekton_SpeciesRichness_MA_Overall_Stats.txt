@@ -1,7 +1,7 @@
 AreaID|ManagedAreaName|GearType|GearSize_m|ParameterName|N_Years|EarliestYear|LatestYear|N_Data|Min|Max|Median|Mean|StandardDeviation|Programs|ProgramIDs|Year_MinRichness|Year_MaxRichness
 1|Alligator Harbor Aquatic Preserve|||Species Richness|0|||0|||||||||
-2|Apalachicola Bay Aquatic Preserve|Trawl|4.8|Species Richness|21|2000|2021|1664|0.185185185185185|24.8148148148148|7.77777777777778|7.79068732193732|3.62110836665426|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|129|2003|2019
-3|Apalachicola National Estuarine Research Reserve|Trawl|4.8|Species Richness|21|2000|2021|1931|0.185185185185185|24.8148148148148|7.40740740740741|7.62423998312139|3.72481415190289|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|129|2003|2019
+2|Apalachicola Bay Aquatic Preserve|Trawl|4.8|Species Richness|23|2000|2023|1736|0.185185185185185|24.6296296296296|7.77777777777778|7.79580559822495|3.60556977126436|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|129|2003|2019
+3|Apalachicola National Estuarine Research Reserve|Trawl|4.8|Species Richness|23|2000|2023|2003|0.185185185185185|24.6296296296296|7.40740740740741|7.63465912242747|3.70835733312919|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|129|2003|2019
 4|Banana River Aquatic Preserve|||Species Richness|0|||0|||||||||
 5|Big Bend Seagrasses Aquatic Preserve|||Species Richness|0|||0|||||||||
 7|Biscayne Bay-Cape Florida to Monroe County Line Aquatic Preserve|||Species Richness|0|||0|||||||||
@@ -33,7 +33,7 @@ AreaID|ManagedAreaName|GearType|GearSize_m|ParameterName|N_Years|EarliestYear|La
 31|North Fork St. Lucie Aquatic Preserve|||Species Richness|0|||0|||||||||
 33|Pellicer Creek Aquatic Preserve|||Species Richness|0|||0|||||||||
 34|Pine Island Sound Aquatic Preserve|||Species Richness|0|||0|||||||||
-35|Pinellas County Aquatic Preserve|Trawl|6.1|Species Richness|32|1989|2020|2903|0|6.2061521856449|0.710086062430767|0.950838340890828|0.77939325656413|Fisheries-Independent Monitoring (FIM) Program|69|2000|2019
+35|Pinellas County Aquatic Preserve|Trawl|6.1|Species Richness|32|1989|2020|2904|0|6.2061521856449|0.710086062430767|0.950510917219722|0.779458738471436|Fisheries-Independent Monitoring (FIM) Program|69|2000|2019
 35|Pinellas County Aquatic Preserve|Seine|183|Species Richness|25|1996|2020|2621|0|0.922330097087378|0.218446601941748|0.257683460326045|0.154815241007847|Fisheries-Independent Monitoring (FIM) Program|69|1996|2012
 37|Rocky Bayou State Park Aquatic Preserve|||Species Richness|0|||0|||||||||
 38|Rookery Bay Aquatic Preserve|Trawl|6.1|Species Richness|10|2000|2009|535|0|2.56341068537507|0.94441446303292|0.936849060124779|0.421592336094123|RBNERR Fish Assessment|4043|2004|2000

@@ -310,6 +310,16 @@ Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research
 Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|10|2021-06-15T00:00:00Z|Trawl|4.8|Species Richness|2021|6|55|5.4|10.1851851851852
 Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|10|2021-09-07T00:00:00Z|Trawl|4.8|Species Richness|2021|9|54|5.4|10
 Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|10|2021-12-07T00:00:00Z|Trawl|4.8|Species Richness|2021|12|24|5.4|4.44444444444444
+Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|10|2022-03-29T00:00:00Z|Trawl|4.8|Species Richness|2022|3|36|5.4|6.66666666666667
+Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|10|2022-07-19T00:00:00Z|Trawl|4.8|Species Richness|2022|7|59|5.4|10.9259259259259
+Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|10|2022-09-13T00:00:00Z|Trawl|4.8|Species Richness|2022|9|53|5.4|9.81481481481481
+Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|10|2022-12-05T00:00:00Z|Trawl|4.8|Species Richness|2022|12|49|5.4|9.07407407407407
+Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|10|2023-03-21T00:00:00Z|Trawl|4.8|Species Richness|2023|3|29|5.4|5.37037037037037
+Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|10|2023-03-23T00:00:00Z|Trawl|4.8|Species Richness|2023|3|1|5.4|0.185185185185185
+Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|10|2023-06-06T00:00:00Z|Trawl|4.8|Species Richness|2023|6|54|5.4|10
+Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|10|2023-09-13T00:00:00Z|Trawl|4.8|Species Richness|2023|9|1|5.4|0.185185185185185
+Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|10|2023-09-19T00:00:00Z|Trawl|4.8|Species Richness|2023|9|42|5.4|7.77777777777778
+Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|10|2023-12-05T00:00:00Z|Trawl|4.8|Species Richness|2023|12|46|5.4|8.51851851851852
 Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|13|2014-03-20T00:00:00Z|Trawl|4.8|Species Richness|2014|3|8|5.4|1.48148148148148
 Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|13|2014-07-11T00:00:00Z|Trawl|4.8|Species Richness|2014|7|24|5.4|4.44444444444444
 Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|13|2014-09-18T00:00:00Z|Trawl|4.8|Species Richness|2014|9|59|5.4|10.9259259259259
@@ -340,6 +350,12 @@ Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research
 Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|13|2021-06-17T00:00:00Z|Trawl|4.8|Species Richness|2021|6|69|5.4|12.7777777777778
 Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|13|2021-09-10T00:00:00Z|Trawl|4.8|Species Richness|2021|9|75|5.4|13.8888888888889
 Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|13|2021-12-07T00:00:00Z|Trawl|4.8|Species Richness|2021|12|15|5.4|2.77777777777778
+Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|13|2022-03-29T00:00:00Z|Trawl|4.8|Species Richness|2022|3|52|5.4|9.62962962962963
+Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|13|2022-07-21T00:00:00Z|Trawl|4.8|Species Richness|2022|7|29|5.4|5.37037037037037
+Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|13|2022-12-05T00:00:00Z|Trawl|4.8|Species Richness|2022|12|53|5.4|9.81481481481481
+Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|13|2023-03-23T00:00:00Z|Trawl|4.8|Species Richness|2023|3|30|5.4|5.55555555555556
+Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|13|2023-06-08T00:00:00Z|Trawl|4.8|Species Richness|2023|6|34|5.4|6.2962962962963
+Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|13|2023-12-07T00:00:00Z|Trawl|4.8|Species Richness|2023|12|50|5.4|9.25925925925926
 Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|2|2000-07-25T00:00:00Z|Trawl|4.8|Species Richness|2000|7|48|5.4|8.88888888888889
 Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|2|2000-08-15T00:00:00Z|Trawl|4.8|Species Richness|2000|8|98|5.4|18.1481481481481
 Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|2|2000-09-13T00:00:00Z|Trawl|4.8|Species Richness|2000|9|78|5.4|14.4444444444444
@@ -412,7 +428,7 @@ Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research
 Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|2|2006-07-12T00:00:00Z|Trawl|4.8|Species Richness|2006|7|42|5.4|7.77777777777778
 Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|2|2006-08-29T00:00:00Z|Trawl|4.8|Species Richness|2006|8|53|5.4|9.81481481481481
 Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|2|2006-09-21T00:00:00Z|Trawl|4.8|Species Richness|2006|9|63|5.4|11.6666666666667
-Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|2|2006-10-19T00:00:00Z|Trawl|4.8|Species Richness|2006|10|134|5.4|24.8148148148148
+Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|2|2006-10-19T00:00:00Z|Trawl|4.8|Species Richness|2006|10|133|5.4|24.6296296296296
 Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|2|2006-11-13T00:00:00Z|Trawl|4.8|Species Richness|2006|11|68|5.4|12.5925925925926
 Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|2|2006-12-12T00:00:00Z|Trawl|4.8|Species Richness|2006|12|51|5.4|9.44444444444444
 Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|2|2007-01-16T00:00:00Z|Trawl|4.8|Species Richness|2007|1|28|5.4|5.18518518518519
@@ -644,6 +660,15 @@ Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research
 Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|3|2021-06-17T00:00:00Z|Trawl|4.8|Species Richness|2021|6|74|5.4|13.7037037037037
 Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|3|2021-09-07T00:00:00Z|Trawl|4.8|Species Richness|2021|9|44|5.4|8.14814814814815
 Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|3|2021-12-08T00:00:00Z|Trawl|4.8|Species Richness|2021|12|50|5.4|9.25925925925926
+Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|3|2022-03-29T00:00:00Z|Trawl|4.8|Species Richness|2022|3|24|5.4|4.44444444444444
+Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|3|2022-07-21T00:00:00Z|Trawl|4.8|Species Richness|2022|7|64|5.4|11.8518518518519
+Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|3|2022-09-14T00:00:00Z|Trawl|4.8|Species Richness|2022|9|68|5.4|12.5925925925926
+Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|3|2022-12-05T00:00:00Z|Trawl|4.8|Species Richness|2022|12|35|5.4|6.48148148148148
+Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|3|2023-03-21T00:00:00Z|Trawl|4.8|Species Richness|2023|3|2|5.4|0.37037037037037
+Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|3|2023-03-23T00:00:00Z|Trawl|4.8|Species Richness|2023|3|36|5.4|6.66666666666667
+Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|3|2023-06-08T00:00:00Z|Trawl|4.8|Species Richness|2023|6|43|5.4|7.96296296296296
+Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|3|2023-09-19T00:00:00Z|Trawl|4.8|Species Richness|2023|9|38|5.4|7.03703703703704
+Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|3|2023-12-07T00:00:00Z|Trawl|4.8|Species Richness|2023|12|37|5.4|6.85185185185185
 Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|4|2000-07-25T00:00:00Z|Trawl|4.8|Species Richness|2000|7|43|5.4|7.96296296296296
 Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|4|2000-08-16T00:00:00Z|Trawl|4.8|Species Richness|2000|8|62|5.4|11.4814814814815
 Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|4|2000-09-13T00:00:00Z|Trawl|4.8|Species Richness|2000|9|43|5.4|7.96296296296296
@@ -808,8 +833,16 @@ Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research
 Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|4|2020-12-01T00:00:00Z|Trawl|4.8|Species Richness|2020|12|59|5.4|10.9259259259259
 Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|4|2021-03-11T00:00:00Z|Trawl|4.8|Species Richness|2021|3|34|5.4|6.2962962962963
 Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|4|2021-06-17T00:00:00Z|Trawl|4.8|Species Richness|2021|6|64|5.4|11.8518518518519
-Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|4|2021-09-10T00:00:00Z|Trawl|4.8|Species Richness|2021|9|110|5.4|20.3703703703704
+Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|4|2021-09-10T00:00:00Z|Trawl|4.8|Species Richness|2021|9|111|5.4|20.5555555555556
 Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|4|2021-12-08T00:00:00Z|Trawl|4.8|Species Richness|2021|12|22|5.4|4.07407407407407
+Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|4|2022-03-29T00:00:00Z|Trawl|4.8|Species Richness|2022|3|58|5.4|10.7407407407407
+Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|4|2022-07-21T00:00:00Z|Trawl|4.8|Species Richness|2022|7|49|5.4|9.07407407407407
+Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|4|2022-09-14T00:00:00Z|Trawl|4.8|Species Richness|2022|9|62|5.4|11.4814814814815
+Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|4|2022-12-06T00:00:00Z|Trawl|4.8|Species Richness|2022|12|14|5.4|2.59259259259259
+Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|4|2023-03-23T00:00:00Z|Trawl|4.8|Species Richness|2023|3|45|5.4|8.33333333333333
+Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|4|2023-05-15T00:00:00Z|Trawl|4.8|Species Richness|2023|5|1|5.4|0.185185185185185
+Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|4|2023-06-08T00:00:00Z|Trawl|4.8|Species Richness|2023|6|56|5.4|10.3703703703704
+Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|4|2023-12-05T00:00:00Z|Trawl|4.8|Species Richness|2023|12|36|5.4|6.66666666666667
 Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|5|2000-07-25T00:00:00Z|Trawl|4.8|Species Richness|2000|7|73|5.4|13.5185185185185
 Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|5|2000-08-16T00:00:00Z|Trawl|4.8|Species Richness|2000|8|65|5.4|12.037037037037
 Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|5|2000-09-13T00:00:00Z|Trawl|4.8|Species Richness|2000|9|38|5.4|7.03703703703704
@@ -907,7 +940,7 @@ Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research
 Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|5|2008-08-19T00:00:00Z|Trawl|4.8|Species Richness|2008|8|63|5.4|11.6666666666667
 Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|5|2008-09-17T00:00:00Z|Trawl|4.8|Species Richness|2008|9|36|5.4|6.66666666666667
 Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|5|2008-10-16T00:00:00Z|Trawl|4.8|Species Richness|2008|10|54|5.4|10
-Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|5|2008-11-12T00:00:00Z|Trawl|4.8|Species Richness|2008|11|76|5.4|14.0740740740741
+Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|5|2008-11-12T00:00:00Z|Trawl|4.8|Species Richness|2008|11|75|5.4|13.8888888888889
 Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|5|2008-12-17T00:00:00Z|Trawl|4.8|Species Richness|2008|12|20|5.4|3.7037037037037
 Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|5|2009-01-15T00:00:00Z|Trawl|4.8|Species Richness|2009|1|16|5.4|2.96296296296296
 Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|5|2009-02-26T00:00:00Z|Trawl|4.8|Species Richness|2009|2|31|5.4|5.74074074074074
@@ -979,8 +1012,15 @@ Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research
 Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|5|2020-12-01T00:00:00Z|Trawl|4.8|Species Richness|2020|12|48|5.4|8.88888888888889
 Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|5|2021-03-11T00:00:00Z|Trawl|4.8|Species Richness|2021|3|40|5.4|7.40740740740741
 Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|5|2021-06-16T00:00:00Z|Trawl|4.8|Species Richness|2021|6|38|5.4|7.03703703703704
-Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|5|2021-09-10T00:00:00Z|Trawl|4.8|Species Richness|2021|9|57|5.4|10.5555555555556
+Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|5|2021-09-10T00:00:00Z|Trawl|4.8|Species Richness|2021|9|59|5.4|10.9259259259259
 Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|5|2021-12-07T00:00:00Z|Trawl|4.8|Species Richness|2021|12|19|5.4|3.51851851851852
+Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|5|2022-03-29T00:00:00Z|Trawl|4.8|Species Richness|2022|3|38|5.4|7.03703703703704
+Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|5|2022-07-21T00:00:00Z|Trawl|4.8|Species Richness|2022|7|56|5.4|10.3703703703704
+Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|5|2022-09-14T00:00:00Z|Trawl|4.8|Species Richness|2022|9|58|5.4|10.7407407407407
+Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|5|2022-12-06T00:00:00Z|Trawl|4.8|Species Richness|2022|12|9|5.4|1.66666666666667
+Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|5|2023-03-23T00:00:00Z|Trawl|4.8|Species Richness|2023|3|33|5.4|6.11111111111111
+Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|5|2023-06-08T00:00:00Z|Trawl|4.8|Species Richness|2023|6|45|5.4|8.33333333333333
+Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|5|2023-12-05T00:00:00Z|Trawl|4.8|Species Richness|2023|12|37|5.4|6.85185185185185
 Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|6|2000-07-26T00:00:00Z|Trawl|4.8|Species Richness|2000|7|55|5.4|10.1851851851852
 Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|6|2000-08-16T00:00:00Z|Trawl|4.8|Species Richness|2000|8|28|5.4|5.18518518518519
 Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|6|2000-09-13T00:00:00Z|Trawl|4.8|Species Richness|2000|9|42|5.4|7.77777777777778
@@ -1148,9 +1188,17 @@ Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research
 Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|6|2020-10-07T00:00:00Z|Trawl|4.8|Species Richness|2020|10|51|5.4|9.44444444444444
 Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|6|2020-12-02T00:00:00Z|Trawl|4.8|Species Richness|2020|12|61|5.4|11.2962962962963
 Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|6|2021-03-10T00:00:00Z|Trawl|4.8|Species Richness|2021|3|27|5.4|5
-Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|6|2021-06-17T00:00:00Z|Trawl|4.8|Species Richness|2021|6|53|5.4|9.81481481481481
+Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|6|2021-06-17T00:00:00Z|Trawl|4.8|Species Richness|2021|6|54|5.4|10
 Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|6|2021-09-07T00:00:00Z|Trawl|4.8|Species Richness|2021|9|58|5.4|10.7407407407407
 Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|6|2021-12-08T00:00:00Z|Trawl|4.8|Species Richness|2021|12|13|5.4|2.40740740740741
+Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|6|2022-03-29T00:00:00Z|Trawl|4.8|Species Richness|2022|3|18|5.4|3.33333333333333
+Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|6|2022-07-20T00:00:00Z|Trawl|4.8|Species Richness|2022|7|54|5.4|10
+Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|6|2022-09-13T00:00:00Z|Trawl|4.8|Species Richness|2022|9|39|5.4|7.22222222222222
+Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|6|2022-12-05T00:00:00Z|Trawl|4.8|Species Richness|2022|12|38|5.4|7.03703703703704
+Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|6|2023-03-23T00:00:00Z|Trawl|4.8|Species Richness|2023|3|28|5.4|5.18518518518519
+Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|6|2023-06-09T00:00:00Z|Trawl|4.8|Species Richness|2023|6|75|5.4|13.8888888888889
+Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|6|2023-09-19T00:00:00Z|Trawl|4.8|Species Richness|2023|9|77|5.4|14.2592592592593
+Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|6|2023-12-07T00:00:00Z|Trawl|4.8|Species Richness|2023|12|28|5.4|5.18518518518519
 Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|7|2000-07-26T00:00:00Z|Trawl|4.8|Species Richness|2000|7|48|5.4|8.88888888888889
 Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|7|2000-08-16T00:00:00Z|Trawl|4.8|Species Richness|2000|8|45|5.4|8.33333333333333
 Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|7|2000-09-12T00:00:00Z|Trawl|4.8|Species Richness|2000|9|32|5.4|5.92592592592593
@@ -1321,6 +1369,15 @@ Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research
 Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|7|2021-06-15T00:00:00Z|Trawl|4.8|Species Richness|2021|6|57|5.4|10.5555555555556
 Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|7|2021-09-07T00:00:00Z|Trawl|4.8|Species Richness|2021|9|65|5.4|12.037037037037
 Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|7|2021-12-07T00:00:00Z|Trawl|4.8|Species Richness|2021|12|29|5.4|5.37037037037037
+Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|7|2022-03-29T00:00:00Z|Trawl|4.8|Species Richness|2022|3|40|5.4|7.40740740740741
+Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|7|2022-07-19T00:00:00Z|Trawl|4.8|Species Richness|2022|7|42|5.4|7.77777777777778
+Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|7|2022-09-13T00:00:00Z|Trawl|4.8|Species Richness|2022|9|51|5.4|9.44444444444444
+Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|7|2022-12-06T00:00:00Z|Trawl|4.8|Species Richness|2022|12|32|5.4|5.92592592592593
+Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|7|2023-03-21T00:00:00Z|Trawl|4.8|Species Richness|2023|3|36|5.4|6.66666666666667
+Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|7|2023-06-07T00:00:00Z|Trawl|4.8|Species Richness|2023|6|33|5.4|6.11111111111111
+Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|7|2023-06-08T00:00:00Z|Trawl|4.8|Species Richness|2023|6|31|5.4|5.74074074074074
+Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|7|2023-09-19T00:00:00Z|Trawl|4.8|Species Richness|2023|9|61|5.4|11.2962962962963
+Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|7|2023-12-05T00:00:00Z|Trawl|4.8|Species Richness|2023|12|31|5.4|5.74074074074074
 Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|8|2000-07-25T00:00:00Z|Trawl|4.8|Species Richness|2000|7|1|5.4|0.185185185185185
 Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|8|2000-07-26T00:00:00Z|Trawl|4.8|Species Richness|2000|7|48|5.4|8.88888888888889
 Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|8|2000-08-15T00:00:00Z|Trawl|4.8|Species Richness|2000|8|58|5.4|10.7407407407407
@@ -1491,6 +1548,13 @@ Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research
 Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|8|2021-06-15T00:00:00Z|Trawl|4.8|Species Richness|2021|6|35|5.4|6.48148148148148
 Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|8|2021-09-07T00:00:00Z|Trawl|4.8|Species Richness|2021|9|44|5.4|8.14814814814815
 Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|8|2021-12-07T00:00:00Z|Trawl|4.8|Species Richness|2021|12|25|5.4|4.62962962962963
+Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|8|2022-03-29T00:00:00Z|Trawl|4.8|Species Richness|2022|3|36|5.4|6.66666666666667
+Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|8|2022-07-19T00:00:00Z|Trawl|4.8|Species Richness|2022|7|49|5.4|9.07407407407407
+Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|8|2022-09-13T00:00:00Z|Trawl|4.8|Species Richness|2022|9|54|5.4|10
+Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|8|2022-12-05T00:00:00Z|Trawl|4.8|Species Richness|2022|12|53|5.4|9.81481481481481
+Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|8|2023-03-21T00:00:00Z|Trawl|4.8|Species Richness|2023|3|58|5.4|10.7407407407407
+Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|8|2023-06-06T00:00:00Z|Trawl|4.8|Species Richness|2023|6|76|5.4|14.0740740740741
+Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|8|2023-12-05T00:00:00Z|Trawl|4.8|Species Richness|2023|12|57|5.4|10.5555555555556
 Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|9|2000-07-26T00:00:00Z|Trawl|4.8|Species Richness|2000|7|37|5.4|6.85185185185185
 Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|9|2000-08-15T00:00:00Z|Trawl|4.8|Species Richness|2000|8|55|5.4|10.1851851851852
 Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|9|2000-09-14T00:00:00Z|Trawl|4.8|Species Richness|2000|9|52|5.4|9.62962962962963
@@ -1664,6 +1728,14 @@ Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research
 Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|9|2021-06-15T00:00:00Z|Trawl|4.8|Species Richness|2021|6|46|5.4|8.51851851851852
 Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|9|2021-09-07T00:00:00Z|Trawl|4.8|Species Richness|2021|9|55|5.4|10.1851851851852
 Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|9|2021-12-07T00:00:00Z|Trawl|4.8|Species Richness|2021|12|20|5.4|3.7037037037037
+Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|9|2022-03-29T00:00:00Z|Trawl|4.8|Species Richness|2022|3|32|5.4|5.92592592592593
+Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|9|2022-07-19T00:00:00Z|Trawl|4.8|Species Richness|2022|7|51|5.4|9.44444444444444
+Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|9|2022-09-13T00:00:00Z|Trawl|4.8|Species Richness|2022|9|72|5.4|13.3333333333333
+Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|9|2022-12-05T00:00:00Z|Trawl|4.8|Species Richness|2022|12|49|5.4|9.07407407407407
+Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|9|2023-03-21T00:00:00Z|Trawl|4.8|Species Richness|2023|3|63|5.4|11.6666666666667
+Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|9|2023-06-06T00:00:00Z|Trawl|4.8|Species Richness|2023|6|67|5.4|12.4074074074074
+Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|9|2023-09-19T00:00:00Z|Trawl|4.8|Species Richness|2023|9|31|5.4|5.74074074074074
+Apalachicola Bay Aquatic Preserve|2|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|9|2023-12-05T00:00:00Z|Trawl|4.8|Species Richness|2023|12|51|5.4|9.44444444444444
 Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|1|2000-07-25T00:00:00Z|Trawl|4.8|Species Richness|2000|7|54|5.4|10
 Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|1|2000-08-15T00:00:00Z|Trawl|4.8|Species Richness|2000|8|55|5.4|10.1851851851852
 Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|1|2000-09-13T00:00:00Z|Trawl|4.8|Species Richness|2000|9|58|5.4|10.7407407407407
@@ -1974,6 +2046,16 @@ Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Est
 Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|10|2021-06-15T00:00:00Z|Trawl|4.8|Species Richness|2021|6|55|5.4|10.1851851851852
 Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|10|2021-09-07T00:00:00Z|Trawl|4.8|Species Richness|2021|9|54|5.4|10
 Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|10|2021-12-07T00:00:00Z|Trawl|4.8|Species Richness|2021|12|24|5.4|4.44444444444444
+Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|10|2022-03-29T00:00:00Z|Trawl|4.8|Species Richness|2022|3|36|5.4|6.66666666666667
+Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|10|2022-07-19T00:00:00Z|Trawl|4.8|Species Richness|2022|7|59|5.4|10.9259259259259
+Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|10|2022-09-13T00:00:00Z|Trawl|4.8|Species Richness|2022|9|53|5.4|9.81481481481481
+Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|10|2022-12-05T00:00:00Z|Trawl|4.8|Species Richness|2022|12|49|5.4|9.07407407407407
+Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|10|2023-03-21T00:00:00Z|Trawl|4.8|Species Richness|2023|3|29|5.4|5.37037037037037
+Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|10|2023-03-23T00:00:00Z|Trawl|4.8|Species Richness|2023|3|1|5.4|0.185185185185185
+Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|10|2023-06-06T00:00:00Z|Trawl|4.8|Species Richness|2023|6|54|5.4|10
+Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|10|2023-09-13T00:00:00Z|Trawl|4.8|Species Richness|2023|9|1|5.4|0.185185185185185
+Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|10|2023-09-19T00:00:00Z|Trawl|4.8|Species Richness|2023|9|42|5.4|7.77777777777778
+Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|10|2023-12-05T00:00:00Z|Trawl|4.8|Species Richness|2023|12|46|5.4|8.51851851851852
 Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|11|2000-07-26T00:00:00Z|Trawl|4.8|Species Richness|2000|7|25|5.4|4.62962962962963
 Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|11|2000-08-16T00:00:00Z|Trawl|4.8|Species Richness|2000|8|30|5.4|5.55555555555556
 Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|11|2000-09-14T00:00:00Z|Trawl|4.8|Species Richness|2000|9|29|5.4|5.37037037037037
@@ -2271,6 +2353,12 @@ Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Est
 Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|13|2021-06-17T00:00:00Z|Trawl|4.8|Species Richness|2021|6|69|5.4|12.7777777777778
 Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|13|2021-09-10T00:00:00Z|Trawl|4.8|Species Richness|2021|9|75|5.4|13.8888888888889
 Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|13|2021-12-07T00:00:00Z|Trawl|4.8|Species Richness|2021|12|15|5.4|2.77777777777778
+Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|13|2022-03-29T00:00:00Z|Trawl|4.8|Species Richness|2022|3|52|5.4|9.62962962962963
+Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|13|2022-07-21T00:00:00Z|Trawl|4.8|Species Richness|2022|7|29|5.4|5.37037037037037
+Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|13|2022-12-05T00:00:00Z|Trawl|4.8|Species Richness|2022|12|53|5.4|9.81481481481481
+Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|13|2023-03-23T00:00:00Z|Trawl|4.8|Species Richness|2023|3|30|5.4|5.55555555555556
+Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|13|2023-06-08T00:00:00Z|Trawl|4.8|Species Richness|2023|6|34|5.4|6.2962962962963
+Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|13|2023-12-07T00:00:00Z|Trawl|4.8|Species Richness|2023|12|50|5.4|9.25925925925926
 Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|2|2000-07-25T00:00:00Z|Trawl|4.8|Species Richness|2000|7|48|5.4|8.88888888888889
 Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|2|2000-08-15T00:00:00Z|Trawl|4.8|Species Richness|2000|8|98|5.4|18.1481481481481
 Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|2|2000-09-13T00:00:00Z|Trawl|4.8|Species Richness|2000|9|78|5.4|14.4444444444444
@@ -2343,7 +2431,7 @@ Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Est
 Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|2|2006-07-12T00:00:00Z|Trawl|4.8|Species Richness|2006|7|42|5.4|7.77777777777778
 Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|2|2006-08-29T00:00:00Z|Trawl|4.8|Species Richness|2006|8|53|5.4|9.81481481481481
 Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|2|2006-09-21T00:00:00Z|Trawl|4.8|Species Richness|2006|9|63|5.4|11.6666666666667
-Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|2|2006-10-19T00:00:00Z|Trawl|4.8|Species Richness|2006|10|134|5.4|24.8148148148148
+Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|2|2006-10-19T00:00:00Z|Trawl|4.8|Species Richness|2006|10|133|5.4|24.6296296296296
 Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|2|2006-11-13T00:00:00Z|Trawl|4.8|Species Richness|2006|11|68|5.4|12.5925925925926
 Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|2|2006-12-12T00:00:00Z|Trawl|4.8|Species Richness|2006|12|51|5.4|9.44444444444444
 Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|2|2007-01-16T00:00:00Z|Trawl|4.8|Species Richness|2007|1|28|5.4|5.18518518518519
@@ -2575,6 +2663,15 @@ Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Est
 Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|3|2021-06-17T00:00:00Z|Trawl|4.8|Species Richness|2021|6|74|5.4|13.7037037037037
 Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|3|2021-09-07T00:00:00Z|Trawl|4.8|Species Richness|2021|9|44|5.4|8.14814814814815
 Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|3|2021-12-08T00:00:00Z|Trawl|4.8|Species Richness|2021|12|50|5.4|9.25925925925926
+Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|3|2022-03-29T00:00:00Z|Trawl|4.8|Species Richness|2022|3|24|5.4|4.44444444444444
+Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|3|2022-07-21T00:00:00Z|Trawl|4.8|Species Richness|2022|7|64|5.4|11.8518518518519
+Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|3|2022-09-14T00:00:00Z|Trawl|4.8|Species Richness|2022|9|68|5.4|12.5925925925926
+Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|3|2022-12-05T00:00:00Z|Trawl|4.8|Species Richness|2022|12|35|5.4|6.48148148148148
+Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|3|2023-03-21T00:00:00Z|Trawl|4.8|Species Richness|2023|3|2|5.4|0.37037037037037
+Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|3|2023-03-23T00:00:00Z|Trawl|4.8|Species Richness|2023|3|36|5.4|6.66666666666667
+Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|3|2023-06-08T00:00:00Z|Trawl|4.8|Species Richness|2023|6|43|5.4|7.96296296296296
+Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|3|2023-09-19T00:00:00Z|Trawl|4.8|Species Richness|2023|9|38|5.4|7.03703703703704
+Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|3|2023-12-07T00:00:00Z|Trawl|4.8|Species Richness|2023|12|37|5.4|6.85185185185185
 Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|4|2000-07-25T00:00:00Z|Trawl|4.8|Species Richness|2000|7|43|5.4|7.96296296296296
 Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|4|2000-08-16T00:00:00Z|Trawl|4.8|Species Richness|2000|8|62|5.4|11.4814814814815
 Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|4|2000-09-13T00:00:00Z|Trawl|4.8|Species Richness|2000|9|43|5.4|7.96296296296296
@@ -2739,8 +2836,16 @@ Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Est
 Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|4|2020-12-01T00:00:00Z|Trawl|4.8|Species Richness|2020|12|59|5.4|10.9259259259259
 Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|4|2021-03-11T00:00:00Z|Trawl|4.8|Species Richness|2021|3|34|5.4|6.2962962962963
 Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|4|2021-06-17T00:00:00Z|Trawl|4.8|Species Richness|2021|6|64|5.4|11.8518518518519
-Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|4|2021-09-10T00:00:00Z|Trawl|4.8|Species Richness|2021|9|110|5.4|20.3703703703704
+Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|4|2021-09-10T00:00:00Z|Trawl|4.8|Species Richness|2021|9|111|5.4|20.5555555555556
 Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|4|2021-12-08T00:00:00Z|Trawl|4.8|Species Richness|2021|12|22|5.4|4.07407407407407
+Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|4|2022-03-29T00:00:00Z|Trawl|4.8|Species Richness|2022|3|58|5.4|10.7407407407407
+Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|4|2022-07-21T00:00:00Z|Trawl|4.8|Species Richness|2022|7|49|5.4|9.07407407407407
+Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|4|2022-09-14T00:00:00Z|Trawl|4.8|Species Richness|2022|9|62|5.4|11.4814814814815
+Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|4|2022-12-06T00:00:00Z|Trawl|4.8|Species Richness|2022|12|14|5.4|2.59259259259259
+Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|4|2023-03-23T00:00:00Z|Trawl|4.8|Species Richness|2023|3|45|5.4|8.33333333333333
+Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|4|2023-05-15T00:00:00Z|Trawl|4.8|Species Richness|2023|5|1|5.4|0.185185185185185
+Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|4|2023-06-08T00:00:00Z|Trawl|4.8|Species Richness|2023|6|56|5.4|10.3703703703704
+Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|4|2023-12-05T00:00:00Z|Trawl|4.8|Species Richness|2023|12|36|5.4|6.66666666666667
 Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|5|2000-07-25T00:00:00Z|Trawl|4.8|Species Richness|2000|7|73|5.4|13.5185185185185
 Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|5|2000-08-16T00:00:00Z|Trawl|4.8|Species Richness|2000|8|65|5.4|12.037037037037
 Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|5|2000-09-13T00:00:00Z|Trawl|4.8|Species Richness|2000|9|38|5.4|7.03703703703704
@@ -2838,7 +2943,7 @@ Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Est
 Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|5|2008-08-19T00:00:00Z|Trawl|4.8|Species Richness|2008|8|63|5.4|11.6666666666667
 Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|5|2008-09-17T00:00:00Z|Trawl|4.8|Species Richness|2008|9|36|5.4|6.66666666666667
 Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|5|2008-10-16T00:00:00Z|Trawl|4.8|Species Richness|2008|10|54|5.4|10
-Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|5|2008-11-12T00:00:00Z|Trawl|4.8|Species Richness|2008|11|76|5.4|14.0740740740741
+Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|5|2008-11-12T00:00:00Z|Trawl|4.8|Species Richness|2008|11|75|5.4|13.8888888888889
 Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|5|2008-12-17T00:00:00Z|Trawl|4.8|Species Richness|2008|12|20|5.4|3.7037037037037
 Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|5|2009-01-15T00:00:00Z|Trawl|4.8|Species Richness|2009|1|16|5.4|2.96296296296296
 Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|5|2009-02-26T00:00:00Z|Trawl|4.8|Species Richness|2009|2|31|5.4|5.74074074074074
@@ -2910,8 +3015,15 @@ Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Est
 Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|5|2020-12-01T00:00:00Z|Trawl|4.8|Species Richness|2020|12|48|5.4|8.88888888888889
 Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|5|2021-03-11T00:00:00Z|Trawl|4.8|Species Richness|2021|3|40|5.4|7.40740740740741
 Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|5|2021-06-16T00:00:00Z|Trawl|4.8|Species Richness|2021|6|38|5.4|7.03703703703704
-Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|5|2021-09-10T00:00:00Z|Trawl|4.8|Species Richness|2021|9|57|5.4|10.5555555555556
+Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|5|2021-09-10T00:00:00Z|Trawl|4.8|Species Richness|2021|9|59|5.4|10.9259259259259
 Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|5|2021-12-07T00:00:00Z|Trawl|4.8|Species Richness|2021|12|19|5.4|3.51851851851852
+Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|5|2022-03-29T00:00:00Z|Trawl|4.8|Species Richness|2022|3|38|5.4|7.03703703703704
+Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|5|2022-07-21T00:00:00Z|Trawl|4.8|Species Richness|2022|7|56|5.4|10.3703703703704
+Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|5|2022-09-14T00:00:00Z|Trawl|4.8|Species Richness|2022|9|58|5.4|10.7407407407407
+Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|5|2022-12-06T00:00:00Z|Trawl|4.8|Species Richness|2022|12|9|5.4|1.66666666666667
+Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|5|2023-03-23T00:00:00Z|Trawl|4.8|Species Richness|2023|3|33|5.4|6.11111111111111
+Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|5|2023-06-08T00:00:00Z|Trawl|4.8|Species Richness|2023|6|45|5.4|8.33333333333333
+Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|5|2023-12-05T00:00:00Z|Trawl|4.8|Species Richness|2023|12|37|5.4|6.85185185185185
 Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|6|2000-07-26T00:00:00Z|Trawl|4.8|Species Richness|2000|7|55|5.4|10.1851851851852
 Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|6|2000-08-16T00:00:00Z|Trawl|4.8|Species Richness|2000|8|28|5.4|5.18518518518519
 Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|6|2000-09-13T00:00:00Z|Trawl|4.8|Species Richness|2000|9|42|5.4|7.77777777777778
@@ -3079,9 +3191,17 @@ Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Est
 Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|6|2020-10-07T00:00:00Z|Trawl|4.8|Species Richness|2020|10|51|5.4|9.44444444444444
 Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|6|2020-12-02T00:00:00Z|Trawl|4.8|Species Richness|2020|12|61|5.4|11.2962962962963
 Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|6|2021-03-10T00:00:00Z|Trawl|4.8|Species Richness|2021|3|27|5.4|5
-Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|6|2021-06-17T00:00:00Z|Trawl|4.8|Species Richness|2021|6|53|5.4|9.81481481481481
+Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|6|2021-06-17T00:00:00Z|Trawl|4.8|Species Richness|2021|6|54|5.4|10
 Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|6|2021-09-07T00:00:00Z|Trawl|4.8|Species Richness|2021|9|58|5.4|10.7407407407407
 Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|6|2021-12-08T00:00:00Z|Trawl|4.8|Species Richness|2021|12|13|5.4|2.40740740740741
+Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|6|2022-03-29T00:00:00Z|Trawl|4.8|Species Richness|2022|3|18|5.4|3.33333333333333
+Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|6|2022-07-20T00:00:00Z|Trawl|4.8|Species Richness|2022|7|54|5.4|10
+Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|6|2022-09-13T00:00:00Z|Trawl|4.8|Species Richness|2022|9|39|5.4|7.22222222222222
+Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|6|2022-12-05T00:00:00Z|Trawl|4.8|Species Richness|2022|12|38|5.4|7.03703703703704
+Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|6|2023-03-23T00:00:00Z|Trawl|4.8|Species Richness|2023|3|28|5.4|5.18518518518519
+Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|6|2023-06-09T00:00:00Z|Trawl|4.8|Species Richness|2023|6|75|5.4|13.8888888888889
+Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|6|2023-09-19T00:00:00Z|Trawl|4.8|Species Richness|2023|9|77|5.4|14.2592592592593
+Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|6|2023-12-07T00:00:00Z|Trawl|4.8|Species Richness|2023|12|28|5.4|5.18518518518519
 Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|7|2000-07-26T00:00:00Z|Trawl|4.8|Species Richness|2000|7|48|5.4|8.88888888888889
 Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|7|2000-08-16T00:00:00Z|Trawl|4.8|Species Richness|2000|8|45|5.4|8.33333333333333
 Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|7|2000-09-12T00:00:00Z|Trawl|4.8|Species Richness|2000|9|32|5.4|5.92592592592593
@@ -3252,6 +3372,15 @@ Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Est
 Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|7|2021-06-15T00:00:00Z|Trawl|4.8|Species Richness|2021|6|57|5.4|10.5555555555556
 Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|7|2021-09-07T00:00:00Z|Trawl|4.8|Species Richness|2021|9|65|5.4|12.037037037037
 Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|7|2021-12-07T00:00:00Z|Trawl|4.8|Species Richness|2021|12|29|5.4|5.37037037037037
+Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|7|2022-03-29T00:00:00Z|Trawl|4.8|Species Richness|2022|3|40|5.4|7.40740740740741
+Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|7|2022-07-19T00:00:00Z|Trawl|4.8|Species Richness|2022|7|42|5.4|7.77777777777778
+Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|7|2022-09-13T00:00:00Z|Trawl|4.8|Species Richness|2022|9|51|5.4|9.44444444444444
+Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|7|2022-12-06T00:00:00Z|Trawl|4.8|Species Richness|2022|12|32|5.4|5.92592592592593
+Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|7|2023-03-21T00:00:00Z|Trawl|4.8|Species Richness|2023|3|36|5.4|6.66666666666667
+Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|7|2023-06-07T00:00:00Z|Trawl|4.8|Species Richness|2023|6|33|5.4|6.11111111111111
+Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|7|2023-06-08T00:00:00Z|Trawl|4.8|Species Richness|2023|6|31|5.4|5.74074074074074
+Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|7|2023-09-19T00:00:00Z|Trawl|4.8|Species Richness|2023|9|61|5.4|11.2962962962963
+Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|7|2023-12-05T00:00:00Z|Trawl|4.8|Species Richness|2023|12|31|5.4|5.74074074074074
 Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|8|2000-07-25T00:00:00Z|Trawl|4.8|Species Richness|2000|7|1|5.4|0.185185185185185
 Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|8|2000-07-26T00:00:00Z|Trawl|4.8|Species Richness|2000|7|48|5.4|8.88888888888889
 Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|8|2000-08-15T00:00:00Z|Trawl|4.8|Species Richness|2000|8|58|5.4|10.7407407407407
@@ -3422,6 +3551,13 @@ Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Est
 Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|8|2021-06-15T00:00:00Z|Trawl|4.8|Species Richness|2021|6|35|5.4|6.48148148148148
 Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|8|2021-09-07T00:00:00Z|Trawl|4.8|Species Richness|2021|9|44|5.4|8.14814814814815
 Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|8|2021-12-07T00:00:00Z|Trawl|4.8|Species Richness|2021|12|25|5.4|4.62962962962963
+Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|8|2022-03-29T00:00:00Z|Trawl|4.8|Species Richness|2022|3|36|5.4|6.66666666666667
+Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|8|2022-07-19T00:00:00Z|Trawl|4.8|Species Richness|2022|7|49|5.4|9.07407407407407
+Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|8|2022-09-13T00:00:00Z|Trawl|4.8|Species Richness|2022|9|54|5.4|10
+Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|8|2022-12-05T00:00:00Z|Trawl|4.8|Species Richness|2022|12|53|5.4|9.81481481481481
+Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|8|2023-03-21T00:00:00Z|Trawl|4.8|Species Richness|2023|3|58|5.4|10.7407407407407
+Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|8|2023-06-06T00:00:00Z|Trawl|4.8|Species Richness|2023|6|76|5.4|14.0740740740741
+Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|8|2023-12-05T00:00:00Z|Trawl|4.8|Species Richness|2023|12|57|5.4|10.5555555555556
 Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|9|2000-07-26T00:00:00Z|Trawl|4.8|Species Richness|2000|7|37|5.4|6.85185185185185
 Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|9|2000-08-15T00:00:00Z|Trawl|4.8|Species Richness|2000|8|55|5.4|10.1851851851852
 Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|9|2000-09-14T00:00:00Z|Trawl|4.8|Species Richness|2000|9|52|5.4|9.62962962962963
@@ -3595,6 +3731,14 @@ Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Est
 Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|9|2021-06-15T00:00:00Z|Trawl|4.8|Species Richness|2021|6|46|5.4|8.51851851851852
 Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|9|2021-09-07T00:00:00Z|Trawl|4.8|Species Richness|2021|9|55|5.4|10.1851851851852
 Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|9|2021-12-07T00:00:00Z|Trawl|4.8|Species Richness|2021|12|20|5.4|3.7037037037037
+Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|9|2022-03-29T00:00:00Z|Trawl|4.8|Species Richness|2022|3|32|5.4|5.92592592592593
+Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|9|2022-07-19T00:00:00Z|Trawl|4.8|Species Richness|2022|7|51|5.4|9.44444444444444
+Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|9|2022-09-13T00:00:00Z|Trawl|4.8|Species Richness|2022|9|72|5.4|13.3333333333333
+Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|9|2022-12-05T00:00:00Z|Trawl|4.8|Species Richness|2022|12|49|5.4|9.07407407407407
+Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|9|2023-03-21T00:00:00Z|Trawl|4.8|Species Richness|2023|3|63|5.4|11.6666666666667
+Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|9|2023-06-06T00:00:00Z|Trawl|4.8|Species Richness|2023|6|67|5.4|12.4074074074074
+Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|9|2023-09-19T00:00:00Z|Trawl|4.8|Species Richness|2023|9|31|5.4|5.74074074074074
+Apalachicola National Estuarine Research Reserve|3|129|Apalachicola National Estuarine Research Reserve Juvenile Fish and Benthic Macroinvertebrate  Monitoring|9|2023-12-05T00:00:00Z|Trawl|4.8|Species Richness|2023|12|51|5.4|9.44444444444444
 Banana River Aquatic Preserve|4||||||||||||
 Big Bend Seagrasses Aquatic Preserve|5||||||||||||
 Biscayne Bay-Cape Florida to Monroe County Line Aquatic Preserve|7||||||||||||
@@ -10181,13 +10325,13 @@ Loxahatchee River-Lake Worth Creek Aquatic Preserve|27||||||||||||
 Matlacha Pass Aquatic Preserve|28||||||||||||
 Mosquito Lagoon Aquatic Preserve|29||||||||||||
 Nassau River-St. Johns River Marshes Aquatic Preserve|30||||||||||||
-Nature Coast Aquatic Preserve|48|69|Fisheries-Independent Monitoring (FIM) Program|TBM2003076101|2003-07-01T00:00:00Z|Trawl|6.1|Species Richness|2003|7|0|14.0828|0
 Nature Coast Aquatic Preserve|48|69|Fisheries-Independent Monitoring (FIM) Program|TBM2003076102|2003-07-01T00:00:00Z|Trawl|6.1|Species Richness|2003|7|14|14.824|0.94441446303292
+Nature Coast Aquatic Preserve|48|69|Fisheries-Independent Monitoring (FIM) Program|TBM2003076101|2003-07-01T00:00:00Z|Trawl|6.1|Species Richness|2003|7|0|14.0828|0
 North Fork St. Lucie Aquatic Preserve|31||||||||||||
 Pellicer Creek Aquatic Preserve|33||||||||||||
 Pine Island Sound Aquatic Preserve|34||||||||||||
+Pinellas County Aquatic Preserve|35|69|Fisheries-Independent Monitoring (FIM) Program|TBM2010110306|2010-11-15T00:00:00Z|Seine|183|Species Richness|2010|11|12|41.2|0.29126213592233
 Pinellas County Aquatic Preserve|35|69|Fisheries-Independent Monitoring (FIM) Program|TBM2010110703|2010-11-16T00:00:00Z|Seine|183|Species Richness|2010|11|13|41.2|0.315533980582524
-Pinellas County Aquatic Preserve|35|69|Fisheries-Independent Monitoring (FIM) Program|TBM2010110705|2010-11-16T00:00:00Z|Seine|183|Species Richness|2010|11|18|41.2|0.436893203883495
 Pinellas County Aquatic Preserve|35|69|Fisheries-Independent Monitoring (FIM) Program|TBM1989032204|1989-03-22T00:00:00Z|Trawl|6.1|Species Richness|1989|3|7|19.2712|0.363236331935738
 Pinellas County Aquatic Preserve|35|69|Fisheries-Independent Monitoring (FIM) Program|TBM1989032205|1989-03-22T00:00:00Z|Trawl|6.1|Species Richness|1989|3|8|20.7536|0.385475291033845
 Pinellas County Aquatic Preserve|35|69|Fisheries-Independent Monitoring (FIM) Program|TBM1989032206|1989-03-22T00:00:00Z|Trawl|6.1|Species Richness|1989|3|8|11.8592|0.674581759309228
@@ -12051,6 +12195,7 @@ Pinellas County Aquatic Preserve|35|69|Fisheries-Independent Monitoring (FIM) Pr
 Pinellas County Aquatic Preserve|35|69|Fisheries-Independent Monitoring (FIM) Program|TBM2003071710|2003-07-17T00:00:00Z|Trawl|6.1|Species Richness|2003|7|6|7.412|0.809498111171074
 Pinellas County Aquatic Preserve|35|69|Fisheries-Independent Monitoring (FIM) Program|TBM2003076103|2003-07-01T00:00:00Z|Trawl|6.1|Species Richness|2003|7|18|14.824|1.21424716675661
 Pinellas County Aquatic Preserve|35|69|Fisheries-Independent Monitoring (FIM) Program|TBM2003076104|2003-07-01T00:00:00Z|Trawl|6.1|Species Richness|2003|7|24|13.3416|1.79888469149128
+Pinellas County Aquatic Preserve|35|69|Fisheries-Independent Monitoring (FIM) Program|TBM2003076105|2003-07-01T00:00:00Z|Trawl|6.1|Species Richness|2003|7|0|14.824|0
 Pinellas County Aquatic Preserve|35|69|Fisheries-Independent Monitoring (FIM) Program|TBM2003076201|2003-07-02T00:00:00Z|Trawl|6.1|Species Richness|2003|7|9|14.0828|0.63907745618769
 Pinellas County Aquatic Preserve|35|69|Fisheries-Independent Monitoring (FIM) Program|TBM2003076202|2003-07-02T00:00:00Z|Trawl|6.1|Species Richness|2003|7|36|13.3416|2.69832703723691
 Pinellas County Aquatic Preserve|35|69|Fisheries-Independent Monitoring (FIM) Program|TBM2003076203|2003-07-02T00:00:00Z|Trawl|6.1|Species Richness|2003|7|21|13.3416|1.57402410505487
@@ -13465,9 +13610,9 @@ Pinellas County Aquatic Preserve|35|69|Fisheries-Independent Monitoring (FIM) Pr
 Pinellas County Aquatic Preserve|35|69|Fisheries-Independent Monitoring (FIM) Program|TBM2010110303|2010-11-15T00:00:00Z|Seine|183|Species Richness|2010|11|13|41.2|0.315533980582524
 Pinellas County Aquatic Preserve|35|69|Fisheries-Independent Monitoring (FIM) Program|TBM2010110304|2010-11-15T00:00:00Z|Seine|183|Species Richness|2010|11|14|41.2|0.339805825242718
 Pinellas County Aquatic Preserve|35|69|Fisheries-Independent Monitoring (FIM) Program|TBM2010110305|2010-11-15T00:00:00Z|Seine|183|Species Richness|2010|11|17|41.2|0.412621359223301
-Pinellas County Aquatic Preserve|35|69|Fisheries-Independent Monitoring (FIM) Program|TBM2010110306|2010-11-15T00:00:00Z|Seine|183|Species Richness|2010|11|12|41.2|0.29126213592233
+Pinellas County Aquatic Preserve|35|69|Fisheries-Independent Monitoring (FIM) Program|TBM2015110504|2015-11-10T00:00:00Z|Seine|183|Species Richness|2015|11|5|41.2|0.121359223300971
 Pinellas County Aquatic Preserve|35|69|Fisheries-Independent Monitoring (FIM) Program|TBM2015110505|2015-11-10T00:00:00Z|Seine|183|Species Richness|2015|11|11|41.2|0.266990291262136
-Pinellas County Aquatic Preserve|35|69|Fisheries-Independent Monitoring (FIM) Program|TBM2015110703|2015-11-04T00:00:00Z|Trawl|6.1|Species Richness|2015|11|5|14.824|0.337290879654614
+Pinellas County Aquatic Preserve|35|69|Fisheries-Independent Monitoring (FIM) Program|TBM2010110705|2010-11-16T00:00:00Z|Seine|183|Species Richness|2010|11|18|41.2|0.436893203883495
 Pinellas County Aquatic Preserve|35|69|Fisheries-Independent Monitoring (FIM) Program|TBM2010110706|2010-11-16T00:00:00Z|Seine|183|Species Richness|2010|11|17|41.2|0.412621359223301
 Pinellas County Aquatic Preserve|35|69|Fisheries-Independent Monitoring (FIM) Program|TBM2010110802|2010-11-04T00:00:00Z|Trawl|6.1|Species Richness|2010|11|11|14.824|0.742039935240151
 Pinellas County Aquatic Preserve|35|69|Fisheries-Independent Monitoring (FIM) Program|TBM2010110803|2010-11-04T00:00:00Z|Trawl|6.1|Species Richness|2010|11|5|14.824|0.337290879654614
@@ -14558,9 +14703,9 @@ Pinellas County Aquatic Preserve|35|69|Fisheries-Independent Monitoring (FIM) Pr
 Pinellas County Aquatic Preserve|35|69|Fisheries-Independent Monitoring (FIM) Program|TBM2015101406|2015-10-26T00:00:00Z|Trawl|6.1|Species Richness|2015|10|8|7.412|1.07933081489477
 Pinellas County Aquatic Preserve|35|69|Fisheries-Independent Monitoring (FIM) Program|TBM2015101407|2015-10-26T00:00:00Z|Trawl|6.1|Species Richness|2015|10|13|6.6708|1.94879174911555
 Pinellas County Aquatic Preserve|35|69|Fisheries-Independent Monitoring (FIM) Program|TBM2015101408|2015-10-26T00:00:00Z|Trawl|6.1|Species Richness|2015|10|15|5.9296|2.52968159740961
-Pinellas County Aquatic Preserve|35|69|Fisheries-Independent Monitoring (FIM) Program|TBM2015110504|2015-11-10T00:00:00Z|Seine|183|Species Richness|2015|11|5|41.2|0.121359223300971
+Pinellas County Aquatic Preserve|35|69|Fisheries-Independent Monitoring (FIM) Program|TBM2020081104|2020-08-19T00:00:00Z|Trawl|6.1|Species Richness|2020|8|13|7.412|1.75391257420399
 Pinellas County Aquatic Preserve|35|69|Fisheries-Independent Monitoring (FIM) Program|TBM2020081105|2020-08-19T00:00:00Z|Trawl|6.1|Species Richness|2020|8|19|7.412|2.56341068537507
-Pinellas County Aquatic Preserve|35|69|Fisheries-Independent Monitoring (FIM) Program|TBM2020081106|2020-08-19T00:00:00Z|Trawl|6.1|Species Richness|2020|8|19|6.6708|2.84823409486119
+Pinellas County Aquatic Preserve|35|69|Fisheries-Independent Monitoring (FIM) Program|TBM2015110703|2015-11-04T00:00:00Z|Trawl|6.1|Species Richness|2015|11|5|14.824|0.337290879654614
 Pinellas County Aquatic Preserve|35|69|Fisheries-Independent Monitoring (FIM) Program|TBM2015110802|2015-11-02T00:00:00Z|Seine|183|Species Richness|2015|11|14|41.2|0.339805825242718
 Pinellas County Aquatic Preserve|35|69|Fisheries-Independent Monitoring (FIM) Program|TBM2015110804|2015-11-02T00:00:00Z|Seine|183|Species Richness|2015|11|21|41.2|0.509708737864078
 Pinellas County Aquatic Preserve|35|69|Fisheries-Independent Monitoring (FIM) Program|TBM2015110805|2015-11-02T00:00:00Z|Seine|183|Species Richness|2015|11|26|41.2|0.631067961165049
@@ -15651,9 +15796,9 @@ Pinellas County Aquatic Preserve|35|69|Fisheries-Independent Monitoring (FIM) Pr
 Pinellas County Aquatic Preserve|35|69|Fisheries-Independent Monitoring (FIM) Program|TBM2020081007|2020-08-12T00:00:00Z|Seine|183|Species Richness|2020|8|12|41.2|0.29126213592233
 Pinellas County Aquatic Preserve|35|69|Fisheries-Independent Monitoring (FIM) Program|TBM2020081102|2020-08-19T00:00:00Z|Trawl|6.1|Species Richness|2020|8|14|7.412|1.88882892606584
 Pinellas County Aquatic Preserve|35|69|Fisheries-Independent Monitoring (FIM) Program|TBM2020081103|2020-08-19T00:00:00Z|Trawl|6.1|Species Richness|2020|8|14|6.6708|2.09869880673982
-Pinellas County Aquatic Preserve|35|69|Fisheries-Independent Monitoring (FIM) Program|TBM2020081104|2020-08-19T00:00:00Z|Trawl|6.1|Species Richness|2020|8|13|7.412|1.75391257420399
+Pinellas County Aquatic Preserve|35|69|Fisheries-Independent Monitoring (FIM) Program|TBM2020110806|2020-11-19T00:00:00Z|Seine|183|Species Richness|2020|11|9|41.2|0.218446601941748
 Pinellas County Aquatic Preserve|35|69|Fisheries-Independent Monitoring (FIM) Program|TBM2020110808|2020-11-19T00:00:00Z|Seine|183|Species Richness|2020|11|15|41.2|0.364077669902913
-Pinellas County Aquatic Preserve|35|69|Fisheries-Independent Monitoring (FIM) Program|TBM2020111005|2020-11-13T00:00:00Z|Trawl|6.1|Species Richness|2020|11|9|14.0828|0.63907745618769
+Pinellas County Aquatic Preserve|35|69|Fisheries-Independent Monitoring (FIM) Program|TBM2020081106|2020-08-19T00:00:00Z|Trawl|6.1|Species Richness|2020|8|19|6.6708|2.84823409486119
 Pinellas County Aquatic Preserve|35|69|Fisheries-Independent Monitoring (FIM) Program|TBM2020081108|2020-08-19T00:00:00Z|Trawl|6.1|Species Richness|2020|8|6|7.412|0.809498111171074
 Pinellas County Aquatic Preserve|35|69|Fisheries-Independent Monitoring (FIM) Program|TBM2020081109|2020-08-19T00:00:00Z|Trawl|6.1|Species Richness|2020|8|17|7.412|2.29357798165138
 Pinellas County Aquatic Preserve|35|69|Fisheries-Independent Monitoring (FIM) Program|TBM2020090203|2020-09-15T00:00:00Z|Trawl|6.1|Species Richness|2020|9|4|14.0828|0.284034424972307
@@ -15691,9 +15836,9 @@ Pinellas County Aquatic Preserve|35|69|Fisheries-Independent Monitoring (FIM) Pr
 Pinellas County Aquatic Preserve|35|69|Fisheries-Independent Monitoring (FIM) Program|TBM2020110306|2020-11-04T00:00:00Z|Trawl|6.1|Species Richness|2020|11|8|13.3416|0.599628230497092
 Pinellas County Aquatic Preserve|35|69|Fisheries-Independent Monitoring (FIM) Program|TBM2020110307|2020-11-04T00:00:00Z|Seine|183|Species Richness|2020|11|28|41.2|0.679611650485437
 Pinellas County Aquatic Preserve|35|69|Fisheries-Independent Monitoring (FIM) Program|TBM2020110804|2020-11-19T00:00:00Z|Trawl|6.1|Species Richness|2020|11|7|14.824|0.47220723151646
-Pinellas County Aquatic Preserve|35|69|Fisheries-Independent Monitoring (FIM) Program|TBM2020110806|2020-11-19T00:00:00Z|Seine|183|Species Richness|2020|11|9|41.2|0.218446601941748
+Pinellas County Aquatic Preserve|35|69|Fisheries-Independent Monitoring (FIM) Program|TBM2020120401|2020-12-03T00:00:00Z|Seine|183|Species Richness|2020|12|13|41.2|0.315533980582524
 Pinellas County Aquatic Preserve|35|69|Fisheries-Independent Monitoring (FIM) Program|TBM2020120402|2020-12-03T00:00:00Z|Seine|183|Species Richness|2020|12|11|41.2|0.266990291262136
-Pinellas County Aquatic Preserve|35|69|Fisheries-Independent Monitoring (FIM) Program|TBM2020120403|2020-12-03T00:00:00Z|Seine|183|Species Richness|2020|12|7|41.2|0.169902912621359
+Pinellas County Aquatic Preserve|35|69|Fisheries-Independent Monitoring (FIM) Program|TBM2020111005|2020-11-13T00:00:00Z|Trawl|6.1|Species Richness|2020|11|9|14.0828|0.63907745618769
 Pinellas County Aquatic Preserve|35|69|Fisheries-Independent Monitoring (FIM) Program|TBM2020111006|2020-11-13T00:00:00Z|Trawl|6.1|Species Richness|2020|11|6|14.0828|0.42605163745846
 Pinellas County Aquatic Preserve|35|69|Fisheries-Independent Monitoring (FIM) Program|TBM2020111008|2020-11-13T00:00:00Z|Trawl|6.1|Species Richness|2020|11|13|14.824|0.876956287101997
 Pinellas County Aquatic Preserve|35|69|Fisheries-Independent Monitoring (FIM) Program|TBM2020111204|2020-11-16T00:00:00Z|Trawl|6.1|Species Richness|2020|11|5|14.824|0.337290879654614
@@ -15704,15 +15849,15 @@ Pinellas County Aquatic Preserve|35|69|Fisheries-Independent Monitoring (FIM) Pr
 Pinellas County Aquatic Preserve|35|69|Fisheries-Independent Monitoring (FIM) Program|TBM2020120206|2020-12-14T00:00:00Z|Trawl|6.1|Species Richness|2020|12|12|14.824|0.809498111171074
 Pinellas County Aquatic Preserve|35|69|Fisheries-Independent Monitoring (FIM) Program|TBM2020120306|2020-12-08T00:00:00Z|Seine|183|Species Richness|2020|12|4|41.2|0.0970873786407767
 Pinellas County Aquatic Preserve|35|69|Fisheries-Independent Monitoring (FIM) Program|TBM2020120308|2020-12-08T00:00:00Z|Seine|183|Species Richness|2020|12|3|41.2|0.0728155339805825
-Pinellas County Aquatic Preserve|35|69|Fisheries-Independent Monitoring (FIM) Program|TBM2020120401|2020-12-03T00:00:00Z|Seine|183|Species Richness|2020|12|13|41.2|0.315533980582524
-Pinellas County Aquatic Preserve|35|69|Fisheries-Independent Monitoring (FIM) Program|TBM2020120803|2020-12-11T00:00:00Z|Trawl|6.1|Species Richness|2020|12|10|14.0828|0.710086062430767
-Pinellas County Aquatic Preserve|35|69|Fisheries-Independent Monitoring (FIM) Program|TBM2020120805|2020-12-11T00:00:00Z|Trawl|6.1|Species Richness|2020|12|10|14.824|0.674581759309228
-Pinellas County Aquatic Preserve|35|69|Fisheries-Independent Monitoring (FIM) Program|TBM2020120604|2020-12-07T00:00:00Z|Trawl|6.1|Species Richness|2020|12|11|14.0828|0.781094668673843
 Pinellas County Aquatic Preserve|35|69|Fisheries-Independent Monitoring (FIM) Program|TBM2020120605|2020-12-07T00:00:00Z|Trawl|6.1|Species Richness|2020|12|9|14.824|0.607123583378305
+Pinellas County Aquatic Preserve|35|69|Fisheries-Independent Monitoring (FIM) Program|TBM2020120803|2020-12-11T00:00:00Z|Trawl|6.1|Species Richness|2020|12|10|14.0828|0.710086062430767
+Pinellas County Aquatic Preserve|35|69|Fisheries-Independent Monitoring (FIM) Program|TBM2020120403|2020-12-03T00:00:00Z|Seine|183|Species Richness|2020|12|7|41.2|0.169902912621359
+Pinellas County Aquatic Preserve|35|69|Fisheries-Independent Monitoring (FIM) Program|TBM2020120604|2020-12-07T00:00:00Z|Trawl|6.1|Species Richness|2020|12|11|14.0828|0.781094668673843
+Pinellas County Aquatic Preserve|35|69|Fisheries-Independent Monitoring (FIM) Program|TBM2020120805|2020-12-11T00:00:00Z|Trawl|6.1|Species Richness|2020|12|10|14.824|0.674581759309228
 Pinellas County Aquatic Preserve|35|69|Fisheries-Independent Monitoring (FIM) Program|TBM2020120807|2020-12-11T00:00:00Z|Trawl|6.1|Species Richness|2020|12|4|14.824|0.269832703723691
 Rocky Bayou State Park Aquatic Preserve|37||||||||||||
+Rookery Bay Aquatic Preserve|38|4043|RBNERR Fish Assessment|RB-HC-33-11-2007|2007-09-08T00:00:00Z|Trawl|6.1|Species Richness|2007|9|9|7.412|1.21424716675661
 Rookery Bay Aquatic Preserve|38|4043|RBNERR Fish Assessment|RB-HC-33-12-2008|2008-09-26T00:00:00Z|Trawl|6.1|Species Richness|2008|9|8|7.412|1.07933081489477
-Rookery Bay Aquatic Preserve|38|4043|RBNERR Fish Assessment|RB-HC-33-41-2009|2009-09-17T00:00:00Z|Trawl|6.1|Species Richness|2009|9|4|7.412|0.539665407447383
 Rookery Bay Aquatic Preserve|38|4043|RBNERR Fish Assessment|PB-8-71-2005|2005-02-23T00:00:00Z|Trawl|6.1|Species Richness|2005|2|6|7.412|0.809498111171074
 Rookery Bay Aquatic Preserve|38|4043|RBNERR Fish Assessment|RB-HC-1-3-2000|2000-01-21T00:00:00Z|Trawl|6.1|Species Richness|2000|1|14|7.412|1.88882892606584
 Rookery Bay Aquatic Preserve|38|4043|RBNERR Fish Assessment|RB-HC-1-56-2006|2006-01-12T00:00:00Z|Trawl|6.1|Species Richness|2006|1|4|7.412|0.539665407447383
@@ -16016,9 +16161,9 @@ Rookery Bay Aquatic Preserve|38|4043|RBNERR Fish Assessment|RB-HC-32-72-2004|200
 Rookery Bay Aquatic Preserve|38|4043|RBNERR Fish Assessment|RB-HC-32-75-2001|2001-08-17T00:00:00Z|Trawl|6.1|Species Richness|2001|8|10|7.412|1.34916351861846
 Rookery Bay Aquatic Preserve|38|4043|RBNERR Fish Assessment|RB-HC-32-77-2000|2000-08-11T00:00:00Z|Trawl|6.1|Species Richness|2000|8|12|7.412|1.61899622234215
 Rookery Bay Aquatic Preserve|38|4043|RBNERR Fish Assessment|RB-HC-32.2-3-2002|2002-08-09T00:00:00Z|Trawl|6.1|Species Richness|2002|8|8|7.412|1.07933081489477
-Rookery Bay Aquatic Preserve|38|4043|RBNERR Fish Assessment|RB-HC-33-11-2007|2007-09-08T00:00:00Z|Trawl|6.1|Species Richness|2007|9|9|7.412|1.21424716675661
+Rookery Bay Aquatic Preserve|38|4043|RBNERR Fish Assessment|RB-HC-43-58-2005|2005-11-14T00:00:00Z|Trawl|6.1|Species Richness|2005|11|4|7.412|0.539665407447383
 Rookery Bay Aquatic Preserve|38|4043|RBNERR Fish Assessment|RB-HC-43-58-2008|2008-11-24T00:00:00Z|Trawl|6.1|Species Richness|2008|11|5|7.412|0.674581759309228
-Rookery Bay Aquatic Preserve|38|4043|RBNERR Fish Assessment|RB-HC-43-67-2002|2002-11-18T00:00:00Z|Trawl|6.1|Species Richness|2002|11|4|7.412|0.539665407447383
+Rookery Bay Aquatic Preserve|38|4043|RBNERR Fish Assessment|RB-HC-33-41-2009|2009-09-17T00:00:00Z|Trawl|6.1|Species Richness|2009|9|4|7.412|0.539665407447383
 Rookery Bay Aquatic Preserve|38|4043|RBNERR Fish Assessment|RB-HC-33-7-2000|2000-09-11T00:00:00Z|Trawl|6.1|Species Richness|2000|9|9|7.412|1.21424716675661
 Rookery Bay Aquatic Preserve|38|4043|RBNERR Fish Assessment|RB-HC-33-73-2003|2003-09-25T00:00:00Z|Trawl|6.1|Species Richness|2003|9|10|7.412|1.34916351861846
 Rookery Bay Aquatic Preserve|38|4043|RBNERR Fish Assessment|RB-HC-33-78-2005|2005-09-16T00:00:00Z|Trawl|6.1|Species Richness|2005|9|4|7.412|0.539665407447383
@@ -16137,9 +16282,9 @@ Rookery Bay Aquatic Preserve|38|4043|RBNERR Fish Assessment|RB-HC-43-42-2007|200
 Rookery Bay Aquatic Preserve|38|4043|RBNERR Fish Assessment|RB-HC-43-43-2006|2006-11-18T00:00:00Z|Trawl|6.1|Species Richness|2006|11|3|7.412|0.404749055585537
 Rookery Bay Aquatic Preserve|38|4043|RBNERR Fish Assessment|RB-HC-43-53-2004|2004-11-22T00:00:00Z|Trawl|6.1|Species Richness|2004|11|6|7.412|0.809498111171074
 Rookery Bay Aquatic Preserve|38|4043|RBNERR Fish Assessment|RB-HC-43-55-2009|2009-11-16T00:00:00Z|Trawl|6.1|Species Richness|2009|11|3|7.412|0.404749055585537
-Rookery Bay Aquatic Preserve|38|4043|RBNERR Fish Assessment|RB-HC-43-58-2005|2005-11-14T00:00:00Z|Trawl|6.1|Species Richness|2005|11|4|7.412|0.539665407447383
+Rookery Bay Aquatic Preserve|38|4043|RBNERR Fish Assessment|RB-HC-47-31-2009|2008-12-12T00:00:00Z|Trawl|6.1|Species Richness|2008|12|8|7.412|1.07933081489477
 Rookery Bay Aquatic Preserve|38|4043|RBNERR Fish Assessment|RB-HC-47-34-2004|2003-12-22T00:00:00Z|Trawl|6.1|Species Richness|2003|12|9|7.412|1.21424716675661
-Rookery Bay Aquatic Preserve|38|4043|RBNERR Fish Assessment|RB-HC-47-60-2002|2001-12-13T00:00:00Z|Trawl|6.1|Species Richness|2001|12|4|7.412|0.539665407447383
+Rookery Bay Aquatic Preserve|38|4043|RBNERR Fish Assessment|RB-HC-43-67-2002|2002-11-18T00:00:00Z|Trawl|6.1|Species Richness|2002|11|4|7.412|0.539665407447383
 Rookery Bay Aquatic Preserve|38|4043|RBNERR Fish Assessment|RB-HC-43-70-2001|2001-11-15T00:00:00Z|Trawl|6.1|Species Richness|2001|11|11|7.412|1.4840798704803
 Rookery Bay Aquatic Preserve|38|4043|RBNERR Fish Assessment|RB-HC-43-88-2003|2003-11-24T00:00:00Z|Trawl|6.1|Species Richness|2003|11|5|7.412|0.674581759309228
 Rookery Bay Aquatic Preserve|38|4043|RBNERR Fish Assessment|RB-HC-43.2-73-2002|2002-11-18T00:00:00Z|Trawl|6.1|Species Richness|2002|11|9|7.412|1.21424716675661
@@ -16177,9 +16322,9 @@ Rookery Bay Aquatic Preserve|38|4043|RBNERR Fish Assessment|RB-HC-46.2-55-2003|2
 Rookery Bay Aquatic Preserve|38|4043|RBNERR Fish Assessment|RB-HC-47-26-2006|2005-12-16T00:00:00Z|Trawl|6.1|Species Richness|2005|12|12|7.412|1.61899622234215
 Rookery Bay Aquatic Preserve|38|4043|RBNERR Fish Assessment|RB-HC-47-3-2005|2004-12-09T00:00:00Z|Trawl|6.1|Species Richness|2004|12|3|7.412|0.404749055585537
 Rookery Bay Aquatic Preserve|38|4043|RBNERR Fish Assessment|RB-HC-47-31-2008|2007-12-06T00:00:00Z|Trawl|6.1|Species Richness|2007|12|4|7.412|0.539665407447383
-Rookery Bay Aquatic Preserve|38|4043|RBNERR Fish Assessment|RB-HC-47-31-2009|2008-12-12T00:00:00Z|Trawl|6.1|Species Richness|2008|12|8|7.412|1.07933081489477
+Rookery Bay Aquatic Preserve|38|4043|RBNERR Fish Assessment|RB-HC-7-30-2001|2001-02-08T00:00:00Z|Trawl|6.1|Species Richness|2001|2|8|7.412|1.07933081489477
 Rookery Bay Aquatic Preserve|38|4043|RBNERR Fish Assessment|RB-HC-7-38-2005|2005-02-24T00:00:00Z|Trawl|6.1|Species Richness|2005|2|19|7.412|2.56341068537507
-Rookery Bay Aquatic Preserve|38|4043|RBNERR Fish Assessment|RB-HC-7-43-2008|2008-02-21T00:00:00Z|Trawl|6.1|Species Richness|2008|2|9|7.412|1.21424716675661
+Rookery Bay Aquatic Preserve|38|4043|RBNERR Fish Assessment|RB-HC-47-60-2002|2001-12-13T00:00:00Z|Trawl|6.1|Species Richness|2001|12|4|7.412|0.539665407447383
 Rookery Bay Aquatic Preserve|38|4043|RBNERR Fish Assessment|RB-HC-47-61-2001|2000-12-08T00:00:00Z|Trawl|6.1|Species Richness|2000|12|9|7.412|1.21424716675661
 Rookery Bay Aquatic Preserve|38|4043|RBNERR Fish Assessment|RB-HC-47-8-2003|2002-12-19T00:00:00Z|Trawl|6.1|Species Richness|2002|12|1|7.412|0.134916351861846
 Rookery Bay Aquatic Preserve|38|4043|RBNERR Fish Assessment|RB-HC-47-93-2007|2006-12-18T00:00:00Z|Trawl|6.1|Species Richness|2006|12|5|7.412|0.674581759309228
@@ -16217,9 +16362,9 @@ Rookery Bay Aquatic Preserve|38|4043|RBNERR Fish Assessment|RB-HC-6-99-2007|2007
 Rookery Bay Aquatic Preserve|38|4043|RBNERR Fish Assessment|RB-HC-7-18-2003|2003-02-13T00:00:00Z|Trawl|6.1|Species Richness|2003|2|5|7.412|0.674581759309228
 Rookery Bay Aquatic Preserve|38|4043|RBNERR Fish Assessment|RB-HC-7-27-2004|2004-02-19T00:00:00Z|Trawl|6.1|Species Richness|2004|2|5|7.412|0.674581759309228
 Rookery Bay Aquatic Preserve|38|4043|RBNERR Fish Assessment|RB-HC-7-28-2000|2000-02-17T00:00:00Z|Trawl|6.1|Species Richness|2000|2|8|7.412|1.07933081489477
-Rookery Bay Aquatic Preserve|38|4043|RBNERR Fish Assessment|RB-HC-7-30-2001|2001-02-08T00:00:00Z|Trawl|6.1|Species Richness|2001|2|8|7.412|1.07933081489477
+Rookery Bay Aquatic Preserve|38|4043|RBNERR Fish Assessment|RB-HC-8-19-2008|2008-02-21T00:00:00Z|Trawl|6.1|Species Richness|2008|2|7|7.412|0.94441446303292
 Rookery Bay Aquatic Preserve|38|4043|RBNERR Fish Assessment|RB-HC-8-20-2005|2005-02-24T00:00:00Z|Trawl|6.1|Species Richness|2005|2|10|7.412|1.34916351861846
-Rookery Bay Aquatic Preserve|38|4043|RBNERR Fish Assessment|RB-HC-8-22-2003|2003-02-13T00:00:00Z|Trawl|6.1|Species Richness|2003|2|5|7.412|0.674581759309228
+Rookery Bay Aquatic Preserve|38|4043|RBNERR Fish Assessment|RB-HC-7-43-2008|2008-02-21T00:00:00Z|Trawl|6.1|Species Richness|2008|2|9|7.412|1.21424716675661
 Rookery Bay Aquatic Preserve|38|4043|RBNERR Fish Assessment|RB-HC-7-45-2002|2002-02-08T00:00:00Z|Trawl|6.1|Species Richness|2002|2|4|7.412|0.539665407447383
 Rookery Bay Aquatic Preserve|38|4043|RBNERR Fish Assessment|RB-HC-7-59-2009|2009-02-06T00:00:00Z|Trawl|6.1|Species Richness|2009|2|7|7.412|0.94441446303292
 Rookery Bay Aquatic Preserve|38|4043|RBNERR Fish Assessment|RB-HC-7-92-2006|2006-02-09T00:00:00Z|Trawl|6.1|Species Richness|2006|2|6|7.412|0.809498111171074
@@ -16230,9 +16375,9 @@ Rookery Bay Aquatic Preserve|38|4043|RBNERR Fish Assessment|RB-HC-8-12-2006|2006
 Rookery Bay Aquatic Preserve|38|4043|RBNERR Fish Assessment|RB-HC-8-14-2004|2004-02-19T00:00:00Z|Trawl|6.1|Species Richness|2004|2|3|7.412|0.404749055585537
 Rookery Bay Aquatic Preserve|38|4043|RBNERR Fish Assessment|RB-HC-8-17-2001|2001-02-08T00:00:00Z|Trawl|6.1|Species Richness|2001|2|9|7.412|1.21424716675661
 Rookery Bay Aquatic Preserve|38|4043|RBNERR Fish Assessment|RB-HC-8-18-2007|2007-02-15T00:00:00Z|Trawl|6.1|Species Richness|2007|2|3|7.412|0.404749055585537
-Rookery Bay Aquatic Preserve|38|4043|RBNERR Fish Assessment|RB-HC-8-19-2008|2008-02-21T00:00:00Z|Trawl|6.1|Species Richness|2008|2|7|7.412|0.94441446303292
+Rookery Bay Aquatic Preserve|38|4043|RBNERR Fish Assessment|RB-HC-9-84-2004|2004-03-19T00:00:00Z|Trawl|6.1|Species Richness|2004|3|5|7.412|0.674581759309228
 Rookery Bay Aquatic Preserve|38|4043|RBNERR Fish Assessment|RB-HC-9-93-2009|2009-03-12T00:00:00Z|Trawl|6.1|Species Richness|2009|3|3|7.412|0.404749055585537
-Rookery Bay Aquatic Preserve|38|4043|RBNERR Fish Assessment|RB-HC-9-97-2000|2000-03-16T00:00:00Z|Trawl|6.1|Species Richness|2000|3|5|7.412|0.674581759309228
+Rookery Bay Aquatic Preserve|38|4043|RBNERR Fish Assessment|RB-HC-8-22-2003|2003-02-13T00:00:00Z|Trawl|6.1|Species Richness|2003|2|5|7.412|0.674581759309228
 Rookery Bay Aquatic Preserve|38|4043|RBNERR Fish Assessment|RB-HC-8-31-2009|2009-02-06T00:00:00Z|Trawl|6.1|Species Richness|2009|2|5|7.412|0.674581759309228
 Rookery Bay Aquatic Preserve|38|4043|RBNERR Fish Assessment|RB-HC-8-6-2002|2002-02-08T00:00:00Z|Trawl|6.1|Species Richness|2002|2|7|7.412|0.94441446303292
 Rookery Bay Aquatic Preserve|38|4043|RBNERR Fish Assessment|RB-HC-8.2-22-2003|2003-02-13T00:00:00Z|Trawl|6.1|Species Richness|2003|2|6|7.412|0.809498111171074
@@ -16243,11 +16388,11 @@ Rookery Bay Aquatic Preserve|38|4043|RBNERR Fish Assessment|RB-HC-9-72-2008|2008
 Rookery Bay Aquatic Preserve|38|4043|RBNERR Fish Assessment|RB-HC-9-75-2005|2005-03-11T00:00:00Z|Trawl|6.1|Species Richness|2005|3|7|7.412|0.94441446303292
 Rookery Bay Aquatic Preserve|38|4043|RBNERR Fish Assessment|RB-HC-9-76-2003|2003-03-13T00:00:00Z|Trawl|6.1|Species Richness|2003|3|3|7.412|0.404749055585537
 Rookery Bay Aquatic Preserve|38|4043|RBNERR Fish Assessment|RB-HC-9-80-2002|2002-03-11T00:00:00Z|Trawl|6.1|Species Richness|2002|3|7|7.412|0.94441446303292
-Rookery Bay Aquatic Preserve|38|4043|RBNERR Fish Assessment|RB-HC-9-84-2004|2004-03-19T00:00:00Z|Trawl|6.1|Species Richness|2004|3|5|7.412|0.674581759309228
-Rookery Bay Aquatic Preserve|38|4043|RBNERR Fish Assessment|RB-HC-9.2-41-2002|2002-03-11T00:00:00Z|Trawl|6.1|Species Richness|2002|3|4|7.412|0.539665407447383
 Rookery Bay Aquatic Preserve|38|4043|RBNERR Fish Assessment|RB-HC-9.2-66-2003|2003-03-13T00:00:00Z|Trawl|6.1|Species Richness|2003|3|7|7.412|0.94441446303292
+Rookery Bay Aquatic Preserve|38|4043|RBNERR Fish Assessment|RB-HC-9-97-2000|2000-03-16T00:00:00Z|Trawl|6.1|Species Richness|2000|3|5|7.412|0.674581759309228
+Rookery Bay Aquatic Preserve|38|4043|RBNERR Fish Assessment|RB-HC-9.2-41-2002|2002-03-11T00:00:00Z|Trawl|6.1|Species Richness|2002|3|4|7.412|0.539665407447383
 Rookery Bay National Estuarine Research Reserve|39|4043|RBNERR Fish Assessment|FH-34-88-2020|2020-09-14T00:00:00Z|Trawl|6.1|Species Richness|2020|9|19|7.412|2.56341068537507
-Rookery Bay National Estuarine Research Reserve|39|4043|RBNERR Fish Assessment|FH-34-99-2002|2002-09-02T00:00:00Z|Trawl|6.1|Species Richness|2002|9|2|7.412|0.269832703723691
+Rookery Bay National Estuarine Research Reserve|39|4043|RBNERR Fish Assessment|FH-34-75-2009|2009-09-14T00:00:00Z|Trawl|6.1|Species Richness|2009|9|10|7.412|1.34916351861846
 Rookery Bay National Estuarine Research Reserve|39|4043|RBNERR Fish Assessment|FH-1-10-2019|2019-01-16T00:00:00Z|Trawl|6.1|Species Richness|2019|1|9|7.412|1.21424716675661
 Rookery Bay National Estuarine Research Reserve|39|4043|RBNERR Fish Assessment|FH-1-15-2018|2018-01-10T00:00:00Z|Trawl|6.1|Species Richness|2018|1|3|7.412|0.404749055585537
 Rookery Bay National Estuarine Research Reserve|39|4043|RBNERR Fish Assessment|FH-1-16-2007|2007-01-15T00:00:00Z|Trawl|6.1|Species Richness|2007|1|4|7.412|0.539665407447383
@@ -16746,9 +16891,9 @@ Rookery Bay National Estuarine Research Reserve|39|4043|RBNERR Fish Assessment|F
 Rookery Bay National Estuarine Research Reserve|39|4043|RBNERR Fish Assessment|FH-34-60-2008|2008-09-23T00:00:00Z|Trawl|6.1|Species Richness|2008|9|9|7.412|1.21424716675661
 Rookery Bay National Estuarine Research Reserve|39|4043|RBNERR Fish Assessment|FH-34-60-2011|2011-09-06T00:00:00Z|Trawl|6.1|Species Richness|2011|9|7|7.412|0.94441446303292
 Rookery Bay National Estuarine Research Reserve|39|4043|RBNERR Fish Assessment|FH-34-72-2004|2004-09-08T00:00:00Z|Trawl|6.1|Species Richness|2004|9|9|7.412|1.21424716675661
-Rookery Bay National Estuarine Research Reserve|39|4043|RBNERR Fish Assessment|FH-34-75-2009|2009-09-14T00:00:00Z|Trawl|6.1|Species Richness|2009|9|10|7.412|1.34916351861846
+Rookery Bay National Estuarine Research Reserve|39|4043|RBNERR Fish Assessment|FU-47-67-2005|2004-12-07T00:00:00Z|Trawl|6.1|Species Richness|2004|12|10|7.412|1.34916351861846
 Rookery Bay National Estuarine Research Reserve|39|4043|RBNERR Fish Assessment|FU-47-74-2018|2017-12-13T00:00:00Z|Trawl|6.1|Species Richness|2017|12|10|7.412|1.34916351861846
-Rookery Bay National Estuarine Research Reserve|39|4043|RBNERR Fish Assessment|FU-47-76-2020|2019-12-06T00:00:00Z|Trawl|6.1|Species Richness|2019|12|6|7.412|0.809498111171074
+Rookery Bay National Estuarine Research Reserve|39|4043|RBNERR Fish Assessment|FH-34-99-2002|2002-09-02T00:00:00Z|Trawl|6.1|Species Richness|2002|9|2|7.412|0.269832703723691
 Rookery Bay National Estuarine Research Reserve|39|4043|RBNERR Fish Assessment|FH-35-100-2000|2000-09-08T00:00:00Z|Trawl|6.1|Species Richness|2000|9|11|7.412|1.4840798704803
 Rookery Bay National Estuarine Research Reserve|39|4043|RBNERR Fish Assessment|FH-35-14-2006|2006-09-18T00:00:00Z|Trawl|6.1|Species Richness|2006|9|8|7.412|1.07933081489477
 Rookery Bay National Estuarine Research Reserve|39|4043|RBNERR Fish Assessment|FH-35-16-2020|2020-09-14T00:00:00Z|Trawl|6.1|Species Richness|2020|9|13|7.412|1.75391257420399
@@ -17839,9 +17984,9 @@ Rookery Bay National Estuarine Research Reserve|39|4043|RBNERR Fish Assessment|F
 Rookery Bay National Estuarine Research Reserve|39|4043|RBNERR Fish Assessment|FU-47-63-2001|2000-12-06T00:00:00Z|Trawl|6.1|Species Richness|2000|12|10|7.412|1.34916351861846
 Rookery Bay National Estuarine Research Reserve|39|4043|RBNERR Fish Assessment|FU-47-64-2004|2003-12-20T00:00:00Z|Trawl|6.1|Species Richness|2003|12|6|7.412|0.809498111171074
 Rookery Bay National Estuarine Research Reserve|39|4043|RBNERR Fish Assessment|FU-47-64-2012|2011-12-06T00:00:00Z|Trawl|6.1|Species Richness|2011|12|7|7.412|0.94441446303292
-Rookery Bay National Estuarine Research Reserve|39|4043|RBNERR Fish Assessment|FU-47-67-2005|2004-12-07T00:00:00Z|Trawl|6.1|Species Richness|2004|12|10|7.412|1.34916351861846
+Rookery Bay National Estuarine Research Reserve|39|4043|RBNERR Fish Assessment|RB-HC-19-91-2005|2005-05-06T00:00:00Z|Trawl|6.1|Species Richness|2005|5|5|7.412|0.674581759309228
 Rookery Bay National Estuarine Research Reserve|39|4043|RBNERR Fish Assessment|RB-HC-19.2-18-2002|2002-05-23T00:00:00Z|Trawl|6.1|Species Richness|2002|5|12|7.412|1.61899622234215
-Rookery Bay National Estuarine Research Reserve|39|4043|RBNERR Fish Assessment|RB-HC-19.2-24-2003|2003-05-30T00:00:00Z|Trawl|6.1|Species Richness|2003|5|4|7.412|0.539665407447383
+Rookery Bay National Estuarine Research Reserve|39|4043|RBNERR Fish Assessment|FU-47-76-2020|2019-12-06T00:00:00Z|Trawl|6.1|Species Richness|2019|12|6|7.412|0.809498111171074
 Rookery Bay National Estuarine Research Reserve|39|4043|RBNERR Fish Assessment|FU-47-8-2019|2018-12-18T00:00:00Z|Trawl|6.1|Species Richness|2018|12|10|7.412|1.34916351861846
 Rookery Bay National Estuarine Research Reserve|39|4043|RBNERR Fish Assessment|FU-48-15-2009|2008-12-09T00:00:00Z|Trawl|6.1|Species Richness|2008|12|3|7.412|0.404749055585537
 Rookery Bay National Estuarine Research Reserve|39|4043|RBNERR Fish Assessment|FU-48-18-2011|2010-12-15T00:00:00Z|Trawl|6.1|Species Richness|2010|12|8|7.412|1.07933081489477
@@ -18932,9 +19077,9 @@ Rookery Bay National Estuarine Research Reserve|39|4043|RBNERR Fish Assessment|R
 Rookery Bay National Estuarine Research Reserve|39|4043|RBNERR Fish Assessment|RB-HC-19-44-2009|2009-05-07T00:00:00Z|Trawl|6.1|Species Richness|2009|5|8|7.412|1.07933081489477
 Rookery Bay National Estuarine Research Reserve|39|4043|RBNERR Fish Assessment|RB-HC-19-69-2004|2004-05-13T00:00:00Z|Trawl|6.1|Species Richness|2004|5|5|7.412|0.674581759309228
 Rookery Bay National Estuarine Research Reserve|39|4043|RBNERR Fish Assessment|RB-HC-19-88-2008|2008-05-16T00:00:00Z|Trawl|6.1|Species Richness|2008|5|8|7.412|1.07933081489477
-Rookery Bay National Estuarine Research Reserve|39|4043|RBNERR Fish Assessment|RB-HC-19-91-2005|2005-05-06T00:00:00Z|Trawl|6.1|Species Richness|2005|5|5|7.412|0.674581759309228
+Rookery Bay National Estuarine Research Reserve|39|4043|RBNERR Fish Assessment|RB-HC-5-84-2003|2003-02-13T00:00:00Z|Trawl|6.1|Species Richness|2003|2|11|7.412|1.4840798704803
 Rookery Bay National Estuarine Research Reserve|39|4043|RBNERR Fish Assessment|RB-HC-5-84-2007|2007-02-15T00:00:00Z|Trawl|6.1|Species Richness|2007|2|8|7.412|1.07933081489477
-Rookery Bay National Estuarine Research Reserve|39|4043|RBNERR Fish Assessment|RB-HC-5-87-2005|2005-02-24T00:00:00Z|Trawl|6.1|Species Richness|2005|2|6|7.412|0.809498111171074
+Rookery Bay National Estuarine Research Reserve|39|4043|RBNERR Fish Assessment|RB-HC-19.2-24-2003|2003-05-30T00:00:00Z|Trawl|6.1|Species Richness|2003|5|4|7.412|0.539665407447383
 Rookery Bay National Estuarine Research Reserve|39|4043|RBNERR Fish Assessment|RB-HC-2-22-2000|2000-01-21T00:00:00Z|Trawl|6.1|Species Richness|2000|1|11|7.412|1.4840798704803
 Rookery Bay National Estuarine Research Reserve|39|4043|RBNERR Fish Assessment|RB-HC-2-46-2005|2005-01-10T00:00:00Z|Trawl|6.1|Species Richness|2005|1|9|7.412|1.21424716675661
 Rookery Bay National Estuarine Research Reserve|39|4043|RBNERR Fish Assessment|RB-HC-2-47-2007|2007-01-18T00:00:00Z|Trawl|6.1|Species Richness|2007|1|4|7.412|0.539665407447383
@@ -19296,9 +19441,9 @@ Rookery Bay National Estuarine Research Reserve|39|4043|RBNERR Fish Assessment|R
 Rookery Bay National Estuarine Research Reserve|39|4043|RBNERR Fish Assessment|RB-HC-5-54-2000|2000-02-17T00:00:00Z|Trawl|6.1|Species Richness|2000|2|10|7.412|1.34916351861846
 Rookery Bay National Estuarine Research Reserve|39|4043|RBNERR Fish Assessment|RB-HC-5-65-2009|2009-02-06T00:00:00Z|Trawl|6.1|Species Richness|2009|2|9|7.412|1.21424716675661
 Rookery Bay National Estuarine Research Reserve|39|4043|RBNERR Fish Assessment|RB-HC-5-75-2002|2002-02-08T00:00:00Z|Trawl|6.1|Species Richness|2002|2|11|7.412|1.4840798704803
-Rookery Bay National Estuarine Research Reserve|39|4043|RBNERR Fish Assessment|RB-HC-5-84-2003|2003-02-13T00:00:00Z|Trawl|6.1|Species Richness|2003|2|11|7.412|1.4840798704803
+Rookery Bay National Estuarine Research Reserve|39|4043|RBNERR Fish Assessment|RB-HC-9-61-2001|2001-03-22T00:00:00Z|Trawl|6.1|Species Richness|2001|3|9|7.412|1.21424716675661
 Rookery Bay National Estuarine Research Reserve|39|4043|RBNERR Fish Assessment|RB-HC-9-72-2008|2008-03-20T00:00:00Z|Trawl|6.1|Species Richness|2008|3|6|7.412|0.809498111171074
-Rookery Bay National Estuarine Research Reserve|39|4043|RBNERR Fish Assessment|RB-HC-9-75-2005|2005-03-11T00:00:00Z|Trawl|6.1|Species Richness|2005|3|7|7.412|0.94441446303292
+Rookery Bay National Estuarine Research Reserve|39|4043|RBNERR Fish Assessment|RB-HC-5-87-2005|2005-02-24T00:00:00Z|Trawl|6.1|Species Richness|2005|2|6|7.412|0.809498111171074
 Rookery Bay National Estuarine Research Reserve|39|4043|RBNERR Fish Assessment|RB-HC-5-90-2001|2001-02-08T00:00:00Z|Trawl|6.1|Species Richness|2001|2|12|7.412|1.61899622234215
 Rookery Bay National Estuarine Research Reserve|39|4043|RBNERR Fish Assessment|RB-HC-5-93-2008|2008-02-21T00:00:00Z|Trawl|6.1|Species Richness|2008|2|6|7.412|0.809498111171074
 Rookery Bay National Estuarine Research Reserve|39|4043|RBNERR Fish Assessment|RB-HC-5-95-2004|2004-02-19T00:00:00Z|Trawl|6.1|Species Richness|2004|2|3|7.412|0.404749055585537
@@ -19336,21 +19481,21 @@ Rookery Bay National Estuarine Research Reserve|39|4043|RBNERR Fish Assessment|R
 Rookery Bay National Estuarine Research Reserve|39|4043|RBNERR Fish Assessment|RB-HC-8.2-22-2003|2003-02-13T00:00:00Z|Trawl|6.1|Species Richness|2003|2|6|7.412|0.809498111171074
 Rookery Bay National Estuarine Research Reserve|39|4043|RBNERR Fish Assessment|RB-HC-9-32-2006|2006-03-13T00:00:00Z|Trawl|6.1|Species Richness|2006|3|9|7.412|1.21424716675661
 Rookery Bay National Estuarine Research Reserve|39|4043|RBNERR Fish Assessment|RB-HC-9-44-2007|2007-03-15T00:00:00Z|Trawl|6.1|Species Richness|2007|3|10|7.412|1.34916351861846
-Rookery Bay National Estuarine Research Reserve|39|4043|RBNERR Fish Assessment|RB-HC-9-61-2001|2001-03-22T00:00:00Z|Trawl|6.1|Species Richness|2001|3|9|7.412|1.21424716675661
-Rookery Bay National Estuarine Research Reserve|39|4043|RBNERR Fish Assessment|RB-HC-9-84-2004|2004-03-19T00:00:00Z|Trawl|6.1|Species Richness|2004|3|5|7.412|0.674581759309228
-Rookery Bay National Estuarine Research Reserve|39|4043|RBNERR Fish Assessment|RB-HC-9-93-2009|2009-03-12T00:00:00Z|Trawl|6.1|Species Richness|2009|3|3|7.412|0.404749055585537
-Rookery Bay National Estuarine Research Reserve|39|4043|RBNERR Fish Assessment|RB-HC-9-76-2003|2003-03-13T00:00:00Z|Trawl|6.1|Species Richness|2003|3|3|7.412|0.404749055585537
 Rookery Bay National Estuarine Research Reserve|39|4043|RBNERR Fish Assessment|RB-HC-9-80-2002|2002-03-11T00:00:00Z|Trawl|6.1|Species Richness|2002|3|7|7.412|0.94441446303292
-Rookery Bay National Estuarine Research Reserve|39|4043|RBNERR Fish Assessment|RB-HC-9.2-66-2003|2003-03-13T00:00:00Z|Trawl|6.1|Species Richness|2003|3|7|7.412|0.94441446303292
-Rookery Bay National Estuarine Research Reserve|39|4043|RBNERR Fish Assessment|RB-HC-9-97-2000|2000-03-16T00:00:00Z|Trawl|6.1|Species Richness|2000|3|5|7.412|0.674581759309228
+Rookery Bay National Estuarine Research Reserve|39|4043|RBNERR Fish Assessment|RB-HC-9-84-2004|2004-03-19T00:00:00Z|Trawl|6.1|Species Richness|2004|3|5|7.412|0.674581759309228
+Rookery Bay National Estuarine Research Reserve|39|4043|RBNERR Fish Assessment|RB-HC-9-75-2005|2005-03-11T00:00:00Z|Trawl|6.1|Species Richness|2005|3|7|7.412|0.94441446303292
+Rookery Bay National Estuarine Research Reserve|39|4043|RBNERR Fish Assessment|RB-HC-9-76-2003|2003-03-13T00:00:00Z|Trawl|6.1|Species Richness|2003|3|3|7.412|0.404749055585537
 Rookery Bay National Estuarine Research Reserve|39|4043|RBNERR Fish Assessment|RB-HC-9.2-41-2002|2002-03-11T00:00:00Z|Trawl|6.1|Species Richness|2002|3|4|7.412|0.539665407447383
+Rookery Bay National Estuarine Research Reserve|39|4043|RBNERR Fish Assessment|RB-HC-9.2-66-2003|2003-03-13T00:00:00Z|Trawl|6.1|Species Richness|2003|3|7|7.412|0.94441446303292
+Rookery Bay National Estuarine Research Reserve|39|4043|RBNERR Fish Assessment|RB-HC-9-93-2009|2009-03-12T00:00:00Z|Trawl|6.1|Species Richness|2009|3|3|7.412|0.404749055585537
+Rookery Bay National Estuarine Research Reserve|39|4043|RBNERR Fish Assessment|RB-HC-9-97-2000|2000-03-16T00:00:00Z|Trawl|6.1|Species Richness|2000|3|5|7.412|0.674581759309228
 Southeast Florida Coral Reef Ecosystem Conservation Area|12||||||||||||
 St. Andrews State Park Aquatic Preserve|40||||||||||||
 St. Joseph Bay Aquatic Preserve|41||||||||||||
 St. Joseph Bay State Buffer Preserve|42||||||||||||
 St. Martins Marsh Aquatic Preserve|43|69|Fisheries-Independent Monitoring (FIM) Program|TBM2003076704|2003-07-10T00:00:00Z|Trawl|6.1|Species Richness|2003|7|20|14.0828|1.42017212486153
+Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2008061002|2008-06-11T00:00:00Z|Seine|183|Species Richness|2008|6|16|41.2|0.388349514563107
 Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2008061005|2008-06-11T00:00:00Z|Seine|183|Species Richness|2008|6|14|41.2|0.339805825242718
-Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2008061301|2008-06-11T00:00:00Z|Trawl|6.1|Species Richness|2008|6|9|6.6708|1.34916351861846
 Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM1989041913|1989-04-19T00:00:00Z|Trawl|6.1|Species Richness|1989|4|11|14.824|0.742039935240151
 Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM1989041914|1989-04-19T00:00:00Z|Trawl|6.1|Species Richness|1989|4|9|14.824|0.607123583378305
 Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM1989041915|1989-04-19T00:00:00Z|Trawl|6.1|Species Richness|1989|4|13|14.824|0.876956287101997
@@ -20030,9 +20175,9 @@ Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program
 Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2008051103|2008-05-15T00:00:00Z|Seine|183|Species Richness|2008|5|6|41.2|0.145631067961165
 Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2008051105|2008-05-15T00:00:00Z|Seine|183|Species Richness|2008|5|4|41.2|0.0970873786407767
 Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2008060901|2008-06-05T00:00:00Z|Seine|183|Species Richness|2008|6|10|41.2|0.242718446601942
-Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2008061002|2008-06-11T00:00:00Z|Seine|183|Species Richness|2008|6|16|41.2|0.388349514563107
+Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2013071007|2013-07-16T00:00:00Z|Seine|183|Species Richness|2013|7|26|41.2|0.631067961165049
 Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2013071404|2013-07-25T00:00:00Z|Seine|183|Species Richness|2013|7|17|41.2|0.412621359223301
-Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2013071406|2013-07-25T00:00:00Z|Seine|183|Species Richness|2013|7|13|41.2|0.315533980582524
+Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2008061301|2008-06-11T00:00:00Z|Trawl|6.1|Species Richness|2008|6|9|6.6708|1.34916351861846
 Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2008061302|2008-06-11T00:00:00Z|Trawl|6.1|Species Richness|2008|6|9|15.5652|0.578212936550767
 Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2008061303|2008-06-11T00:00:00Z|Trawl|6.1|Species Richness|2008|6|11|14.0828|0.781094668673843
 Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2008070102|2008-07-23T00:00:00Z|Seine|183|Species Richness|2008|7|5|41.2|0.121359223300971
@@ -20394,9 +20539,9 @@ Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program
 Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2013061308|2013-06-25T00:00:00Z|Trawl|6.1|Species Richness|2013|6|5|14.0828|0.355043031215383
 Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2013070108|2013-07-12T00:00:00Z|Trawl|6.1|Species Richness|2013|7|22|6.6708|3.29795526773401
 Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2013071006|2013-07-16T00:00:00Z|Seine|183|Species Richness|2013|7|16|41.2|0.388349514563107
-Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2013071007|2013-07-16T00:00:00Z|Seine|183|Species Richness|2013|7|26|41.2|0.631067961165049
+Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2017091206|2017-09-18T00:00:00Z|Trawl|6.1|Species Richness|2017|9|15|7.412|2.02374527792768
 Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2017100305|2017-10-06T00:00:00Z|Trawl|6.1|Species Richness|2017|10|1|14.824|0.0674581759309228
-Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2017100306|2017-10-06T00:00:00Z|Trawl|6.1|Species Richness|2017|10|1|15.5652|0.0642458818389741
+Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2013071406|2013-07-25T00:00:00Z|Seine|183|Species Richness|2013|7|13|41.2|0.315533980582524
 Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2013080401|2013-08-13T00:00:00Z|Seine|183|Species Richness|2013|8|18|41.2|0.436893203883495
 Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2013080404|2013-08-13T00:00:00Z|Seine|183|Species Richness|2013|8|22|41.2|0.533980582524272
 Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2013080405|2013-08-13T00:00:00Z|Seine|183|Species Richness|2013|8|11|41.2|0.266990291262136
@@ -20758,9 +20903,9 @@ Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program
 Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2017091203|2017-09-18T00:00:00Z|Trawl|6.1|Species Richness|2017|9|8|14.824|0.539665407447383
 Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2017091204|2017-09-18T00:00:00Z|Trawl|6.1|Species Richness|2017|9|4|14.824|0.269832703723691
 Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2017091205|2017-09-18T00:00:00Z|Trawl|6.1|Species Richness|2017|9|11|6.6708|1.648977633867
-Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2017091206|2017-09-18T00:00:00Z|Trawl|6.1|Species Richness|2017|9|15|7.412|2.02374527792768
+Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2019071307|2019-07-19T00:00:00Z|Trawl|6.1|Species Richness|2019|7|7|6.6708|1.04934940336991
 Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2019071604|2019-07-15T00:00:00Z|Trawl|6.1|Species Richness|2019|7|21|7.412|2.83324338909876
-Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2019080203|2019-08-02T00:00:00Z|Trawl|6.1|Species Richness|2019|8|9|7.412|1.21424716675661
+Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2017100306|2017-10-06T00:00:00Z|Trawl|6.1|Species Richness|2017|10|1|15.5652|0.0642458818389741
 Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2017100307|2017-10-06T00:00:00Z|Trawl|6.1|Species Richness|2017|10|7|8.1532|0.8585586027572
 Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2017100802|2017-10-10T00:00:00Z|Seine|183|Species Richness|2017|10|19|41.2|0.461165048543689
 Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2017100803|2017-10-10T00:00:00Z|Seine|183|Species Richness|2017|10|13|41.2|0.315533980582524
@@ -20879,9 +21024,9 @@ Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program
 Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2019071304|2019-07-19T00:00:00Z|Trawl|6.1|Species Richness|2019|7|13|14.824|0.876956287101997
 Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2019071305|2019-07-19T00:00:00Z|Trawl|6.1|Species Richness|2019|7|9|14.824|0.607123583378305
 Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2019071306|2019-07-19T00:00:00Z|Trawl|6.1|Species Richness|2019|7|19|6.6708|2.84823409486119
-Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2019071307|2019-07-19T00:00:00Z|Trawl|6.1|Species Richness|2019|7|7|6.6708|1.04934940336991
+Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2019110502|2019-11-05T00:00:00Z|Trawl|6.1|Species Richness|2019|11|19|6.6708|2.84823409486119
 Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2019110503|2019-11-05T00:00:00Z|Trawl|6.1|Species Richness|2019|11|6|6.6708|0.899442345745638
-Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2019111102|2019-11-18T00:00:00Z|Seine|183|Species Richness|2019|11|15|41.2|0.364077669902913
+Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2019080203|2019-08-02T00:00:00Z|Trawl|6.1|Species Richness|2019|8|9|7.412|1.21424716675661
 Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2019080204|2019-08-02T00:00:00Z|Trawl|6.1|Species Richness|2019|8|16|7.412|2.15866162978953
 Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2019080205|2019-08-02T00:00:00Z|Trawl|6.1|Species Richness|2019|8|13|7.412|1.75391257420399
 Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2019080206|2019-08-02T00:00:00Z|Trawl|6.1|Species Richness|2019|8|4|7.412|0.539665407447383
@@ -20919,9 +21064,9 @@ Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program
 Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2019110207|2019-11-07T00:00:00Z|Trawl|6.1|Species Richness|2019|11|17|8.1532|2.08507089241034
 Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2019110209|2019-11-07T00:00:00Z|Trawl|6.1|Species Richness|2019|11|4|14.824|0.269832703723691
 Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2019110501|2019-11-05T00:00:00Z|Trawl|6.1|Species Richness|2019|11|15|7.412|2.02374527792768
-Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2019110502|2019-11-05T00:00:00Z|Trawl|6.1|Species Richness|2019|11|19|6.6708|2.84823409486119
+Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2020081306|2020-08-10T00:00:00Z|Trawl|6.1|Species Richness|2020|8|20|8.8944|2.24860586436409
 Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2020090902|2020-09-03T00:00:00Z|Seine|183|Species Richness|2020|9|18|41.2|0.436893203883495
-Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2020090904|2020-09-03T00:00:00Z|Seine|183|Species Richness|2020|9|16|41.2|0.388349514563107
+Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2019111102|2019-11-18T00:00:00Z|Seine|183|Species Richness|2019|11|15|41.2|0.364077669902913
 Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2019111103|2019-11-18T00:00:00Z|Seine|183|Species Richness|2019|11|21|41.2|0.509708737864078
 Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2019111104|2019-11-18T00:00:00Z|Seine|183|Species Richness|2019|11|20|41.2|0.485436893203884
 Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2019120402|2019-12-09T00:00:00Z|Seine|183|Species Richness|2019|12|7|41.2|0.169902912621359
@@ -20959,9 +21104,9 @@ Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program
 Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2020081207|2020-08-13T00:00:00Z|Seine|183|Species Richness|2020|8|20|41.2|0.485436893203884
 Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2020081304|2020-08-10T00:00:00Z|Trawl|6.1|Species Richness|2020|8|23|7.412|3.10307609282245
 Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2020081305|2020-08-10T00:00:00Z|Trawl|6.1|Species Richness|2020|8|13|5.9296|2.19239071775499
-Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2020081306|2020-08-10T00:00:00Z|Trawl|6.1|Species Richness|2020|8|20|8.8944|2.24860586436409
+Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2020110404|2020-11-12T00:00:00Z|Trawl|6.1|Species Richness|2020|11|9|14.824|0.607123583378305
 Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2020110406|2020-11-12T00:00:00Z|Seine|183|Species Richness|2020|11|11|41.2|0.266990291262136
-Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2020110408|2020-11-12T00:00:00Z|Seine|183|Species Richness|2020|11|12|41.2|0.29126213592233
+Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2020090904|2020-09-03T00:00:00Z|Seine|183|Species Richness|2020|9|16|41.2|0.388349514563107
 Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2020090905|2020-09-03T00:00:00Z|Seine|183|Species Richness|2020|9|12|41.2|0.29126213592233
 Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2020091104|2020-09-10T00:00:00Z|Trawl|6.1|Species Richness|2020|9|5|14.0828|0.355043031215383
 Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2020100601|2020-10-23T00:00:00Z|Trawl|6.1|Species Richness|2020|10|12|7.412|1.61899622234215
@@ -20972,12 +21117,12 @@ Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program
 Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2020100705|2020-10-14T00:00:00Z|Seine|183|Species Richness|2020|10|12|41.2|0.29126213592233
 Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2020100904|2020-10-09T00:00:00Z|Trawl|6.1|Species Richness|2020|10|18|6.6708|2.69832703723691
 Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2020110403|2020-11-12T00:00:00Z|Trawl|6.1|Species Richness|2020|11|5|14.824|0.337290879654614
-Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2020110404|2020-11-12T00:00:00Z|Trawl|6.1|Species Richness|2020|11|9|14.824|0.607123583378305
-Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2020120504|2020-12-02T00:00:00Z|Seine|183|Species Richness|2020|12|11|41.2|0.266990291262136
-Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2020120505|2020-12-02T00:00:00Z|Seine|183|Species Richness|2020|12|7|41.2|0.169902912621359
-Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2020110705|2020-11-13T00:00:00Z|Seine|183|Species Richness|2020|11|8|41.2|0.194174757281553
 Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2020120502|2020-12-02T00:00:00Z|Seine|183|Species Richness|2020|12|10|41.2|0.242718446601942
-Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2020120701|2020-12-11T00:00:00Z|Trawl|6.1|Species Richness|2020|12|9|14.824|0.607123583378305
+Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2020120504|2020-12-02T00:00:00Z|Seine|183|Species Richness|2020|12|11|41.2|0.266990291262136
+Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2020110408|2020-11-12T00:00:00Z|Seine|183|Species Richness|2020|11|12|41.2|0.29126213592233
+Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2020110705|2020-11-13T00:00:00Z|Seine|183|Species Richness|2020|11|8|41.2|0.194174757281553
 Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2020120702|2020-12-11T00:00:00Z|Trawl|6.1|Species Richness|2020|12|7|13.3416|0.524674701684955
+Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2020120505|2020-12-02T00:00:00Z|Seine|183|Species Richness|2020|12|7|41.2|0.169902912621359
+Terra Ceia Aquatic Preserve|44|69|Fisheries-Independent Monitoring (FIM) Program|TBM2020120701|2020-12-11T00:00:00Z|Trawl|6.1|Species Richness|2020|12|9|14.824|0.607123583378305
 Tomoka Marsh Aquatic Preserve|45||||||||||||
 Yellow River Marsh Aquatic Preserve|47||||||||||||
