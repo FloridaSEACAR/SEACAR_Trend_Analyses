@@ -22,6 +22,7 @@ library(scales)
 library(EnvStats)
 library(tidyr)
 library(kableExtra)
+library(collapse)
 
 tic()
 #Sets whether to run documents with plots or not (APP_Plots==TRUE to include plots)
@@ -170,13 +171,6 @@ for (j in 1:length(all_params)){
     # Rremoves rows that have an ActivityType with Blank
     data <- data[!grep("Blank", data$ActivityType),]
     
-    # Removes any data below threshold value of 0, or 5 for Water Temperature
-    if(param_name=="Water_Temperature"){
-      data <- data[data$ResultValue>=-5,]
-    } else{
-      data <- data[data$ResultValue>=0,]
-    }
-    
     # Gets list of managed areas for the specific region being looked at
     MA_All_Region <- MA_All[MA_All$Region==region,]
     
@@ -187,10 +181,8 @@ for (j in 1:length(all_params)){
                   data, by="ManagedAreaName", all=TRUE)
     
     # Creates MonitoringID to more easily cycle through monitoring locations
-    data <- data %>%
-      group_by(AreaID, ManagedAreaName, ProgramID, ProgramName,
-               ProgramLocationID) %>%
-      mutate(MonitoringID=cur_group_id())
+    setDT(data)
+    data[, MonitoringID := .GRP, by = .(AreaID, ManagedAreaName, ProgramID, ProgramName, ProgramLocationID)]
     
     # Creates function to checks monitoring location for at least 2 years of
     # continuous consecutive data
@@ -252,25 +244,20 @@ for (j in 1:length(all_params)){
     consMonthIDs <- ContinuousConsecutiveCheck(data)
     
     # Creates data frame with summary for each monitoring location.
-    Mon_Summ <- data %>%
-      group_by(MonitoringID, AreaID, ManagedAreaName, ProgramID, ProgramName,
-               ProgramLocationID) %>%
-      summarize(ParameterName=parameter,
-                RelativeDepth=unique(RelativeDepth),
-                N_Data=length(ResultValue[Include==TRUE & !is.na(ResultValue)]),
-                N_Years=length(unique(Year[Include==TRUE & !is.na(Year)])),
-                EarliestYear=min(Year[Include==TRUE]),
-                LatestYear=max(Year[Include==TRUE]),
-                EarliestSampleDate=min(SampleDate[Include==TRUE]),
-                LastSampleDate=max(SampleDate[Include==TRUE]),
-                ConsecutiveMonths=ifelse(unique(MonitoringID) %in%
-                                           consMonthIDs==TRUE, TRUE, FALSE),
-                # Determines if monitoring location is sufficient for analysis
-                # based on having more than 0 data entries, more than the
-                # sufficient number of year, and the consecutive month criteria
-                SufficientData=ifelse(N_Data>0 & N_Years>=suff_years &
-                                        ConsecutiveMonths==TRUE, TRUE, FALSE),
-                Median=median(ResultValue, na.rm=TRUE))
+    median_na_rm <- function(x) ifelse(length(x) > 0, median(x, na.rm = TRUE), NA_real_)
+    Mon_Summ <- data[, .(ParameterName = parameter,
+                         RelativeDepth = unique(RelativeDepth),
+                         N_Data = sum(Include == TRUE & !is.na(ResultValue)),
+                         N_Years = uniqueN(Year[Include == TRUE & !is.na(Year)]),
+                         EarliestYear = min(Year[Include == TRUE]),
+                         LatestYear = max(Year[Include == TRUE]),
+                         EarliestSampleDate = min(SampleDate[Include == TRUE]),
+                         LastSampleDate = max(SampleDate[Include == TRUE]),
+                         Median = median_na_rm(ResultValue)), 
+                     by = .(MonitoringID, AreaID, ManagedAreaName, ProgramID, ProgramName, ProgramLocationID)]
+    
+    Mon_Summ[, ConsecutiveMonths := ifelse(unique(MonitoringID) %in% consMonthIDs==TRUE, TRUE, FALSE)]
+    Mon_Summ[, SufficientData := ifelse(N_Data>0 & N_Years>=suff_years & ConsecutiveMonths==TRUE, TRUE, FALSE)]
     Mon_Summ$ConsecutiveMonths <- NULL
     
     # Puts summary data in order based on MonitoringID
@@ -278,9 +265,7 @@ for (j in 1:length(all_params)){
     
     # Creates column in data that determines how many years from the start for each
     # Monitoring location
-    data <- data %>%
-      group_by(MonitoringID) %>%
-      mutate(YearFromStart=Year-min(Year))
+    data[, YearFromStart := Year - min(Year), by = MonitoringID]
     # Adds SufficientData column to data table based on MonitoringID
     data <- merge.data.frame(data, Mon_Summ[,c("MonitoringID", "SufficientData")],
                              by="MonitoringID")
@@ -299,15 +284,17 @@ for (j in 1:length(all_params)){
     ### Coordinates ###
     ###################
     
-    coordinates <- data %>% 
-      group_by(ManagedAreaName, ProgramID, ProgramName, ProgramLocationID, Use_In_Analysis) %>%
-      summarise(n_data = n(),
-                year_min = min(Year),
-                year_max = max(Year),
-                years_of_data = year_max - year_min,
-                lat = mean(OriginalLatitude),
-                lon = mean(OriginalLongitude)) %>%
-      drop_na()
+    setDT(data)
+    coordinates <- data[, .(n_data = .N,
+                            year_min = min(Year),
+                            year_max = max(Year),
+                            years_of_data = max(Year) - min(Year),
+                            lat = mean(OriginalLatitude),
+                            lon = mean(OriginalLongitude)),
+                        by = .(ManagedAreaName, ProgramID, ProgramName, ProgramLocationID, Use_In_Analysis)]
+    
+    # Drop rows with NA values
+    coordinates <- coordinates[complete.cases(coordinates)]
     
     coordinates$Parameter <- param_abrev
     coordinates$Region <- region
@@ -320,17 +307,20 @@ for (j in 1:length(all_params)){
     
     # Create summary statistics for each monitoring location based on Year and Month
     # intervals.
-    Mon_YM_Stats <- data[data$Use_In_Analysis==TRUE, ] %>%
-      group_by(MonitoringID, AreaID, ManagedAreaName, ProgramID, ProgramName,
-               ProgramLocationID, Year, Month) %>%
-      summarize(ParameterName=parameter,
-                RelativeDepth=unique(RelativeDepth),
-                EarliestSampleDate=min(SampleDate),
-                LastSampleDate=max(SampleDate),
-                N_Data=length(ResultValue),
-                Min=min(ResultValue), Max=max(ResultValue),
-                Median=median(ResultValue), Mean=mean(ResultValue),
-                StandardDeviation=sd(ResultValue))
+    # Filtered data to be used for all summary statistics
+    filtered_data <- data[Use_In_Analysis == TRUE]
+    
+    Mon_YM_Stats <- filtered_data[, .(ParameterName = parameter,
+                                      RelativeDepth = unique(RelativeDepth),
+                                      EarliestSampleDate = min(SampleDate),
+                                      LastSampleDate = max(SampleDate),
+                                      N_Data = .N,
+                                      Min = min(ResultValue),
+                                      Max = max(ResultValue),
+                                      Median = median(ResultValue),
+                                      Mean = mean(ResultValue),
+                                      StandardDeviation = sd(ResultValue)),
+                                  by = .(MonitoringID, AreaID, ManagedAreaName, ProgramID, ProgramName, ProgramLocationID, Year, Month)]
     # Puts the data in order based on ManagedAreaName, ProgramID, ProgramName,
     # ProgramLocationID, Year, then Month
     Mon_YM_Stats <- as.data.table(Mon_YM_Stats[order(Mon_YM_Stats$ManagedAreaName,
@@ -341,27 +331,27 @@ for (j in 1:length(all_params)){
                                                      Mon_YM_Stats$Month), ])
     
     # Get year from start for each monitoring location
-    Mon_YM_Stats <- Mon_YM_Stats %>%
-      group_by(MonitoringID) %>%
-      mutate(YearFromStart=Year-min(Year))
+    Mon_YM_Stats[, YearFromStart := Year - min(Year), by = MonitoringID]
     # Create decimal value of year and month values
     Mon_YM_Stats$YearMonthDec <- Mon_YM_Stats$Year + ((Mon_YM_Stats$Month-0.5) / 12)
     
     # Saving RDS object to file
+    print("Saving Mon_YM_Stats.rds")
     saveRDS(Mon_YM_Stats, file = paste0(out_dir_tables,"/WC_Continuous_", param_abrev, "_", region, "_Mon_YM_Stats.rds"))
     
     # Create summary statistics for each monitoring location based on Year
     # intervals.
-    Mon_Y_Stats <- data[data$Use_In_Analysis==TRUE, ] %>%
-      group_by(AreaID, ManagedAreaName, ProgramID, ProgramName, ProgramLocationID,
-               Year) %>%
-      summarize(ParameterName=parameter,
-                RelativeDepth=unique(RelativeDepth),
-                EarliestSampleDate=min(SampleDate),
-                LastSampleDate=max(SampleDate), N_Data=length(ResultValue),
-                Min=min(ResultValue), Max=max(ResultValue),
-                Median=median(ResultValue), Mean=mean(ResultValue),
-                StandardDeviation=sd(ResultValue))
+    Mon_Y_Stats <- filtered_data[, .(ParameterName = parameter,
+                                     RelativeDepth = unique(RelativeDepth),
+                                     EarliestSampleDate = min(SampleDate),
+                                     LastSampleDate = max(SampleDate),
+                                     N_Data = .N,
+                                     Min = min(ResultValue),
+                                     Max = max(ResultValue),
+                                     Median = median(ResultValue),
+                                     Mean = mean(ResultValue),
+                                     StandardDeviation = sd(ResultValue)),
+                                 by = .(AreaID, ManagedAreaName, ProgramID, ProgramName, ProgramLocationID, Year)]
     # Puts the data in order based on ManagedAreaName, ProgramID, ProgramName,
     # ProgramLocationID, then Year
     Mon_Y_Stats <- as.data.table(Mon_Y_Stats[order(Mon_Y_Stats$ManagedAreaName,
@@ -371,20 +361,22 @@ for (j in 1:length(all_params)){
                                                    Mon_Y_Stats$Year), ])
     
     # Saving RDS object
+    print("Saving Mon_Y_Stats.rds")
     saveRDS(Mon_Y_Stats, file = paste0(out_dir_tables,"/WC_Continuous_", param_abrev, "_", region, "_Mon_Y_Stats.rds"))
     
     # Create summary statistics for each monitoring location based on Month
     # intervals.
-    Mon_M_Stats <- data[data$Use_In_Analysis==TRUE, ] %>%
-      group_by(AreaID, ManagedAreaName, ProgramID, ProgramName, ProgramLocationID,
-               Month) %>%
-      summarize(ParameterName=parameter,
-                RelativeDepth=unique(RelativeDepth),
-                EarliestSampleDate=min(SampleDate),
-                LastSampleDate=max(SampleDate), N_Data=length(ResultValue),
-                Min=min(ResultValue), Max=max(ResultValue),
-                Median=median(ResultValue), Mean=mean(ResultValue),
-                StandardDeviation=sd(ResultValue))
+    Mon_M_Stats <- filtered_data[, .(ParameterName = parameter,
+                                     RelativeDepth = unique(RelativeDepth),
+                                     EarliestSampleDate = min(SampleDate),
+                                     LastSampleDate = max(SampleDate),
+                                     N_Data = .N,
+                                     Min = min(ResultValue),
+                                     Max = max(ResultValue),
+                                     Median = median(ResultValue),
+                                     Mean = mean(ResultValue),
+                                     StandardDeviation = sd(ResultValue)),
+                                 by = .(AreaID, ManagedAreaName, ProgramID, ProgramName, ProgramLocationID, Month)]
     # Puts the data in order based on ManagedAreaName, ProgramID, ProgramName,
     # ProgramLocationID, then Month
     Mon_M_Stats <- as.data.table(Mon_M_Stats[order(Mon_M_Stats$ManagedAreaName,
@@ -394,23 +386,24 @@ for (j in 1:length(all_params)){
                                                    Mon_M_Stats$Month), ])
     
     # Saving RDS object
+    print("Saving Mon_M_Stats.rds")
     saveRDS(Mon_M_Stats, file = paste0(out_dir_tables,"/WC_Continuous_", param_abrev, "_", region, "_Mon_M_Stats.rds"))
     
     # Reduces size of data by getting a monthly average
     # New method uses "Collapse" package to more efficiently group & summarise
-    data_after <- data %>%
+    data <- data %>%
       fgroup_by(MonitoringID, AreaID, ManagedAreaName, ProgramID, ProgramName,
                 ProgramLocationID, SampleDate) %>%
       fsummarise(Year=funique(Year), Month=funique(Month),
                  RelativeDepth=funique(RelativeDepth),
                  ResultValue=fmean(ResultValue), Include=funique(Include),
                  Use_In_Analysis=funique(Use_In_Analysis))
+    
     # Sets column formats to appropriate types
     data$SampleDate <- as.Date(data$SampleDate)
     data$YearMonth <- format(data$SampleDate, format = "%m-%Y")
     data$YearMonthDec <- data$Year + ((data$Month-0.5) / 12)
     data$DecDate <- decimal_date(data$SampleDate)
-    
     
     #######################################
     #### SEASONAL KENDALL TAU ANALYSIS ####

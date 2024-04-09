@@ -9,6 +9,7 @@ library(dplyr)
 # SAV LMEResults Table Generation
 # This script is designed to read the file names for the LME results of the BBpct analysis,
 # import each one, extract the intercept, slope, and p values, produce them for display in reports
+# originally from SAV_BBpct_LME_tableconvert.R
 
 #List all of the files in the "tables" directory that are LME results
 files <- list.files("output/tables/SAV", pattern="lmeresults", full.names=TRUE)
@@ -90,11 +91,11 @@ sav_stats_table$years[sav_stats_table$SufficientData==FALSE] <- NA
 sav_stats_table[Species=="Unidentified Halophila", Species := "Halophila, unk."]
 
 #Write output table to a pipe-delimited txt file
-# fwrite(stats, "output/tables/SAV/SAV_BBpct_LMEresults_All.txt", sep="|")
+fwrite(sav_stats_table, "output/Data/SAV/SAV_BBpct_LMEresults_All.txt", sep="|")
 
 # SAV LMEResults Table Function
 # For use in report generation
-sav_trend_table <- function(ma){
+sav_trend_table <- function(ma, table_format = "latex"){
   table <- sav_stats_table[ManagedAreaName == ma, c("Species","StatisticalTrend","years","LME_Intercept","LME_Slope","p")] %>%
     mutate(CommonName = modify_species_labels(Species, usenames="common")) %>%
     mutate(CommonName = ifelse(CommonName==Species, NA, CommonName)) %>%
@@ -103,14 +104,17 @@ sav_trend_table <- function(ma){
   caption <- paste0("Percent Cover Trend Analysis for ", ma)
   
   sav_kable <- table %>%
-    kable(format="latex",caption=caption, booktabs = T, linesep = "",
+    kable(format=table_format,caption=caption, booktabs = T, linesep = "",
           col.names = c("Species","CommonName","Trend Significance (0.05)","Period of Record","LME-Intercept","LME-Slope","p")) %>%
     row_spec(0, italic=TRUE) %>%
     kable_styling(latex_options=c("scale_down","HOLD_position"),
                   position = "center")
   
-  print(sav_kable)
-  cat("\n")
+  if(table_format=="latex"){
+    print(sav_kable)
+  } else if(table_format=="html"){
+    sav_kable
+  }
 }
 
 # source(here::here("scripts/load_shape_files.R"))
@@ -146,7 +150,7 @@ find_exact_matches <- function(pattern, filenames) {
   return(matched_files)
 }
 
-plot_sav_trendplot <- function(ma,ma_abrev){
+plot_sav_trendplot <- function(ma,ma_abrev,type){
   if(ma_abrev %in% malist){
     plot_file <- lapply(ma_abrev, find_exact_matches, filenames = trendplots)
     plot <- readRDS(here::here(paste0("output/Figures/BB/", plot_file)))
@@ -154,7 +158,8 @@ plot_sav_trendplot <- function(ma,ma_abrev){
     cat("  \n")
 
     #############
-    sav_trend_table(ma)
+    table_format <- ifelse(type=="PDF", "latex", "html")
+    sav_trend_table(ma, table_format = table_format)
     cat("  \n")
     #############
     
@@ -202,7 +207,7 @@ plot_sav_multiplot <- function(ma, ma_abrev){
   }
 }
 
-sp_to_skip <- c("Drift algae", "Total seagrass", "Attached algae", "Total SAV")
+sp_to_skip <- c("Drift algae", "Total seagrass", "Attached algae", "Total SAV", "No grass in Quadrat")
 
 ggplot_gam <- function(ma, hal = "all", pal = "Dark2") {
   
@@ -305,7 +310,7 @@ ggplot_gam <- function(ma, hal = "all", pal = "Dark2") {
       cat("  \n")
       cat(paste0("Generalized additive models for each species in ", ma, ". Species must have at least 10 years of data to be evaluated.  \n"))
       cat("  \n")
-      cat("*Drift algae*, *Total seagrass*, *Attached algae*, and *Total SAV* are excluded from the analyses.  \n")
+      cat("*Drift algae*, *Total seagrass*, *Attached algae*, *No grass in Quadrat*, and *Total SAV* are excluded from the analyses.  \n")
       
       caption <- paste0("Amount of data for each species in ", ma)
       kable(table_display, format="simple", caption=caption, col.names= c("*Species*", "*Years of Data*", "*Year Range*"))
