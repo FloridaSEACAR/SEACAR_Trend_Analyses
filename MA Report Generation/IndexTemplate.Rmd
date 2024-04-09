@@ -1,0 +1,98 @@
+---
+title: "Managed Area Reports - Directory"
+author: "SEACAR"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Managed Area Reports
+
+Managed Area reports are available in both PDF and HTML format. The GitHub Repository is located [here](https://github.com/FloridaSEACAR/SEACAR_Trend_Analyses/tree/main/MA%20Report%20Generation).
+
+
+```{r ma_list, echo = FALSE, results='asis'}
+
+# Returns a markdown-format hyperlink, target=_blank to open link in new window
+# make_link <- function(text, link){return(paste0("[",text,"](",link,")",'{:target="_blank"}'))}
+make_link <- function(text, link){return(paste0('<a href="', link, '" target="_blank">',text,'</a>'))}
+
+pdf_files <- list.files("output/Reports/PDF", pattern=".pdf")
+html_files <- list.files("output/Reports/HTML", pattern=".html")
+
+links_table <- data.frame()
+
+for(ma in MA_All$ManagedAreaName){
+  
+  if(ma == "St. Joseph Bay State Buffer Preserve"){next}
+  
+  pdf_file <- find_exact_matches(MA_All[ManagedAreaName==ma, Abbreviation], pdf_files)
+  html_file <- find_exact_matches(MA_All[ManagedAreaName==ma, Abbreviation], html_files)
+  
+  pdf_github_loc <- "https://floridaseacar.github.io/SEACAR_Trend_Analyses/MA%20Report%20Generation/output/Reports/PDF/"
+  pdf_link <- paste0(pdf_github_loc, pdf_file)
+  
+  html_github_loc <- "https://floridaseacar.github.io/SEACAR_Trend_Analyses/MA%20Report%20Generation/output/Reports/HTML/"
+  html_link <- paste0(html_github_loc, html_file)
+  
+  if(length(pdf_file)==0){pdf_file <- ""}
+  if(length(html_file)==0){html_file <- ""}
+  
+  link_table <- data.frame("Managed Area" = ma,
+                           "HTML" = make_link(html_file, html_link),
+                           "PDF" = make_link(pdf_file, pdf_link))
+  
+  links_table <- bind_rows(links_table, link_table)
+}
+
+print(kable(links_table))
+
+```
+
+The reports were last ran on **`r Sys.Date()`** using the following export files:
+
+```{r file_list, echo = FALSE, results='asis'}
+
+cat("  \n")
+cat("**Discrete WQ**:  \n\n")
+for(file in wq_discrete_files){
+  cat(paste0("* *", file, "*\n"))
+  cat("  \n")
+}
+
+cat("  \n")
+cat("**Continuous WQ**:  \n\n")
+for (param in cont_params_long){
+  p <- str_replace_all(param, " ", "_")
+  par_reg <- paste0(p, "_", region)
+  
+  file_name <- str_subset(wq_cont_files_short, par_reg)
+  
+  cat(paste0("* *", file_name, "*\n"))
+  cat("  \n")
+}
+
+cat("  \n")
+cat("**Submerged Aquatic Vegetation**:  \n\n")
+cat(paste0("* *", sav_file_short,"*"))
+cat("  \n")
+
+cat("  \n")
+cat("**Nekton**:  \n\n")
+cat(paste0("* *", nekton_file_short,"*"))
+cat("  \n")
+
+cat("  \n")
+cat("**Coral**:  \n\n")
+cat(paste0("* *", coral_file_short,"*"))
+cat("  \n")
+
+cat("  \n")
+cat("**Coastal Wetlands**:  \n\n")
+cat(paste0("* *", cw_file_short,"*"))
+cat("  \n")
+
+```

@@ -30,11 +30,11 @@ setwd(wd)
 
 # Create folder paths if they don't yet exist
 folder_paths <- c("output", "output/Figures","output/Figures/BB","output/Reports", 
-  "output/Data", "output/models", "output/tables","output/Data/Nekton", "output/Data/SAV",
-  "output/Data/Coral", "output/Data/Coral/PercentCover", "output/Data/Coral/SpeciesRichness",
+  "output/Data", "output/models", "output/tables","output/Data/Nekton", "output/Data/SAV","output/Data/Coral", 
+  "output/Data/Coral/PercentCover", "output/Data/Coral/SpeciesRichness",
   "output/tables", "output/tables/disc", "output/tables/cont", "output/tables/SAV", "output/Data/CoastalWetlands",
   "output/maps","output/maps/discrete","output/Figures/BB/maps", "output/Density", "output/Shell_Height", "output/Percent_Live",
-  "data/GLMMs","data/GLMMs/AllDates","data/GLMMs/AllDates/Data")
+  "data/GLMMs","data/GLMMs/AllDates","data/GLMMs/AllDates/Data", "output/Reports/HTML", "output/Reports/PDF")
 for (path in folder_paths){if(!dir.exists(path)){dir.create(path)}}
 
 #Set output directory
@@ -72,7 +72,6 @@ cont_files <- str_subset(files, "_NUT_cont")
 ### call in source files ### -----
 ############################
 
-# source("scripts/load_shape_files.R")
 # source("scripts/WQ_Discrete_Data_Creation.R") # creates source files (.rds objects) for discrete WQ
 # source("scripts/WQ_Continuous_Data_creation.R") # creates source files (.rds objects) for continuous WQ
 source("scripts/WQ_Continuous.R")
@@ -80,9 +79,13 @@ source("scripts/WQ_Discrete.R")
 source("scripts/Nekton.R")
 source("scripts/CoastalWetlands.R")
 # source("scripts/SAV.R") # creates source files (.rds objects) for SAV
+# source("scripts/load_shape_files.R")
 # source("scripts/SAV_scope_plots.R")
 source("scripts/SAV-Functions.R")
 source("scripts/Coral.R")
+# source("scripts/WQ_KendallTau_Stats_Combine.R")
+# Imports SAV4 created by SAV.R above
+SAV4 <- readRDS("output/data/SAV/SAV4.rds")
 ############################
 
 seacar_palette <- c("#005396", "#0088B1", "#00ADAE", "#65CCB3", "#AEE4C1", 
@@ -109,7 +112,11 @@ wq_cont_files_short <- lapply(wq_cont_files, function(x){tail(str_split(x, "/")[
 # Subset for MAs
 # MA_All <- MA_All[c(14,5,32,27,9,33)]
 # MA_All <- MA_All[c(14)]
-MA_All <- MA_All[c(5,14,20)]
+# MA_All <- MA_All[33]
+
+# Choose which type of report to render, or render both
+report_types <- c("PDF", "HTML")
+# report_types <- c("PDF")
 
 # iterate through every possible MA
 # apply checks for coral, sav, etc. within .Rmd doc
@@ -136,24 +143,33 @@ for (i in seq_len(nrow(MA_All))) {
   
   if(in_sav | in_nekton | in_coral | in_cw | in_discrete | in_continuous){
     
-    ma_report_out_dir <- paste0(report_out_dir, "/", ma_abrev)
+    # Render reports in their own subfolders
+    # ma_report_out_dir <- paste0(report_out_dir, "/", ma_abrev)
+    # Render reports in output/Reports/ folder
+    ma_report_out_dir <- paste0(report_out_dir)
     
-    file_out <-  paste0(ma_abrev, "_Report")
-    
-    rmarkdown::render(input = "ReportTemplate.Rmd",
-                      output_format = "pdf_document",
-                      output_file = paste0(file_out, ".pdf"),
-                      output_dir = ma_report_out_dir,
-                      clean=TRUE)
-    # rmarkdown::render(input = "ReportTemplate.Rmd",
-    #                   output_format = "html_document",
-    #                   output_file = paste0(file_out, ".html"),
-    #                   output_dir = ma_report_out_dir,
-    #                   clean=TRUE)
-    
-    #Removes unwanted files created in the rendering process
-    unlink(paste0(ma_report_out_dir, "/", file_out, ".md"))
-    unlink(paste0(ma_report_out_dir, "/", file_out, "_files"), recursive=TRUE)
-    
+    for(type in report_types){
+      ma_report_out_dir <- paste0(report_out_dir,"/",type)
+      
+      file_out <-  paste0(ma_abrev, "_Report")
+      format_string <- paste0(tolower(type),"_document")
+      
+      rmarkdown::render(input = "ReportTemplate.Rmd",
+                        output_format = format_string,
+                        output_file = paste0(file_out, ".", tolower(type)),
+                        output_dir = ma_report_out_dir,
+                        clean=TRUE)
+      
+      #Removes unwanted files created in the rendering process
+      unlink(paste0(ma_report_out_dir, "/", file_out, ".md"))
+      unlink(paste0(ma_report_out_dir, "/", file_out, ".tex"))
+      unlink(paste0(ma_report_out_dir, "/", file_out, "_files"), recursive=TRUE)
+    }
   }
 }
+
+# Render index.html directory to list on GitHub pages
+rmarkdown::render(input = "IndexTemplate.Rmd",
+                  output_format = "html_document",
+                  output_file = "index.html",
+                  clean=TRUE)
