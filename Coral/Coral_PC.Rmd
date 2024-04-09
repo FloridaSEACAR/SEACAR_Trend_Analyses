@@ -98,7 +98,8 @@ The processing and filtering that is done to the data is as follows:
 
 ```{r filtering}
 # Only keep data for Percent Cover
-data <- data[data$ParameterName=="Percent Cover - Species Composition"]
+# Formerly "Percent Cover - Species Composition"
+data <- data[data$ParameterName=="Percent Cover"]
 
 # Simplify ParametetrNamee to Percent Cover
 data$ParameterName <- "Percent Cover"
@@ -109,12 +110,7 @@ unit <- "%"
 data$ParameterUnits <- unit
 
 # Remove any rows that are not corals
-data <- data[SpeciesGroup1=="Octocoral"|
-               SpeciesGroup1=="Milleporans"|
-               SpeciesGroup1=="Scleractinian", ]
-# Remove rows with missing ManagedAreaName
-data <- data[!is.na(data$ManagedAreaName),]
-data <- data[data$ManagedAreaName!="NA",]
+data <- data[SpeciesGroup1 %in% c("Octocoral", "Milleporans","Scleractinian"), ]
 # Remove rows with missing GenusName
 data <- data[!is.na(data$GenusName),]
 # Remove rows with missing SpeciesName
@@ -133,16 +129,6 @@ data <- data[!is.na(data$SampleDate),]
 data <- data[data$MADup==1,]
 # Create variable that combines the genus and species name
 data$gensp <- paste(data$GenusName, data$SpeciesName, sep=" ")
-# Corrects Managed Area names to be consistent with official names
-data$ManagedAreaName[data$ManagedAreaName=="Florida Keys NMS"] <-
-  "Florida Keys National Marine Sanctuary"
-data$ManagedAreaName[data$ManagedAreaName==
-                       "Biscayne Bay-Cape Florida to Monroe County Line"] <-
-  "Biscayne Bay-Cape Florida to Monroe County Line Aquatic Preserve"
-data$ManagedAreaName[data$ManagedAreaName=="Coupon Bight"] <-
-  "Coupon Bight Aquatic Preserve"
-data$ManagedAreaName[data$ManagedAreaName=="Coral ECA"] <-
-  "Southeast Florida Coral Reef Ecosystem Conservation Area"
 
 # Adds AreaID for each managed area by combining the MA_All datatable to the
 # data based on ManagedAreaName

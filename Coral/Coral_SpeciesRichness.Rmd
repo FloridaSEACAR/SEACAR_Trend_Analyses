@@ -100,7 +100,9 @@ The processing and filtering that is done to the data is as follows:
 
 ```{r filtering}
 # Only keep data for Presence of grazers and reef-dependent species
-data <- data[data$ParameterName=="Presence - Grazers and Reef Dependent Species"]
+data <- data[ParameterName=="Presence/Absence" & 
+               SpeciesGroup1 %in% c("Grazers and reef dependent species", 
+                                    "Reef Fish"), ]
 
 # Create ParameterName Column
 data$ParameterName <- "Species Richness"
@@ -124,8 +126,6 @@ data <- data[!is.na(data$Month),]
 data <- data[!is.na(data$Year),]
 # Remove rows with missing SpeciesGroup1
 data <- data[!is.na(data$SpeciesGroup1),]
-# Remove rows with invasive species
-data <- data[data$SpeciesGroup1!="Invasive",]
 # Set ResultValue to be a number value
 data$ResultValue <- as.numeric(data$ResultValue)
 # Remove rows where ResultValue is 0 and missing
@@ -135,16 +135,6 @@ data <- data[!is.na(data$ResultValue),]
 data <- data[data$MADup==1,]
 # Create variable that combines the genus and species name
 data$gensp <- paste(data$GenusName, data$SpeciesName, sep=" ")
-# Corrects Managed Area names to be consistent with official names
-data$ManagedAreaName[data$ManagedAreaName=="Florida Keys NMS"] <-
-   "Florida Keys National Marine Sanctuary"
-data$ManagedAreaName[data$ManagedAreaName==
-                       "Biscayne Bay-Cape Florida to Monroe County Line"] <-
-   "Biscayne Bay-Cape Florida to Monroe County Line Aquatic Preserve"
-data$ManagedAreaName[data$ManagedAreaName=="Coupon Bight"] <-
-   "Coupon Bight Aquatic Preserve"
-data$ManagedAreaName[data$ManagedAreaName=="Coral ECA"] <-
-   "Southeast Florida Coral Reef Ecosystem Conservation Area"
 
 # Create Species Richness values for groups of unique combinations of
 # ManagedAreaName, ProgramID, ProgramName, ProgramLocationID, and SampleDate.

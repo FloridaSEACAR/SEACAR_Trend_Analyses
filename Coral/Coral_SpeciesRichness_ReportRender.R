@@ -17,6 +17,8 @@ library(rstudioapi)
 wd <- dirname(getActiveDocumentContext()$path)
 setwd(wd)
 
+source("../SEACAR_data_location.R")
+
 #Set output directory
 out_dir <- "output/SpeciesRichness"
 
@@ -31,10 +33,10 @@ MA_All <- fread("data/ManagedArea.csv", sep = ",", header = TRUE, stringsAsFacto
                 na.strings = "")
 
 #Gets the files with the file names containing the desired parameter
-file_in <- list.files("data", pattern="All_CORAL", full=TRUE)
+file_in <- list.files(seacar_data_location, pattern="All_CORAL", full=TRUE)
 
 #Gets the specific file used and removes the directory names
-file_short <- sub("data/", "", file_in)
+file_short <- tail(str_split(file_in, "/")[[1]], 1)
 
 #Renders Coral_SpeciesRichness.Rmd and writes the report to a pdf and 
 #Word document stored in output directory

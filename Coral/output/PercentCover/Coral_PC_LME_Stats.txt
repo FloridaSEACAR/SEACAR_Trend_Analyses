@@ -4,15 +4,15 @@ AreaID|ManagedAreaName|ParameterName|N_Years|SufficientData|EarliestYear|LatestY
 3|Apalachicola National Estuarine Research Reserve|Percent Cover|0|FALSE|||0||||||||
 4|Banana River Aquatic Preserve|Percent Cover|0|FALSE|||0||||||||
 5|Big Bend Seagrasses Aquatic Preserve|Percent Cover|0|FALSE|||0||||||||
-7|Biscayne Bay-Cape Florida to Monroe County Line Aquatic Preserve|Percent Cover|9|TRUE|2013|2021|594|0|2|0|0.0336700336700337|0.198334546804944|5.12710437710771|-0.00252525252525417|0.418924367427221
+7|Biscayne Bay-Cape Florida to Monroe County Line Aquatic Preserve|Percent Cover|9|TRUE|2013|2021|792|0|2|0|0.0315656565656566|0.188851270204155|7.28970959596266|-0.00359848484848636|0.16305230704947
 6|Biscayne Bay Aquatic Preserve|Percent Cover|0|FALSE|||0||||||||
 8|Boca Ciega Bay Aquatic Preserve|Percent Cover|0|FALSE|||0||||||||
 9|Cape Haze Aquatic Preserve|Percent Cover|0|FALSE|||0||||||||
 10|Cape Romano-Ten Thousand Islands Aquatic Preserve|Percent Cover|0|FALSE|||0||||||||
 11|Cockroach Bay Aquatic Preserve|Percent Cover|0|FALSE|||0||||||||
-13|Coupon Bight Aquatic Preserve|Percent Cover|3|FALSE|2009|2016|101|0|7|0|0.217821782178218|0.843847858278252|||
+13|Coupon Bight Aquatic Preserve|Percent Cover|4|FALSE|2009|2022|201|0|8|0|0.174129353233831|0.833383083092091|||
 14|Estero Bay Aquatic Preserve|Percent Cover|0|FALSE|||0||||||||
-15|Florida Keys National Marine Sanctuary|Percent Cover|26|TRUE|1996|2021|178224|0|39|0|0.214954214920549|1.09950325268818|4.7076076470466|-0.00179497177537605|0.000000871553925696489
+15|Florida Keys National Marine Sanctuary|Percent Cover|27|TRUE|1996|2022|176947|0|43|0|0.182693122799482|0.996396589501968|4.8932839577526|-0.00179501028349685|0.00000017399688523323
 16|Fort Clinch State Park Aquatic Preserve|Percent Cover|0|FALSE|||0||||||||
 17|Fort Pickens State Park Aquatic Preserve|Percent Cover|0|FALSE|||0||||||||
 18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|Percent Cover|0|FALSE|||0||||||||
@@ -35,7 +35,7 @@ AreaID|ManagedAreaName|ParameterName|N_Years|SufficientData|EarliestYear|LatestY
 37|Rocky Bayou State Park Aquatic Preserve|Percent Cover|0|FALSE|||0||||||||
 38|Rookery Bay Aquatic Preserve|Percent Cover|0|FALSE|||0||||||||
 39|Rookery Bay National Estuarine Research Reserve|Percent Cover|0|FALSE|||0||||||||
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|Percent Cover|25|TRUE|1997|2021|26703|0|45|0|0.163577126165599|1.39686101646065|20.6683003039914|-0.0095575095014805|0.00000000336999550487604
+12|Southeast Florida Coral Reef Ecosystem Conservation Area|Percent Cover|26|TRUE|1997|2022|26303|0|45|0|0.145116526631943|1.35424164342366|20.5147231121856|-0.00947479087518037|0.00000000372914077395592
 40|St. Andrews State Park Aquatic Preserve|Percent Cover|0|FALSE|||0||||||||
 41|St. Joseph Bay Aquatic Preserve|Percent Cover|0|FALSE|||0||||||||
 42|St. Joseph Bay State Buffer Preserve|Percent Cover|0|FALSE|||0||||||||
