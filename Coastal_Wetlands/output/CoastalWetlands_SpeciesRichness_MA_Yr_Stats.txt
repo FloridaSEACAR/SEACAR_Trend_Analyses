@@ -1,15 +1,27 @@
 AreaID|ManagedAreaName|Year|SpeciesGroup|ParameterName|N_Data|Min|Max|Median|Mean|StandardDeviation|Programs|ProgramIDs
 1|Alligator Harbor Aquatic Preserve|||Species Richness|0||||||""|""
-2|Apalachicola Bay Aquatic Preserve|2014|Marsh|Species Richness|35|1|4|1|1.57142857142857|0.814779446364774|Apalachicola Emergent Marsh Vegetation Monitoring|5009
-2|Apalachicola Bay Aquatic Preserve|2014|Marsh succulents|Species Richness|16|1|3|1.5|1.6875|0.79320026895272|Apalachicola Emergent Marsh Vegetation Monitoring|5009
-2|Apalachicola Bay Aquatic Preserve|2015|Marsh|Species Richness|73|1|4|1|1.43835616438356|0.726221219928179|Apalachicola Emergent Marsh Vegetation Monitoring|5009
-2|Apalachicola Bay Aquatic Preserve|2015|Marsh succulents|Species Richness|34|1|3|2|1.76470588235294|0.740958573634948|Apalachicola Emergent Marsh Vegetation Monitoring|5009
-2|Apalachicola Bay Aquatic Preserve|2016|Marsh|Species Richness|72|1|4|1|1.56944444444444|0.852938398926363|Apalachicola Emergent Marsh Vegetation Monitoring|5009
-2|Apalachicola Bay Aquatic Preserve|2016|Marsh succulents|Species Richness|31|1|3|1|1.61290322580645|0.803219328902499|Apalachicola Emergent Marsh Vegetation Monitoring|5009
-2|Apalachicola Bay Aquatic Preserve|2017|Marsh|Species Richness|70|1|4|1|1.48571428571429|0.829577457362467|Apalachicola Emergent Marsh Vegetation Monitoring|5009
-2|Apalachicola Bay Aquatic Preserve|2017|Marsh succulents|Species Richness|30|1|3|1|1.73333333333333|0.868344970910609|Apalachicola Emergent Marsh Vegetation Monitoring|5009
-2|Apalachicola Bay Aquatic Preserve|2020|Marsh|Species Richness|3|1|1|1|1|0|Coastal Habitat Integrated Mapping and Monitoring Program (CHIMMP) Pilot Monitoring Data|651
-2|Apalachicola Bay Aquatic Preserve|2020|Marsh succulents|Species Richness|2|1|1|1|1|0|Coastal Habitat Integrated Mapping and Monitoring Program (CHIMMP) Pilot Monitoring Data|651
+2|Apalachicola Bay Aquatic Preserve|2014|Marsh|Species Richness|6|1|5|2.5|2.66666666666667|1.86189867250253|Apalachicola Emergent Marsh Vegetation Monitoring|5009
+2|Apalachicola Bay Aquatic Preserve|2014|Marsh succulents|Species Richness|3|1|3|2|2|1|Apalachicola Emergent Marsh Vegetation Monitoring|5009
+2|Apalachicola Bay Aquatic Preserve|2015|Marsh|Species Richness|12|1|4|2|2.25|1.35680105059994|Apalachicola Emergent Marsh Vegetation Monitoring|5009
+2|Apalachicola Bay Aquatic Preserve|2015|Marsh succulents|Species Richness|6|2|3|3|2.83333333333333|0.408248290463863|Apalachicola Emergent Marsh Vegetation Monitoring|5009
+2|Apalachicola Bay Aquatic Preserve|2016|Marsh|Species Richness|12|1|4|2|2.33333333333333|1.43548112513055|Apalachicola Emergent Marsh Vegetation Monitoring|5009
+2|Apalachicola Bay Aquatic Preserve|2016|Marsh succulents|Species Richness|6|1|3|3|2.5|0.836660026534076|Apalachicola Emergent Marsh Vegetation Monitoring|5009
+2|Apalachicola Bay Aquatic Preserve|2017|Marsh|Species Richness|16|1|4|1|2.0625|1.34008706184835|Apalachicola Emergent Marsh Vegetation Monitoring|5009
+2|Apalachicola Bay Aquatic Preserve|2017|Marsh succulents|Species Richness|6|1|3|3|2.33333333333333|1.03279555898864|Apalachicola Emergent Marsh Vegetation Monitoring|5009
+2|Apalachicola Bay Aquatic Preserve|2018|Marsh|Species Richness|9|1|4|4|2.88888888888889|1.45296631451356|Apalachicola Emergent Marsh Vegetation Monitoring|5009
+2|Apalachicola Bay Aquatic Preserve|2018|Marsh succulents|Species Richness|6|1|3|3|2.33333333333333|1.03279555898864|Apalachicola Emergent Marsh Vegetation Monitoring|5009
+2|Apalachicola Bay Aquatic Preserve|2019|Marsh|Species Richness|10|1|4|3|2.4|1.26491106406735|Apalachicola Emergent Marsh Vegetation Monitoring|5009
+2|Apalachicola Bay Aquatic Preserve|2019|Marsh succulents|Species Richness|6|1|3|3|2.33333333333333|1.03279555898864|Apalachicola Emergent Marsh Vegetation Monitoring|5009
+2|Apalachicola Bay Aquatic Preserve|2020|Marsh|Species Richness|14|1|4|1|1.85714285714286|1.09945041215655|Apalachicola Emergent Marsh Vegetation Monitoring, Coastal Habitat Integrated Mapping and Monitoring Program (CHIMMP) Pilot Monitoring Data|651, 5009
+2|Apalachicola Bay Aquatic Preserve|2020|Marsh succulents|Species Richness|8|1|3|2|2|1.0690449676497|Apalachicola Emergent Marsh Vegetation Monitoring, Coastal Habitat Integrated Mapping and Monitoring Program (CHIMMP) Pilot Monitoring Data|651, 5009
+2|Apalachicola Bay Aquatic Preserve|2021|Marsh|Species Richness|6|1|3|1.5|1.83333333333333|0.983192080250175|Apalachicola Emergent Marsh Vegetation Monitoring|5009
+2|Apalachicola Bay Aquatic Preserve|2021|Marsh succulents|Species Richness|3|1|3|3|2.33333333333333|1.15470053837925|Apalachicola Emergent Marsh Vegetation Monitoring|5009
+2|Apalachicola Bay Aquatic Preserve|2022|Mangroves and associate|Species Richness|2|1|1|1|1|0|Apalachicola Emergent Marsh Vegetation Monitoring|5009
+2|Apalachicola Bay Aquatic Preserve|2022|Marsh|Species Richness|29|1|4|1|1.75862068965517|0.98760794758248|Apalachicola Emergent Marsh Vegetation Monitoring|5009
+2|Apalachicola Bay Aquatic Preserve|2022|Marsh succulents|Species Richness|7|1|3|1|1.57142857142857|0.975900072948533|Apalachicola Emergent Marsh Vegetation Monitoring|5009
+2|Apalachicola Bay Aquatic Preserve|2023|Mangroves and associate|Species Richness|2|1|1|1|1|0|Apalachicola Emergent Marsh Vegetation Monitoring|5009
+2|Apalachicola Bay Aquatic Preserve|2023|Marsh|Species Richness|30|1|4|1|1.8|0.99654575824488|Apalachicola Emergent Marsh Vegetation Monitoring|5009
+2|Apalachicola Bay Aquatic Preserve|2023|Marsh succulents|Species Richness|5|1|3|1|1.8|1.09544511501033|Apalachicola Emergent Marsh Vegetation Monitoring|5009
 3|Apalachicola National Estuarine Research Reserve|||Species Richness|0||||||""|""
 4|Banana River Aquatic Preserve|||Species Richness|0||||||""|""
 5|Big Bend Seagrasses Aquatic Preserve|2013|Marsh|Species Richness|3|1|2|2|1.66666666666667|0.577350269189626|Inventory and Monitoring Network Status and Trends|620
@@ -63,7 +75,7 @@ AreaID|ManagedAreaName|Year|SpeciesGroup|ParameterName|N_Data|Min|Max|Median|Mea
 20|Guana Tolomato Matanzas National Estuarine Research Reserve|2016|Marsh succulents|Species Richness|48|1|2|1|1.41666666666667|0.498223795452014|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
 20|Guana Tolomato Matanzas National Estuarine Research Reserve|2017|Mangroves and associate|Species Richness|49|1|1|1|1|0|Coastal Habitat Integrated Mapping and Monitoring Program (CHIMMP) Pilot Monitoring Data, GTMNERR Mangrove Monitoring, Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|651, 4017, 5015
 20|Guana Tolomato Matanzas National Estuarine Research Reserve|2017|Marsh|Species Richness|100|1|3|1|1.12|0.408989886516436|Coastal Habitat Integrated Mapping and Monitoring Program (CHIMMP) Pilot Monitoring Data, Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|651, 4017
-20|Guana Tolomato Matanzas National Estuarine Research Reserve|2017|Marsh succulents|Species Richness|50|1|3|2|1.64|0.562791874388349|Coastal Habitat Integrated Mapping and Monitoring Program (CHIMMP) Pilot Monitoring Data, Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|651, 4017
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2017|Marsh succulents|Species Richness|50|1|4|2|1.68|0.68332918532008|Coastal Habitat Integrated Mapping and Monitoring Program (CHIMMP) Pilot Monitoring Data, Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|651, 4017
 20|Guana Tolomato Matanzas National Estuarine Research Reserve|2018|Mangroves and associate|Species Richness|35|1|1|1|1|0|GTMNERR Mangrove Monitoring, Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017, 5015
 20|Guana Tolomato Matanzas National Estuarine Research Reserve|2018|Marsh|Species Richness|98|1|2|1|1.1530612244898|0.361897656442662|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
 20|Guana Tolomato Matanzas National Estuarine Research Reserve|2018|Marsh succulents|Species Richness|51|1|2|1|1.31372549019608|0.468623348903205|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
@@ -91,7 +103,7 @@ AreaID|ManagedAreaName|Year|SpeciesGroup|ParameterName|N_Data|Min|Max|Median|Mea
 33|Pellicer Creek Aquatic Preserve|||Species Richness|0||||||""|""
 34|Pine Island Sound Aquatic Preserve|2004|Marsh succulents|Species Richness|17|1|2|1|1.11764705882353|0.332105582077536|Mangrove Monitoring|3029
 35|Pinellas County Aquatic Preserve|2014|Mangroves and associate|Species Richness|1|3|3|3|3||Tampa Bay Critical Coastal Habitat Assessment|906
-35|Pinellas County Aquatic Preserve|2014|Marsh|Species Richness|1|4|4|4|4||Tampa Bay Critical Coastal Habitat Assessment|906
+35|Pinellas County Aquatic Preserve|2014|Marsh|Species Richness|1|5|5|5|5||Tampa Bay Critical Coastal Habitat Assessment|906
 35|Pinellas County Aquatic Preserve|2014|Marsh succulents|Species Richness|1|3|3|3|3||Tampa Bay Critical Coastal Habitat Assessment|906
 37|Rocky Bayou State Park Aquatic Preserve|||Species Richness|0||||||""|""
 38|Rookery Bay Aquatic Preserve|||Species Richness|0||||||""|""

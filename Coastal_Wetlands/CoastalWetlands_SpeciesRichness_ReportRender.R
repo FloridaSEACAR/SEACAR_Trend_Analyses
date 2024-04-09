@@ -1,5 +1,5 @@
 #The purpose of this script is to automate the production of Rmd documents and analysis for Coastal Wetlands.
-
+# Updated 4-9-24 - T.Hill
 
 ## WHEN RUNNING IN RSTUDIO:
 ## Set working directory to "Source File Location" in "Session" menu
@@ -12,12 +12,13 @@ library(dplyr)
 library(data.table)
 library(utils)
 library(rstudioapi)
+library(stringr)
 
 # Gets directory of this script and sets it as the working directory
 wd <- dirname(getActiveDocumentContext()$path)
 setwd(wd)
 
-
+source("../SEACAR_data_location.R")
 #Set output directory
 out_dir <- "output"
 
@@ -32,10 +33,10 @@ MA_All <- fread("data/ManagedArea.csv", sep = ",", header = TRUE, stringsAsFacto
                 na.strings = "")
 
 #Gets the files with the file names containing the desired parameter
-file_in <- list.files("data", pattern="All_CW", full=TRUE)
+file_in <- list.files(seacar_data_location, pattern="All_CW", full=TRUE)
 
 #Gets the specific file used and removes the directory names
-file_short <- sub("data/", "", file_in)
+file_short <- tail(str_split(file_in, "/")[[1]], 1)
 
 #Renders CoastalWetlands_SpeciesRichness.Rmd and writes the report to a pdf and 
 #Word document stored in output directory

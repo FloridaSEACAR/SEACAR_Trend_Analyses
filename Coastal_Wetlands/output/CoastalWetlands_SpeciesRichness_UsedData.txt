@@ -12,360 +12,198 @@ Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation 
 Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM1-1|2016-10-03T00:00:00Z|Marsh|Species Richness|2016|10|1
 Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM1-1|2017-04-17T00:00:00Z|Marsh|Species Richness|2017|4|1
 Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM1-1|2017-10-30T00:00:00Z|Marsh|Species Richness|2017|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM1-2|2015-04-06T00:00:00Z|Marsh|Species Richness|2015|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM1-2|2015-10-12T00:00:00Z|Marsh|Species Richness|2015|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM1-2|2016-04-04T00:00:00Z|Marsh|Species Richness|2016|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM1-2|2016-10-03T00:00:00Z|Marsh|Species Richness|2016|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM1-2|2017-04-17T00:00:00Z|Marsh|Species Richness|2017|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM1-2|2017-10-30T00:00:00Z|Marsh|Species Richness|2017|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM1-3|2014-11-03T00:00:00Z|Marsh|Species Richness|2014|11|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM1-3|2015-04-06T00:00:00Z|Marsh|Species Richness|2015|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM1-3|2015-10-12T00:00:00Z|Marsh|Species Richness|2015|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM1-3|2016-04-04T00:00:00Z|Marsh|Species Richness|2016|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM1-3|2016-10-03T00:00:00Z|Marsh|Species Richness|2016|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM1-3|2017-04-17T00:00:00Z|Marsh|Species Richness|2017|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM1-3|2017-10-30T00:00:00Z|Marsh|Species Richness|2017|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM1-4|2014-11-03T00:00:00Z|Marsh|Species Richness|2014|11|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM1-4|2015-04-06T00:00:00Z|Marsh|Species Richness|2015|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM1-4|2016-10-03T00:00:00Z|Marsh|Species Richness|2016|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM1-4|2017-10-30T00:00:00Z|Marsh|Species Richness|2017|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM1-5|2014-11-03T00:00:00Z|Marsh|Species Richness|2014|11|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM1-5|2016-04-04T00:00:00Z|Marsh|Species Richness|2016|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM1-5|2016-10-03T00:00:00Z|Marsh|Species Richness|2016|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM1-5|2017-04-17T00:00:00Z|Marsh|Species Richness|2017|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM2-1|2014-11-03T00:00:00Z|Marsh|Species Richness|2014|11|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM2-1|2015-10-12T00:00:00Z|Marsh|Species Richness|2015|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM2-1|2016-04-04T00:00:00Z|Marsh|Species Richness|2016|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM2-1|2016-10-03T00:00:00Z|Marsh|Species Richness|2016|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM2-1|2017-04-17T00:00:00Z|Marsh|Species Richness|2017|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM2-1|2017-10-30T00:00:00Z|Marsh|Species Richness|2017|10|1
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM1-1|2018-04-23T00:00:00Z|Marsh|Species Richness|2018|4|1
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM1-1|2019-11-04T00:00:00Z|Marsh|Species Richness|2019|11|1
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM1-1|2020-05-13T00:00:00Z|Marsh|Species Richness|2020|5|1
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM1-1|2020-10-06T00:00:00Z|Marsh|Species Richness|2020|10|1
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM1-1|2021-03-29T00:00:00Z|Marsh|Species Richness|2021|3|1
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM1-1|2022-04-26T00:00:00Z|Marsh|Species Richness|2022|4|1
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM1-1|2023-04-19T00:00:00Z|Marsh|Species Richness|2023|4|1
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM2-2|2014-11-03T00:00:00Z|Marsh|Species Richness|2014|11|1
 Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM2-2|2015-04-06T00:00:00Z|Marsh|Species Richness|2015|4|1
 Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM2-2|2015-10-12T00:00:00Z|Marsh|Species Richness|2015|10|1
 Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM2-2|2016-04-04T00:00:00Z|Marsh|Species Richness|2016|4|1
 Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM2-2|2016-10-03T00:00:00Z|Marsh|Species Richness|2016|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM2-3|2014-11-03T00:00:00Z|Marsh|Species Richness|2014|11|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM2-3|2015-04-06T00:00:00Z|Marsh|Species Richness|2015|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM2-3|2015-10-12T00:00:00Z|Marsh|Species Richness|2015|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM2-3|2016-04-04T00:00:00Z|Marsh|Species Richness|2016|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM2-3|2016-10-03T00:00:00Z|Marsh|Species Richness|2016|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM2-3|2017-10-30T00:00:00Z|Marsh|Species Richness|2017|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM2-4|2014-11-03T00:00:00Z|Marsh|Species Richness|2014|11|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM2-4|2015-04-06T00:00:00Z|Marsh|Species Richness|2015|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM2-4|2016-04-04T00:00:00Z|Marsh|Species Richness|2016|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM2-4|2017-04-17T00:00:00Z|Marsh|Species Richness|2017|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM2-5|2015-04-06T00:00:00Z|Marsh|Species Richness|2015|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM2-6|2016-10-03T00:00:00Z|Marsh|Species Richness|2016|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM2-6|2017-04-17T00:00:00Z|Marsh|Species Richness|2017|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM2-6|2017-10-30T00:00:00Z|Marsh|Species Richness|2017|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM3-1|2014-11-03T00:00:00Z|Marsh|Species Richness|2014|11|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM3-1|2015-04-06T00:00:00Z|Marsh|Species Richness|2015|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM3-1|2015-10-12T00:00:00Z|Marsh|Species Richness|2015|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM3-1|2016-04-04T00:00:00Z|Marsh|Species Richness|2016|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM3-1|2017-04-17T00:00:00Z|Marsh|Species Richness|2017|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM3-1|2017-10-30T00:00:00Z|Marsh|Species Richness|2017|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM3-2|2015-04-06T00:00:00Z|Marsh|Species Richness|2015|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM3-2|2015-10-12T00:00:00Z|Marsh|Species Richness|2015|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM3-2|2016-04-04T00:00:00Z|Marsh|Species Richness|2016|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM3-2|2016-10-03T00:00:00Z|Marsh|Species Richness|2016|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM3-2|2017-04-17T00:00:00Z|Marsh|Species Richness|2017|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM3-2|2017-10-30T00:00:00Z|Marsh|Species Richness|2017|10|1
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM2-2|2017-04-17T00:00:00Z|Marsh|Species Richness|2017|4|2
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM2-2|2017-10-30T00:00:00Z|Marsh|Species Richness|2017|10|1
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM2-2|2018-04-23T00:00:00Z|Marsh|Species Richness|2018|4|1
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM2-2|2019-04-29T00:00:00Z|Marsh|Species Richness|2019|4|1
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM2-2|2019-11-04T00:00:00Z|Marsh|Species Richness|2019|11|1
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM2-2|2020-05-13T00:00:00Z|Marsh|Species Richness|2020|5|1
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM2-2|2020-10-06T00:00:00Z|Marsh|Species Richness|2020|10|1
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM2-2|2021-03-29T00:00:00Z|Marsh|Species Richness|2021|3|1
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM2-2|2022-04-26T00:00:00Z|Marsh|Species Richness|2022|4|1
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM2-2|2023-04-19T00:00:00Z|Marsh|Species Richness|2023|4|1
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM3-3|2014-11-03T00:00:00Z|Marsh|Species Richness|2014|11|1
 Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM3-3|2015-04-06T00:00:00Z|Marsh|Species Richness|2015|4|1
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM3-3|2015-10-12T00:00:00Z|Marsh|Species Richness|2015|10|1
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM3-3|2016-04-04T00:00:00Z|Marsh|Species Richness|2016|4|1
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM3-3|2016-10-03T00:00:00Z|Marsh|Species Richness|2016|10|1
 Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM3-3|2017-04-17T00:00:00Z|Marsh|Species Richness|2017|4|1
 Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM3-3|2017-10-30T00:00:00Z|Marsh|Species Richness|2017|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-1|2014-11-04T00:00:00Z|Marsh|Species Richness|2014|11|2
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM3-3|2018-04-23T00:00:00Z|Marsh|Species Richness|2018|4|1
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM3-3|2019-11-04T00:00:00Z|Marsh|Species Richness|2019|11|1
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM3-3|2020-05-13T00:00:00Z|Marsh|Species Richness|2020|5|1
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM3-3|2021-03-29T00:00:00Z|Marsh|Species Richness|2021|3|1
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM3-3|2022-04-26T00:00:00Z|Marsh|Species Richness|2022|4|1
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM3-3|2023-04-19T00:00:00Z|Marsh|Species Richness|2023|4|1
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-1|2014-11-04T00:00:00Z|Marsh|Species Richness|2014|11|5
 Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-1|2014-11-04T00:00:00Z|Marsh succulents|Species Richness|2014|11|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-1|2015-04-07T00:00:00Z|Marsh|Species Richness|2015|4|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-1|2015-04-07T00:00:00Z|Marsh succulents|Species Richness|2015|4|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-1|2015-10-12T00:00:00Z|Marsh|Species Richness|2015|10|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-1|2015-10-12T00:00:00Z|Marsh succulents|Species Richness|2015|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-1|2016-04-05T00:00:00Z|Marsh|Species Richness|2016|4|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-1|2016-04-05T00:00:00Z|Marsh succulents|Species Richness|2016|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-2|2014-11-04T00:00:00Z|Marsh|Species Richness|2014|11|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-2|2015-04-07T00:00:00Z|Marsh|Species Richness|2015|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-2|2015-10-12T00:00:00Z|Marsh|Species Richness|2015|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-2|2016-04-05T00:00:00Z|Marsh|Species Richness|2016|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-2|2016-10-04T00:00:00Z|Marsh|Species Richness|2016|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-2|2017-04-18T00:00:00Z|Marsh|Species Richness|2017|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-2|2017-10-30T00:00:00Z|Marsh|Species Richness|2017|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-3|2014-11-04T00:00:00Z|Marsh|Species Richness|2014|11|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-3|2015-04-07T00:00:00Z|Marsh|Species Richness|2015|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-3|2015-10-12T00:00:00Z|Marsh|Species Richness|2015|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-3|2016-04-05T00:00:00Z|Marsh|Species Richness|2016|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-3|2016-10-04T00:00:00Z|Marsh|Species Richness|2016|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-3|2017-04-18T00:00:00Z|Marsh|Species Richness|2017|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-3|2017-10-30T00:00:00Z|Marsh|Species Richness|2017|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-4|2014-11-04T00:00:00Z|Marsh|Species Richness|2014|11|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-4|2015-04-07T00:00:00Z|Marsh|Species Richness|2015|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-4|2015-10-12T00:00:00Z|Marsh|Species Richness|2015|10|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-4|2016-04-05T00:00:00Z|Marsh|Species Richness|2016|4|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-4|2016-10-04T00:00:00Z|Marsh|Species Richness|2016|10|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-4|2017-04-18T00:00:00Z|Marsh|Species Richness|2017|4|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-4|2017-10-30T00:00:00Z|Marsh|Species Richness|2017|10|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-5|2014-11-04T00:00:00Z|Marsh|Species Richness|2014|11|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-5|2014-11-04T00:00:00Z|Marsh succulents|Species Richness|2014|11|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-5|2015-04-07T00:00:00Z|Marsh|Species Richness|2015|4|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-5|2015-04-07T00:00:00Z|Marsh succulents|Species Richness|2015|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-5|2015-10-12T00:00:00Z|Marsh|Species Richness|2015|10|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-5|2015-10-12T00:00:00Z|Marsh succulents|Species Richness|2015|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-5|2016-04-05T00:00:00Z|Marsh|Species Richness|2016|4|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-5|2016-04-05T00:00:00Z|Marsh succulents|Species Richness|2016|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-5|2016-10-04T00:00:00Z|Marsh|Species Richness|2016|10|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-5|2016-10-04T00:00:00Z|Marsh succulents|Species Richness|2016|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-5|2017-04-18T00:00:00Z|Marsh|Species Richness|2017|4|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-5|2017-04-18T00:00:00Z|Marsh succulents|Species Richness|2017|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-5|2017-10-30T00:00:00Z|Marsh|Species Richness|2017|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-5|2017-10-30T00:00:00Z|Marsh succulents|Species Richness|2017|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-6|2014-11-04T00:00:00Z|Marsh|Species Richness|2014|11|3
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-6|2015-04-07T00:00:00Z|Marsh|Species Richness|2015|4|3
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-6|2015-10-12T00:00:00Z|Marsh|Species Richness|2015|10|3
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-6|2016-04-05T00:00:00Z|Marsh|Species Richness|2016|4|3
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-6|2016-10-04T00:00:00Z|Marsh|Species Richness|2016|10|3
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-6|2017-04-18T00:00:00Z|Marsh|Species Richness|2017|4|3
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-6|2017-10-30T00:00:00Z|Marsh|Species Richness|2017|10|3
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-7|2014-11-04T00:00:00Z|Marsh|Species Richness|2014|11|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-7|2015-04-07T00:00:00Z|Marsh|Species Richness|2015|4|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-7|2015-10-12T00:00:00Z|Marsh|Species Richness|2015|10|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-7|2016-04-05T00:00:00Z|Marsh|Species Richness|2016|4|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-7|2016-10-04T00:00:00Z|Marsh|Species Richness|2016|10|3
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-7|2017-04-18T00:00:00Z|Marsh|Species Richness|2017|4|3
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-7|2017-10-30T00:00:00Z|Marsh|Species Richness|2017|10|3
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-8|2014-11-04T00:00:00Z|Marsh|Species Richness|2014|11|3
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-8|2015-04-07T00:00:00Z|Marsh|Species Richness|2015|4|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-8|2015-10-12T00:00:00Z|Marsh|Species Richness|2015|10|3
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-8|2016-04-05T00:00:00Z|Marsh|Species Richness|2016|4|3
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-8|2016-10-04T00:00:00Z|Marsh|Species Richness|2016|10|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-8|2017-04-18T00:00:00Z|Marsh|Species Richness|2017|4|3
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-8|2017-10-30T00:00:00Z|Marsh|Species Richness|2017|10|3
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-9|2014-11-04T00:00:00Z|Marsh|Species Richness|2014|11|3
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-9|2015-04-07T00:00:00Z|Marsh|Species Richness|2015|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-9|2015-10-12T00:00:00Z|Marsh|Species Richness|2015|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-9|2016-04-05T00:00:00Z|Marsh|Species Richness|2016|4|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-9|2016-10-04T00:00:00Z|Marsh|Species Richness|2016|10|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-9|2017-04-18T00:00:00Z|Marsh|Species Richness|2017|4|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-9|2017-10-30T00:00:00Z|Marsh|Species Richness|2017|10|3
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-1|2014-11-04T00:00:00Z|Marsh|Species Richness|2014|11|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-1|2015-04-07T00:00:00Z|Marsh|Species Richness|2015|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-1|2015-10-12T00:00:00Z|Marsh|Species Richness|2015|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-1|2016-04-05T00:00:00Z|Marsh|Species Richness|2016|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-1|2016-10-04T00:00:00Z|Marsh|Species Richness|2016|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-1|2017-04-18T00:00:00Z|Marsh|Species Richness|2017|4|1
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-1|2015-04-07T00:00:00Z|Marsh|Species Richness|2015|4|3
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-1|2015-04-07T00:00:00Z|Marsh succulents|Species Richness|2015|4|3
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-1|2015-10-12T00:00:00Z|Marsh|Species Richness|2015|10|3
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-1|2015-10-12T00:00:00Z|Marsh succulents|Species Richness|2015|10|2
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-1|2016-04-05T00:00:00Z|Marsh|Species Richness|2016|4|3
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-1|2016-04-05T00:00:00Z|Marsh succulents|Species Richness|2016|4|2
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-1|2016-10-04T00:00:00Z|Marsh|Species Richness|2016|10|3
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-1|2016-10-04T00:00:00Z|Marsh succulents|Species Richness|2016|10|1
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-1|2017-04-18T00:00:00Z|Marsh|Species Richness|2017|4|3
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-1|2017-04-18T00:00:00Z|Marsh succulents|Species Richness|2017|4|1
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-1|2017-10-30T00:00:00Z|Marsh|Species Richness|2017|10|3
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-1|2017-10-30T00:00:00Z|Marsh succulents|Species Richness|2017|10|1
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-1|2018-04-23T00:00:00Z|Marsh|Species Richness|2018|4|3
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-1|2018-04-23T00:00:00Z|Marsh succulents|Species Richness|2018|4|1
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-1|2018-11-27T00:00:00Z|Marsh|Species Richness|2018|11|4
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-1|2018-11-27T00:00:00Z|Marsh succulents|Species Richness|2018|11|1
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-1|2019-04-29T00:00:00Z|Marsh|Species Richness|2019|4|3
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-1|2019-04-29T00:00:00Z|Marsh succulents|Species Richness|2019|4|1
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-1|2019-11-04T00:00:00Z|Marsh|Species Richness|2019|11|3
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-1|2019-11-04T00:00:00Z|Marsh succulents|Species Richness|2019|11|1
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-1|2020-05-13T00:00:00Z|Marsh|Species Richness|2020|5|3
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-1|2020-05-13T00:00:00Z|Marsh succulents|Species Richness|2020|5|1
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-1|2020-10-06T00:00:00Z|Marsh|Species Richness|2020|10|3
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-1|2020-10-06T00:00:00Z|Marsh succulents|Species Richness|2020|10|1
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-1|2021-03-29T00:00:00Z|Marsh|Species Richness|2021|3|3
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-1|2021-03-29T00:00:00Z|Marsh succulents|Species Richness|2021|3|1
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-1|2022-04-25T00:00:00Z|Marsh|Species Richness|2022|4|3
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-1|2023-04-19T00:00:00Z|Marsh|Species Richness|2023|4|3
 Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-1|2017-10-30T00:00:00Z|Marsh|Species Richness|2017|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-2|2014-11-04T00:00:00Z|Marsh|Species Richness|2014|11|1
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-2|2014-11-04T00:00:00Z|Marsh|Species Richness|2014|11|4
 Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-2|2014-11-04T00:00:00Z|Marsh succulents|Species Richness|2014|11|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-2|2015-04-07T00:00:00Z|Marsh|Species Richness|2015|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-2|2015-04-07T00:00:00Z|Marsh succulents|Species Richness|2015|4|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-2|2015-10-12T00:00:00Z|Marsh|Species Richness|2015|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-2|2015-10-12T00:00:00Z|Marsh succulents|Species Richness|2015|10|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-2|2016-04-05T00:00:00Z|Marsh|Species Richness|2016|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-2|2016-04-05T00:00:00Z|Marsh succulents|Species Richness|2016|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-2|2016-10-04T00:00:00Z|Marsh|Species Richness|2016|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-2|2016-10-04T00:00:00Z|Marsh succulents|Species Richness|2016|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-2|2017-04-18T00:00:00Z|Marsh|Species Richness|2017|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-2|2017-04-18T00:00:00Z|Marsh succulents|Species Richness|2017|4|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-2|2017-10-30T00:00:00Z|Marsh|Species Richness|2017|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-2|2017-10-30T00:00:00Z|Marsh succulents|Species Richness|2017|10|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-3|2014-11-04T00:00:00Z|Marsh|Species Richness|2014|11|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-3|2015-04-07T00:00:00Z|Marsh|Species Richness|2015|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-3|2015-10-12T00:00:00Z|Marsh|Species Richness|2015|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-3|2016-04-05T00:00:00Z|Marsh|Species Richness|2016|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-3|2016-10-04T00:00:00Z|Marsh|Species Richness|2016|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-3|2017-04-18T00:00:00Z|Marsh|Species Richness|2017|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-3|2017-10-30T00:00:00Z|Marsh|Species Richness|2017|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-4|2014-11-04T00:00:00Z|Marsh|Species Richness|2014|11|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-4|2014-11-04T00:00:00Z|Marsh succulents|Species Richness|2014|11|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-4|2015-04-07T00:00:00Z|Marsh|Species Richness|2015|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-4|2015-04-07T00:00:00Z|Marsh succulents|Species Richness|2015|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-4|2015-10-12T00:00:00Z|Marsh|Species Richness|2015|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-4|2015-10-12T00:00:00Z|Marsh succulents|Species Richness|2015|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-4|2016-04-05T00:00:00Z|Marsh|Species Richness|2016|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-4|2016-04-05T00:00:00Z|Marsh succulents|Species Richness|2016|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-4|2016-10-04T00:00:00Z|Marsh|Species Richness|2016|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-4|2016-10-04T00:00:00Z|Marsh succulents|Species Richness|2016|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-4|2017-04-18T00:00:00Z|Marsh|Species Richness|2017|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-4|2017-04-18T00:00:00Z|Marsh succulents|Species Richness|2017|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-4|2017-10-30T00:00:00Z|Marsh|Species Richness|2017|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-4|2017-10-30T00:00:00Z|Marsh succulents|Species Richness|2017|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-5|2014-11-04T00:00:00Z|Marsh|Species Richness|2014|11|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-5|2015-04-07T00:00:00Z|Marsh|Species Richness|2015|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-5|2015-10-12T00:00:00Z|Marsh|Species Richness|2015|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-5|2016-04-05T00:00:00Z|Marsh|Species Richness|2016|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-5|2016-10-04T00:00:00Z|Marsh|Species Richness|2016|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-5|2017-04-18T00:00:00Z|Marsh|Species Richness|2017|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-5|2017-10-30T00:00:00Z|Marsh|Species Richness|2017|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-6|2014-11-04T00:00:00Z|Marsh|Species Richness|2014|11|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-6|2014-11-04T00:00:00Z|Marsh succulents|Species Richness|2014|11|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-6|2015-04-07T00:00:00Z|Marsh|Species Richness|2015|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-6|2015-04-07T00:00:00Z|Marsh succulents|Species Richness|2015|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-6|2015-10-12T00:00:00Z|Marsh|Species Richness|2015|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-6|2015-10-12T00:00:00Z|Marsh succulents|Species Richness|2015|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-6|2016-04-05T00:00:00Z|Marsh|Species Richness|2016|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-6|2016-04-05T00:00:00Z|Marsh succulents|Species Richness|2016|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-6|2016-10-04T00:00:00Z|Marsh|Species Richness|2016|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-6|2016-10-04T00:00:00Z|Marsh succulents|Species Richness|2016|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-6|2017-04-18T00:00:00Z|Marsh|Species Richness|2017|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-6|2017-04-18T00:00:00Z|Marsh succulents|Species Richness|2017|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-6|2017-10-30T00:00:00Z|Marsh|Species Richness|2017|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-6|2017-10-30T00:00:00Z|Marsh succulents|Species Richness|2017|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-7|2014-11-04T00:00:00Z|Marsh|Species Richness|2014|11|4
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-7|2014-11-04T00:00:00Z|Marsh succulents|Species Richness|2014|11|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-7|2015-04-07T00:00:00Z|Marsh|Species Richness|2015|4|4
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-7|2015-04-07T00:00:00Z|Marsh succulents|Species Richness|2015|4|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-7|2015-10-12T00:00:00Z|Marsh|Species Richness|2015|10|4
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-7|2015-10-12T00:00:00Z|Marsh succulents|Species Richness|2015|10|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-7|2016-04-05T00:00:00Z|Marsh|Species Richness|2016|4|4
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-7|2016-04-05T00:00:00Z|Marsh succulents|Species Richness|2016|4|3
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-7|2016-10-04T00:00:00Z|Marsh|Species Richness|2016|10|4
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-7|2016-10-04T00:00:00Z|Marsh succulents|Species Richness|2016|10|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-7|2017-04-18T00:00:00Z|Marsh|Species Richness|2017|4|4
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-7|2017-04-18T00:00:00Z|Marsh succulents|Species Richness|2017|4|3
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-7|2017-10-30T00:00:00Z|Marsh|Species Richness|2017|10|4
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-7|2017-10-30T00:00:00Z|Marsh succulents|Species Richness|2017|10|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-8|2014-11-04T00:00:00Z|Marsh|Species Richness|2014|11|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-8|2014-11-04T00:00:00Z|Marsh succulents|Species Richness|2014|11|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-8|2015-04-07T00:00:00Z|Marsh|Species Richness|2015|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-8|2015-04-07T00:00:00Z|Marsh succulents|Species Richness|2015|4|3
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-8|2015-10-12T00:00:00Z|Marsh|Species Richness|2015|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-8|2015-10-12T00:00:00Z|Marsh succulents|Species Richness|2015|10|3
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-8|2016-04-05T00:00:00Z|Marsh|Species Richness|2016|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-8|2016-04-05T00:00:00Z|Marsh succulents|Species Richness|2016|4|3
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-8|2016-10-04T00:00:00Z|Marsh|Species Richness|2016|10|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-8|2016-10-04T00:00:00Z|Marsh succulents|Species Richness|2016|10|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-8|2017-04-18T00:00:00Z|Marsh|Species Richness|2017|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-8|2017-04-18T00:00:00Z|Marsh succulents|Species Richness|2017|4|3
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-8|2017-10-30T00:00:00Z|Marsh|Species Richness|2017|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-8|2017-10-30T00:00:00Z|Marsh succulents|Species Richness|2017|10|3
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-9|2014-11-04T00:00:00Z|Marsh|Species Richness|2014|11|3
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-9|2015-04-07T00:00:00Z|Marsh|Species Richness|2015|4|3
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-9|2015-10-12T00:00:00Z|Marsh|Species Richness|2015|10|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-9|2016-04-05T00:00:00Z|Marsh|Species Richness|2016|4|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-9|2016-10-04T00:00:00Z|Marsh|Species Richness|2016|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-9|2017-04-18T00:00:00Z|Marsh|Species Richness|2017|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-1|2014-11-04T00:00:00Z|Marsh|Species Richness|2014|11|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-1|2014-11-04T00:00:00Z|Marsh succulents|Species Richness|2014|11|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-1|2015-04-07T00:00:00Z|Marsh|Species Richness|2015|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-1|2015-04-07T00:00:00Z|Marsh succulents|Species Richness|2015|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-1|2015-10-12T00:00:00Z|Marsh|Species Richness|2015|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-1|2015-10-12T00:00:00Z|Marsh succulents|Species Richness|2015|10|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-1|2016-04-05T00:00:00Z|Marsh|Species Richness|2016|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-1|2016-04-05T00:00:00Z|Marsh succulents|Species Richness|2016|4|2
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-2|2015-04-07T00:00:00Z|Marsh|Species Richness|2015|4|4
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-2|2015-04-07T00:00:00Z|Marsh succulents|Species Richness|2015|4|3
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-2|2015-10-12T00:00:00Z|Marsh|Species Richness|2015|10|4
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-2|2015-10-12T00:00:00Z|Marsh succulents|Species Richness|2015|10|3
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-2|2016-04-05T00:00:00Z|Marsh|Species Richness|2016|4|4
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-2|2016-04-05T00:00:00Z|Marsh succulents|Species Richness|2016|4|3
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-2|2016-10-04T00:00:00Z|Marsh|Species Richness|2016|10|4
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-2|2016-10-04T00:00:00Z|Marsh succulents|Species Richness|2016|10|3
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-2|2017-04-18T00:00:00Z|Marsh|Species Richness|2017|4|4
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-2|2017-04-18T00:00:00Z|Marsh succulents|Species Richness|2017|4|3
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-2|2017-10-30T00:00:00Z|Marsh|Species Richness|2017|10|4
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-2|2017-10-30T00:00:00Z|Marsh succulents|Species Richness|2017|10|3
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-2|2018-04-23T00:00:00Z|Marsh|Species Richness|2018|4|4
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-2|2018-04-23T00:00:00Z|Marsh succulents|Species Richness|2018|4|3
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-2|2018-11-27T00:00:00Z|Marsh|Species Richness|2018|11|4
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-2|2018-11-27T00:00:00Z|Marsh succulents|Species Richness|2018|11|3
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-2|2019-04-29T00:00:00Z|Marsh|Species Richness|2019|4|4
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-2|2019-04-29T00:00:00Z|Marsh succulents|Species Richness|2019|4|3
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-2|2019-11-04T00:00:00Z|Marsh|Species Richness|2019|11|3
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-2|2019-11-04T00:00:00Z|Marsh succulents|Species Richness|2019|11|3
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-2|2020-05-13T00:00:00Z|Marsh|Species Richness|2020|5|3
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-2|2020-05-13T00:00:00Z|Marsh succulents|Species Richness|2020|5|3
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-2|2020-10-06T00:00:00Z|Marsh|Species Richness|2020|10|4
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-2|2020-10-06T00:00:00Z|Marsh succulents|Species Richness|2020|10|3
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-2|2021-03-29T00:00:00Z|Marsh|Species Richness|2021|3|3
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-2|2021-03-29T00:00:00Z|Marsh succulents|Species Richness|2021|3|3
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-2|2022-04-25T00:00:00Z|Marsh|Species Richness|2022|4|4
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-2|2022-04-25T00:00:00Z|Marsh succulents|Species Richness|2022|4|3
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-2|2023-04-19T00:00:00Z|Marsh|Species Richness|2023|4|3
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-2|2023-04-19T00:00:00Z|Marsh succulents|Species Richness|2023|4|3
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-7|2017-10-30T00:00:00Z|Marsh|Species Richness|2017|10|1
 Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-1|2017-10-30T00:00:00Z|Marsh|Species Richness|2017|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-1|2017-10-30T00:00:00Z|Marsh succulents|Species Richness|2017|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-10|2014-11-04T00:00:00Z|Marsh|Species Richness|2014|11|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-10|2014-11-04T00:00:00Z|Marsh succulents|Species Richness|2014|11|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-10|2015-04-07T00:00:00Z|Marsh|Species Richness|2015|4|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-10|2015-04-07T00:00:00Z|Marsh succulents|Species Richness|2015|4|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-10|2015-10-12T00:00:00Z|Marsh|Species Richness|2015|10|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-10|2015-10-12T00:00:00Z|Marsh succulents|Species Richness|2015|10|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-10|2016-04-05T00:00:00Z|Marsh|Species Richness|2016|4|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-10|2016-04-05T00:00:00Z|Marsh succulents|Species Richness|2016|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-10|2016-10-04T00:00:00Z|Marsh|Species Richness|2016|10|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-10|2016-10-04T00:00:00Z|Marsh succulents|Species Richness|2016|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-10|2017-04-18T00:00:00Z|Marsh|Species Richness|2017|4|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-10|2017-04-18T00:00:00Z|Marsh succulents|Species Richness|2017|4|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-10|2017-10-30T00:00:00Z|Marsh|Species Richness|2017|10|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-10|2017-10-30T00:00:00Z|Marsh succulents|Species Richness|2017|10|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-2|2014-11-04T00:00:00Z|Marsh|Species Richness|2014|11|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-2|2014-11-04T00:00:00Z|Marsh succulents|Species Richness|2014|11|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-2|2015-04-07T00:00:00Z|Marsh|Species Richness|2015|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-2|2015-04-07T00:00:00Z|Marsh succulents|Species Richness|2015|4|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-2|2015-10-12T00:00:00Z|Marsh|Species Richness|2015|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-2|2015-10-12T00:00:00Z|Marsh succulents|Species Richness|2015|10|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-2|2016-04-05T00:00:00Z|Marsh|Species Richness|2016|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-2|2016-04-05T00:00:00Z|Marsh succulents|Species Richness|2016|4|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-2|2016-10-04T00:00:00Z|Marsh|Species Richness|2016|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-2|2016-10-04T00:00:00Z|Marsh succulents|Species Richness|2016|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-2|2017-04-18T00:00:00Z|Marsh|Species Richness|2017|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-2|2017-04-18T00:00:00Z|Marsh succulents|Species Richness|2017|4|1
 Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-2|2017-10-30T00:00:00Z|Marsh|Species Richness|2017|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-2|2017-10-30T00:00:00Z|Marsh succulents|Species Richness|2017|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-3|2014-11-04T00:00:00Z|Marsh|Species Richness|2014|11|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-3|2015-04-07T00:00:00Z|Marsh|Species Richness|2015|4|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-3|2015-04-07T00:00:00Z|Marsh succulents|Species Richness|2015|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-3|2015-10-12T00:00:00Z|Marsh|Species Richness|2015|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-3|2015-10-12T00:00:00Z|Marsh succulents|Species Richness|2015|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-3|2016-04-05T00:00:00Z|Marsh|Species Richness|2016|4|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-3|2016-04-05T00:00:00Z|Marsh succulents|Species Richness|2016|4|1
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-3|2014-11-04T00:00:00Z|Marsh|Species Richness|2014|11|4
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-3|2014-11-04T00:00:00Z|Marsh succulents|Species Richness|2014|11|3
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-3|2015-04-07T00:00:00Z|Marsh|Species Richness|2015|4|3
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-3|2015-04-07T00:00:00Z|Marsh succulents|Species Richness|2015|4|3
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-3|2015-10-12T00:00:00Z|Marsh|Species Richness|2015|10|4
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-3|2015-10-12T00:00:00Z|Marsh succulents|Species Richness|2015|10|3
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-3|2016-04-05T00:00:00Z|Marsh|Species Richness|2016|4|4
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-3|2016-04-05T00:00:00Z|Marsh succulents|Species Richness|2016|4|3
 Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-3|2016-10-04T00:00:00Z|Marsh|Species Richness|2016|10|4
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-3|2016-10-04T00:00:00Z|Marsh succulents|Species Richness|2016|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-3|2017-04-18T00:00:00Z|Marsh|Species Richness|2017|4|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-3|2017-04-18T00:00:00Z|Marsh succulents|Species Richness|2017|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-3|2017-10-30T00:00:00Z|Marsh|Species Richness|2017|10|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-4|2014-11-04T00:00:00Z|Marsh succulents|Species Richness|2014|11|3
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-4|2015-04-07T00:00:00Z|Marsh succulents|Species Richness|2015|4|3
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-4|2015-10-12T00:00:00Z|Marsh succulents|Species Richness|2015|10|3
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-4|2016-04-05T00:00:00Z|Marsh succulents|Species Richness|2016|4|3
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-4|2016-10-04T00:00:00Z|Marsh succulents|Species Richness|2016|10|3
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-4|2017-04-18T00:00:00Z|Marsh succulents|Species Richness|2017|4|3
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-4|2017-10-30T00:00:00Z|Marsh succulents|Species Richness|2017|10|3
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-5|2014-11-04T00:00:00Z|Marsh|Species Richness|2014|11|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-5|2014-11-04T00:00:00Z|Marsh succulents|Species Richness|2014|11|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-5|2015-04-07T00:00:00Z|Marsh|Species Richness|2015|4|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-5|2015-04-07T00:00:00Z|Marsh succulents|Species Richness|2015|4|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-5|2015-10-12T00:00:00Z|Marsh|Species Richness|2015|10|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-5|2015-10-12T00:00:00Z|Marsh succulents|Species Richness|2015|10|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-5|2016-04-05T00:00:00Z|Marsh|Species Richness|2016|4|3
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-5|2016-04-05T00:00:00Z|Marsh succulents|Species Richness|2016|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-5|2016-10-04T00:00:00Z|Marsh|Species Richness|2016|10|3
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-5|2016-10-04T00:00:00Z|Marsh succulents|Species Richness|2016|10|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-5|2017-04-18T00:00:00Z|Marsh|Species Richness|2017|4|3
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-5|2017-04-18T00:00:00Z|Marsh succulents|Species Richness|2017|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-5|2017-10-30T00:00:00Z|Marsh|Species Richness|2017|10|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-5|2017-10-30T00:00:00Z|Marsh succulents|Species Richness|2017|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-6|2014-11-04T00:00:00Z|Marsh|Species Richness|2014|11|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-6|2014-11-04T00:00:00Z|Marsh succulents|Species Richness|2014|11|3
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-6|2015-04-07T00:00:00Z|Marsh|Species Richness|2015|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-6|2015-04-07T00:00:00Z|Marsh succulents|Species Richness|2015|4|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-6|2015-10-12T00:00:00Z|Marsh|Species Richness|2015|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-6|2015-10-12T00:00:00Z|Marsh succulents|Species Richness|2015|10|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-6|2016-04-05T00:00:00Z|Marsh|Species Richness|2016|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-6|2016-04-05T00:00:00Z|Marsh succulents|Species Richness|2016|4|3
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-6|2016-10-04T00:00:00Z|Marsh|Species Richness|2016|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-6|2016-10-04T00:00:00Z|Marsh succulents|Species Richness|2016|10|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-6|2017-04-18T00:00:00Z|Marsh|Species Richness|2017|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-6|2017-04-18T00:00:00Z|Marsh succulents|Species Richness|2017|4|3
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-6|2017-10-30T00:00:00Z|Marsh|Species Richness|2017|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-6|2017-10-30T00:00:00Z|Marsh succulents|Species Richness|2017|10|3
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-7|2014-11-04T00:00:00Z|Marsh|Species Richness|2014|11|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-7|2014-11-04T00:00:00Z|Marsh succulents|Species Richness|2014|11|3
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-7|2015-04-07T00:00:00Z|Marsh|Species Richness|2015|4|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-7|2015-04-07T00:00:00Z|Marsh succulents|Species Richness|2015|4|3
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-7|2015-10-12T00:00:00Z|Marsh|Species Richness|2015|10|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-7|2015-10-12T00:00:00Z|Marsh succulents|Species Richness|2015|10|3
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-7|2016-04-05T00:00:00Z|Marsh|Species Richness|2016|4|3
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-7|2016-04-05T00:00:00Z|Marsh succulents|Species Richness|2016|4|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-7|2016-10-04T00:00:00Z|Marsh|Species Richness|2016|10|3
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-7|2016-10-04T00:00:00Z|Marsh succulents|Species Richness|2016|10|3
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-7|2017-04-18T00:00:00Z|Marsh|Species Richness|2017|4|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-7|2017-04-18T00:00:00Z|Marsh succulents|Species Richness|2017|4|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-7|2017-10-30T00:00:00Z|Marsh|Species Richness|2017|10|3
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-7|2017-10-30T00:00:00Z|Marsh succulents|Species Richness|2017|10|3
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-8|2014-11-04T00:00:00Z|Marsh|Species Richness|2014|11|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-8|2014-11-04T00:00:00Z|Marsh succulents|Species Richness|2014|11|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-8|2015-04-07T00:00:00Z|Marsh|Species Richness|2015|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-8|2015-04-07T00:00:00Z|Marsh succulents|Species Richness|2015|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-8|2015-10-12T00:00:00Z|Marsh|Species Richness|2015|10|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-8|2015-10-12T00:00:00Z|Marsh succulents|Species Richness|2015|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-8|2016-04-05T00:00:00Z|Marsh|Species Richness|2016|4|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-8|2016-04-05T00:00:00Z|Marsh succulents|Species Richness|2016|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-8|2016-10-04T00:00:00Z|Marsh|Species Richness|2016|10|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-8|2016-10-04T00:00:00Z|Marsh succulents|Species Richness|2016|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-8|2017-04-18T00:00:00Z|Marsh|Species Richness|2017|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-8|2017-04-18T00:00:00Z|Marsh succulents|Species Richness|2017|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-8|2017-10-30T00:00:00Z|Marsh|Species Richness|2017|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-8|2017-10-30T00:00:00Z|Marsh succulents|Species Richness|2017|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-9|2014-11-04T00:00:00Z|Marsh|Species Richness|2014|11|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-9|2014-11-04T00:00:00Z|Marsh succulents|Species Richness|2014|11|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-9|2015-04-07T00:00:00Z|Marsh|Species Richness|2015|4|2
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-9|2015-04-07T00:00:00Z|Marsh succulents|Species Richness|2015|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-9|2015-10-12T00:00:00Z|Marsh|Species Richness|2015|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-9|2015-10-12T00:00:00Z|Marsh succulents|Species Richness|2015|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-9|2016-04-05T00:00:00Z|Marsh|Species Richness|2016|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-9|2016-10-04T00:00:00Z|Marsh|Species Richness|2016|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-9|2016-10-04T00:00:00Z|Marsh succulents|Species Richness|2016|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-9|2017-04-18T00:00:00Z|Marsh|Species Richness|2017|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-9|2017-04-18T00:00:00Z|Marsh succulents|Species Richness|2017|4|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-9|2017-10-30T00:00:00Z|Marsh|Species Richness|2017|10|1
-Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-9|2017-10-30T00:00:00Z|Marsh succulents|Species Richness|2017|10|1
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-3|2016-10-04T00:00:00Z|Marsh succulents|Species Richness|2016|10|3
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-3|2017-04-18T00:00:00Z|Marsh|Species Richness|2017|4|4
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-3|2017-04-18T00:00:00Z|Marsh succulents|Species Richness|2017|4|3
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-3|2017-10-30T00:00:00Z|Marsh|Species Richness|2017|10|4
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-3|2017-10-30T00:00:00Z|Marsh succulents|Species Richness|2017|10|3
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-3|2018-04-23T00:00:00Z|Marsh|Species Richness|2018|4|4
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-3|2018-04-23T00:00:00Z|Marsh succulents|Species Richness|2018|4|3
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-3|2018-11-27T00:00:00Z|Marsh|Species Richness|2018|11|4
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-3|2018-11-27T00:00:00Z|Marsh succulents|Species Richness|2018|11|3
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-3|2019-04-29T00:00:00Z|Marsh|Species Richness|2019|4|4
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-3|2019-04-29T00:00:00Z|Marsh succulents|Species Richness|2019|4|3
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-3|2019-11-04T00:00:00Z|Marsh|Species Richness|2019|11|3
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-3|2019-11-04T00:00:00Z|Marsh succulents|Species Richness|2019|11|3
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-3|2020-05-13T00:00:00Z|Marsh|Species Richness|2020|5|3
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-3|2020-05-13T00:00:00Z|Marsh succulents|Species Richness|2020|5|3
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-3|2020-10-06T00:00:00Z|Marsh|Species Richness|2020|10|2
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-3|2020-10-06T00:00:00Z|Marsh succulents|Species Richness|2020|10|3
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-3|2021-03-29T00:00:00Z|Marsh|Species Richness|2021|3|2
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-3|2021-03-29T00:00:00Z|Marsh succulents|Species Richness|2021|3|3
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-3|2022-04-25T00:00:00Z|Marsh|Species Richness|2022|4|4
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-3|2022-04-25T00:00:00Z|Marsh succulents|Species Richness|2022|4|3
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-3|2023-04-19T00:00:00Z|Marsh|Species Richness|2023|4|4
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-3|2023-04-19T00:00:00Z|Marsh succulents|Species Richness|2023|4|3
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U41-1|2022-04-26T00:00:00Z|Marsh|Species Richness|2022|4|2
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U41-1|2023-04-20T00:00:00Z|Marsh|Species Richness|2023|4|2
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U41-2|2022-04-26T00:00:00Z|Marsh|Species Richness|2022|4|1
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U41-2|2022-04-26T00:00:00Z|Marsh succulents|Species Richness|2022|4|1
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U41-2|2023-04-20T00:00:00Z|Marsh|Species Richness|2023|4|1
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U41-2|2023-04-20T00:00:00Z|Marsh succulents|Species Richness|2023|4|1
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U41-3|2022-04-26T00:00:00Z|Marsh|Species Richness|2022|4|1
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U41-3|2023-04-20T00:00:00Z|Marsh|Species Richness|2023|4|1
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U41-3|2023-04-20T00:00:00Z|Marsh succulents|Species Richness|2023|4|1
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U41-4|2022-04-26T00:00:00Z|Marsh|Species Richness|2022|4|1
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U41-4|2023-04-20T00:00:00Z|Marsh|Species Richness|2023|4|1
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U41-5|2022-04-26T00:00:00Z|Marsh|Species Richness|2022|4|1
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U41-5|2023-04-20T00:00:00Z|Marsh|Species Richness|2023|4|1
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U41-6|2022-04-26T00:00:00Z|Marsh|Species Richness|2022|4|1
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U41-6|2023-04-20T00:00:00Z|Marsh|Species Richness|2023|4|1
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U42-1|2022-04-26T00:00:00Z|Marsh|Species Richness|2022|4|3
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U42-1|2022-04-26T00:00:00Z|Marsh succulents|Species Richness|2022|4|1
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U42-1|2023-04-20T00:00:00Z|Marsh|Species Richness|2023|4|3
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U42-2|2022-04-26T00:00:00Z|Marsh|Species Richness|2022|4|2
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U42-2|2023-04-20T00:00:00Z|Marsh|Species Richness|2023|4|3
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U42-3|2022-04-26T00:00:00Z|Marsh|Species Richness|2022|4|3
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U42-3|2023-04-20T00:00:00Z|Marsh|Species Richness|2023|4|3
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U42-4|2022-04-26T00:00:00Z|Marsh|Species Richness|2022|4|2
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U42-4|2023-04-20T00:00:00Z|Marsh|Species Richness|2023|4|3
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U42-5|2022-04-26T00:00:00Z|Marsh|Species Richness|2022|4|3
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U42-5|2022-04-26T00:00:00Z|Marsh succulents|Species Richness|2022|4|1
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U42-5|2023-04-20T00:00:00Z|Marsh|Species Richness|2023|4|1
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U42-6|2022-04-26T00:00:00Z|Marsh|Species Richness|2022|4|1
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U42-6|2023-04-20T00:00:00Z|Marsh|Species Richness|2023|4|1
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U42-7|2022-04-26T00:00:00Z|Marsh|Species Richness|2022|4|1
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U42-7|2023-04-20T00:00:00Z|Marsh|Species Richness|2023|4|1
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U42-8|2022-04-26T00:00:00Z|Marsh|Species Richness|2022|4|2
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U42-8|2023-04-20T00:00:00Z|Marsh|Species Richness|2023|4|2
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U42-9|2022-04-26T00:00:00Z|Marsh|Species Richness|2022|4|1
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U42-9|2023-04-20T00:00:00Z|Marsh|Species Richness|2023|4|1
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-1|2022-04-26T00:00:00Z|Marsh|Species Richness|2022|4|2
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-1|2023-04-20T00:00:00Z|Marsh|Species Richness|2023|4|3
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-10|2022-04-26T00:00:00Z|Marsh|Species Richness|2022|4|1
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-10|2023-04-20T00:00:00Z|Marsh|Species Richness|2023|4|1
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-3|2022-04-26T00:00:00Z|Marsh|Species Richness|2022|4|1
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-3|2023-04-20T00:00:00Z|Marsh|Species Richness|2023|4|1
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-4|2022-04-26T00:00:00Z|Mangroves and associate|Species Richness|2022|4|1
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-4|2022-04-26T00:00:00Z|Marsh|Species Richness|2022|4|1
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-4|2023-04-20T00:00:00Z|Mangroves and associate|Species Richness|2023|4|1
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-4|2023-04-20T00:00:00Z|Marsh|Species Richness|2023|4|1
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-5|2022-04-26T00:00:00Z|Mangroves and associate|Species Richness|2022|4|1
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-5|2022-04-26T00:00:00Z|Marsh|Species Richness|2022|4|1
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-5|2022-04-26T00:00:00Z|Marsh succulents|Species Richness|2022|4|1
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-5|2023-04-20T00:00:00Z|Mangroves and associate|Species Richness|2023|4|1
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-5|2023-04-20T00:00:00Z|Marsh|Species Richness|2023|4|1
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-6|2022-04-26T00:00:00Z|Marsh|Species Richness|2022|4|1
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-6|2022-04-26T00:00:00Z|Marsh succulents|Species Richness|2022|4|1
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-6|2023-04-20T00:00:00Z|Marsh|Species Richness|2023|4|1
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-6|2023-04-20T00:00:00Z|Marsh succulents|Species Richness|2023|4|1
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-7|2022-04-26T00:00:00Z|Marsh|Species Richness|2022|4|2
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-7|2023-04-20T00:00:00Z|Marsh|Species Richness|2023|4|3
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-8|2022-04-26T00:00:00Z|Marsh|Species Richness|2022|4|3
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-8|2023-04-20T00:00:00Z|Marsh|Species Richness|2023|4|3
+Apalachicola Bay Aquatic Preserve|2|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-9|2023-04-20T00:00:00Z|Marsh|Species Richness|2023|4|2
 Apalachicola National Estuarine Research Reserve|3|||||||||
 Banana River Aquatic Preserve|4|||||||||
 Big Bend Seagrasses Aquatic Preserve|5|620|Inventory and Monitoring Network Status and Trends|137-08-0010|2013-12-31T00:00:00Z|Marsh|Species Richness|2013|12|2
@@ -1173,7 +1011,7 @@ Guana Tolomato Matanzas National Estuarine Research Reserve|20|651|Coastal Habit
 Guana Tolomato Matanzas National Estuarine Research Reserve|20|651|Coastal Habitat Integrated Mapping and Monitoring Program (CHIMMP) Pilot Monitoring Data|Nease Park-A3|2021-02-19T00:00:00Z|Marsh|Species Richness|2021|2|1
 Guana Tolomato Matanzas National Estuarine Research Reserve|20|651|Coastal Habitat Integrated Mapping and Monitoring Program (CHIMMP) Pilot Monitoring Data|Nease Park-B|2017-02-25T00:00:00Z|Mangroves and associate|Species Richness|2017|2|1
 Guana Tolomato Matanzas National Estuarine Research Reserve|20|651|Coastal Habitat Integrated Mapping and Monitoring Program (CHIMMP) Pilot Monitoring Data|Nease Park-B|2017-02-25T00:00:00Z|Marsh|Species Richness|2017|2|3
-Guana Tolomato Matanzas National Estuarine Research Reserve|20|651|Coastal Habitat Integrated Mapping and Monitoring Program (CHIMMP) Pilot Monitoring Data|Nease Park-B|2017-02-25T00:00:00Z|Marsh succulents|Species Richness|2017|2|3
+Guana Tolomato Matanzas National Estuarine Research Reserve|20|651|Coastal Habitat Integrated Mapping and Monitoring Program (CHIMMP) Pilot Monitoring Data|Nease Park-B|2017-02-25T00:00:00Z|Marsh succulents|Species Richness|2017|2|4
 Guana Tolomato Matanzas National Estuarine Research Reserve|20|651|Coastal Habitat Integrated Mapping and Monitoring Program (CHIMMP) Pilot Monitoring Data|Nease Park-B|2021-02-19T00:00:00Z|Mangroves and associate|Species Richness|2021|2|1
 Guana Tolomato Matanzas National Estuarine Research Reserve|20|651|Coastal Habitat Integrated Mapping and Monitoring Program (CHIMMP) Pilot Monitoring Data|Nease Park-B|2021-02-19T00:00:00Z|Marsh succulents|Species Richness|2021|2|2
 Guana Tolomato Matanzas National Estuarine Research Reserve|20|651|Coastal Habitat Integrated Mapping and Monitoring Program (CHIMMP) Pilot Monitoring Data|Nease Park-B|2021-02-21T00:00:00Z|Mangroves and associate|Species Richness|2021|2|1
@@ -1195,7 +1033,7 @@ Guana Tolomato Matanzas National Estuarine Research Reserve|20|651|Coastal Habit
 Guana Tolomato Matanzas National Estuarine Research Reserve|20|651|Coastal Habitat Integrated Mapping and Monitoring Program (CHIMMP) Pilot Monitoring Data|Nease Park-B3|2021-02-19T00:00:00Z|Marsh succulents|Species Richness|2021|2|2
 Guana Tolomato Matanzas National Estuarine Research Reserve|20|651|Coastal Habitat Integrated Mapping and Monitoring Program (CHIMMP) Pilot Monitoring Data|Nease Park-C|2017-02-25T00:00:00Z|Mangroves and associate|Species Richness|2017|2|1
 Guana Tolomato Matanzas National Estuarine Research Reserve|20|651|Coastal Habitat Integrated Mapping and Monitoring Program (CHIMMP) Pilot Monitoring Data|Nease Park-C|2017-02-25T00:00:00Z|Marsh|Species Richness|2017|2|3
-Guana Tolomato Matanzas National Estuarine Research Reserve|20|651|Coastal Habitat Integrated Mapping and Monitoring Program (CHIMMP) Pilot Monitoring Data|Nease Park-C|2017-02-25T00:00:00Z|Marsh succulents|Species Richness|2017|2|3
+Guana Tolomato Matanzas National Estuarine Research Reserve|20|651|Coastal Habitat Integrated Mapping and Monitoring Program (CHIMMP) Pilot Monitoring Data|Nease Park-C|2017-02-25T00:00:00Z|Marsh succulents|Species Richness|2017|2|4
 Guana Tolomato Matanzas National Estuarine Research Reserve|20|651|Coastal Habitat Integrated Mapping and Monitoring Program (CHIMMP) Pilot Monitoring Data|Nease Park-C|2021-02-21T00:00:00Z|Mangroves and associate|Species Richness|2021|2|1
 Guana Tolomato Matanzas National Estuarine Research Reserve|20|651|Coastal Habitat Integrated Mapping and Monitoring Program (CHIMMP) Pilot Monitoring Data|Nease Park-C|2021-02-21T00:00:00Z|Marsh|Species Richness|2021|2|3
 Guana Tolomato Matanzas National Estuarine Research Reserve|20|651|Coastal Habitat Integrated Mapping and Monitoring Program (CHIMMP) Pilot Monitoring Data|Nease Park-C|2021-02-21T00:00:00Z|Marsh succulents|Species Richness|2021|2|4
@@ -3789,7 +3627,7 @@ Pine Island Sound Aquatic Preserve|34|3029|Mangrove Monitoring|MG08-2|2004-09-01
 Pine Island Sound Aquatic Preserve|34|3029|Mangrove Monitoring|MG06-3|2004-11-23T00:00:00Z|Marsh succulents|Species Richness|2004|11|1
 Pine Island Sound Aquatic Preserve|34|3029|Mangrove Monitoring|MG08-1|2004-09-01T00:00:00Z|Marsh succulents|Species Richness|2004|9|1
 Pine Island Sound Aquatic Preserve|34|3029|Mangrove Monitoring|MG08-1|2004-11-22T00:00:00Z|Marsh succulents|Species Richness|2004|11|1
-Pinellas County Aquatic Preserve|35|906|Tampa Bay Critical Coastal Habitat Assessment|UTBP|2014-08-27T00:00:00Z|Marsh|Species Richness|2014|8|4
+Pinellas County Aquatic Preserve|35|906|Tampa Bay Critical Coastal Habitat Assessment|UTBP|2014-08-27T00:00:00Z|Marsh|Species Richness|2014|8|5
 Pinellas County Aquatic Preserve|35|906|Tampa Bay Critical Coastal Habitat Assessment|UTBP|2014-08-27T00:00:00Z|Marsh succulents|Species Richness|2014|8|3
 Pinellas County Aquatic Preserve|35|906|Tampa Bay Critical Coastal Habitat Assessment|UTBP|2014-08-27T00:00:00Z|Mangroves and associate|Species Richness|2014|8|3
 Rocky Bayou State Park Aquatic Preserve|37|||||||||

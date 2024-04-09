@@ -102,7 +102,7 @@ The processing and filtering that is done to the data is as follows:
 
 ```{r filtering}
 # Only interested in Percent Cover measurements
-data <- data[data$ParameterName=="Percent Cover - Species Composition"]
+data <- data[data$ParameterName=="Percent Cover"]
 # Make species group name uniform
 data$SpeciesGroup1[data$SpeciesGroup1=="Marsh Succulents"] <- "Marsh succulents"
 # Only keep data rows that are Marsh, Marsh succulents, and Mangroves and assoc.
@@ -141,17 +141,6 @@ data <- data[data$ResultValue!=0,]
 data <- data[data$MADup==1,]
 # Create variable that combines the genus and species name
 data$gensp <- paste(data$GenusName, data$SpeciesName, sep=" ")
-# Corrects Managed Area names to be consistent with official names
-data$ManagedAreaName[data$ManagedAreaName=="Apalachicola Bay"] <-
-   "Apalachicola Bay Aquatic Preserve"
-data$ManagedAreaName[data$ManagedAreaName=="Big Bend Seagrasses"] <-
-   "Big Bend Seagrasses Aquatic Preserve"
-data$ManagedAreaName[data$ManagedAreaName=="Cockroach Bay"] <-
-   "Cockroach Bay Aquatic Preserve"
-data$ManagedAreaName[data$ManagedAreaName=="Guana River Marsh"] <-
-   "Guana River Marsh Aquatic Preserve"
-data$ManagedAreaName[data$ManagedAreaName=="Guana Tolomato Matanzas NERR"] <-
-   "Guana Tolomato Matanzas National Estuarine Research Reserve"
 
 # Create Species Richness values for groups of unique combinations of
 # ManagedAreaName, ProgramID, ProgramName, ProgramLocationID, and SampleDate.
