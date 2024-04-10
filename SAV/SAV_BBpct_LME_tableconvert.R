@@ -4,7 +4,7 @@ library(data.table)
 library(dplyr)
 
 #List all of the files in the "tables" directory that are LME results
-files <- list.files("output/tables", pattern="lmeresults", full.names=TRUE)
+files <- list.files("output/tables/SAV", pattern="lmeresults", full.names=TRUE)
 
 #Include only those that are BBpct
 files <- files[grep("BBpct", files)]
@@ -43,36 +43,19 @@ output$StatisticalTrend <- ifelse(output$p <= 0.05 & output$LME_Slope > 0, "Sign
 #Change column names to better match other outputs
 setnames(output, c("managed_area", "species"), c("ManagedAreaName", "Species"))
 
-output$ManagedAreaName[output$ManagedAreaName=="Fort Pickens Aquatic Preserve"] <-
-   "Fort Pickens State Park Aquatic Preserve"
-
-output$ManagedAreaName[output$ManagedAreaName=="St. Andrews Aquatic Preserve"] <-
-   "St. Andrews State Park Aquatic Preserve"
-
 #Loads data file with list on managed area names and corresponding area IDs and short names
 MA_All <- fread("data/ManagedArea.csv", sep = ",", header = TRUE, stringsAsFactors = FALSE,
                 na.strings = "")
 
 stats <- fread("output/SAV_BBpct_Stats.txt", sep = "|", header = TRUE, stringsAsFactors = FALSE,
                na.strings = "")
-setnames(stats, c("ManagedAreaName", "analysisunit"), c("ShortName","Species"))
+setnames(stats, c("analysisunit"), c("Species"))
 
-stats$Species[stats$Species=="Thalassia testudinum"] <- "Turtle grass"
-stats$Species[stats$Species=="Syringodium filiforme"] <- "Manatee grass"
-stats$Species[stats$Species=="Halodule wrightii"] <- "Shoal grass"
-stats$Species[stats$Species=="Ruppia maritima"] <- "Widgeon grass"
-
-stats <- merge.data.frame(MA_All[,c("AreaID", "ManagedAreaName", "ShortName")],
-                          stats, by="ShortName", all=TRUE)
-
-stats$ShortName <- NULL
-stats$AreaID <- NULL
+stats <- merge.data.frame(MA_All[,c("AreaID", "ManagedAreaName")],
+                          stats, by="ManagedAreaName", all=TRUE)
 
 stats <-  merge.data.frame(stats, output,
                               by=c("ManagedAreaName", "Species"), all=TRUE)
-
-stats <- merge.data.frame(MA_All[,c("AreaID", "ManagedAreaName")],
-                         stats, by=c("ManagedAreaName"), all=TRUE)
 
 stats <- as.data.table(stats[order(stats$ManagedAreaName, stats$Species), ])
 stats <- stats %>% select(AreaID, everything())
@@ -87,8 +70,15 @@ stats$StatisticalTrend[stats$SufficientData==TRUE & is.na(stats$LME_Slope)] <- "
 #drop rows where ManagedArea does not contain data
 stats <- stats[!apply(stats[, -c(1, 2), drop = FALSE], 1, function(row) all(is.na(row))), ]
 
+stats$Species[stats$Species=="Thalassia testudinum"] <- "Turtle grass"
+stats$Species[stats$Species=="Syringodium filiforme"] <- "Manatee grass"
+stats$Species[stats$Species=="Halodule wrightii"] <- "Shoal grass"
+stats$Species[stats$Species=="Ruppia maritima"] <- "Widgeon grass"
+stats$Species[stats$Species=="Halophila engelmannii"] <- "Star grass"
+stats$Species[stats$Species=="Halophila decipiens"] <- "Paddle grass"
+
 #Write output table to a pipe-delimited txt file
 fwrite(stats, "output/website/SAV_BBpct_LMEresults_All.txt", sep="|")
 
 #excel format
-openxlsx::write.xlsx(stats, here::here("output/website/SAV_BBpct_LMEresults_All.xlsx"), colNames = c(TRUE, TRUE), colWidths = c("auto", "auto"), firstRow = c(TRUE, TRUE))
+openxlsx::write.xlsx(stats, "output/website/SAV_BBpct_LMEresults_All.xlsx", colNames = c(TRUE, TRUE), colWidths = c("auto", "auto"), firstRow = c(TRUE, TRUE))
