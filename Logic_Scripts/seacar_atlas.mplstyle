@@ -1,0 +1,68 @@
+# full list of rcParams @ https://matplotlib.org/stable/api/matplotlib_configuration_api.html#matplotlib.rcParams
+# rcParams that are ignored in style sheets @ https://matplotlib.org/stable/api/style_api.html#matplotlib.style.use
+
+# Styles are predefined sets of rcParams that define the visual appearance of a plot. https://matplotlib.org/stable/api/style_api.html#matplotlib.style.use
+
+# Customizing Matplotlib with style sheets and rcParams describes the mechanism and usage of styles. https://matplotlib.org/stable/tutorials/introductory/customizing.html
+
+# The Style sheets reference gives an overview of the builtin styles. https://matplotlib.org/stable/gallery/style_sheets/style_sheets_reference.html
+
+
+
+font.family :  sans-serif
+font.sans-serif : Arial
+
+text.color : black
+
+figure.figsize : 8.0, 4.0
+figure.dpi : 200
+figure.titleweight : normal
+figure.titlesize : 12
+
+figure.subplot.left:   0.125 # 0.125  # the left side of the subplots of the figure
+figure.subplot.right:  0.875 # 0.9    # the right side of the subplots of the figure
+#figure.subplot.bottom: 0.11   # the bottom of the subplots of the figure
+#figure.subplot.top:    0.88   # the top of the subplots of the figure
+figure.subplot.wspace: 0.0  # 0.2    # the amount of width reserved for space between subplots,
+                               # expressed as a fraction of the average axis width
+#figure.subplot.hspace: 0.2    # the amount of height reserved for space between subplots,
+                               # expressed as a fraction of the average axis height
+
+legend.frameon : False
+legend.loc: center left
+# legend.title_fontsize : 10
+# legend.fontsize : 10
+
+## Dimensions as fraction of font size:
+legend.labelspacing:  0.7  # the vertical space between the legend entries
+legend.handletextpad: 0.5  # the space between the legend line and legend text
+legend.borderaxespad: -0.5  # the border between the axes and legend edge
+#legend.borderpad:     0.4  # border whitespace
+#legend.labelspacing:  0.5  # the vertical space between the legend entries
+#legend.handlelength:  2.0  # the length of the legend lines
+#legend.handleheight:  0.7  # the height of the legend handle
+#legend.handletextpad: 0.8  # the space between the legend line and legend text
+#legend.borderaxespad: 0.5  # the border between the axes and legend edge
+#legend.columnspacing: 2.0  # column separation
+
+
+axes.grid : False
+axes.grid.axis : both
+axes.titlesize : 10
+axes.labelsize : 10
+axes.labelpad: 8.0
+
+axes.edgecolor: (0.2, 0.2, 0.2)
+# axes.linewidth: 0.5
+axes.labelcolor: (0.2, 0.2, 0.2)
+
+xtick.color: (0.2, 0.2, 0.2)
+ytick.color: (0.2, 0.2, 0.2)
+
+lines.linewidth : 1
+lines.markersize : 2
+
+xtick.labelsize : 10
+xtick.alignment : right
+ytick.labelsize : 10
+
