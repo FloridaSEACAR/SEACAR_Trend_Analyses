@@ -30,8 +30,6 @@ knitr::opts_chunk$set(
 
 
 ```{r general_functions}
-# Allows text coloring within report
-colorize <- function(x, color) {sprintf("\\textcolor{%s}{%s}", color, x)}
 
 # Makes NA into "-" in tables
 options(knitr.kable.NA = "-")

@@ -132,6 +132,9 @@ skt_data_combined$p[skt_data_combined$p==" 0"] <- 0
 
 fwrite(skt_data_combined, "output/tables/Discrete_WQ_SKT_Stats.txt", sep="|")
 
+# Allows text coloring within report
+colorize <- function(x, color) {sprintf("\\textcolor{%s}{%s}", color, x)}
+
 # Render report ----
 file_name <- "BBSAP_report_by_system_expanded"
 rmarkdown::render(input="ReportTemplate.Rmd",
