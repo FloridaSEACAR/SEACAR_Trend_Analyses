@@ -156,9 +156,43 @@ addfits_multiplots <- function(models, plot_i, param, aucol){
   
   # order_match <- ifelse(usenames=="common", "order(match(spp_common))", "order(match(spp))")
   
-  plot_i <- plot_i +
-    facet_wrap(~factor(modify_species_labels(eval(aucol), usenames)), 
-               ncol = 3, strip.position = "top")
+  if(usenames=="common"){
+    plot_i <- plot_i +
+      facet_wrap(~factor(modify_species_labels(eval(aucol), usenames),
+                         levels = c("Total SAV",
+                                    "Total seagrass",
+                                    "Halophila spp.",
+                                    "Halophila, unk.",
+                                    "Johnson's seagrass",
+                                    "Manatee grass",
+                                    "Paddle grass",
+                                    "Shoal grass",
+                                    "Star grass",
+                                    "Turtle grass",
+                                    "Widgeon grass",
+                                    "Attached algae",
+                                    "Drift algae",
+                                    "No grass In Quadrat")),
+                 ncol = 3, strip.position = "top")
+  } else if(usenames=="scientific") {
+    plot_i <- plot_i +
+      facet_wrap(~factor(modify_species_labels(eval(aucol), usenames),
+                         levels = c("Total SAV",
+                                    "Total seagrass",
+                                    "Halophila spp.",
+                                    "Halophila, unk.",
+                                    "Halophila johnsonii",
+                                    "Syringodium filiforme",
+                                    "Halophila decipiens",
+                                    "Halodule wrightii",
+                                    "Halophila engelmannii",
+                                    "Thalassia testudinum",
+                                    "Ruppia maritima",
+                                    "Attached algae",
+                                    "Drift algae",
+                                    "No grass In Quadrat")),
+                 ncol = 3, strip.position = "top")
+  }
   
   return(plot_i)
 }
@@ -435,7 +469,7 @@ spp_common <- c("Halophila spp.", "Unidentified Halophila", "Johnson's seagrass"
 
 # Script now defaults to scientific throughout, will change labels
 # in final steps when plots are created if "common" is chosen
-usenames <- "scientific" #alternative is "common"
+usenames <- "common" #alternative is "scientific"
 
 spcols <- setNames(spcollist, spp)
 
@@ -1640,3 +1674,12 @@ for(plot_type in plot_types){
 
 toc()
 
+wd <- dirname(getActiveDocumentContext()$path)
+setwd(wd)
+
+#Gets list of all image files in output/Figures and creates zip directory
+fig_list <- list.files("output/website/images/", full = FALSE, recursive = TRUE)
+setwd("output/website/images/")
+zip(zipfile=paste0("../SAVFigures_",usenames), 
+    files=fig_list)
+setwd(wd)
