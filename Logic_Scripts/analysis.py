@@ -239,7 +239,7 @@ def getContinuousWQMonthlyData(areaId, paramId):
                             ELSE RelativeDepth
                         END,
                         ResultValue
-                        FROM		Combined_WQ_Cont_export_web_monthly_20230725
+                        FROM		Combined_WQ_Cont_export_web_monthly
                         WHERE		AreaID = {areaId} AND ParameterID = {paramId} AND RelativeDepth IS NOT NULL;
         '''
         results = pd.read_sql(sql, engine)
@@ -274,7 +274,7 @@ def getContinuousWQTrendData(areaId, paramId):
     return results
 
 
-def TEMP_getContinuousWQTrendData(areaId, paramId):
+def getContinuousWQTrendData_withMonthYearMinMax(areaId, paramId):
 
     results = None
 
@@ -282,15 +282,14 @@ def TEMP_getContinuousWQTrendData(areaId, paramId):
     engine = create_engine(connection_url)
     try:
         sql = f'''
-            
-;WITH cteWQ_Cont AS (
-	SELECT AreaID, ParameterID, ProgramLocationID, RelativeDepth, MonthYearMin = MIN(SampleDate), MonthYearMax = MAX(SampleDate)
-	FROM Combined_WQ_Cont_export_web_monthly_20230725
-	GROUP BY AreaID, ParameterID, ProgramLocationID, RelativeDepth
-)
-SELECT b.*, MonthYearMin, MonthYearMax
-FROM cteWQ_Cont a
-INNER JOIN Combined_WQ_WC_NUT_cont_Analysis b ON a.AreaID = b.AreaID AND a.ParameterID = b.ParameterID AND a.RelativeDepth = b.RelativeDepth AND a.ProgramLocationID = b.ProgramLocationID
+            ;WITH cteWQ_Cont AS (
+                SELECT AreaID, ParameterID, ProgramLocationID, RelativeDepth, MonthYearMin = MIN(SampleDate), MonthYearMax = MAX(SampleDate)
+                FROM Combined_WQ_Cont_export_web_monthly
+                GROUP BY AreaID, ParameterID, ProgramLocationID, RelativeDepth
+            )
+            SELECT b.*, MonthYearMin, MonthYearMax
+            FROM cteWQ_Cont a
+            INNER JOIN Combined_WQ_WC_NUT_cont_Analysis b ON a.AreaID = b.AreaID AND a.ParameterID = b.ParameterID AND a.RelativeDepth = b.RelativeDepth AND a.ProgramLocationID = b.ProgramLocationID
 
             WHERE		a.AreaID = {areaId} AND a.ParameterID = {paramId} AND a.RelativeDepth IS NOT NULL AND b.Website = 1;
         '''
