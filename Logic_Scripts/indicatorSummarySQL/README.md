@@ -5,3 +5,26 @@ The SQL scripts in this folder are used to generate and update "State of the Ind
 Summary text generation is kicked off when [usp_analysis_final_ins] calls [usp_analysis_trends_update] which calls indicator specific procedures.
 
 NOTE: it is important to update [usp_analysis_trends_python_update] with output from "analysisIndicatorSummaries.py".
+
+[usp_analysis_trends_update] calls the following
+
+```sql
+EXECUTE usp_analysis_trends_acreage_update;
+
+EXECUTE usp_analysis_trends_cw_update;
+
+usp_analysis_trends_coral_update - all trend text logic for CORAL (Grazers and Reef Dependent Species, Percent Cover) is in SQL
+
+usp_analysis_trends_nekton_update - all trend text logic for NEKTON (Presence) is in SQL
+
+-- OY density, percent live, and shell height (NO DATA and INSUFFICIENT DATA)
+EXECUTE usp_analysis_trends_oyster_update;
+-- OY-Density, OY-PercentLive
+EXECUTE usp_analysis_trends_python_oyster_update;
+-- OY-ShellHeight
+EXECUTE usp_analysis_trends_python_oyster_concat_update;
+
+-- WC-NUT, WC-WC, WC-NEK, SAV-PC, WC-WQ, SAV-WC
+--  Loads/processes output from Python analysisIndicatorSummaries.py (SEACAR_IndicatorSummaries_YYYYMMDD.xlsx)
+EXECUTE usp_analysis_trends_python_update;
+```

@@ -30,7 +30,22 @@ Generates summary text for the "State of the Indicator" column in the "Status an
 
 ### analysisParameterFindings.py
 
-Generates Excel spreadsheet versions of R-generated output data files with human readable text summaries of each MA and Parameter. We scripted this to generate textual summaries of parameter-level analysis results to give to managers of specific Managed Areas. Outputs are saved to the /data/analysisResults/ folder with filenames starting with "SEACAR_AnalysisResults_"
+Generates Excel spreadsheet versions of R-generated output data files with human readable text summaries of each MA and Parameter. We scripted this to generate textual summaries of parameter-level analysis results to give to managers of specific Managed Areas.
+
+### INPUT Results data files that are processed
+
+- data\analysisResults\WQ_Discrete_All_KendallTau_Stats.txt
+- data\analysisResults\WQ_Continuous_All_KendallTau_Stats.txt
+- data\analysisResults\SAV_BBpct_LMEresults_All.txt
+- data\analysisResults\Oyster_All_GLMM_Stats.txt
+- data\analysisResults\Nekton_SpeciesRichness_MA_Overall_Stats.txt
+
+### OUTPUT files
+
+- data\analysisResults\SEACAR_AnalysisResults_YYYYMMDD_WC.xlsx
+- data\analysisResults\SEACAR_AnalysisResults_YYYYMMDD_SAV.xlsx
+- data\analysisResults\SEACAR_AnalysisResults_YYYYMMDD_OY.xlsx
+- data\analysisResults\SEACAR_AnalysisResults_YYYYMMDD_NEK.xlsx
 
 ## exportManagedAreaHabitatIndicatorTable.py
 

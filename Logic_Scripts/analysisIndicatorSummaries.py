@@ -376,7 +376,7 @@ def GenerateSummaries_WC_WQ_BothDiscCont(dfSummaryDisc, dfSummaryCont, dfResults
         if DiscSuffCountDO > 0:
             paramSummaries.append(f'{paramDO.name.lower()} has {GetTrendChangeText(dsDO.iloc[0].AverageTrend, pastTense=True)}')
         if DiscSuffCountPH > 0:
-            paramSummaries.append(f'{paramPH.name.lower()} has {GetTrendChangeText(dsPH.iloc[0].AverageTrend, pastTense=True)}')
+            paramSummaries.append(f'{paramPH.name} has {GetTrendChangeText(dsPH.iloc[0].AverageTrend, pastTense=True)}')
         
         if (DiscSuffCountTEMP + DiscSuffCountSAL + DiscSuffCountDO + DiscSuffCountPH) > 0:
             summary = summary + ', '.join(paramSummaries[:-1]) + ', and ' + paramSummaries[-1] + f' in {ma.shortName}.'
@@ -563,6 +563,7 @@ def GenerateSummaries_SAV_SppRichness(dfSummary, dfResults, areaDict, paramDict,
 # WC - Nekton - Spp. Richness (Presence) - 36
 # Number of possible trend logic responses: 1
 def GenerateSummaries_WC_Nekton(df, areaDict, paramDict, dfCombinedParameterIndicator):
+    print(f'\nGenerateSummaries_WC_Nekton -- BEGIN')
     #df = pd.read_csv(os.path.join(dataDir, 'Nekton_SpeciesRichness_ManagedArea_Overall_Stats.txt'), delimiter='|')
 
     paramId = 36    # Nekton Spp. Richness (Presence)
@@ -609,6 +610,9 @@ def GenerateSummaries_WC_Nekton(df, areaDict, paramDict, dfCombinedParameterIndi
             summary = f'Between {row.EarliestYear} and {row.LatestYear} annual {row.GearType.lower()} surveys showed average Nekton richness per 100 square meters was {row.Mean:.2f} species, with a maximum of {row.Max:.1f} species per 100 square meters in {int(row.Year_MaxRichness)} and a minimum of {"0" if row.Min == 0.0 else f"{row.Min:.1f}"} species per 100 square meters in {int(row.Year_MinRichness)}.'
 
         dfSummaries.loc[len(dfSummaries.index)] = [cpi.HabitatID, cpi.HabitatName, cpi.IndicatorID, cpi.IndicatorName, ma.id, ma.name, summary, '', 'WC-NEK-1'] 
+
+
+    print(f'\nGenerateSummaries_WC_Nekton -- END')
 
     return dfSummaries
 
