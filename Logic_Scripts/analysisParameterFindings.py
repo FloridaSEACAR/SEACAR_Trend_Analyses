@@ -21,10 +21,8 @@ import database
 
 reportDir = os.path.join(os.getcwd(), 'data\\analysisResults\\')
 nonSeacarWebsiteAreaIDs = [24, 32, 36, 42, 46]
-# fieldOnlyParams = ['Water Temperature', 'pH', 'Dissolved Oxygen', 'Dissolved Oxygen Saturation', 'Colored dissolved organic matter, CDOM', 'Secchi Depth']
-# labOnlyParams = ['Total Suspended Solids, TSS', 'Total Nitrogen', 'Total Phosphorus', 'Chlorophyll a uncorrected for pheophytin', ]
 fieldOnlyParams = ['Water Temperature', 'pH', 'Dissolved Oxygen', 'Dissolved Oxygen Saturation', 'Secchi Depth']
-labOnlyParams = ['Total Suspended Solids, TSS', 'Total Nitrogen', 'Total Phosphorus', 'Chlorophyll a uncorrected for pheophytin', 'Chlorophyll a corrected for pheophytin', 'Colored dissolved organic matter, CDOM']
+labOnlyParams = ['Total Suspended Solids', 'Total Nitrogen', 'Total Phosphorus', 'Chlorophyll a, Uncorrected for Pheophytin', 'Chlorophyll a, Corrected for Pheophytin', 'Colored Dissolved Organic Matter']
 
 
 # DEBUG = True
@@ -53,11 +51,11 @@ def CreateTrendText():
     
     
     # Results data that are processed are:
-    # C:\Dev\SeacarCharts\data\analysisResults\SAV_BBpct_LMEresults_All.txt
-    # C:\Dev\SeacarCharts\data\analysisResults\Oyster_results_All.txt
-    # C:\Dev\SeacarCharts\data\analysisResults\Nekton_SpeciesRichness_ManagedArea_Overall_Stats.txt
-    # C:\Dev\SeacarCharts\data\analysisResults\WQ_Discrete_All_KendallTau_Stats.txt
-    # C:\Dev\SeacarCharts\data\analysisResults\WQ_Continuous_All_KendallTau_Stats.txt
+    # data\analysisResults\WQ_Discrete_All_KendallTau_Stats.txt
+    # data\analysisResults\WQ_Continuous_All_KendallTau_Stats.txt
+    # data\analysisResults\SAV_BBpct_LMEresults_All.txt
+    # data\analysisResults\Oyster_All_GLMM_Stats.txt
+    # data\analysisResults\Nekton_SpeciesRichness_MA_Overall_Stats.txt
 
     ProcessResults_WC()
     ProcessResults_SAV()
@@ -96,7 +94,7 @@ def ProcessResults_OY():
         if row.ParameterName.upper() == 'Density'.upper():
 
             increasing = row.ModelEstimate > 0
-            trendPresent = True if (row.LowerConfidence < 0 and row.UpperConfidence > 0) else False
+            trendPresent = False if (row.LowerConfidence < 0 and row.UpperConfidence > 0) else True
             trendStatus = 'no significant change'
             if trendPresent:
                 trendStatus = 'an increase' if increasing else 'a decrease'
@@ -105,7 +103,7 @@ def ProcessResults_OY():
 
         elif row.ParameterName.upper() == 'Shell Height'.upper():
             increasing = row.ModelEstimate > 0
-            trendPresent = True if (row.LowerConfidence < 0 and row.UpperConfidence > 0) else False
+            trendPresent = False if (row.LowerConfidence < 0 and row.UpperConfidence > 0) else True
             trendStatus = 'showed no significant change'
             if trendPresent:
                 trendStatus = 'significantly increased' if increasing else 'significantly decreased'
@@ -113,7 +111,7 @@ def ProcessResults_OY():
 
         elif row.ParameterName.upper() == 'Percent Live'.upper():
             increasing = row.ModelEstimate > 0
-            trendPresent = True if (row.LowerConfidence < 0 and row.UpperConfidence > 0) else False
+            trendPresent = False if (row.LowerConfidence < 0 and row.UpperConfidence > 0) else True
             trendStatus = 'no significant change'
             if trendPresent:
                 trendStatus = 'an increase' if increasing else 'a decrease'
@@ -347,7 +345,7 @@ def ProcessResults_SAV():
         'EarliestYear': 'Int32',
         'LatestYear': 'Int32',
         'SufficientData': 'boolean',
-        'Model_Failed': 'boolean',
+        # 'Model_Failed': 'boolean',
     })
     
     df['Trend'] = df.apply(lambda x: calcLmeTrend(x.SufficientData, x.LME_Slope, x.p), axis=1).astype('Int64')
