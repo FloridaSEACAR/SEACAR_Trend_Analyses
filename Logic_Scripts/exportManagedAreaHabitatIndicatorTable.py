@@ -62,8 +62,10 @@ def main():
     dfMAHI = dfMAHI.sort_values(by=['Habitat', 'Indicator', 'ManagedAreaID'])
       
     
+    outputFilePath = os.path.join(reportDir, f'SEACAR_ManagedAreaHabitatIndicator_{date.today().isoformat().replace("-","")}.xlsx')
+    dfMAHI.to_excel(outputFilePath, sheet_name='MA_Habitat_Indicators', float_format='%.9f', index=False, na_rep='')
     
-    dfMAHI.to_excel(os.path.join(reportDir, f'SEACAR_ManagedAreaHabitatIndicator_{date.today().isoformat().replace("-","")}.xlsx'), sheet_name='MA_Habitat_Indicators', float_format='%.9f', index=False, na_rep='')
+    print(f'Exported MAHI table to [{outputFilePath}]')
 
 
 if __name__ == '__main__':

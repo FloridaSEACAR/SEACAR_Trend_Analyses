@@ -12,8 +12,6 @@ import pandas as pd
 import re
 # from dataclasses import Field, dataclass
 import seaborn as sns
-
-# import matplotlib as mpl
 import matplotlib.pyplot as plt
 import matplotlib.lines as lines
 from matplotlib.dates import DateFormatter
@@ -25,7 +23,6 @@ import parameters
 import managedAreas
 import analysis
 
-# import scipy.stats
 from PIL import Image
 
 
@@ -35,10 +32,7 @@ plt.style.use("seacar_atlas.mplstyle")
 
 
 # GLOBALS (putting them here for now)
-
-imgDirectory = (
-    "U:\Misc_Projects\SEACAR_FDEP\SEACAR_Atlas\Charts\WaterQualityStaticCharts"
-)
+imgDirectory = ( "U:\Misc_Projects\SEACAR_FDEP\SEACAR_Atlas\Charts\WaterQualityStaticCharts" )
 pngquant = "C:\\apps\\pngquant\\pngquant.exe"
 blueColor = "#314963"  # '#314963'
 seacarColors = [
@@ -63,6 +57,8 @@ ACREAGE_INCLUDE_C_CAP = "C-CAP"
 ACREAGE_INCLUDE_Y = "Y"
 LABEL_LAB_ONLY = "Lab only"
 
+OPTIMIZE_PNG = False # don't optimize b/c we need to rename/resize them later and we'll optimize AFTER that
+
 DEBUG = True
 if DEBUG:
     # from PIL import Image
@@ -76,9 +72,9 @@ def main():
     
     print(f"App Started.")
 
-    # createDiscreteWaterQualityCharts()
-    # createContinuousWaterQualityCharts()
-    createAcreageCharts()
+    createDiscreteWaterQualityCharts()
+    createContinuousWaterQualityCharts()
+    # createAcreageCharts()
           
 
     # return
@@ -109,6 +105,7 @@ def createAcreageCharts():
         48: "CW",
     }
 
+    print(f"\n== ACREAGE CHARTS ==")
     print(f"Number of Visualizations to Process: {len(visualizations)}")
 
     dfAllData = analysis.getAcreageData()
@@ -393,6 +390,10 @@ def createStackedAcreageChart(
     if True:
         plt.savefig(imgFilename, bbox_inches="tight")
         plt.close("all")
+        
+        # if OPTIMIZE_PNG:
+        #     subprocess.run([pngquant, "--force", "--strip",  "--speed=3", "--quality=65-80", "--ext=.png", imgFilename], stdout=subprocess.DEVNULL, timeout=5)
+
     else:
         plt.show()
 
@@ -410,7 +411,7 @@ def createContinuousWaterQualityCharts():
     paramDict = parameters.getParametersAsDict()
 
     visualizations = parameters.getContinuousWaterColumnVisualizations()
-    print(visualizations)
+    # print(visualizations)
     
     # FOR TESTING PURPOSES - Running a single Param or MA
     #####################################################
@@ -427,6 +428,7 @@ def createContinuousWaterQualityCharts():
     # # Parameter Filter
     # visualizations = filter(lambda x: x.parameterId == 7, visualizations)
     
+    print(f"\n== CONTINUOUS WQ CHARTS ==")
     print(f"Number of Visualizations to Process: {len(visualizations)}")
 
     for pv in visualizations:
@@ -434,8 +436,8 @@ def createContinuousWaterQualityCharts():
             # df = analysis.getContinuousWQData(areaId, pv.parameterId)
             dfPlotData = analysis.getContinuousWQMonthlyData(areaId, pv.parameterId)
             
-            dfTrendData = analysis.getContinuousWQTrendData(areaId, pv.parameterId)
-            # dfTrendData = analysis.TEMP_getContinuousWQTrendData(areaId, pv.parameterId)
+            # dfTrendData = analysis.getContinuousWQTrendData(areaId, pv.parameterId)
+            dfTrendData = analysis.getContinuousWQTrendData_withMonthYearMinMax(areaId, pv.parameterId)
             
             
             # Save data if/when needed for external use
@@ -444,7 +446,7 @@ def createContinuousWaterQualityCharts():
             
             skipping_message = " - SKIPPING" if len(dfPlotData.index) == 0 else ""
             print(
-                f"A[{areaId}] P[{pv.parameterId}|{pv.name}] : {len(dfPlotData.index)} records, {len(dfTrendData.index)} program trend data records {skipping_message}"
+                f"MA-{areaId} PV-{pv.id} ({pv.parameterId} | {pv.name}) : {len(dfPlotData.index)} records, {len(dfTrendData.index)} program trend data records {skipping_message}"
             )
 
             if len(dfPlotData.index) == 0:
@@ -697,6 +699,10 @@ def createCWQChart(area, param, pv, plotData, trendData):
     imgFilename = f"{imgDirectory}/ma-{area.id}-pv-{pv.id}.png"
     # plt.savefig(imgFilename, bbox_extra_artists=(leg), bbox_inches='tight')
     plt.savefig(imgFilename, bbox_inches="tight")
+    
+    # if OPTIMIZE_PNG:
+    #     subprocess.run([pngquant, "--force", "--strip",  "--speed=3", "--quality=65-80", "--ext=.png", imgFilename], stdout=subprocess.DEVNULL, timeout=5)
+
     # plt.show()
 
     # img = Image.open(imgFilename)
@@ -766,6 +772,7 @@ def createDiscreteWaterQualityCharts():
     # allParameterVisualizations = parameters.getParameterVisualizations()
     visualizations = parameters.getDiscreteWaterColumnVisualizations()
 
+    print(f"\n== DISCRETE WQ CHARTS ==")
     print(f"Number of Visualizations to Process: {len(visualizations)}")
 
     # TESTING
@@ -778,7 +785,7 @@ def createDiscreteWaterQualityCharts():
     for pv in visualizations:
 
         # TESTING
-        # if pv.parameterId != 11:
+        # if pv.parameterId != 13:
         #     continue
 
         df = analysis.getWQDiscreteResults(pv.parameterId, pv.fieldLab)
@@ -1058,7 +1065,8 @@ def createDWQChart(area, param, pv, data, slopeData):
     # plt.savefig(imgFilename, bbox_extra_artists=(leg), bbox_inches='tight')
     plt.savefig(imgFilename, bbox_inches="tight")
 
-    # # subprocess.run([pngquant, "--force", "--strip",  "--speed=3", "--quality=65-80", "--ext=.png", imgFilename], stdout=subprocess.DEVNULL, timeout=5)
+    # if OPTIMIZE_PNG:
+    #     subprocess.run([pngquant, "--force", "--strip",  "--speed=3", "--quality=65-80", "--ext=.png", imgFilename], stdout=subprocess.DEVNULL, timeout=5)
 
     plt.close("all")
 
@@ -1165,7 +1173,7 @@ def getTitleCase(sentence):
     if new == "Ph":
         new = "pH"
     
-    new = new.replace(" A ", " a ").replace(" For ", " for ")
+    new = new.replace(" A ", " a ").replace(" A, ", " a, ").replace(" For ", " for ")
         
     separators = ["- ", ]
     
