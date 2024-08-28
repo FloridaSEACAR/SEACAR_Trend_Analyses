@@ -53,7 +53,7 @@ for(file in wq_files){
   file_short <- tail(str_split(file, "/")[[1]],1)
   print(glue("Reading in {file_short}"))
   data <- fread(file, sep='|', na.strings = "NULL")
-  data <- data[Include==1 & MADup==1 & ManagedAreaName==ma, ]
+  data <- data[Include==1 & MADup==1 & ManagedAreaName==ma, ] %>% select(-ExportVersion)
   
   # If there is data for BBSAP, append to directory
   if(nrow(data)>0){
@@ -92,7 +92,7 @@ bb_ploc <- c(wq_ploc, unique(sav[ManagedAreaName==ma, ]$ProgramLocationID))
 # bb_points <- st_read(bb_shape_location)
 
 # "bb_shape_location_rivers" separates St. Marks-Aucilla-Econfina, 
-# Also adds River vs. Estuary factor
+# Also adds River vs. Estuary factor ## USE THIS
 bb_points <- st_read(bb_shape_location_rivers)
 
 # Combine all WQ parameters into a single data frame
@@ -102,7 +102,7 @@ wq_data_combined <- bind_rows(data_directory[["data"]])
 # Allows subsetting by system and provides coordinates
 wq_data <- merge(x = wq_data_combined,
                  y = bb_points[ , c("LocationID", "ProgramID", "ProgramLoc", 
-                                    "Latitude_D", "Longitude_", "System", 
+                                    "Latitude_D", "Longitude_", "System", "Type", 
                                     "geometry")],
                  by.x = c("ProgramID", "ProgramLocationID"), 
                  by.y = c("ProgramID", "ProgramLoc"))
@@ -114,11 +114,14 @@ sav_data <- merge(x = sav[ManagedAreaName==ma, ],
                                      "geometry")],
                   by.x = c("LocationID", "ProgramID", "ProgramLocationID"),
                   by.y = c("LocationID", "ProgramID", "ProgramLoc"))
+# Keep "St. Marks" designation for SAV instead of splitting into Aucilla & St. Marks
+sav_data[System=="Aucilla", `:=` (System = "St. Marks")]
 
 # Analysis ----
 # Import separate discrete script
 # Adds to additional analyses to data_directory
-source("analysis.R")
+# source("analysis.R") # Analyze each system
+source("analysis_by_type.R") # Each sys AND type combination (Estuary,River)
 # SAV analysis
 source("sav_analysis.R")
 # SAV GAM plots
@@ -132,17 +135,97 @@ skt_data_combined$p[skt_data_combined$p==" 0"] <- 0
 
 fwrite(skt_data_combined, "output/tables/Discrete_WQ_SKT_Stats.txt", sep="|")
 
+skt_data_combined$SennSlope <- round(skt_data_combined$SennSlope, 3)
+skt_data_combined$SennIntercept <- round(skt_data_combined$SennIntercept, 2)
+skt_data_combined$ChiSquared <- round(skt_data_combined$ChiSquared, 2)
+
+# KT Plot info
+skt_data_combined <- skt_data_combined %>%
+  mutate(start_x = decimal_date(EarliestSampleDate),
+         end_x = decimal_date(LastSampleDate),
+         start_y = (start_x - EarliestYear) * SennSlope + SennIntercept,
+         end_y = (end_x - EarliestYear) * SennSlope + SennIntercept)
+
+# Combine skt_stats and YM stats
+YM_Stats_combined <- bind_rows(data_directory[["YM_Stats2"]])
+data_combined <- merge(YM_Stats_combined, skt_data_combined %>% select(-c(N_Data, Median)), 
+                       by = c("System", "Type", "ParameterName", "RelativeDepth", "ActivityType"))
+setDT(data_combined)
+
 # Allows text coloring within report
 colorize <- function(x, color) {sprintf("\\textcolor{%s}{%s}", color, x)}
 
+# Include program information for each system
+prog_data <- wq_data %>%
+  group_by(ParameterName, ProgramID, Type, System) %>%
+  summarise(n_data = n()) %>%
+  pivot_wider(names_from = Type, values_from = n_data, names_prefix = "n-data-")
+setDT(prog_data)
+
 # Render report ----
-file_name <- "BBSAP_report_by_system_expanded"
+file_name <- paste0("BBSAP_report_by_system_", gsub("-","",Sys.Date()))
 rmarkdown::render(input="ReportTemplate.Rmd",
                   output_format = "pdf_document",
                   output_file = paste0(file_name,".pdf"),
                   output_dir = "output",
                   clean = TRUE)
 # Remove unwanted files
-unlink(paste0("output/",file_name,".md"))
-unlink(paste0("output/",file_name,".tex"))
-unlink(paste0("output/",file_name,"_files"))
+# unlink(paste0("output/",file_name,".md"))
+# unlink(paste0("output/",file_name,".tex"))
+# unlink(paste0("output/",file_name,"_files"))
+
+## DASHBOARD IMPLEMENTATION ----
+map_df <- wq_data %>% 
+  select(ProgramID, ProgramLocationID, ProgramName, System, Type, ResultValue,
+         ParameterName, SampleDate, OriginalLatitude, OriginalLongitude)
+
+#SAVE MAP_DF RDS
+params <- names(data_directory[["YM_Stats"]])
+
+sysPal <- colorFactor(seacar_palette, unique(map_df$System))
+paramPal <- colorFactor(seacar_palette, params)
+
+groupNames <- c()
+for(sys in unique(map_df$System)){
+  
+  # Blank map for each system to fill with parameter information
+  map <- leaflet() %>% addTiles()
+  
+  for(param in params){
+    
+    filtered_data <- map_df[System==sys & ParameterName==param, ] %>% 
+      distinct(OriginalLatitude, OriginalLongitude)
+    
+    groupNames <- c(groupNames, param)
+    
+    map <- map %>%
+      addCircleMarkers(data = filtered_data,
+                       lat = ~OriginalLatitude, lng = ~OriginalLongitude,
+                       weight = 0.5, fillOpacity = 0.4, opacity = 0.4, color="black",
+                       fillColor = ~paramPal(ParameterName), group = param) %>%
+      addLayersControl(overlayGroups = groupNames,
+                       options = layersControlOptions(collapsed=TRUE))
+  }
+  
+  # Save map
+  saveRDS(map, file = paste0("output/rds/maps/",sys,"_map.rds"))
+}
+
+
+map <- leaflet(map_df) %>% 
+  addProviderTiles(providers$CartoDB.PositronNoLabels,
+                   group = "Positron by CartoDB") %>%
+  addCircleMarkers(lat = ~OriginalLatitude, lng = ~OriginalLongitude,
+                   weight = 0.5, fillOpacity = 0.4, opacity = 0.4, color = "black",
+                   fillColor = ~sysPal(System))
+
+map <- map %>%
+  addLayersControl(baseGroups = c("Positron by CartoDB"),
+                   overlayGroups = groupNames,
+                   options = layersControlOptions(collapsed=TRUE))
+
+# Export .rds objects for Dashboard use
+saveRDS(wq_data, file = "output/rds/wq_data.rds")
+saveRDS(sav_data, file = "output/rds/sav_data.rds")
+saveRDS(bind_rows(data_directory[["YM_Stats"]]), file="output/rds/YM_Stats.rds")
+saveRDS(bind_rows(data_directory[["skt_stats"]]), file="output/rds/skt_stats.rds")

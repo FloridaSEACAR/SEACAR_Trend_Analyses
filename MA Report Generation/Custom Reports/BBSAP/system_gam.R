@@ -146,7 +146,11 @@ save_display_gam <- function(output){
       sp_name <- glue("## {names(plot_list)[[i]]}")
       cat(sp_name, "\n\n")
       cat("  \n")
-      print(plot_list[[i]])
+      
+      subchunkify(
+        print(plot_list[[i]])
+      )
+      
       cat("  \n")
     }
   }

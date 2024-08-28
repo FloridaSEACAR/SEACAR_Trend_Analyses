@@ -6,7 +6,7 @@ date: "`r Sys.Date()`"
 output: 
   pdf_document:
     toc: TRUE
-    toc_depth: 3
+    toc_depth: 4
     dev: png
     extra_dependencies: ["longtable", "float", "booktabs"]
     keep_md: yes
@@ -20,12 +20,57 @@ geometry: margin=0.75in
 ---
 
 ```{r setup, include=FALSE}
+library(patchwork)
+
 knitr::opts_chunk$set(
   echo=FALSE,
   warning=FALSE,
   message=FALSE,
   dpi=200,
-  fig.pos = 'H')
+  fig.pos = 'p')
+
+# Function to allow dynamic plot sizes
+subchunkify <- function(g, fig_height=9, fig_width=10) {
+  g_deparsed <- paste0(deparse(
+    function() {g}
+  ), collapse = '')
+  
+  sub_chunk <- paste0("
+  `","``{r sub_chunk_", floor(runif(1) * 10000), ", fig.height=",
+   fig_height, ", fig.width=", fig_width, ", echo=FALSE}",
+  "\n(", 
+    g_deparsed
+    , ")()",
+  "\n`","``
+  ")
+  
+  cat(knitr::knit(text = knitr::knit_expand(text = sub_chunk), quiet = TRUE))
+}
+
+# Custom SEACAR palette
+seacar_palette <- c("#964059","#E05E7B","#E98C86","#F1B8AB","#F8CAAA","#F8E6B9",
+  "#FEEEE1","#DAE9DA","#8BE4C2","#7EE7E8","#8FD0EC","#6FA1DD","#889BD1","#8F83D3","#6B59AB"
+)
+
+seacar_sp_palette <- c("#005396","#0088B1","#00ADAE","#65CCB3","#AEE4C1",
+                       "#FDEBA8","#F8CD6D","#F5A800","#F17B00")
+
+# SEACAR Theme
+plot_theme <- theme_bw() +
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        text=element_text(family="Arial"),
+        plot.title=element_text(hjust=0.5, size=12, color="#314963"),
+        plot.subtitle=element_text(hjust=0.5, size=10, color="#314963"),
+        legend.title=element_text(size=10),
+        legend.text.align = 0,
+        axis.title.x = element_text(size=10, margin = margin(t = 5, r = 0,
+                                                             b = 10, l = 0)),
+        axis.title.y = element_text(size=10, margin = margin(t = 0, r = 10,
+                                                             b = 0, l = 0)),
+        axis.text=element_text(size=10),
+        axis.text.x=element_text(angle = -45, hjust = 0))
+
 ```
 
 
@@ -58,38 +103,16 @@ make_kable <- function(data_table, table_caption, format="latex"){
 
 ```{r trendline_plot_functions}
 # Seasonal Kendall-Tau plot function
-plot_trendlines <- function(sys, param, data, 
-                            activity_label, depth_label, y_labels){
+plot_trendlines <- function(sys, param, activity_label, depth_label, y_labels){
+  data <- data_combined %>% filter(System==sys)
+  setDT(data)
   
-  YM_Stats <- data_directory[["YM_Stats"]][[param]]
-  skt_stats <- data_directory[["skt_stats"]][[param]]
-  
-  # SKT Stats
-  # Gets x and y values for start point for trendline
-  KT.Plot <- skt_stats %>% group_by(System) %>%
-    summarize(x=decimal_date(EarliestSampleDate),
-              y=(x-EarliestYear)*SennSlope+SennIntercept)
-  # Gets x and y values for starting point for trendline
-  KT.Plot2 <- skt_stats %>% group_by(System) %>%
-    summarize(x=decimal_date(LastSampleDate),
-              y=(x-EarliestYear)*SennSlope+SennIntercept)
-  # Combines the starting and endpoints for plotting the trendline
-  KT.Plot <- bind_rows(KT.Plot, KT.Plot2)
-  rm(KT.Plot2)
-  KT.Plot <- as.data.table(KT.Plot[order(KT.Plot$System), ])
-  KT.Plot <- KT.Plot[!is.na(KT.Plot$y), ]
-  
-  check_ym <- YM_Stats %>%
-    filter(System == sys)
-  
-  if (nrow(check_ym) == 0) {
+  if (nrow(data) == 0) {
     invisible()
   } else {
     # Gets data to be used in plot for managed area
-    plot_data <- YM_Stats[YM_Stats$System==sys,]
-    
-    # Gets trendline data for managed area
-    KT.plot_data <- KT.Plot[KT.Plot$System==sys,]
+    plot_data <- data[ParameterName==param, ]
+    plot_data[, `:=` (sig = ifelse(p<=0.05, "Significant Trend", "Non-significant Trend"))]
     
     #Determine max and min time (Year) for plot x-axis
     t_min <- min(plot_data$Year)
@@ -105,52 +128,62 @@ plot_trendlines <- function(sys, param, data,
       brk <- -4
     }else if(t<10 & t>=4){
       brk <- -2
-    }else if(t<4){
+    }else if(t<4 & t>=1){
       brk <- -1
+    }else if(t<1){
+      brk <- -1
+      t_max <- round(t_max)
     }
     
     # Create plot object with data and trendline
     p1 <- ggplot(data=plot_data,
                  aes(x=YearMonthDec, y=Mean)) +
       # geom_line(size=0.75, color="#333333", alpha=0.6) +
-      geom_point(shape=21, size=3, color="#333333", fill="#cccccc",
-                 alpha=0.75) +
-      geom_line(data=KT.plot_data, aes(x=x, y=y),
-                color="#000099", size=1.2, alpha=0.7) +
+      geom_point(shape=21, size=3, color="#333333", fill="#cccccc", alpha=0.75) +
+      geom_segment(aes(x = start_x, y = start_y, xend = end_x, yend = end_y, color = sig), 
+                   linewidth=1.2, alpha=0.7, show.legend = TRUE) +
       labs(title=paste0(param,", ",activity_label, ", ",depth_label),
            subtitle=paste0(sys, " - ", "Big Bend Seagrasses AP"),
            x="Year", y=y_labels) +
       scale_x_continuous(limits=c(t_min-0.25, t_max+0.25),
                          breaks=seq(t_max_brk, t_min, brk)) +
-      plot_theme
+      scale_color_manual(name = "Trend type",
+                         values = c("Significant Trend" = "#000099",
+                                    "Non-significant Trend" = "#900667")) +
+      plot_theme +
+      facet_wrap(~Type, dir="h")
+    
     # Creates ResultTable to display statistics below plot
-    ResultTable <- skt_stats[skt_stats$System==sys, ] %>%
-      select(RelativeDepth, N_Data, N_Years, Median, Independent, tau, p,
+    ResultTable <- skt_data_combined[System==sys & ParameterName==param, ] %>%
+      select(Type, RelativeDepth, N_Data, N_Years, Median, Independent, tau, p,
              SennSlope, SennIntercept, ChiSquared, pChiSquared, Trend)
     # Create table object
     t1 <- ggtexttable(ResultTable, rows=NULL,
-                      theme=ttheme(base_size=10)) %>%
+                      theme=ttheme(base_size=8)) %>%
                       tab_add_footnote(text="p < 0.00005 appear as 0 due to rounding.\n
                       SennIntercept is intercept value at beginning of
                       record for monitoring location",
-                       size=10, face="italic")
+                      size=10, face="italic")
     
     # Arrange and display plot and statistic table
+    # plot <- ggarrange(p1, t1, ncol=1, heights=c(0.9, 0.1))
+    plot <- (p1 / t1) + plot_layout(nrow=2, heights = c(3,1))
+    print(plot)
     cat("  \n")
-    subtitle <- glue("### {param}")
-    cat(subtitle, "\n\n")
     cat("  \n")
-    print(ggarrange(p1, t1, ncol=1, heights=c(0.85, 0.15)))
-    cat("  \n")
+    
+    # Save file as .rds for use in dashboard
+    plotName <- paste0("output/rds/plots/", sys, "_", type, "_", param, ".rds")
+    saveRDS(plot, file=plotName)
   }
 }
 
 ```
 
 
-```{r sav_functions}
+```{r map_functions}
 
-map <- function(type="SAV"){
+map <- function(type="SAV", output="all", sys){
   
   if(type=="SAV"){
     data <- sav_data
@@ -163,11 +196,11 @@ map <- function(type="SAV"){
     
     # map output filepath
     map_out <- "output/maps/sav.png"
-
+    
   } else if(type=="WQ"){
     data <- wq_data %>%
       distinct(ProgramLocationID, ProgramID, ProgramName,
-               System, Latitude_D, Longitude_)
+               System, Type, Latitude_D, Longitude_)
     # Set order for display on map (N to S)
     data <- data[order(factor(data$System, levels=c(c("St. Marks",
                                                       "Aucilla",
@@ -181,6 +214,8 @@ map <- function(type="SAV"){
     
     # map output filepath
     map_out <- "output/maps/wq.png"
+    typeMap_out <- "output/maps/wq_types.png"
+    sysMap_out <- paste0("output/maps/",sys,"_map.png")
   }
   
   # Define palette
@@ -193,6 +228,9 @@ map <- function(type="SAV"){
                                           "Suwanee",
                                           "Cedar Key",
                                           "Waccasassa"))
+  
+  typePal <- colorFactor(c("#6FA1DD", "#964059"),
+                         c("Estuary", "River"))
   
   # Calculate N_data for point sizes
   sys_data_info <- data %>%
@@ -220,13 +258,44 @@ map <- function(type="SAV"){
                      radius=rad, fillOpacity=0.3) %>%
     addLegend(pal=pal, values=~System, title="")
   
+  if(type=="WQ"){
+    # Create leaflet map with Type (Estuary vs River)
+    map2 <- leaflet(data, options = leafletOptions(zoomControl = FALSE)) %>%
+      addProviderTiles(providers$CartoDB.PositronNoLabels) %>%
+      addCircleMarkers(lat=~Latitude_D, lng=~Longitude_, color=~typePal(Type),
+                       radius=rad, fillOpacity=0.3) %>%
+      addLegend(pal=typePal, values=~Type, title="")
+    
+    # Create map for each system
+    sys_map <- leaflet(data %>% filter(System==sys), options = leafletOptions(zoomControl = FALSE)) %>%
+      addProviderTiles(providers$CartoDB.PositronNoLabels) %>%
+      addCircleMarkers(lat=~Latitude_D, lng=~Longitude_, color=~typePal(Type),
+                       radius=rad, fillOpacity=0.3) %>%
+      addLegend(pal=typePal, values=~Type, title="")
+    
+    # Save as .png
+    mapshot(map2, file = typeMap_out)
+    mapshot(sys_map, file = sysMap_out)
+    
+    # draw with ggplot
+    p2 <- ggdraw() + draw_image(typeMap_out, scale = 1)
+    p3 <- ggdraw() + draw_image(sysMap_out, scale = 1)
+    
+  }
+  
   # save file as png
   mapshot(map, file = map_out)
   
   # draw .png with ggplot
   p1 <- ggdraw() + draw_image(map_out, scale = 1)
   
-  return(p1)
+  if(output=="all"){
+    return(p1)
+  } else if(output=="wq_types"){
+    return(p2)
+  } else if(output=="sys_map"){
+    return(p3)
+  }
 }
 
 plot_files <- list.files("output/Figures/", full.names = TRUE)
@@ -244,8 +313,7 @@ sav_plots <- function(sys, plot_files, plot_type){
 ```
 
 
-
-```{r system plots, fig.height=9, fig.width=10, results='asis'}
+```{r system_plots, fig.height=9, fig.width=10, results='asis'}
 
 cat("\\newpage")
 cat("  \n")
@@ -261,7 +329,22 @@ cat("\\newpage")
 cat("  \n")
 cat("Water Quality Discrete - Sample Locations - All Parameters")
 cat("  \n")
-print(map("WQ"))
+subchunkify(
+  print(map("WQ", "all", sys = "none")),
+  8,8
+)
+
+# Type maps
+cat("  \n")
+cat("\\newpage")
+cat("  \n")
+cat("Water Quality Discrete - Sample Locations - Estuary and River Delineations")
+cat("  \n")
+subchunkify(
+  print(map("WQ", "wq_types", sys = "none")),
+  8,8
+)
+
 cat("  \n")
 
 # SAV MAP
@@ -270,9 +353,14 @@ cat("\\newpage")
 cat("  \n")
 cat("Submerged Aquatic Vegetation - Sample Locations")
 cat("  \n")
-print(map("SAV"))
+subchunkify(
+  print(map("SAV", "all", sys = "none")),
+  8,8
+)
+
 cat("  \n")
 
+# for(sys in unique(wq_data$System)[1:3]){
 for(sys in unique(wq_data$System)){
   cat("  \n")
   cat("\\newpage")
@@ -280,37 +368,46 @@ for(sys in unique(wq_data$System)){
   sys_subtitle <- glue("# {sys}")
   cat(sys_subtitle, "\n\n")
   cat("  \n")
+  subchunkify(
+    print(map("WQ", output = "sys_map", sys = sys)),
+    8,8
+  )
+  
+  cat("  \n")
   
   # SKT Results
   # Filter by system and display desired columns
   system_overview <- skt_data_combined %>%
     filter(System==sys) %>%
     mutate("Period-of-Record" = paste0(EarliestYear, " - ", LatestYear)) %>%
-    select("ParameterName", "Period-of-Record", "N_Years", "N_Data", 
+    select("Type", "ParameterName", "Period-of-Record", "N_Years", "N_Data", 
            "SufficientData", "SennSlope", "SennIntercept", "p", "Trend")
+  
   
   # Convert "_" to "-" in column names to prevent LaTeX error
   names(system_overview) <- gsub("_","-", names(system_overview))
-  
+    
   # Conditional logic to print "large trend" statement
   lg_trend_statement <- ifelse(
     2 %in% abs(system_overview$Trend[!is.na(system_overview$Trend)]),
     TRUE,FALSE)
-  
-  # Add arrows only
+    
+  # Add arrows only, make ParamName blue as well
   system_overview <- system_overview %>%
-    mutate(Trend = ifelse(Trend==2, colorize("$\\Uparrow$","blue"), 
-                          ifelse(Trend==1, "$\\Uparrow$", 
-                                 ifelse(Trend==-2, colorize("$\\Downarrow$","blue"), 
-                                        ifelse(Trend==-1, "$\\Downarrow$", 
-                                               Trend)))))
+    mutate(Trend = ifelse(
+      Trend==2, colorize("$\\Uparrow$","blue"), 
+      ifelse(Trend==1, "$\\Uparrow$", 
+             ifelse(Trend==-2, colorize("$\\Downarrow$","blue"), 
+                    ifelse(Trend==-1, "$\\Downarrow$", Trend)))))
+  
   
   # Description before table
-  cat(paste0("Seasonal Kendall-Tau trend plots will be produced below for 
-             parameters where *SufficientData* is **TRUE**."))
+  cat("  \n")
+  cat(paste0("Plots will be produced below for all parameters. 
+             A Seasonal Kendall-Tau trendline will be plotted only for parameters where *SufficientData* is **TRUE**."))
   cat("  \n")
   cat("  \n")
-  cat(paste0("Trend arrows denote trends where the p value is less than 5% and the slope is less than 10% of the
+  cat(paste0("Trend arrows denote trends where the p value is less than 0.05 and the slope is less than 10% of the
               median value."))
   cat("  \n")
   cat("  \n")
@@ -319,22 +416,42 @@ for(sys in unique(wq_data$System)){
     cat(paste0(sys," contains a *large trend*. Trends marked in ", 
                colorize("$\\Uparrow$", "blue")," or ", 
                colorize("$\\Downarrow$", "blue"), 
-               " are deemed *large* trends, meaning the p value is less than 5% 
+               " are deemed *large* trends, meaning the p value is less than 0.05 
              and the slope is greater than 10% of the median value."))
     cat("  \n")    
   }
 
   # Display table
-  print(make_kable(system_overview,
-                   paste0("Seasonal Kendall-Tau Results for ",sys),
+  print(make_kable(system_overview %>% arrange(ParameterName),
+                   paste0("Seasonal Kendall-Tau Results for ", sys),
                    format = "latex"))
   
   cat("  \n")
-  cat("## Discrete WQ")
+  cat("  \n")
+  cat(paste0("Table containing overview of Programs contributing data for ", sys))
+  cat("  \n")
+  
+  # Table containing program information
+  print(kbl(prog_data[System==sys, -"System"],
+      format="latex", 
+      caption=paste0("Overview of Program Data for ", sys),
+      escape=F,digits=2,vline = "",linesep = "",longtable = T,booktabs = T) %>%
+    kable_styling(latex_options = c("scale_down","HOLD_position",
+                                    "striped"),
+                  position = "center",
+                  font_size = 7) %>%
+    row_spec(0, italic = TRUE))
+  
+  cat("  \n")
   cat("  \n")
   
   # Display skt plots for each parameter
-  for(param in names(data_directory[["skt_stats"]])){
+  # for(param in c("Water Temperature","Dissolved Oxygen")){
+  for(param in unique(data_combined[System==sys, ParameterName])){
+    
+    cat("  \n")
+    cat("  \n")
+    
     # Load in modified/analysed discrete data
     data <- data_directory[["data_analysis"]][[param]]
     # Getting units for each parameter
@@ -359,8 +476,16 @@ for(sys in unique(wq_data$System)){
     depth_label <- ifelse(depth=="All", "All Depths", "Surface")
     
     ## Begin Plotting Discrete WQ ##
+    cat("    \n")
+    param_subtitle <- glue("## {param}")
+    cat(param_subtitle, "\n\n")
     cat("  \n")
-    plot_trendlines(sys, param, data, activity_label, depth_label, y_labels)
+    
+    subchunkify(
+      plot_trendlines(sys, param, activity_label, depth_label, y_labels),
+      7,11
+    )
+    
     cat("  \n")
     
   }
@@ -372,7 +497,11 @@ for(sys in unique(wq_data$System)){
     cat("  \n")
     
     # Display maps for each system
-    print(sav_maps_list[[sys]])
+    subchunkify(
+      print(sav_maps_list[[sys]]),
+      8,8
+    )
+    
     cat("  \n")
     # Display overview of Program data and collection method
     for(p_id in SAV4[System==sys, unique(ProgramID)]){
@@ -398,6 +527,8 @@ for(sys in unique(wq_data$System)){
     # Display SAV plots for a given System
     # Three plot types, select which to include
     plot_types <- c("multiplot","trendplot","barplot")
+    
+
     for(plot_type in plot_types){
       # Set report subtitles
       if(plot_type == "multiplot"){
@@ -411,13 +542,17 @@ for(sys in unique(wq_data$System)){
       cat("  \n")
       cat(subtitle, "\n\n")
       cat("  \n")
-      print(sav_plots(sys, plot_files, plot_type))
+      subchunkify(
+        print(sav_plots(sys, plot_files, plot_type))
+      )
       cat("  \n")
       if(plot_type=="trendplot"){
         sav_trend_table(sys)
         cat("  \n")
       }
     }
+
+    
     cat("  \n")
   }
   cat("  \n")
