@@ -1,0 +1,27 @@
+li {
+  list-style-type: none;
+}
+
+ul {
+  padding-left: 0;
+}
+
+.bg-aqua {
+  background-color: #2E5270 !important;
+}
+
+.small-box {
+  height: 120px;
+  border-radius: 10px;
+}
+
+.small-box h3 {
+  text-align: center;
+}
+
+.small-box p {
+  color: #C8EAFB;
+  white-space: normal;
+  text-align: center;
+  vertical-align: middle;
+}
