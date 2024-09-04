@@ -18,23 +18,28 @@ library(leaflet.providers)
 library(shiny)
 library(tidyr)
 library(ggplot2)
+library(ggpubr)
 library(DT)
 library(lubridate)
 library(shinyjs)
 library(bslib)
 library(shinydashboard)
+library(patchwork)
+library(flextable)
 
 # SEACAR Plot theme
 plot_theme <- theme_bw() +
   theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(),
-        panel.background = element_rect(fill="transparent"),
+        panel.background = element_rect(fill="transparent", colour = NA),
         text=element_text(family="Arial"),
         plot.title=element_text(hjust=0.5, size=14, color="#314963"),
         plot.subtitle=element_text(hjust=0.5, size=12, color="#314963"),
+        plot.background = element_rect(fill="transparent", colour = NA),
         legend.title=element_text(size=14),
         legend.text = element_text(size=12),
         legend.text.align = 0,
+        legend.background = element_rect(fill = "transparent"),
         axis.title.x = element_text(size=12, margin = margin(t = 5, r = 0,
                                                              b = 10, l = 0)),
         axis.title.y = element_text(size=12, margin = margin(t = 0, r = 10,
@@ -91,22 +96,25 @@ plot_discrete <- function(sys, param, data, output = "plot"){
                        values = c("Significant Trend" = "#000099",
                                   "Non-significant Trend" = "#900667")) +
     plot_theme +
-    facet_wrap(~Type, dir="h")
+    facet_wrap(~Type, dir="h") +
+    theme(strip.text.x = element_text(size=12))
   
   # Creates ResultTable to display statistics below plot
   ResultTable <- skt_data_combined[System==sys & ParameterName==param, ] %>%
     select(Type, RelativeDepth, N_Data, N_Years, Median, Independent, tau, p,
            SennSlope, SennIntercept, ChiSquared, pChiSquared, Trend)
   # Create table object
-  t1 <- ggtexttable(ResultTable, rows=NULL,
-                    theme=ttheme(base_size=12)) # %>%
+  # t1 <- ggtexttable(ResultTable, rows=NULL, theme=ttheme(base_size=10)) # %>%
     # tab_add_footnote(text="p < 0.00005 appear as 0 due to rounding.\n
     #                   SennIntercept is intercept value at beginning of
     #                   record for monitoring location",
     #                  size=10, face="italic")
   
+  t1 <- gen_grob(flextable(ResultTable))
+  
   # Align plot with table below it
-  plot <- (p1 / t1) + plot_layout(nrow=2, heights = c(2,1))
+  # plot <- (p1 / t1) + plot_layout(nrow=2, heights = c(2,1))
+  plot <- p1 + t1 + plot_layout(heights=c(2,1))
   
   if(output=="plot"){
     return(p1)
@@ -117,6 +125,57 @@ plot_discrete <- function(sys, param, data, output = "plot"){
   } else if(output=="both"){
     return(plot)
   }
+}
+
+# Function to return WQ model results page
+model_table <- function(sys, param, type){
+  skt_data_combined %>% 
+    filter(
+      (sys == "All" | System == sys),
+      (param == "All" | ParameterName == param),
+      (type == "All" | Type == type)) %>%
+    mutate(Period = paste0(EarliestYear, " - ", LatestYear)) %>%
+    select(System, Type, ParameterName, RelativeDepth, ActivityType, 
+           SufficientData, N_Data, N_Years, Period, Median, p, SennSlope, 
+           SennIntercept, ChiSquared, pChiSquared, Trend)
+}
+
+# Show modalDialog plots
+showPlot <- function(sys, type){
+  sys_sub <- gsub(" ","_", sys)
+  fig_folder <- "www/figures/"
+  if(type=="barplot"){
+    title <- paste0("Frequency of Occurrence in ", sys)
+    src <- paste0(fig_folder, "SAV_PA_", sys_sub, "_barplot_sp.png")
+    h <- "70%"
+    w <- "70%"
+  } else if(type=="multiplot"){
+    title <- paste0("Median Percent Cover in ", sys)
+    src <- paste0(fig_folder, "SAV_BBpct_", sys_sub, "_multiplot.png")
+    h <- "70%"
+    w <- "70%"
+  } else if(type=="trendplot"){
+    title <- paste0("Median Percent Cover trends in ", sys)
+    src <- paste0(fig_folder, "SAV_BBpct_", sys_sub, "_trendplot.png")
+    h <- "100%"
+    w <- "100%"
+  }
+  
+  showModal(
+    modalDialog(
+      title = title,
+      tags$div(
+        tags$img(
+          src = src,
+          height = h,
+          width = w
+        ),
+        style = "text-align:center;"
+      ),
+      size = "l",
+      easyClose = T
+    )
+  )
 }
 
 # Determining lab/field/all status for labeling
@@ -132,8 +191,8 @@ combined_params <- c("Salinity","Total Suspended Solids")
 rds_load_path <- "rds/"
 
 # use the following lines to load objects created in report.R
-files_to_load <- c("groupNames", "data_combined", "publish_date", 
-                   "map_df", "skt_data_combined")
+files_to_load <- c("data_combined", "publish_date", "sys_include",
+                   "map_df", "sav_map_df", "skt_data_combined")
 
 for(file in files_to_load){
   eval(call("<-", as.name(file), readRDS(paste0(rds_load_path, file, ".rds"))))
@@ -168,9 +227,20 @@ for(sys in unique(map_df$System)){
                          lat = ~OriginalLatitude, lng = ~OriginalLongitude,
                          weight = 0.5, fillOpacity = 0.4, opacity = 0.4, color="black",
                          fillColor = paramPal(param), group = paste0(param,"_",type),
-                         label = ~label)
+                         label = ~label, popup = ~popup)
     }
     
+  }
+  
+  # Add SAV data where possible
+  if(sys %in% sys_include){
+    map <- map %>% 
+      addCircleMarkers(data = sav_map_df[System==sys, ],
+                       lat = ~OriginalLatitude, lng = ~OriginalLongitude,
+                       rad = 5,
+                       weight = 0.5, fillOpacity = 0.4, opacity = 0.4, color="lightblue",
+                       fillColor = "#005396", group = paste0(sys,"_sav"),
+                       label = ~label, popup = ~popup)
   }
   
   # Load map as object of name "[system]_map"
@@ -208,6 +278,8 @@ header <- dashboardHeader(
 )
 sidebar <- dashboardSidebar(
   sidebarMenu(
+    menuItem("Dashboard", tabName = "dashboard", icon = icon("dashboard")),
+    menuItem("WQ Model Results", tabName = "model_results", icon = icon("table")),
     selectInput(inputId = "systemSelect",
                 label = "Select a System to view",
                 choices = c("All", levels(systems)),
@@ -225,20 +297,43 @@ sidebar <- dashboardSidebar(
 
 # System display page
 sysPage <- dashboardBody(
+  useShinyjs(),
   tags$head(
     tags$link(rel = "stylesheet", type = "text/css", href = "www/style.css")
   ),
-  fluidRow(
-    column(12,
-           leafletOutput("systemMap"))
+  tabItems(
+    tabItem(
+      tabName = "dashboard",
+      fluidRow(
+        column(6, 
+               leafletOutput("systemMap",
+                             height = "30vh"),
+               div(style = "max-width:fit-content; margin-left:auto; margin-right:auto;",
+                   shinyjs::hidden(checkboxInput("savCheckBox",
+                                                 label = "Toggle SAV sampling locations", 
+                                                 value = TRUE)))
+               ),
+        column(6,
+               shinyjs::hidden(
+                 uiOutput("plotLinks")
+               ))),
+      fluidRow(
+        column(6, 
+               plotOutput("wq_plot")))
+      ),
+    tabItem(
+      tabName = "model_results",
+      fluidRow(
+        column(12,
+               div(style = "max-width:fit-content; margin-left:auto; margin-right:auto;",
+                   downloadButton("downloadWQ", "Download Model Results"))),
+        column(12,
+               div(style = "width:100%; overflow-x:auto;",
+                   DT::dataTableOutput("model_results_table"))
+               )
+      )
+    )
   ),
-  fluidRow(
-    column(12,
-           plotOutput("wq_plot")
-           # DT::dataTableOutput("wq_table")
-           # plotOutput("wq_table2")
-           )
-  )
 )
 
 ui <- dashboardPage(header, sidebar, sysPage, skin="blue")
@@ -260,6 +355,17 @@ server <- function(input, output, session){
     data_combined[System==sys() & ParameterName==param(), ]
   })
   
+  # SAV Check Box
+  observeEvent(input$savCheckBox,{
+    if(input$savCheckBox){
+      leafletProxy("systemMap") %>%
+        showGroup(paste0(sys(), "_sav"))
+    } else {
+      leafletProxy("systemMap") %>%
+        hideGroup(paste0(sys(), "_sav"))
+    }
+  })
+  
   observeEvent(input$systemSelect, {
     # Grab unique parameters for each system
     params <- data_combined[System==input$systemSelect, unique(ParameterName)]
@@ -269,6 +375,15 @@ server <- function(input, output, session){
     
     # Update values in type select box
     updateSelectizeInput(inputId = "typeSelect", choices = c("All", types()))
+    
+    # Show or hide SAV check Box (hide when "All")
+    if(input$systemSelect!="All" & sys() %in% sys_include){
+      shinyjs::showElement("savCheckBox")
+      shinyjs::showElement("plotLinks")
+    } else {
+      shinyjs::hideElement("savCheckBox")
+      shinyjs::hideElement("plotLinks")
+    }
     
   })
   
@@ -323,29 +438,70 @@ server <- function(input, output, session){
     if(param()!="All"){
       plot_discrete(sys = sys(), param = param(), data = wq_data(), output = "both")
     }
+  }, bg = "transparent")
+  
+  output$model_results_table <- renderDataTable({
+    DT::datatable(
+      model_table(sys(), param(), type()),
+      options = list(scrollX = TRUE, autoWidth = TRUE)
+    )
   })
   
-  output$wq_table2 <- renderPlot({
-    if(param()!="All"){
-      plot_discrete(sys = sys(), param = param(), data = wq_data(), output = "table2")
-    }
+  # output$wq_table2 <- renderPlot({
+  #   if(param()!="All"){
+  #     plot_discrete(sys = sys(), param = param(), data = wq_data(), output = "table2")
+  #   }
+  # })
+  # 
+  # output$wq_table <- DT::renderDataTable({
+  #   if(param()!="All"){
+  #     plot_discrete(sys = sys(), param = param(), data = wq_data(), output = "table")
+  #   }
+  # })
+  
+  output$plotLinks <- renderUI({
+    tagList(
+      tags$h4("Submerged Aquatic Vegetation"),
+      tags$h6("Trends and Visualizations"),
+      tags$ul(
+        tags$li(
+          actionButton(paste0(sys(),"__multiplot"),
+                       label = "Median percent cover",
+                       onclick = 'Shiny.onInputChange("select_button", this.id);')
+        ),
+        tags$li(
+          actionButton(paste0(sys(),"__trendplot"),
+                       label = "Median percent cover trends",
+                       onclick = 'Shiny.onInputChange("select_button", this.id);')
+        ),
+        tags$li(
+          actionButton(paste0(sys(),"__barplot"),
+                       label = "Frequency of Occurrence",
+                       onclick = 'Shiny.onInputChange("select_button", this.id);')
+        )
+      )
+    )
   })
   
-  output$wq_table <- DT::renderDataTable({
-    if(param()!="All"){
-      plot_discrete(sys = sys(), param = param(), data = wq_data(), output = "table")
-    }
+  observeEvent(input$select_button, {
+    sys <- str_split(input$select_button, "__")[[1]][[1]]
+    type <- str_split(input$select_button, "__")[[1]][[2]]
+    showPlot(sys, type)
   })
+  
+  output$downloadWQ <- downloadHandler(
+    filename = function(){"Discrete_WQ_SKT_Stats.txt"},
+    content = function(file){
+      file.copy('data/Discrete_WQ_SKT_Stats.txt', file)
+    }
+  )
 }
 
 shinyApp(ui = ui, server = server)
 
 # library(rsconnect)
 # deployApp(appFiles = c("app.R", "UI_Snippets.R",
-#                        "rds/data_combined.rds", "rds/groupNames.rds", "rds/publish_date.rds",
-#                        "www/style.css", "www/dep-logos.png",
-#                        "rds/maps/Aucilla_map.rds", "rds/maps/Cedar Key_map.rds",
-#                        "rds/maps/Econfina_map.rds", "rds/maps/Horseshoe Beach_map.rds",
-#                        "rds/maps/Keaton Beach_map.rds", "rds/maps/St. Marks_map.rds",
-#                        "rds/maps/Steinhatchee_map.rds", "rds/maps/Suwanee_map.rds",
-#                        "rds/maps/Waccasassa_map.rds"))
+#                        "rds/data_combined.rds", "rds/publish_date.rds",
+#                        "rds/skt_data_combined.rds", "rds/map_df.rds",
+#                        "rds/sav_map_df.rds", "rds/sys_include.rds",
+#                        "www/style.css", "www/dep-logos.png", "www/figures"))
