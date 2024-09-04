@@ -11,7 +11,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Managed Area Reports
 
-Managed Area reports are available in both PDF and ~~HTML~~ format. The GitHub Repository is located [here](https://github.com/FloridaSEACAR/SEACAR_Trend_Analyses/tree/main/MA%20Report%20Generation).
+Managed Area reports are available in PDF format. The GitHub Repository is located [here](https://github.com/FloridaSEACAR/SEACAR_Trend_Analyses/tree/main/MA%20Report%20Generation).
 
 
 ```{r ma_list, echo = FALSE, results='asis'}

@@ -16,7 +16,7 @@ output:
     dev: png
     extra_dependencies: ["longtable", "float"]
     keep_md: yes
-    fig_crop: no
+    fig_crop: false
     fig_caption: no
     keep_tex: true
     includes:
@@ -33,8 +33,7 @@ knitr::opts_chunk$set(
    warning=FALSE,
    message=FALSE,
    echo=FALSE,
-   dpi=200,
-   fig.pos = 'H'
+   dpi=200
    )
 options(kableExtra.auto_format = FALSE)
 ```
@@ -226,7 +225,7 @@ if(in_discrete){
 ```
 
 
-```{r plotting WQ_Continuous, warning=FALSE, fig.height=9, fig.width=10, results="asis", eval = TRUE, fig.cap="Continuous Water Quality"}
+```{r plotting WQ_Continuous, warning=FALSE, fig.height=9, fig.width=10, results="asis", eval = TRUE, fig.cap="Continuous Water Quality", eval=TRUE}
 
 # extract region for each MA to determine which cont. file to load
 region <- MA_All %>% filter(ManagedAreaName == ma) %>% pull(Region)
@@ -281,7 +280,7 @@ if(in_continuous){
 ```
 
 
-```{r SAV scope_plots, warning=FALSE, results="asis", echo=FALSE, fig.height=18, fig.width=15, fig.cap="SAV - Temporal Scope"}
+```{r SAV scope_plots, warning=FALSE, results="asis", echo=FALSE, fig.height=18, fig.width=15, fig.cap="SAV - Temporal Scope", eval=TRUE}
 
 if(in_sav){
   cat("\\newpage")
@@ -302,7 +301,7 @@ if(in_sav){
 ```
 
 
-```{r SAV maps, warning=FALSE, fig.height=6, fig.width=10, results="asis", eval=TRUE, echo=FALSE, fig.cap="SAV - Sampling Map"}
+```{r SAV maps, warning=FALSE, fig.height=6, fig.width=10, results="asis", eval=TRUE, echo=FALSE, fig.cap="SAV - Sampling Map", eval=TRUE}
 
 if(in_sav){
   cat("  \n")
@@ -315,7 +314,7 @@ if(in_sav){
 ```
 
 
-```{r plotting SAV, warning=FALSE, fig.height=9, fig.width=10, results="asis", eval=TRUE, echo=FALSE, fig.cap="SAV"}
+```{r plotting SAV, warning=FALSE, fig.height=9, fig.width=10, results="asis", eval=TRUE, echo=FALSE, fig.cap="SAV", eval=TRUE}
 
 
 if(in_sav){
@@ -339,9 +338,7 @@ if(in_sav){
 ```
 
 
-
-```{r plotting nekton, warning=FALSE, fig.height=8, fig.width=12, results="asis", fig.cap="Nekton"}
-
+```{r plotting nekton, warning=FALSE, fig.height=8, fig.width=11, results="asis", fig.cap="Nekton", eval=TRUE}
 
 if(in_nekton){
   
@@ -358,7 +355,7 @@ if(in_nekton){
 
 
 
-```{r plotting Coral, warning=FALSE, fig.height=6, fig.width=8, results="asis", fig.cap="Coral"}
+```{r plotting Coral, warning=FALSE, fig.height=6, fig.width=8, results="asis", fig.cap="Coral", eval=TRUE}
 
 if(ma %in% coral_pc_MA_Include | ma %in% coral_sr_MA_Include){
   cat("# Coral Reef \n")
@@ -380,7 +377,7 @@ if(ma %in% coral_pc_MA_Include | ma %in% coral_sr_MA_Include){
 
 
 
-```{r plotting coastalwetlands, warning=FALSE, fig.height=6, fig.width=8, results="asis", fig.cap="Coastal Wetlands"}
+```{r plotting coastalwetlands, warning=FALSE, fig.height=6, fig.width=8, results="asis", fig.cap="Coastal Wetlands", eval=TRUE}
 
 if(in_cw){
   

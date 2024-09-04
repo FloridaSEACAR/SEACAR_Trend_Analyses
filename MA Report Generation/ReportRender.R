@@ -63,7 +63,7 @@ nekton_file_short <- tail(str_split(nekton_file_in, "/")[[1]],1)
 sav_file_in <- str_subset(hab_files, "SAV")
 sav_file_short <- tail(str_split(sav_file_in, "/")[[1]],1)
 
-oyster_file_in <- str_subset(hab_files, "Oyster")
+oyster_file_in <- str_subset(hab_files, "OYSTER")
 oyster_file_short <- tail(str_split(oyster_file_in, "/")[[1]],1)
 
 cont_files <- str_subset(files, "_NUT_cont")
@@ -115,8 +115,8 @@ wq_cont_files_short <- lapply(wq_cont_files, function(x){tail(str_split(x, "/")[
 # MA_All <- MA_All[33]
 
 # Choose which type of report to render, or render both
-report_types <- c("PDF", "HTML")
-# report_types <- c("PDF")
+# report_types <- c("PDF", "HTML")
+report_types <- c("PDF")
 
 # iterate through every possible MA
 # apply checks for coral, sav, etc. within .Rmd doc
