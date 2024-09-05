@@ -4,6 +4,7 @@
 
 ### Uncomment the following lines to run and test offline
 ### Comment out before deploying app
+
 ###############################################
 # library(rstudioapi)
 # wd <- dirname(getActiveDocumentContext()$path)
@@ -24,6 +25,7 @@ library(lubridate)
 library(shinyjs)
 library(bslib)
 library(shinydashboard)
+library(shinydashboardPlus)
 library(patchwork)
 library(flextable)
 
@@ -55,9 +57,19 @@ seacar_palette <- c("#964059","#E05E7B","#E98C86","#F1B8AB","#F8CAAA","#F8E6B9",
 seacar_sp_palette <- c("#005396","#0088B1","#00ADAE","#65CCB3","#AEE4C1",
                        "#FDEBA8","#F8CD6D","#F5A800","#F17B00")
 
+# WebsiteParameters file to display units on plots
+websiteParams <- fread("data/WebsiteParameters.csv")
+
 plot_discrete <- function(sys, param, data, output = "plot"){
   
-  y_labels <- param
+  # Grab units, activity, and depth from WebsiteParameters file
+  unit <- websiteParams[ParameterName==param, unique(ParameterUnits)]
+  a <- websiteParams[ParameterName==param, unique(ActivityType)]
+  d <- websiteParams[ParameterName==param, unique(RelativeDepth)]
+  
+  y_labels <- ifelse(param == "pH", param, paste0(param, " (", unit,")"))
+  activity_label <- ifelse(a=="All", "Lab and Field Combined", a)
+  depth_label <- ifelse(d=="All", "All Depths", d)
   
   #Determine max and min time (Year) for plot x-axis
   t_min <- min(data$Year)
@@ -87,7 +99,7 @@ plot_discrete <- function(sys, param, data, output = "plot"){
     geom_point(shape=21, size=3, color="#333333", fill="#cccccc", alpha=0.75) +
     geom_segment(aes(x = start_x, y = start_y, xend = end_x, yend = end_y, color = sig), 
                  linewidth=1.2, alpha=0.7, show.legend = TRUE) +
-    labs(title=paste0(param),
+    labs(title=paste0(param, " - ", activity_label, ", ", depth_label),
          subtitle=paste0(sys, " - ", "Big Bend Seagrasses AP"),
          x="Year", y=y_labels) +
     scale_x_continuous(limits=c(t_min-0.25, t_max+0.25),
@@ -128,7 +140,7 @@ plot_discrete <- function(sys, param, data, output = "plot"){
 }
 
 # Function to return WQ model results page
-model_table <- function(sys, param, type){
+wqModelResults <- function(sys, param, type){
   skt_data_combined %>% 
     filter(
       (sys == "All" | System == sys),
@@ -140,20 +152,30 @@ model_table <- function(sys, param, type){
            SennIntercept, ChiSquared, pChiSquared, Trend)
 }
 
-# Show modalDialog plots
-showPlot <- function(sys, type){
+savModelResults <- function(sys){
+  sav_stats %>%
+    filter((sys == "All" | System==sys)) %>%
+    mutate(Period = paste0(EarliestYear, " - ", LatestYear)) %>%
+    select(System, Species, N_Data, N_Years, Period, LME_Intercept, LME_Slope, 
+           p, StatisticalTrend)
+}
+
+# Show SAV plots, ret determines what the function returns
+# When ret = "plot", returns plot only
+# When ret = "modal", returns popup modal box (for use with plotLinks)
+showPlot <- function(sys, type, ret = "plot"){
   sys_sub <- gsub(" ","_", sys)
   fig_folder <- "www/figures/"
   if(type=="barplot"){
     title <- paste0("Frequency of Occurrence in ", sys)
     src <- paste0(fig_folder, "SAV_PA_", sys_sub, "_barplot_sp.png")
-    h <- "70%"
-    w <- "70%"
+    h <- "100%"
+    w <- "100%"
   } else if(type=="multiplot"){
     title <- paste0("Median Percent Cover in ", sys)
     src <- paste0(fig_folder, "SAV_BBpct_", sys_sub, "_multiplot.png")
-    h <- "70%"
-    w <- "70%"
+    h <- "100%"
+    w <- "100%"
   } else if(type=="trendplot"){
     title <- paste0("Median Percent Cover trends in ", sys)
     src <- paste0(fig_folder, "SAV_BBpct_", sys_sub, "_trendplot.png")
@@ -161,21 +183,33 @@ showPlot <- function(sys, type){
     w <- "100%"
   }
   
-  showModal(
-    modalDialog(
-      title = title,
-      tags$div(
-        tags$img(
-          src = src,
-          height = h,
-          width = w
+  if(ret=="modal"){
+    showModal(
+      modalDialog(
+        title = title,
+        tags$div(
+          tags$img(
+            src = src,
+            height = h,
+            width = w
+          ),
+          style = "text-align:center;"
         ),
-        style = "text-align:center;"
-      ),
-      size = "l",
-      easyClose = T
+        size = "l",
+        easyClose = T
+      )
     )
-  )
+  } else if(ret=="plot"){
+    tags$div(
+      tags$img(
+        src = src,
+        height = h,
+        width = w
+      ),
+      style = "text-align:center;"
+    )
+  }
+
 }
 
 # Determining lab/field/all status for labeling
@@ -192,7 +226,7 @@ rds_load_path <- "rds/"
 
 # use the following lines to load objects created in report.R
 files_to_load <- c("data_combined", "publish_date", "sys_include",
-                   "map_df", "sav_map_df", "skt_data_combined")
+                   "map_df", "sav_map_df", "skt_data_combined", "sav_stats")
 
 for(file in files_to_load){
   eval(call("<-", as.name(file), readRDS(paste0(rds_load_path, file, ".rds"))))
@@ -203,6 +237,11 @@ params <- unique(map_df$ParameterName)
 # Available systems, N to S order
 systems <- c("St. Marks", "Aucilla", "Econfina", "Keaton Beach", "Steinhatchee", 
              "Horseshoe Beach", "Suwanee", "Cedar Key", "Waccasassa")
+# System names with a * denoting Systems with SAV
+sys_star <- ifelse(systems %in% sys_include, paste0(systems, " *"), systems)
+sys_list <- systems
+names(sys_list) <- sys_star # sys_list will be used to populate systemSelect drop down
+# Create factor out of Systems to display sites in order
 systems <- factor(systems, levels = systems)
 
 sysPal <- colorFactor(seacar_palette, systems, ordered = TRUE)
@@ -273,21 +312,20 @@ source("UI_Snippets.R")
 # Enables recognition of images folder
 addResourcePath(prefix="www", directoryPath = "www")
 
-header <- dashboardHeader(
-  title = "BBSAP Dashboard"
-)
+header <- dashboardHeader(title = "BBSAP Dashboard")
+
 sidebar <- dashboardSidebar(
   sidebarMenu(
     menuItem("Dashboard", tabName = "dashboard", icon = icon("dashboard")),
-    menuItem("WQ Model Results", tabName = "model_results", icon = icon("table")),
+    menuItem("WQ Model Results", tabName = "wq_model_results", icon = icon("table")),
+    menuItem("SAV Model Results", tabName = "sav_model_results", icon = icon("table")),
     selectInput(inputId = "systemSelect",
                 label = "Select a System to view",
-                choices = c("All", levels(systems)),
+                choices = c("All", sys_list),
                 selected = "All"),
     selectizeInput(inputId = "paramSelect",
                    label = "Select a Parameter to view",
-                   choices = "All",
-                   selected = "Aucilla"),
+                   choices = "All"),
     selectizeInput(inputId = "typeSelect",
                    label = "Select River or Estuary",
                    choices = "Select a data type",
@@ -306,55 +344,72 @@ sysPage <- dashboardBody(
       tabName = "dashboard",
       fluidRow(
         column(6, 
-               leafletOutput("systemMap",
-                             height = "30vh"),
+               # leafletOutput("systemMap",
+               #               height = "50vh"),
+               leafletOutput("systemMap"),
                div(style = "max-width:fit-content; margin-left:auto; margin-right:auto;",
                    shinyjs::hidden(checkboxInput("savCheckBox",
                                                  label = "Toggle SAV sampling locations", 
                                                  value = TRUE)))
                ),
-        column(6,
-               shinyjs::hidden(
-                 uiOutput("plotLinks")
-               ))),
-      fluidRow(
         column(6, 
-               plotOutput("wq_plot")))
-      ),
+               plotOutput("wq_plot"),
+               uiOutput("savPlots"),
+               # shinyjs::hidden(uiOutput("plotLinks"))
+               )
+      )
+    ),
     tabItem(
-      tabName = "model_results",
+      tabName = "wq_model_results",
       fluidRow(
         column(12,
                div(style = "max-width:fit-content; margin-left:auto; margin-right:auto;",
-                   downloadButton("downloadWQ", "Download Model Results"))),
+                   downloadButton("downloadWQ", "Download WQ Model Results"))),
         column(12,
                div(style = "width:100%; overflow-x:auto;",
-                   DT::dataTableOutput("model_results_table"))
+                   DT::dataTableOutput("wq_model_results_table"))
                )
       )
+    ),
+    tabItem(
+      tabName = "sav_model_results",
+      fluidRow(
+        column(12,
+               div(style = "max-width:fit-content; margin-left:auto; margin-right:auto;",
+                   downloadButton("downloadSAV", "Download SAV Model Results"))),
+        column(12,
+               div(style = "width:100%; overflow-x:auto;",
+                   DT::dataTableOutput("sav_model_results_table"))
+        )
+      )
     )
-  ),
+  )
 )
 
-ui <- dashboardPage(header, sidebar, sysPage, skin="blue")
+footer <- dashboardFooter(
+  left = funding()
+)
+
+ui <- dashboardPage(title = "BBSAP - Discrete WQ and SAV Dashboard", 
+                    header, sidebar, sysPage, footer = footer, skin="blue")
 
 # Server ----
 server <- function(input, output, session){
   
+  # System variable called using sys()
   sys <- reactive({input$systemSelect})
-  
+  # ParameterName variable called using param()
   param <- reactive({input$paramSelect})
-  
+  # Estuary or River variable, called using type()
   type <- reactive({input$typeSelect})
-  
+  # Determining unique types available within a given System
   types <- reactive({
-    data_combined[System==input$systemSelect, unique(Type)]
+    data_combined[System==sys(), unique(Type)]
   })
-  
+  # Grabbing plot data for a given System / ParameterName combination
   wq_data <- reactive({
     data_combined[System==sys() & ParameterName==param(), ]
   })
-  
   # SAV Check Box
   observeEvent(input$savCheckBox,{
     if(input$savCheckBox){
@@ -365,17 +420,14 @@ server <- function(input, output, session){
         hideGroup(paste0(sys(), "_sav"))
     }
   })
-  
+  # Observe Event for System selector
   observeEvent(input$systemSelect, {
     # Grab unique parameters for each system
     params <- data_combined[System==input$systemSelect, unique(ParameterName)]
-    
     # Update values in param select box
     updateSelectizeInput(inputId = "paramSelect", choices = c("All", params))
-    
     # Update values in type select box
     updateSelectizeInput(inputId = "typeSelect", choices = c("All", types()))
-    
     # Show or hide SAV check Box (hide when "All")
     if(input$systemSelect!="All" & sys() %in% sys_include){
       shinyjs::showElement("savCheckBox")
@@ -440,9 +492,22 @@ server <- function(input, output, session){
     }
   }, bg = "transparent")
   
-  output$model_results_table <- renderDataTable({
+  output$wq_model_results_table <- renderDataTable({
     DT::datatable(
-      model_table(sys(), param(), type()),
+      wqModelResults(sys(), param(), type()),
+      options = list(scrollX = TRUE, autoWidth = TRUE)
+    )
+  })
+  
+  output$sav_model_results_table <- renderDataTable({
+    DT::datatable(
+      savModelResults(sys())
+    )
+  })
+  
+  output$sav_model_results_table_plots <- renderDataTable({
+    DT::datatable(
+      savModelResults(sys()),
       options = list(scrollX = TRUE, autoWidth = TRUE)
     )
   })
@@ -483,18 +548,54 @@ server <- function(input, output, session){
     )
   })
   
+  output$savPlots <- renderUI({
+    tagList(
+      tags$h3("Submerged Aquatic Vegetation")
+    )
+    if(sys() %in% sys_include){
+      tabsetPanel(
+        tabPanel(title = "Frequency of Occurrence",
+                 showPlot(sys(), type = "barplot", ret = "plot")
+        ),
+        tabPanel(title = "Median Percent Cover",
+                 showPlot(sys(), type = "multiplot", ret = "plot")
+        ),
+        tabPanel(title = "Median Percent Cover Trends",
+                 showPlot(sys(), type = "trendplot", ret = "plot")
+        ),
+        tabPanel(title = "Analysis Results",
+                 DT::dataTableOutput("sav_model_results_table_plots")
+        )
+      )
+    } else if(sys()!="All"){
+      tags$p(paste0("No SAV data available for ", sys()))
+    }
+
+  })
+  
   observeEvent(input$select_button, {
     sys <- str_split(input$select_button, "__")[[1]][[1]]
     type <- str_split(input$select_button, "__")[[1]][[2]]
-    showPlot(sys, type)
+    showPlot(sys, type, ret = "modal")
   })
   
   output$downloadWQ <- downloadHandler(
-    filename = function(){"Discrete_WQ_SKT_Stats.txt"},
+    filename = function(){"BBSAP_Discrete_WQ_SKT_Stats.txt"},
     content = function(file){
-      file.copy('data/Discrete_WQ_SKT_Stats.txt', file)
+      write.csv(skt_data_combined %>% select(-c(start_x, end_x, start_y, end_y)), 
+                file, row.names = FALSE)
     }
   )
+  
+  output$downloadSAV <- downloadHandler(
+    filename = function(){"BBSAP_SAV_BBpct_LMEresults_All.txt"},
+    content = function(file){
+      write.csv(sav_stats, 
+                file, row.names = FALSE)
+    }
+  )
+  
+  output$funding <- renderUI({HTML(funding_text)})
 }
 
 shinyApp(ui = ui, server = server)
@@ -503,5 +604,6 @@ shinyApp(ui = ui, server = server)
 # deployApp(appFiles = c("app.R", "UI_Snippets.R",
 #                        "rds/data_combined.rds", "rds/publish_date.rds",
 #                        "rds/skt_data_combined.rds", "rds/map_df.rds",
-#                        "rds/sav_map_df.rds", "rds/sys_include.rds",
-#                        "www/style.css", "www/dep-logos.png", "www/figures"))
+#                        "rds/sav_map_df.rds", "rds/sys_include.rds", "rds/sav_stats.rds",
+#                        "www/style.css", "www/dep-logos.png", "www/figures",
+#                        "data/WebsiteParameters.csv"))

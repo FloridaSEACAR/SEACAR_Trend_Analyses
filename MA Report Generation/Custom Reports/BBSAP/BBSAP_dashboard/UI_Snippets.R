@@ -28,6 +28,10 @@ funding_text <- paste(
 )
 
 funding <- function(){
-  tags$div(wellPanel(htmlOutput("funding")), 
-           style = 'width=80%;')
+  wellPanel(
+    tags$div(id="funding_footer",
+             htmlOutput("funding"),
+             tags$style(type="text/css","#funding_footer{width:100%;}")
+             )
+  )
 }
