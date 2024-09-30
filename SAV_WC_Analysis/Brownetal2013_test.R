@@ -22,6 +22,25 @@ library(rstudioapi)
 wd <- dirname(getActiveDocumentContext()$path)
 setwd(wd)
 
+# SEACAR plot standards
+plot_theme <- theme_bw() +
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        text=element_text(family="Arial"),
+        plot.title=element_text(hjust=0.5, size=12, color="#314963"),
+        plot.subtitle=element_text(hjust=0.5, size=10, color="#314963"),
+        legend.title=element_text(size=10),
+        legend.text.align = 0,
+        axis.title.x = element_text(size=10, margin = margin(t = 5, r = 0,
+                                                             b = 10, l = 0)),
+        axis.title.y = element_text(size=10, margin = margin(t = 0, r = 10,
+                                                             b = 0, l = 0)),
+        axis.text=element_text(size=10),
+        axis.text.x=element_text(angle = -45, hjust = 0))
+
+# Bring in list of MAs (for abbreviations)
+MA_All <- fread("../MA Report Generation/data/ManagedArea.csv", sep = ",", header = TRUE, stringsAsFactors = FALSE, na.strings = "")
+
 SAV4 <- fread("../SAV/output/SAV_DataUsed.txt")
 SAV4[, monthdate := floor_date(SampleDate, unit = "months")]
 
@@ -71,7 +90,7 @@ setDT(disc_sav)
 disc_sav <- unique(disc_sav)
 saveRDS(disc_sav, paste0("data/disc_sav_", Sys.Date(), ".rds"))
 
-# disc_sav <- readRDS(here::here("SAV/data/WaterData/disc_sav_2023-05-03.rds"))
+# disc_sav <- readRDS("data/disc_sav_2024-09-25.rds")
 disc_sav[ParameterUnits == "Degrees C", ParameterUnits := "C"]
 disc_sav[, ParameterName := fcase(ParameterName == "Chlorophyll a, Corrected for Pheophytin", "Chl a corrected",
                                   ParameterName == "Chlorophyll a, Uncorrected for Pheophytin", "Chl a uncorrected",
@@ -91,9 +110,10 @@ samplocs3$Longitude_[which(is.na(samplocs3$Longitude_))] <- lapply(samplocs3$geo
 SAV4 <- merge(SAV4, samplocs3[, c("LocationID", "Latitude_D", "Longitude_")], by = "LocationID", all.x = TRUE)
 SAV4[, MA := ManagedAreaName]
 saveRDS(SAV4, paste0("data/SAV4_", Sys.Date(), ".rds"))
-# SAV4 <- readRDS("SAV/data/WaterData/SAV4_2024-09-25.rds")
+# SAV4 <- readRDS("data/SAV4_2024-09-25.rds")
 
 for(m in unique(SAV4$MA)){
+  ma_abrev <- MA_All[ManagedAreaName==m, Abbreviation]
   savdat_m <- SAV4[MA == m & !is.na(BB_all), ]
   if(nrow(savdat_m) == 0) next
   
@@ -113,41 +133,45 @@ for(m in unique(SAV4$MA)){
       axis1max <- ifelse(plyr::round_any(max(savdat_mi[, mean + sd]), 1, ceiling) > 5, plyr::round_any(max(savdat_mi[, mean + sd]), 1, ceiling), 5) 
       axis1min <- ifelse(plyr::round_any(min(savdat_mi[, mean - sd]), 1, floor) < 0, plyr::round_any(min(savdat_mi[, mean - sd]), 1, floor), 0)
       axis2scale <- max(watdat_mw$mean) / 5
-      axis2col <- "dodgerblue3"
+      axis2col <- "#000099"
       axis2units <- disc_sav[ManagedAreaName == m & ParameterName == w, unique(ParameterUnits)]
       savdat_mi_overlap <- data.table(Year = setdiff(unique(watdat_mw$Year), unique(savdat_mi$Year)))
-      savdat_mi <- bind_rows(savdat_mi, savdat_mi_overlap)
+      savdat_mi_2 <- bind_rows(savdat_mi, savdat_mi_overlap)
       
-      min_year <- min(savdat_mi$Year)
-      max_year <- max(savdat_mi$Year)
+      min_year <- min(savdat_mi_2$Year)
+      max_year <- max(savdat_mi_2$Year)
       nyr <- max_year - min_year
       nbrks <- ifelse(plyr::round_any(nyr, 5, f = ceiling) / 5 <= 3, 5, plyr::round_any(nyr, 5, f = ceiling) / 5)
       
+      print(paste0("Param: ", w))
+      print(paste0("Min year: ", min_year))
+      print(paste0("Max year: ", max_year))
+      
+      
       plot_miw <- ggplot() +
         geom_hline(yintercept = 0, color = "grey25", lwd = 0.5) +
-        geom_col(data = savdat_mi, aes(x = Year, y = mean), fill = "grey80", color = "grey30") +
-        geom_errorbar(data = savdat_mi, aes(x = Year, ymin = mean - sd, ymax = mean + sd), width = 0.25, lwd = 0.5, color = "grey25") +
+        geom_col(data = savdat_mi_2, aes(x = Year, y = mean), fill = "grey80", color = "grey30") +
+        geom_errorbar(data = savdat_mi_2, aes(x = Year, ymin = mean - sd, ymax = mean + sd), width = 0.25, lwd = 0.5, color = "grey25") +
         geom_line(data = watdat_mw, aes(x = Year, y = mean / axis2scale), lty = "solid", color = axis2col, lwd = 0.75) +
-        geom_point(data = watdat_mw, aes(x = Year, y = mean / axis2scale), shape = 21, color = "dodgerblue4", fill = axis2col, size = 1.5) +
-        scale_y_continuous(limits = c(axis1min, axis1max), breaks = c(0:5), sec.axis = sec_axis(name = glue("Mean {w} ({axis2units})"), #glue("<span class = color:{axis2col}>Mean {w}</span>") - https://github.com/wilkelab/ggtext/blob/master/man/figures/README-unnamed-chunk-4-1.png
+        geom_point(data = watdat_mw, aes(x = Year, y = mean / axis2scale), shape = 21, color = "#000099", fill = axis2col, size = 1.5) +
+        scale_y_continuous(limits = c(axis1min, axis1max), breaks = c(0:5), sec.axis = sec_axis(name = glue("Annual Mean {w} ({axis2units})"), #glue("<span class = color:{axis2col}>Mean {w}</span>") - https://github.com/wilkelab/ggtext/blob/master/man/figures/README-unnamed-chunk-4-1.png
                                                                                                 trans = ~. * axis2scale)) +
-        scale_x_continuous(n.breaks = nbrks, limits = c(min(savdat_mi$Year), max(savdat_mi$Year))) +
-        theme_classic() +
-        labs(x = "Year", y = paste0("Mean BB Score"), title = glue("{m}<br>{au_i}")) +
+        plot_theme +
+        labs(x = "Year", y = paste0("Annual Mean BB Score"), title = glue("{m}<br>{au_i}<br>{w} ({axis2units})")) +
         theme(plot.title = element_markdown(),
               axis.text.y.right = element_markdown(color = axis2col),
-              axis.title.y.right = element_markdown(color = axis2col))
+              axis.title.y.right = element_markdown(color = axis2col)) +
+        scale_x_continuous(n.breaks = nbrks)
       
-      ggsave(filename = paste0("output/", str_replace_all(m, " ", ""), "_", str_replace_all(i, " ", ""), "_v_", str_replace_all(w, " ", ""), "_", Sys.Date(), ".png"),
+      ggsave(filename = paste0("output/", ma_abrev, "_", str_replace_all(i, " ", ""), "_v_", str_replace_all(w, " ", ""), "_", Sys.Date(), ".png"),
              plot = plot_miw,
              height = 3,
              width = 5,
              units = "in",
              dpi = 200)
       
-      print(paste0("Saving plot: ", str_replace_all(m, " ", ""), "_", str_replace_all(i, " ", ""), "_v_", str_replace_all(w, " ", "")))
-    
+      print(paste0("Saving plot: ", ma_abrev, "_", str_replace_all(i, " ", ""), "_v_", str_replace_all(w, " ", "")))
+      rm(min_year, max_year, nyr, nbrks, plot_miw, savdat_mi_overlap, watdat_mw)
     }
   }
 }
-
