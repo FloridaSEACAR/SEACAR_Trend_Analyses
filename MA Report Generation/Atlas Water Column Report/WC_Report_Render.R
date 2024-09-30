@@ -5,12 +5,24 @@ library(ggplot2)
 library(tictoc)
 library(rstudioapi)
 
-# Change folder date to select which objects to load (to match Atlas)
-disc_folder_date <- "2024-Mar-27"
-cont_folder_date <- "2024-Mar-27"
+# Change folder date to select which objects to load (if plots need to match Atlas)
+# "most recent" to use the latest MA Report Generation outputs
+disc_folder_date <- "most recent"
+cont_folder_date <- "most recent"
 
 # Point to location where Disc objects are located
 data_obj_loc <- "C:/Users/Hill_T/Desktop/SEACAR GitHub/SEACAR_Trend_Analyses/MA Report Generation/output/tables/"
+
+disc_loc <- ifelse(disc_folder_date=="most recent", 
+                   paste0(data_obj_loc,"disc/"), 
+                   paste0(data_obj_loc,"disc/",disc_folder_date,"/"))
+cont_loc <- ifelse(cont_folder_date=="most recent",
+                   paste0(data_obj_loc,"cont/"),
+                   paste0(data_obj_loc,"cont/",cont_folder_date,"/"))
+
+# Lists of disc and cont .rds objects to read
+disc_files <- list.files(disc_loc,pattern = "\\.rds$", full.names = T)
+cont_files <- list.files(cont_loc,pattern = "\\.rds$", full.names = T)
 
 # Gets directory of this script and sets it as the working directory
 wd <- dirname(getActiveDocumentContext()$path)
@@ -35,10 +47,6 @@ setDT(websiteParams)
 # Short parameter names for selecting .rds objects
 all_params_short <- unique(websiteParams$ParameterShort)
 cont_params_short <- websiteParams[SamplingFrequency=="Continuous", unique(ParameterShort)]
-
-# Lists of disc and cont .rds objects to read
-disc_files <- list.files(paste0(data_obj_loc,"disc/",disc_folder_date,"/"),pattern = "\\.rds$", full.names = T)
-cont_files <- list.files(paste0(data_obj_loc,"cont/",cont_folder_date,"/"),pattern = "\\.rds$", full.names = T)
 
 # function of parameter, activity type, depth, with specified filetype
 # retrieves RDS filepath to be loaded
@@ -241,8 +249,6 @@ all_managed_areas <- all_managed_areas[
   !all_managed_areas %in% c("Florida Keys National Marine Sanctuary",
                             "Nassau River-St. Johns River Marshes Aquatic Preserve",
                             "Rookery Bay National Estuarine Research Reserve")]
-
-all_managed_areas <- all_managed_areas[35:42]
 
 cont_managed_areas <- skt_stats_cont[!is.na(ProgramID), unique(ManagedAreaName)]
 
