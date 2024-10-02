@@ -5,15 +5,15 @@ header-includes:
 - \usepackage{longtable}
 date: "Last compiled on `r format(Sys.time(), '%d %B, %Y')`"
 output:
+  word_document:
+    toc: TRUE
+    toc_depth: 2
   html_document:
     toc: TRUE
     toc_float: TRUE
     toc_depth: 2
     dev: png
     keep_md: yes
-  word_document:
-    toc: TRUE
-    toc_depth: 2
   pdf_document:
     toc: TRUE
     toc_depth: 4
@@ -59,6 +59,15 @@ library(kableExtra)
 library(glue)
 library(grid)
 options(scipen=999)
+
+# Set height and width for plot outputs (.png outputs only)
+h <- 891
+w <- 1600
+
+# Set color palette for sig and non-sig trendlines
+sig_color <- "#000099"
+nonsig_color <- "#900667"
+
 ```
 
 \newpage
@@ -97,10 +106,8 @@ breaks <- function(plot_data, type="Discrete", ret="break"){
     if(t>=30){
       brk <- -10
     }else if(t<30 & t>=10){
-      brk <- -5
-    }else if(t<10 & t>=4){
-      brk <- -2
-    }else if(t<4){
+      brk <- -4
+    }else if(t<10){
       brk <- -1
     }
   }
@@ -135,8 +142,6 @@ breaks <- function(plot_data, type="Discrete", ret="break"){
       t_min <- t_min-1
     }
   }
-  
-  
   
   if(ret=="break"){
     return(seq(t_max_brk, t_min, brk))
@@ -210,8 +215,8 @@ plot_trendlines <- function(p, a, d, activity_label, depth_label, y_labels, para
       scale_shape_manual(values = c("Field"=21,"Lab"=24), 
                          name = "Data type") +
       scale_color_manual(name = "Trend type", 
-                         values = c("Significant Trend" = "#000099",
-                                    "Non-significant Trend" = "#900667")) +
+                         values = c("Significant Trend" = sig_color,
+                                    "Non-significant Trend" = nonsig_color)) +
       plot_theme
     
     # Creates ResultTable to display statistics below plot
@@ -229,8 +234,8 @@ plot_trendlines <- function(p, a, d, activity_label, depth_label, y_labels, para
     
     ggsave(filename = paste0("output/WQ_Discrete/", ma_short, "_", 
                              gsub(",","",(gsub(" ","_",parameter))), ".png"),
-           plot = p1, width = 1600, height = 1142, units = "px", dpi = 300,
-           scale = 2)
+           plot = p1, width = w, height = h, units = "px", dpi = 300,
+           scale = 1)
     
     result_table <- kable(ResultTable, format="latex",
                           caption=paste0("Seasonal Kendall-Tau Results for - ", parameter),
@@ -258,46 +263,22 @@ plot_trendlines <- function(p, a, d, activity_label, depth_label, y_labels, para
 
 ```{r SKT_Trendlines Continuous Function}
 
-plot_trendlines_cont_combined <- function(param, y_labels, parameter){
-  skt_stats <- skt_stats_cont %>% 
-    filter(ManagedAreaName==ma & ParameterName==parameter)
+plot_trendlines_cont_combined <- function(ma, cont_plot_data, param, y_labels, parameter){
   
-  data <- setDT(data_output_cont[[param]] %>% filter(ManagedAreaName==ma))
-  data$YearMonthDec <- data$Year + ((data$Month-0.5) / 12)
+  data <- cont_plot_data[ManagedAreaName==ma & ParameterName==parameter, ]
   
   if(length(unique(data$ProgramLocationID))>0){
     cat("  \n")
     cat(glue("### {parameter} - {type}"))
-    cat("  \n") 
-    
-    ### SKT STATS ###
-    # Gets x and y values for start and end points for trendline
-    KT.Plot <- skt_stats %>%
-      group_by(MonitoringID, ProgramID, ProgramLocationID) %>%
-      summarize(start_x=decimal_date(EarliestSampleDate),
-                start_y=(start_x-EarliestYear)*SennSlope+SennIntercept,
-                end_x=decimal_date(LastSampleDate),
-                end_y=(end_x-EarliestYear)*SennSlope+SennIntercept)
-    KT.Plot <- as.data.table(KT.Plot[order(KT.Plot$MonitoringID), ])
-    KT.Plot <- KT.Plot[!is.na(KT.Plot$end_y),]
-    KT.Plot <- KT.Plot[!is.na(KT.Plot$start_y),] 
-    setDT(KT.Plot)
+    cat("  \n")
     
     # Account for managed areas with large number of continuous sites
     # Too many to plot together, plot combined by Program
     if(length(unique(data$ProgramLocationID))>10){
       
       for(pid in unique(data$ProgramID)){
-        
-        # all plots together
-        plot_data <- merge(
-          data[data$ManagedAreaName==ma & ProgramID==pid,], 
-          KT.Plot[ProgramID==pid, ], 
-          by=c("ProgramID", "ProgramLocationID", "MonitoringID"), 
-          all=TRUE)
-        
-        plot_data <- plot_data %>% mutate(label = paste0(ProgramLocationID, " - ", RelativeDepth))
-        setDT(plot_data)
+        # all plots together for a given ProgramID
+        plot_data <- setDT(data[ProgramID==pid, ])
         
         # Program Name
         p_name <- unique(plot_data$ProgramName)
@@ -328,9 +309,9 @@ plot_trendlines_cont_combined <- function(param, y_labels, parameter){
           select(ProgramLocationID, "Statistical Trend", N_Data, N_Years, "Period of Record", Median, tau,
                  SennIntercept, SennSlope, p) %>%
           mutate_if(is.numeric, ~round(., 2)) # %>%
-          # rename("Program Location" = ProgramLocationID, "Sample Count" = N_Data,
-          #        "Years with Data" = N_Years, "Median Result Value" = Median,
-          #        "Tau" = tau, "Sen Intercept" = SennIntercept, "Sen Slope" = SennSlope, "P" = p)
+        # rename("Program Location" = ProgramLocationID, "Sample Count" = N_Data,
+        #        "Years with Data" = N_Years, "Median Result Value" = Median,
+        #        "Tau" = tau, "Sen Intercept" = SennIntercept, "Sen Slope" = SennSlope, "P" = p)
         
         # Remove text-based "NA" values in p column
         if (nrow(ResultTable[ResultTable$p=="    NA", ]) > 0){
@@ -338,12 +319,12 @@ plot_trendlines_cont_combined <- function(param, y_labels, parameter){
         }
         ResultTable[is.na(ResultTable)] <- "-"
         
-        t1 <- ggtexttable(ResultTable, rows=NULL,
-                          theme=ttheme(base_size=10)) %>%
-          tab_add_footnote(text="p < 0.00005 appear as 0 due to rounding.\n
-                                  SennIntercept is intercept value at beginning of
-                                  record for monitoring location",
-                           size=10, face="italic")
+        # t1 <- ggtexttable(ResultTable, rows=NULL,
+        #                   theme=ttheme(base_size=10)) %>%
+        #   tab_add_footnote(text="p < 0.00005 appear as 0 due to rounding.\n
+        #                           SennIntercept is intercept value at beginning of
+        #                           record for monitoring location",
+        #                    size=10, face="italic")
         
         # title <- glue("#### {p_name}: ({pid})")
         # cat("  \n")
@@ -351,15 +332,15 @@ plot_trendlines_cont_combined <- function(param, y_labels, parameter){
         cat("    \n")
         cat("  \n")
         cat("  \n")
-        plot <- ggarrange(p1, t1, ncol=1, heights=c(0.71, 0.29))
+        # plot <- ggarrange(p1, t1, ncol=1, heights=c(0.71, 0.29))
         print(p1)
         
         # save fig
         ggsave(filename = paste0("output/WQ_Continuous/", ma_short, "_", 
-                             gsub(",","",(gsub(" ","_",parameter))), "_", pid, 
-                             ".png"),
-           plot = p1, width = 1600, height = 1142, units = "px", dpi = 300,
-           scale = 2)
+                                 gsub(",","",(gsub(" ","_",parameter))), "_", pid, 
+                                 ".png"),
+               plot = p1, width = w, height = h, units = "px", dpi = 300,
+               scale = 1)
         
         cat("  \n")
         
@@ -370,21 +351,16 @@ plot_trendlines_cont_combined <- function(param, y_labels, parameter){
                               row.names = FALSE, digits = 5,
                               booktabs = T, linesep = "", escape = F, longtable = F) %>%
           kable_styling(latex_options = c("scale_down", "HOLD_position"), position = "center")
-
+        
         print(result_table)
         cat("\n \n \n")
       }
     } else {
       # all plots together
-      plot_data <- merge(data, KT.Plot, by=c("ProgramID", "ProgramLocationID", "MonitoringID"), all=TRUE)
-      plot_data <- plot_data %>% mutate(label = paste0(ProgramLocationID, " - ", RelativeDepth))
-      setDT(plot_data)
-      
-      plot_data <- merge(plot_data, skt_stats[,c("p","MonitoringID")], by=c("MonitoringID"))
-      plot_data[, `:=` (sig = ifelse(p<=0.05, "Significant Trend", "Non-significant Trend"))]
+      plot_data <- setDT(data)
       
       # number of stations for shape-palette
-      n <- length(unique(KT.Plot$MonitoringID))
+      n <- length(unique(plot_data$ProgramLocationID))
       shapes <- c(21,22,23,24,25,seq(1:(n-5)))
       
       p1 <- ggplot(data=plot_data, aes(x=YearMonthDec, y=Mean, group=factor(ProgramLocationID))) +
@@ -406,9 +382,9 @@ plot_trendlines_cont_combined <- function(param, y_labels, parameter){
         select(ProgramLocationID, "Statistical Trend", N_Data, N_Years, "Period of Record", Median, tau,
                SennIntercept, SennSlope, p) %>%
         mutate_if(is.numeric, ~round(., 2)) # %>%
-        # rename("Program Location" = ProgramLocationID, "Sample Count" = N_Data,
-        #        "Years with Data" = N_Years, "Median Result Value" = Median,
-        #        "Tau" = tau, "Sen Intercept" = SennIntercept, "Sen Slope" = SennSlope, "P" = p)
+      # rename("Program Location" = ProgramLocationID, "Sample Count" = N_Data,
+      #        "Years with Data" = N_Years, "Median Result Value" = Median,
+      #        "Tau" = tau, "Sen Intercept" = SennIntercept, "Sen Slope" = SennSlope, "P" = p)
       
       # Remove text-based "NA" values in p column
       if (nrow(ResultTable[ResultTable$p=="    NA", ]) > 0){
@@ -416,22 +392,22 @@ plot_trendlines_cont_combined <- function(param, y_labels, parameter){
       }
       ResultTable[is.na(ResultTable)] <- "-"
       
-      t1 <- ggtexttable(ResultTable, rows=NULL,
-                        theme=ttheme(base_size=10)) %>%
-        tab_add_footnote(text="p < 0.00005 appear as 0 due to rounding.\n
-                                SennIntercept is intercept value at beginning of
-                                record for monitoring location",
-                         size=10, face="italic")
+      # t1 <- ggtexttable(ResultTable, rows=NULL,
+      #                   theme=ttheme(base_size=10)) %>%
+      #   tab_add_footnote(text="p < 0.00005 appear as 0 due to rounding.\n
+      #                           SennIntercept is intercept value at beginning of
+      #                           record for monitoring location",
+      #                    size=10, face="italic")
       
       cat("  \n")
-      plot <- ggarrange(p1, t1, ncol=1, heights=c(0.71, 0.29))
+      # plot <- ggarrange(p1, t1, ncol=1, heights=c(0.71, 0.29))
       print(p1)
       
       # save fig
       ggsave(filename = paste0("output/WQ_Continuous/", ma_short, "_", 
-                           gsub(",","",(gsub(" ","_",parameter))), ".png"),
-         plot = p1, width = 1600, height = 1142, units = "px", dpi = 300,
-         scale = 2)
+                               gsub(",","",(gsub(" ","_",parameter))), ".png"),
+             plot = p1, width = w, height = h, units = "px", dpi = 300,
+             scale = 1)
       
       cat("  \n")
       
@@ -442,7 +418,7 @@ plot_trendlines_cont_combined <- function(param, y_labels, parameter){
                             row.names = FALSE, digits = 5,
                             booktabs = T, linesep = "", escape = F, longtable = F) %>%
         kable_styling(latex_options = c("scale_down", "HOLD_position"), position = "center")
-
+      
       print(result_table)
       cat("\n \n \n")    
     }
@@ -478,7 +454,7 @@ for(indicator in unique(websiteParams$IndicatorName)){
     depth_label <- ifelse(depth=="All", "All Depths", "Surface")
     
     if(type=="Continuous"){
-      plot_trendlines_cont_combined(param_short, y_labels, parameter)
+      plot_trendlines_cont_combined(ma = ma, cont_plot_data = cont_plot_data, param = param_short, y_labels = y_labels, parameter = parameter)
     }
     
     if(type=="Discrete"){

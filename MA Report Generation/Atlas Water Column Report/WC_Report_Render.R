@@ -11,7 +11,7 @@ disc_folder_date <- "most recent"
 cont_folder_date <- "most recent"
 
 # Point to location where Disc objects are located
-data_obj_loc <- "C:/Users/Hill_T/Desktop/SEACAR GitHub/SEACAR_Trend_Analyses/MA Report Generation/output/tables/"
+data_obj_loc <- "../output/tables/"
 
 disc_loc <- ifelse(disc_folder_date=="most recent", 
                    paste0(data_obj_loc,"disc/"), 
@@ -169,6 +169,7 @@ for(type in c("disc", "cont")){
   }
 }
 
+# Apply preliminary trend-text logic
 skt_stats_disc <- skt_stats_disc %>% 
   mutate("Period of Record" = paste0(EarliestYear, " - ", LatestYear),
          "Statistical Trend" = ifelse(p <= 0.05 & SennSlope > 0, "Significantly increasing trend",
@@ -218,10 +219,43 @@ for(param in cont_params_short){
                    StandardDeviation = sd(ResultValue)),
                by = .(MonitoringID, AreaID, ManagedAreaName, ProgramID,
                       ProgramName, ProgramLocationID, Year, Month)]
+  # Add decimal YearMonth
+  data$YearMonthDec <- data$Year + ((data$Month-0.5) / 12)
   # Save into data_output_cont directory
   data_output_cont[[param]] <- data
   print(paste0(param," processing complete"))
 }
+# Combine all continuous results together
+cont_data_combined <- bind_rows(data_output_cont)
+# Grab skt results (start and end of x and y to plot trendlines)
+KT.Plot <- skt_stats_cont %>%
+  group_by(ProgramID, ProgramLocationID, ManagedAreaName, ParameterName) %>%
+  reframe(start_x=decimal_date(EarliestSampleDate),
+          start_y=(start_x-EarliestYear)*SennSlope+SennIntercept,
+          end_x=decimal_date(LastSampleDate),
+          end_y=(end_x-EarliestYear)*SennSlope+SennIntercept)
+KT.Plot <- as.data.table(KT.Plot[order(KT.Plot$ProgramLocationID), ])
+KT.Plot <- KT.Plot[!is.na(KT.Plot$end_y),]
+KT.Plot <- KT.Plot[!is.na(KT.Plot$start_y),]
+setDT(KT.Plot)
+
+# Combine into single file for more efficient plotting
+cont_plot_data <- merge(
+  cont_data_combined, 
+  KT.Plot,
+  by=c("ProgramID", "ProgramLocationID", "ParameterName", "ManagedAreaName"),
+  all = TRUE)
+
+# Merge in p-val to plot significance
+cont_plot_data <- merge(
+  cont_plot_data, 
+  skt_stats_cont[, c("p","ProgramID","ProgramLocationID","ParameterName",
+                     "ManagedAreaName")],
+  by=c("ProgramID","ProgramLocationID","ParameterName","ManagedAreaName"))
+# Create significant column
+setDT(cont_plot_data)
+cont_plot_data[, `:=` (sig = ifelse(p<=0.05, "Significant Trend", "Non-significant Trend"),
+                       label = paste0(ProgramLocationID, " - ", RelativeDepth))]
 
 ## Setting plot theme for plots
 plot_theme <- theme_bw() +
@@ -254,7 +288,7 @@ cont_managed_areas <- skt_stats_cont[!is.na(ProgramID), unique(ManagedAreaName)]
 
 tic()
 # Loop through list of managed areas
-for (ma in all_managed_areas) {
+for(ma in all_managed_areas[5]){
   print(ma)
   # determine which analyses to run for each MA
   # variables will be input into RMD file
@@ -262,18 +296,17 @@ for (ma in all_managed_areas) {
   p_inc <- unique(ma_df$Parameter)
   d_inc <- unique(ma_df$Depth)
   a_inc <- unique(ma_df$Activity)
-  
+
   discrete_data <- data_output_disc[ManagedAreaName==ma, ]
   skt_data <- skt_stats_disc[ManagedAreaName==ma, ]
-  
+
   # Shortened names for managed areas
   ma_short <- MA_All[ManagedAreaName==ma, Abbreviation]
   # record region name
   region <- MA_All[ManagedAreaName==ma, Region]
-  
   # output path for managed area reports
   output_path <- "output/Reports/"
-  
+
   file_out <- paste0(ma_short,"_WC_Report")
   ### RENDERING ###
   rmarkdown::render(input = "WC_ReportTemplate.Rmd",
