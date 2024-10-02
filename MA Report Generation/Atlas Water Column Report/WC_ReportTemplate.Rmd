@@ -1,0 +1,299 @@
+---
+date: "Last compiled on `r format(Sys.time(), '%d %B, %Y')`"
+output:
+  pdf_document:
+    toc: TRUE
+    toc_depth: 4
+    dev: png
+    extra_dependencies: ["float"]
+    keep_md: yes
+    keep_tex: true
+  word_document:
+    toc: TRUE
+    toc_depth: 2
+  html_document:
+    toc: TRUE
+    toc_float: TRUE
+    toc_depth: 2
+    dev: png
+    keep_md: yes
+urlcolor: blue
+geometry: "left=3cm,right=3cm"
+params:
+  managedarea: ma,
+  p_inc: included_params,
+  a_inc: included_acts,
+  d_inc: included_depths
+title: '`r paste(ma)`'
+subtitle: '`r paste("SEACAR Water Quality Analysis")`'
+tables: yes
+graphics: yes
+---
+
+```{r setup, include=FALSE} 
+knitr::opts_chunk$set(
+   warning=FALSE,
+   message=FALSE,
+   echo=FALSE
+)
+options(knitr.kable.NA = '-')
+
+```
+
+
+
+```{r libraries, message=FALSE, echo=FALSE, warning=FALSE, include=FALSE}
+library(knitr)
+library(data.table)
+library(dplyr)
+library(lubridate)
+library(ggplot2)
+library(ggpubr)
+library(scales)
+library(EnvStats)
+library(tidyr)
+library(kableExtra)
+library(glue)
+library(grid)
+options(scipen=999)
+
+# Set height and width for plot outputs (.png outputs only)
+h <- 891
+w <- 1600
+
+# Set color palette for sig and non-sig trendlines
+sig_color <- "#000099"
+nonsig_color <- "#900667"
+
+```
+
+\newpage
+# Indicators
+
+
+``` {r continuous_dataframe_setup}
+
+# Full parameter names and units
+# Create dataframe containing that info so that 
+# full data file doesn't have to load each time
+cont_params_long <- c("Dissolved Oxygen","Dissolved Oxygen Saturation","pH",
+                      "Salinity","Turbidity","Water Temperature")
+cont_params_short <- c("DO","DOS","pH","Sal","Turb","TempW")
+cont_param_units <- c("mg/L","%","pH","ppt","NTU","Degrees C")
+cont_regions <- c("NE","NW","SE","SW")
+
+cont_param_df <- data.table(param_short = cont_params_short,
+                            parameter = cont_params_long,
+                            unit = cont_param_units)
+
+```
+
+
+```{r get_plot function to retreive plot information}
+get_plot <- function(ma_short, parameter, type, pid){
+  # Determine which file lsit to search through
+  if(type=="Discrete"){
+    pattern <- paste0("output/WQ_Discrete/",ma_short, "_", gsub(",","",(gsub(" ","_",parameter))), ".png")
+    file <- str_subset(disc_plots, pattern)
+  }else{
+    # When all stations are plotted without ProgramID subdivisions
+    if(pid=="none"){
+      pattern <- paste0("output/WQ_Continuous/",ma_short, "_", gsub(",","",(gsub(" ","_",parameter))), ".png")
+    # When parameter data is divided into ProgramID subdivisions
+    } else {
+      pattern <- paste0("output/WQ_Continuous/",ma_short, "_", gsub(",","",(gsub(" ","_",parameter))), "_", pid, ".png")
+    }
+    file <- str_subset(cont_plots, paste0("^",pattern,"$"))
+  }
+  return(file)
+}
+
+```
+
+
+```{r Discrete WQ Plot Function}
+
+plot_discrete <- function(p, a, d, parameter, skt_data, discrete_data, ma, ma_short, type) {
+  
+  skt_stats <- skt_data[ParameterName==parameter & RelativeDepth==d & ActivityType==a, ]
+  data <- discrete_data[ParameterName==parameter & Include, ]
+  
+  if (nrow(data) == 0) {
+    invisible()
+  } else {
+    cat("  \n")
+    cat(glue("### {parameter} - {type}"))
+    cat("  \n")
+    
+    # Creates ResultTable to display statistics below plot
+    ResultTable <- skt_stats %>%
+      select(ActivityType, "Statistical Trend", N_Data, N_Years, "Period of Record", 
+             Median, tau, SennIntercept, SennSlope, p) # %>%
+      # rename("Activity Type" = ActivityType,
+      #        "Sample Count" = N_Data,
+      #        "Years with Data" = N_Years,
+      #        "Median Result Value" = Median,
+      #        "Tau" = tau, "Sen Intercept" = SennIntercept, "Sen Slope" = SennSlope, "P" = p)
+    names(ResultTable) <- gsub("_", "-", names(ResultTable))
+    # Convert results table into kable format
+    result_table <- kable(ResultTable, format="latex",
+                          caption=paste0("Seasonal Kendall-Tau Results for - ", parameter),
+                          row.names = FALSE, digits = 5,
+                          booktabs = T, linesep = "", escape = F, longtable = F) %>%
+      kable_styling(latex_options = c("scale_down", "HOLD_position"), 
+                    position = "center")
+    
+    cat("  \n")
+    # Display plot
+    plot_loc <- get_plot(ma_short = ma_short, parameter = parameter, type = type, pid = "none")
+    # include_graphics() does not work within loop, force markdown format
+    cat("![](", plot_loc,")")
+    
+    cat("  \n")
+    # Display table in report
+    print(result_table)
+    cat("\n \n \n")
+    
+    # Add extra space at the end to prevent the next figure from being too
+    # close.
+    cat("\n \n \n")
+  }
+}
+
+```
+
+
+```{r Continuous WQ Plot Function}
+
+plot_continuous <- function(ma, cont_plot_data, param, parameter){
+  
+  data <- cont_plot_data[ManagedAreaName==ma & ParameterName==parameter, ]
+  skt_stats <- skt_stats_cont[ManagedAreaName==ma & ParameterName==parameter, ]
+  suff_data <- skt_stats[, SufficientData]
+  
+  if(length(unique(data$ProgramLocationID))>0){
+    cat("  \n")
+    cat(glue("### {parameter} - {type}"))
+    cat("  \n")
+    # Account for managed areas with large number of continuous sites
+    # Too many to plot together, plot combined by Program
+    if(length(unique(data$ProgramLocationID))>10){
+      for(pid in unique(data$ProgramID)){
+        p_name <- data[ProgramID==pid, unique(ProgramName)]
+        cat("  \n")
+        cat(glue("**{p_name}** - *{pid}*"))
+        cat("  \n")
+        
+        ResultTable <- skt_stats %>%
+          filter(ProgramID==pid) %>%
+          select(ProgramLocationID, "Statistical Trend", N_Data, N_Years, "Period of Record", Median, tau,
+                 SennIntercept, SennSlope, p) %>%
+          mutate_if(is.numeric, ~round(., 2)) # %>%
+        # rename("Program Location" = ProgramLocationID, "Sample Count" = N_Data,
+        #        "Years with Data" = N_Years, "Median Result Value" = Median,
+        #        "Tau" = tau, "Sen Intercept" = SennIntercept, "Sen Slope" = SennSlope, "P" = p)
+        
+        # Remove text-based "NA" values in p column
+        if (nrow(ResultTable[ResultTable$p=="    NA", ]) > 0){
+          ResultTable[ResultTable$p=="    NA", ]$p <- "-"
+        }
+        ResultTable[is.na(ResultTable)] <- "-"
+        names(ResultTable) <- gsub("_", "-", names(ResultTable))
+        # Underscores and & mess with table display, rename stations
+        ResultTable$ProgramLocationID <- gsub("_", "-", ResultTable$ProgramLocationID)
+        ResultTable$ProgramLocationID <- gsub("&", "-and-", ResultTable$ProgramLocationID)
+        
+        result_table <- kable(ResultTable, format="latex",
+                              caption=paste0("Seasonal Kendall-Tau Results for All Stations - ", parameter),
+                              row.names = FALSE, digits = 5,
+                              booktabs = T, linesep = "", escape = F, longtable = F) %>%
+          kable_styling(latex_options = c("scale_down", "HOLD_position"), position = "center")
+        cat("  \n")
+        # Display plot
+        plot_loc <- get_plot(ma_short = ma_short, parameter = parameter, type = type, pid = pid)
+        # include_graphics() does not work within loop, force markdown format
+        cat("![](", plot_loc,")")
+        cat("  \n")
+        print(result_table)
+        cat("\n \n \n")
+      }
+    } else {
+      
+      ResultTable <- skt_stats %>%
+        select(ProgramLocationID, "Statistical Trend", N_Data, N_Years, "Period of Record", Median, tau,
+               SennIntercept, SennSlope, p) %>%
+        mutate_if(is.numeric, ~round(., 2)) # %>%
+      # rename("Program Location" = ProgramLocationID, "Sample Count" = N_Data,
+      #        "Years with Data" = N_Years, "Median Result Value" = Median,
+      #        "Tau" = tau, "Sen Intercept" = SennIntercept, "Sen Slope" = SennSlope, "P" = p)
+      
+      # Remove text-based "NA" values in p column
+      if (nrow(ResultTable[ResultTable$p=="    NA", ]) > 0){
+        ResultTable[ResultTable$p=="    NA", ]$p <- "-"
+      }
+      ResultTable[is.na(ResultTable)] <- "-"
+      names(ResultTable) <- gsub("_", "-", names(ResultTable))
+      
+      result_table <- kable(ResultTable, format="latex",
+                            caption=paste0("Seasonal Kendall-Tau Results for All Stations - ", parameter),
+                            row.names = FALSE, digits = 5,
+                            booktabs = T, linesep = "", escape = F, longtable = F) %>%
+        kable_styling(latex_options = c("scale_down", "HOLD_position"), position = "center")
+      
+      cat("  \n")
+      # Display plot
+      plot_loc <- get_plot(ma_short = ma_short, parameter = parameter, type = type, pid = "none")
+      # include_graphics() does not work within loop, force markdown format
+      cat("![](", plot_loc,")")
+      cat("  \n")
+      print(result_table)
+      cat("\n \n \n")    
+    }
+  }
+  
+}
+
+```
+
+
+```{r Plotting, warning=FALSE, results="asis", out.height=5, out.width=10, eval=TRUE, echo=FALSE}
+
+for(indicator in unique(websiteParams$IndicatorName)){
+  cat("  \n")
+  cat(glue("## {indicator}"))
+  cat("  \n")
+  
+  # Filter once for the current indicator
+  indicator_subset <- websiteParams[IndicatorName == indicator, ]
+  
+  for(i in 1:nrow(indicator_subset)){
+    filteredSubset <- indicator_subset[i]
+    parameter <- filteredSubset$ParameterName
+    param_short <- filteredSubset$ParameterShort
+    unit <- filteredSubset$ParameterUnits
+    type <- filteredSubset$SamplingFrequency
+    activity <- filteredSubset$ActivityType
+    depth <- filteredSubset$RelativeDepth
+    
+    # Define y-label, activity-label, depth-label for plot labels
+    y_labels <- ifelse(parameter == "pH", parameter, paste0(parameter, " (" , unit, ")"))
+    activity_label <- ifelse(activity=="All", "Lab and Field Combined", activity)
+    depth_label <- ifelse(depth=="All", "All Depths", "Surface")
+    
+    if(type=="Continuous"){
+      plot_continuous(
+        ma = ma, cont_plot_data = cont_plot_data,
+        param = param_short, parameter = parameter)
+    }
+    
+    if(type=="Discrete"){
+      plot_discrete(
+        p = param_short, a = activity, d = depth, parameter = parameter,
+        skt_data = skt_data, discrete_data = discrete_data,
+        ma = ma, ma_short = ma_short, type = type)
+    }
+  }
+}
+
+```
+
