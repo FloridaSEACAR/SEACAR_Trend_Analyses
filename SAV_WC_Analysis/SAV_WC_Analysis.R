@@ -92,10 +92,12 @@ saveRDS(disc_sav, paste0("data/disc_sav_", Sys.Date(), ".rds"))
 
 # disc_sav <- readRDS("data/disc_sav_2024-09-25.rds")
 disc_sav[ParameterUnits == "Degrees C", ParameterUnits := "C"]
-disc_sav[, ParameterName := fcase(ParameterName == "Chlorophyll a, Corrected for Pheophytin", "Chl a corrected",
-                                  ParameterName == "Chlorophyll a, Uncorrected for Pheophytin", "Chl a uncorrected",
+# Rename parameters and determine which to include
+# Remove DO, add TN ; Combine Chla Corrected and Uncorrected - cpclark 10/01/2024
+disc_sav[, ParameterName := fcase(ParameterName %in% c("Chlorophyll a, Corrected for Pheophytin",
+                                                       "Chlorophyll a, Uncorrected for Pheophytin"), "Chl a combined",
                                   ParameterName == "Colored Dissolved Organic Matter", "CDOM",
-                                  ParameterName == "Dissolved Oxygen", "Dissolved oxygen",
+                                  ParameterName == "Total Nitrogen", "Total Nitrogen",
                                   ParameterName == "Light Extinction Coefficient", "Light extinction",
                                   ParameterName == "Salinity", "Salinity",
                                   ParameterName == "Secchi Depth", "Secchi depth",
@@ -130,6 +132,9 @@ for(m in unique(SAV4$MA)){
       if(is.na(w)) next
       
       watdat_mw <- disc_sav[ManagedAreaName == m & ParameterName == w, .(mean = mean(ResultValue), sd = sd(ResultValue)), by = Year]
+      # Require 10 years of wq data
+      if(length(unique(watdat_mw$Year))<10) next
+      
       axis1max <- ifelse(plyr::round_any(max(savdat_mi[, mean + sd]), 1, ceiling) > 5, plyr::round_any(max(savdat_mi[, mean + sd]), 1, ceiling), 5) 
       axis1min <- ifelse(plyr::round_any(min(savdat_mi[, mean - sd]), 1, floor) < 0, plyr::round_any(min(savdat_mi[, mean - sd]), 1, floor), 0)
       axis2scale <- max(watdat_mw$mean) / 5
