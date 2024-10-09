@@ -207,7 +207,7 @@ plot_sav_multiplot <- function(ma, ma_abrev){
   }
 }
 
-sp_to_skip <- c("Drift algae", "Total seagrass", "Attached algae", "Total SAV", "No grass in Quadrat")
+sp_to_skip <- c("Drift algae", "Total seagrass", "Attached algae", "Total SAV", "No grass In Quadrat")
 
 ggplot_gam <- function(ma, hal = "all", pal = "Dark2") {
   
@@ -310,7 +310,7 @@ ggplot_gam <- function(ma, hal = "all", pal = "Dark2") {
       cat("  \n")
       cat(paste0("Generalized additive models for each species in ", ma, ". Species must have at least 10 years of data to be evaluated.  \n"))
       cat("  \n")
-      cat("*Drift algae*, *Total seagrass*, *Attached algae*, *No grass in Quadrat*, and *Total SAV* are excluded from the analyses.  \n")
+      cat("*Drift algae*, *Total seagrass*, *Attached algae*, *No grass In Quadrat*, and *Total SAV* are excluded from the analyses.  \n")
       
       caption <- paste0("Amount of data for each species in ", ma)
       kable(table_display, format="simple", caption=caption, col.names= c("*Species*", "*Years of Data*", "*Year Range*"))
