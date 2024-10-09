@@ -38,9 +38,12 @@ for(file_type in c("Discrete", "Continuous")){
   # Select discrete/cont parameters only
   website <- website[type==file_type, ]
   
+  if(file_type=="Continuous"){
+    website <- website[ , c("ParameterName","Website","type")]
+  }
+  
   data <- merge.data.frame(data, website, by=columns, all=TRUE)
   data$Website[is.na(data$Website)] <- 0
-  
 
   if(file_type=="Discrete"){
     data <- data %>% 
@@ -59,9 +62,12 @@ for(file_type in c("Discrete", "Continuous")){
                                      data$ParameterName), ])
   }
   
+  # Remove leading spaces from NA P-values
+  data <- data[p %in% c("    NA","NA"), `:=` (p="NA")]
+  
   output_path <- paste0("output/Data/WQ_", file_type, "_All_KendallTau_Stats")
   
-  fwrite(data, paste0(output_path, ".txt"), sep="|")
-  fwrite(data, paste0(output_path, ".csv"), sep=",")
+  fwrite(data[!N_Data==0, ], paste0(output_path, ".txt"), sep="|")
+  fwrite(data[!N_Data==0, ], paste0(output_path, ".csv"), sep=",")
   
 }
