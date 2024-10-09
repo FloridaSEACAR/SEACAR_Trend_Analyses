@@ -108,7 +108,7 @@ for (param in all_params_short) {
   n <- n_managedareas(param, activity, depth)
   
   if (n > 0) {
-    print(n)
+    # print(n)
     managed_area_names <- get_managed_area_names(param, activity, depth)
     
     # Concatenate the managed area names into a single character vector
@@ -188,7 +188,7 @@ vq_piechart <- function(ma, data){
 }
 
 ### Discrete sample location maps
-plot_discrete_maps <- function(ma, data, param_label){
+plot_discrete_maps <- function(ma, data, param_label, ma_abrev){
   map_output <- "output/maps/discrete/"
   
   # Grab a list of programs within {discrete parameter} data for each MA
@@ -250,12 +250,15 @@ plot_discrete_maps <- function(ma, data, param_label){
 }
 
 ## Kendall-Tau Trendlines Plot function ##
-plot_trendlines <- function(p, a, d, activity_label, depth_label, y_labels, parameter, data, include_map=TRUE) {
+plot_trendlines <- function(p, a, d, activity_label, depth_label, y_labels, parameter, data, include_map=TRUE, ma, ma_abrev) {
   cat("  \n")
   cat(glue("**Seasonal Kendall-Tau Trend Analysis**"), "  \n")
   
   MA_YM_Stats <- as.data.frame(load_data_table(p, a, d, "MA_MMYY_Stats"))
   skt_stats <- as.data.frame(load_data_table(p, a, d, "skt_stats"))
+  
+  setDT(skt_stats)
+  setDT(MA_YM_Stats)
   
   ### SKT STATS ###
   # Gets x and y values for starting point for trendline
@@ -273,20 +276,21 @@ plot_trendlines <- function(p, a, d, activity_label, depth_label, y_labels, para
   rm(KT.Plot2)
   KT.Plot <- as.data.table(KT.Plot[order(KT.Plot$ManagedAreaName), ])
   KT.Plot <- KT.Plot[!is.na(KT.Plot$y),]
+  setDT(KT.Plot)
   
   # Checking for missing values
   check_ym <- MA_YM_Stats %>%
-    filter(ManagedAreaName == ma)
+    dplyr::filter(ManagedAreaName == ma)
   
   if (nrow(check_ym) == 0) {
     invisible()
     # print("error")
   } else {
     # Gets data to be used in plot for managed area
-    plot_data <- MA_YM_Stats[MA_YM_Stats$ManagedAreaName==ma,]
+    plot_data <- MA_YM_Stats[ManagedAreaName==ma,]
     
     # Gets trendline data for managed area
-    KT.plot_data <- KT.Plot[KT.Plot$ManagedAreaName==ma,]
+    KT.plot_data <- KT.Plot[ManagedAreaName==ma,]
     
     #Determine max and min time (Year) for plot x-axis
     t_min <- min(plot_data$Year)
@@ -321,7 +325,7 @@ plot_trendlines <- function(p, a, d, activity_label, depth_label, y_labels, para
                          breaks=seq(t_max_brk, t_min, brk)) +
       plot_theme
     # Creates ResultTable to display statistics below plot
-    ResultTable <- skt_stats[skt_stats$ManagedAreaName==ma, ] %>%
+    ResultTable <- skt_stats[ManagedAreaName==ma, ] %>%
       select(RelativeDepth, N_Data, N_Years, Median, Independent, tau, p,
              SennSlope, SennIntercept, ChiSquared, pChiSquared, Trend)
     # Create table object
@@ -341,7 +345,7 @@ plot_trendlines <- function(p, a, d, activity_label, depth_label, y_labels, para
     #####################
     
     if (include_map==TRUE){
-      plot_discrete_maps(ma, data, param_label = parameter)
+      plot_discrete_maps(ma, data, param_label = parameter, ma_abrev = ma_abrev)
     }
     
     #####################
@@ -471,7 +475,7 @@ plot_boxplots <- function(p, a, d, activity_label, depth_label, y_labels, parame
 }
 
 ## VQ Summary Barplot ##
-plot_vq_barplot <- function(p, a, d, activity_label, depth_label, y_labels, parameter, data, include_plot, pie_chart) {
+plot_vq_barplot <- function(p, a, d, activity_label, depth_label, y_labels, parameter, data, include_plot, pie_chart, ma) {
   
   VQ_Summary <- as.data.frame(load_data_table(p, a, d, "VQSummary"))
   
@@ -559,12 +563,36 @@ plot_vq_barplot <- function(p, a, d, activity_label, depth_label, y_labels, para
     cat("  \n")
     cat("**Value Qualifiers**  \n \n")
     
+    # add description for each VQ shown
+    vq <- list("N_H","N_I","N_Q","N_S","N_U")
+    vq_desc <- list("H - Value based on field kit determiniation; results may not be accurate. 
+                This code shall be used if a field screening test (e.g., field gas chromatograph data, 
+                immunoassay, or vendor-supplied field kit) was used to generate the value and the field 
+                kit or method has not been recognized by the Department as equivalent to laboratory methods.",
+                    
+                    "I - The reported value is greater than or equal to the laboratory method detection 
+                limit but less than the laboratory practical quantitation limit.",
+                    
+                    "Q - Sample held beyond the accepted holding time. This code shall be used if the value is derived 
+                from a sample that was prepared or analyzed after the approved holding time restrictions for sample 
+                preparation or analysis.",
+                    
+                    "S - Secchi disk visible to bottom of waterbody. The value reported is the depth of the waterbody 
+                at the location of the Secchi disk measurement.",
+                    
+                    "U - Indicates that the compound was analyzed for but not detected. This symbol shall be used to indicate 
+                that the specified component was not detected. The value associated with the
+                qualifier shall be the laboratory method detection limit. Unless requested by the client, 
+                less than the method detection limit values shall not be reported ")
+    
+    vq_list <- setNames(as.list(vq_desc), vq)
+    
     vq_footnotes <- list()
     # add description for each VQ shown
     # loop to add description if the corresponding VQ is listed above
-    for (vq in names(vq_list_short)) {
+    for (vq in names(vq_list)) {
       if (vq %in% names(plot_data)) {
-        vq_footnote <- unlist(vq_list_short[vq])
+        vq_footnote <- unlist(vq_list[vq])
         vq_footnotes <- c(vq_footnotes, vq_footnote)
         cat("\n")
       }

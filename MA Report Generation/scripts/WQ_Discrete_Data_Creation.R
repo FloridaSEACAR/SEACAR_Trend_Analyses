@@ -23,6 +23,8 @@ library(EnvStats)
 library(tidyr)
 library(stringr)
 
+source("scripts/SEACAR_data_location.R")
+
 tic()
 #Sets whether to run documents with plots or not (APP_Plots==TRUE to include plots)
 APP_Plots <- TRUE
@@ -120,6 +122,16 @@ plot_theme <- theme_bw() +
 
 disc_file_list <- list()
 
+# Use the below line for most recent exports
+file_list <- list.files(seacar_data_location, full.names = T)
+# Use the below lines to run data objects for a previous export
+# Export date to use (as string, matching folder within /archive/)
+
+#####
+# exportDate <- "2024-Mar-27"
+# file_list <- list.files(paste0(seacar_data_location, "/archive/",exportDate), full.names = T)
+#####
+
 #Starts for loop that cycles through each parameter
 for (j in 1:length(all_params)){
   param_name <- all_params[j]
@@ -127,7 +139,7 @@ for (j in 1:length(all_params)){
   print(paste0("Starting parameter: ", param_name))
   #Gets the file with the filename containing the desired parameter
   disc_param_pattern <- paste0("NUT_", param_name)
-  file_in <- list.files(here::here(seacar_data_location), pattern=disc_param_pattern, full=TRUE)
+  file_in <- str_subset(file_list, disc_param_pattern)
   
   #Since Dissolved_Oxygen will return both Dissolved_Oxygen and Dissolved_Oxygen_Saturation,
   #the if statement removes the entry for Dissolved_Oxygen_Saturation when trying to get Dissolved_Oxygen
@@ -169,7 +181,7 @@ for (j in 1:length(all_params)){
                   param_name=="Water_Temperature") & activity=="Lab") {
         next
       } else if ((param_name=="Chlorophyll_a_corrected_for_pheophytin" |
-                  param_name=="Chlorophyll_a_uncorrected_for_pheophytin" |
+                  #param_name=="Chlorophyll_a_uncorrected_for_pheophytin" |
                   param_name=="Colored_dissolved_organic_matter_CDOM" |
                   param_name=="Dissolved_Oxygen" |
                   param_name=="Dissolved_Oxygen_Saturation" |
@@ -233,12 +245,6 @@ for (j in 1:length(all_params)){
         data <- data[-grep("Blank", data$ActivityType),]
       }
       
-      # Removes data rows with ResultValue below 0, or -2 for Water_Temperature
-      if(param_name=="Water_Temperature"){
-        data <- data[data$ResultValue>=-2,]
-      } else{
-        data <- data[data$ResultValue>=0,]
-      }
       # Changes Include to be either TRUE or FALSE
       data$Include <- as.logical(data$Include)
       # Changes Include to be TRUE for ProgramID 476 if it had the H value qualifier

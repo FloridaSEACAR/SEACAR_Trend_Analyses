@@ -23,6 +23,9 @@ library(EnvStats)
 library(tidyr)
 library(kableExtra)
 library(collapse)
+library(stringr)
+
+source("scripts/SEACAR_data_location.R")
 
 tic()
 #Sets whether to run documents with plots or not (APP_Plots==TRUE to include plots)
@@ -102,6 +105,16 @@ cont_file_list <- list()
 cont_station_list <- list()
 coordinates_df <- data.frame()
 
+# Use the below line for most recent exports
+file_list <- list.files(seacar_data_location, full.names = T)
+# Use the below lines to run data objects for a previous export
+# Export date to use (as string, matching folder within /archive/)
+
+#####
+# exportDate <- "2024-Mar-27"
+# file_list <- list.files(paste0(seacar_data_location, "/archive/",exportDate), full.names = T)
+#####
+
 #Starts for loop that cycles through each parameter
 for (j in 1:length(all_params)){
   param_name <- all_params[j]
@@ -111,12 +124,12 @@ for (j in 1:length(all_params)){
   for (i in 1:length(all_regions)){
     param_file_name <- paste0("cont_",param_name)
     #Gets the files with the file names containing the desired parameter
-    file_list <- list.files(seacar_data_location, pattern=param_file_name, full=TRUE)
+    file_list_subset <- str_subset(file_list, param_file_name)
     
     #Since Dissolved_Oxygen will return both Dissolved_Oxygen and Dissolved_Oxygen_Saturation,
     #the if statement removes the entries for Dissolved_Oxygen_Saturation when trying to get Dissolved_Oxygen
-    if(param_name=="Dissolved_Oxygen" & length(grep("Saturation", file_list))>0){
-      file_list <- file_list[-grep("Saturation", file_list)]
+    if(param_name=="Dissolved_Oxygen" & length(grep("Saturation", file_list_subset))>0){
+      file_list_subset <- file_list_subset[-grep("Saturation", file_list_subset)]
     }
     
     # setting output path for cont. files
@@ -125,7 +138,7 @@ for (j in 1:length(all_params)){
     #Filters list of file names for the desired region
     region <- all_regions[i]
     # Uses _[Region Abbreviation]- so that is does not return any coincidental combinations
-    file_in <- file_list[grep(paste0("_", region, "-"), file_list)]
+    file_in <- file_list_subset[grep(paste0("_", region, "-"), file_list_subset)]
     
     #create new variable to help store file_names
     par_region <- paste0(param_abrev, "_", region)
@@ -136,6 +149,7 @@ for (j in 1:length(all_params)){
     cont_file_list[[par_region]] <- file_short
     
     print(paste0("Starting region: ", region))
+    print(file_short)
     
     ###########################
     ### BEGIN DATA CREATION ###
@@ -389,15 +403,17 @@ for (j in 1:length(all_params)){
     print("Saving Mon_M_Stats.rds")
     saveRDS(Mon_M_Stats, file = paste0(out_dir_tables,"/WC_Continuous_", param_abrev, "_", region, "_Mon_M_Stats.rds"))
     
-    # Reduces size of data by getting a monthly average
+    # Reduces size of data by getting a monthly average (this is the efficiency bottleneck)
     # New method uses "Collapse" package to more efficiently group & summarise
     data <- data %>%
       fgroup_by(MonitoringID, AreaID, ManagedAreaName, ProgramID, ProgramName,
                 ProgramLocationID, SampleDate) %>%
-      fsummarise(Year=funique(Year), Month=funique(Month),
-                 RelativeDepth=funique(RelativeDepth),
-                 ResultValue=fmean(ResultValue), Include=funique(Include),
-                 Use_In_Analysis=funique(Use_In_Analysis))
+      fsummarise(Year = first(Year), 
+                 Month = first(Month),
+                 RelativeDepth = first(RelativeDepth),
+                 ResultValue = fmean(ResultValue), 
+                 Include = first(Include),
+                 Use_In_Analysis = first(Use_In_Analysis))
     
     # Sets column formats to appropriate types
     data$SampleDate <- as.Date(data$SampleDate)

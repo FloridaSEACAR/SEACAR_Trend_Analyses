@@ -6,7 +6,7 @@ cont_params_short <- c("DO","DOS","pH","Sal","Turb","TempW")
 cont_param_units <- c("mg/L","%","pH","ppt","NTU","Degrees C")
 cont_regions <- c("NE","NW","SE","SW")
 
-cont_param_df <- data.frame(param_short = cont_params_short,
+cont_param_df <- data.table(param_short = cont_params_short,
                             parameter = cont_params_long,
                             unit = cont_param_units)
 
@@ -46,30 +46,31 @@ rm(df)
 # add 1 to years_of_data (result of subtracting years)
 coordinates_df$years_of_data <- coordinates_df$years_of_data + 1
 
-station_coordinates <- coordinates_df %>% group_by(ManagedAreaName, lat, lon) %>%
-  distinct(ProgramLocationID)
+station_coordinates <- setDT(coordinates_df %>% group_by(ManagedAreaName, lat, lon) %>%
+  distinct(ProgramLocationID))
 
 cont_managed_areas <- unique(station_coordinates$ManagedAreaName)
 
 # Provides a table for stations with Cont. Data
 # and which stations passed the tests
-station_count_table <- function(cont_data){
+station_count_table <- function(coordinates_df, station_coordinates, ma, ma_abrev){
   
   cat("\\newpage")
   
   # create frame to show available stations
   # show how many are included/excluded in the report
-  stations <- coordinates_df %>%
-    filter(ManagedAreaName==ma) %>%
-    group_by(ProgramLocationID) %>%
-    ungroup() %>%
-    select(ProgramLocationID, ProgramID, ProgramName, Use_In_Analysis)
+  # stations <- coordinates_df %>%
+  #   filter(ManagedAreaName==ma) %>%
+  #   group_by(ProgramLocationID) %>%
+  #   ungroup() %>%
+  #   select(ProgramLocationID, ProgramID, ProgramName, Use_In_Analysis)
+  
+  stations <- coordinates_df[ManagedAreaName == ma, .(ProgramLocationID, ProgramID, ProgramName, Use_In_Analysis)]
   
   programs_by_ma <- unique(stations$ProgramID)
   
   # table
-  for (prog in programs_by_ma){
-    
+  for(prog in programs_by_ma){
     n_years <- coordinates_df %>% filter(ManagedAreaName==ma, ProgramID==prog) %>%
       group_by(ProgramLocationID, years_of_data, Use_In_Analysis, ProgramName) %>%
       summarise(params = list(Parameter)) %>%
@@ -119,7 +120,7 @@ station_count_table <- function(cont_data){
   map <- leaflet(options = leafletOptions(zoomControl = FALSE)) %>% 
     addProviderTiles(providers$CartoDB.PositronNoLabels) # %>% addTiles()
   
-  df_coord <- station_coordinates %>% filter(ManagedAreaName == ma)
+  df_coord <- station_coordinates[ManagedAreaName == ma, ]
   
   df_coord <- adjust_label_position(df_coord, buffer_distance = 6000)
   
@@ -157,15 +158,23 @@ station_count_table <- function(cont_data){
       ))
     )
     
-    map <- map %>%
-      addAwesomeMarkers(lng=long, lat=lati, label=sta_name,icon=icons,
-                        labelOptions = labelOptions(
-                          noHide = T, 
-                          direction = label_dir,
-                          style = list("font-size" = "16px",
-                                       "background-color" = "rgba(255,255,255,.5)"),
-                          offset = c(offset_val, 0)
-                        ))
+    # Only show labels if they will fit (10 or less)
+    if(length(unique(df_coord$ProgramLocationID)) > 10){
+      map <- map %>%
+        addAwesomeMarkers(lng=long, lat=lati, icon=icons)
+    } else {
+      map <- map %>%
+        addAwesomeMarkers(lng=long, lat=lati, label=sta_name,icon=icons,
+                          labelOptions = labelOptions(
+                            noHide = T, 
+                            direction = label_dir,
+                            style = list("font-size" = "16px",
+                                         "background-color" = "rgba(255,255,255,.5)"),
+                            offset = c(offset_val, 0)
+                          ))      
+    }
+    
+
     
     # set zoom level if only 2 or less stations available
     if(length(unique(df_coord$ProgramLocationID)) <= 2) {
@@ -199,7 +208,8 @@ station_count_table <- function(cont_data){
   # draw .png with ggplot
   p1 <- ggdraw() + draw_image(map_out, scale = 1)
   
-  caption <- paste0("Map showing Continuous Water Quality Monitoring sampling locations within the boundaries of ", ma, ". Sites marked as *Use In Analysis* are featured in this report.  \n")
+  caption <- paste0("Map showing Continuous Water Quality Monitoring sampling locations within the boundaries of ", ma, ". 
+                    Sites marked as *Use In Analysis* are featured in this report.  \n")
   
   print(p1)
   cat("  \n")
@@ -208,19 +218,17 @@ station_count_table <- function(cont_data){
 }
 
 # Unified continuous plotting function
-plot_cont <- function(p, y_labels, parameter, cont_data){
+plot_cont <- function(p, y_labels, parameter, cont_data, ma){
   
-  data <- cont_data %>% filter(ManagedAreaName == ma)
+  data <- cont_data[ManagedAreaName == ma, ]
   
-  Mon_YM_Stats <- as.data.frame(load_cont_data_table(p, region, "Mon_YM_Stats"))
-  skt_stats <- as.data.frame(load_cont_data_table(p, region, "skt_stats"))
+  Mon_YM_Stats <- as.data.table(load_cont_data_table(p, region, "Mon_YM_Stats"))
+  skt_stats <- as.data.table(load_cont_data_table(p, region, "skt_stats"))
   
-  skt_stats <- skt_stats %>% 
-    filter(ManagedAreaName==ma)
+  skt_stats <- skt_stats[ManagedAreaName==ma, ]
   
   # Checking for missing values
-  Mon_YM_Stats <- Mon_YM_Stats %>%
-    filter(ManagedAreaName == ma & ParameterName == parameter)
+  Mon_YM_Stats <- Mon_YM_Stats[ManagedAreaName == ma & ParameterName == parameter, ]
   
   ### SKT STATS ###
   # Gets x and y values for starting point for trendline
@@ -238,16 +246,13 @@ plot_cont <- function(p, y_labels, parameter, cont_data){
   rm(KT.Plot2)
   KT.Plot <- as.data.table(KT.Plot[order(KT.Plot$MonitoringID), ])
   KT.Plot <- KT.Plot[!is.na(KT.Plot$y),]
+  setDT(KT.Plot)
   
   # unique monitoring location IDs for each managed area
   MonIDs <- unique(data$MonitoringID)
   n <- length(MonIDs)
   
-  n_included <- length(data %>%
-                         group_by(MonitoringID) %>%
-                         distinct(Use_In_Analysis) %>% 
-                         filter(Use_In_Analysis == TRUE) %>% 
-                         pull(MonitoringID))
+  n_included <- data[Use_In_Analysis == TRUE, uniqueN(MonitoringID)]
   
   if (n_included > 0) {
     
@@ -258,19 +263,13 @@ plot_cont <- function(p, y_labels, parameter, cont_data){
     # Begins looping through each monitoring location
     for (i in 1:length(MonIDs)) {
       id <- MonIDs[i]
-      
-      # if (i > 1){
-      #   cat("\\newpage")
-      # }
-      
       # Plot trendplots
-      
       # Gets data to be used in plot for monitoring location
-      plot_data <- Mon_YM_Stats[Mon_YM_Stats$MonitoringID==id,]
+      plot_data <- Mon_YM_Stats[MonitoringID==id,]
       
       if (nrow(plot_data) > 0) {
         # Gets trendline data for monitoring location
-        KT.plot_data <- KT.Plot[KT.Plot$MonitoringID==id,]
+        KT.plot_data <- KT.Plot[MonitoringID==id,]
         #Determine max and min time (Year) for plot x-axis
         t_min <- min(plot_data$Year)
         t_max <- max(plot_data$YearMonthDec)
@@ -299,12 +298,12 @@ plot_cont <- function(p, y_labels, parameter, cont_data){
           t_min <- t_min-1
         }
         # Get name of managed area
-        MA_name <- skt_stats$ManagedAreaName[skt_stats$MonitoringID==id]
+        MA_name <- skt_stats[MonitoringID==id, ManagedAreaName]
         # Get program location name
-        Mon_name <- paste0(skt_stats$ProgramName[skt_stats$MonitoringID==id], 
-                           " (", skt_stats$ProgramID[skt_stats$MonitoringID==id], ")")
+        Mon_name <- paste0(skt_stats[MonitoringID==id, ProgramName], 
+                           " (", skt_stats[MonitoringID==id, ProgramID], ")")
         
-        mon_name_short <- skt_stats$ProgramLocationID[skt_stats$MonitoringID==id]
+        mon_name_short <- skt_stats[MonitoringID==id, ProgramLocationID]
         # Create plot object with data and trendline
         p1 <- ggplot(data=plot_data,
                      aes(x=YearMonthDec, y=Mean)) +
@@ -320,7 +319,7 @@ plot_cont <- function(p, y_labels, parameter, cont_data){
           plot_theme
         
         # Creates ResultTable to display statistics below plot
-        ResultTable <- skt_stats[skt_stats$MonitoringID==id, ] %>%
+        ResultTable <- skt_stats[MonitoringID==id, ] %>%
           select(RelativeDepth, N_Data, N_Years, Median, Independent, tau, p,
                  SennSlope, SennIntercept, ChiSquared, pChiSquared, Trend)
         # Create table object
@@ -350,16 +349,16 @@ plot_cont <- function(p, y_labels, parameter, cont_data){
   }
 }
 
-plot_cont_combined <- function(param, y_labels, parameter, cont_data){
-  data <- cont_data %>% filter(ManagedAreaName == ma)
+plot_cont_combined <- function(param, y_labels, parameter, cont_data, ma){
+  data <- cont_data[ManagedAreaName == ma, ]
   
   Mon_YM_Stats <- as.data.table(load_cont_data_table(param, region, "Mon_YM_Stats"))
-  skt_stats <- as.data.frame(load_cont_data_table(param, region, "skt_stats"))
+  skt_stats <- as.data.table(load_cont_data_table(param, region, "skt_stats"))
   
-  skt_stats <- skt_stats %>% filter(ManagedAreaName==ma)
+  skt_stats <- skt_stats[ManagedAreaName==ma, ]
   
   # Checking for missing values
-  Mon_YM_Stats <- Mon_YM_Stats %>% filter(ManagedAreaName == ma & ParameterName == parameter)
+  Mon_YM_Stats <- Mon_YM_Stats[ManagedAreaName == ma & ParameterName == parameter, ]
   
   if(length(unique(Mon_YM_Stats$ProgramLocationID))>1){
     
@@ -378,7 +377,8 @@ plot_cont_combined <- function(param, y_labels, parameter, cont_data){
     KT.Plot <- bind_rows(KT.Plot, KT.Plot2)
     rm(KT.Plot2)
     KT.Plot <- as.data.table(KT.Plot[order(KT.Plot$MonitoringID), ])
-    KT.Plot <- KT.Plot[!is.na(KT.Plot$y),]  
+    KT.Plot <- KT.Plot[!is.na(KT.Plot$y),]
+    setDT(KT.Plot)
     
     # Account for managed areas with large number of continuous sites
     # Too many to plot together, plot combined by Program
@@ -390,7 +390,7 @@ plot_cont_combined <- function(param, y_labels, parameter, cont_data){
       for(pid in unique(Mon_YM_Stats$ProgramID)){
         
         # all plots together
-        plot_data <- Mon_YM_Stats[Mon_YM_Stats$ManagedAreaName==ma & ProgramID==pid,]
+        plot_data <- Mon_YM_Stats[ManagedAreaName==ma & ProgramID==pid,]
         p_name <- unique(plot_data$ProgramName)
         
         #Determine max and min time (Year) for plot x-axis
@@ -424,7 +424,7 @@ plot_cont_combined <- function(param, y_labels, parameter, cont_data){
         
         setDT(plot_data)
         # number of stations for shape-palette
-        n <- length(unique(KT.Plot[ProgramID==pid, ]$MonitoringID))
+        n <- length(KT.Plot[ProgramID==pid, unique(MonitoringID)])
         
         p1 <- ggplot(data=plot_data, aes(x=YearMonthDec, y=Mean, group=factor(ProgramLocationID))) +
           geom_point(aes(shape=ProgramLocationID), color="#cccccc" ,fill="#444444", size=3,alpha=0.9, show.legend = TRUE) +
@@ -448,7 +448,7 @@ plot_cont_combined <- function(param, y_labels, parameter, cont_data){
                  SennIntercept, SennSlope, p) %>%
           rename("Station" = ProgramLocationID) %>%
           mutate_if(is.numeric, ~round(., 2))
-        
+        setDT(ResultTable)
         # Remove text-based "NA" values in p column
         if (nrow(ResultTable[ResultTable$p=="    NA", ]) > 0){
           ResultTable[ResultTable$p=="    NA", ]$p <- "-"
@@ -462,9 +462,6 @@ plot_cont_combined <- function(param, y_labels, parameter, cont_data){
                                   record for monitoring location",
                            size=10, face="italic")
         
-        # title <- glue("#### {p_name}: ({pid})")
-        # cat("  \n")
-        # cat(title)
         cat("    \n")
         cat("  \n")
         cat("  \n")
@@ -481,7 +478,7 @@ plot_cont_combined <- function(param, y_labels, parameter, cont_data){
       }
     } else {
       # all plots together
-      plot_data <- Mon_YM_Stats[Mon_YM_Stats$ManagedAreaName==ma,]
+      plot_data <- Mon_YM_Stats[ManagedAreaName==ma, ]
       
       #Determine max and min time (Year) for plot x-axis
       t_min <- min(plot_data$Year)
@@ -514,7 +511,7 @@ plot_cont_combined <- function(param, y_labels, parameter, cont_data){
       setDT(plot_data)
       KT.Plot$ProgramLocationID <- ""
       for (m in unique(KT.Plot$MonitoringID)){
-        PLID <- unique(plot_data[MonitoringID == m, ]$ProgramLocationID)
+        PLID <- plot_data[MonitoringID == m, unique(ProgramLocationID)]
         KT.Plot[MonitoringID == m, ProgramLocationID := PLID]
       }
       
@@ -539,6 +536,7 @@ plot_cont_combined <- function(param, y_labels, parameter, cont_data){
                SennIntercept, SennSlope, p) %>%
         rename("Station" = ProgramLocationID) %>%
         mutate_if(is.numeric, ~round(., 2))
+      setDT(ResultTable)
       
       # Remove text-based "NA" values in p column
       if (nrow(ResultTable[ResultTable$p=="    NA", ]) > 0){
