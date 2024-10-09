@@ -259,12 +259,14 @@ color_palette <- c("#005396", "#0088B1", "#00ADAE", "#65CCB3", "#AEE4C1", "#FDEB
 # Defines and sets variable with standardized gear colors for plots
 gear_colors <- c("Trawl (4.8 m)"=color_palette[1],
                  "Trawl (6.1 m)"=color_palette[2],
-                 "Seine (183 m)"=color_palette[3])
+                 "Tow, Trawl, Diver Count (183 m)"=color_palette[3],
+                 "Tow, Trawl, Diver Count (6.1 m)"=color_palette[4])
 
 # Defines and sets variable with standardized gear shapes for plots
 gear_shapes <- c("Trawl (4.8 m)"=21,
                  "Trawl (6.1 m)"=22,
-                 "Seine (183 m)"=24)
+                 "Tow, Trawl, Diver Count (183 m)"=24,
+                 "Tow, Trawl, Diver Count (6.1 m)"=25)
 
 plot_nekton <- function(ma, MA_Y_Stats = "MA_Y_Stats_nek", MA_Ov_Stats = "MA_Ov_Stats_nek"){
   # Gets data for target managed area
@@ -350,7 +352,8 @@ plot_nekton <- function(ma, MA_Y_Stats = "MA_Y_Stats_nek", MA_Ov_Stats = "MA_Ov_
       scale_fill_manual(values=gear_colors_plot) +
       scale_color_manual(values=gear_colors_plot) +
       scale_shape_manual(values=gear_shapes_plot) +
-      plot_theme
+      plot_theme + 
+      theme(plot.margin = unit(c(1,2,1,1),"cm")) # Allows legend to show fully
     
     # Creates a data table object to be shown underneath plots in report
     ResultTable <- MA_Ov_Stats[MA_Ov_Stats$ManagedAreaName==ma,]
