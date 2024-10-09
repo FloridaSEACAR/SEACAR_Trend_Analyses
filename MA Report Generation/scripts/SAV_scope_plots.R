@@ -338,7 +338,8 @@ for (i in unique(SAV4$ManagedAreaName)){
   
   years <- sort(unique(SAV4[ManagedAreaName == i & !is.na(BB_pct) & Year != startyear, Year]))
   total_years <- length(years)
-  num_col <- ifelse(total_years<=12, 2, ifelse(total_years<=24, 3, 4))
+  num_col <- ifelse(i=="Biscayne Bay Aquatic Preserve", 2,
+                    ifelse(total_years<=12, 2, ifelse(total_years<=24, 3, 4)))
   rows_per_column <- ceiling(total_years / num_col)
   
   for(index in seq_along(years)){

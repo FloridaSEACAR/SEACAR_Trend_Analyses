@@ -325,7 +325,8 @@ spp <- c("Halophila spp.","Unidentified Halophila","Halophila johnsonii","Syring
 spp_common <- c("Halophila spp.", "Unidentified Halophila", "Johnson's seagrass", "Manatee grass", "Paddle grass", 
                 "Shoal grass", "Star grass", "Turtle grass", "Widgeon grass", "Attached algae", "Total SAV", "Total seagrass")
 
-usenames <- "scientific" #alternative is "common"
+# usenames <- "scientific" #alternative is "common"
+usenames <- "common"
 
 spcols <- setNames(spcollist, spp)
 
@@ -798,5 +799,39 @@ for(f in seq_along(files)){
   }
   if(round((f/length(files))*100, 1) %% 10 == 0){
     print(paste0(round((f/length(files))*100), "% done!"))
+  }
+}
+
+files <- list.files(here::here("output/Figures/BB/"), full.names=TRUE) #get file list
+files <- str_subset(files, ".rds") #exclude non-.RDS files
+
+# SAVE SAV PLOTS
+# Export .png plots for each plot type below
+plot_types <- c("multiplot","trendplot","barplot")
+
+for(plot_type in plot_types){
+  file_subset <- str_subset(files, plot_type)
+  
+  if(plot_type %in% c("trendplot","multiplot")){
+    file_subset <- str_subset(file_subset, "_BBpct_")
+  }
+  
+  w <- 8
+  h <- 8
+  r <- 200
+  
+  for(file in file_subset){
+    plot <- readRDS(file)
+    plot <- plot + plot_theme
+    file_name <- paste0(str_sub(tail(str_split(file, "/")[[1]], 1), 1, -5),".png")
+    png(paste0("output/website/images/",plot_type,"s/", file_name),
+        width = w,
+        height = h,
+        units = "in",
+        res = r)
+    print(plot)
+    print(paste0(file_name, " exported"))
+    
+    dev.off()
   }
 }
