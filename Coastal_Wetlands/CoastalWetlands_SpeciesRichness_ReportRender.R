@@ -1,9 +1,4 @@
-#The purpose of this script is to automate the production of Rmd documents and analysis for Coastal Wetlands.
-# Updated 4-9-24 - T.Hill
-
-## WHEN RUNNING IN RSTUDIO:
-## Set working directory to "Source File Location" in "Session" menu
-
+# This script renders .PDF reports using CoastalWetlands_SpeciesRichness.Rmd
 
 #Load libraries
 library(knitr)
@@ -18,12 +13,11 @@ library(stringr)
 wd <- dirname(getActiveDocumentContext()$path)
 setwd(wd)
 
-source("../SEACAR_data_location.R")
+# Call in CW_Plot_Render to render all plots, placing them in output folder
+source("CW_Plot_Render.R")
+
 #Set output directory
 out_dir <- "output"
-
-# Sets coastal wetland file to only care about "All Parameters" file
-param_name <- "All_Parameters"
 
 #Sets abbreviation or label to be used in file names
 param_file <- "SpeciesRichness"
@@ -32,34 +26,16 @@ param_file <- "SpeciesRichness"
 MA_All <- fread("data/ManagedArea.csv", sep = ",", header = TRUE, stringsAsFactors = FALSE,
                 na.strings = "")
 
-#Gets the files with the file names containing the desired parameter
-file_in <- list.files(seacar_data_location, pattern="All_CW", full=TRUE)
-
-#Gets the specific file used and removes the directory names
-file_short <- tail(str_split(file_in, "/")[[1]], 1)
-
 #Renders CoastalWetlands_SpeciesRichness.Rmd and writes the report to a pdf and 
 #Word document stored in output directory
 file_out <-  paste0("CoastalWetlands_", param_file, "_Report")
-
 
 rmarkdown::render(input = "CoastalWetlands_SpeciesRichness.Rmd", 
                   output_format = "pdf_document",
                   output_file = paste0(file_out, ".pdf"),
                   output_dir = out_dir,
                   clean=TRUE)
-rmarkdown::render(input = paste0(out_dir, "/", file_out, ".md"),
-                  output_format = "word_document",
-                  output_file = paste0(file_out, ".docx"),
-                  output_dir = out_dir,
-                  clean=TRUE)
 
 #Removes unwanted files created in the rendering process
 unlink(paste0(out_dir, "/", file_out, ".md"))
 unlink(paste0(out_dir, "/", file_out, "_files"), recursive=TRUE)
-
-#Gets list of all image files in output/Figures and creates zip directory
-fig_list <- list.files(paste0(out_dir, "/Figures"), pattern=".png", full=FALSE)
-setwd(paste0(out_dir, "/Figures"))
-zip("CoastalWetlandsFigures", files=fig_list)
-setwd(wd)

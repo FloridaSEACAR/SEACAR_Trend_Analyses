@@ -1,53 +1,17 @@
-AreaID|ManagedAreaName|SpeciesGroup|ParameterName|N_Years|EarliestYear|LatestYear|N_Data|Min|Max|Median|Mean|StandardDeviation|Programs|ProgramIDs|Year_MinRichness|Year_MaxRichness
-1|Alligator Harbor Aquatic Preserve||Species Richness|0|||0|||||||||
-2|Apalachicola Bay Aquatic Preserve|Mangroves and associate|Species Richness|2|2022|2023|4|1|1|1|1|0|Apalachicola Emergent Marsh Vegetation Monitoring|5009|2022|2018
-2|Apalachicola Bay Aquatic Preserve|Marsh|Species Richness|10|2014|2023|144|1|5|1|2.05555555555556|1.21630977937756|Apalachicola Emergent Marsh Vegetation Monitoring, Coastal Habitat Integrated Mapping and Monitoring Program (CHIMMP) Pilot Monitoring Data|651, 5009|2022|2018
+AreaID|ManagedAreaName|SpeciesGroup1|ParameterName|N_Years|EarliestYear|LatestYear|N_Data|Min|Max|Median|Mean|StandardDeviation|Programs|ProgramIDs|Year_MinRichness|Year_MaxRichness
+2|Apalachicola Bay Aquatic Preserve|Mangroves and associates|Species Richness|2|2022|2023|4|1|1|1|1|0|Apalachicola Emergent Marsh Vegetation Monitoring|5009|2022|2018
+2|Apalachicola Bay Aquatic Preserve|Marsh|Species Richness|10|2014|2023|144|1|5|1.5|2.07638888888889|1.20650834773838|Apalachicola Emergent Marsh Vegetation Monitoring, Coastal Habitat Integrated Mapping and Monitoring Program (CHIMMP) Pilot Monitoring Data|651, 5009|2022|2018
 2|Apalachicola Bay Aquatic Preserve|Marsh succulents|Species Richness|10|2014|2023|56|1|3|3|2.19642857142857|0.961431562489317|Apalachicola Emergent Marsh Vegetation Monitoring, Coastal Habitat Integrated Mapping and Monitoring Program (CHIMMP) Pilot Monitoring Data|651, 5009|2022|2018
-3|Apalachicola National Estuarine Research Reserve||Species Richness|0|||0|||||||||
-4|Banana River Aquatic Preserve||Species Richness|0|||0|||||||||
 5|Big Bend Seagrasses Aquatic Preserve|Marsh|Species Richness|2|2013|2016|6|1|3|2|2.16666666666667|0.752772652709081|Inventory and Monitoring Network Status and Trends|620|2013|2016
-7|Biscayne Bay-Cape Florida to Monroe County Line Aquatic Preserve||Species Richness|0|||0|||||||||
-6|Biscayne Bay Aquatic Preserve||Species Richness|0|||0|||||||||
-8|Boca Ciega Bay Aquatic Preserve||Species Richness|0|||0|||||||||
-9|Cape Haze Aquatic Preserve||Species Richness|0|||0|||||||||
-10|Cape Romano-Ten Thousand Islands Aquatic Preserve||Species Richness|0|||0|||||||||
-11|Cockroach Bay Aquatic Preserve|Mangroves and associate|Species Richness|1|2015|2015|1|2|2|2|2||Tampa Bay Critical Coastal Habitat Assessment|906|2015|2015
-13|Coupon Bight Aquatic Preserve||Species Richness|0|||0|||||||||
-14|Estero Bay Aquatic Preserve||Species Richness|0|||0|||||||||
-15|Florida Keys National Marine Sanctuary||Species Richness|0|||0|||||||||
-16|Fort Clinch State Park Aquatic Preserve||Species Richness|0|||0|||||||||
-17|Fort Pickens State Park Aquatic Preserve||Species Richness|0|||0|||||||||
-18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve||Species Richness|0|||0|||||||||
-19|Guana River Marsh Aquatic Preserve|Marsh|Species Richness|10|2012|2021|714|1|3|1|1.00420168067227|0.0836357808601596|Coastal Habitat Integrated Mapping and Monitoring Program (CHIMMP) Pilot Monitoring Data, Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|651, 4017|2012|2021
-19|Guana River Marsh Aquatic Preserve|Marsh succulents|Species Richness|10|2012|2021|52|1|2|1|1.07692307692308|0.269069117598525|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017|2012|2021
-20|Guana Tolomato Matanzas National Estuarine Research Reserve|Mangroves and associate|Species Richness|10|2012|2021|308|1|2|1|1.00649350649351|0.080450947828829|Coastal Habitat Integrated Mapping and Monitoring Program (CHIMMP) Pilot Monitoring Data, GTMNERR Mangrove Monitoring, Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|651, 4017, 5015|2013|2017
-20|Guana Tolomato Matanzas National Estuarine Research Reserve|Marsh|Species Richness|10|2012|2021|1542|1|3|1|1.16277561608301|0.37967789241379|Coastal Habitat Integrated Mapping and Monitoring Program (CHIMMP) Pilot Monitoring Data, Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|651, 4017|2013|2017
-20|Guana Tolomato Matanzas National Estuarine Research Reserve|Marsh succulents|Species Richness|10|2012|2021|737|1|4|1|1.41112618724559|0.527026066285411|Coastal Habitat Integrated Mapping and Monitoring Program (CHIMMP) Pilot Monitoring Data, Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|651, 4017|2013|2017
-21|Indian River-Malabar to Vero Beach Aquatic Preserve||Species Richness|0|||0|||||||||
-22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve||Species Richness|0|||0|||||||||
-23|Jensen Beach to Jupiter Inlet Aquatic Preserve||Species Richness|0|||0|||||||||
-25|Lemon Bay Aquatic Preserve||Species Richness|0|||0|||||||||
-26|Lignumvitae Key Aquatic Preserve||Species Richness|0|||0|||||||||
-27|Loxahatchee River-Lake Worth Creek Aquatic Preserve||Species Richness|0|||0|||||||||
-28|Matlacha Pass Aquatic Preserve||Species Richness|0|||0|||||||||
-29|Mosquito Lagoon Aquatic Preserve||Species Richness|0|||0|||||||||
-30|Nassau River-St. Johns River Marshes Aquatic Preserve||Species Richness|0|||0|||||||||
-48|Nature Coast Aquatic Preserve|Mangroves and associate|Species Richness|1|2020|2020|8|1|2|1|1.375|0.517549169506766|Coastal Habitat Integrated Mapping and Monitoring Program (CHIMMP) Pilot Monitoring Data|651|2020|2020
+11|Cockroach Bay Aquatic Preserve|Mangroves and associates|Species Richness|1|2015|2015|1|2|2|2|2||Tampa Bay Critical Coastal Habitat Assessment|906|2015|2015
+19|Guana River Marsh Aquatic Preserve|Marsh|Species Richness|12|2012|2023|795|1|3|1|1.00377358490566|0.0792651962822667|Coastal Habitat Integrated Mapping and Monitoring Program (CHIMMP) Pilot Monitoring Data, Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|651, 4017|2012|2021
+19|Guana River Marsh Aquatic Preserve|Marsh succulents|Species Richness|12|2012|2023|58|1|2|1|1.10344827586207|0.307203297018|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017|2012|2021
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|Mangroves and associates|Species Richness|12|2012|2023|387|1|2|1|1.02067183462532|0.14246738853271|Coastal Habitat Integrated Mapping and Monitoring Program (CHIMMP) Pilot Monitoring Data, GTMNERR Mangrove Monitoring, Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|651, 4017, 5015|2013|2017
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|Marsh|Species Richness|12|2012|2023|1773|1|3|1|1.16751269035533|0.383968180647432|Coastal Habitat Integrated Mapping and Monitoring Program (CHIMMP) Pilot Monitoring Data, Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|651, 4017|2013|2017
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|Marsh succulents|Species Richness|12|2012|2023|810|1|4|1|1.4|0.521953163672743|Coastal Habitat Integrated Mapping and Monitoring Program (CHIMMP) Pilot Monitoring Data, Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|651, 4017|2013|2017
+48|Nature Coast Aquatic Preserve|Mangroves and associates|Species Richness|1|2020|2020|8|1|2|1|1.375|0.517549169506766|Coastal Habitat Integrated Mapping and Monitoring Program (CHIMMP) Pilot Monitoring Data|651|2020|2020
 48|Nature Coast Aquatic Preserve|Marsh|Species Richness|1|2020|2020|14|1|3|1|1.28571428571429|0.611249845502127|Coastal Habitat Integrated Mapping and Monitoring Program (CHIMMP) Pilot Monitoring Data|651|2020|2020
-31|North Fork St. Lucie Aquatic Preserve||Species Richness|0|||0|||||||||
-33|Pellicer Creek Aquatic Preserve||Species Richness|0|||0|||||||||
 34|Pine Island Sound Aquatic Preserve|Marsh succulents|Species Richness|1|2004|2004|17|1|2|1|1.11764705882353|0.332105582077536|Mangrove Monitoring|3029|2004|2004
-35|Pinellas County Aquatic Preserve|Mangroves and associate|Species Richness|1|2014|2014|1|3|3|3|3||Tampa Bay Critical Coastal Habitat Assessment|906|2014|2014
+35|Pinellas County Aquatic Preserve|Mangroves and associates|Species Richness|1|2014|2014|1|3|3|3|3||Tampa Bay Critical Coastal Habitat Assessment|906|2014|2014
 35|Pinellas County Aquatic Preserve|Marsh|Species Richness|1|2014|2014|1|5|5|5|5||Tampa Bay Critical Coastal Habitat Assessment|906|2014|2014
 35|Pinellas County Aquatic Preserve|Marsh succulents|Species Richness|1|2014|2014|1|3|3|3|3||Tampa Bay Critical Coastal Habitat Assessment|906|2014|2014
-37|Rocky Bayou State Park Aquatic Preserve||Species Richness|0|||0|||||||||
-38|Rookery Bay Aquatic Preserve||Species Richness|0|||0|||||||||
-39|Rookery Bay National Estuarine Research Reserve||Species Richness|0|||0|||||||||
-12|Southeast Florida Coral Reef Ecosystem Conservation Area||Species Richness|0|||0|||||||||
-40|St. Andrews State Park Aquatic Preserve||Species Richness|0|||0|||||||||
-41|St. Joseph Bay Aquatic Preserve||Species Richness|0|||0|||||||||
-42|St. Joseph Bay State Buffer Preserve||Species Richness|0|||0|||||||||
-43|St. Martins Marsh Aquatic Preserve||Species Richness|0|||0|||||||||
-44|Terra Ceia Aquatic Preserve||Species Richness|0|||0|||||||||
-45|Tomoka Marsh Aquatic Preserve||Species Richness|0|||0|||||||||
-47|Yellow River Marsh Aquatic Preserve||Species Richness|0|||0|||||||||
