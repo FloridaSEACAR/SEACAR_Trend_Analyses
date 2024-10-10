@@ -281,6 +281,8 @@ if(n==0){
 } else {
   for (i in 1:n) {
     ma_i <- coral_sr_MA_Include[i]
+    # Get abbreviated name for filename
+    ma_abrev <- MA_All[ManagedAreaName==ma_i, Abbreviation]
     # Gets data for target managed area
     plot_data <- MA_Y_Stats[ManagedAreaName==ma_i, ]
     # Determines most recent year with available data for managed area
@@ -346,8 +348,7 @@ if(n==0){
                          breaks=pretty_breaks(n=5)) +
       plot_theme
     # Sets file name of plot created
-    outname <- paste0("Coral_", param_file, "_", gsub(" ", "", ma_i),
-                      ".png")
+    outname <- paste0("Coral_", param_file, "_", ma_abrev, ".png")
     # Saves plot as a png image
     png(paste0(out_dir, "/Figures/", outname),
         width = 8,
@@ -619,6 +620,8 @@ if(n==0){
 } else {
   for (i in 1:n) {
     ma_i <- coral_pc_MA_Include[i]
+    # Get abbreviated name for filename
+    ma_abrev <- MA_All[ManagedAreaName==ma_i, Abbreviation]
     # Gets data for target managed area
     plot_data <- data[ManagedAreaName==ma_i,]
     
@@ -679,8 +682,7 @@ if(n==0){
                          breaks=pretty_breaks(n=5)) +
       plot_theme
     # Sets file name of plot created
-    outname <- paste0("Coral_", param_file, "_", gsub(" ", "", ma_i),
-                      ".png")
+    outname <- paste0("Coral_", param_file, "_", ma_abrev, ".png")
     # Saves plot as a png image
     png(paste0(out_dir, "/Figures/", outname),
         width = 8,
@@ -729,3 +731,19 @@ fig_list <- list.files(paste0(out_dir, "/Figures"), pattern=".png", full=FALSE)
 setwd(paste0(out_dir, "/Figures"))
 zip("CoralPCFigures", files=fig_list)
 setwd(wd)
+
+# Render both reports
+report_types <- c("SpeciesRichness","PercentCover")
+for(report_type in report_types){
+  file_out <-  paste0("Coral_", report_type, "_Report")
+  template <- ifelse(report_type=="SpeciesRichness", 
+                     "Coral_SpeciesRichness.Rmd", "Coral_PC.Rmd")
+  rmarkdown::render(input = template, 
+                    output_format = "pdf_document",
+                    output_file = paste0(file_out, ".pdf"),
+                    output_dir = paste0("output/", report_type),
+                    clean=TRUE)
+  #Removes unwanted files created in the rendering process
+  unlink(paste0(out_dir, "/", file_out, ".md"))
+  unlink(paste0(out_dir, "/", file_out, "_files"), recursive=TRUE)
+}

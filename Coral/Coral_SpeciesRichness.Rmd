@@ -168,7 +168,7 @@ n <- length(coral_sr_MA_Include)
 ```
 
 ---
-title: '`r paste("SEACAR Coastal Wetlands Analysis:", parameter)`'
+title: 'SEACAR Coral Analysis: Species Richness'
 ---
 
 # Managed Area Statistics
@@ -491,7 +491,8 @@ MA_OV_Stats <- fread("output/SpeciesRichness/Coral_SpeciesRichness_MA_Overall_St
 coral_sr_plots <- list.files("output/SpeciesRichness/Figures", full.names = T, pattern=".png$")
 # Get plot function locates filepath
 get_plot <- function(ma){
-  str_subset(coral_sr_plots, gsub(" ", "", ma))
+  ma_abrev <- MA_All[ManagedAreaName==ma, Abbreviation]
+  str_subset(coral_sr_plots, paste0("_",ma_abrev))
 }
 
 # Make table function shows trend results
@@ -513,7 +514,7 @@ make_table <- function(ma){
   names(ResultTable) <- gsub("_", "-", names(ResultTable))
   
   result_table <- kable(ResultTable, format="latex",
-                        caption=paste0("Coastal Wetlands Species Richness - ", ma),
+                        caption=paste0("Coral Species Richness - ", ma),
                         row.names = FALSE, digits = 2,
                         booktabs = T, linesep = "", escape = F, longtable = F) %>%
     kableExtra::kable_styling(latex_options = c("scale_down", "HOLD_position"))

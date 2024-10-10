@@ -23,7 +23,7 @@ urlcolor: blue
 
 The purpose of this script is to create managed area statistics, perform linear mixed effect analysis, generate summary plots, and create reports in pdf and Word document form for Coral percent cover.
 
-These scripts were created by [J.E. Panzik](mailto:jepanzik@usf.edu) (jepanzik@usf.edu) for SEACAR.
+These scripts were created by [J.E. Panzik](mailto:jepanzik@usf.edu) (jepanzik@usf.edu) for SEACAR. Updated by [T.G. Hill](mailto:Tyler.Hill@FloridaDEP.gov) (Tyler.Hill@FloridaDEP.gov).
 
 All scripts and outputs can be found on the SEACAR GitHub repository:
 
@@ -127,7 +127,7 @@ data$gensp <- paste(data$GenusName, data$SpeciesName, sep=" ")
 ```
 
 ---
-title: '`r paste("SEACAR Coral Analysis:", parameter)`'
+title: 'SEACAR Coral Analysis: Percent Cover'
 ---
 
 # Managed Area Statistics
@@ -511,7 +511,8 @@ MA_OV_Stats <- fread("output/PercentCover/Coral_PC_MA_Overall_Stats.txt")
 coral_pc_plots <- list.files("output/PercentCover/Figures", full.names = T, pattern=".png$")
 # Get plot function locates filepath
 get_plot <- function(ma){
-  str_subset(coral_pc_plots, gsub(" ", "", ma))
+  ma_abrev <- MA_All[ManagedAreaName==ma, Abbreviation]
+  str_subset(coral_pc_plots, paste0("_",ma_abrev))
 }
 
 # Make table function shows trend results
@@ -533,7 +534,7 @@ make_table <- function(ma){
   names(ResultTable) <- gsub("_", "-", names(ResultTable))
   
   result_table <- kable(ResultTable, format="latex",
-                        caption=paste0("Coastal Wetlands Species Richness - ", ma),
+                        caption=paste0("Coral Percent Cover - ", ma),
                         row.names = FALSE, digits = 2,
                         booktabs = T, linesep = "", escape = F, longtable = F) %>%
     kableExtra::kable_styling(latex_options = c("scale_down", "HOLD_position"))
