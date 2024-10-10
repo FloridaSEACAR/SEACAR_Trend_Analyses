@@ -19,6 +19,13 @@ source("../SEACAR_data_location.R")
 #Sets abbreviation or label to be used in file names
 param_file <- "SpeciesRichness"
 
+# Define output directory
+out_dir <- "output"
+
+#Loads data file with list on managed area names and corresponding area IDs and short names
+MA_All <- fread("data/ManagedArea.csv", sep = ",", header = TRUE, stringsAsFactors = FALSE,
+                na.strings = "")
+
 # Declare CW File
 files <- list.files(seacar_data_location, full.names = T)
 file_in <- str_subset(files, "All_CW")
@@ -268,14 +275,16 @@ if(n==0){
   print("There are no monitoring locations that qualify.")
 } else {
   for (i in 1:n) {
+    ma_i <- cw_MA_Include[i]
+    ma_abrev <- MA_All[ManagedAreaName==ma_i, Abbreviation]
     # Gets data for target managed area
-    plot_data <- MA_Y_Stats[MA_Y_Stats$ManagedAreaName==cw_MA_Include[i]]
+    plot_data <- MA_Y_Stats[MA_Y_Stats$ManagedAreaName==ma_i]
     # Determines most recent year with available data for managed area
     t_max <- max(MA_Ov_Stats$LatestYear[MA_Ov_Stats$ManagedAreaName==
-                                          cw_MA_Include[i]])
+                                          ma_i])
     # Determines earliest recent year with available data for managed area
     t_min <- min(MA_Ov_Stats$EarliestYear[MA_Ov_Stats$ManagedAreaName==
-                                            cw_MA_Include[i]])
+                                            ma_i])
     # Determines how many years of data are present
     t <- t_max-t_min
     
@@ -335,7 +344,7 @@ if(n==0){
                      shape=as.factor(SpeciesGroup1)), size=2,
                  color="#333333", alpha=1) +
       labs(title="Coastal Wetlands Species Richness",
-           subtitle=cw_MA_Include[i],
+           subtitle=ma_i,
            x="Year", y="Richness (# of species)",
            fill="Species group", color="Species group",
            shape="Species group") +
@@ -348,8 +357,7 @@ if(n==0){
       scale_shape_manual(values=group_shapes_plot) +
       plot_theme
     # Sets file name of plot created
-    outname <- paste0("CoastalWetlands_", param_file, "_",
-                      gsub(" ", "", cw_MA_Include[i]), ".png")
+    outname <- paste0("CoastalWetlands_", param_file, "_", ma_abrev, ".png")
     # Saves plot as a png image
     png(paste0(out_dir, "/Figures/", outname),
         width = 8,
@@ -358,34 +366,6 @@ if(n==0){
         res = 200)
     print(p1)
     dev.off()
-    
-    # Creates a data table object to be shown underneath plots in report
-    ResultTable <-
-      MA_Ov_Stats[MA_Ov_Stats$ManagedAreaName==cw_MA_Include[i],]
-    # Removes location, species group, and parameter information because it is
-    # in plot labels
-    ResultTable <- ResultTable[,-c("AreaID", "ManagedAreaName",
-                                   "ProgramIDs", "Programs", "ParameterName")]
-    # Renames StandardDeviation to StDev to save horizontal space
-    ResultTable <- ResultTable %>%
-      rename("StDev"="StandardDeviation")
-    # Converts all non-integer values to 2 decimal places for space
-    ResultTable$Min <- round(ResultTable$Min, digits=2)
-    ResultTable$Max <- round(ResultTable$Max, digits=2)
-    ResultTable$Median <- round(ResultTable$Median, digits=2)
-    ResultTable$Mean <- round(ResultTable$Mean, digits=2)
-    ResultTable$StDev <- round(ResultTable$StDev, digits=2)
-    # Stores as plot table object
-    t1 <- ggtexttable(ResultTable, rows = NULL,
-                      theme=ttheme(base_size=7))
-    # Combines plot and table into one figure
-    print(ggarrange(p1, t1, ncol=1, heights=c(0.85, 0.15)))
-    
-    # Add extra space at the end to prevent the next figure from being too
-    # close. Does not add space after last plot
-    if(i!=n){
-      cat("\n \n \n \n") 
-    }
   }
 }
 
@@ -394,3 +374,17 @@ fig_list <- list.files(paste0(out_dir, "/Figures"), pattern=".png", full=FALSE)
 setwd(paste0(out_dir, "/Figures"))
 zip("CoastalWetlandsFigures", files=fig_list)
 setwd(wd)
+
+#Renders CoastalWetlands_SpeciesRichness.Rmd and writes the report to a pdf and 
+#Word document stored in output directory
+file_out <-  paste0("CoastalWetlands_", param_file, "_Report")
+
+rmarkdown::render(input = "CoastalWetlands_SpeciesRichness.Rmd", 
+                  output_format = "pdf_document",
+                  output_file = paste0(file_out, ".pdf"),
+                  output_dir = out_dir,
+                  clean=TRUE)
+
+#Removes unwanted files created in the rendering process
+unlink(paste0(out_dir, "/", file_out, ".md"))
+unlink(paste0(out_dir, "/", file_out, "_files"), recursive=TRUE)
