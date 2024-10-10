@@ -14,8 +14,8 @@ output:
     toc: TRUE
     toc_depth: 2
     dev: png
-    extra_dependencies: ["float"]
-    keep_md: yes
+    extra_dependencies: ["float", "booktabs"]
+    keep_md: no
 urlcolor: blue
 ---
 
@@ -71,7 +71,7 @@ The latest version of Coral data is available at: https://usf.box.com/s/8hyj2ur5
 
 The file(s) being used for the analysis: **`r file_short`**
 
-```{r file_import}
+```{r file_import, eval=F, echo=T}
 data <- fread(file_in, sep="|", header=TRUE, stringsAsFactors=FALSE,
               na.strings=c("NULL","","NA"))
 
@@ -94,23 +94,18 @@ The processing and filtering that is done to the data is as follows:
 6. Removes duplicates (`MADup`==1)
 7. Combines genus and species names
 8. Corrects some managed area names to match what is being used with other habitats
-9. Merges data with managed area data to determine correct `AreaID`
 
-```{r filtering}
+```{r filtering, eval=F, echo=T}
 # Only keep data for Percent Cover
 # Formerly "Percent Cover - Species Composition"
-data <- data[data$ParameterName=="Percent Cover"]
-
-# Simplify ParametetrNamee to Percent Cover
-data$ParameterName <- "Percent Cover"
-parameter <- "Percent Cover"
+data <- data[ParameterName=="Percent Cover", ]
 
 # Sets units for percent cover
 unit <- "%"
 data$ParameterUnits <- unit
 
 # Remove any rows that are not corals
-data <- data[SpeciesGroup1 %in% c("Octocoral", "Milleporans","Scleractinian"), ]
+data <- data[SpeciesGroup1 %in% c("Octocoral","Milleporans","Scleractinian"), ]
 # Remove rows with missing GenusName
 data <- data[!is.na(data$GenusName),]
 # Remove rows with missing SpeciesName
@@ -129,11 +124,6 @@ data <- data[!is.na(data$SampleDate),]
 data <- data[data$MADup==1,]
 # Create variable that combines the genus and species name
 data$gensp <- paste(data$GenusName, data$SpeciesName, sep=" ")
-
-# Adds AreaID for each managed area by combining the MA_All datatable to the
-# data based on ManagedAreaName
-data <- merge.data.frame(MA_All[,c("AreaID", "ManagedAreaName")],
-                          data, by=c("AreaID", "ManagedAreaName"), all=TRUE)
 ```
 
 ---
@@ -157,22 +147,23 @@ Gets summary statistics for each managed area. Uses piping from dplyr package to
 5. Determines if there is sufficient data to be analyzed based on having more than 5 years of records.
 6. Gets list of managed areas to be analyzed.
 
-```{r managed_area_stats, message=FALSE}
+```{r managed_area_stats, message=FALSE, eval=F, echo=T}
 # Create summary statistics for each managed area based on Year and Month
 # intervals.
 MA_YM_Stats <- data %>%
-   group_by(AreaID, ManagedAreaName, Year, Month) %>%
-   summarize(ParameterName=parameter,
-             N_Data=length(na.omit(ResultValue)),
-             Min=min(ResultValue),
-             Max=max(ResultValue),
-             Median=median(ResultValue),
-             Mean=mean(ResultValue),
-             StandardDeviation=sd(ResultValue),
-             Programs=paste(sort(unique(ProgramName), decreasing=FALSE),
-                              collapse=', '),
-             ProgramIDs=paste(sort(unique(ProgramID), decreasing=FALSE),
-                              collapse=', '))
+  group_by(AreaID, ManagedAreaName, Year, Month) %>%
+  summarize(ParameterName=parameter,
+            N_Data=length(na.omit(ResultValue)),
+            Min=min(ResultValue),
+            Max=max(ResultValue),
+            Median=median(ResultValue),
+            Mean=mean(ResultValue),
+            StandardDeviation=sd(ResultValue),
+            Programs=paste(sort(unique(ProgramName), decreasing=FALSE),
+                           collapse=', '),
+            ProgramIDs=paste(sort(unique(ProgramID), decreasing=FALSE),
+                             collapse=', '),
+            .groups = "keep")
 # Puts the data in order based on ManagedAreaName, Year, then Month
 MA_YM_Stats <- as.data.table(MA_YM_Stats[order(MA_YM_Stats$ManagedAreaName,
                                                MA_YM_Stats$Year,
@@ -185,18 +176,19 @@ rm(MA_YM_Stats)
 
 # Create summary statistics for each managed area based on Year intervals
 MA_Y_Stats <- data %>%
-   group_by(AreaID, ManagedAreaName, Year) %>%
-   summarize(ParameterName=parameter,
-             N_Data=length(na.omit(ResultValue)),
-             Min=min(ResultValue),
-             Max=max(ResultValue),
-             Median=median(ResultValue),
-             Mean=mean(ResultValue),
-             StandardDeviation=sd(ResultValue),
-             Programs=paste(sort(unique(ProgramName), decreasing=FALSE),
-                              collapse=', '),
-             ProgramIDs=paste(sort(unique(ProgramID), decreasing=FALSE),
-                              collapse=', '))
+  group_by(AreaID, ManagedAreaName, Year) %>%
+  summarize(ParameterName=parameter,
+            N_Data=length(na.omit(ResultValue)),
+            Min=min(ResultValue),
+            Max=max(ResultValue),
+            Median=median(ResultValue),
+            Mean=mean(ResultValue),
+            StandardDeviation=sd(ResultValue),
+            Programs=paste(sort(unique(ProgramName), decreasing=FALSE),
+                           collapse=', '),
+            ProgramIDs=paste(sort(unique(ProgramID), decreasing=FALSE),
+                             collapse=', '),
+            .groups = "keep")
 # Puts the data in order based on ManagedAreaName then Year
 MA_Y_Stats <- as.data.table(MA_Y_Stats[order(MA_Y_Stats$ManagedAreaName,
                                              MA_Y_Stats$Year), ])
@@ -206,18 +198,19 @@ fwrite(MA_Y_Stats, paste0(out_dir,"/Coral_", param_file,
 
 # Create summary statistics for each managed area based on Month intervals.
 MA_M_Stats <- data %>%
-   group_by(AreaID, ManagedAreaName, Month) %>%
-   summarize(ParameterName=parameter,
-             N_Data=length(na.omit(ResultValue)),
-             Min=min(ResultValue),
-             Max=max(ResultValue),
-             Median=median(ResultValue),
-             Mean=mean(ResultValue),
-             StandardDeviation=sd(ResultValue),
-             Programs=paste(sort(unique(ProgramName), decreasing=FALSE),
-                              collapse=', '),
-             ProgramIDs=paste(sort(unique(ProgramID), decreasing=FALSE),
-                              collapse=', '))
+  group_by(AreaID, ManagedAreaName, Month) %>%
+  summarize(ParameterName=parameter,
+            N_Data=length(na.omit(ResultValue)),
+            Min=min(ResultValue),
+            Max=max(ResultValue),
+            Median=median(ResultValue),
+            Mean=mean(ResultValue),
+            StandardDeviation=sd(ResultValue),
+            Programs=paste(sort(unique(ProgramName), decreasing=FALSE),
+                           collapse=', '),
+            ProgramIDs=paste(sort(unique(ProgramID), decreasing=FALSE),
+                             collapse=', '),
+            .groups = "keep")
 # Puts the data in order based on ManagedAreaName then Month
 MA_M_Stats <- as.data.table(MA_M_Stats[order(MA_M_Stats$ManagedAreaName,
                                              MA_M_Stats$Month), ])
@@ -229,22 +222,23 @@ rm(MA_M_Stats)
 
 # Create summary overall statistics for each managed area.
 MA_Ov_Stats <- data %>%
-   group_by(AreaID, ManagedAreaName) %>%
-   summarize(ParameterName=parameter,
-             N_Years=length(unique(na.omit(Year))),
-             SufficientData=ifelse(N_Years>=5, TRUE, FALSE),
-             EarliestYear=min(Year),
-             LatestYear=max(Year),
-             N_Data=length(na.omit(ResultValue)),
-             Min=min(ResultValue),
-             Max=max(ResultValue),
-             Median=median(ResultValue),
-             Mean=mean(ResultValue),
-             StandardDeviation=sd(ResultValue),
-             Programs=paste(sort(unique(ProgramName), decreasing=FALSE),
-                              collapse=', '),
-             ProgramIDs=paste(sort(unique(ProgramID), decreasing=FALSE),
-                              collapse=', '))
+  group_by(AreaID, ManagedAreaName) %>%
+  summarize(ParameterName=parameter,
+            N_Years=length(unique(na.omit(Year))),
+            SufficientData=ifelse(N_Years>=5, TRUE, FALSE),
+            EarliestYear=min(Year),
+            LatestYear=max(Year),
+            N_Data=length(na.omit(ResultValue)),
+            Min=min(ResultValue),
+            Max=max(ResultValue),
+            Median=median(ResultValue),
+            Mean=mean(ResultValue),
+            StandardDeviation=sd(ResultValue),
+            Programs=paste(sort(unique(ProgramName), decreasing=FALSE),
+                           collapse=', '),
+            ProgramIDs=paste(sort(unique(ProgramID), decreasing=FALSE),
+                             collapse=', '),
+            .groups = "keep")
 # Puts the data in order based on ManagedAreaName
 MA_Ov_Stats <- as.data.table(MA_Ov_Stats[order(MA_Ov_Stats$ManagedAreaName), ])
 
@@ -252,21 +246,19 @@ MA_Ov_Stats <- as.data.table(MA_Ov_Stats[order(MA_Ov_Stats$ManagedAreaName), ])
 MA_Ov_Stats$ProgramIDs <- replace(MA_Ov_Stats$ProgramIDs,
                                   MA_Ov_Stats$ProgramIDs=="", NA)
 MA_Ov_Stats$Programs <- replace(MA_Ov_Stats$Programs,
-                                  MA_Ov_Stats$Programs=="", NA)
+                                MA_Ov_Stats$Programs=="", NA)
 # Write overall statistics to file
 fwrite(MA_Ov_Stats, paste0(out_dir,"/Coral_", param_file,
                            "_MA_Overall_Stats.txt"), sep="|")
 # Creates a variable with the names of all the managed areas that contain
 # species observations
-MA_Include <- unique(MA_Ov_Stats$ManagedAreaName[!is.na(MA_Ov_Stats$Mean)&
-                                                   MA_Ov_Stats$SufficientData==
-                                                   TRUE])
+coral_pc_MA_Include <- MA_Ov_Stats[!is.na(Mean) & SufficientData==TRUE, unique(ManagedAreaName)]
 
 # Puts the managed areas in alphabetical order
-MA_Include <- MA_Include[order(MA_Include)]
+coral_pc_MA_Include <- coral_pc_MA_Include[order(coral_pc_MA_Include)]
 
 # Determines the number of managed areas used
-n <- length(MA_Include)
+n <- length(coral_pc_MA_Include)
 ```
 
 
@@ -289,7 +281,7 @@ The following steps are performed:
 
 10. Gets the start and endpoints for LME fit to be used in plots.
 
-```{r LME, message=FALSE}
+```{r LME, message=FALSE, eval=F, echo=T}
 # Creates blank data frame with number of rows defined by how many managed areas
 # are going to be analyzed
 lme_stats <- data.frame(matrix(ncol = 5, nrow = n))
@@ -299,8 +291,9 @@ colnames(lme_stats) <- c("AreaID", "ManagedAreaName", "LME_Intercept",
 
 # Begins to loop through each managed area for analysis
 for(i in 1:n){
+  ma_i <- coral_pc_MA_Include[i]
   # Gets data for current managegd area
-  lme_data <- data[data$ManagedAreaName==MA_Include[i],]
+  lme_data <- data[ManagedAreaName==ma_i,]
   # Perform LME for relation between ResultValue and Year for current managed area
   AnyCoral<-lme(ResultValue ~ Year,
                 random =~1|ProgramLocationID,
@@ -308,7 +301,7 @@ for(i in 1:n){
                 data = lme_data)
   # Store information and model fits in appropriate row of data frame
   lme_stats$AreaID[i] <- unique(lme_data$AreaID)
-  lme_stats$ManagedAreaName[i] <- MA_Include[i]
+  lme_stats$ManagedAreaName[i] <- ma_i
   lme_stats$LME_Intercept[i] <- AnyCoral$coefficients$fixed[1]
   lme_stats$LME_Slope[i] <- AnyCoral$coefficients$fixed[2]
   lme_stats$LME_p[i] <- anova(AnyCoral)$p[2]
@@ -327,18 +320,18 @@ lme_stats <- as.data.frame(lme_stats[order(lme_stats$ManagedAreaName), ])
 
 # Write lme statistics to file
 fwrite(lme_stats, paste0(out_dir,"/Coral_", param_file,
-                           "_LME_Stats.txt"), sep="|")
+                         "_LME_Stats.txt"), sep="|")
 
 # Gets lower x and y values based on LME fit to use in plot
 lme_plot <- lme_stats %>%
-   group_by(AreaID, ManagedAreaName) %>%
-   summarize(x=EarliestYear,
-             y=LME_Slope*x+LME_Intercept)
+  group_by(AreaID, ManagedAreaName) %>%
+  summarize(x=EarliestYear,
+            y=LME_Slope*x+LME_Intercept, .groups = "keep")
 # Gets upper x and y values based on LME fit to use in plot
 lme_plot2 <- lme_stats %>%
-   group_by(AreaID, ManagedAreaName) %>%
-   summarize(x=LatestYear,
-             y=LME_Slope*x+LME_Intercept)
+  group_by(AreaID, ManagedAreaName) %>%
+  summarize(x=LatestYear,
+            y=LME_Slope*x+LME_Intercept, .groups = "keep")
 # Merges LME fit values for plot into one data frame
 lme_plot <- bind_rows(lme_plot, lme_plot2)
 rm(lme_plot2)
@@ -346,8 +339,6 @@ rm(lme_plot2)
 lme_plot <- as.data.frame(lme_plot[order(lme_plot$ManagedAreaName), ])
 lme_plot <- lme_plot[!is.na(lme_plot$y),]
 ```
-
-
 
 # Appendix I: Plots
 
@@ -370,7 +361,7 @@ The plots shown here are the percent cover for each managed area by year with th
 11. Save figure as png file
    + [Coral Percent Cover Figures in SEACAR GitHub](https://github.com/FloridaSEACAR/SEACAR_Trend_Analyses/tree/main/Coral/output/PercentCover/Figures) (https://github.com/FloridaSEACAR/SEACAR_Trend_Analyses/tree/main/Coral/output/PercentCover/Figures)
 
-```{r Trendlines_ManagedArea, warning=FALSE, fig.height=6, fig.width=8, results="asis"}
+```{r Trendlines_ManagedArea, eval=F, echo=T}
 # Defines standard plot theme: black and white, no major or minor grid lines,
 # Arial font. Title is centered, size 12, and blue (hex coded). Subtitle is
 # centered, size 10, and blue (hex coded). Legend title is size 10 and the
@@ -396,122 +387,168 @@ plot_theme <- theme_bw() +
 # Create jitter object that sets the height and width
 # Sets seed to be reproducible
 plot_jitter <- position_jitter(width = 0.2, height = 0.2, seed=seed)
-# Color palette for SEACAR
-color_palette <- c("#005396", "#0088B1", "#00ADAE", "#65CCB3", "#AEE4C1",
-                   "#FDEBA8", "#F8CD6D", "#F5A800", "#F17B00")
 
 # Loop that cycles through each managed area with data
 if(n==0){
-   # Prints a statement if there are no managed areas with appropriate data
-   print("There are no locations that qualify.")
+  # Prints a statement if there are no managed areas with appropriate data
+  print("There are no locations that qualify.")
 } else {
-   for (i in 1:n) {
-      # Gets data for target managed area
-      plot_data <- data[data$ManagedAreaName==MA_Include[i],]
-      
-      lme_plot_data <- lme_plot[lme_plot$ManagedAreaName==MA_Include[i],]
-      # Determines most recent year with available data for managed area
-      t_max <- max(MA_Ov_Stats$LatestYear[MA_Ov_Stats$ManagedAreaName==
-                                             MA_Include[i]])
-      # Determines earliest recent year with available data for managed area
-      t_min <- min(MA_Ov_Stats$EarliestYear[MA_Ov_Stats$ManagedAreaName==
-                                               MA_Include[i]])
-      # Determines how many years of data are present
-      t <- t_max-t_min
-      
-      # Creates break intervals for plots based on number of years of data
-      if(t>=30){
-         # Set breaks to every 10 years if more than 30 years of data
-         brk <- -10
-      }else if(t<30 & t>=10){
-         # Set breaks to every 5 years if between 30 and 10 years of data
-         brk <- -5
-      }else if(t<10 & t>=4){
-         # Set breaks to every 2 years if between 10 and 4 years of data
-         brk <- -2
-      }else if(t<4 & t>=2){
-         # Set breaks to every year if between 4 and 2 years of data
-         brk <- -1
-      }else if(t<2){
-         # Set breaks to every year if less than 2 years of data
-         brk <- -1
-         # Sets t_max to be 1 year greater and t_min to be 1 year lower
-         # Forces graph to have at least 3 tick marks
-         t_max <- t_max+1
-         t_min <- t_min-1
-      }
-      # Determine range of data values for the managed area
-      y_range <- max(plot_data$ResultValue) - min(plot_data$ResultValue)
-      
-      # Sets y_min to be -1
-      y_min <- -1
-      
-      # Sets upper bound of y-axis to be 10% of the data range above the
-      # maximum value.
-      y_max <- max(plot_data$ResultValue)+(0.1*y_range)
-      
-      
-      # Creates plot object using plot_data.
-      # Data is plotted as a point pot with jitter to show concentrations
-      # that overlap. LME fit is plotted as a line
-      p1 <- ggplot(data=plot_data) +
-        geom_point(aes(x=Year, y=ResultValue), 
-                   position=plot_jitter, shape=21, size=2,
-                   color="#333333", fill="#cccccc", alpha=1) +
-        geom_line(data=lme_plot_data, aes(x=x, y=y),
-                   color="#000099", size=2, alpha=0.8) +
+  for (i in 1:n) {
+    ma_i <- coral_pc_MA_Include[i]
+    # Gets data for target managed area
+    plot_data <- data[ManagedAreaName==ma_i,]
+    
+    lme_plot_data <- lme_plot[ManagedAreaName==ma_i,]
+    # Determines most recent year with available data for managed area
+    t_max <- max(MA_Ov_Stats[ManagedAreaName==ma_i, LatestYear])
+    # Determines earliest recent year with available data for managed area
+    t_min <- min(MA_Ov_Stats[ManagedAreaName==ma_i, EarliestYear])
+    # Determines how many years of data are present
+    t <- t_max-t_min
+    
+    # Creates break intervals for plots based on number of years of data
+    if(t>=30){
+      # Set breaks to every 10 years if more than 30 years of data
+      brk <- -10
+    }else if(t<30 & t>=10){
+      # Set breaks to every 5 years if between 30 and 10 years of data
+      brk <- -5
+    }else if(t<10 & t>=4){
+      # Set breaks to every 2 years if between 10 and 4 years of data
+      brk <- -2
+    }else if(t<4 & t>=2){
+      # Set breaks to every year if between 4 and 2 years of data
+      brk <- -1
+    }else if(t<2){
+      # Set breaks to every year if less than 2 years of data
+      brk <- -1
+      # Sets t_max to be 1 year greater and t_min to be 1 year lower
+      # Forces graph to have at least 3 tick marks
+      t_max <- t_max+1
+      t_min <- t_min-1
+    }
+    # Determine range of data values for the managed area
+    y_range <- max(plot_data$ResultValue) - min(plot_data$ResultValue)
+    
+    # Sets y_min to be -1
+    y_min <- -1
+    
+    # Sets upper bound of y-axis to be 10% of the data range above the
+    # maximum value.
+    y_max <- max(plot_data$ResultValue)+(0.1*y_range)
+    
+    # Creates plot object using plot_data.
+    # Data is plotted as a point pot with jitter to show concentrations
+    # that overlap. LME fit is plotted as a line
+    p1 <- ggplot(data=plot_data) +
+      geom_point(aes(x=Year, y=ResultValue), 
+                 position=plot_jitter, shape=21, size=2,
+                 color="#333333", fill="#cccccc", alpha=1) +
+      geom_line(data=lme_plot_data, aes(x=x, y=y),
+                color="#000099", size=2, alpha=0.8) +
       labs(title="Coral Percent Cover",
-           subtitle=MA_Include[i],
+           subtitle=ma_i,
            x="Year", y="Percent cover (%)") +
-        scale_x_continuous(limits=c(t_min-0.25, t_max+0.25),
-                           breaks=seq(t_max, t_min, brk)) +
-        scale_y_continuous(limits=c(y_min, y_max),
-                           breaks=pretty_breaks(n=5)) +
-        plot_theme
-      # Sets file name of plot created
-      outname <- paste0("Coral_", param_file, "_", gsub(" ", "", MA_Include[i]),
-                        ".png")
-      # Saves plot as a png image
-      png(paste0(out_dir, "/Figures/", outname),
-          width = 8,
-          height = 4,
-          units = "in",
-          res = 200)
-      print(p1)
-      dev.off()
-      
-      # Creates a data table object to be shown underneath plots in report
-      ResultTable <-
-        lme_stats[lme_stats$ManagedAreaName==MA_Include[i],]
-      # Removes location, and parameter information because it is in plot
-      # labels
-      ResultTable <- select(ResultTable, -c("AreaID", "ManagedAreaName",
-                                     "ParameterName"))
-      # Renames StandardDeviation to StDev to save horizontal space
-      ResultTable <- ResultTable %>%
-        rename("StDev"="StandardDeviation")
-      # Converts all non-integer values to 2 decimal places for space
-      ResultTable$Min <- round(ResultTable$Min, digits=2)
-      ResultTable$Max <- round(ResultTable$Max, digits=2)
-      ResultTable$Median <- round(ResultTable$Median, digits=2)
-      ResultTable$Mean <- round(ResultTable$Mean, digits=2)
-      ResultTable$StDev <- round(ResultTable$StDev, digits=2)
-      ResultTable$LME_Intercept <- round(ResultTable$LME_Intercept, digits=2)
-      ResultTable$LME_Slope <- round(ResultTable$LME_Slope, digits=2)
-      ResultTable$LME_p <- round(ResultTable$LME_p, digits=4)
-      # Stores as plot table object
-      t1 <- ggtexttable(ResultTable, rows = NULL,
-                        theme=ttheme(base_size=7)) %>%
-        tab_add_footnote(text="LME_p < 0.00005 appear as 0 due to rounding.",
-              size=10, face="italic")
-      # Combines plot and table into one figure
-      print(ggarrange(p1, t1, ncol=1, heights=c(0.85, 0.15)))
-      
-      # Add extra space at the end to prevent the next figure from being too
-      # close. Does not add space after last plot
-      if(i!=n){
-        cat("\n \n \n \n") 
-      }
-   }
+      scale_x_continuous(limits=c(t_min-0.25, t_max+0.25),
+                         breaks=seq(t_max, t_min, brk)) +
+      scale_y_continuous(limits=c(y_min, y_max),
+                         breaks=pretty_breaks(n=5)) +
+      plot_theme
+    # Sets file name of plot created
+    outname <- paste0("Coral_", param_file, "_", gsub(" ", "", ma_i),
+                      ".png")
+    # Saves plot as a png image
+    png(paste0(out_dir, "/Figures/", outname),
+        width = 8,
+        height = 4,
+        units = "in",
+        res = 200)
+    print(p1)
+    dev.off()
+    
+    # Creates a data table object to be shown underneath plots in report
+    ResultTable <- lme_stats[ManagedAreaName==ma_i,]
+    # Removes location, and parameter information because it is in plot
+    # labels
+    ResultTable <- select(ResultTable, -c("AreaID", "ManagedAreaName",
+                                          "ParameterName"))
+    # Renames StandardDeviation to StDev to save horizontal space
+    ResultTable <- ResultTable %>%
+      rename("StDev"="StandardDeviation")
+    # Converts all non-integer values to 2 decimal places for space
+    ResultTable$Min <- round(ResultTable$Min, digits=2)
+    ResultTable$Max <- round(ResultTable$Max, digits=2)
+    ResultTable$Median <- round(ResultTable$Median, digits=2)
+    ResultTable$Mean <- round(ResultTable$Mean, digits=2)
+    ResultTable$StDev <- round(ResultTable$StDev, digits=2)
+    ResultTable$LME_Intercept <- round(ResultTable$LME_Intercept, digits=2)
+    ResultTable$LME_Slope <- round(ResultTable$LME_Slope, digits=2)
+    ResultTable$LME_p <- round(ResultTable$LME_p, digits=4)
+    # Stores as plot table object
+    t1 <- ggtexttable(ResultTable, rows = NULL,
+                      theme=ttheme(base_size=7)) %>%
+      tab_add_footnote(text="LME_p < 0.00005 appear as 0 due to rounding.",
+                       size=10, face="italic")
+    # Combines plot and table into one figure
+    print(ggarrange(p1, t1, ncol=1, heights=c(0.85, 0.15)))
+    
+    # Add extra space at the end to prevent the next figure from being too
+    # close. Does not add space after last plot
+    if(i!=n){
+      cat("\n \n \n \n")
+    }
+  }
 }
+```
+
+\newpage
+# Coral Percent Cover
+
+```{r show_plots, results='asis'}
+# Ensure SpeciesRichness MA_OV_Stats file is being used
+MA_OV_Stats <- fread("output/PercentCover/Coral_PC_MA_Overall_Stats.txt")
+
+coral_pc_plots <- list.files("output/PercentCover/Figures", full.names = T, pattern=".png$")
+# Get plot function locates filepath
+get_plot <- function(ma){
+  str_subset(coral_pc_plots, gsub(" ", "", ma))
+}
+
+# Make table function shows trend results
+make_table <- function(ma){
+  ResultTable <- MA_Ov_Stats[ManagedAreaName==ma,]
+  # Removes location, species group, and parameter information because it is
+  # in plot labels
+  ResultTable <- ResultTable[,-c("AreaID", "ManagedAreaName",
+                                 "ProgramIDs", "Programs", "ParameterName")]
+  # Renames StandardDeviation to StDev to save horizontal space
+  ResultTable <- ResultTable %>%
+    rename("StDev"="StandardDeviation")
+  # Converts all non-integer values to 2 decimal places for space
+  ResultTable$Min <- round(ResultTable$Min, 2)
+  ResultTable$Max <- round(ResultTable$Max, 2)
+  ResultTable$Median <- round(ResultTable$Median, 2)
+  ResultTable$Mean <- round(ResultTable$Mean, 2)
+  ResultTable$StDev <- round(ResultTable$StDev, 2)
+  names(ResultTable) <- gsub("_", "-", names(ResultTable))
+  
+  result_table <- kable(ResultTable, format="latex",
+                        caption=paste0("Coastal Wetlands Species Richness - ", ma),
+                        row.names = FALSE, digits = 2,
+                        booktabs = T, linesep = "", escape = F, longtable = F) %>%
+    kableExtra::kable_styling(latex_options = c("scale_down", "HOLD_position"))
+  return(print(result_table))
+}
+
+for(ma in coral_pc_MA_Include){
+  cat("  \n")
+  cat(glue("## {ma}"))
+  plot_loc <- get_plot(ma)
+  cat("  \n")
+  cat("![](", plot_loc,")")
+  cat("  \n")
+  make_table(ma)
+  cat("  \n")
+}
+
 ```

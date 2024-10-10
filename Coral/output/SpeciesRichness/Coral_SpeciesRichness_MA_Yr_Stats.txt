@@ -1,27 +1,15 @@
 AreaID|ManagedAreaName|Year|ParameterName|N_Data|Min|Max|Median|Mean|StandardDeviation|Programs|ProgramIDs
-1|Alligator Harbor Aquatic Preserve||Species Richness|0||||||""|""
-2|Apalachicola Bay Aquatic Preserve||Species Richness|0||||||""|""
-3|Apalachicola National Estuarine Research Reserve||Species Richness|0||||||""|""
-4|Banana River Aquatic Preserve||Species Richness|0||||||""|""
-5|Big Bend Seagrasses Aquatic Preserve||Species Richness|0||||||""|""
 7|Biscayne Bay-Cape Florida to Monroe County Line Aquatic Preserve|2009|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
 7|Biscayne Bay-Cape Florida to Monroe County Line Aquatic Preserve|2010|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
 7|Biscayne Bay-Cape Florida to Monroe County Line Aquatic Preserve|2014|Species Richness|2|200|200|200|200|0|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|915
 7|Biscayne Bay-Cape Florida to Monroe County Line Aquatic Preserve|2015|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
-6|Biscayne Bay Aquatic Preserve|1992|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
-6|Biscayne Bay Aquatic Preserve|2009|Species Richness|2|2|2|2|2|0|Nonindigenous Aquatic Species Database|379
-6|Biscayne Bay Aquatic Preserve|2010|Species Richness|9|2|2|2|2|0|Nonindigenous Aquatic Species Database|379
-6|Biscayne Bay Aquatic Preserve|2011|Species Richness|5|2|2|2|2|0|Nonindigenous Aquatic Species Database|379
-6|Biscayne Bay Aquatic Preserve|2012|Species Richness|6|2|2|2|2|0|Nonindigenous Aquatic Species Database|379
+6|Biscayne Bay Aquatic Preserve|2010|Species Richness|3|2|2|2|2|0|Nonindigenous Aquatic Species Database|379
+6|Biscayne Bay Aquatic Preserve|2011|Species Richness|3|2|2|2|2|0|Nonindigenous Aquatic Species Database|379
+6|Biscayne Bay Aquatic Preserve|2012|Species Richness|5|2|2|2|2|0|Nonindigenous Aquatic Species Database|379
 6|Biscayne Bay Aquatic Preserve|2013|Species Richness|4|2|2|2|2|0|Nonindigenous Aquatic Species Database|379
 6|Biscayne Bay Aquatic Preserve|2014|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
 6|Biscayne Bay Aquatic Preserve|2015|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
-6|Biscayne Bay Aquatic Preserve|2016|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
 6|Biscayne Bay Aquatic Preserve|2017|Species Richness|2|2|2|2|2|0|Nonindigenous Aquatic Species Database|379
-8|Boca Ciega Bay Aquatic Preserve||Species Richness|0||||||""|""
-9|Cape Haze Aquatic Preserve||Species Richness|0||||||""|""
-10|Cape Romano-Ten Thousand Islands Aquatic Preserve||Species Richness|0||||||""|""
-11|Cockroach Bay Aquatic Preserve||Species Richness|0||||||""|""
 13|Coupon Bight Aquatic Preserve|1999|Species Richness|6|281|281|281|281|0|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|915
 13|Coupon Bight Aquatic Preserve|2000|Species Richness|3|281|281|281|281|0|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|915
 13|Coupon Bight Aquatic Preserve|2001|Species Richness|4|281|281|281|281|0|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|915
@@ -32,13 +20,12 @@ AreaID|ManagedAreaName|Year|ParameterName|N_Data|Min|Max|Median|Mean|StandardDev
 13|Coupon Bight Aquatic Preserve|2008|Species Richness|2|281|281|281|281|0|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|915
 13|Coupon Bight Aquatic Preserve|2009|Species Richness|7|2|281|281|241.142857142857|105.452087969574|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|379, 915
 13|Coupon Bight Aquatic Preserve|2010|Species Richness|15|2|281|2|39.2|98.1705513015851|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|379, 915
-13|Coupon Bight Aquatic Preserve|2011|Species Richness|8|2|281|2|36.875|98.6413959755234|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|379, 915
-13|Coupon Bight Aquatic Preserve|2012|Species Richness|3|2|284|2|96|162.812775911474|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|379, 915
+13|Coupon Bight Aquatic Preserve|2011|Species Richness|5|2|281|2|57.8|124.772593144488|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|379, 915
+13|Coupon Bight Aquatic Preserve|2012|Species Richness|1|284|284|284|284||NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|915
 13|Coupon Bight Aquatic Preserve|2013|Species Richness|3|2|2|2|2|0|Nonindigenous Aquatic Species Database|379
 13|Coupon Bight Aquatic Preserve|2014|Species Richness|4|2|200|200|150.5|99|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|379, 915
 13|Coupon Bight Aquatic Preserve|2016|Species Richness|6|204|204|204|204|0|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|915
 13|Coupon Bight Aquatic Preserve|2017|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
-14|Estero Bay Aquatic Preserve||Species Richness|0||||||""|""
 15|Florida Keys National Marine Sanctuary|1999|Species Richness|516|263|281|281|275.104651162791|8.45574990642569|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|915
 15|Florida Keys National Marine Sanctuary|2000|Species Richness|280|182|281|281|247.410714285714|46.9571515143435|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|915
 15|Florida Keys National Marine Sanctuary|2001|Species Richness|259|281|281|281|281|0|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|915
@@ -49,57 +36,28 @@ AreaID|ManagedAreaName|Year|ParameterName|N_Data|Min|Max|Median|Mean|StandardDev
 15|Florida Keys National Marine Sanctuary|2006|Species Richness|667|1|281|281|257.982008995502|76.8401072242885|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Population Status of Elkhorn Coral|136, 915
 15|Florida Keys National Marine Sanctuary|2007|Species Richness|501|1|281|281|259.834331337325|73.9545164205811|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Population Status of Elkhorn Coral|136, 915
 15|Florida Keys National Marine Sanctuary|2008|Species Richness|860|1|281|281|268.355813953488|57.3209732193651|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Population Status of Elkhorn Coral|136, 915
-15|Florida Keys National Marine Sanctuary|2009|Species Richness|909|1|281|281|245.689768976898|92.8327478275834|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Population Status of Elkhorn Coral|136, 379, 915
-15|Florida Keys National Marine Sanctuary|2010|Species Richness|1507|1|281|281|168.799601857996|136.856274100962|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Population Status of Elkhorn Coral|136, 379, 915
-15|Florida Keys National Marine Sanctuary|2011|Species Richness|1135|1|281|281|154.141850220264|139.00500594349|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Population Status of Elkhorn Coral|136, 379, 915
-15|Florida Keys National Marine Sanctuary|2012|Species Richness|1056|1|287|284|230.85321969697|111.410492622558|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Population Status of Elkhorn Coral|136, 379, 915
-15|Florida Keys National Marine Sanctuary|2013|Species Richness|159|1|2|2|1.84905660377359|0.359124801925477|Nonindigenous Aquatic Species Database, Population Status of Elkhorn Coral|136, 379
-15|Florida Keys National Marine Sanctuary|2014|Species Richness|1048|1|302|200|205.145992366412|85.5334106605389|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Population Status of Elkhorn Coral|136, 379, 915
-15|Florida Keys National Marine Sanctuary|2015|Species Richness|77|1|2|2|1.68831168831169|0.466220533420224|Nonindigenous Aquatic Species Database, Population Status of Elkhorn Coral|136, 379
-15|Florida Keys National Marine Sanctuary|2016|Species Richness|796|1|205|204|188.456030150754|54.2966862680603|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Population Status of Elkhorn Coral|136, 379, 915
-15|Florida Keys National Marine Sanctuary|2017|Species Richness|78|1|2|2|1.75641025641026|0.432026256894979|Nonindigenous Aquatic Species Database, Population Status of Elkhorn Coral|136, 379
-15|Florida Keys National Marine Sanctuary|2018|Species Richness|41|1|2|2|1.73170731707317|0.448574979457305|Nonindigenous Aquatic Species Database, Population Status of Elkhorn Coral|136, 379
+15|Florida Keys National Marine Sanctuary|2009|Species Richness|905|1|281|281|246.766850828729|91.6085470415688|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Population Status of Elkhorn Coral|136, 379, 915
+15|Florida Keys National Marine Sanctuary|2010|Species Richness|1398|1|281|281|181.804721030043|133.607454198306|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Population Status of Elkhorn Coral|136, 379, 915
+15|Florida Keys National Marine Sanctuary|2011|Species Richness|1088|1|281|281|160.714154411765|138.2525990447|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Population Status of Elkhorn Coral|136, 379, 915
+15|Florida Keys National Marine Sanctuary|2012|Species Richness|1036|1|287|284|235.271235521236|107.79868866589|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Population Status of Elkhorn Coral|136, 379, 915
+15|Florida Keys National Marine Sanctuary|2013|Species Richness|148|1|2|2|1.83783783783784|0.369851120149129|Nonindigenous Aquatic Species Database, Population Status of Elkhorn Coral|136, 379
+15|Florida Keys National Marine Sanctuary|2014|Species Richness|1033|1|302|200|208.095837366893|82.5455096000765|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Population Status of Elkhorn Coral|136, 379, 915
+15|Florida Keys National Marine Sanctuary|2015|Species Richness|74|1|2|2|1.67567567567568|0.471317247899274|Nonindigenous Aquatic Species Database, Population Status of Elkhorn Coral|136, 379
+15|Florida Keys National Marine Sanctuary|2016|Species Richness|791|1|205|204|189.634639696587|52.3961952777605|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Population Status of Elkhorn Coral|136, 379, 915
+15|Florida Keys National Marine Sanctuary|2017|Species Richness|72|1|2|2|1.73611111111111|0.443832716728031|Nonindigenous Aquatic Species Database, Population Status of Elkhorn Coral|136, 379
+15|Florida Keys National Marine Sanctuary|2018|Species Richness|39|1|2|2|1.71794871794872|0.455880752454893|Nonindigenous Aquatic Species Database, Population Status of Elkhorn Coral|136, 379
 15|Florida Keys National Marine Sanctuary|2019|Species Richness|20|1|2|2|1.6|0.502624689950035|Population Status of Elkhorn Coral|136
-16|Fort Clinch State Park Aquatic Preserve||Species Richness|0||||||""|""
-17|Fort Pickens State Park Aquatic Preserve|2011|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
-17|Fort Pickens State Park Aquatic Preserve|2012|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
-17|Fort Pickens State Park Aquatic Preserve|2013|Species Richness|3|2|2|2|2|0|Nonindigenous Aquatic Species Database|379
-17|Fort Pickens State Park Aquatic Preserve|2015|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
-18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve|2015|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
-19|Guana River Marsh Aquatic Preserve||Species Richness|0||||||""|""
-20|Guana Tolomato Matanzas National Estuarine Research Reserve||Species Richness|0||||||""|""
-21|Indian River-Malabar to Vero Beach Aquatic Preserve|2012|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
-21|Indian River-Malabar to Vero Beach Aquatic Preserve|2013|Species Richness|2|2|2|2|2|0|Nonindigenous Aquatic Species Database|379
-22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|2013|Species Richness|5|2|2|2|2|0|Nonindigenous Aquatic Species Database|379
 23|Jensen Beach to Jupiter Inlet Aquatic Preserve|2008|Species Richness|2|2|2|2|2|0|Nonindigenous Aquatic Species Database|379
-23|Jensen Beach to Jupiter Inlet Aquatic Preserve|2010|Species Richness|9|2|2|2|2|0|Nonindigenous Aquatic Species Database|379
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|2010|Species Richness|8|2|2|2|2|0|Nonindigenous Aquatic Species Database|379
 23|Jensen Beach to Jupiter Inlet Aquatic Preserve|2011|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
 23|Jensen Beach to Jupiter Inlet Aquatic Preserve|2012|Species Richness|5|2|2|2|2|0|Nonindigenous Aquatic Species Database|379
 23|Jensen Beach to Jupiter Inlet Aquatic Preserve|2013|Species Richness|4|2|2|2|2|0|Nonindigenous Aquatic Species Database|379
 23|Jensen Beach to Jupiter Inlet Aquatic Preserve|2014|Species Richness|3|2|2|2|2|0|Nonindigenous Aquatic Species Database|379
-25|Lemon Bay Aquatic Preserve||Species Richness|0||||||""|""
-26|Lignumvitae Key Aquatic Preserve|2012|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
 27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|2010|Species Richness|4|2|2|2|2|0|Nonindigenous Aquatic Species Database|379
 27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|2011|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
 27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|2012|Species Richness|2|2|2|2|2|0|Nonindigenous Aquatic Species Database|379
 27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|2017|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
-28|Matlacha Pass Aquatic Preserve||Species Richness|0||||||""|""
-29|Mosquito Lagoon Aquatic Preserve||Species Richness|0||||||""|""
-30|Nassau River-St. Johns River Marshes Aquatic Preserve||Species Richness|0||||||""|""
-48|Nature Coast Aquatic Preserve||Species Richness|0||||||""|""
-31|North Fork St. Lucie Aquatic Preserve||Species Richness|0||||||""|""
-33|Pellicer Creek Aquatic Preserve||Species Richness|0||||||""|""
-34|Pine Island Sound Aquatic Preserve||Species Richness|0||||||""|""
-35|Pinellas County Aquatic Preserve|2006|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
-35|Pinellas County Aquatic Preserve|2013|Species Richness|4|2|2|2|2|0|Nonindigenous Aquatic Species Database|379
-35|Pinellas County Aquatic Preserve|2014|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
-35|Pinellas County Aquatic Preserve|2015|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
-35|Pinellas County Aquatic Preserve|2018|Species Richness|2|2|2|2|2|0|Nonindigenous Aquatic Species Database|379
-37|Rocky Bayou State Park Aquatic Preserve||Species Richness|0||||||""|""
-38|Rookery Bay Aquatic Preserve||Species Richness|0||||||""|""
-39|Rookery Bay National Estuarine Research Reserve||Species Richness|0||||||""|""
 12|Southeast Florida Coral Reef Ecosystem Conservation Area|1985|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|1990|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
 12|Southeast Florida Coral Reef Ecosystem Conservation Area|1995|Species Richness|2|2|2|2|2|0|Nonindigenous Aquatic Species Database|379
 12|Southeast Florida Coral Reef Ecosystem Conservation Area|2000|Species Richness|8|2|281|18|49.625|94.0986374578749|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Palm Beach County Artificial and Natural Reef Monitoring Program|379, 915, 3024
 12|Southeast Florida Coral Reef Ecosystem Conservation Area|2001|Species Richness|35|2|281|27|34.5714285714286|46.2558649472346|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Palm Beach County Artificial and Natural Reef Monitoring Program|379, 915, 3024
@@ -110,22 +68,13 @@ AreaID|ManagedAreaName|Year|ParameterName|N_Data|Min|Max|Median|Mean|StandardDev
 12|Southeast Florida Coral Reef Ecosystem Conservation Area|2006|Species Richness|26|2|281|54|97.4615384615385|103.990857586321|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Palm Beach County Artificial and Natural Reef Monitoring Program|379, 915, 3024
 12|Southeast Florida Coral Reef Ecosystem Conservation Area|2007|Species Richness|16|15|281|47.5|71.625|83.964972855749|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Palm Beach County Artificial and Natural Reef Monitoring Program|915, 3024
 12|Southeast Florida Coral Reef Ecosystem Conservation Area|2008|Species Richness|3|2|281|281|188|161.080725103906|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|379, 915
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2009|Species Richness|91|2|281|2|54.1208791208791|109.345917483597|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|379, 915
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2010|Species Richness|170|2|281|2|16.7705882352941|62.6571422347422|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|379, 915
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2011|Species Richness|71|2|281|2|5.92957746478873|33.1112082636085|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|379, 915
+12|Southeast Florida Coral Reef Ecosystem Conservation Area|2009|Species Richness|90|2|281|2|54.7|109.818077347764|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|379, 915
+12|Southeast Florida Coral Reef Ecosystem Conservation Area|2010|Species Richness|162|2|281|2|17.5|64.1063024391702|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|379, 915
+12|Southeast Florida Coral Reef Ecosystem Conservation Area|2011|Species Richness|67|2|281|2|6.16417910447761|34.0852749754092|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|379, 915
 12|Southeast Florida Coral Reef Ecosystem Conservation Area|2012|Species Richness|37|2|284|2|40.1081081081081|97.7365460430868|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|379, 915
 12|Southeast Florida Coral Reef Ecosystem Conservation Area|2013|Species Richness|966|2|294|294|287.047619047619|44.540018793417|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|379, 915
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2014|Species Richness|591|2|302|302|292.984771573604|46.3520584982372|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|379, 915
+12|Southeast Florida Coral Reef Ecosystem Conservation Area|2014|Species Richness|590|2|302|302|293.477966101695|44.8125166990438|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|379, 915
 12|Southeast Florida Coral Reef Ecosystem Conservation Area|2015|Species Richness|380|2|302|302|295.684210526316|43.1247226372682|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|379, 915
 12|Southeast Florida Coral Reef Ecosystem Conservation Area|2016|Species Richness|536|2|204|202|200.533582089552|17.2326247599318|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|379, 915
 12|Southeast Florida Coral Reef Ecosystem Conservation Area|2017|Species Richness|6|2|2|2|2|0|Nonindigenous Aquatic Species Database|379
 12|Southeast Florida Coral Reef Ecosystem Conservation Area|2018|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
-40|St. Andrews State Park Aquatic Preserve|2011|Species Richness|2|2|2|2|2|0|Nonindigenous Aquatic Species Database|379
-40|St. Andrews State Park Aquatic Preserve|2016|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
-40|St. Andrews State Park Aquatic Preserve|2017|Species Richness|2|2|2|2|2|0|Nonindigenous Aquatic Species Database|379
-41|St. Joseph Bay Aquatic Preserve|2011|Species Richness|3|2|2|2|2|0|Nonindigenous Aquatic Species Database|379
-42|St. Joseph Bay State Buffer Preserve||Species Richness|0||||||""|""
-43|St. Martins Marsh Aquatic Preserve||Species Richness|0||||||""|""
-44|Terra Ceia Aquatic Preserve||Species Richness|0||||||""|""
-45|Tomoka Marsh Aquatic Preserve||Species Richness|0||||||""|""
-47|Yellow River Marsh Aquatic Preserve||Species Richness|0||||||""|""

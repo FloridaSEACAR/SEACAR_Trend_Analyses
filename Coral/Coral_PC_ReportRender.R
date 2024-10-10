@@ -42,25 +42,11 @@ file_short <- tail(str_split(file_in, "/")[[1]], 1)
 #Word document stored in output directory
 file_out <-  paste0("Coral_", param_file, "_Report")
 
-
 rmarkdown::render(input = "Coral_PC.Rmd", 
                   output_format = "pdf_document",
                   output_file = paste0(file_out, ".pdf"),
                   output_dir = out_dir,
                   clean=TRUE)
-rmarkdown::render(input = paste0(out_dir, "/", file_out, ".md"),
-                  output_format = "word_document",
-                  output_file = paste0(file_out, ".docx"),
-                  output_dir = out_dir,
-                  clean=TRUE)
-
 #Removes unwanted files created in the rendering process
 unlink(paste0(out_dir, "/", file_out, ".md"))
 unlink(paste0(out_dir, "/", file_out, "_files"), recursive=TRUE)
-
-
-#Gets list of all image files in output/Figures and creates zip directory
-fig_list <- list.files(paste0(out_dir, "/Figures"), pattern=".png", full=FALSE)
-setwd(paste0(out_dir, "/Figures"))
-zip("CoralPCFigures", files=fig_list)
-setwd(wd)

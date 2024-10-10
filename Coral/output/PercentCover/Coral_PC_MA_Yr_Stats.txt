@@ -1,107 +1,56 @@
 AreaID|ManagedAreaName|Year|ParameterName|N_Data|Min|Max|Median|Mean|StandardDeviation|Programs|ProgramIDs
-1|Alligator Harbor Aquatic Preserve||Percent Cover|0||||||""|""
-2|Apalachicola Bay Aquatic Preserve||Percent Cover|0||||||""|""
-3|Apalachicola National Estuarine Research Reserve||Percent Cover|0||||||""|""
-4|Banana River Aquatic Preserve||Percent Cover|0||||||""|""
-5|Big Bend Seagrasses Aquatic Preserve||Percent Cover|0||||||""|""
-7|Biscayne Bay-Cape Florida to Monroe County Line Aquatic Preserve|2013|Percent Cover|88|0|2|0|0.0568181818181818|0.27783872546276|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-7|Biscayne Bay-Cape Florida to Monroe County Line Aquatic Preserve|2014|Percent Cover|88|0|1|0|0.0568181818181818|0.232821501626557|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-7|Biscayne Bay-Cape Florida to Monroe County Line Aquatic Preserve|2015|Percent Cover|88|0|1|0|0.0113636363636364|0.106600358177805|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-7|Biscayne Bay-Cape Florida to Monroe County Line Aquatic Preserve|2016|Percent Cover|88|0|2|0|0.0340909090909091|0.237267182261843|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-7|Biscayne Bay-Cape Florida to Monroe County Line Aquatic Preserve|2017|Percent Cover|88|0|1|0|0.0227272727272727|0.149886756277595|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-7|Biscayne Bay-Cape Florida to Monroe County Line Aquatic Preserve|2018|Percent Cover|88|0|1|0|0.0227272727272727|0.149886756277595|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-7|Biscayne Bay-Cape Florida to Monroe County Line Aquatic Preserve|2019|Percent Cover|88|0|1|0|0.0340909090909091|0.182502630203918|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-7|Biscayne Bay-Cape Florida to Monroe County Line Aquatic Preserve|2020|Percent Cover|88|0|1|0|0.0340909090909091|0.182502630203918|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-7|Biscayne Bay-Cape Florida to Monroe County Line Aquatic Preserve|2021|Percent Cover|88|0|1|0|0.0113636363636364|0.106600358177805|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-6|Biscayne Bay Aquatic Preserve||Percent Cover|0||||||""|""
-8|Boca Ciega Bay Aquatic Preserve||Percent Cover|0||||||""|""
-9|Cape Haze Aquatic Preserve||Percent Cover|0||||||""|""
-10|Cape Romano-Ten Thousand Islands Aquatic Preserve||Percent Cover|0||||||""|""
-11|Cockroach Bay Aquatic Preserve||Percent Cover|0||||||""|""
-13|Coupon Bight Aquatic Preserve|2009|Percent Cover|188|0|8|0|0.0904255319148936|0.778943360669267|Abundance, Distribution, and Condition of Acropora Corals, Other Benthic Coral Reef Organisms, and Marine Debris (SCREAM)|169
-13|Coupon Bight Aquatic Preserve|2015|Percent Cover|5|1|3|2|1.8|0.836660026534076|National Coral Reef Monitoring Program (NCRMP)|3022
-13|Coupon Bight Aquatic Preserve|2016|Percent Cover|1|2|2|2|2||National Coral Reef Monitoring Program (NCRMP)|3022
-13|Coupon Bight Aquatic Preserve|2022|Percent Cover|7|1|1|1|1|0|National Coral Reef Monitoring Program (NCRMP)|3022
-14|Estero Bay Aquatic Preserve||Percent Cover|0||||||""|""
-15|Florida Keys National Marine Sanctuary|1996|Percent Cover|5120|0|19|0|0.1970703125|1.1848292231715|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-15|Florida Keys National Marine Sanctuary|1997|Percent Cover|5126|0|19|0|0.181037846273898|1.07313053588796|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-15|Florida Keys National Marine Sanctuary|1998|Percent Cover|5120|0|19|0|0.158984375|0.964761697815067|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-15|Florida Keys National Marine Sanctuary|1999|Percent Cover|12760|0|18|0|0.0712382445141066|0.555716463791477|Abundance, Distribution, and Condition of Acropora Corals, Other Benthic Coral Reef Organisms, and Marine Debris (SCREAM), Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|169, 295
-15|Florida Keys National Marine Sanctuary|2000|Percent Cover|11068|0|16|0|0.0983917600289122|0.672011512929205|Abundance, Distribution, and Condition of Acropora Corals, Other Benthic Coral Reef Organisms, and Marine Debris (SCREAM), Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|169, 295
-15|Florida Keys National Marine Sanctuary|2001|Percent Cover|11474|0|25|0|0.103974202544884|0.681782134146901|Abundance, Distribution, and Condition of Acropora Corals, Other Benthic Coral Reef Organisms, and Marine Debris (SCREAM), Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|169, 295
-15|Florida Keys National Marine Sanctuary|2002|Percent Cover|6770|0|18|0|0.122304283604136|0.77605736876743|Abundance, Distribution, and Condition of Acropora Corals, Other Benthic Coral Reef Organisms, and Marine Debris (SCREAM), Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|169, 295
-15|Florida Keys National Marine Sanctuary|2003|Percent Cover|3480|0|20|0|0.127873563218391|0.790882265807999|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-15|Florida Keys National Marine Sanctuary|2004|Percent Cover|3480|0|18|0|0.113505747126437|0.722123045596937|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-15|Florida Keys National Marine Sanctuary|2005|Percent Cover|18614|0|25|0|0.108574191468787|0.705397887366013|Abundance, Distribution, and Condition of Acropora Corals, Other Benthic Coral Reef Organisms, and Marine Debris (SCREAM), Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|169, 295
-15|Florida Keys National Marine Sanctuary|2006|Percent Cover|5108|0|19|0|0.110610806577917|0.744998977489528|Abundance, Distribution, and Condition of Acropora Corals, Other Benthic Coral Reef Organisms, and Marine Debris (SCREAM), Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|169, 295
-15|Florida Keys National Marine Sanctuary|2007|Percent Cover|3416|0|19|0|0.107728337236534|0.722440141125955|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-15|Florida Keys National Marine Sanctuary|2008|Percent Cover|3352|0|17|0|0.108890214797136|0.632657228745211|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-15|Florida Keys National Marine Sanctuary|2009|Percent Cover|18084|0|22|0|0.101747401017474|0.683132133495226|Abundance, Distribution, and Condition of Acropora Corals, Other Benthic Coral Reef Organisms, and Marine Debris (SCREAM), Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|169, 295
-15|Florida Keys National Marine Sanctuary|2010|Percent Cover|3608|0|21|0|0.156873614190687|0.868895320511118|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-15|Florida Keys National Marine Sanctuary|2011|Percent Cover|4856|0|18|0|0.164332784184514|0.897285348450495|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-15|Florida Keys National Marine Sanctuary|2012|Percent Cover|4856|0|20|0|0.174423393739703|0.919103062695543|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-15|Florida Keys National Marine Sanctuary|2013|Percent Cover|4856|0|18|0|0.173599670510708|0.899096179396997|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-15|Florida Keys National Marine Sanctuary|2014|Percent Cover|7603|0|35|0|0.769959226621071|2.16373505007534|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP), National Coral Reef Monitoring Program (NCRMP)|295, 3022
-15|Florida Keys National Marine Sanctuary|2015|Percent Cover|5649|0|26|0|0.378297043724553|1.4118691537669|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP), National Coral Reef Monitoring Program (NCRMP)|295, 3022
-15|Florida Keys National Marine Sanctuary|2016|Percent Cover|5681|0|39|0|0.375638091885232|1.46378755240538|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP), National Coral Reef Monitoring Program (NCRMP)|295, 3022
-15|Florida Keys National Marine Sanctuary|2017|Percent Cover|5048|0|21|0|0.183835182250396|0.95752895010315|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-15|Florida Keys National Marine Sanctuary|2018|Percent Cover|5597|0|26|0|0.293371448990531|1.21392063269977|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP), National Coral Reef Monitoring Program (NCRMP)|295, 3022
-15|Florida Keys National Marine Sanctuary|2019|Percent Cover|5208|0|24|0|0.152265745007681|0.856324908880736|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-15|Florida Keys National Marine Sanctuary|2020|Percent Cover|5240|0|16|0|0.132251908396947|0.694283014260201|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-15|Florida Keys National Marine Sanctuary|2021|Percent Cover|5344|0|12|0|0.180202095808383|0.810684012760281|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP), National Coral Reef Monitoring Program (NCRMP)|295, 3022
-15|Florida Keys National Marine Sanctuary|2022|Percent Cover|429|1|43|1|3.17016317016317|4.26860361739904|National Coral Reef Monitoring Program (NCRMP)|3022
-16|Fort Clinch State Park Aquatic Preserve||Percent Cover|0||||||""|""
-17|Fort Pickens State Park Aquatic Preserve||Percent Cover|0||||||""|""
-18|Gasparilla Sound-Charlotte Harbor Aquatic Preserve||Percent Cover|0||||||""|""
-19|Guana River Marsh Aquatic Preserve||Percent Cover|0||||||""|""
-20|Guana Tolomato Matanzas National Estuarine Research Reserve||Percent Cover|0||||||""|""
-21|Indian River-Malabar to Vero Beach Aquatic Preserve||Percent Cover|0||||||""|""
-22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve||Percent Cover|0||||||""|""
-23|Jensen Beach to Jupiter Inlet Aquatic Preserve||Percent Cover|0||||||""|""
-25|Lemon Bay Aquatic Preserve||Percent Cover|0||||||""|""
-26|Lignumvitae Key Aquatic Preserve||Percent Cover|0||||||""|""
-27|Loxahatchee River-Lake Worth Creek Aquatic Preserve||Percent Cover|0||||||""|""
-28|Matlacha Pass Aquatic Preserve||Percent Cover|0||||||""|""
-29|Mosquito Lagoon Aquatic Preserve||Percent Cover|0||||||""|""
-30|Nassau River-St. Johns River Marshes Aquatic Preserve||Percent Cover|0||||||""|""
-48|Nature Coast Aquatic Preserve||Percent Cover|0||||||""|""
-31|North Fork St. Lucie Aquatic Preserve||Percent Cover|0||||||""|""
-33|Pellicer Creek Aquatic Preserve||Percent Cover|0||||||""|""
-34|Pine Island Sound Aquatic Preserve||Percent Cover|0||||||""|""
-35|Pinellas County Aquatic Preserve||Percent Cover|0||||||""|""
-37|Rocky Bayou State Park Aquatic Preserve||Percent Cover|0||||||""|""
-38|Rookery Bay Aquatic Preserve||Percent Cover|0||||||""|""
-39|Rookery Bay National Estuarine Research Reserve||Percent Cover|0||||||""|""
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|1997|Percent Cover|62|0|0|0|0|0|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|1998|Percent Cover|11|0|0|0|0|0|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|1999|Percent Cover|16|0|0|0|0|0|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2000|Percent Cover|67|0|15|0|0.82089552238806|3.20948109246003|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2001|Percent Cover|93|0|0|0|0|0|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2002|Percent Cover|30|0|0|0|0|0|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2003|Percent Cover|880|0|36|0|0.2125|2.2295110602306|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2004|Percent Cover|880|0|45|0|0.252272727272727|2.74556120295366|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2005|Percent Cover|880|0|42|0|0.248863636363636|2.76301324022961|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2006|Percent Cover|1012|0|27|0|0.172924901185771|1.71533438423687|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2007|Percent Cover|1100|0|33|0|0.180909090909091|1.9676637720054|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2008|Percent Cover|1012|0|33|0|0.194664031620553|2.05191068849538|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2009|Percent Cover|1056|0|27|0|0.174242424242424|1.73940649951605|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2010|Percent Cover|1232|0|24|0|0.13474025974026|1.31591307743422|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2011|Percent Cover|1232|0|17|0|0.113636363636364|1.03790504375227|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2012|Percent Cover|1232|0|18|0|0.12012987012987|1.08838516800833|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2013|Percent Cover|1672|0|17|0|0.097488038277512|0.809544149111167|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2014|Percent Cover|1832|0|24|0|0.333515283842795|1.55917715586487|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP), National Coral Reef Monitoring Program (NCRMP)|295, 3022
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2015|Percent Cover|1672|0|14|0|0.0992822966507177|0.775723495329651|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2016|Percent Cover|1782|0|14|0|0.186868686868687|0.937931327622451|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP), National Coral Reef Monitoring Program (NCRMP)|295, 3022
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2017|Percent Cover|1672|0|7|0|0.0514354066985646|0.391086010384935|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2018|Percent Cover|1739|0|10|0|0.0822311673375503|0.445693459672303|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP), National Coral Reef Monitoring Program (NCRMP)|295, 3022
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2019|Percent Cover|1672|0|8|0|0.0406698564593301|0.390824176147204|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2020|Percent Cover|1715|0|10|0|0.0979591836734694|0.600244435401422|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP), National Coral Reef Monitoring Program (NCRMP)|295, 3022
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2021|Percent Cover|1674|0|8|0|0.0448028673835125|0.393946866038237|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP), National Coral Reef Monitoring Program (NCRMP)|295, 3022
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2022|Percent Cover|78|1|6|1|1.43589743589744|0.974875864088834|National Coral Reef Monitoring Program (NCRMP)|3022
-40|St. Andrews State Park Aquatic Preserve||Percent Cover|0||||||""|""
-41|St. Joseph Bay Aquatic Preserve||Percent Cover|0||||||""|""
-42|St. Joseph Bay State Buffer Preserve||Percent Cover|0||||||""|""
-43|St. Martins Marsh Aquatic Preserve||Percent Cover|0||||||""|""
-44|Terra Ceia Aquatic Preserve||Percent Cover|0||||||""|""
-45|Tomoka Marsh Aquatic Preserve||Percent Cover|0||||||""|""
-47|Yellow River Marsh Aquatic Preserve||Percent Cover|0||||||""|""
+7|Biscayne Bay-Cape Florida to Monroe County Line Aquatic Preserve|2013|Species Richness|8|0|1|0|0.25|0.462910049886276|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+7|Biscayne Bay-Cape Florida to Monroe County Line Aquatic Preserve|2014|Species Richness|8|0|1|0|0.25|0.462910049886276|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+7|Biscayne Bay-Cape Florida to Monroe County Line Aquatic Preserve|2015|Species Richness|8|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+7|Biscayne Bay-Cape Florida to Monroe County Line Aquatic Preserve|2016|Species Richness|8|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+7|Biscayne Bay-Cape Florida to Monroe County Line Aquatic Preserve|2017|Species Richness|8|0|1|0|0.125|0.353553390593274|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+7|Biscayne Bay-Cape Florida to Monroe County Line Aquatic Preserve|2018|Species Richness|8|0|1|0|0.125|0.353553390593274|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+7|Biscayne Bay-Cape Florida to Monroe County Line Aquatic Preserve|2019|Species Richness|8|0|1|0|0.25|0.462910049886276|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+7|Biscayne Bay-Cape Florida to Monroe County Line Aquatic Preserve|2020|Species Richness|8|0|1|0|0.25|0.462910049886276|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+7|Biscayne Bay-Cape Florida to Monroe County Line Aquatic Preserve|2021|Species Richness|8|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+13|Coupon Bight Aquatic Preserve|2009|Species Richness|4|0|0|0|0|0|Abundance, Distribution, and Condition of Acropora Corals, Other Benthic Coral Reef Organisms, and Marine Debris (SCREAM)|169
+15|Florida Keys National Marine Sanctuary|1996|Species Richness|304|0|18|0|0.598684210526316|2.00415366834745|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+15|Florida Keys National Marine Sanctuary|1997|Species Richness|304|0|17|0|0.595394736842105|1.70539190799071|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+15|Florida Keys National Marine Sanctuary|1998|Species Richness|304|0|14|0|0.417763157894737|1.37149683225387|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+15|Florida Keys National Marine Sanctuary|1999|Species Richness|472|0|3|0|0.171610169491525|0.434938012693471|Abundance, Distribution, and Condition of Acropora Corals, Other Benthic Coral Reef Organisms, and Marine Debris (SCREAM), Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|169, 295
+15|Florida Keys National Marine Sanctuary|2000|Species Richness|436|0|2|0|0.160550458715596|0.420075165386508|Abundance, Distribution, and Condition of Acropora Corals, Other Benthic Coral Reef Organisms, and Marine Debris (SCREAM), Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|169, 295
+15|Florida Keys National Marine Sanctuary|2001|Species Richness|384|0|8|0|0.291666666666667|0.760193278524392|Abundance, Distribution, and Condition of Acropora Corals, Other Benthic Coral Reef Organisms, and Marine Debris (SCREAM), Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|169, 295
+15|Florida Keys National Marine Sanctuary|2002|Species Richness|276|0|2|0|0.155797101449275|0.39219997050522|Abundance, Distribution, and Condition of Acropora Corals, Other Benthic Coral Reef Organisms, and Marine Debris (SCREAM), Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|169, 295
+15|Florida Keys National Marine Sanctuary|2003|Species Richness|206|0|2|0|0.169902912621359|0.425145014331566|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+15|Florida Keys National Marine Sanctuary|2004|Species Richness|206|0|3|0|0.150485436893204|0.475419975858628|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+15|Florida Keys National Marine Sanctuary|2005|Species Richness|528|0|6|0|0.208333333333333|0.521061777857565|Abundance, Distribution, and Condition of Acropora Corals, Other Benthic Coral Reef Organisms, and Marine Debris (SCREAM), Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|169, 295
+15|Florida Keys National Marine Sanctuary|2006|Species Richness|238|0|2|0|0.0672268907563025|0.267228072661051|Abundance, Distribution, and Condition of Acropora Corals, Other Benthic Coral Reef Organisms, and Marine Debris (SCREAM), Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|169, 295
+15|Florida Keys National Marine Sanctuary|2007|Species Richness|202|0|3|0|0.103960396039604|0.365263019002182|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+15|Florida Keys National Marine Sanctuary|2008|Species Richness|198|0|3|0|0.176767676767677|0.455162888861346|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+15|Florida Keys National Marine Sanctuary|2009|Species Richness|522|0|17|0|0.413793103448276|0.995788337913974|Abundance, Distribution, and Condition of Acropora Corals, Other Benthic Coral Reef Organisms, and Marine Debris (SCREAM), Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|169, 295
+15|Florida Keys National Marine Sanctuary|2010|Species Richness|214|0|3|0|0.266355140186916|0.572523271804293|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+15|Florida Keys National Marine Sanctuary|2011|Species Richness|288|0|5|0|0.333333333333333|0.698430295769578|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+15|Florida Keys National Marine Sanctuary|2012|Species Richness|288|0|5|0|0.361111111111111|0.728810888813495|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+15|Florida Keys National Marine Sanctuary|2013|Species Richness|288|0|4|0|0.361111111111111|0.714324427909454|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+15|Florida Keys National Marine Sanctuary|2014|Species Richness|360|0|5|0|0.308333333333333|0.643750760607496|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+15|Florida Keys National Marine Sanctuary|2015|Species Richness|312|0|4|0|0.253205128205128|0.618567983385885|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+15|Florida Keys National Marine Sanctuary|2016|Species Richness|312|0|5|0|0.256410256410256|0.619841229248637|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+15|Florida Keys National Marine Sanctuary|2017|Species Richness|308|0|6|0|0.266233766233766|0.675704075237533|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+15|Florida Keys National Marine Sanctuary|2018|Species Richness|312|0|5|0|0.173076923076923|0.539899496881248|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+15|Florida Keys National Marine Sanctuary|2019|Species Richness|310|0|6|0|0.245161290322581|0.589464520139409|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+15|Florida Keys National Marine Sanctuary|2020|Species Richness|312|0|7|0|0.326923076923077|0.686699188447384|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+15|Florida Keys National Marine Sanctuary|2021|Species Richness|312|0|7|0|0.371794871794872|0.779297636761283|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Southeast Florida Coral Reef Ecosystem Conservation Area|2003|Species Richness|80|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Southeast Florida Coral Reef Ecosystem Conservation Area|2004|Species Richness|80|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Southeast Florida Coral Reef Ecosystem Conservation Area|2005|Species Richness|80|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Southeast Florida Coral Reef Ecosystem Conservation Area|2006|Species Richness|92|0|1|0|0.0108695652173913|0.104257207028537|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Southeast Florida Coral Reef Ecosystem Conservation Area|2007|Species Richness|96|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Southeast Florida Coral Reef Ecosystem Conservation Area|2008|Species Richness|92|0|1|0|0.0108695652173913|0.104257207028537|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Southeast Florida Coral Reef Ecosystem Conservation Area|2009|Species Richness|96|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Southeast Florida Coral Reef Ecosystem Conservation Area|2010|Species Richness|112|0|1|0|0.00892857142857143|0.0944911182523068|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Southeast Florida Coral Reef Ecosystem Conservation Area|2011|Species Richness|112|0|1|0|0.0357142857142857|0.18641092980036|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Southeast Florida Coral Reef Ecosystem Conservation Area|2012|Species Richness|112|0|1|0|0.0267857142857143|0.162182270310564|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Southeast Florida Coral Reef Ecosystem Conservation Area|2013|Species Richness|152|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Southeast Florida Coral Reef Ecosystem Conservation Area|2014|Species Richness|152|0|1|0|0.0460526315789474|0.210292001009057|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Southeast Florida Coral Reef Ecosystem Conservation Area|2015|Species Richness|152|0|1|0|0.0263157894736842|0.160601865553424|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Southeast Florida Coral Reef Ecosystem Conservation Area|2016|Species Richness|152|0|1|0|0.0131578947368421|0.1143274086171|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Southeast Florida Coral Reef Ecosystem Conservation Area|2017|Species Richness|152|0|2|0|0.0526315789473684|0.251866507378834|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Southeast Florida Coral Reef Ecosystem Conservation Area|2018|Species Richness|152|0|1|0|0.0263157894736842|0.160601865553424|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Southeast Florida Coral Reef Ecosystem Conservation Area|2019|Species Richness|152|0|1|0|0.0131578947368421|0.1143274086171|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Southeast Florida Coral Reef Ecosystem Conservation Area|2020|Species Richness|152|0|2|0|0.0526315789473684|0.251866507378834|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Southeast Florida Coral Reef Ecosystem Conservation Area|2021|Species Richness|152|0|2|0|0.0328947368421053|0.212763686274893|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
