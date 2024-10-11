@@ -1,0 +1,62 @@
+---
+date: "Last compiled on `r format(Sys.time(), '%d %B, %Y')`"
+output:
+  word_document:
+    toc: TRUE
+    toc_depth: 2
+  html_document:
+    toc: TRUE
+    toc_float: TRUE
+    toc_depth: 2
+    dev: png
+    keep_md: yes
+  pdf_document:
+    toc: TRUE
+    toc_depth: 2
+    dev: png
+    extra_dependencies: ["float", "booktabs"]
+    keep_md: yes
+urlcolor: blue
+title: SEACAR SAV_WC_Analysis
+---
+
+```{r plot_functions, echo=F, results='asis'}
+# Get list of available files
+fig_list <- list.files("output", pattern=".png", full=TRUE)
+
+# Get plot function locates filepath
+get_plot <- function(ma, param){
+  ma_abrev <- MA_All[ManagedAreaName==ma, Abbreviation]
+  ma_files <- str_subset(fig_list, paste0("output/",ma_abrev))
+  pattern <- paste0(ma_abrev, "_", param, "_")
+  str_subset(ma_files, pattern)
+}
+```
+
+
+```{r plot_results, echo=F, results='asis'}
+param_list <- c(
+  "Chla", "DissolvedOxygen", "DissolvedOxygenSaturation", "Salinity", 
+  "Secchidepth", "TN_TP", "TSS", "Turbidity", "Temperature"
+)
+
+for(m in unique(SAV4$MA)){
+  cat("  \n")
+  cat("\\newpage")
+  cat("  \n")
+  cat(glue("# {m}"))
+  cat("  \n")
+  for(p in param_list){
+    cat("  \n")
+    cat(glue("## {p}"))
+    cat("  \n")
+    plot_loc <- get_plot(ma = m, param = p)
+    # Only plot when images are found
+    if(length(plot_loc)>0){
+      cat("![](", plot_loc,")")
+      cat("  \n")
+    }
+  }
+}
+
+```
