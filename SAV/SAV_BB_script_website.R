@@ -33,10 +33,7 @@ folder_paths <- c("output/models", "output/Figures", "output/Figures/BB/",
                   "output/tables", "output/tables/SAV", 
                   "output/website/images/", "output/website/images/multiplots",
                   "output/website/images/trendplots","output/website/images/barplots")
-for (path in folder_paths){if(!dir.exists(path)){dir.create(path)}}
-
-# Initialize data directory to store model results
-data_directory <- list()
+for(path in folder_paths){if(!dir.exists(path)){dir.create(path)}}
 
 #Load and wrangle data------------------------------------------------------------
 file_in <- list.files(seacar_data_location, pattern="All_SAV", full=TRUE)
@@ -171,8 +168,7 @@ addfits_multiplots <- function(models, plot_i, param, aucol){
                                     "Turtle grass",
                                     "Widgeon grass",
                                     "Attached algae",
-                                    "Drift algae",
-                                    "No grass In Quadrat")),
+                                    "Drift algae")),
                  ncol = 3, strip.position = "top")
   } else if(usenames=="scientific") {
     plot_i <- plot_i +
@@ -189,8 +185,7 @@ addfits_multiplots <- function(models, plot_i, param, aucol){
                                     "Thalassia testudinum",
                                     "Ruppia maritima",
                                     "Attached algae",
-                                    "Drift algae",
-                                    "No grass In Quadrat")),
+                                    "Drift algae")),
                  ncol = 3, strip.position = "top")
   }
   
@@ -469,7 +464,8 @@ spp_common <- c("Halophila spp.", "Unidentified Halophila", "Johnson's seagrass"
 
 # Script now defaults to scientific throughout, will change labels
 # in final steps when plots are created if "common" is chosen
-usenames <- "common" #alternative is "scientific"
+# usenames <- "common" #alternative is "scientific"
+usenames <- "common"
 
 spcols <- setNames(spcollist, spp)
 
@@ -595,21 +591,24 @@ stats_pa[N_Years == 0, `:=` (EarliestYear = NA, LatestYear = NA)]
 
 # fwrite(stats2, here::here(paste0("output/data/SAV_BBpct_PA_Stats", Sys.Date(), ".txt")), sep = "|")
 statpardat <- list("BB_pct" = stats_pct, "PA" = stats_pa)
-openxlsx::write.xlsx(statpardat, here::here("output/SAV_BBpct_PA_Stats.xlsx"), colNames = c(TRUE, TRUE), colWidths = c("auto", "auto"), firstRow = c(TRUE, TRUE))
-openxlsx::write.xlsx(statpardat, here::here(paste0("output/SAV_BBpct_PA_Stats_", Sys.Date(), ".xlsx")), colNames = c(TRUE, TRUE), colWidths = c("auto", "auto"), firstRow = c(TRUE, TRUE))
+openxlsx::write.xlsx(statpardat, "output/SAV_BBpct_PA_Stats.xlsx", colNames = c(TRUE, TRUE), colWidths = c("auto", "auto"), firstRow = c(TRUE, TRUE))
+openxlsx::write.xlsx(statpardat, paste0("output/SAV_BBpct_PA_Stats_", Sys.Date(), ".xlsx"), colNames = c(TRUE, TRUE), colWidths = c("auto", "auto"), firstRow = c(TRUE, TRUE))
 
 # #subset to run only part of the script------------------------------------------------------
 # parameters <- parameters[column == "PA", ]
 
 #Save session info-----------------------------------------------------
 session <- sessionInfo()
-saveRDS(session, here::here(paste0("SAV/output/SessionInfo_", Sys.Date())))
+saveRDS(session, paste0("output/SessionInfo_", Sys.Date(), ".rds"))
 
 #start script----------------------------------------------------------------------
 tic()
 n <- 0
 seed <- 352
 set.seed(seed)
+
+# Initialize data directory to store model results
+data_directory <- list()
 
 for(p in parameters$column){
   
@@ -1390,13 +1389,6 @@ for(p in parameters$column){
           }
         }
         
-        
-        #Individual model objects are needed for plotting all species together
-        # eval(call("<-", as.name(paste0(gsub('\\b(\\pL)\\pL{2,}|.', '\\U\\1', i, perl = TRUE), 
-        #                                "_", 
-        #                                gsub('\\b(\\p{Lu}\\p{Ll})|.','\\1', str_to_title(j), perl = TRUE))), 
-        #           model_j))
-        
         short_model_name <- gsub('\\b(\\p{Lu}\\p{Ll})|.','\\1', str_to_title(j), perl = TRUE)
         
         #Save the model object as .rds
@@ -1491,6 +1483,9 @@ for(p in parameters$column){
       labels_seq <- seq(from = min(plotdat$Year),
                         to = max(plotdat$Year),
                         by = 3)
+      
+      # Exclude "No grass in Quadrat" from plots
+      plotdat <- plotdat[!eval(as.name(aucol)) == "No grass in quadrat"]
       
       #create base plot of seagrass percent cover data over time for managed area i
       plot_i <- ggplot(data = droplevels(plotdat),
@@ -1652,13 +1647,33 @@ for(plot_type in plot_types){
     file_subset <- str_subset(file_subset, "_BBpct_")
   }
   
-  w <- 8
-  h <- 8
-  r <- 200
-  
   for(file in file_subset){
     plot <- readRDS(paste0("output/Figures/BB/",file))
     plot <- plot + plot_theme
+    
+    # Set height for multiplots based on number of species
+    if(plot_type=="multiplot"){
+      n_species <- length(unique(plot$data$analysisunit))
+      species <- unique(plot$data$analysisunit)
+      print(species)
+      if(n_species<4){
+        h <- 4
+      } else if(n_species<7){
+        h <- 6
+      } else {
+        h <- 8
+      }
+      print(paste0("Numspecies: ", n_species))
+      print(paste0("height: ", h))
+    } else if(plot_type=="trendplot"){
+      h <- 6
+    } else {
+      h <- 8
+    }
+    
+    # Set width and resolution
+    w <- 8
+    r <- 200
     
     png(paste0("output/website/images/",plot_type,"s/", str_sub(file, 1, -5),".png"),
         width = w,
