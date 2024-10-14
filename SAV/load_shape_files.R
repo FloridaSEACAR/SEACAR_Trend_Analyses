@@ -9,12 +9,12 @@ shape_locate <- function(location){return(paste0(seacar_shape_location, location
 # AP_shp <- st_read(shape_locate("APs/Florida_Aquatic_Preserves.shp"))
 # NERR_shp <- st_read(shape_locate("NERRs/Florida_National_Estuarine_Resarch_Reserves__NERR__Boundaries.shp"))
 
-GeoDBdate <- "12mar2024"
-locs_pts <- st_read(shape_locate(paste0("SampleLocations", GeoDBdate, "/vw_SampleLocation_Point.shp")))
-locs_lns <- st_read(shape_locate(paste0("SampleLocations", GeoDBdate, "/vw_SampleLocation_Line.shp")))
-rcp <- st_read(shape_locate("orcp_all_sites/ORCP_Managed_Areas.shp"))
-counties <- st_read(shape_locate("FLCounties/Counties_-_Detailed_Shoreline.shp"))
-corners <- fread(shape_locate("MApolygons_corners.csv"))
+GeoDBdate <- "6june2024"
+locs_pts <- st_read(shape_locate(paste0("/SampleLocations", GeoDBdate, "/vw_SampleLocation_Point62024.shp")))
+locs_lns <- st_read(shape_locate(paste0("/SampleLocations", GeoDBdate, "/vw_SampleLocation_Line62024.shp")))
+rcp <- st_read(shape_locate("/orcp_all_sites/ORCP_Managed_Areas.shp"))
+counties <- st_read(shape_locate("/FLCounties/Counties_-_Detailed_Shoreline.shp"))
+corners <- fread(shape_locate("/MApolygons_corners.csv"))
 
 corners[, `:=` (xmax = xmax + (xmax-xmin)*0.25, ymax = ymax + (ymax-ymin)*0.1)]
 
