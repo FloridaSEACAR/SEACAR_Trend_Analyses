@@ -44,7 +44,7 @@ for(file_type in c("Discrete", "Continuous")){
   
   data <- merge.data.frame(data, website, by=columns, all=TRUE)
   data$Website[is.na(data$Website)] <- 0
-
+  
   if(file_type=="Discrete"){
     data <- data %>% 
       select(-c("type")) %>%
