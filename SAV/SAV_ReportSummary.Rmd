@@ -27,51 +27,51 @@ The purpose of this script is to provide a report summary of SAV analysis. The s
 
 All scripts and outputs can be found on the SEACAR GitHub repository:
 
-https://github.com/FloridaSEACAR/SEACAR_Trend_Analyses
+<https://github.com/FloridaSEACAR/SEACAR_Trend_Analyses>
 
 This script is based off of code originally written by Stephen Durham with comments by Marcus W. Beck.
 
-
 # Summary of SEACAR_SAV_BB_script_website.R
 
-+ Objective: Import and format SAV data, create summary plots and maps of changes over time, model changes over time using Bayesian and mixed-effects models. Results are separate for each managed area, species, and parameter (e.g., Braun Blanquet, percent cover, etc.).
-+ Packages: bayesplot, brms, broom.mixed, data.table, grid, gridExtra, gtable, nlme, scales, sf, tictoc, tidybayes, tidyverse
-+ File inputs: Combined_SAV_column_All-2021-Sep-20.csv, seacar_dbo_SampleLocation_Point.shp, seacar_dbo_SampleLocation_Line.shp, ORCP_Managed_Areas.shp, Counties_-_Detailed_Shoreline.shp, MApolygons_corners.csv
-+ Steps by line number:
-    + 1 - 30: load libraries and import SAV file
-    + 31 - 143: format SAV data including renaming columns, removing NA values, and reformatting abundance/cover values. For the latter, this included removal of NA values and those out of range, and ensuring appropriate values for Braun Blanquet, modified Braun Blaunqet, percent occurrence, and percent cover.
-    + 146 - 316: function for plotting model predictions
-    + 327 - 426: if loop for rotating a spatial object, used for plotting to create a presentation of stacked 2-d layers.
-    + 399 - 426: import spatial data objects, project all to WGS 1984 datum. Spatial data objects include sample locations and relevant boundaries (counties, management area boundaries)
-    + 428 - 663: setup parameter list and objects for looping through parameters to create models and summary output, parameters include Braun Blanquet, median percent cover, visual percent cover, percent occurrence, frequency of occurrence
-    + 670 - 1848: loop through parameters to create models and summary output, the following is an outline of steps in this loop.
-        + 683 - 1848: loop through managed areas using parameter from outside loop
-        + 703 - 717: create and save plot of parameter score for managed area over time by species
-        + 719 - 732: create and save plot of parameter score for managed area over time by program ID
-        + 734 - 747: create and save plot of parameter score for managed area over time grouped by species, by program ID
-        + 749 - 762: create and save plot of quadrat sizes for managed area over time by species
-        + 764 - 777: create and save plot of quadrat sizes for managed area over time by program ID
-        + 779 - 792: create and save plot of method for managed area over time by species
-        + 794 - 807: create and save plot of method for managed area over time by program ID
-        + 809 - 823: create and save plot of method for managed area by quadrat size and species
-        + 825 - 839: create and save plot of method for managed area by quadrat size and program ID
-        + 842 - 871: create and save plots of grid values over time by species and program ID if data available
-        + 873 - 903: create and save plots of depth values over time by species and program ID if data available
-        + 907 - 923: create and save a plot legend of species
-        + 925 - 949: loop through species to create and save a plot of parameter score over time
-        + 953 - 972: create and save a plot of totals for the species of parameter score over time
-        + 974 - 991: create and save a plot legend of species
-        + 993 - 1017: loop through species to create and save a plot of parameter score as boxplots over time
-        + 1019 - 1040: create and save a plot of boxplots for the species of parameter score over time
-        + 1042 - 1368: create and save stacked maps of parameter values for the managed area by year
-        + 1370 - 1401: setup empty objects for model results
-        + 1405 - 1533: Loop through species to fit models, with separate exception statements for different parameters. The modeling workflow is similar for each parameter, with minor exceptions. The general goal of each is to assess trends in a parameter over time for a particular species and managed area. Each workflow includes error handling if models did not converge, produces summary tables of model fit, and summary plots showing model result. The models vary in the Gaussian distribution family for the response variable depending on parameter. Random effects (e.g., for LocationID) are used for all models.
-        + 1539 - 1592: reads and sets modeled and umodeled data for plots
-        + 1595 - 1761: create base plot of seagrass percent cover data over time for managed area. Add model fits if applicable, and saves objects
-        + 1781 - 1841: create and save barplots of parameter results for managed area over time by species, only for Braun Blanquet and percent cover, save model results from prior loops
-        + 1843 - 1946: print statements for the console
-    + 1876 - 1880: get models, plots, and files. save list of failed models and R session info
-    + 1890 - 1943: Save trendplot figures as png files
-    + 1948 - 1961: Save barplot figures as png files
-    + 1964 - 1994: Crop geographic scope figure images & add metadata stamp
-+ File outputs: Multiple binary RDS files.
+-   Objective: Import and format SAV data, create summary plots and maps of changes over time, model changes over time using Bayesian and mixed-effects models. Results are separate for each managed area, species, and parameter (e.g., Braun Blanquet, percent cover, etc.).
+-   Packages: bayesplot, brms, broom.mixed, data.table, grid, gridExtra, gtable, nlme, scales, sf, tictoc, tidybayes, tidyverse
+-   File inputs: All_SAV_Parameters-2024-Sep-19.txt, seacar_dbo_SampleLocation_Point.shp, seacar_dbo_SampleLocation_Line.shp, ORCP_Managed_Areas.shp, Counties\_-\_Detailed_Shoreline.shp, MApolygons_corners.csv
+-   Steps by line number:
+    -   1 - 40: load libraries and import SAV file, create necessary sub-folders.
+    -   43 - 132: format SAV data including renaming columns, removing NA values, and reformatting abundance/cover values. For the latter, this included removal of NA values and those out of range, and ensuring appropriate values for Braun Blanquet, modified Braun Blaunqet, percent occurrence, and percent cover.
+    -   136: Import ManagedArea.csv to obtain abbreviated ManagedAreaNames.
+    -   139 - 193: function for plotting model predictions (multiplots).
+    -   196 - 288: function for plotting model predictions with simplified trendlines on a single plot (trendplots).
+    -   292 - 307: function used throughout script to allow for swift modification of species labels between "common" and "scientific" names. The script defaults to using scientific throughout the backend, with the `usenames` variable (line 468) converting the display of species names to the desired display type.
+    -   317 - 416: if loop for rotating a spatial object, used for plotting to create a presentation of stacked 2-d layers.
+    -   391 - 416: import spatial data objects, project all to WGS 1984 datum. Spatial data objects include sample locations and relevant boundaries (counties, management area boundaries)
+    -   419 - 420: create failedmods data table to store failed model results.
+    -   423 - 595: setup parameter list and objects for looping through parameters to create models and summary output, parameters include Braun Blanquet, median percent cover, visual percent cover, percent occurrence, frequency of occurrence. Write results to output .xlsx files.
+        -   447 - 491: setting up palettes for both species (`spcols`) and ProgramNames (`prcols`).
+    -   613 - 1615: loop through parameters to create models and summary output, the following is an outline of steps in this loop.
+        -   626 - 1614: loop through managed areas using parameter from outside loop
+        -   635 - 649: create and save plot of parameter score for managed area over time by species
+        -   651 - 664: create and save plot of parameter score for managed area over time by program ID
+        -   665 - 679: create and save plot of parameter score for managed area over time grouped by species, by program ID
+        -   681 - 694: create and save plot of quadrat sizes for managed area over time by species
+        -   696 - 709: create and save plot of quadrat sizes for managed area over time by program ID
+        -   711 - 724: create and save plot of method for managed area over time by species
+        -   726 - 739: create and save plot of method for managed area over time by program ID
+        -   741 - 755: create and save plot of method for managed area by quadrat size and species
+        -   757 - 771: create and save plot of method for managed area by quadrat size and program ID
+        -   773 - 803: create and save plots of grid values over time by species and program ID if data available
+        -   805 - 835: create and save plots of depth values over time by species and program ID if data available
+        -   839 - 855: create and save a plot legend of species
+        -   858 - 881: loop through species to create and save a plot of parameter score over time
+        -   885 - 904: create and save a plot of totals for the species of parameter score over time
+        -   907 - 923: create and save a plot legend of species
+        -   926 - 949: loop through species to create and save a plot of parameter score as boxplots over time
+        -   953 - 971: create and save a plot of boxplots for the species of parameter score over time
+        -   974 - 1299: create and save stacked maps of parameter values for the managed area by year
+        -   1321 - 1331: setup empty objects for model results
+        -   1335 - 1452: Loop through species to fit models, with separate exception statements for different parameters. The modeling workflow is similar for each parameter, with minor exceptions. The general goal of each is to assess trends in a parameter over time for a particular species and managed area. Each workflow includes error handling if models did not converge, produces summary tables of model fit, and summary plots showing model result. The models vary in the Gaussian distribution family for the response variable depending on parameter. Random effects (e.g., for LocationID) are used for all models.
+        -   1456 - 1547: create base plot of seagrass percent cover data over time for managed area. Add model fits if applicable, and saves object
+            -   1459 - 1488: reads and sets modeled data for plots
+        -   1550 - 1608: create and save barplots of parameter results for managed area over time by species, only for Braun Blanquet and percent cover, save model results from prior loops
+        -   1621 - 1688: export .png of all plot types, setting height dynamically for `multiplots`.
+        -   1696 - 1700: zip all images into subfolders and create `SAV_Figures_[usenames].zip` where `usenames` is either "scientific" or "common" based on the `usenames` variable setting.
