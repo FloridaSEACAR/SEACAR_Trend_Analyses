@@ -12,6 +12,11 @@ library(tidyr)
 library(glue)
 library(grid)
 
+# save_plots variable == TRUE will save plots
+save_plots <- TRUE
+# render_reports variable == TRUE renders reports
+render_reports <- TRUE
+
 # Set height and width for plot outputs (.png outputs only)
 h <- 891
 w <- 1600
@@ -507,18 +512,10 @@ plot_trendlines_cont_combined <- function(ma, cont_plot_data, param, y_labels, p
 all_managed_areas <- unique(managed_area_df$ManagedAreaName)
 # Get list of managed areas with continuous data
 cont_managed_areas <- skt_stats_cont[!is.na(ProgramID), unique(ManagedAreaName)]
-
-# Save .rds objects of necessary data tables
-rds_output <- "output/rds/"
-files_to_save <- c("skt_stats_cont", "skt_stats_disc", "data_output_disc",
-                   "cont_plot_data", "managed_area_df")
-for(file in files_to_save){
-  saveRDS(get(file), file=paste0(rds_output, file, ".rds"))
-}
-
+# Save plots as .pngs
 if(save_plots){
   # Loop through list of managed areas
-  for(ma in all_managed_areas[16]){
+  for(ma in all_managed_areas){
     print(ma)
     # determine which analyses to run for each MA
     # variables will be input into RMD file
@@ -569,4 +566,42 @@ if(save_plots){
       }
     }
   }  
+}
+
+# Get list of available plot files created by WC_Plot_Render.R
+cont_plots <- list.files("output/WQ_Continuous/", full.names = T)
+disc_plots <- list.files("output/WQ_Discrete/", full.names = T)
+
+# Render reports if `render_reports` is TRUE
+if(render_reports){
+  # Loop through list of managed areas
+  for(ma in all_managed_areas){
+    print(ma)
+    # determine which analyses to run for each MA
+    # variables will be input into RMD file
+    ma_df <- managed_area_df %>% filter(ManagedAreaName == ma)
+    p_inc <- unique(ma_df$Parameter)
+    d_inc <- unique(ma_df$Depth)
+    a_inc <- unique(ma_df$Activity)
+    
+    discrete_data <- data_output_disc[ManagedAreaName==ma, ]
+    skt_data <- skt_stats_disc[ManagedAreaName==ma, ]
+    
+    # Shortened names for managed areas
+    ma_short <- MA_All[ManagedAreaName==ma, Abbreviation]
+    # record region name
+    region <- MA_All[ManagedAreaName==ma, Region]
+    # output path for managed area reports
+    output_path <- "output/Reports/"
+    file_out <- paste0(ma_short,"_WC_Report")
+    ### RENDERING ###
+    rmarkdown::render(input = "WC_ReportTemplate.Rmd",
+                      output_format = "pdf_document",
+                      output_file = paste0(file_out, ".pdf"),
+                      output_dir = output_path,
+                      clean=TRUE)
+    unlink(paste0(output_path, file_out, ".md"))
+    unlink(paste0(output_path, file_out, ".tex"))
+    unlink(paste0(output_path, file_out, "_files"), recursive=TRUE)
+  }
 }
