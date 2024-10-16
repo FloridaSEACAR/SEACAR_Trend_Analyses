@@ -1,1 +1,0 @@
-AreaID|ManagedAreaName|Year|ParameterName|RelativeDepth|ActivityType|N_Data|Min|Max|Median|Mean|StandardDeviation|Programs|ProgramIDs
