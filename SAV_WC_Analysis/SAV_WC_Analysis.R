@@ -18,6 +18,11 @@ mapviewOptions(fgb = FALSE)
 library(ggtext)
 library(glue)
 library(rstudioapi)
+library(openxlsx)
+library(kableExtra)
+
+# Trim data to a minimum year?
+minimumYear <- 2014
 
 wd <- dirname(getActiveDocumentContext()$path)
 setwd(wd)
@@ -83,8 +88,8 @@ minbuff <- 500
 units(minbuff) <- "m"
 sampbuffs <- st_buffer(samplocs3, ifelse(samplocs3$len > minbuff, samplocs3$len, minbuff))
 
-mapview(linelocs_sav, col.regions = "dodgerblue") +
-  mapview(sampbuffs, col.regions = "firebrick")
+# mapview(linelocs_sav, col.regions = "dodgerblue") +
+#   mapview(sampbuffs, col.regions = "firebrick")
 
 # Load DDI exports of water quality/clarity data
 watdat_exportdate <- "2024-Oct-03"
@@ -129,6 +134,10 @@ disc_sav[, ParameterName := fcase(ParameterName == "Chlorophyll a, Corrected for
                                   ParameterName == "Water Temperature", "Temperature"), by = ParameterName]
 disc_sav <- disc_sav[!is.na(ParameterName)]
 disc_sav <- disc_sav[Include==1, ]
+disc_sav$YearMonthDec <- disc_sav$Year + ((disc_sav$Month-0.5) / 12)
+
+# Trim disc_sav to growing months
+disc_sav_trimmed <- disc_sav[Month >= 4 & Month <=10, ]
 
 samplocs3$Latitude_D[which(is.na(samplocs3$Latitude_D))] <- lapply(samplocs3$geometry[which(is.na(samplocs3$Latitude_D))], function(x) x[2])
 samplocs3$Longitude_[which(is.na(samplocs3$Longitude_))] <- lapply(samplocs3$geometry[which(is.na(samplocs3$Longitude_))], function(x) x[1])
@@ -136,7 +145,7 @@ samplocs3$Longitude_[which(is.na(samplocs3$Longitude_))] <- lapply(samplocs3$geo
 SAV4 <- merge(SAV4, samplocs3[, c("LocationID", "Latitude_D", "Longitude_")], by = "LocationID", all.x = TRUE)
 SAV4[, MA := ManagedAreaName]
 saveRDS(SAV4, paste0("data/SAV4_", Sys.Date(), ".rds"))
-SAV4 <- readRDS("data/SAV4_2024-10-07.rds")
+# SAV4 <- readRDS("data/SAV4_2024-10-07.rds")
 
 # Included parameters, chla is combined and treated separately
 # TN and TP also combined
@@ -159,11 +168,15 @@ savdat <- SAV4[!is.na(BB_all), .(mean = mean(BB_all), sd = sd(BB_all)),
 excluded_sp <- c("No grass in quadrat", "Drift algae")
 savdat <- savdat[!analysisunit %in% excluded_sp, ]
 
-# Parameter colors #6B59AB, #8BE4C2, #8FD0EC
-p_col <- "grey50"
-# Colors for when 2 params are plotted together
-col1 <- "grey50"
-col2 <- "#8FD0EC"
+# Parameter colors
+bar_color <- "#005396"
+mean_col <- "black"
+minmax_col <- "firebrick"
+# Second parameter color
+p2MeanCol <- "grey50" #8FD0EC
+
+# Data directory to store results tables
+data_directory <- list()
 
 for(m in unique(SAV4$MA)){
 # for(m in "Estero Bay Aquatic Preserve"){
@@ -194,12 +207,17 @@ for(m in unique(SAV4$MA)){
       }
       
       # Set color associations
-      vals <- c(col1, col2)
+      vals <- c(mean_col, p2MeanCol)
       names(vals) <- params
       
-      watdat_mw <- disc_sav[
-        ManagedAreaName == m & ParameterName %in% params, 
-        .(mean = mean(ResultValue), sd = sd(ResultValue)), by = c("Year", "ParameterName")
+      watdat_mw <- disc_sav_trimmed[
+        ManagedAreaName == m & ParameterName %in% params, .(
+          mean = mean(ResultValue),
+          median = median(ResultValue),
+          sd = sd(ResultValue),
+          min = min(ResultValue),
+          max = max(ResultValue)), 
+        by = c("Year", "ParameterName")
       ]
       
       if(length(unique(watdat_mw$Year))<10) next
@@ -213,22 +231,27 @@ for(m in unique(SAV4$MA)){
       
       watdat_mw <- watdat_mw[Year >= min_year]
       
+      # Store tables in data directory
+      data_directory[["watdat_mw"]][[m]][[p]] <- watdat_mw
+      data_directory[["savdat_m"]][[m]][[p]] <- savdat_m
+      
       plot_miw <- ggplot() +
         geom_hline(yintercept = 0, color = "grey25", lwd = 0.5) +
-        geom_bar(data = savdat_m, aes(x = Year, y = mean, fill = analysisunit), stat = "identity", position = "dodge") +
-        geom_line(data = watdat_mw, aes(x = Year, y = mean / axis2scale, color = ParameterName), lty = "solid", lwd = 0.75) +
-        geom_point(data = watdat_mw, aes(x = Year, y = mean / axis2scale, color = ParameterName), shape = 21, fill = col1, size = 1.5) +
+        geom_bar(data = savdat_m, aes(x = Year, y = mean), stat = "identity", position = "dodge", fill=bar_color, alpha = 0.5) +
+        geom_line(data = watdat_mw, aes(x = Year, y = mean / axis2scale, color = ParameterName), lty = "solid", lwd = 1) +
+        # geom_point(data = watdat_mw, aes(x = Year, y = mean / axis2scale, color = ParameterName), shape = 21, fill = mean_col, size = 1.5) +
         scale_y_continuous(sec.axis = sec_axis(name = glue("Annual Mean {title} ({axis2units})"),
                                                trans = ~. * axis2scale)) +
         plot_theme +
-        labs(x = "Year", y = "Annual Mean BB Score", 
-             title = glue("{m}<br>{au_i}<br>{title} ({axis2units})"),
+        labs(x = "Year", y = "Annual Mean Braun Blanquet Score", 
+             title = glue("{m}<br>{title} ({axis2units})"),
+             subtitle = "Limited to Growing Season (Apr - Oct)",
              fill = "Species",
              color = "Parameter") +
         theme(plot.title = element_markdown(),
-              axis.text.y.right = element_markdown(color = col1),
-              axis.title.y.right = element_markdown(color = col1)) +
-        scale_x_continuous(n.breaks = nbrks) +
+              axis.text.y.right = element_markdown(color = mean_col),
+              axis.title.y.right = element_markdown(color = mean_col)) +
+        scale_x_continuous(n.breaks = nbrks, limits = c(min_year, max_year)) +
         scale_color_manual(
           name = "Parameter",
           values = vals) +
@@ -237,6 +260,7 @@ for(m in unique(SAV4$MA)){
           values = spcols
         ) +
         facet_wrap(~analysisunit)
+      
       # Save plot
       ggsave(filename = paste0("output/", ma_abrev, "_", filename_param, "_", Sys.Date(), ".png"),
              plot = plot_miw,
@@ -246,11 +270,20 @@ for(m in unique(SAV4$MA)){
              dpi = 200)
       print(paste0("Saving plot: ", paste0("output/", ma_abrev, "_", filename_param, "_", Sys.Date(), ".png")))
     } else {
-      watdat_mw <- disc_sav[ManagedAreaName == m & ParameterName == p, .(mean = mean(ResultValue), sd = sd(ResultValue)), by = Year]
+      
+      watdat_mw <- disc_sav_trimmed[
+        ManagedAreaName == m & ParameterName == p, .(
+          mean = mean(ResultValue),
+          median = median(ResultValue),
+          sd = sd(ResultValue),
+          min = min(ResultValue),
+          max = max(ResultValue)
+        ), by = c("Year", "ParameterName")]
+      
       if(length(unique(watdat_mw$Year))<10) next
       
       axis2scale <- max(watdat_mw$mean) / 5
-      axis2units <- disc_sav[ManagedAreaName == m & ParameterName == p, unique(ParameterUnits)]
+      axis2units <- disc_sav_trimmed[ManagedAreaName == m & ParameterName == p, unique(ParameterUnits)]
       
       min_year <- min(savdat_m$Year)
       max_year <- max(savdat_m$Year)
@@ -259,28 +292,57 @@ for(m in unique(SAV4$MA)){
       
       watdat_mw <- watdat_mw[Year >= min_year]
       
-      plot_miw <- ggplot() +
-        geom_hline(yintercept = 0, color = "grey25", lwd = 0.5) +
-        geom_bar(data = savdat_m, aes(x = Year, y = mean, fill = analysisunit), stat = "identity", position = "dodge") +
-        geom_line(data = watdat_mw, aes(x = Year, y = mean / axis2scale), lty = "solid", color = p_col, lwd = 0.75) +
-        geom_point(data = watdat_mw, aes(x = Year, y = mean / axis2scale), shape = 21, color = p_col, fill = p_col, size = 1.5) +
-        scale_y_continuous(sec.axis = sec_axis(name = glue("Annual Mean {p} ({axis2units})"),
-                                               trans = ~. * axis2scale)) +
-        plot_theme +
-        labs(x = "Year", 
-             y = "Annual Mean BB Score", 
-             title = glue("{m}<br>{au_i}<br>{p} ({axis2units})"),
-             fill = "Species",
-             color = "Parameter") +
-        theme(plot.title = element_markdown(),
-              axis.text.y.right = element_markdown(color = p_col),
-              axis.title.y.right = element_markdown(color = p_col)) +
-        scale_x_continuous(n.breaks = nbrks) +
-        scale_fill_manual(
-          name = "Species",
-          values = spcols
-        ) +
-        facet_wrap(~analysisunit)
+      # Store tables in data directory
+      data_directory[["watdat_mw"]][[m]][[p]] <- watdat_mw
+      data_directory[["savdat_m"]][[m]][[p]] <- savdat_m
+      
+      # Add min and max for Temp and Sal
+      if(p %in% c("Temperature", "Salinity")){
+        plot_miw <- ggplot() +
+          geom_hline(yintercept = 0, color = "grey25", lwd = 0.5) +
+          geom_bar(data = savdat_m, aes(x = Year, y = mean), stat = "identity", position = "dodge", fill=bar_color, alpha = 0.5) +
+          geom_line(data = watdat_mw, aes(x = Year, y = mean / axis2scale, lty = "mean", color = "mean"), lwd = 1) +
+          geom_line(data = watdat_mw, aes(x = Year, y = min / axis2scale, lty = "min/max", color = "min/max"), lwd = 0.75) +
+          geom_line(data = watdat_mw, aes(x = Year, y = max / axis2scale, lty = "min/max", color = "min/max"), lwd = 0.75) +
+          # geom_point(data = watdat_mw, aes(x = Year, y = mean / axis2scale), shape = 21, color = mean_col, fill = mean_col, size = 1.5) +
+          scale_y_continuous(sec.axis = sec_axis(name = glue("Annual Mean {p} ({axis2units})"),
+                                                 trans = ~. * axis2scale)) +
+          plot_theme +
+          theme(plot.title = element_markdown(),
+                axis.text.y.right = element_markdown(color = mean_col),
+                axis.title.y.right = element_markdown(color = mean_col)) +
+          scale_x_continuous(n.breaks = nbrks, limits = c(min_year, max_year)) +
+          scale_linetype_manual(values = c("mean" = "solid", "min/max" = "dashed")) +
+          scale_color_manual(values = c("mean" = mean_col, "min/max" = minmax_col)) +
+          labs(x = "Year", 
+               y = "Annual Mean Braun Blanquet Score", 
+               title = glue("{m}<br>{p} ({axis2units})"),
+               subtitle = "Limited to Growing Season (Apr - Oct)",
+               fill = "Species",
+               linetype = "Value type",
+               color = "Value type") +
+          facet_wrap(~analysisunit)
+      } else {
+        plot_miw <- ggplot() +
+          geom_hline(yintercept = 0, color = "grey25", lwd = 0.5) +
+          geom_bar(data = savdat_m, aes(x = Year, y = mean), stat = "identity", position = "dodge", fill=bar_color, alpha = 0.5) +
+          geom_line(data = watdat_mw, aes(x = Year, y = mean / axis2scale), lty = "solid", color = mean_col, lwd = 1) +
+          # geom_point(data = watdat_mw, aes(x = Year, y = mean / axis2scale), shape = 21, color = mean_col, fill = mean_col, size = 1.5) +
+          scale_y_continuous(sec.axis = sec_axis(name = glue("Annual Mean {p} ({axis2units})"),
+                                                 trans = ~. * axis2scale)) +
+          plot_theme +
+          labs(x = "Year", 
+               y = "Annual Mean Braun Blanquet Score", 
+               title = glue("{m}<br>{p} ({axis2units})"),
+               subtitle = "Limited to Growing Season (Apr - Oct)",
+               fill = "Species",
+               color = "Parameter") +
+          theme(plot.title = element_markdown(),
+                axis.text.y.right = element_markdown(color = mean_col),
+                axis.title.y.right = element_markdown(color = mean_col)) +
+          scale_x_continuous(n.breaks = nbrks, limits = c(min_year, max_year)) +
+          facet_wrap(~analysisunit)        
+      }
       # Save plot
       ggsave(filename = paste0("output/", ma_abrev, "_", str_replace_all(p, " ", ""), "_", Sys.Date(), ".png"),
              plot = plot_miw,
@@ -293,6 +355,52 @@ for(m in unique(SAV4$MA)){
   }
 }
 
+##### Post-processing for data export -----
+# Record program information for WQ and SAV
+program_data_wq <- disc_sav_trimmed %>%
+  group_by(ManagedAreaName, ParameterName, ProgramID, ProgramName) %>%
+  summarise(YearMin = min(Year),
+            YearMax = max(Year),
+            N_Data = n()) %>% ungroup()
+program_data_sav <- SAV4 %>%
+  group_by(ManagedAreaName, ParameterName, ProgramID, ProgramName) %>%
+  summarise(YearMin = min(Year),
+            YearMax = max(Year),
+            N_Data = n()) %>% ungroup()
+
+wq_results <- data.table()
+sav_results <- data.table()
+for(ma in names(data_directory[["watdat_mw"]])){
+  wq <- bind_rows(data_directory[["watdat_mw"]][[ma]])
+  wq$ManagedAreaName <- ma
+  wq_results <- bind_rows(wq_results, wq)
+  
+  sav <- bind_rows(data_directory[["savdat_m"]][[ma]])
+  sav$ManagedAreaName <- ma
+  sav_results <- bind_rows(sav_results, sav)
+}
+# Sort and arrange columns for both SAV and WQ
+wq_results <- wq_results %>% 
+  arrange(ManagedAreaName, ParameterName, Year) %>%
+  select(ManagedAreaName, ParameterName, Year, mean, median, min, max, sd)
+
+sav_results <- sav_results %>% distinct() %>%
+  arrange(ManagedAreaName, Year, analysisunit) %>%
+  select(ManagedAreaName, analysisunit, Year, mean, sd) %>%
+  rename("Species" = analysisunit)
+# create workbook variable to store data results in separate sheets
+wb <- createWorkbook()
+addWorksheet(wb, "WQ")
+addWorksheet(wb, "SAV")
+addWorksheet(wb, "WQ_ProgramInfo")
+addWorksheet(wb, "SAV_ProgramInfo")
+writeDataTable(wb, "WQ", wq_results, tableStyle = "TableStyleLight16")
+writeDataTable(wb, "SAV", sav_results, tableStyle = "TableStyleLight18")
+writeDataTable(wb, "WQ_ProgramInfo", program_data_wq, tableStyle = "TableStyleLight16")
+writeDataTable(wb, "SAV_ProgramInfo", program_data_sav, tableStyle = "TableStyleLight18")
+# Save excel file
+saveWorkbook(wb, file = paste0("output/tables/SAV_WC_", gsub("_","-",Sys.Date()), ".xlsx"))
+
 #Gets list of all image files and creates zip
 fig_list <- list.files("output", pattern=".png", full=FALSE)
 setwd("output")
@@ -300,12 +408,13 @@ zip("SAV_WC_Figures", files=fig_list)
 setwd(wd)
 
 #Renders SAV_WC_ReportTemplate.Rmd and writes the report to pdf
+file_name <- paste0("SAV_WC_Report_", gsub("_","-",Sys.Date()))
 rmarkdown::render(input = "SAV_WC_ReportTemplate.Rmd", 
                   output_format = "pdf_document",
-                  output_file = paste0("SAV_WC_Report_", gsub("_","-",Sys.Date()), ".pdf"),
+                  output_file = paste0(file_name, ".pdf"),
                   clean=TRUE)
 
 #Removes unwanted files created in the rendering process
-unlink(paste0(out_dir, "/", file_out, ".md"))
-unlink(paste0(out_dir, "/", file_out, ".log"))
-unlink(paste0(out_dir, "/", file_out, "_files"), recursive=TRUE)
+unlink(paste0(file_name, ".md"))
+unlink(paste0(file_name, ".log"))
+unlink(paste0(file_name, "_files"), recursive=TRUE)

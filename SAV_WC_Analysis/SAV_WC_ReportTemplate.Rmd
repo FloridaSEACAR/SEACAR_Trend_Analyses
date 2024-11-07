@@ -17,10 +17,27 @@ output:
     extra_dependencies: ["float", "booktabs"]
     keep_md: yes
 urlcolor: blue
-title: SEACAR SAV_WC_Analysis
+title: DRAFT SEACAR SAV_WC_Analysis Report
 ---
 
+\newpage
+# DRAFT
+The following report is a preliminary rough draft, not intended for management decisions.
+
+# Funding
+This report was funded in part, through a grant agreement from the Florida Department of Environmental Protection, Florida Coastal Management Program, by a grant provided by the Office for Coastal Management under the Coastal Zone Management Act of 1972, as amended, National Oceanic and Atmospheric Administration Award. The views, statements, findings, conclusions and recommendations expressed herein are those of the author(s) and do not necessarily reflect the views of the State of Florida, NOAA or any of their sub agencies.
+
+# Total Nitrogen Calculation
+If both “Total” and “Dissolved” components are reported, only “Total” is used. If the total is not reported, then the dissolved components are used as a best available replacement. 
+Total nitrogen calculations are done using nitrogen components with the same sample fraction, nitrogen components with mixed total/dissolved sample fractions are not used. In other words, total nitrogen can be calculated when TKN and NO3O2 are both total sample fractions, or when both are dissolved sample fractions. *Future calculations of total nitrogen values may be based on components with mixed sample fractions.*
+
 ```{r plot_functions, echo=F, results='asis'}
+knitr::opts_chunk$set(
+   warning=FALSE,
+   message=FALSE,
+   echo=FALSE,
+   dpi=200
+   )
 # Get list of available files
 fig_list <- list.files("output", pattern=".png", full=TRUE)
 
@@ -31,14 +48,97 @@ get_plot <- function(ma, param){
   pattern <- paste0(ma_abrev, "_", param, "_")
   str_subset(ma_files, pattern)
 }
+
+# Data table to rename from short-hand to full ParameterName
+param_list <- data.table(
+  "params_short" = c("Chla", "CDOM", "Dissolved Oxygen", 
+                     "Dissolved Oxygen Saturation", "Salinity", "Secchi depth", 
+                     "TN_TP", "TSS", "Turbidity", "Temperature"),
+  "params_long" = c("Chlorophyll-a (corrected & uncorrected)", "Colored Dissolved Organic Matter", 
+                    "Dissolved Oxygen", "Dissolved Oxygen Saturation", "Salinity", 
+                    "Secchi Depth", "Total Nitrogen & Total Phosphorus", 
+                    "Total Susepended Solids", "Turbidity", "Water Temperature")
+)
 ```
 
+```{r table_function}
+# SAV Info only displays once per MA
+make_sav_table <- function(ma){
+  # Subset for sav programs
+  programs_sav <- program_data_sav %>% filter(ManagedAreaName==ma)
+  # Display SAV program data
+  cat("  \n")
+  cat("**Programs contributing SAV Data:**")
+  cat("  \n")
+  print(
+    kable(
+      programs_sav %>% select(-c(ManagedAreaName, ProgramName)),
+      format = "simple",
+      caption = paste0("Programs contributing SAV data in ", ma)
+    )
+  )
+  cat("  \n")
+  program_ids_sav <- unique(programs_sav$ProgramID)
+  cat("**SAV Program names:**")
+  cat("  \n")
+  for(p_id in program_ids_sav){
+    p_name <- programs_sav %>% filter(ProgramID==p_id) %>% pull(ProgramName)
+    cat(paste0("*",p_id,"*", " - ",p_name, "  \n"))
+  }
+}
+make_tables <- function(ma, p){
+  if(p=="Chla"){
+    params <- c("Chl a uncorr", "Chl a corr")
+  } else if(p=="TN_TP"){
+    params <- c("Total Phosphorus", "Total Nitrogen")
+  } else {
+    params <- p
+  }
+  
+  # Parameter display (long name)
+  p_long <- param_list[params_short==p, params_long]
+  # Subset for wq programs
+  programs_wq <- program_data_wq %>% filter(ManagedAreaName==ma, ParameterName %in% params)
+  # Subset wq summary stats
+  wq_table <- wq_results %>% filter(ManagedAreaName==ma, ParameterName %in% params)
+  # Remove "_" from column names
+  names(wq_table) <- gsub("_","-",names(wq_table))
+  
+  # Display wq summary table
+  print(
+    kable(
+      wq_table %>% select(-c("ManagedAreaName")),
+      format = "simple",
+      caption = paste0("WQ Summary for ", p_long, " in ", ma),
+      digits = 3
+    )
+  )
+  
+  # Display WQ program data
+  cat("  \n")
+  cat("**Programs contributing WQ Data:**")
+  cat("  \n")
+  print(
+    kable(
+      programs_wq %>% select(-c(ManagedAreaName, ProgramName)),
+      format = "simple",
+      caption = paste0("Programs contributing WQ data for ", p_long, " in ", ma)
+    )
+  )
+  cat("  \n")
+  program_ids_wq <- unique(programs_wq$ProgramID)
+  cat("**WQ Program names:**")
+  cat("  \n")
+  for(p_id in program_ids_wq){
+    p_name <- unique(programs_wq %>% filter(ProgramID==p_id) %>% pull(ProgramName))
+    cat(paste0("*",p_id,"*", " - ",p_name, "  \n"))
+  }
+}
+```
 
 ```{r plot_results, echo=F, results='asis'}
-param_list <- c(
-  "Chla", "DissolvedOxygen", "DissolvedOxygenSaturation", "Salinity", 
-  "Secchidepth", "TN_TP", "TSS", "Turbidity", "Temperature"
-)
+# ManagedAreaNames in alphabetical order
+SAV4 <- SAV4[order(SAV4$ManagedAreaName), ]
 
 for(m in unique(SAV4$MA)){
   cat("  \n")
@@ -46,14 +146,19 @@ for(m in unique(SAV4$MA)){
   cat("  \n")
   cat(glue("# {m}"))
   cat("  \n")
-  for(p in param_list){
-    cat("  \n")
-    cat(glue("## {p}"))
-    cat("  \n")
-    plot_loc <- get_plot(ma = m, param = p)
+  make_sav_table(ma = m)
+  cat("  \n")
+  for(p in unique(param_list$params_short)){
+    p_long <- param_list[params_short==p, params_long]
+    plot_loc <- get_plot(ma = m, param = gsub(" ", "", p))
     # Only plot when images are found
     if(length(plot_loc)>0){
+      cat("  \n")
+      cat(glue("## {p_long}"))
+      cat("  \n")
       cat("![](", plot_loc,")")
+      cat("  \n")
+      make_tables(ma = m, p = p)
       cat("  \n")
     }
   }
