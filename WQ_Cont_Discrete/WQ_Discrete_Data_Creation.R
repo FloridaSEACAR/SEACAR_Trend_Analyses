@@ -23,7 +23,7 @@ library(EnvStats)
 library(tidyr)
 library(stringr)
 
-source("scripts/SEACAR_data_location.R")
+source("../SEACAR_data_location.R")
 
 tic()
 #Sets whether to run documents with plots or not (APP_Plots==TRUE to include plots)
@@ -94,7 +94,7 @@ MA_All <- fread("data/ManagedArea.csv", sep = ",", header = TRUE, stringsAsFacto
                 na.strings = "")
 
 # Creates folders for outputs
-folder_paths <- c("output/tables/disc")
+folder_paths <- c("output/tables/", "output/tables/disc")
 for (path in folder_paths) {if(!dir.exists(path)){dir.create(path)}}
 
 # Defines standard plot theme: black and white, no major or minor grid lines,

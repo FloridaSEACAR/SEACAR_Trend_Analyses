@@ -25,7 +25,7 @@ library(kableExtra)
 library(collapse)
 library(stringr)
 
-source("scripts/SEACAR_data_location.R")
+source("../SEACAR_data_location.R")
 
 tic()
 #Sets whether to run documents with plots or not (APP_Plots==TRUE to include plots)
@@ -441,6 +441,8 @@ for (j in 1:length(all_params)){
       for (i in 1:n) {
         # Gets the number of rows of data for the monitoring location
         data_SKT <- Mon_YM_Stats[Mon_YM_Stats$MonitoringID==Mon_IDs[i], ]
+        # Gets station name from monitoring ID
+        station_name <- Mon_YM_Stats[Mon_YM_Stats$MonitoringID==Mon_IDs[i], unique(ProgramLocationID)]
         x <- nrow(data_SKT)
         # Perform analysis if there is more than 1 row
         if (x>0) {
@@ -454,6 +456,7 @@ for (j in 1:length(all_params)){
                                           season=data_SKT$Month,
                                           year=data_SKT$YearFromStart,
                                           independent.obs=SKT.ind)
+          saveRDS(SKT, file=paste0("output/models/",param_abrev,"_",region,"_",station_name,".rds"))
           if(is.na(SKT$estimate[1])==TRUE){
             SKT.ind <- FALSE
             SKT <- kendallSeasonalTrendTest(y=data_SKT$Mean,

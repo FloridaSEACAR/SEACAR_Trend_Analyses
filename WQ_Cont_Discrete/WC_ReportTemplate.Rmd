@@ -19,11 +19,11 @@ output:
     keep_md: yes
 urlcolor: blue
 geometry: "left=3cm,right=3cm"
-params:
-  managedarea: ma,
-  p_inc: included_params,
-  a_inc: included_acts,
-  d_inc: included_depths
+# params:
+#   managedarea: ma,
+#   p_inc: included_params,
+#   a_inc: included_acts,
+#   d_inc: included_depths
 title: '`r paste(ma)`'
 subtitle: '`r paste("SEACAR Water Quality Analysis")`'
 tables: yes
@@ -40,7 +40,11 @@ options(knitr.kable.NA = '-')
 
 ```
 
-
+```{r snippetLoading}
+# Load in discrete snippets where possible
+discSnippets <- setDT(openxlsx::read.xlsx("data/discreteSnippets.xlsx"))
+snippetParams <- discSnippets[!is.na(Snippet), ParameterShort]
+```
 
 ```{r libraries, message=FALSE, echo=FALSE, warning=FALSE, include=FALSE}
 library(knitr)
@@ -91,17 +95,21 @@ cont_param_df <- data.table(param_short = cont_params_short,
 
 ```{r get_plot function to retreive plot information}
 get_plot <- function(ma_short, parameter, type, pid){
+  areaID <- MA_All[Abbreviation==ma_short, AreaID]
+  pvID <- websiteParams[SamplingFrequency==type & 
+                          ParameterName==parameter, ParameterVisId]
+  
   # Determine which file lsit to search through
   if(type=="Discrete"){
-    pattern <- paste0("output/WQ_Discrete/",ma_short, "_", gsub(",","",(gsub(" ","_",parameter))), ".png")
+    pattern <- paste0("output/WQ_Discrete/ma-", areaID, "-pv-", pvID, ".png")
     file <- str_subset(disc_plots, pattern)
   }else{
     # When all stations are plotted without ProgramID subdivisions
     if(pid=="none"){
-      pattern <- paste0("output/WQ_Continuous/",ma_short, "_", gsub(",","",(gsub(" ","_",parameter))), ".png")
+      pattern <- paste0("output/WQ_Continuous/ma-", areaID, "-pv-", pvID, ".png")
     # When parameter data is divided into ProgramID subdivisions
     } else {
-      pattern <- paste0("output/WQ_Continuous/",ma_short, "_", gsub(",","",(gsub(" ","_",parameter))), "_", pid, ".png")
+      pattern <- paste0("output/WQ_Continuous/ma-", areaID, "-pv-", pvID, ".", pid, ".png")
     }
     file <- str_subset(cont_plots, paste0("^",pattern,"$"))
   }
@@ -125,16 +133,23 @@ plot_discrete <- function(p, a, d, parameter, skt_data, discrete_data, ma, ma_sh
     cat(glue("### {parameter} - {type}"))
     cat("  \n")
     
+    # Add in Discrete snippets where possible
+    # if(p %in% snippetParams){
+    #   cat("  \n")
+    #   cat(discSnippets[ParameterShort==p, Snippet])
+    #   cat("  \n")
+    # }
+    
     # Creates ResultTable to display statistics below plot
     ResultTable <- skt_stats %>%
       select(ActivityType, "Statistical Trend", N_Data, N_Years, "Period of Record", 
-             Median, tau, SennIntercept, SennSlope, p) # %>%
-      # rename("Activity Type" = ActivityType,
-      #        "Sample Count" = N_Data,
-      #        "Years with Data" = N_Years,
-      #        "Median Result Value" = Median,
-      #        "Tau" = tau, "Sen Intercept" = SennIntercept, "Sen Slope" = SennSlope, "P" = p)
-    names(ResultTable) <- gsub("_", "-", names(ResultTable))
+             Median, tau, SennIntercept, SennSlope, p) %>%
+      rename("Activity Type" = ActivityType,
+             "Sample Count" = N_Data,
+             "Years with Data" = N_Years,
+             "Median Result Value" = Median,
+             "Tau" = tau, "Sen Intercept" = SennIntercept, "Sen Slope" = SennSlope, "P" = p)
+    # names(ResultTable) <- gsub("_", "-", names(ResultTable))
     # Convert results table into kable format
     result_table <- kable(ResultTable, format="latex",
                           caption=paste0("Seasonal Kendall-Tau Results for - ", parameter),
@@ -178,7 +193,8 @@ plot_continuous <- function(ma, cont_plot_data, param, parameter){
     # Account for managed areas with large number of continuous sites
     # Too many to plot together, plot combined by Program
     if(length(unique(data$ProgramLocationID))>10){
-      for(pid in unique(data$ProgramID)){
+      for(prog_n in 1:length(unique(data$ProgramID))){
+        pid <- unique(data$ProgramID)[prog_n]
         p_name <- data[ProgramID==pid, unique(ProgramName)]
         cat("  \n")
         cat(glue("**{p_name}** - *{pid}*"))
@@ -188,10 +204,10 @@ plot_continuous <- function(ma, cont_plot_data, param, parameter){
           filter(ProgramID==pid) %>%
           select(ProgramLocationID, "Statistical Trend", N_Data, N_Years, "Period of Record", Median, tau,
                  SennIntercept, SennSlope, p) %>%
-          mutate_if(is.numeric, ~round(., 2)) # %>%
-        # rename("Program Location" = ProgramLocationID, "Sample Count" = N_Data,
-        #        "Years with Data" = N_Years, "Median Result Value" = Median,
-        #        "Tau" = tau, "Sen Intercept" = SennIntercept, "Sen Slope" = SennSlope, "P" = p)
+          mutate_if(is.numeric, ~round(., 2)) %>%
+        rename("Program Location" = ProgramLocationID, "Sample Count" = N_Data,
+               "Years with Data" = N_Years, "Median Result Value" = Median,
+               "Tau" = tau, "Sen Intercept" = SennIntercept, "Sen Slope" = SennSlope, "P" = p)
         
         # Remove text-based "NA" values in p column
         if (nrow(ResultTable[ResultTable$p=="    NA", ]) > 0){
@@ -200,8 +216,8 @@ plot_continuous <- function(ma, cont_plot_data, param, parameter){
         ResultTable[is.na(ResultTable)] <- "-"
         names(ResultTable) <- gsub("_", "-", names(ResultTable))
         # Underscores and & mess with table display, rename stations
-        ResultTable$ProgramLocationID <- gsub("_", "-", ResultTable$ProgramLocationID)
-        ResultTable$ProgramLocationID <- gsub("&", "-and-", ResultTable$ProgramLocationID)
+        ResultTable$`Program Location` <- gsub("_", "-", ResultTable$`Program Location`)
+        ResultTable$`Program Location` <- gsub("&", "-and-", ResultTable$`Program Location`)
         
         result_table <- kable(ResultTable, format="latex",
                               caption=paste0("Seasonal Kendall-Tau Results for All Stations - ", parameter),
@@ -210,7 +226,7 @@ plot_continuous <- function(ma, cont_plot_data, param, parameter){
           kable_styling(latex_options = c("scale_down", "HOLD_position"), position = "center")
         cat("  \n")
         # Display plot
-        plot_loc <- get_plot(ma_short = ma_short, parameter = parameter, type = type, pid = pid)
+        plot_loc <- get_plot(ma_short = ma_short, parameter = parameter, type = type, pid = prog_n)
         # include_graphics() does not work within loop, force markdown format
         cat("![](", plot_loc,")")
         cat("  \n")
@@ -222,10 +238,10 @@ plot_continuous <- function(ma, cont_plot_data, param, parameter){
       ResultTable <- skt_stats %>%
         select(ProgramLocationID, "Statistical Trend", N_Data, N_Years, "Period of Record", Median, tau,
                SennIntercept, SennSlope, p) %>%
-        mutate_if(is.numeric, ~round(., 2)) # %>%
-      # rename("Program Location" = ProgramLocationID, "Sample Count" = N_Data,
-      #        "Years with Data" = N_Years, "Median Result Value" = Median,
-      #        "Tau" = tau, "Sen Intercept" = SennIntercept, "Sen Slope" = SennSlope, "P" = p)
+        mutate_if(is.numeric, ~round(., 2)) %>%
+      rename("Program Location" = ProgramLocationID, "Sample Count" = N_Data,
+             "Years with Data" = N_Years, "Median Result Value" = Median,
+             "Tau" = tau, "Sen Intercept" = SennIntercept, "Sen Slope" = SennSlope, "P" = p)
       
       # Remove text-based "NA" values in p column
       if (nrow(ResultTable[ResultTable$p=="    NA", ]) > 0){
@@ -276,7 +292,8 @@ for(indicator in unique(websiteParams$IndicatorName)){
     depth <- filteredSubset$RelativeDepth
     
     # Define y-label, activity-label, depth-label for plot labels
-    y_labels <- ifelse(parameter == "pH", parameter, paste0(parameter, " (" , unit, ")"))
+    y_labels <- ifelse(parameter == "pH", paste0("Monthly average ", parameter), 
+                       paste0("Monthly average ", parameter, " (" , unit, ")"))
     activity_label <- ifelse(activity=="All", "Lab and Field Combined", activity)
     depth_label <- ifelse(depth=="All", "All Depths", "Surface")
     

@@ -11,11 +11,40 @@ library(EnvStats)
 library(tidyr)
 library(glue)
 library(grid)
+library(leaflet)
+library(mapview)
+
+# Gets directory of this script and sets it as the working directory
+wd <- dirname(getActiveDocumentContext()$path)
+setwd(wd)
+
+##########
+# Source in Continuous and Discrete data creation scripts
+# These scripts process the WQ data and generate the statistical files necessary for plots and report generation.
+# Outputs multiple data objects, including SeasonalKendallTau (necessary to generate SKT summary files using WQ_KendallTau_Stats_Combine.R)
+# These scripts should be run when there are new combined tables available
+# Comment out if they have been run for this export, Cont. processing takes ~1.5hr
+
+# source("WQ_Discrete_Data_Creation.R", echo=T)
+# source("WQ_Continuous_Data_Creation.R", echo=T)
+
+# WQ_KendallTau_Stats_Combine produces the following files needed for Atlas updates
+# WQ_Discrete_All_KendallTau_Stats & WQ_Continuous_All_KendallTau_Status
+
+source("WQ_KendallTau_Stats_Combine.R", echo=T)
+
+##########
 
 # save_plots variable == TRUE will save plots
 save_plots <- TRUE
 # render_reports variable == TRUE renders reports
 render_reports <- TRUE
+# save_maps variable == TRUE will render maps (for MA Report Gen)
+save_maps <- TRUE
+# Import necessary shapefiles if save_maps is TRUE
+if(save_maps){
+  source("load_shape_files.R", echo=T)
+}
 
 # Set height and width for plot outputs (.png outputs only)
 h <- 891
@@ -31,7 +60,7 @@ disc_folder_date <- "most recent"
 cont_folder_date <- "most recent"
 
 # Point to location where Disc objects are located
-data_obj_loc <- "../output/tables/"
+data_obj_loc <- "output/tables/"
 
 disc_loc <- ifelse(disc_folder_date=="most recent", 
                    paste0(data_obj_loc,"disc/"), 
@@ -43,10 +72,6 @@ cont_loc <- ifelse(cont_folder_date=="most recent",
 # Lists of disc and cont .rds objects to read
 disc_files <- list.files(disc_loc,pattern = "\\.rds$", full.names = T)
 cont_files <- list.files(cont_loc,pattern = "\\.rds$", full.names = T)
-
-# Gets directory of this script and sets it as the working directory
-wd <- dirname(getActiveDocumentContext()$path)
-setwd(wd)
 
 #Loads data file with list on managed area names and corresponding area IDs and short names
 MA_All <- fread("data/ManagedArea.csv", sep = ",", header = TRUE, 
@@ -71,7 +96,6 @@ cont_params_short <- websiteParams[SamplingFrequency=="Continuous", unique(Param
 # function of parameter, activity type, depth, with specified filetype
 # retrieves RDS filepath to be loaded
 get_files <- function(p, a, d, filetype) {
-  
   # "data" contains overall data for each param, regardless of depth/activity
   if (filetype == "data") {
     pattern <- paste0(p,"_",filetype)
@@ -275,9 +299,9 @@ cont_plot_data <- merge(
 # Create significant column
 setDT(cont_plot_data)
 cont_plot_data[SufficientData==TRUE, `:=` (
-  sig = ifelse(p<=0.05, "Significant Trend", "Non-significant Trend"),
-  label = paste0(ProgramLocationID, " - ", RelativeDepth)
+  sig = ifelse(p<=0.05, "Significant trend", "Non-significant trend")
 )]
+cont_plot_data[ , `:=` (label = paste0(ProgramLocationID, " - ", RelativeDepth))]
 
 ## Setting plot theme for plots
 plot_theme <- theme_bw() +
@@ -370,13 +394,16 @@ plot_trendlines <- function(p, a, d, activity_label, depth_label, y_labels, para
   skt_stats <- skt_data[ParameterName==parameter & RelativeDepth==d & ActivityType==a, ]
   # plot data
   data <- discrete_data[ParameterName==parameter & Include, ]
-  # Filter for desired ActivityType, ensuring they plot correctly as Lab or Field (Not 'Field Msr/Obs.' etc)
   if(!a=="All"){
-    data <- data[str_detect(ActivityType, a), ]
+    data <- data[grep(a, data$ActivityType),]
     data$ActivityType <- a
+  } else {
+    data <- data[grep("Lab|Field", data$ActivityType),]
+    data[grep("Lab", data$ActivityType), `:=` (ActivityType = "Lab")]
+    data[grep("Field", data$ActivityType), `:=` (ActivityType = "Field")]
   }
   # Generate mean Result Values by Year / Month (monthly means creation)
-  data[, Mean := mean(ResultValue, na.rm = TRUE), by = .(Year, Month)]
+  data[, Mean := mean(ResultValue, na.rm = TRUE), by = .(Year, Month, ActivityType)]
   
   ### SKT STATS ###
   # Gets x and y values for starting point for trendline
@@ -397,7 +424,7 @@ plot_trendlines <- function(p, a, d, activity_label, depth_label, y_labels, para
     
     # Gets data to be used in plot for managed area
     plot_data <- merge(data, KT.Plot, by=c("ManagedAreaName"), all=TRUE)
-    plot_data[, `:=` (sig = ifelse(p<=0.05, "Significant Trend", "Non-significant Trend"))]
+    plot_data[, `:=` (sig = ifelse(p<=0.05, "Significant trend", "Non-significant trend"))]
     
     # Create plot object with data and trendline
     p1 <- ggplot(data=plot_data,
@@ -414,14 +441,22 @@ plot_trendlines <- function(p, a, d, activity_label, depth_label, y_labels, para
       scale_x_continuous(limits=breaks(plot_data, type="Discrete", ret="lims"),
                          breaks=breaks(plot_data, type="Discrete", ret="break")) +
       scale_shape_manual(values = c("Field"=21,"Lab"=24), 
-                         name = "Data type") +
-      scale_color_manual(name = "Trend type", 
-                         values = c("Significant Trend" = sig_color,
-                                    "Non-significant Trend" = nonsig_color)) +
-      plot_theme
+                         name = "Activity type") +
+      scale_color_manual(name = "Trend type",
+                         values = c("Significant trend" = sig_color,
+                                    "Non-significant trend" = nonsig_color),
+                         limits = c("Significant trend", "Non-significant trend"),
+                         na.translate = FALSE,
+                         drop = TRUE) +
+      plot_theme +
+      guides(col = guide_legend(order = 1), 
+             shape = guide_legend(order = 2, override.aes = list(linetype = NA)))
     # Save png
-    ggsave(filename = paste0("output/WQ_Discrete/", ma_short, "_", 
-                             gsub(",","",(gsub(" ","_",parameter))), ".png"),
+    areaID <- MA_All[Abbreviation==ma_short, AreaID]
+    pvID <- websiteParams[SamplingFrequency=="Discrete" & ParameterName==parameter, ParameterVisId]
+    filePath <- "output/WQ_Discrete/"
+    fileName <- paste0(filePath, "ma-", areaID, "-pv-", pvID, ".png")
+    ggsave(filename = fileName,
            plot = p1, width = w, height = h, units = "px", dpi = 300,
            scale = 2)
     
@@ -430,6 +465,10 @@ plot_trendlines <- function(p, a, d, activity_label, depth_label, y_labels, para
     rm(skt_stats)
   }
 }
+
+# Number of stations above which plots are separated into individual programs
+n_cutoff <- 10
+
 # function to plot continuous trendlines onto combined plot
 plot_trendlines_cont_combined <- function(ma, cont_plot_data, param, y_labels, parameter){
   # Continuous data, including skt results (pre-processed above)
@@ -437,10 +476,18 @@ plot_trendlines_cont_combined <- function(ma, cont_plot_data, param, y_labels, p
   # Only perform operations when there are stations to plot
   if(length(unique(data$ProgramLocationID))>0){
     cat(glue("### {parameter} - {type}"))
+    
+    # Set variables for fileName convention
+    areaID <- MA_All[ManagedAreaName==ma, AreaID]
+    pvID <- websiteParams[SamplingFrequency=="Continuous" & 
+                            ParameterName==parameter, ParameterVisId]
+    filePath <- "output/WQ_Continuous/"
+    
     # Account for managed areas with large number of continuous sites
     # Too many to plot together, plot combined by Program
-    if(length(unique(data$ProgramLocationID))>10){
-      for(pid in unique(data$ProgramID)){
+    if(length(unique(data$ProgramLocationID))>n_cutoff){
+      for(prog_n in 1:length(unique(data$ProgramID))){
+        pid <- unique(data$ProgramID)[prog_n]
         # all plots together for a given ProgramID
         plot_data <- setDT(data[ProgramID==pid, ])
         
@@ -452,9 +499,9 @@ plot_trendlines_cont_combined <- function(ma, cont_plot_data, param, y_labels, p
         shapes <- c(21,22,23,24,25,seq(1:(n-5)))
         # Create plot
         p1 <- ggplot(data = plot_data, aes(x = YearMonthDec, y = Mean, group = factor(ProgramLocationID))) +
-          geom_point(aes(shape = ProgramLocationID), color = "#444444", fill = "#cccccc", size = 3, alpha = 0.9, show.legend = TRUE) +
+          geom_point(aes(shape = label), color = "#444444", fill = "#cccccc", size = 3, alpha = 0.9, show.legend = TRUE) +
           geom_segment(aes(x = start_x, y = start_y, xend = end_x, yend = end_y, 
-                           linetype = ProgramLocationID, color = ProgramLocationID),
+                           linetype = label, color = label),
                        linewidth = 1.2, alpha = 0.7, show.legend = TRUE) +
           labs(title = paste0(ma, "\n", p_name, "\nProgramID: ", pid),
                subtitle = paste0(parameter, " - Continuous"),
@@ -469,9 +516,8 @@ plot_trendlines_cont_combined <- function(ma, cont_plot_data, param, y_labels, p
           theme(legend.text = element_text(size = 7))
         
         # save fig
-        ggsave(filename = paste0("output/WQ_Continuous/", ma_short, "_", 
-                                 gsub(",","",(gsub(" ","_",parameter))), "_", pid, 
-                                 ".png"),
+        fileName <- paste0(filePath, "ma-", areaID, "-pv-", pvID, ".", prog_n, ".png")
+        ggsave(filename = fileName,
                plot = p1, width = w, height = h, units = "px", dpi = 300,
                scale = 2)
       }
@@ -484,9 +530,9 @@ plot_trendlines_cont_combined <- function(ma, cont_plot_data, param, y_labels, p
       shapes <- c(21,22,23,24,25,seq(1:(n-5)))
       # Create plot
       p1 <- ggplot(data=plot_data, aes(x=YearMonthDec, y=Mean, group=factor(ProgramLocationID))) +
-        geom_point(aes(shape=ProgramLocationID), color="#444444" ,fill="#cccccc", size=3,alpha=0.9, show.legend = TRUE) +
+        geom_point(aes(shape=label), color="#444444" ,fill="#cccccc", size=3,alpha=0.9, show.legend = TRUE) +
         geom_segment(aes(x = start_x, y = start_y, xend = end_x, yend = end_y, 
-                         color = sig, linetype=ProgramLocationID),
+                         color = sig, linetype=label),
                      linewidth = 1.2, alpha = 0.7, show.legend = TRUE) +
         labs(title=paste0(ma, "\nAll Stations"),
              subtitle=paste0(parameter, " - Continuous"),
@@ -495,17 +541,27 @@ plot_trendlines_cont_combined <- function(ma, cont_plot_data, param, y_labels, p
                            breaks=breaks(plot_data, type="Continuous", ret="break")) +
         plot_theme + 
         scale_shape_manual(values=shapes, name = "Program location") +
-        scale_color_manual(values = c("Significant Trend" = "#000099","Non-significant Trend" = "#900667")) +
-        labs(shape  = "Program location", linetype = "Program location", colour = "Trend type")
+        scale_color_manual(name = "Trend type",
+                           values = c("Significant trend" = sig_color,
+                                      "Non-significant trend" = nonsig_color),
+                           limits = c("Significant trend", "Non-significant trend"),
+                           na.translate = TRUE,
+                           drop = FALSE) +
+        labs(shape  = "Program location", linetype = "Program location", colour = "Trend type") +
+        guides(
+          col = guide_legend("Trend type", order = 2,
+                             override.aes = list(shape = NA, colour = c(sig_color, nonsig_color))),
+          shape = guide_legend("Program location", order = 1),
+          linetype = guide_legend("Program location", order = 1)
+        )
       
       # save fig
-      ggsave(filename = paste0("output/WQ_Continuous/", ma_short, "_", 
-                               gsub(",","",(gsub(" ","_",parameter))), ".png"),
+      fileName <- paste0(filePath, "ma-", areaID, "-pv-", pvID, ".png")
+      ggsave(filename = fileName,
              plot = p1, width = w, height = h, units = "px", dpi = 300,
              scale = 2)
     }
   }
-  
 }
 
 # Get list of managed areas to create plots for
@@ -516,6 +572,11 @@ cont_managed_areas <- skt_stats_cont[!is.na(ProgramID), unique(ManagedAreaName)]
 if(save_plots){
   # Loop through list of managed areas
   for(ma in all_managed_areas){
+  # for(ma in c("Cape Romano-Ten Thousand Islands Aquatic Preserve",
+  #             "Rookery Bay National Estuarine Research Reserve",
+  #             "Big Bend Seagrasses Aquatic Preserve",
+  #             "Florida Keys National Marine Sanctuary",
+  #             "Southeast Florida Coral Reef Ecosystem Conservation Area")){
     print(ma)
     # determine which analyses to run for each MA
     # variables will be input into RMD file
@@ -548,7 +609,7 @@ if(save_plots){
         depth <- filteredSubset$RelativeDepth
         
         # Define y-label, activity-label, depth-label for plot labels
-        y_labels <- ifelse(parameter == "pH", parameter, paste0(parameter, " (" , unit, ")"))
+        y_labels <- ifelse(parameter == "pH", paste0("Monthly average ", parameter), paste0("Monthly average ", parameter, " (" , unit, ")"))
         activity_label <- ifelse(activity=="All", "Lab and Field Combined", activity)
         depth_label <- ifelse(depth=="All", "All Depths", "Surface")
         
@@ -603,5 +664,94 @@ if(render_reports){
     unlink(paste0(output_path, file_out, ".md"))
     unlink(paste0(output_path, file_out, ".tex"))
     unlink(paste0(output_path, file_out, "_files"), recursive=TRUE)
+    unlink(paste0(file_out, ".log"))
   }
+}
+
+# Zip all files into Discrete and Continuous .zips in "output" folder
+for(type in c("Discrete", "Continuous")){
+  # Get list of all available plots
+  fig_list <- list.files(paste0("output/WQ_",type), pattern = ".png", full=TRUE)
+  zip(zipfile = paste0("output/WQ_",type), 
+      files = fig_list)
+}
+
+##### Create maps ----
+if(save_maps){
+  # Pre-process spatial data for greater efficiency
+  # Grab a list of programs for each discrete parameter for each MA
+  disc_programs <- data_output_disc %>% 
+    group_by(ParameterName, ManagedAreaName) %>% 
+    distinct(ProgramID, ProgramName)
+  
+  # grab sample coordinates from those programs
+  coord_df <- locs_pts_rcp %>% filter(ProgramID %in% disc_programs$ProgramID)
+  
+  # frame to plot coordinates, allows for bubble size display of n_samples
+  ma_data <- data_output_disc %>%
+    group_by(ParameterName, ManagedAreaName, ProgramLocationID) %>%
+    summarise(n_data = n()) %>%
+    rename(ProgramLoc = ProgramLocationID)
+  
+  # merge frames together prior to plotting
+  discrete_df <- merge(ma_data, coord_df)
+  discrete_df <- discrete_df[order(discrete_df$n_data, decreasing=TRUE), ]
+  setDT(discrete_df)
+}
+
+# Mapping function
+plot_discrete_maps <- function(param, ma, discrete_df, ma_abrev, ma_shape, shape_coordinates){
+  # Subset from overall discrete dataframe
+  subset_df <- discrete_df[ManagedAreaName==ma & ParameterName==param, ]
+  
+  # setting color palette
+  pal <- colorFactor("plasma", subset_df$ProgramID)
+  
+  # leaflet map
+  map <- leaflet(subset_df, options = leafletOptions(zoomControl = FALSE)) %>%
+    addProviderTiles(providers$CartoDB.PositronNoLabels) %>%
+    addPolygons(data=ma_shape, color="black", weight = 1, smoothFactor = 0.5, opacity = 0.8, fillOpacity = 0.1) %>%
+    addCircleMarkers(lat=~Latitude_D, lng=~Longitude_, color=~pal(ProgramID), weight=0.5, radius=sqrt(subset_df$n_data), fillOpacity=0.6) %>%
+    addLegend(pal=pal, values=~ProgramID, labFormat=labelFormat(prefix="Program "), title="") %>%
+    fitBounds(lng1=shape_coordinates$xmin,
+              lat1=shape_coordinates$ymin,
+              lng2=shape_coordinates$xmax,
+              lat2=shape_coordinates$ymax)
+  
+  # map output filepath
+  param_short <- websiteParams[ParameterName==param, unique(ParameterShort)]
+  map_out <- paste0(map_output, ma_abrev, "_", param_short, "_map.png")
+  
+  # save file as png
+  mapshot(map, file = map_out)
+}
+
+# Takes ~1hr
+if(save_maps){
+  # Map output location
+  map_output <- "output/maps/discrete/"
+  # Loop through available MAs
+  tic()
+  for(ma in unique(MA_All$ManagedAreaName)){
+    # Abbreviated MA name for filenames
+    ma_abrev <- MA_All[ManagedAreaName==ma, Abbreviation]
+    # find ma_shape and ma_coordinates for plotting
+    ma_shape <- find_shape(rcp, ma)
+    # get coordinates to set zoom level
+    shape_coordinates <- get_shape_coordinates(ma_shape)
+    # Loop through all params for a given MA
+    for(param in unique(discrete_df$ParameterName)){
+      # Run mapping function for each MA
+      plot_discrete_maps(param = param,
+                         ma = ma,
+                         discrete_df = discrete_df,
+                         ma_abrev = ma_abrev,
+                         ma_shape = ma_shape,
+                         shape_coordinates = shape_coordinates)
+      
+      print(paste0("Map created for ", param, " - ", ma))      
+    }
+    print(paste0(ma, " processing complete!"))
+  }
+  toc()
 }
