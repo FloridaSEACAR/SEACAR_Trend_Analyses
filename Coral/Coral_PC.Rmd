@@ -371,19 +371,19 @@ The plots shown here are the percent cover for each managed area by year with th
 # axis labels. Axis labels are size 10 and the x-axis labels are rotated -45
 # degrees with a horizontal justification that aligns them with the tick mark
 plot_theme <- theme_bw() +
-   theme(panel.grid.major = element_blank(),
-         panel.grid.minor = element_blank(),
-         text=element_text(family="Arial"),
-         plot.title=element_text(hjust=0.5, size=12, color="#314963"),
-         plot.subtitle=element_text(hjust=0.5, size=10, color="#314963"),
-         legend.title=element_text(size=10),
-         legend.text.align = 0,
-         axis.title.x = element_text(size=10, margin = margin(t = 5, r = 0,
-                                                              b = 10, l = 0)),
-         axis.title.y = element_text(size=10, margin = margin(t = 0, r = 10,
-                                                              b = 0, l = 0)),
-         axis.text=element_text(size=10),
-         axis.text.x=element_text(angle = -45, hjust = 0))
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        text=element_text(family="Arial"),
+        plot.title=element_text(hjust=0.5, size=12, color="#314963"),
+        plot.subtitle=element_text(hjust=0.5, size=10, color="#314963"),
+        legend.title=element_text(size=10),
+        legend.text = element_text(hjust=0),
+        axis.title.x = element_text(size=10, margin = margin(t = 5, r = 0,
+                                                             b = 10, l = 0)),
+        axis.title.y = element_text(size=10, margin = margin(t = 0, r = 10,
+                                                             b = 0, l = 0)),
+        axis.text=element_text(size=10),
+        axis.text.x=element_text(angle = -45, hjust = 0))
 # Create jitter object that sets the height and width
 # Sets seed to be reproducible
 plot_jitter <- position_jitter(width = 0.2, height = 0.2, seed=seed)
@@ -504,7 +504,7 @@ if(n==0){
 \newpage
 # Coral Percent Cover
 
-```{r show_plots, results='asis'}
+```{r show_plots, results='asis', echo=FALSE}
 # Ensure SpeciesRichness MA_OV_Stats file is being used
 MA_OV_Stats <- fread("output/PercentCover/Coral_PC_MA_Overall_Stats.txt")
 

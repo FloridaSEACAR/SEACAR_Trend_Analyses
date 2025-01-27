@@ -268,60 +268,60 @@ AreaID|ManagedAreaName|Year|Month|ParameterName|N_Data|Min|Max|Median|Mean|Stand
 12|Southeast Florida Coral Reef Ecosystem Conservation Area|2001|3|Species Richness|3|12|35|24|23.6666666666667|11.5036226178249|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Southeast Florida Coral Reef Ecosystem Conservation Area|2001|4|Species Richness|1|31|31|31|31||Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Southeast Florida Coral Reef Ecosystem Conservation Area|2001|5|Species Richness|5|8|53|35|29.6|18.4200977196105|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2001|6|Species Richness|6|10|62|45.5|41|21.6702561129305|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
+12|Southeast Florida Coral Reef Ecosystem Conservation Area|2001|6|Species Richness|6|10|62|45|40.8333333333333|21.7293963714289|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Southeast Florida Coral Reef Ecosystem Conservation Area|2001|7|Species Richness|4|27|281|50|102|119.869373347268|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Palm Beach County Artificial and Natural Reef Monitoring Program|915, 3024
 12|Southeast Florida Coral Reef Ecosystem Conservation Area|2001|8|Species Richness|7|2|33|15|19.5714285714286|12.0672717554155|Nonindigenous Aquatic Species Database, Palm Beach County Artificial and Natural Reef Monitoring Program|379, 3024
 12|Southeast Florida Coral Reef Ecosystem Conservation Area|2001|9|Species Richness|2|2|11|6.5|6.5|6.36396103067893|Nonindigenous Aquatic Species Database, Palm Beach County Artificial and Natural Reef Monitoring Program|379, 3024
 12|Southeast Florida Coral Reef Ecosystem Conservation Area|2001|10|Species Richness|2|42|47|44.5|44.5|3.53553390593274|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Southeast Florida Coral Reef Ecosystem Conservation Area|2001|12|Species Richness|3|16|21|18|18.3333333333333|2.51661147842358|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2002|1|Species Richness|2|33|59|46|46|18.3847763108502|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
+12|Southeast Florida Coral Reef Ecosystem Conservation Area|2002|1|Species Richness|2|32|59|45.5|45.5|19.0918830920368|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Southeast Florida Coral Reef Ecosystem Conservation Area|2002|3|Species Richness|2|2|2|2|2|0|Nonindigenous Aquatic Species Database|379
 12|Southeast Florida Coral Reef Ecosystem Conservation Area|2002|4|Species Richness|5|20|45|24|29.8|11.8406080924925|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Southeast Florida Coral Reef Ecosystem Conservation Area|2002|5|Species Richness|2|30|281|155.5|155.5|177.483802077823|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Palm Beach County Artificial and Natural Reef Monitoring Program|915, 3024
 12|Southeast Florida Coral Reef Ecosystem Conservation Area|2002|6|Species Richness|3|34|46|37|39|6.2449979983984|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Southeast Florida Coral Reef Ecosystem Conservation Area|2002|7|Species Richness|8|17|66|35.5|35.5|17.3205080756888|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2002|8|Species Richness|6|18|71|34|38.5|19.5320249846246|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
+12|Southeast Florida Coral Reef Ecosystem Conservation Area|2002|8|Species Richness|6|18|71|34|38.3333333333333|19.428501400434|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Southeast Florida Coral Reef Ecosystem Conservation Area|2002|9|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
 12|Southeast Florida Coral Reef Ecosystem Conservation Area|2002|11|Species Richness|1|38|38|38|38||Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Southeast Florida Coral Reef Ecosystem Conservation Area|2002|12|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
 12|Southeast Florida Coral Reef Ecosystem Conservation Area|2003|1|Species Richness|1|11|11|11|11||Palm Beach County Artificial and Natural Reef Monitoring Program|3024
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2003|2|Species Richness|6|4|51|25|25|17.3320512346346|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
+12|Southeast Florida Coral Reef Ecosystem Conservation Area|2003|2|Species Richness|6|4|51|24.5|24.8333333333333|17.3599155143874|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Southeast Florida Coral Reef Ecosystem Conservation Area|2003|3|Species Richness|2|44|66|55|55|15.556349186104|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Southeast Florida Coral Reef Ecosystem Conservation Area|2003|4|Species Richness|2|40|46|43|43|4.24264068711929|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2003|5|Species Richness|2|34|43|38.5|38.5|6.36396103067893|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
+12|Southeast Florida Coral Reef Ecosystem Conservation Area|2003|5|Species Richness|2|34|42|38|38|5.65685424949238|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Southeast Florida Coral Reef Ecosystem Conservation Area|2003|6|Species Richness|3|32|54|33|39.6666666666667|12.4230967690562|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Southeast Florida Coral Reef Ecosystem Conservation Area|2003|7|Species Richness|5|16|66|29|38|21.0594396886527|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Southeast Florida Coral Reef Ecosystem Conservation Area|2003|8|Species Richness|2|2|31|16.5|16.5|20.5060966544099|Nonindigenous Aquatic Species Database, Palm Beach County Artificial and Natural Reef Monitoring Program|379, 3024
 12|Southeast Florida Coral Reef Ecosystem Conservation Area|2003|9|Species Richness|3|2|51|33|28.6666666666667|24.7857485933617|Nonindigenous Aquatic Species Database, Palm Beach County Artificial and Natural Reef Monitoring Program|379, 3024
 12|Southeast Florida Coral Reef Ecosystem Conservation Area|2003|10|Species Richness|2|2|2|2|2|0|Nonindigenous Aquatic Species Database|379
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2003|11|Species Richness|1|51|51|51|51||Palm Beach County Artificial and Natural Reef Monitoring Program|3024
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2003|12|Species Richness|1|62|62|62|62||Palm Beach County Artificial and Natural Reef Monitoring Program|3024
+12|Southeast Florida Coral Reef Ecosystem Conservation Area|2003|11|Species Richness|1|50|50|50|50||Palm Beach County Artificial and Natural Reef Monitoring Program|3024
+12|Southeast Florida Coral Reef Ecosystem Conservation Area|2003|12|Species Richness|1|61|61|61|61||Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Southeast Florida Coral Reef Ecosystem Conservation Area|2004|2|Species Richness|4|2|61|30|30.75|24.971650592889|Nonindigenous Aquatic Species Database, Palm Beach County Artificial and Natural Reef Monitoring Program|379, 3024
 12|Southeast Florida Coral Reef Ecosystem Conservation Area|2004|3|Species Richness|2|35|50|42.5|42.5|10.6066017177982|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Southeast Florida Coral Reef Ecosystem Conservation Area|2004|4|Species Richness|1|30|30|30|30||Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Southeast Florida Coral Reef Ecosystem Conservation Area|2004|5|Species Richness|1|17|17|17|17||Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Southeast Florida Coral Reef Ecosystem Conservation Area|2004|6|Species Richness|2|22|35|28.5|28.5|9.19238815542512|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Southeast Florida Coral Reef Ecosystem Conservation Area|2004|7|Species Richness|3|14|73|31|39.3333333333333|30.3699412797149|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2004|8|Species Richness|2|50|53|51.5|51.5|2.12132034355964|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
+12|Southeast Florida Coral Reef Ecosystem Conservation Area|2004|8|Species Richness|2|49|53|51|51|2.82842712474619|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Southeast Florida Coral Reef Ecosystem Conservation Area|2004|9|Species Richness|2|281|281|281|281|0|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|915
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2004|10|Species Richness|4|23|65|42|43|18.1107702762748|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
+12|Southeast Florida Coral Reef Ecosystem Conservation Area|2004|10|Species Richness|4|23|64|42|42.75|17.7082843136576|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Southeast Florida Coral Reef Ecosystem Conservation Area|2004|12|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
 12|Southeast Florida Coral Reef Ecosystem Conservation Area|2005|1|Species Richness|2|2|2|2|2|0|Nonindigenous Aquatic Species Database|379
 12|Southeast Florida Coral Reef Ecosystem Conservation Area|2005|2|Species Richness|2|47|50|48.5|48.5|2.12132034355964|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2005|3|Species Richness|1|40|40|40|40||Palm Beach County Artificial and Natural Reef Monitoring Program|3024
+12|Southeast Florida Coral Reef Ecosystem Conservation Area|2005|3|Species Richness|1|39|39|39|39||Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Southeast Florida Coral Reef Ecosystem Conservation Area|2005|5|Species Richness|2|11|32|21.5|21.5|14.8492424049175|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2005|7|Species Richness|5|2|73|60|51.6|28.3954221662577|Nonindigenous Aquatic Species Database, Palm Beach County Artificial and Natural Reef Monitoring Program|379, 3024
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2005|8|Species Richness|1|19|19|19|19||Palm Beach County Artificial and Natural Reef Monitoring Program|3024
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2005|9|Species Richness|2|16|27|21.5|21.5|7.77817459305202|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
+12|Southeast Florida Coral Reef Ecosystem Conservation Area|2005|7|Species Richness|5|2|72|59|51|28.0089271483218|Nonindigenous Aquatic Species Database, Palm Beach County Artificial and Natural Reef Monitoring Program|379, 3024
+12|Southeast Florida Coral Reef Ecosystem Conservation Area|2005|8|Species Richness|1|18|18|18|18||Palm Beach County Artificial and Natural Reef Monitoring Program|3024
+12|Southeast Florida Coral Reef Ecosystem Conservation Area|2005|9|Species Richness|2|16|26|21|21|7.07106781186548|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Southeast Florida Coral Reef Ecosystem Conservation Area|2005|12|Species Richness|1|35|35|35|35||Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Southeast Florida Coral Reef Ecosystem Conservation Area|2006|1|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2006|2|Species Richness|3|27|57|53|45.6666666666667|16.2890556304942|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
+12|Southeast Florida Coral Reef Ecosystem Conservation Area|2006|2|Species Richness|3|27|57|52|45.3333333333333|16.0727512683216|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Southeast Florida Coral Reef Ecosystem Conservation Area|2006|5|Species Richness|9|29|281|281|200.111111111111|121.503543615448|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Palm Beach County Artificial and Natural Reef Monitoring Program|915, 3024
 12|Southeast Florida Coral Reef Ecosystem Conservation Area|2006|6|Species Richness|1|55|55|55|55||Palm Beach County Artificial and Natural Reef Monitoring Program|3024
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2006|7|Species Richness|5|2|74|62|52.2|28.6740300620614|Nonindigenous Aquatic Species Database, Palm Beach County Artificial and Natural Reef Monitoring Program|379, 3024
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2006|8|Species Richness|2|34|50|42|42|11.3137084989848|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
+12|Southeast Florida Coral Reef Ecosystem Conservation Area|2006|7|Species Richness|5|2|74|62|51.8|28.5166617962201|Nonindigenous Aquatic Species Database, Palm Beach County Artificial and Natural Reef Monitoring Program|379, 3024
+12|Southeast Florida Coral Reef Ecosystem Conservation Area|2006|8|Species Richness|2|33|50|41.5|41.5|12.0208152801713|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Southeast Florida Coral Reef Ecosystem Conservation Area|2006|9|Species Richness|3|25|39|26|30|7.81024967590665|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2006|10|Species Richness|2|42|62|52|52|14.142135623731|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
+12|Southeast Florida Coral Reef Ecosystem Conservation Area|2006|10|Species Richness|2|42|61|51.5|51.5|13.4350288425444|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Southeast Florida Coral Reef Ecosystem Conservation Area|2007|5|Species Richness|3|25|78|60|54.3333333333333|26.9505720409296|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Southeast Florida Coral Reef Ecosystem Conservation Area|2007|6|Species Richness|1|49|49|49|49||Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Southeast Florida Coral Reef Ecosystem Conservation Area|2007|7|Species Richness|2|17|58|37.5|37.5|28.9913780286485|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
