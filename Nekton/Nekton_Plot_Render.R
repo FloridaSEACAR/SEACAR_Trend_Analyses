@@ -14,6 +14,7 @@ library(tidyr)
 library(gridExtra)
 library(ggpubr)
 library(scales)
+library(stringr)
 
 # Gets directory of this script and sets it as the working directory
 wd <- dirname(getActiveDocumentContext()$path)
@@ -263,19 +264,22 @@ plot_theme <- theme_bw() +
         axis.text.x=element_text(angle = -45, hjust = 0))
 
 # Color palette for SEACAR
-color_palette <- c("#005396", "#0088B1", "#00ADAE", "#65CCB3", "#AEE4C1", "#FDEBA8", "#F8CD6D", "#F5A800", "#F17B00")
+color_palette <- c("#005396", "#0088B1", "#00ADAE", "#65CCB3", "#AEE4C1", 
+                   "#FDEBA8", "#F8CD6D", "#F5A800", "#F17B00")
 
-# Defines and sets variable with standardized gear colors for plots
-gear_colors <- c("Trawl (4.8 m)"=color_palette[1],
-                 "Trawl (6.1 m)"=color_palette[2],
-                 "Tow, Trawl, Diver Count (183 m)"=color_palette[3],
-                 "Tow, Trawl, Diver Count (6.1 m)"=color_palette[4])
-
-# Defines and sets variable with standardized gear shapes for plots
-gear_shapes <- c("Trawl (4.8 m)"=21,
-                 "Trawl (6.1 m)"=22,
-                 "Tow, Trawl, Diver Count (183 m)"=24,
-                 "Tow, Trawl, Diver Count (6.1 m)"=25)
+# Determine geartype palette and shapes dynamically
+# Combine type and size into one label for plots
+MA_Y_Stats$GearType_Plot <- paste0(MA_Y_Stats$GearType, " (",
+                                   MA_Y_Stats$GearSize_m, " m)")
+# Determine unique gear types to create palettes
+# gear_types <- unique(MA_Y_Stats$GearType_Plot)
+gear_types <- c("Trawl (4.8 m)","Trawl (6.1 m)","Seine (183 m)")
+# Trawl = triangle, seine = square
+gear_shapes <- c(24,24,22)
+# Trawl = #005396, Seine = #00ADAE
+gear_colors <- c("#005396","#005396","#00ADAE")
+names(gear_colors) <- gear_types
+names(gear_shapes) <- gear_types
 
 # Loop that cycles through each managed area with data
 if(n==0){
@@ -287,10 +291,6 @@ if(n==0){
     ma_abrev <- MA_All[ManagedAreaName==ma_i, Abbreviation]
     # Gets data for target managed area
     plot_data <- MA_Y_Stats[ManagedAreaName==ma_i, ]
-    # Gets the gear type(s) present for the managed area.
-    # Combine type and size into one label for plots
-    plot_data$GearType_Plot <- paste0(plot_data$GearType, " (",
-                                      plot_data$GearSize_m, " m)")
     # Determines most recent year with available data for managed area
     t_max <- max(MA_Ov_Stats[ManagedAreaName==ma_i, LatestYear])
     # Determines earliest recent year with available data for managed area
