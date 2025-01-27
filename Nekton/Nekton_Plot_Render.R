@@ -255,7 +255,7 @@ plot_theme <- theme_bw() +
         plot.title=element_text(hjust=0.5, size=12, color="#314963"),
         plot.subtitle=element_text(hjust=0.5, size=10, color="#314963"),
         legend.title=element_text(size=10),
-        legend.text.align = 0,
+        legend.text = element_text(hjust=0),
         axis.title.x = element_text(size=10, margin = margin(t = 5, r = 0,
                                                              b = 10, l = 0)),
         axis.title.y = element_text(size=10, margin = margin(t = 0, r = 10,
@@ -424,5 +424,5 @@ rmarkdown::render(input = "Nekton_SpeciesRichness.Rmd",
 
 #Removes unwanted files created in the rendering process
 unlink(paste0(out_dir, "/", file_out, ".md"))
-unlink(paste0(out_dir, "/", file_out, ".log"))
+unlink(paste0(file_out, ".log"))
 unlink(paste0(out_dir, "/", file_out, "_files"), recursive=TRUE)
