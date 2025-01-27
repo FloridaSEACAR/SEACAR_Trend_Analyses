@@ -247,7 +247,7 @@ plot_theme <- theme_bw() +
         plot.title=element_text(hjust=0.5, size=12, color="#314963"),
         plot.subtitle=element_text(hjust=0.5, size=10, color="#314963"),
         legend.title=element_text(size=10),
-        legend.text.align = 0,
+        legend.text = element_text(hjust=0),
         axis.title.x = element_text(size=10, margin = margin(t = 5, r = 0,
                                                              b = 10, l = 0)),
         axis.title.y = element_text(size=10, margin = margin(t = 0, r = 10,
@@ -256,18 +256,15 @@ plot_theme <- theme_bw() +
         axis.text.x=element_text(angle = -45, hjust = 0))
 
 # Color palette for SEACAR
-color_palette <- c("#005396", "#0088B1", "#00ADAE", "#65CCB3", "#AEE4C1",
+color_palette <- c("#005396", "#0088B1", "#00ADAE", "#65CCB3", "#AEE4C1", 
                    "#FDEBA8", "#F8CD6D", "#F5A800", "#F17B00")
+# All unique SpeciesGroup1 values get assigned a shape and color
+cw_groups <- sort(unique(MA_Y_Stats$SpeciesGroup1), decreasing = T)
 
-# Defines and sets variable with standardized group colors for plots
-group_colors <- c("Marsh"=color_palette[1],
-                  "Marsh succulents"=color_palette[2],
-                  "Mangroves and associates"=color_palette[3])
-
-# Defines and sets variable with standardized group shapes for plots
-group_shapes <- c("Marsh"=21,
-                  "Marsh succulents"=22,
-                  "Mangroves and associates"=24)
+group_colors <- color_palette[seq_len(length(cw_groups))]
+group_shapes <- c(21,22,24,25)
+names(group_colors) <- cw_groups
+names(group_shapes) <- cw_groups
 
 # Loop that cycles through each managed area with data
 if(n==0){
@@ -388,3 +385,4 @@ rmarkdown::render(input = "CoastalWetlands_SpeciesRichness.Rmd",
 #Removes unwanted files created in the rendering process
 unlink(paste0(out_dir, "/", file_out, ".md"))
 unlink(paste0(out_dir, "/", file_out, "_files"), recursive=TRUE)
+unlink(paste0(file_out, ".log"))
