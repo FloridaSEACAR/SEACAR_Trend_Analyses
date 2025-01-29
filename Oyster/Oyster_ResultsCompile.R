@@ -15,32 +15,22 @@ out_dir <- "output"
 #Read in file
 data <- fread(file_in, sep = ",", header = TRUE, stringsAsFactors = FALSE, na.strings = "")
 
-############
-# #Include only those that are BBpct
-# file_in <- file_list[grep("csv", file_list)]
-# 
-# 
-# #Read in file
-# data <- fread(file_in, sep = ",", header = TRUE, stringsAsFactors = FALSE, na.strings = "")
-# 
-# data <- data[data$Converged==1,]
-##############
-
 #Keep only rows that are values with "fixed" in the effect column
 data <- data[data$effect=="fixed" & !is.na(data$effect),]
 
 #For each managed area and species, get the LME intercept, slope, and p values
 table <- data %>%
       group_by(managed_area, indicator, live_date_qual, size_class, habitat_class) %>%
-      dplyr::summarise(Intercept = estimate[term == "(Intercept)"],
-                ModelEstimate = estimate[term == "RelYear" |
-                                       term == "meRelYearSampleAge_StdevgrEQQuadIdentifier"],
-                StandardError = std.error[term == "RelYear" |
-                                                term == "meRelYearSampleAge_StdevgrEQQuadIdentifier"],
-                LowerConfidence = conf.low[term == "RelYear" |
-                                                  term == "meRelYearSampleAge_StdevgrEQQuadIdentifier"],
-                UpperConfidence = conf.high[term == "RelYear" |
-                                                 term == "meRelYearSampleAge_StdevgrEQQuadIdentifier"])
+      dplyr::reframe(
+        Intercept = estimate[term == "(Intercept)"],
+        ModelEstimate = estimate[term == "RelYear" | 
+                                   term == "meRelYearSampleAge_StdevgrEQQuadIdentifier"],
+        StandardError = std.error[term == "RelYear" | 
+                                    term == "meRelYearSampleAge_StdevgrEQQuadIdentifier"],
+        LowerConfidence = conf.low[term == "RelYear" | 
+                                     term == "meRelYearSampleAge_StdevgrEQQuadIdentifier"],
+        UpperConfidence = conf.high[term == "RelYear" | 
+                                      term == "meRelYearSampleAge_StdevgrEQQuadIdentifier"])
 
 #Change column names to better match other outputs
 setnames(table, c("managed_area", "indicator", "size_class", "live_date_qual", "habitat_class"),

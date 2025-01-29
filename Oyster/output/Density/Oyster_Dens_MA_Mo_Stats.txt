@@ -1,22 +1,47 @@
 AreaID|ManagedAreaName|Month|ParameterName|ShellType|SizeClass|HabitatType|N_Data|Min|Max|Median|Mean|StandardDeviation|Programs|ProgramIDs
+2|Apalachicola Bay Aquatic Preserve|1|Density_m2|Live Oyster Shells||Restored|45|292|1144|540|580.355555555556|188.218098293582|RESTORE Oyster Cultch Recovery|5007
+2|Apalachicola Bay Aquatic Preserve|2|Density_m2|Live Oyster Shells||Restored|45|0|40|0|3.55555555555556|7.14637719902239|NRDA Oyster Cultch Recovery Project|4044
+2|Apalachicola Bay Aquatic Preserve|3|Density_m2|Live Oyster Shells||Restored|210|0|800|28|86.9904761904762|138.382625733996|NRDA Oyster Cultch Recovery Project|4044
+2|Apalachicola Bay Aquatic Preserve|4|Density_m2|Live Oyster Shells||Restored|255|0|700|20|82.4|128.376709443571|NRDA Oyster Cultch Recovery Project, RESTORE Oyster Cultch Recovery|4044, 5007
+2|Apalachicola Bay Aquatic Preserve|5|Density_m2|Live Oyster Shells||Restored|105|0|328|12|35.2380952380952|56.6150163230576|NRDA Oyster Cultch Recovery Project|4044
+2|Apalachicola Bay Aquatic Preserve|6|Density_m2|Live Oyster Shells||Restored|435|0|800|12|108.781609195402|160.537621047523|NRDA Oyster Cultch Recovery Project, RESTORE Oyster Cultch Recovery|4044, 5007
+2|Apalachicola Bay Aquatic Preserve|7|Density_m2|Live Oyster Shells||Restored|375|0|556|4|27.6373333333333|77.5184414376563|NRDA Oyster Cultch Recovery Project, RESTORE Oyster Cultch Recovery|4044, 5007
 2|Apalachicola Bay Aquatic Preserve|8|Density_m2|Live Oyster Shells||Natural|81|0|147|1|13.9876543209877|29.1815411806678|Deepwater Horizon NRDA Oyster Technical Working Group Oyster Quadrat Abundance Sampling|5073
+2|Apalachicola Bay Aquatic Preserve|8|Density_m2|Live Oyster Shells||Restored|210|0|84|0|5.21904761904762|13.7968729224384|NRDA Oyster Cultch Recovery Project|4044
+2|Apalachicola Bay Aquatic Preserve|9|Density_m2|Live Oyster Shells||Restored|285|0|200|8|22.4701754385965|32.7734969193284|NRDA Oyster Cultch Recovery Project|4044
 2|Apalachicola Bay Aquatic Preserve|10|Density_m2|Live Oyster Shells||Natural|34|0|772|12|64.7352941176471|141.943076260858|Deepwater Horizon NRDA Oyster Technical Working Group Oyster Quadrat Abundance Sampling|5073
+2|Apalachicola Bay Aquatic Preserve|10|Density_m2|Live Oyster Shells||Restored|120|0|148|6|17.7666666666667|29.0940905759671|NRDA Oyster Cultch Recovery Project|4044
 2|Apalachicola Bay Aquatic Preserve|11|Density_m2|Live Oyster Shells||Natural|120|0|990|0|49.875|147.162721491004|Deepwater Horizon NRDA Oyster Technical Working Group Oyster Quadrat Abundance Sampling, Distribution and Condition of Intertidal Eastern Oyster (Crassostrea virginica) Reefs in Apalachicola Bay Florida Based on High-Resolution Satellite Imagery|5063, 5073
+2|Apalachicola Bay Aquatic Preserve|11|Density_m2|Live Oyster Shells||Restored|210|0|1380|24|98.8380952380952|209.136988315128|NRDA Oyster Cultch Recovery Project|4044
+2|Apalachicola Bay Aquatic Preserve|12|Density_m2|Live Oyster Shells||Restored|255|0|368|24|55.9843137254902|75.7313927473954|NRDA Oyster Cultch Recovery Project, RESTORE Oyster Cultch Recovery|4044, 5007
+3|Apalachicola National Estuarine Research Reserve|1|Density_m2|Live Oyster Shells||Restored|45|292|1144|540|580.355555555556|188.218098293582|RESTORE Oyster Cultch Recovery|5007
+3|Apalachicola National Estuarine Research Reserve|2|Density_m2|Live Oyster Shells||Restored|45|0|40|0|3.55555555555556|7.14637719902239|NRDA Oyster Cultch Recovery Project|4044
+3|Apalachicola National Estuarine Research Reserve|3|Density_m2|Live Oyster Shells||Restored|210|0|800|28|86.9904761904762|138.382625733996|NRDA Oyster Cultch Recovery Project|4044
+3|Apalachicola National Estuarine Research Reserve|4|Density_m2|Live Oyster Shells||Restored|330|0|700|60|108.49696969697|130.683851289093|NRDA Oyster Cultch Recovery Project, RESTORE Oyster Cultch Recovery|4044, 5007
+3|Apalachicola National Estuarine Research Reserve|5|Density_m2|Live Oyster Shells||Restored|105|0|328|12|35.2380952380952|56.6150163230576|NRDA Oyster Cultch Recovery Project|4044
+3|Apalachicola National Estuarine Research Reserve|6|Density_m2|Live Oyster Shells||Restored|645|0|800|88|136.520930232558|156.27011655568|NRDA Oyster Cultch Recovery Project, RESTORE Oyster Cultch Recovery|4044, 5007
+3|Apalachicola National Estuarine Research Reserve|7|Density_m2|Live Oyster Shells||Restored|435|0|556|8|49.3793103448276|99.773804244141|NRDA Oyster Cultch Recovery Project, RESTORE Oyster Cultch Recovery|4044, 5007
 3|Apalachicola National Estuarine Research Reserve|8|Density_m2|Live Oyster Shells||Natural|113|0|290|1|18.0442477876106|39.1091397293091|Deepwater Horizon NRDA Oyster Technical Working Group Oyster Quadrat Abundance Sampling|5073
+3|Apalachicola National Estuarine Research Reserve|8|Density_m2|Live Oyster Shells||Restored|510|0|800|116|162.086274509804|179.05223197681|NRDA Oyster Cultch Recovery Project, RESTORE Oyster Cultch Recovery|4044, 5007
+3|Apalachicola National Estuarine Research Reserve|9|Density_m2|Live Oyster Shells||Restored|360|0|516|20|69|106.314821288599|NRDA Oyster Cultch Recovery Project, RESTORE Oyster Cultch Recovery|4044, 5007
 3|Apalachicola National Estuarine Research Reserve|10|Density_m2|Live Oyster Shells||Natural|45|0|772|4|59.7777777777778|135.136107968106|Deepwater Horizon NRDA Oyster Technical Working Group Oyster Quadrat Abundance Sampling|5073
+3|Apalachicola National Estuarine Research Reserve|10|Density_m2|Live Oyster Shells||Restored|120|0|148|6|17.7666666666667|29.0940905759671|NRDA Oyster Cultch Recovery Project|4044
 3|Apalachicola National Estuarine Research Reserve|11|Density_m2|Live Oyster Shells||Natural|197|0|2670|0|177.649746192893|450.186836681009|Deepwater Horizon NRDA Oyster Technical Working Group Oyster Quadrat Abundance Sampling, Distribution and Condition of Intertidal Eastern Oyster (Crassostrea virginica) Reefs in Apalachicola Bay Florida Based on High-Resolution Satellite Imagery|5063, 5073
+3|Apalachicola National Estuarine Research Reserve|11|Density_m2|Live Oyster Shells||Restored|210|0|1380|24|98.8380952380952|209.136988315128|NRDA Oyster Cultch Recovery Project|4044
 3|Apalachicola National Estuarine Research Reserve|12|Density_m2|Live Oyster Shells||Natural|12|0|3552|96|716|1105.48779854292|Apalachicola Bay Intertidal Oyster Sampling|5075
+3|Apalachicola National Estuarine Research Reserve|12|Density_m2|Live Oyster Shells||Restored|255|0|368|24|55.9843137254902|75.7313927473954|NRDA Oyster Cultch Recovery Project, RESTORE Oyster Cultch Recovery|4044, 5007
 8|Boca Ciega Bay Aquatic Preserve|12|Density_m2|Live Oyster Shells||Natural|30|0|2432|664|748.8|510.020310616528|Oyster Integrated Mapping and Monitoring Program (OIMMP) Pilot Monitoring Data|4020
-14|Estero Bay Aquatic Preserve|1|Density_m2|Live Oyster Shells||Natural|174|0|5152|560|720.752873563218|831.576191155625|Estero Bay Oyster Monitoring|4042
-14|Estero Bay Aquatic Preserve|2|Density_m2|Live Oyster Shells||Natural|34|0|6768|376|856.941176470588|1280.00721923098|Estero Bay Oyster Monitoring|4042
+14|Estero Bay Aquatic Preserve|1|Density_m2|Live Oyster Shells||Natural|249|0|5152|560|756.70281124498|892.45188721865|Estero Bay Oyster Monitoring|4042
+14|Estero Bay Aquatic Preserve|2|Density_m2|Live Oyster Shells||Natural|44|0|6768|288|716|1160.20399168663|Estero Bay Oyster Monitoring|4042
 14|Estero Bay Aquatic Preserve|3|Density_m2|Live Oyster Shells||Natural|10|16|2288|832|966.4|701.376931471231|Estero Bay Oyster Monitoring|4042
 14|Estero Bay Aquatic Preserve|3|Density_m2|Live Oyster Shells||Restored|30|0|1920|176|413.733333333333|517.236885191204|SCCF Oyster Restoration Monitoring|4012
 14|Estero Bay Aquatic Preserve|4|Density_m2|Live Oyster Shells||Natural|8|16|672|520|400|267.731208490904|Estero Bay Oyster Monitoring|4042
 14|Estero Bay Aquatic Preserve|6|Density_m2|Live Oyster Shells||Natural|16|0|1248|984|725.75|463.374218819592|Estero Bay Oyster Monitoring|4042
 14|Estero Bay Aquatic Preserve|10|Density_m2|Live Oyster Shells||Natural|5|16|1472|464|582.4|611.003109648388|Estero Bay Oyster Monitoring|4042
 14|Estero Bay Aquatic Preserve|11|Density_m2|Live Oyster Shells||Natural|6|0|1062|445.5|439.5|410.005731667254|Estero Bay Oyster Monitoring|4042
-19|Guana River Marsh Aquatic Preserve|1|Density_m2|Live Oyster Shells||Natural|24|560|4976|1360|1600|1034.47899089769|Guana Tolomato Matanzas NERR Oyster monitoring|4000
-19|Guana River Marsh Aquatic Preserve|2|Density_m2|Live Oyster Shells||Natural|41|208|3168|1408|1485.26829268293|806.889553296802|Guana Tolomato Matanzas NERR Oyster monitoring|4000
+19|Guana River Marsh Aquatic Preserve|1|Density_m2|Live Oyster Shells||Natural|48|64|4976|960|1140|914.522826396367|Guana Tolomato Matanzas NERR Oyster monitoring|4000
+19|Guana River Marsh Aquatic Preserve|2|Density_m2|Live Oyster Shells||Natural|98|32|3168|792|1016.32653061224|713.185546851115|Guana Tolomato Matanzas NERR Oyster monitoring|4000
+19|Guana River Marsh Aquatic Preserve|3|Density_m2|Live Oyster Shells||Natural|60|48|2336|648|732.533333333333|508.394864109687|Guana Tolomato Matanzas NERR Oyster monitoring|4000
 19|Guana River Marsh Aquatic Preserve|5|Density_m2|Live Oyster Shells||Natural|4|784|1056|888|904|121.501714665542|Guana Tolomato Matanzas NERR Oyster monitoring|4000
 19|Guana River Marsh Aquatic Preserve|6|Density_m2|Live Oyster Shells||Natural|22|112|4192|1280|1445.09090909091|968.953628508163|Guana Tolomato Matanzas NERR Oyster monitoring|4000
 19|Guana River Marsh Aquatic Preserve|7|Density_m2|Live Oyster Shells||Natural|90|0|3200|720|900.622222222222|713.505770750232|Guana Tolomato Matanzas NERR Oyster monitoring, Northern Coastal Basins and Mosquito Lagoon Oyster Condition Assessment|4000, 5017
@@ -24,35 +49,35 @@ AreaID|ManagedAreaName|Month|ParameterName|ShellType|SizeClass|HabitatType|N_Dat
 19|Guana River Marsh Aquatic Preserve|9|Density_m2|Live Oyster Shells||Natural|36|368|6848|1480|2119.55555555556|1618.81276503923|Guana Tolomato Matanzas NERR Oyster monitoring|4000
 19|Guana River Marsh Aquatic Preserve|10|Density_m2|Live Oyster Shells||Natural|21|304|3088|1120|1439.2380952381|823.688891800897|Guana Tolomato Matanzas NERR Oyster monitoring|4000
 19|Guana River Marsh Aquatic Preserve|12|Density_m2|Live Oyster Shells||Natural|9|800|4352|2000|1941.33333333333|1124.13522318269|Guana Tolomato Matanzas NERR Oyster monitoring|4000
-20|Guana Tolomato Matanzas National Estuarine Research Reserve|1|Density_m2|Live Oyster Shells||Natural|89|112|8448|1296|1528.26966292135|1291.0638034727|Guana Tolomato Matanzas NERR Oyster monitoring|4000
-20|Guana Tolomato Matanzas National Estuarine Research Reserve|2|Density_m2|Live Oyster Shells||Natural|68|208|3600|1512|1516.23529411765|757.944709471826|Guana Tolomato Matanzas NERR Oyster monitoring|4000
-20|Guana Tolomato Matanzas National Estuarine Research Reserve|3|Density_m2|Live Oyster Shells||Natural|24|752|4432|1640|1903.33333333333|923.099253538891|Guana Tolomato Matanzas NERR Oyster monitoring|4000
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|1|Density_m2|Live Oyster Shells||Natural|263|0|8448|592|859.376425855513|927.60298852884|Guana Tolomato Matanzas NERR Oyster monitoring|4000
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2|Density_m2|Live Oyster Shells||Natural|212|16|3600|784|978.339622641509|692.376659494079|Guana Tolomato Matanzas NERR Oyster monitoring|4000
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|3|Density_m2|Live Oyster Shells||Natural|168|0|4432|416|672.666666666667|726.160427225186|Guana Tolomato Matanzas NERR Oyster monitoring|4000
 20|Guana Tolomato Matanzas National Estuarine Research Reserve|5|Density_m2|Live Oyster Shells||Natural|12|464|3440|1408|1626.66666666667|959.353317541972|Guana Tolomato Matanzas NERR Oyster monitoring|4000
 20|Guana Tolomato Matanzas National Estuarine Research Reserve|6|Density_m2|Live Oyster Shells||Natural|107|0|4944|1072|1264.29906542056|918.29402138754|Guana Tolomato Matanzas NERR Oyster monitoring, Northern Coastal Basins and Mosquito Lagoon Oyster Condition Assessment|4000, 5017
-20|Guana Tolomato Matanzas National Estuarine Research Reserve|7|Density_m2|Live Oyster Shells||Natural|193|0|4896|880|1081.03626943005|840.769045112475|Guana Tolomato Matanzas NERR Oyster monitoring, Northern Coastal Basins and Mosquito Lagoon Oyster Condition Assessment|4000, 5017
-20|Guana Tolomato Matanzas National Estuarine Research Reserve|8|Density_m2|Live Oyster Shells||Natural|126|48|11104|1040|1431.36507936508|1527.1527211287|Guana Tolomato Matanzas NERR Oyster monitoring, Northern Coastal Basins and Mosquito Lagoon Oyster Condition Assessment|4000, 5017
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|7|Density_m2|Live Oyster Shells||Natural|196|0|4896|896|1106.5306122449|871.130385060717|Guana Tolomato Matanzas NERR Oyster monitoring, Northern Coastal Basins and Mosquito Lagoon Oyster Condition Assessment|4000, 5017
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|8|Density_m2|Live Oyster Shells||Natural|129|48|11104|1104|1495.93798449612|1572.27748699904|Guana Tolomato Matanzas NERR Oyster monitoring, Northern Coastal Basins and Mosquito Lagoon Oyster Condition Assessment|4000, 5017
 20|Guana Tolomato Matanzas National Estuarine Research Reserve|9|Density_m2|Live Oyster Shells||Natural|51|368|7440|1552|2092.54901960784|1640.08136766107|Guana Tolomato Matanzas NERR Oyster monitoring|4000
 20|Guana Tolomato Matanzas National Estuarine Research Reserve|10|Density_m2|Live Oyster Shells||Natural|21|304|3088|1120|1439.2380952381|823.688891800897|Guana Tolomato Matanzas NERR Oyster monitoring|4000
-20|Guana Tolomato Matanzas National Estuarine Research Reserve|12|Density_m2|Live Oyster Shells||Natural|39|464|9136|1232|2180.10256410256|2094.58117651077|Guana Tolomato Matanzas NERR Oyster monitoring|4000
-21|Indian River-Malabar to Vero Beach Aquatic Preserve|6|Density_m2|Live Oyster Shells||Natural|75|0|736|192|216.32|193.191975660118|Indian River Lagoon Oyster, Coastal Wetlands and Mangroves (MarineGEO site)|4016
-21|Indian River-Malabar to Vero Beach Aquatic Preserve|8|Density_m2|Live Oyster Shells||Natural|15|0|416|144|154.666666666667|137.193641390901|Indian River Lagoon Oyster, Coastal Wetlands and Mangroves (MarineGEO site)|4016
-22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|5|Density_m2|Live Oyster Shells||Natural|45|0|448|112|151.822222222222|137.916853886168|Indian River Lagoon Oyster, Coastal Wetlands and Mangroves (MarineGEO site)|4016
-22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|6|Density_m2|Live Oyster Shells||Natural|380|0|672|96|157.515789473684|162.259173324257|Indian River Lagoon Oyster, Coastal Wetlands and Mangroves (MarineGEO site)|4016
-22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|8|Density_m2|Live Oyster Shells||Natural|9|64|544|176|193.777777777778|146.083689864558|Indian River Lagoon Oyster, Coastal Wetlands and Mangroves (MarineGEO site)|4016
-23|Jensen Beach to Jupiter Inlet Aquatic Preserve|6|Density_m2|Live Oyster Shells||Natural|60|0|688|56|121.066666666667|154.659808926479|Indian River Lagoon Oyster, Coastal Wetlands and Mangroves (MarineGEO site)|4016
-23|Jensen Beach to Jupiter Inlet Aquatic Preserve|8|Density_m2|Live Oyster Shells||Natural|9|0|128|64|62.2222222222222|45.5680199750268|Indian River Lagoon Oyster, Coastal Wetlands and Mangroves (MarineGEO site)|4016
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|11|Density_m2|Live Oyster Shells||Natural|6|416|1440|888|925.333333333333|390.271016944209|Guana Tolomato Matanzas NERR Oyster monitoring|4000
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|12|Density_m2|Live Oyster Shells||Natural|93|0|9136|496|1083.69892473118|1655.05142298245|Guana Tolomato Matanzas NERR Oyster monitoring|4000
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|6|Density_m2|Live Oyster Shells||Natural|15|0|1840|448|615.466666666667|575.646452343136|Indian River Lagoon Oyster, Coastal Wetlands and Mangroves (MarineGEO site)|4016
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|8|Density_m2|Live Oyster Shells||Natural|3|64|1296|496|618.666666666667|625.093059738575|Indian River Lagoon Oyster, Coastal Wetlands and Mangroves (MarineGEO site)|4016
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|5|Density_m2|Live Oyster Shells||Natural|9|0|768|416|368|267.492055956808|Indian River Lagoon Oyster, Coastal Wetlands and Mangroves (MarineGEO site)|4016
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|6|Density_m2|Live Oyster Shells||Natural|63|0|1120|432|419.555555555556|275.910327752648|Indian River Lagoon Oyster, Coastal Wetlands and Mangroves (MarineGEO site)|4016
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|8|Density_m2|Live Oyster Shells||Natural|3|304|656|560|506.666666666667|181.959702498474|Indian River Lagoon Oyster, Coastal Wetlands and Mangroves (MarineGEO site)|4016
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|6|Density_m2|Live Oyster Shells||Natural|9|16|1120|256|405.333333333333|384.499674902333|Indian River Lagoon Oyster, Coastal Wetlands and Mangroves (MarineGEO site)|4016
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|8|Density_m2|Live Oyster Shells||Natural|3|192|400|208|266.666666666667|115.746850209124|Indian River Lagoon Oyster, Coastal Wetlands and Mangroves (MarineGEO site)|4016
 25|Lemon Bay Aquatic Preserve|5|Density_m2|Live Oyster Shells||Natural|165|0|3968|896|981.042424242424|748.368618832073|Sarasota County Comprehensive Oyster Monitoring Program|972
-25|Lemon Bay Aquatic Preserve|6|Density_m2|Live Oyster Shells||Natural|27|0|2496|816|833.185185185185|646.123412660046|Sarasota County Comprehensive Oyster Monitoring Program|972
+25|Lemon Bay Aquatic Preserve|6|Density_m2|Live Oyster Shells||Natural|42|0|2496|744|783.619047619048|606.524402918511|Sarasota County Comprehensive Oyster Monitoring Program|972
 25|Lemon Bay Aquatic Preserve|9|Density_m2|Live Oyster Shells||Natural|6|880|1712|1368|1333.33333333333|363.262256044675|Sarasota County Comprehensive Oyster Monitoring Program|972
-25|Lemon Bay Aquatic Preserve|10|Density_m2|Live Oyster Shells||Natural|117|0|3056|848|982.700854700855|753.791671404357|Sarasota County Comprehensive Oyster Monitoring Program|972
+25|Lemon Bay Aquatic Preserve|10|Density_m2|Live Oyster Shells||Natural|132|0|3456|856|999.878787878788|782.785153080006|Sarasota County Comprehensive Oyster Monitoring Program|972
 25|Lemon Bay Aquatic Preserve|11|Density_m2|Live Oyster Shells||Natural|57|0|2960|912|888.701754385965|670.631737482127|Sarasota County Comprehensive Oyster Monitoring Program|972
 25|Lemon Bay Aquatic Preserve|12|Density_m2|Live Oyster Shells||Natural|24|16|3600|672|978.666666666667|982.129481708283|Sarasota County Comprehensive Oyster Monitoring Program|972
-27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|7|Density_m2|Live Oyster Shells||Natural|76|0|1828|25|80.1578947368421|273.730721823794|Loxahatchee River Oyster Mapping and Recruitment|4014
-27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|8|Density_m2|Live Oyster Shells||Natural|65|0|896|36|84.3230769230769|164.010394839427|Loxahatchee River Oyster Mapping and Recruitment|4014
-27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|9|Density_m2|Live Oyster Shells||Natural|24|8|2780|79.5|220.875|552.170209462075|Loxahatchee River Oyster Mapping and Recruitment|4014
-27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|10|Density_m2|Live Oyster Shells||Natural|2|668|3604|2136|2136|2076.0655095637|Loxahatchee River Oyster Mapping and Recruitment|4014
-29|Mosquito Lagoon Aquatic Preserve|5|Density_m2|Live Oyster Shells||Natural|20|144|2096|584|867.2|615.895548218843|Northern Coastal Basins and Mosquito Lagoon Oyster Condition Assessment|5017
-29|Mosquito Lagoon Aquatic Preserve|6|Density_m2|Live Oyster Shells||Natural|150|48|2928|848|1002.45333333333|633.266556328892|Northern Coastal Basins and Mosquito Lagoon Oyster Condition Assessment|5017
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|7|Density_m2|Live Oyster Shells||Natural|77|5|73|25|27.5194805194805|14.7618020487537|Loxahatchee River Oyster Mapping and Recruitment|4014
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|8|Density_m2|Live Oyster Shells||Natural|62|0|192|33.5|42.6935483870968|35.874365801067|Loxahatchee River Oyster Mapping and Recruitment|4014
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|9|Density_m2|Live Oyster Shells||Natural|22|14|313|79.5|114.227272727273|89.4043419730628|Loxahatchee River Oyster Mapping and Recruitment|4014
+29|Mosquito Lagoon Aquatic Preserve|5|Density_m2|Live Oyster Shells||Natural|15|144|2096|512|714.666666666667|563.666906029067|Northern Coastal Basins and Mosquito Lagoon Oyster Condition Assessment|5017
+29|Mosquito Lagoon Aquatic Preserve|6|Density_m2|Live Oyster Shells||Natural|105|48|2928|864|1018.97142857143|645.390049879541|Northern Coastal Basins and Mosquito Lagoon Oyster Condition Assessment|5017
 30|Nassau River-St. Johns River Marshes Aquatic Preserve|5|Density_m2|Live Oyster Shells||Natural|3|256|496|320|357.333333333333|124.279255442464|Northern Coastal Basins and Mosquito Lagoon Oyster Condition Assessment|5017
 30|Nassau River-St. Johns River Marshes Aquatic Preserve|6|Density_m2|Live Oyster Shells||Natural|25|80|2416|608|904.96|697.103799061995|Northern Coastal Basins and Mosquito Lagoon Oyster Condition Assessment|5017
 30|Nassau River-St. Johns River Marshes Aquatic Preserve|7|Density_m2|Live Oyster Shells||Natural|14|80|1536|528|643.428571428571|424.953520406049|Northern Coastal Basins and Mosquito Lagoon Oyster Condition Assessment|5017
@@ -66,3 +91,6 @@ AreaID|ManagedAreaName|Month|ParameterName|ShellType|SizeClass|HabitatType|N_Dat
 43|St. Martins Marsh Aquatic Preserve|3|Density_m2|Live Oyster Shells||Natural|6|464|1792|1452|1320|494.649775093449|Assessment of Oysters and Barnacles Along the Chassahowitzka, Homosassa, and Lower Withlacoochee River Systems|5074
 45|Tomoka Marsh Aquatic Preserve|7|Density_m2|Live Oyster Shells||Natural|5|0|64|32|28.8|23.7318351587061|Northern Coastal Basins and Mosquito Lagoon Oyster Condition Assessment|5017
 47|Yellow River Marsh Aquatic Preserve|2|Density_m2|Live Oyster Shells||Natural|9|0|6|1|1.66666666666667|2.06155281280883|Deepwater Horizon NRDA Oyster Technical Working Group Oyster Quadrat Abundance Sampling|5073
+47|Yellow River Marsh Aquatic Preserve|7|Density_m2|Live Oyster Shells||Restored|30|0|196|22|48.1333333333333|51.9467454978278|NRDA Oyster Cultch Recovery Project|4044
+47|Yellow River Marsh Aquatic Preserve|10|Density_m2|Live Oyster Shells||Restored|15|0|56|4|9.33333333333333|14.8644670591441|NRDA Oyster Cultch Recovery Project|4044
+47|Yellow River Marsh Aquatic Preserve|11|Density_m2|Live Oyster Shells||Restored|30|88|336|186|180.8|66.7379848413904|NRDA Oyster Cultch Recovery Project|4044
