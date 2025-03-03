@@ -20,6 +20,9 @@ library(stringr)
 wd <- dirname(getActiveDocumentContext()$path)
 setwd(wd)
 
+# Create sample location maps? (for MA Report Generation & Atlas)
+create_maps <- TRUE
+
 source("../SEACAR_data_location.R")
 
 #Set output directory
@@ -51,6 +54,7 @@ cat(paste("The data file used is:", file_short, sep="\n"))
 # Filtering ----
 # Filter data for the desired parameter
 data <- data[ParameterName==param_name, ]
+nekton <- copy(data)
 
 if(param_name=="Presence/Absence"){
   parameter <- "Species Richness"
@@ -67,15 +71,26 @@ data <- data[data$EffortCorrection_100m2!=0,]
 # Remove any data with missing ResultValue entries
 data <- data[!is.na(data$ResultValue),]
 
+# Remove any values where SG2 is NULL
+data <- data[!is.na(data$SpeciesGroup2)]
+
+# What species / speciesgroups are included in each MA
+species <- data %>% 
+  group_by(ManagedAreaName, ProgramID, ProgramName, 
+           SpeciesGroup1, SpeciesGroup2, CommonIdentifier) %>%
+  reframe()
+fwrite(species, paste0(out_dir,"/Nekton_", param_file, "_Species.csv"), sep=",")
+
 # Create Species Richness values for groups of unique combinations of
 # ManagedAreaName, ProgramID, ProgramName, ProgramLocationID, SampleDate,
 # GearType, and GearSize_m.
 data <- data %>%
   group_by(AreaID, ManagedAreaName, ProgramID, ProgramName, ProgramLocationID,
-           SampleDate, GearType, GearSize_m) %>%
+           SampleDate, SpeciesGroup2, GearType, GearSize_m) %>%
+  filter(ResultValue==1) %>%
   summarise(ParameterName=parameter,
             Year=unique(Year), Month=unique(Month),
-            N_Species=sum(ResultValue),
+            N_Species = length(unique(CommonIdentifier)),
             EffortCorrection_100m2=as.numeric(unique(EffortCorrection_100m2)),
             SpeciesRichness=N_Species/unique(EffortCorrection_100m2),
             .groups = "keep")
@@ -267,20 +282,37 @@ plot_theme <- theme_bw() +
 color_palette <- c("#005396", "#0088B1", "#00ADAE", "#65CCB3", "#AEE4C1", 
                    "#FDEBA8", "#F8CD6D", "#F5A800", "#F17B00")
 
-# Determine geartype palette and shapes dynamically
-# Combine type and size into one label for plots
-MA_Y_Stats$GearType_Plot <- paste0(MA_Y_Stats$GearType, " (",
-                                   MA_Y_Stats$GearSize_m, " m)")
-# Determine unique gear types to create palettes
-# gear_types <- unique(MA_Y_Stats$GearType_Plot)
-gear_types <- c("Trawl (4.8 m)","Trawl (6.1 m)","Seine (183 m)")
-# Trawl = triangle, seine = square
-gear_shapes <- c(24,24,22)
-# Trawl = #005396, Seine = #00ADAE
-gear_colors <- c("#005396","#005396","#00ADAE")
-names(gear_colors) <- gear_types
-names(gear_shapes) <- gear_types
+# Modified version of MA_Y_Stats which includes SG2
+plot_data_all <- data %>%
+  group_by(AreaID, ManagedAreaName, Year, GearType, GearSize_m, SpeciesGroup2) %>%
+  summarize(ParameterName=parameter,
+            N_Data=length(na.omit(SpeciesRichness)),
+            Min=min(SpeciesRichness),
+            Max=max(SpeciesRichness),
+            Median=median(SpeciesRichness),
+            Mean=mean(SpeciesRichness),
+            StandardDeviation=sd(SpeciesRichness),
+            Programs=paste(sort(unique(ProgramName), decreasing=FALSE),
+                           collapse=', '),
+            ProgramIDs=paste(sort(unique(ProgramID), decreasing=FALSE),
+                             collapse=', '),
+            .groups = "keep") %>%
+  as.data.table()
 
+# Combine type and size into one label for plots
+plot_data_all$GearType_Plot <- paste0(plot_data_all$GearType, " (",
+                                      plot_data_all$GearSize_m, " m)")
+# All unique SG2 groups
+sg2 <- unique(plot_data_all$SpeciesGroup2)
+# Create palette for all SG2 values so it is consistent across all MAs
+sg2_palette <- color_palette[seq(1, length(sg2))]
+names(sg2_palette) <- sg2
+
+sg_common <- c("Cephalopods", "Cartilaginous fishes", "Decapod crustaceans", 
+               "Bony fishes", "Other Chordata", "Marine turtles")
+names(sg_common) <- sg2
+
+# remove_groups_df <- data.frame()
 # Loop that cycles through each managed area with data
 if(n==0){
   # Prints a statement if there are no managed areas with appropriate data
@@ -290,7 +322,20 @@ if(n==0){
     ma_i <- nekton_MA_Include[i]
     ma_abrev <- MA_All[ManagedAreaName==ma_i, Abbreviation]
     # Gets data for target managed area
-    plot_data <- MA_Y_Stats[ManagedAreaName==ma_i, ]
+    plot_data <- plot_data_all[ManagedAreaName==ma_i, ]
+    
+    # remove_groups <- plot_data %>% group_by(SpeciesGroup2) %>% 
+    #   reframe(pct = (sum(N_Data) / sum(plot_data$N_Data))*100, MA=ma_i)
+    
+    # Filter values <5% occurrence
+    remove_groups <- plot_data %>% 
+      group_by(SpeciesGroup2) %>% 
+      reframe(pct = (sum(N_Data) / sum(plot_data$N_Data))*100) %>%
+      filter(pct<1) %>% pull(unique(SpeciesGroup2))
+    plot_data <- plot_data %>% filter(!SpeciesGroup2 %in% remove_groups)
+    
+    # remove_groups_df <- bind_rows(remove_groups_df, remove_groups)
+    
     # Determines most recent year with available data for managed area
     t_max <- max(MA_Ov_Stats[ManagedAreaName==ma_i, LatestYear])
     # Determines earliest recent year with available data for managed area
@@ -338,32 +383,30 @@ if(n==0){
     # maximum value.
     y_max <- max(plot_data$Mean)+(0.1*y_range)
     
-    # Determines what combination of gear are present for managed area
-    # and subsets color and shape scheme to be used by plots.
-    # Used so only gear combinations present for managed area appear in
-    # the legend.
-    gear_colors_plot <- gear_colors[unique(plot_data$GearType_Plot)]
-    gear_shapes_plot <- gear_shapes[unique(plot_data$GearType_Plot)]
+    ## Legend labels - grab list of unique SG2 for this MA
+    sp_list <- unique(plot_data$SpeciesGroup2)
+    sp_list <- sp_list[order(match(sp_list, names(sg2_palette)))]
+    # Create common name labels for legend display
+    sp_labels <- sapply(sp_list, function(x){sg_common[[x]]})
     
     # Creates plot object using plot_data and grouping by the plot gear types.
     # Data is plotted as symbols with connected lines.
-    p1 <- ggplot(data=plot_data, group=as.factor(GearType_Plot)) +
-      geom_line(aes(x=Year, y=Mean, color=as.factor(GearType_Plot)),
-                size=0.75, alpha=1) +
-      geom_point(aes(x=Year, y=Mean, fill=as.factor(GearType_Plot),
-                     shape=as.factor(GearType_Plot)), size=2,
-                 color="#333333", alpha=1) +
+    p1 <- ggplot(data=plot_data, 
+                 aes(fill = SpeciesGroup2, y=Mean, x=Year)) +
+      geom_bar(position="stack", stat="identity") +
+      facet_wrap(~GearType_Plot, 
+                 nrow=2, ncol=1,
+                 strip.position = "right",
+                 scales = "free_y") +
       labs(title="Nekton Species Richness",
            subtitle=ma_i,
-           x="Year", y=bquote('Richness (species/100'*~m^{2}*')'),
-           fill="Gear type", color="Gear type", shape="Gear type") +
-      scale_x_continuous(limits=c(t_min-0.25, t_max+0.25),
-                         breaks=seq(t_max, t_min, brk)) +
-      scale_y_continuous(limits=c(y_min, y_max),
-                         breaks=pretty_breaks(n=5)) +
-      scale_fill_manual(values=gear_colors_plot) +
-      scale_color_manual(values=gear_colors_plot) +
-      scale_shape_manual(values=gear_shapes_plot) +
+           x="Year", y=bquote('Richness (species/100'*~m^{2}*')')) +
+      scale_fill_manual(name = "Species group",
+                        values = subset(sg2_palette, names(sg2_palette) %in% 
+                                          unique(plot_data$SpeciesGroup2)),
+                        labels = sp_labels) +
+      scale_x_continuous(limits = c(t_min-1, t_max+1),
+                         breaks = seq(t_max, t_min, brk)) +
       plot_theme
     # Sets file name of plot created
     outname <- paste0("Nekton_", param_file, "_", ma_abrev, ".png")
@@ -426,3 +469,7 @@ rmarkdown::render(input = "Nekton_SpeciesRichness.Rmd",
 unlink(paste0(out_dir, "/", file_out, ".md"))
 unlink(paste0(file_out, ".log"))
 unlink(paste0(out_dir, "/", file_out, "_files"), recursive=TRUE)
+
+if(create_maps){
+  source("Nekton_Create_Maps.R")
+}
