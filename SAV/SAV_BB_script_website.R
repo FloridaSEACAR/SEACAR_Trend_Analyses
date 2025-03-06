@@ -26,6 +26,9 @@ library(rstudioapi)
 wd <- dirname(getActiveDocumentContext()$path)
 setwd(wd)
 
+# Create sample location maps? (for MA Report Generation & Atlas)
+create_maps <- TRUE
+
 source("../seacar_data_location.R")
 
 #Create folder paths if not already created
@@ -307,113 +310,17 @@ modify_species_labels <- function(species_list, usenames) {
 }
 
 # Specify what to produce --------------
-EDA <- "no" #Create and export Exploratory Data Analysis plots ("maps and plots" = create all EDA output, 
-            #                                                   "maps" = create geographic scope maps only,
-            #                                                   "plots" = create data exploration plots only,
+EDA <- "no" #Create and export Exploratory Data Analysis plots ("plots" = create data exploration plots only,
             #                                                   "no" (or anything else) = skip all EDA output)
+# Choose whether to generate spatio-temporal scope plots for SAV locations
+scope_plots <- FALSE
+
+# Source in external SAV_scope_plots.R to run scope plot generation
+if(scope_plots){
+  source("SAV_scope_plots.R", echo=TRUE)
+}
 
 Analyses <- c("BB_pct", "PC", "PA") #Which analyses to run? c("BB_all," "BB_pct", "PC", "PO", and/or "PA") or c("none") for just EDA plotting
-
-if(str_detect(EDA, "maps")){
-  # Code source for original rotate sf function: https://www.mzes.uni-mannheim.de/socialsciencedatalab/article/geospatial-data/
-  #' Rotate simple features for 3D layers
-  #' Rotates a simple features layer using a shear matrix transformation on the 
-  #' \code{geometry} column. This can get nice for visualisation and works with
-  #' points, lines and polygons.
-  #'
-  #' @param data an object of class \code{sf}
-  #' @param x_add integer; x value to move geometry in space
-  #' @param y_add integer; x value to move geometry in space
-  #'
-  #' #' @importFrom magrittr %>%
-  
-  rotate_sf <- function(data, x_add = 0, y_add = 0, ma, coast = "Atlantic"){
-    
-    if(coast == "Atlantic"){
-      if(unique(ma) %in% c("Banana River", "Indian River-Malabar to Vero Beach", 
-                          "Indian River-Vero Beach to Ft. Pierce", "Jensen Beach to Jupiter Inlet", 
-                          "Mosquito Lagoon")){
-        shear_matrix <- function (x) { 
-          #matrix(c(2, 1.2, 0, 1), 2, 2)
-          # matrix(c(0.2, -0.3, 0.5, 0.7), 2, 2)
-          # matrix(c(0.2, -0.3, 0, 0.7), 2, 2)
-          matrix(c(1, 1.2, 0, 1), 2, 2)
-        }
-        
-        rotate_matrix <- function(x) { 
-          matrix(c(cos(x), sin(x), -sin(x), cos(x)), 2, 2) 
-        }
-        
-        data %>% 
-          dplyr::mutate(
-            geometry = 
-              # .$geometry * shear_matrix() * rotate_matrix(pi*0.6) + c(x_add, y_add)
-              .$geometry * shear_matrix() * rotate_matrix(pi*0.2) + c(x_add, y_add)
-          )
-      } else{
-        shear_matrix <- function (x) { 
-          #matrix(c(2, 1.2, 0, 1), 2, 2)
-          matrix(c(2, 1.2, 0, 1), 2, 2) 
-        }
-        
-        rotate_matrix <- function(x) { 
-          matrix(c(cos(x), sin(x), -sin(x), cos(x)), 2, 2) 
-        }
-        
-        data %>% 
-          dplyr::mutate(
-            geometry = 
-              .$geometry * shear_matrix() * rotate_matrix(pi/20) + c(x_add, y_add)
-          )
-      }
-      
-    } else{
-      shear_matrix <- function (x) { 
-        #matrix(c(2, 1.2, 0, 1), 2, 2)
-        matrix(c(2, -1.2, 0, 1), 2, 2) 
-      }
-      
-      rotate_matrix <- function(x) { 
-        matrix(c(cos(x), sin(x), -sin(x), cos(x)), 2, 2) 
-      }
-      
-      data %>% 
-        dplyr::mutate(
-          geometry = 
-            .$geometry * shear_matrix() * rotate_matrix(pi*1.98) + c(x_add, y_add)
-        )
-    }
-  }
-  
-  
-  #Create model objects, tables and plots for all MAs w/ >5 yrs of data-------------------------------------------------
-  #Load geospatial data
-  GeoDBdate <- "6june2023"
-  locs_pts <- st_read(here::here(paste0("SAV/mapping/SampleLocations", GeoDBdate, "/seacar_dbo_vw_SampleLocation_Point.shp")))
-  locs_lns <- st_read(here::here(paste0("SAV/mapping/SampleLocations", GeoDBdate, "/seacar_dbo_vw_SampleLocation_Line.shp")))
-  rcp <- st_read(here::here("SAV/mapping/orcp_all_sites/orcp_all_sites/ORCP_Managed_Areas.shp"))
-  counties <- st_read(here::here("SAV/mapping/FLCounties/Counties_-_Detailed_Shoreline.shp"))
-  corners <- fread(here::here("SAV/mapping/MApolygons_corners.csv"))
-  #add 20% of difference (xmax-xmin) to xmax to help prevent year labels from getting cut off map images and 10% to ymax
-  corners[, `:=` (xmax = xmax + (xmax-xmin)*0.25, ymax = ymax + (ymax-ymin)*0.1)]
-  
-  locs_pts <- st_make_valid(locs_pts)
-  locs_lns <- st_make_valid(locs_lns)
-  rcp <- st_make_valid(rcp)
-  counties <- st_make_valid(counties)
-  
-  locs_pts <- st_transform(locs_pts, crs = 4326)
-  locs_lns <- st_transform(locs_lns, crs = 4326)
-  rcp <- st_transform(rcp, crs = 4326)
-  counties <- st_transform(counties, crs = 4326)
-  
-  locs_pts_rcp <- locs_pts[rcp, , op = st_intersects]
-  locs_lns_rcp <- locs_lns[rcp, , op = st_intersects]
-  
-  pnames <- distinct(SAV4[, .(ProgramID, ProgramName)])
-  locs_pts_rcp <- merge(locs_pts_rcp, pnames, by = "ProgramID", all.x = TRUE)
-  locs_lns_rcp <- merge(locs_lns_rcp, pnames, by = "ProgramID", all.x = TRUE)
-}
 
 #Empty data.table to house names of any failed models generated below.
 failedmods <- data.table(model = character(),
@@ -506,7 +413,7 @@ plot_theme <- theme_bw() +
         plot.title = element_text(hjust = 0.5, size = 12, color = "#314963"),
         plot.subtitle = element_text(hjust = 0.5, size = 10, color = "#314963"),
         legend.title = element_text(size = 10),
-        legend.text.align = 0,
+        legend.text = element_text(hjust = 0),
         axis.title.x = element_text(size = 10, margin = margin(t = 5, r = 0,
                                                                b = 10, l = 0)),
         axis.title.y = element_text(size = 10, margin = margin(t = 0, r = 10,
@@ -630,7 +537,7 @@ for(p in parameters$column){
     cat(paste0("\nStarting MA: ", i, "\n"))
     
     #create data exploration plots-----------------------------------------------------
-    if(EDA %in% c("plots", "maps", "plots and maps")){
+    if(EDA %in% c("plots")){
       if(str_detect(EDA, "plots")){
         parvYear_bysp <- ggplot(data = SAV4[ManagedAreaName == i & !is.na(eval(p)), ],
                                 aes(x = Year, y = eval(p), color = analysisunit)) +
@@ -970,333 +877,6 @@ for(p in parameters$column){
                                         ifelse(stringr::str_detect(i, "NERR"), "ERR_boxplot_SGvMA.rds", 
                                                ifelse(stringr::str_detect(i, "NMS"), "MS_boxplot_SGvMA.rds", "AP_boxplot_SGvMA.rds")))))  
       }
-      
-      if(str_detect(EDA, "maps")){
-      
-        #Create map(s) for the managed area-------------------------------------------
-        
-        fl_i <- st_crop(counties, xmin = corners[ManagedAreaName == i, xmin], xmax = corners[ManagedAreaName == i, xmax], ymin = corners[ManagedAreaName == i, ymin], ymax = corners[ManagedAreaName == i, ymax])
-        # fl_i2 <- ggplot() +
-        #   geom_sf(data = fl_i, fill = "beige", color = "navajowhite3", lwd = 0.5, inherit.aes = FALSE)
-        # fl_i <- fl_i +
-        #   annotation_scale(
-        #     location = "tl",
-        #     bar_cols = c("grey60", "white"),
-        #     text_family = "Arial") #+
-        #   annotation_north_arrow(
-        #     location = "tr", 
-        #     which_north = "true",
-        #     pad_x = unit(0.4, "in"), pad_y = unit(0.4, "in"),
-        #     style = north_arrow_nautical(
-        #       fill = c("grey40", "white"),
-        #       line_col = "grey20",
-        #       text_family = "Arial"
-        #     )
-        #   )
-        
-        rcp_i <- subset(rcp, rcp$LONG_NAME == ifelse(stringr::str_detect(i, "NERR"), paste0(str_sub(i, 1, -6), " National Estuarine Research Reserve"), 
-                                                     ifelse(stringr::str_detect(i, "NMS"), paste0(str_sub(i, 1, -5), " National Marine Sanctuary"), 
-                                                            ifelse(str_detect(i, "Fort Clinch|Fort Pickens|Rocky Bayou|St. Andrews"), paste0(i, " State Park Aquatic Preserve"), paste0(i, " Aquatic Preserve")))))
-        
-        
-        #create scalebar and north arrow (https://stackoverflow.com/questions/34183049/plot-circle-with-a-certain-radius-around-point-on-a-map-in-ggplot2)
-        if(corners[ManagedAreaName == i, Coast[1]] == "Atlantic"){
-          wkm <- (abs(st_bbox(fl_i)[[4]]) - abs(st_bbox(fl_i)[[2]])) * (40075 / 360) #* cos((st_bbox(fl_i)[[2]] + (abs(st_bbox(fl_i)[[4]]) - abs(st_bbox(fl_i)[[2]]))/2)/57.3)
-          lonkm <- ifelse(wkm < 20, 3 / (40075 / 360), ifelse(wkm < 50, 5 / (40075 / 360),
-                          10 / (40075 / 360)))
-        } else{
-          wkm <- (abs(st_bbox(fl_i)[[1]]) - abs(st_bbox(fl_i)[[3]])) * (40075 / 360) * cos((st_bbox(fl_i)[[2]] + (abs(st_bbox(fl_i)[[4]]) - abs(st_bbox(fl_i)[[2]]))/2)/57.3)
-          lonkm <- ifelse(wkm < 20, 3 / ((40075 / 360) * cos((st_bbox(fl_i)[[2]] + (abs(st_bbox(fl_i)[[4]]) - abs(st_bbox(fl_i)[[2]]))/2)/57.3)), ifelse(wkm < 50, 5 / ((40075 / 360) * cos((st_bbox(fl_i)[[2]] + (abs(st_bbox(fl_i)[[4]]) - abs(st_bbox(fl_i)[[2]]))/2)/57.3)),
-                          10 / ((40075 / 360) * cos((st_bbox(fl_i)[[2]] + (abs(st_bbox(fl_i)[[4]]) - abs(st_bbox(fl_i)[[2]]))/2)/57.3))))
-        }
-        
-        # sbar <- st_linestring(x = matrix(c(st_bbox(fl_i)[[1]], st_bbox(fl_i)[[1]] + lon5km, st_bbox(fl_i)[[2]], st_bbox(fl_i)[[2]]), 2, 2), dim = "XYZ")
-        # sbar <- sfheaders::sf_linestring(obj = matrix(c(st_bbox(fl_i)[[1]], st_bbox(fl_i)[[1]] + lon5km, st_bbox(fl_i)[[2]], st_bbox(fl_i)[[2]]), 2, 2), x = 1, y = 2)
-        fl_i_bbox <- st_bbox(fl_i)
-        rcp_i_bbox <- st_bbox(rcp_i)
-        min_x <- min(fl_i_bbox$xmin, rcp_i_bbox$xmin)
-        max_x <- max(fl_i_bbox$xmax, rcp_i_bbox$xmax)
-        min_y <- min(fl_i_bbox$ymin, rcp_i_bbox$ymin)
-        max_y <- max(fl_i_bbox$ymax, rcp_i_bbox$ymax)
-        
-        if(corners[ManagedAreaName == i, Coast[1]] == "Atlantic"){
-          sbar <- data.table(x = max_x,
-                             y = c(min_y, min_y + lonkm))#c(min_y - (abs(max_y) - abs(min_y)) * 0.15, min_y - (abs(max_y) - abs(min_y)) * 0.15))
-          
-          x_sbarpos1 <- (abs(min_x) - abs(max_x)) * 0.6 
-          x_sbarpos2 <- (abs(min_x) - abs(max_x)) * 0.2 
-          y_sbarpos1 <- ifelse(((abs(max_y) - abs(min_y)) * 0.6) >= lonkm, 
-                               (abs(max_y) - abs(min_y)) * 0.6,
-                               (lonkm) + ((abs(max_y) - abs(min_y)) * 0.1)) 
-          y_sbarpos2 <- ifelse(((abs(max_y) - abs(min_y)) * 0.1) >= lonkm, 
-                               (abs(max_y) - abs(min_y)) * 0.1,
-                               (lonkm) + ((abs(max_y) - abs(min_y)) * 0.1)) 
-          
-        } else{
-          sbar <- data.table(x = c(min_x, min_x + lonkm),
-                             y = min_y)#c(min_y - (abs(max_y) - abs(min_y)) * 0.15, min_y - (abs(max_y) - abs(min_y)) * 0.15))
-        
-          x_sbarpos1 <- ifelse(((abs(min_x) - abs(max_x)) * 0.6) >= lonkm, 
-                               ((abs(min_x) - abs(max_x)) * 0.6),
-                               (lonkm) + ((abs(min_x) - abs(max_x)) * 0.1))
-          x_sbarpos2 <- ifelse(((abs(min_x) - abs(max_x)) * 0.2) >= lonkm, 
-                               ((abs(min_x) - abs(max_x)) * 0.2),
-                               (lonkm) + ((abs(min_x) - abs(max_x)) * 0.1))
-          y_sbarpos1 <- (abs(max_y) - abs(min_y)) * 0.6
-          y_sbarpos2 <- (abs(max_y) - abs(min_y)) * 0.1
-            
-        }
-        
-        
-        # x_sbarpos1 <- ifelse(((abs(min_x) - abs(max_x)) * 0.6) >= lonkm, 
-        #                      ((abs(min_x) - abs(max_x)) * 0.6),
-        #                      (lonkm) + ((abs(min_x) - abs(max_x)) * 0.1)) #/(lonkm/(max_x - min_x))
-        # x_sbarpos2 <- ifelse(((abs(min_x) - abs(max_x)) * 0.2) >= lonkm, 
-        #                      ((abs(min_x) - abs(max_x)) * 0.2),
-        #                      (lonkm) + ((abs(min_x) - abs(max_x)) * 0.1)) #/(lonkm/(max_x - min_x))
-        # y_sbarpos1 <- ifelse(((abs(max_y) - abs(min_y)) * 0.6) >= lonkm, 
-        #                      (abs(max_y) - abs(min_y)) * 0.6,
-        #                      (lonkm) + ((abs(max_y) - abs(min_y)) * 0.1)) #/(lonkm/(max_y - min_y))
-        # y_sbarpos2 <- ifelse(((abs(max_y) - abs(min_y)) * 0.1) >= lonkm, 
-        #                      (abs(max_y) - abs(min_y)) * 0.1,
-        #                      (lonkm) + ((abs(max_y) - abs(min_y)) * 0.1)) #/(lonkm/(max_y - min_y))
-        
-        sbar[, `:=` (x = fcase(corners[ManagedAreaName == i, Coast[1]] == "Gulf", x + x_sbarpos2, #(abs(min_x) - abs(max_x)) * ((lonkm/(max_x - min_x)) * x_sbarpos2),
-                               corners[ManagedAreaName == i, Coast[1]] == "Panhandle", x + x_sbarpos1, #(abs(min_x) - abs(max_x)) * ((lonkm/(max_x - min_x)) * x_sbarpos1),
-                               i %in% c("Banana River", "Indian River-Malabar to Vero Beach", "Indian River-Vero Beach to Ft. Pierce", "Jensen Beach to Jupiter Inlet", 
-                                        "Mosquito Lagoon"), x + x_sbarpos2, #(abs(min_x) - abs(max_x)) * ((lonkm/(max_x - min_x)) * x_sbarpos2),
-                               corners[ManagedAreaName == i, Coast[1]] == "Atlantic", x + x_sbarpos2), #(abs(min_x) - abs(max_x)) * ((lonkm/(max_x - min_x)) * x_sbarpos2)),
-                     y = fcase(corners[ManagedAreaName == i, Coast[1]] == "Gulf", y - y_sbarpos2, #(abs(max_y) - abs(min_y)) * ((lonkm/(max_y - min_y)) * y_sbarpos2),
-                               corners[ManagedAreaName == i, Coast[1]] == "Panhandle", y + y_sbarpos2, #(abs(max_y) - abs(min_y)) * ((lonkm/(max_y - min_y)) * y_sbarpos2),
-                               i %in% c("Banana River", "Indian River-Malabar to Vero Beach", "Indian River-Vero Beach to Ft. Pierce", "Jensen Beach to Jupiter Inlet", 
-                                        "Mosquito Lagoon"), y + y_sbarpos1, #(abs(max_y) - abs(min_y)) * ((lonkm/(max_y - min_y)) * y_sbarpos1),
-                               corners[ManagedAreaName == i, Coast[1]] == "Atlantic", y + y_sbarpos1)),#(abs(max_y) - abs(min_y)) * ((lonkm/(max_y - min_y)) * y_sbarpos1))), 
-             by = list(row.names(sbar))]
-
-        sbar <- st_as_sf(sbar, coords = c("x", "y"), crs = 4326)
-        sbar <- st_combine(sbar)
-        sbar <- st_cast(sbar, "LINESTRING")
-        sbar <- st_sf(sbar)
-        st_geometry(sbar) <- "geometry"
-        
-        if(corners[ManagedAreaName == i, Coast[1]] == "Atlantic"){
-          sbarlab <- data.table(x = st_bbox(sbar)$xmin + (abs(min_x) - abs(max_x)) * 0.15,
-                                y = st_bbox(sbar)$ymin + lonkm/3) #min_y)
-        } else {
-          sbarlab <- data.table(x = st_bbox(sbar)$xmin + lonkm/2,
-                                y = st_bbox(sbar)$ymin - (abs(max_y) - abs(min_y)) * 0.1) #min_y)
-        }
-        
-        # sbarlab[, `:=` (x = fcase(corners[ManagedAreaName == i, Coast[1]] == "Gulf", x + x_sbarpos2, #(abs(min_x) - abs(max_x)) * ((lonkm/(max_x - min_x)) * x_sbarpos2),
-        #                           corners[ManagedAreaName == i, Coast[1]] == "Panhandle", x + x_sbarpos1, #(abs(min_x) - abs(max_x)) * ((lonkm/(max_x - min_x)) * x_sbarpos1),
-        #                           i %in% c("Banana River", "Indian River-Malabar to Vero Beach", "Indian River-Vero Beach to Ft. Pierce", "Jensen Beach to Jupiter Inlet", 
-        #                                    "Mosquito Lagoon"), x + x_sbarpos2, #(abs(min_x) - abs(max_x)) * ((lonkm/(max_x - min_x)) * x_sbarpos2),
-        #                           corners[ManagedAreaName == i, Coast[1]] == "Atlantic", x + x_sbarpos2), #(abs(min_x) - abs(max_x)) * ((lonkm/(max_x - min_x)) * x_sbarpos2)),
-        #                 y = fcase(corners[ManagedAreaName == i, Coast[1]] == "Gulf", y - y_sbarpos2, #(abs(max_y) - abs(min_y)) * ((lonkm/(max_y - min_y)) * y_sbarpos2),
-        #                           corners[ManagedAreaName == i, Coast[1]] == "Panhandle", y - y_sbarpos2, #(abs(max_y) - abs(min_y)) * ((lonkm/(max_y - min_y)) * y_sbarpos2),
-        #                           i %in% c("Banana River", "Indian River-Malabar to Vero Beach", "Indian River-Vero Beach to Ft. Pierce", "Jensen Beach to Jupiter Inlet", 
-        #                                    "Mosquito Lagoon"), y + y_sbarpos1, #(abs(max_y) - abs(min_y)) * ((lonkm/(max_y - min_y)) * y_sbarpos1),
-        #                           corners[ManagedAreaName == i, Coast[1]] == "Atlantic", y + y_sbarpos1))] #(abs(max_y) - abs(min_y)) * ((lonkm/(max_y - min_y)) * y_sbarpos1)))]
-        # 
-        sbarlab <- st_as_sf(sbarlab, coords = c("x", "y"), crs = 4326)
-        
-        
-        if(corners[ManagedAreaName == i, Coast[1]] == "Atlantic"){
-          narrow <- data.table(x = c(st_bbox(sbar)$xmin,
-                                     st_bbox(sbar)$xmin,
-                                     st_bbox(sbar)$xmin,
-                                     st_bbox(sbar)$xmin + (abs(min_x) - abs(max_x)) * 0.055,
-                                     st_bbox(sbar)$xmin,
-                                     st_bbox(sbar)$xmin - (abs(min_x) - abs(max_x)) * 0.055),
-                               y = c((st_bbox(sbar)$ymin - ((abs(max_y) - abs(min_y)) * 0.15)),
-                                     (st_bbox(sbar)$ymin - ((abs(max_y) - abs(min_y)) * 0.075)),
-                                     (st_bbox(sbar)$ymin - ((abs(max_y) - abs(min_y)) * 0.075)),
-                                     (st_bbox(sbar)$ymin - ((abs(max_y) - abs(min_y)) * 0.075)) - (abs(min_x) - abs(max_x)) * 0.065,
-                                     (st_bbox(sbar)$ymin - ((abs(max_y) - abs(min_y)) * 0.075)),
-                                     (st_bbox(sbar)$ymin - ((abs(max_y) - abs(min_y)) * 0.075)) - (abs(min_x) - abs(max_x)) * 0.065))
-
-        } else{
-          narrow <- data.table(x = c((st_bbox(sbar)$xmin - ((abs(min_x) - abs(max_x)) * 0.075)), 
-                                     (st_bbox(sbar)$xmin - ((abs(min_x) - abs(max_x)) * 0.075)), 
-                                     (st_bbox(sbar)$xmin - ((abs(min_x) - abs(max_x)) * 0.075)), 
-                                     (st_bbox(sbar)$xmin - ((abs(min_x) - abs(max_x)) * 0.075)) - (abs(max_y) - abs(min_y)) * 0.05, 
-                                     (st_bbox(sbar)$xmin - ((abs(min_x) - abs(max_x)) * 0.075)), 
-                                     (st_bbox(sbar)$xmin - ((abs(min_x) - abs(max_x)) * 0.075)) + (abs(max_y) - abs(min_y)) * 0.05),
-                               y = c(st_bbox(sbar)$ymin, 
-                                     # min_y - (abs(max_y) - abs(min_y)) * 0.15, 
-                                     st_bbox(sbar)$ymin + (abs(max_y) - abs(min_y)) * 0.15,
-                                     st_bbox(sbar)$ymin + (abs(max_y) - abs(min_y)) * 0.15,
-                                     # min_y,
-                                     (st_bbox(sbar)$ymin + (abs(max_y) - abs(min_y)) * 0.15) - (abs(max_y) - abs(min_y)) * 0.065,
-                                     # min_y - (abs(max_y) - abs(min_y)) * 0.065, 
-                                     st_bbox(sbar)$ymin + (abs(max_y) - abs(min_y)) * 0.15,
-                                     # min_y, 
-                                     # min_y - (abs(max_y) - abs(min_y)) * 0.065,
-                                     (st_bbox(sbar)$ymin + (abs(max_y) - abs(min_y)) * 0.15) - (abs(max_y) - abs(min_y)) * 0.065))
-          
-        }
-
-        narrow <- st_as_sf(narrow, coords = c("x", "y"), crs = 4326)
-        narrow <- st_combine(narrow)
-        narrow <- st_cast(narrow, "LINESTRING")
-        narrow <- st_sf(narrow)
-        st_geometry(narrow) <- "geometry"
-        
-        if(corners[ManagedAreaName == i, Coast[1]] == "Atlantic"){
-          narlab <- data.table(x = st_bbox(sbarlab)$xmin,
-                               y = st_bbox(narrow)$ymin) #+ (abs(st_bbox(narrow)$ymax) - abs(st_bbox(narrow)$ymin)) / 5)
-        
-        } else{
-          narlab <- data.table(x = st_bbox(narrow)$xmin + (abs(st_bbox(narrow)$xmin) - abs(st_bbox(narrow)$xmax)) / 2,
-                               y = st_bbox(sbarlab)$ymin)
-          
-        }
-        # narlab[, `:=` (x = ifelse(corners[ManagedAreaName == i, Coast[1]] == "Gulf", x + (abs(min_x) - abs(max_x)) * 0.05,
-        #                           x + (abs(min_x) - abs(max_x)) * 0.91),
-        #                y = ifelse(corners[ManagedAreaName == i, Coast[1]] == "Gulf", y + (abs(max_y) - abs(min_y)) * 0.005,
-        #                           y + (abs(max_y) - abs(min_y)) * 0.005))]
-        narlab <- st_as_sf(narlab, coords = c("x", "y"), crs = 4326)
-        
-        
-        locs_pts_rcp_i <- locs_pts_rcp[rcp_i, , op = st_intersects]
-        locs_lns_rcp_i <- locs_lns_rcp[rcp_i, , op = st_intersects]
-        
-        yadd <- 0
-        startyear <- min(SAV4[ManagedAreaName == i & !is.na(eval(p)), Year])
-        base <- ggplot() +
-          geom_sf(data = rotate_sf(fl_i, ma = i, coast = corners[ManagedAreaName == i, Coast[1]]), fill = "beige", color = "navajowhite3", lwd = 0.5, inherit.aes = FALSE) +
-          geom_sf(data = rotate_sf(rcp_i, ma = i, coast = corners[ManagedAreaName == i, Coast[1]]), color = "grey50", fill = "powderblue", alpha = 0.35, lwd = 0.5, inherit.aes = FALSE) +
-          geom_sf(data = rotate_sf(sbar, ma = i, coast = corners[ManagedAreaName == i, Coast[1]]), color = "grey50", linewidth = 1.25, inherit.aes = FALSE) +
-          geom_sf(data = rotate_sf(narrow, ma = i, coast = corners[ManagedAreaName == i, Coast[1]]), color = "grey50", linewidth = 1, inherit.aes = FALSE) +
-          geom_sf_text(data = rotate_sf(sbarlab, ma = i, coast = corners[ManagedAreaName == i, Coast[1]]), label = ifelse(wkm < 20, "3 km", ifelse(wkm < 50, "5 km", "10 km")), hjust = 0.5, angle = 4, color = "grey50", size = 3.5, inherit.aes = FALSE) +
-          geom_sf_text(data = rotate_sf(narlab, ma = i, coast = corners[ManagedAreaName == i, Coast[1]]), label = "N", hjust = 0.7, angle = 4, color = "grey50", size = 3.5, inherit.aes = FALSE) +
-          # geom_text(data = sbarlab, 
-          #           aes(geometry = geometry, stat(X), stat(Y)),
-          #           label = "5 km",
-          #           stat = StatSfCoordinates,
-          #           # fun.geometry = rotate_sf,
-          #           size = 10) +
-          # annotation_scale(
-          #   location = "tl",
-          #   bar_cols = c("grey60", "white"),
-          #   text_family = "Arial") +
-          # annotation_north_arrow(
-          #   location = "tl", 
-          #   which_north = "true",
-          #   pad_x = unit(0.4, "in"), pad_y = unit(0.4, "in"),
-          #   style = north_arrow_nautical(
-          #     fill = c("grey40", "white"),
-          #     line_col = "grey20",
-          #     text_family = "Arial"
-          #   )
-          # ) +
-          scale_color_manual(values = subset(prcols, names(prcols) %in% unique(SAV4[ManagedAreaName == i & !is.na(eval(p)), ProgramName])), 
-                             aesthetics = c("color", "fill")) +
-          labs(title = ifelse(stringr::str_detect(i, "NERR"), paste0(str_sub(i, 1, -6), " National Estuarine Research Reserve"), 
-                              ifelse(stringr::str_detect(i, "NMS"), paste0(str_sub(i, 1, -5), " National Marine Sanctuary"), paste0(i, " Aquatic Preserve"))), 
-               fill = "Program name", color = "Program name") +
-          theme(panel.grid.major = element_line(colour = NA),
-                panel.grid.minor = element_line(colour = NA),
-                axis.text = element_blank(),
-                axis.ticks = element_blank(),
-                axis.title = element_blank(),
-                panel.background = element_rect(fill = NA),
-                plot.background = element_rect(colour = NA),
-                legend.position = "bottom",
-                legend.direction = "vertical")
-        ystart <- ifelse(corners[ManagedAreaName == i, Coast[1]] == "Atlantic", attributes(base$layers[[2]]$data$geometry)$bbox$ymax[[1]], attributes(base$layers[[2]]$data$geometry)$bbox$ymin[[1]])
-        xlab <- attributes(base$layers[[2]]$data$geometry)$bbox$xmax[[1]] + (attributes(base$layers[[2]]$data$geometry)$bbox$xmax[[1]] - attributes(base$layers[[2]]$data$geometry)$bbox$xmin[[1]])/50
-        MAcoords <- setDT(as.data.frame(st_coordinates(rcp_i)))
-        maxdist <- max(st_distance(st_as_sf(MAcoords[X == min(X), ], coords = c("X", "Y"), crs = 4326), st_as_sf(MAcoords[Y == max(Y), ], coords = c("X", "Y"), crs = 4326)),
-                       st_distance(st_as_sf(MAcoords[X == max(X), ], coords = c("X", "Y"), crs = 4326), st_as_sf(MAcoords[Y == min(Y), ], coords = c("X", "Y"), crs = 4326)),
-                       st_distance(st_as_sf(MAcoords[X == min(X), ], coords = c("X", "Y"), crs = 4326), st_as_sf(MAcoords[X == max(X), ], coords = c("X", "Y"), crs = 4326)),
-                       st_distance(st_as_sf(MAcoords[Y == min(Y), ], coords = c("X", "Y"), crs = 4326), st_as_sf(MAcoords[Y == max(Y), ], coords = c("X", "Y"), crs = 4326)))
-        area <- st_area(rcp_i)
-        xyratio <- as.numeric((area/maxdist)/maxdist)
-        
-        MApolycoords <- setDT(as.data.frame(st_coordinates(base$layers[[2]]$data)))
-        xmax_y <- MApolycoords[X == max(X), Y]
-        base <- base + annotate("text", x = xlab, y = xmax_y, label = paste0(startyear), hjust = "left")
-        
-        MApolycoords[, Xrnd := round(X, 3)][, ydists := max(Y) - min(Y), by = Xrnd]
-        maxydist <- max(MApolycoords$ydists) + ((max(MApolycoords$ydists)/25) / xyratio) 
-        
-        if(length(subset(locs_pts_rcp_i, locs_pts_rcp_i$LocationID %in% unique(SAV4[ManagedAreaName == i & !is.na(eval(p)) & Year == startyear, LocationID]))$LocationID) > 0){
-          base <- base +
-            geom_sf(data = rotate_sf(subset(locs_pts_rcp_i, locs_pts_rcp_i$LocationID %in% unique(SAV4[ManagedAreaName == i & !is.na(eval(p)) & Year == startyear, LocationID])),
-                                     ma = i, coast = corners[ManagedAreaName == i, Coast[1]]),
-                    aes(fill = droplevels(as.factor(ProgramName))), shape = 21, color = "black")
-        }
-        
-        if(length(subset(locs_lns_rcp_i, locs_lns_rcp_i$LocationID %in% unique(SAV4[ManagedAreaName == i & !is.na(eval(p)) & Year == startyear, LocationID]))$LocationID) > 0){
-          base <- base +
-            geom_sf(data = rotate_sf(subset(locs_lns_rcp_i, locs_lns_rcp_i$LocationID %in% unique(SAV4[ManagedAreaName == i & !is.na(eval(p)) & Year == startyear, LocationID])),
-                                     ma = i, coast = corners[ManagedAreaName == i, Coast[1]]),
-                    aes(color = droplevels(as.factor(ProgramName))), shape = 21)
-        }
-        
-        for(y in sort(unique(SAV4[ManagedAreaName == i & !is.na(eval(p)) & Year != startyear, Year]))){
-          base <- base +
-            geom_sf(data = rotate_sf(rcp_i, y_add = yadd + maxydist, ma = i, coast = corners[ManagedAreaName == i, Coast[1]]), 
-                    color = "grey50", fill = "powderblue", alpha = 0.65, lwd = 0.5, inherit.aes = FALSE) +
-            annotate("text", x = xlab, y = xmax_y + yadd + maxydist, label = y, hjust = "left")
-          
-          if(length(subset(locs_pts_rcp_i, locs_pts_rcp_i$LocationID %in% unique(SAV4[ManagedAreaName == i & !is.na(eval(p)) & Year == y, LocationID]))$LocationID) > 0){
-            base <- base +
-              geom_sf(data = rotate_sf(subset(locs_pts_rcp_i, locs_pts_rcp_i$LocationID %in% unique(SAV4[ManagedAreaName == i & !is.na(eval(p)) & Year == y, LocationID])),
-                                       y_add = yadd + maxydist, ma = i, coast = corners[ManagedAreaName == i, Coast[1]]), 
-                      aes(fill = droplevels(as.factor(ProgramName))), shape = 21, color = "black")
-          }
-          
-          if(length(subset(locs_lns_rcp_i, locs_lns_rcp_i$LocationID %in% unique(SAV4[ManagedAreaName == i & !is.na(eval(p)) & Year == startyear, LocationID]))$LocationID) > 0){
-            base <- base +
-              geom_sf(data = rotate_sf(subset(locs_lns_rcp_i, locs_lns_rcp_i$LocationID %in% unique(SAV4[ManagedAreaName == i & !is.na(eval(p)) & Year == startyear, LocationID])),
-                                       y_add = yadd + maxydist, ma = i, coast = corners[ManagedAreaName == i, Coast[1]]),
-                      aes(color = droplevels(as.factor(ProgramName))), shape = 21)
-          }
-          
-          yadd <- yadd + maxydist
-          startyear <- startyear + 1
-          ystart <- ystart + maxydist
-        }        
-        
-        saveRDS(base, here::here(paste0("SAV/output/Figures/BB/SAV_", parameters[column == p, type], "_", 
-                                        gsub('\\b(\\pL)\\pL{2,}|.','\\U\\1', i, perl = TRUE),
-                                        ifelse(stringr::str_detect(i, "NERR"), "ERR_map_bypr.rds", 
-                                               ifelse(stringr::str_detect(i, "NMS"), "MS_map_bypr.rds", "AP_map_bypr.rds")))))
-        
-        #Save image file versions of the maps
-        # nlayers <- 0
-        # for(k in seq_along(base$layers)){
-        #   class_k <- class(base$layers[[k]])[2]
-        #   if(class_k == 'Layer'){
-        #     nlayers <- nlayers + 1
-        #   } else{
-        #     next
-        #   }
-        # }
-        
-        base <- base +
-          theme(legend.position='bottom', 
-                legend.justification='left',
-                legend.direction='vertical')
-        
-        plotbuild <- ggplot_build(base)
-        hwratio <- (plotbuild$layout$panel_scales_y[[1]]$range$range[2] - plotbuild$layout$panel_scales_y[[1]]$range$range[1]) / (plotbuild$layout$panel_scales_x[[1]]$range$range[2] - plotbuild$layout$panel_scales_x[[1]]$range$range[1])
-        pwidth <- 6
-        
-        ggsave(filename = here::here(paste0("SAV/output/Figures/BB/img/SAV_", parameters[column == p, type], "_", 
-                                            gsub('\\b(\\pL)\\pL{2,}|.','\\U\\1', i, perl = TRUE),
-                                            ifelse(stringr::str_detect(i, "NERR"), "ERR_map_bypr.jpg", 
-                                                   ifelse(stringr::str_detect(i, "NMS"), "MS_map_bypr.jpg", "AP_map_bypr.jpg")))), 
-               plot = base,
-               width = pwidth, #6.1,
-               #height = 8 + nlayers - 5,
-               height = pwidth * hwratio, #yadd/maxydist,
-               units = "in",
-               dpi = 300,
-               limitsize = FALSE)
-      }  
     }
     
     if("none" %in% Analyses){
@@ -1655,7 +1235,6 @@ for(plot_type in plot_types){
     if(plot_type=="multiplot"){
       n_species <- length(unique(plot$data$analysisunit))
       species <- unique(plot$data$analysisunit)
-      print(species)
       if(n_species<4){
         h <- 4
       } else if(n_species<7){
@@ -1663,8 +1242,6 @@ for(plot_type in plot_types){
       } else {
         h <- 8
       }
-      print(paste0("Numspecies: ", n_species))
-      print(paste0("height: ", h))
     } else if(plot_type=="trendplot"){
       h <- 6
     } else {
@@ -1698,3 +1275,13 @@ setwd("output/website/images/")
 zip(zipfile=paste0("../SAVFigures_",usenames), 
     files=fig_list)
 setwd(wd)
+
+# LME Table convert
+# Combines all .rds objects and model results into SAV_BBpct_LMEresults_All
+source("SAV_BBpct_LME_tableconvert.R", echo=TRUE)
+
+## SAV Map generation
+# Maps are used within ManagedArea Reports
+if(create_maps){
+  source("SAV_Create_Maps.R", echo=TRUE)
+}

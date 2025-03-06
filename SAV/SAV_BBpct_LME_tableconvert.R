@@ -9,6 +9,8 @@ files <- list.files("output/tables/SAV", pattern="lmeresults", full.names=TRUE)
 #Include only those that are BBpct
 files <- files[grep("BBpct", files)]
 
+# Empty output file
+output <- data.table()
 #For loop cycles through each file name
 for (i in 1:length(files)) {
    #Get filename from list
@@ -25,7 +27,8 @@ for (i in 1:length(files)) {
       group_by(managed_area, species) %>%
       summarise(LME_Intercept = estimate[term == "(Intercept)"],
                 LME_Slope = estimate[term == "relyear"],
-                p = p.value[term == "relyear"])
+                p = p.value[term == "relyear"],
+                .groups = "keep")
    
    #If this is the first file, the table from above is stored as the output table
    #If not the first file, the table is added to the end of the output table
@@ -70,12 +73,16 @@ stats$StatisticalTrend[stats$SufficientData==TRUE & is.na(stats$LME_Slope)] <- "
 #drop rows where ManagedArea does not contain data
 stats <- stats[!apply(stats[, -c(1, 2), drop = FALSE], 1, function(row) all(is.na(row))), ]
 
+# Convert to common names
 stats$Species[stats$Species=="Thalassia testudinum"] <- "Turtle grass"
 stats$Species[stats$Species=="Syringodium filiforme"] <- "Manatee grass"
 stats$Species[stats$Species=="Halodule wrightii"] <- "Shoal grass"
 stats$Species[stats$Species=="Ruppia maritima"] <- "Widgeon grass"
 stats$Species[stats$Species=="Halophila engelmannii"] <- "Star grass"
 stats$Species[stats$Species=="Halophila decipiens"] <- "Paddle grass"
+
+# Change Unidentified Halophila to Halophila, unk.
+stats[Species=="Unidentified Halophila", Species := "Halophila, unk."]
 
 #Write output table to a pipe-delimited txt file
 fwrite(stats, "output/website/SAV_BBpct_LMEresults_All.txt", sep="|")

@@ -14,6 +14,9 @@ library(mgcv)
 library(cowplot)
 library(sf)
 
+# Load shape files from load_shape_files.R
+source("load_shape_files.R", echo = T)
+
 # set size of plot points
 pt_size <- 3
 
@@ -87,44 +90,13 @@ rotate_sf <- function(data, x_add = 0, y_add = 0, ma, coast = "Atlantic"){
   }
 }
 
-#Create model objects, tables and plots for all MAs w/ >5 yrs of data-------------------------------------------------
-#Load geospatial data
-# GeoDBdate <- "6june2023"
-# locs_pts <- st_read(here::here(paste0("data/shapes/SampleLocations", GeoDBdate, "/seacar_dbo_vw_SampleLocation_Point.shp")))
-# locs_lns <- st_read(here::here(paste0("data/shapes/SampleLocations", GeoDBdate, "/seacar_dbo_vw_SampleLocation_Line.shp")))
-# rcp <- st_read(here::here("data/shapes/orcp_all_sites/ORCP_Managed_Areas.shp"))
-# counties <- st_read(here::here("data/shapes/FLCounties/Counties_-_Detailed_Shoreline.shp"))
-# corners <- fread(here::here("data/shapes/MApolygons_corners.csv"))
-
-# The above lines now loaded using "load_shape_files.R"
-
-#add 20% of difference (xmax-xmin) to xmax to help prevent year labels from getting cut off map images and 10% to ymax
-corners[, `:=` (xmax = xmax + (xmax-xmin)*0.25, ymax = ymax + (ymax-ymin)*0.1)]
-
-locs_pts <- st_make_valid(locs_pts)
-locs_lns <- st_make_valid(locs_lns)
-rcp <- st_make_valid(rcp)
-counties <- st_make_valid(counties)
-
-locs_pts <- st_transform(locs_pts, crs = 4326)
-locs_lns <- st_transform(locs_lns, crs = 4326)
-rcp <- st_transform(rcp, crs = 4326)
-counties <- st_transform(counties, crs = 4326)
-
-locs_pts_rcp <- locs_pts[rcp, , op = st_intersects]
-locs_lns_rcp <- locs_lns[rcp, , op = st_intersects]
-
-pnames <- distinct(SAV4[, .(ProgramID, ProgramName)])
-locs_pts_rcp <- merge(locs_pts_rcp, pnames, by = "ProgramID", all.x = TRUE)
-locs_lns_rcp <- merge(locs_lns_rcp, pnames, by = "ProgramID", all.x = TRUE)
-
 MA_All <- fread("data/ManagedArea.csv", sep = ",", header = TRUE, stringsAsFactors = FALSE,
                 na.strings = "")
 
 #Create map(s) for the managed area-------------------------------------------
 
 for (i in unique(SAV4$ManagedAreaName)){
-# for (i in c("Terra Ceia Aquatic Preserve")){
+# for (i in c("Alligator Harbor Aquatic Preserve")){
   
   ma_abrev <- MA_All %>% filter(ManagedAreaName==i) %>% pull(Abbreviation)
   
@@ -338,8 +310,18 @@ for (i in unique(SAV4$ManagedAreaName)){
   
   years <- sort(unique(SAV4[ManagedAreaName == i & !is.na(BB_pct) & Year != startyear, Year]))
   total_years <- length(years)
-  num_col <- ifelse(i=="Biscayne Bay Aquatic Preserve", 2,
-                    ifelse(total_years<=12, 2, ifelse(total_years<=24, 3, 4)))
+  # num_col <- ifelse(i=="Biscayne Bay Aquatic Preserve", 2,
+  #                   ifelse(total_years<=12, 2, ifelse(total_years<=24, 3, 4)))
+  
+  # 2 cols
+  two_cols <- c("BBAP","BBSAP","BCBAP","BRAP","CHAP","CKRBAP","EBAP","FKNMS","LBAP","MLAP","PCAP","PISAP","TCAP","MPAP")
+  # 3 cols
+  three_cols <- c("GSCHAP","SMMAP","LRLWCAP","NCAP","PCAP")
+  # 5 cols
+  five_cols <- c("IRVBFPAP","IRMVBAP","JBJIAP")
+  
+  if(ma_abrev %in% two_cols){num_col<-2} else if(ma_abrev %in% three_cols){num_col<-3} else if(ma_abrev %in% five_cols){num_col<-5} else {num_col<-1}
+  
   rows_per_column <- ceiling(total_years / num_col)
   
   for(index in seq_along(years)){
@@ -378,14 +360,14 @@ for (i in unique(SAV4$ManagedAreaName)){
           legend.justification='left',
           legend.direction='vertical')
   
-  saveRDS(base, here::here(paste0("output/Figures/BB/maps/SAV_", 
+  saveRDS(base, paste0("output/Figures/SAV_temporal_scope_plots/rds/SAV_", 
                                   ma_abrev,
-                                  "_map_bypr.rds")))
+                                  "_map_bypr.rds"))
   
   
-  ggsave(filename = here::here(paste0("output/Figures/BB/img/SAV_",
+  ggsave(filename = paste0("output/Figures/SAV_temporal_scope_plots/SAV_",
                                       ma_abrev,
-                                      "_map_bypr.jpg")),
+                                      "_map_bypr.jpg"),
          plot = base,
          dpi = 300,
          limitsize = FALSE,

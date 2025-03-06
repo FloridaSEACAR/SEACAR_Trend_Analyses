@@ -1,17 +1,13 @@
 library(sf)
 # AP and NERR shapefiles
-source("scripts/SEACAR_data_location.R")
+source("../SEACAR_data_location.R")
 shape_files <- list.files(seacar_shape_location, full=TRUE)
 
 shape_locate <- function(location){return(paste0(seacar_shape_location, location))}
 
-# below are now defunct, use updated "rcp" shapefile
-# AP_shp <- st_read(shape_locate("APs/Florida_Aquatic_Preserves.shp"))
-# NERR_shp <- st_read(shape_locate("NERRs/Florida_National_Estuarine_Resarch_Reserves__NERR__Boundaries.shp"))
-
-GeoDBdate <- "6june2024"
-locs_pts <- st_read(shape_locate(paste0("/SampleLocations", GeoDBdate, "/vw_SampleLocation_Point62024.shp")))
-locs_lns <- st_read(shape_locate(paste0("/SampleLocations", GeoDBdate, "/vw_SampleLocation_Line62024.shp")))
+GeoDBdate <- "5dec2024"
+locs_pts <- st_read(shape_locate(paste0("/SampleLocations", GeoDBdate, "/seacar_dbo_vw_SampleLocation_Point.shp")))
+locs_lns <- st_read(shape_locate(paste0("/SampleLocations", GeoDBdate, "/seacar_dbo_vw_SampleLocation_Line.shp")))
 rcp <- st_read(shape_locate("/orcp_all_sites/ORCP_Managed_Areas.shp"))
 counties <- st_read(shape_locate("/FLCounties/Counties_-_Detailed_Shoreline.shp"))
 corners <- fread(shape_locate("/MApolygons_corners.csv"))
@@ -41,7 +37,7 @@ locs_lns_rcp <- merge(locs_lns_rcp, pnames, by = "ProgramID", all.x = TRUE)
 
 # Allows location of shapefile for each MA
 # Updated RCP shapefiles (including NCAP)
-find_shape <- function(ma){return(rcp %>% filter(LONG_NAME==ma))}
+find_shape <- function(rcp, ma){return(rcp %>% filter(LONG_NAME==ma))}
 
 # Gets coordinate min and max from shapefile
 # This allows for accurately setting view on the map
