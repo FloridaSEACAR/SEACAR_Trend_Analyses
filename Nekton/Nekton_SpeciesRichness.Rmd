@@ -510,10 +510,15 @@ if(n==0){
 MA_OV_Stats <- fread("output/Nekton_SpeciesRichness_MA_Overall_Stats.txt")
 
 nekton_sr_plots <- list.files("output/Figures", full.names = T, pattern=".png$")
+nekton_sr_maps <- list.files("output/maps", full.names = T, pattern=".png$")
 # Get plot function locates filepath
 get_plot <- function(ma){
   ma_abrev <- MA_All[ManagedAreaName==ma, Abbreviation]
   str_subset(nekton_sr_plots, paste0("_",ma_abrev))
+}
+get_map <- function(ma){
+  ma_abrev <- MA_All[ManagedAreaName==ma, Abbreviation]
+  str_subset(nekton_sr_maps, paste0("_",ma_abrev))
 }
 
 # Make table function shows trend results
@@ -552,6 +557,9 @@ for(ma in nekton_MA_Include){
   cat("![](", plot_loc,")")
   cat("  \n")
   make_table(ma)
+  cat("  \n")
+  map_loc <- get_map(ma)
+  cat("![](", map_loc,")")
   cat("  \n")
 }
 

@@ -12,7 +12,7 @@ library(ggplot2)
 library(scales)
 library(tidyr)
 library(gridExtra)
-library(ggpubr)
+# library(ggpubr)
 library(scales)
 library(stringr)
 
@@ -76,6 +76,7 @@ data <- data[!is.na(data$SpeciesGroup2)]
 
 # What species / speciesgroups are included in each MA
 species <- data %>% 
+  filter(ResultValue==1) %>%
   group_by(ManagedAreaName, ProgramID, ProgramName, 
            SpeciesGroup1, SpeciesGroup2, CommonIdentifier) %>%
   reframe()
@@ -327,7 +328,7 @@ if(n==0){
     # remove_groups <- plot_data %>% group_by(SpeciesGroup2) %>% 
     #   reframe(pct = (sum(N_Data) / sum(plot_data$N_Data))*100, MA=ma_i)
     
-    # Filter values <5% occurrence
+    # Filter values <1% occurrence
     remove_groups <- plot_data %>% 
       group_by(SpeciesGroup2) %>% 
       reframe(pct = (sum(N_Data) / sum(plot_data$N_Data))*100) %>%
@@ -436,15 +437,15 @@ if(n==0){
     ResultTable$Mean <- round(ResultTable$Mean, digits=2)
     ResultTable$StDev <- round(ResultTable$StDev, digits=2)
     # Stores as plot table object
-    t1 <- ggtexttable(ResultTable, rows = NULL,
-                      theme=ttheme(base_size=7))
+    # t1 <- ggtexttable(ResultTable, rows = NULL,
+                      # theme=ttheme(base_size=7))
     # Combines plot and table into one figure
-    print(ggarrange(p1, t1, ncol=1, heights=c(0.85, 0.15)))
+    # print(ggarrange(p1, t1, ncol=1, heights=c(0.85, 0.15)))
     
     # Add extra space at the end to prevent the next figure from being too
     # close. Does not add space after last plot
     if(i!=n){
-      cat("\n \n \n \n") 
+      cat("\n \n \n \n")
     }
   }
 }
