@@ -509,10 +509,15 @@ if(n==0){
 MA_OV_Stats <- fread("output/PercentCover/Coral_PC_MA_Overall_Stats.txt")
 
 coral_pc_plots <- list.files("output/PercentCover/Figures", full.names = T, pattern=".png$")
+coral_pc_maps <- str_subset(list.files("output/maps", full.names = T, pattern=".png$"), "_PC_")
 # Get plot function locates filepath
 get_plot <- function(ma){
   ma_abrev <- MA_All[ManagedAreaName==ma, Abbreviation]
   str_subset(coral_pc_plots, paste0("_",ma_abrev))
+}
+get_map <- function(ma){
+  ma_abrev <- MA_All[ManagedAreaName==ma, Abbreviation]
+  str_subset(coral_pc_maps, paste0("_",ma_abrev))
 }
 
 # Make table function shows trend results
@@ -549,6 +554,9 @@ for(ma in coral_pc_MA_Include){
   cat("![](", plot_loc,")")
   cat("  \n")
   make_table(ma)
+  cat("  \n")
+  map_loc <- get_map(ma)
+  cat("![](", map_loc,")")
   cat("  \n")
 }
 

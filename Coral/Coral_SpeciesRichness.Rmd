@@ -486,13 +486,18 @@ if(n==0){
 
 ```{r show_plots, results='asis', echo=FALSE}
 # Ensure SpeciesRichness MA_OV_Stats file is being used
-MA_OV_Stats <- fread("output/SpeciesRichness/Coral_SpeciesRichness_MA_Overall_Stats.txt")
+MA_Ov_Stats <- fread("output/SpeciesRichness/Coral_SpeciesRichness_MA_Overall_Stats.txt")
 
 coral_sr_plots <- list.files("output/SpeciesRichness/Figures", full.names = T, pattern=".png$")
+coral_sr_maps <- str_subset(list.files("output/maps", full.names = T, pattern=".png$"), "_SpeciesRichness_")
 # Get plot function locates filepath
 get_plot <- function(ma){
   ma_abrev <- MA_All[ManagedAreaName==ma, Abbreviation]
   str_subset(coral_sr_plots, paste0("_",ma_abrev))
+}
+get_map <- function(ma){
+  ma_abrev <- MA_All[ManagedAreaName==ma, Abbreviation]
+  str_subset(coral_sr_maps, paste0("_",ma_abrev))
 }
 
 # Make table function shows trend results
@@ -529,6 +534,9 @@ for(ma in coral_sr_MA_Include){
   cat("![](", plot_loc,")")
   cat("  \n")
   make_table(ma)
+  cat("  \n")
+  map_loc <- get_map(ma)
+  cat("![](", map_loc,")")
   cat("  \n")
 }
 

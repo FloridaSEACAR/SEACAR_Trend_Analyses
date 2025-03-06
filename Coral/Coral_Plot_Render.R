@@ -11,12 +11,16 @@ library(gridExtra)
 library(ggpubr)
 library(scales)
 library(nlme)
+library(stringr)
 options(scipen=999)
 
 # Coral Species Richness ----
 # Gets directory of this script and sets it as the working directory
 wd <- dirname(getActiveDocumentContext()$path)
 setwd(wd)
+
+# Create sample location maps? (for MA Report Generation & Atlas)
+create_maps <- TRUE
 
 source("../SEACAR_data_location.R")
 
@@ -47,13 +51,14 @@ cat(paste("The data file(s) used:", file_short, sep="\n"))
 
 # Make a copy of main data file to save for Coral Percent Cover
 data2 <- copy(data)
+coral_pc_data <- copy(data) # Save copy for use with maps (Percent Cover)
 
 ## Data Filtering ----
 # Only keep data for Presence of grazers and reef-dependent species
 data <- data[ParameterName=="Presence/Absence" & 
                SpeciesGroup1 %in% c("Grazers and reef dependent species", 
                                     "Reef fish"), ]
-
+coral_sr_data <- copy(data) # Save copy for use with maps (Species Richness)
 # Create ParameterName Column
 data$ParameterName <- "Species Richness"
 parameter <- "Species Richness"
@@ -611,7 +616,8 @@ lme_plot <- setDT(lme_plot[!is.na(lme_plot$y),])
 # Trendlines_ManagedArea ----
 # Create jitter object that sets the height and width
 # Sets seed to be reproducible
-plot_jitter <- position_jitter(width = 0.2, height = 0.2, seed=seed)
+# plot_jitter <- position_jitter(width = 0.2, height = 0.2, seed=seed)
+plot_jitter <- position_jitter(width = 0.2, height = 0, seed=seed)
 
 # Loop that cycles through each managed area with data
 if(n==0){
@@ -672,7 +678,7 @@ if(n==0){
                  position=plot_jitter, shape=21, size=2,
                  color="#333333", fill="#cccccc", alpha=1) +
       geom_line(data=lme_plot_data, aes(x=x, y=y),
-                color="#000099", size=2, alpha=0.8) +
+                color="#000099", size=1.2, alpha=0.7) +
       labs(title="Coral Percent Cover",
            subtitle=ma_i,
            x="Year", y="Percent cover (%)") +
@@ -732,6 +738,10 @@ setwd(paste0(out_dir, "/Figures"))
 zip("CoralPCFigures", files=fig_list)
 setwd(wd)
 
+if(create_maps){
+  source("Coral_Create_Maps.R")
+}
+
 # Render both reports
 report_types <- c("SpeciesRichness","PercentCover")
 for(report_type in report_types){
@@ -746,4 +756,5 @@ for(report_type in report_types){
   #Removes unwanted files created in the rendering process
   unlink(paste0(out_dir, "/", file_out, ".md"))
   unlink(paste0(out_dir, "/", file_out, "_files"), recursive=TRUE)
+  unlink(paste0(file_out, ".log"))
 }
