@@ -14,6 +14,9 @@ library(rstudioapi)
 wd <- dirname(getActiveDocumentContext()$path)
 setwd(wd)
 
+# Create sample location maps? (for MA Report Generation & Atlas)
+create_maps <- TRUE
+
 source("../SEACAR_data_location.R")
 
 #Sets abbreviation or label to be used in file names
@@ -48,10 +51,10 @@ data <- data[SpeciesGroup1 %in% keep_spg, ]
 # Create ParameterName Column
 data$ParameterName <- "Species Richness"
 parameter <- "Species Richness"
-
 # Sets units for species richness
 unit <- "# of species"
 data$ParameterUnits <- unit
+cw <- copy(data)
 
 # Remove rows with missing ManagedAreaName
 data <- data[!is.na(data$ManagedAreaName),]
@@ -371,6 +374,10 @@ fig_list <- list.files(paste0(out_dir, "/Figures"), pattern=".png", full=FALSE)
 setwd(paste0(out_dir, "/Figures"))
 zip("CoastalWetlandsFigures", files=fig_list)
 setwd(wd)
+
+if(create_maps){
+  source("CW_Create_Maps.R")
+}
 
 #Renders CoastalWetlands_SpeciesRichness.Rmd and writes the report to a pdf and 
 #Word document stored in output directory

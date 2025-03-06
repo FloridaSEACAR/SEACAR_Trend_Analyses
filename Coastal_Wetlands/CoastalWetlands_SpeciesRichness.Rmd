@@ -481,10 +481,15 @@ if(n==0){
 
 ```{r show_plots, results='asis'}
 cw_plots <- list.files("output/Figures", full.names = T, pattern=".png$")
+cw_maps <- list.files("output/maps", full.names = T, pattern=".png$")
 # Get plot function locates filepath
 get_plot <- function(ma){
   ma_abrev <- MA_All[ManagedAreaName==ma, Abbreviation]
   str_subset(cw_plots, paste0("_",ma_abrev))
+}
+get_map <- function(ma){
+  ma_abrev <- MA_All[ManagedAreaName==ma, Abbreviation]
+  str_subset(cw_maps, paste0("_",ma_abrev))
 }
 # Make table function shows trend results
 make_table <- function(ma){
@@ -520,6 +525,9 @@ for(ma in cw_MA_Include){
   cat("![](", plot_loc,")")
   cat("  \n")
   make_table(ma)
+  cat("  \n")
+  map_loc <- get_map(ma)
+  cat("![](", map_loc,")")
   cat("  \n")
 }
 
