@@ -3429,6 +3429,11 @@ subchunkify <- function(g, fig_height=9, fig_width=10, fig_cap) {
 
   cat(knitr::knit(text = knitr::knit_expand(text = sub_chunk), quiet = TRUE))
 }
+
+map_locs <- list.files("output/maps", full.names = T, pattern = ".png")
+get_maps <- function(indicator_short, ma_abrev){
+  str_subset(map_locs, paste0(indicator_short, "_", ma_abrev))
+}
 ```
 
 ```{r, Oyster figures, eval=T, echo=F, results='asis'}
@@ -3439,6 +3444,8 @@ cat("# Oyster Figures")
 cat("  \n")
 
 for(p in unique(oyster_includes$ParameterName)){
+  # Indicator short
+  indicator_short <- ifelse(p=="Density", "Dens", ifelse(p=="Percent Live", "PrcLive", "SH"))
   # parameter subset
   p_subset <- oyster_includes[ParameterName==p, ]
   cat("  \n")
@@ -3464,6 +3471,10 @@ for(p in unique(oyster_includes$ParameterName)){
         cat("  \n")
       }
     }
+    cat("  \n")
+    map_loc <- get_maps(indicator_short = indicator_short, ma_abrev = ma_abrev)
+    subchunkify(cat("![](", map_loc,")"))
+    cat("  \n")
   }
 }
 

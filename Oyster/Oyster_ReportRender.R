@@ -23,6 +23,13 @@ source("Oyster_Models.R")
 # Oyster_ResultsCompile.R to combine all results into single file (for Atlas)
 source("Oyster_ResultsCompile.R")
 
+# Determine whether to generate Oyster sampling maps (for SEACAR Atlas)
+create_maps <- TRUE
+
+if(create_maps){
+  source("Oyster_Create_Maps.R")
+}
+
 # Gets directory of this script and sets it as the working directory
 wd <- dirname(getActiveDocumentContext()$path)
 setwd(wd)
