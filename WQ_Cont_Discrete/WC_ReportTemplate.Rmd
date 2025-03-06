@@ -116,12 +116,21 @@ get_plot <- function(ma_short, parameter, type, pid){
   return(file)
 }
 
+#Get list of all WQ maps
+wq_maps <- list.files("output/maps/", recursive=T, full.names=T, pattern = ".png$")
+# Function to locate maps for a given ma / parameter
+get_map <- function(ma_short, indicator_short, param_short, type){
+  type <- tolower(type)
+  pattern <- paste0(type, "_", indicator_short, "_", param_short, "_", ma_short)
+  return(str_subset(wq_maps, pattern))
+}
+
 ```
 
 
 ```{r Discrete WQ Plot Function}
 
-plot_discrete <- function(p, a, d, parameter, skt_data, discrete_data, ma, ma_short, type) {
+plot_discrete <- function(p, a, d, parameter, skt_data, discrete_data, ma, ma_short, type, indicator_short) {
   
   skt_stats <- skt_data[ParameterName==parameter & RelativeDepth==d & ActivityType==a, ]
   data <- discrete_data[ParameterName==parameter & Include, ]
@@ -169,6 +178,8 @@ plot_discrete <- function(p, a, d, parameter, skt_data, discrete_data, ma, ma_sh
     print(result_table)
     cat("\n \n \n")
     
+    map_loc <- get_map(ma_short = ma_short, indicator_short = indicator_short, param_short = p, type = type)
+    cat("![](", map_loc,")")
     # Add extra space at the end to prevent the next figure from being too
     # close.
     cat("\n \n \n")
@@ -180,7 +191,7 @@ plot_discrete <- function(p, a, d, parameter, skt_data, discrete_data, ma, ma_sh
 
 ```{r Continuous WQ Plot Function}
 
-plot_continuous <- function(ma, cont_plot_data, param, parameter){
+plot_continuous <- function(ma, ma_short, cont_plot_data, param, parameter, indicator_short){
   
   data <- cont_plot_data[ManagedAreaName==ma & ParameterName==parameter, ]
   skt_stats <- skt_stats_cont[ManagedAreaName==ma & ParameterName==parameter, ]
@@ -231,6 +242,9 @@ plot_continuous <- function(ma, cont_plot_data, param, parameter){
         cat("![](", plot_loc,")")
         cat("  \n")
         print(result_table)
+        cat("  \n")
+        map_loc <- get_map(ma_short = ma_short, indicator_short = indicator_short, param_short = param, type = type)
+        cat("![](", map_loc,")")
         cat("\n \n \n")
       }
     } else {
@@ -263,7 +277,10 @@ plot_continuous <- function(ma, cont_plot_data, param, parameter){
       cat("![](", plot_loc,")")
       cat("  \n")
       print(result_table)
-      cat("\n \n \n")    
+      cat("  \n")
+      map_loc <- get_map(ma_short = ma_short, indicator_short = indicator_short, param_short = param, type = type)
+      cat("![](", map_loc,")")
+      cat("\n \n \n")
     }
   }
   
@@ -286,6 +303,7 @@ for(indicator in unique(websiteParams$IndicatorName)){
     filteredSubset <- indicator_subset[i]
     parameter <- filteredSubset$ParameterName
     param_short <- filteredSubset$ParameterShort
+    indicator_short <- filteredSubset$IndicatorShort
     unit <- filteredSubset$ParameterUnits
     type <- filteredSubset$SamplingFrequency
     activity <- filteredSubset$ActivityType
@@ -299,15 +317,17 @@ for(indicator in unique(websiteParams$IndicatorName)){
     
     if(type=="Continuous"){
       plot_continuous(
-        ma = ma, cont_plot_data = cont_plot_data,
-        param = param_short, parameter = parameter)
+        ma = ma, ma_short = ma_short, cont_plot_data = cont_plot_data,
+        param = param_short, parameter = parameter,
+        indicator_short = indicator_short)
     }
     
     if(type=="Discrete"){
       plot_discrete(
         p = param_short, a = activity, d = depth, parameter = parameter,
         skt_data = skt_data, discrete_data = discrete_data,
-        ma = ma, ma_short = ma_short, type = type)
+        ma = ma, ma_short = ma_short, type = type, 
+        indicator_short = indicator_short)
     }
   }
 }

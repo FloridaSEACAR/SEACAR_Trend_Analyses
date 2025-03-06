@@ -5,7 +5,6 @@ library(ggplot2)
 library(tictoc)
 library(rstudioapi)
 library(lubridate)
-library(ggpubr)
 library(scales)
 library(EnvStats)
 library(tidyr)
@@ -13,6 +12,7 @@ library(glue)
 library(grid)
 library(leaflet)
 library(mapview)
+library(sf)
 
 # Gets directory of this script and sets it as the working directory
 wd <- dirname(getActiveDocumentContext()$path)
@@ -88,6 +88,57 @@ websiteParams <- websiteParams %>%
                                            "Chlorophyll a, Corrected for Pheophytin", "Secchi Depth", "Colored Dissolved Organic Matter"))) %>%
   filter(Website==1)
 setDT(websiteParams)
+
+# Load in Database_Thresholds output from IndicatorQuantiles
+# Quantiles are applied only to the viewing windows when final plots are displayed.
+# Does not influence / remove values from analyses
+db_thresholds <- setDT(openxlsx::read.xlsx("../../IndicatorQuantiles/output/ScriptResults/Database_Thresholds.xlsx", startRow = 6))
+db_thresholds <- db_thresholds[Habitat=="Water Column" & IndicatorName!="Nekton" & 
+                                 ParameterName!=	"Fluorescent dissolved organic matter, FDOM" &
+                                 ThresholdID!=31, 
+                               c("CombinedTable", "ParameterName", "LowQuantile", "HighQuantile")]
+# Create function to retrieve high and low quantile values
+set_view_window <- function(plot_data, type = "Discrete WQ"){
+  param <- unique(plot_data$ParameterName)
+  # Invert sign for Secchi Depth calculation
+  if(param=="Secchi Depth"){plot_data$Mean <- -plot_data$Mean}
+  # Grab min and max Y values from data
+  miny <- min(plot_data$Mean)
+  maxy <- max(plot_data$Mean)
+  # Grab quantile limits for a given parameter
+  low_q <- db_thresholds[ParameterName==param & CombinedTable==type, LowQuantile]
+  high_q <- db_thresholds[ParameterName==param & CombinedTable==type, HighQuantile]
+  # Is the lowest value below quantile limit?
+  if(miny<low_q){
+    # If so, use the next lowest value not below limit
+    miny <- plot_data %>% filter(!Mean < low_q) %>% pull(Mean) %>% min()
+  }
+  # Check to see if the lowest value conflicts with trendline values (if trendline exists)
+  # This ensures that the entire trendline is shown, even when it starts below the values
+  if(TRUE %in% unique(plot_data$SufficientData)){
+    if(miny>min(plot_data$start_y, na.rm = T) | miny>min(plot_data$end_y, na.rm = T)){
+      miny <- min(min(plot_data$start_y, na.rm = T), min(plot_data$end_y, na.rm = T))
+    }  
+  }
+  # Is the highest value above quantile limit?
+  if(maxy>high_q){
+    # If so, use the next highest value not above limit
+    maxy <- plot_data %>% filter(!Mean > high_q) %>% pull(Mean) %>% max()
+  }
+  # Check to see if the highest value conflicts with trendline values (if trendline exists)
+  # This ensures that the entire trendline is shown, even when it starts above the values
+  if(TRUE %in% unique(plot_data$SufficientData)){
+    if(maxy<max(plot_data$start_y, na.rm = T) | maxy<max(plot_data$end_y, na.rm = T)){
+      maxy <- max(max(plot_data$start_y, na.rm = T), max(plot_data$end_y, na.rm = T))
+    }  
+  }
+  # Uninvert sign for Secchi Depth (flip min and max, ensure 0 at top)
+  if(param=="Secchi Depth"){
+    miny <- -maxy
+    maxy <- 0
+  }
+  return(c(miny, maxy))
+}
 
 # Short parameter names for selecting .rds objects
 all_params_short <- unique(websiteParams$ParameterShort)
@@ -389,7 +440,7 @@ breaks <- function(plot_data, type="Discrete", ret="break"){
   }
 }
 # function to plot discrete trendlines
-plot_trendlines <- function(p, a, d, activity_label, depth_label, y_labels, parameter, skt_data, discrete_data) {
+plot_trendlines <- function(p, a, d, activity_label, depth_label, y_labels, parameter, skt_data, discrete_data){
   # SKT data
   skt_stats <- skt_data[ParameterName==parameter & RelativeDepth==d & ActivityType==a, ]
   # plot data
@@ -420,7 +471,7 @@ plot_trendlines <- function(p, a, d, activity_label, depth_label, y_labels, para
   setDT(KT.Plot)
   
   if (nrow(data) == 0) {invisible()} else {
-    cat(glue("### {parameter} - {type}"))
+    cat(glue("## {parameter} - {type} \n"))
     
     # Gets data to be used in plot for managed area
     plot_data <- merge(data, KT.Plot, by=c("ManagedAreaName"), all=TRUE)
@@ -450,7 +501,10 @@ plot_trendlines <- function(p, a, d, activity_label, depth_label, y_labels, para
                          drop = TRUE) +
       plot_theme +
       guides(col = guide_legend(order = 1), 
-             shape = guide_legend(order = 2, override.aes = list(linetype = NA)))
+             shape = guide_legend(order = 2, override.aes = list(linetype = NA))) + 
+      coord_cartesian(ylim = set_view_window(plot_data, "Discrete WQ"))
+      # {if(parameter=="Secchi Depth"){ylim(c(min(plot_data$Mean), 0))}} # Adjust Y-axis for (inverted) secchi depth to always display 0 at top 
+    
     # Save png
     areaID <- MA_All[Abbreviation==ma_short, AreaID]
     pvID <- websiteParams[SamplingFrequency=="Discrete" & ParameterName==parameter, ParameterVisId]
@@ -475,7 +529,7 @@ plot_trendlines_cont_combined <- function(ma, cont_plot_data, param, y_labels, p
   data <- cont_plot_data[ManagedAreaName==ma & ParameterName==parameter, ]
   # Only perform operations when there are stations to plot
   if(length(unique(data$ProgramLocationID))>0){
-    cat(glue("### {parameter} - {type}"))
+    cat(glue("## {parameter} - {type}\n"))
     
     # Set variables for fileName convention
     areaID <- MA_All[ManagedAreaName==ma, AreaID]
@@ -513,7 +567,8 @@ plot_trendlines_cont_combined <- function(ma, cont_plot_data, param, y_labels, p
           scale_color_manual(values = 1:n) + 
           labs(shape = "Program location", linetype = "Program location", color = "Program location") + 
           plot_theme +
-          theme(legend.text = element_text(size = 7))
+          theme(legend.text = element_text(size = 7)) +
+          coord_cartesian(ylim = set_view_window(plot_data, "Continuous WQ"))
         
         # save fig
         fileName <- paste0(filePath, "ma-", areaID, "-pv-", pvID, ".", prog_n, ".png")
@@ -553,7 +608,8 @@ plot_trendlines_cont_combined <- function(ma, cont_plot_data, param, y_labels, p
                              override.aes = list(shape = NA, colour = c(sig_color, nonsig_color))),
           shape = guide_legend("Program location", order = 1),
           linetype = guide_legend("Program location", order = 1)
-        )
+        ) +
+        coord_cartesian(ylim = set_view_window(plot_data, "Continuous WQ"))
       
       # save fig
       fileName <- paste0(filePath, "ma-", areaID, "-pv-", pvID, ".png")
@@ -572,11 +628,6 @@ cont_managed_areas <- skt_stats_cont[!is.na(ProgramID), unique(ManagedAreaName)]
 if(save_plots){
   # Loop through list of managed areas
   for(ma in all_managed_areas){
-  # for(ma in c("Cape Romano-Ten Thousand Islands Aquatic Preserve",
-  #             "Rookery Bay National Estuarine Research Reserve",
-  #             "Big Bend Seagrasses Aquatic Preserve",
-  #             "Florida Keys National Marine Sanctuary",
-  #             "Southeast Florida Coral Reef Ecosystem Conservation Area")){
     print(ma)
     # determine which analyses to run for each MA
     # variables will be input into RMD file
@@ -594,7 +645,7 @@ if(save_plots){
     region <- MA_All[ManagedAreaName==ma, Region]
     # create plots
     for(indicator in unique(websiteParams$IndicatorName)){
-      cat(glue("## {indicator}"))
+      cat(glue("# {indicator} \n"))
       
       # Filter once for the current indicator
       indicator_subset <- websiteParams[IndicatorName == indicator, ]
@@ -608,14 +659,21 @@ if(save_plots){
         activity <- filteredSubset$ActivityType
         depth <- filteredSubset$RelativeDepth
         
+        # Parameter names to lowercase, except for "pH" and "Secchi depth"
+        if(parameter %in% c("pH", "Secchi Depth")){
+          parameter_lower <- ifelse(parameter=="pH", parameter, "Secchi depth")
+        } else {
+          parameter_lower <- str_to_lower(parameter)
+        }
+        
         # Define y-label, activity-label, depth-label for plot labels
-        y_labels <- ifelse(parameter == "pH", paste0("Monthly average ", parameter), paste0("Monthly average ", parameter, " (" , unit, ")"))
+        y_labels <- ifelse(parameter == "pH", paste0("Monthly average ", parameter_lower), paste0("Monthly average ", parameter_lower, " (" , unit, ")"))
         activity_label <- ifelse(activity=="All", "Lab and Field Combined", activity)
         depth_label <- ifelse(depth=="All", "All Depths", "Surface")
         
         if(type=="Continuous"){
-          plot_trendlines_cont_combined(ma = ma, cont_plot_data = cont_plot_data, 
-                                        param = param_short, y_labels = y_labels, 
+          plot_trendlines_cont_combined(ma = ma, cont_plot_data = cont_plot_data,
+                                        param = param_short, y_labels = y_labels,
                                         parameter = parameter)
         }
         
@@ -650,6 +708,7 @@ if(render_reports){
     
     # Shortened names for managed areas
     ma_short <- MA_All[ManagedAreaName==ma, Abbreviation]
+    # if(!ma_short %in% c("EBAP")) next
     # record region name
     region <- MA_All[ManagedAreaName==ma, Region]
     # output path for managed area reports
@@ -676,82 +735,7 @@ for(type in c("Discrete", "Continuous")){
       files = fig_list)
 }
 
-##### Create maps ----
+# Create maps if needed
 if(save_maps){
-  # Pre-process spatial data for greater efficiency
-  # Grab a list of programs for each discrete parameter for each MA
-  disc_programs <- data_output_disc %>% 
-    group_by(ParameterName, ManagedAreaName) %>% 
-    distinct(ProgramID, ProgramName)
-  
-  # grab sample coordinates from those programs
-  coord_df <- locs_pts_rcp %>% filter(ProgramID %in% disc_programs$ProgramID)
-  
-  # frame to plot coordinates, allows for bubble size display of n_samples
-  ma_data <- data_output_disc %>%
-    group_by(ParameterName, ManagedAreaName, ProgramLocationID) %>%
-    summarise(n_data = n()) %>%
-    rename(ProgramLoc = ProgramLocationID)
-  
-  # merge frames together prior to plotting
-  discrete_df <- merge(ma_data, coord_df)
-  discrete_df <- discrete_df[order(discrete_df$n_data, decreasing=TRUE), ]
-  setDT(discrete_df)
-}
-
-# Mapping function
-plot_discrete_maps <- function(param, ma, discrete_df, ma_abrev, ma_shape, shape_coordinates){
-  # Subset from overall discrete dataframe
-  subset_df <- discrete_df[ManagedAreaName==ma & ParameterName==param, ]
-  
-  # setting color palette
-  pal <- colorFactor("plasma", subset_df$ProgramID)
-  
-  # leaflet map
-  map <- leaflet(subset_df, options = leafletOptions(zoomControl = FALSE)) %>%
-    addProviderTiles(providers$CartoDB.PositronNoLabels) %>%
-    addPolygons(data=ma_shape, color="black", weight = 1, smoothFactor = 0.5, opacity = 0.8, fillOpacity = 0.1) %>%
-    addCircleMarkers(lat=~Latitude_D, lng=~Longitude_, color=~pal(ProgramID), weight=0.5, radius=sqrt(subset_df$n_data), fillOpacity=0.6) %>%
-    addLegend(pal=pal, values=~ProgramID, labFormat=labelFormat(prefix="Program "), title="") %>%
-    fitBounds(lng1=shape_coordinates$xmin,
-              lat1=shape_coordinates$ymin,
-              lng2=shape_coordinates$xmax,
-              lat2=shape_coordinates$ymax)
-  
-  # map output filepath
-  param_short <- websiteParams[ParameterName==param, unique(ParameterShort)]
-  map_out <- paste0(map_output, ma_abrev, "_", param_short, "_map.png")
-  
-  # save file as png
-  mapshot(map, file = map_out)
-}
-
-# Takes ~1hr
-if(save_maps){
-  # Map output location
-  map_output <- "output/maps/discrete/"
-  # Loop through available MAs
-  tic()
-  for(ma in unique(MA_All$ManagedAreaName)){
-    # Abbreviated MA name for filenames
-    ma_abrev <- MA_All[ManagedAreaName==ma, Abbreviation]
-    # find ma_shape and ma_coordinates for plotting
-    ma_shape <- find_shape(rcp, ma)
-    # get coordinates to set zoom level
-    shape_coordinates <- get_shape_coordinates(ma_shape)
-    # Loop through all params for a given MA
-    for(param in unique(discrete_df$ParameterName)){
-      # Run mapping function for each MA
-      plot_discrete_maps(param = param,
-                         ma = ma,
-                         discrete_df = discrete_df,
-                         ma_abrev = ma_abrev,
-                         ma_shape = ma_shape,
-                         shape_coordinates = shape_coordinates)
-      
-      print(paste0("Map created for ", param, " - ", ma))      
-    }
-    print(paste0(ma, " processing complete!"))
-  }
-  toc()
+  source("WQ_Create_Maps.R")
 }

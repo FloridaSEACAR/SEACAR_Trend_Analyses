@@ -1,0 +1,25 @@
+﻿IndicatorName,IndicatorShort,ParameterName,ParameterShort,ParameterUnits,ActivityType,RelativeDepth,SamplingFrequency,Website,ParameterVisId
+Water Clarity,WC,"Chlorophyll a, Uncorrected for Pheophytin",Chla,ug/L,Lab,All,Discrete,1,25
+Water Clarity,WC,"Chlorophyll a, Corrected for Pheophytin",ChlaC,ug/L,Lab,All,Discrete,1,56
+Water Clarity,WC,Colored Dissolved Organic Matter,CDOM,PCU,Lab,All,Discrete,1,29
+Water Quality,WQ,Dissolved Oxygen,DO,mg/L,Field,All,Discrete,1,40
+Water Quality,WQ,Dissolved Oxygen Saturation,DOS,%,Field,All,Discrete,1,44
+Water Quality,WQ,pH,pH,pH,Field,All,Discrete,1,48
+Water Quality,WQ,Salinity,Sal,ppt,All,All,Discrete,1,52
+Water Quality,WQ,Salinity,Sal,ppt,Field,All,Discrete,0,
+Water Quality,WQ,Salinity,Sal,ppt,Lab,All,Discrete,0,
+Water Clarity,WC,Secchi Depth,Secchi,m,Field,Surface,Discrete,1,31
+Nutrients,NUT,Total Nitrogen,TN,mg/L,Lab,All,Discrete,1,21
+Nutrients,NUT,Total Phosphorus,TP,mg/L,Lab,All,Discrete,1,23
+Water Clarity,WC,Total Suspended Solids,TSS,mg/L,All,All,Discrete,0,
+Water Clarity,WC,Total Suspended Solids,TSS,mg/L,Lab,All,Discrete,1,32
+Water Clarity,WC,Turbidity,Turb,NTU,All,All,Discrete,0,
+Water Clarity,WC,Turbidity,Turb,NTU,Field,All,Discrete,0,
+Water Clarity,WC,Turbidity,Turb,NTU,Lab,All,Discrete,1,34
+Water Quality,WQ,Water Temperature,TempW,Deg. C,Field,All,Discrete,1,6
+Water Quality,WQ,Dissolved Oxygen,DO,mg/L,,,Continuous,1,41
+Water Quality,WQ,Dissolved Oxygen Saturation,DOS,%,,,Continuous,1,45
+Water Quality,WQ,pH,pH,pH,,,Continuous,1,49
+Water Quality,WQ,Salinity,Sal,ppt,,,Continuous,1,1
+Water Clarity,WC,Turbidity,Turb,NTU,,,Continuous,1,35
+Water Quality,WQ,Water Temperature,TempW,Deg. C,,,Continuous,1,7

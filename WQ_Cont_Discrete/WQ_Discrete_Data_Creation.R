@@ -219,6 +219,10 @@ for (j in 1:length(all_params)){
       
       # Removes data rows with missing ResultValue
       data <- data[!is.na(data$ResultValue),]
+      # Invert values for Secchi Depth ## SEACAR Team meeting - 02/18/2025
+      if(param_name=="Secchi_Depth"){
+        data$ResultValue <- -data$ResultValue
+      }
       # Changes "Sample" to "Lab" for ActivityType
       data$ActivityType <- gsub("Sample", "Lab", data$ActivityType)
       
