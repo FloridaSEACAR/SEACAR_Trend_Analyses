@@ -35,6 +35,42 @@ AreaID|ManagedAreaName|Year|Month|SpeciesGroup1|ParameterName|N_Data|Min|Max|Med
 2|Apalachicola Bay Aquatic Preserve|2023|4|Mangroves and associates|Species Richness|2|1|1|1|1|0|Apalachicola Emergent Marsh Vegetation Monitoring|5009
 2|Apalachicola Bay Aquatic Preserve|2023|4|Marsh|Species Richness|30|1|4|1|1.83333333333333|0.985527456652575|Apalachicola Emergent Marsh Vegetation Monitoring|5009
 2|Apalachicola Bay Aquatic Preserve|2023|4|Marsh succulents|Species Richness|5|1|3|1|1.8|1.09544511501033|Apalachicola Emergent Marsh Vegetation Monitoring|5009
+3|Apalachicola National Estuarine Research Reserve|2014|11|Marsh|Species Richness|6|1|5|2.5|2.66666666666667|1.86189867250253|Apalachicola Emergent Marsh Vegetation Monitoring|5009
+3|Apalachicola National Estuarine Research Reserve|2014|11|Marsh succulents|Species Richness|3|1|3|2|2|1|Apalachicola Emergent Marsh Vegetation Monitoring|5009
+3|Apalachicola National Estuarine Research Reserve|2015|4|Marsh|Species Richness|6|1|4|2|2.16666666666667|1.32916013582513|Apalachicola Emergent Marsh Vegetation Monitoring|5009
+3|Apalachicola National Estuarine Research Reserve|2015|4|Marsh succulents|Species Richness|3|3|3|3|3|0|Apalachicola Emergent Marsh Vegetation Monitoring|5009
+3|Apalachicola National Estuarine Research Reserve|2015|10|Marsh|Species Richness|6|1|4|2|2.33333333333333|1.50554530541816|Apalachicola Emergent Marsh Vegetation Monitoring|5009
+3|Apalachicola National Estuarine Research Reserve|2015|10|Marsh succulents|Species Richness|3|2|3|3|2.66666666666667|0.577350269189626|Apalachicola Emergent Marsh Vegetation Monitoring|5009
+3|Apalachicola National Estuarine Research Reserve|2016|4|Marsh|Species Richness|6|1|4|2|2.33333333333333|1.50554530541816|Apalachicola Emergent Marsh Vegetation Monitoring|5009
+3|Apalachicola National Estuarine Research Reserve|2016|4|Marsh succulents|Species Richness|3|2|3|3|2.66666666666667|0.577350269189626|Apalachicola Emergent Marsh Vegetation Monitoring|5009
+3|Apalachicola National Estuarine Research Reserve|2016|10|Marsh|Species Richness|6|1|4|2|2.33333333333333|1.50554530541816|Apalachicola Emergent Marsh Vegetation Monitoring|5009
+3|Apalachicola National Estuarine Research Reserve|2016|10|Marsh succulents|Species Richness|3|1|3|3|2.33333333333333|1.15470053837925|Apalachicola Emergent Marsh Vegetation Monitoring|5009
+3|Apalachicola National Estuarine Research Reserve|2017|4|Marsh|Species Richness|6|1|4|2.5|2.5|1.37840487520902|Apalachicola Emergent Marsh Vegetation Monitoring|5009
+3|Apalachicola National Estuarine Research Reserve|2017|4|Marsh succulents|Species Richness|3|1|3|3|2.33333333333333|1.15470053837925|Apalachicola Emergent Marsh Vegetation Monitoring|5009
+3|Apalachicola National Estuarine Research Reserve|2017|10|Marsh|Species Richness|10|1|4|1|1.8|1.31656117720877|Apalachicola Emergent Marsh Vegetation Monitoring|5009
+3|Apalachicola National Estuarine Research Reserve|2017|10|Marsh succulents|Species Richness|3|1|3|3|2.33333333333333|1.15470053837925|Apalachicola Emergent Marsh Vegetation Monitoring|5009
+3|Apalachicola National Estuarine Research Reserve|2018|4|Marsh|Species Richness|6|1|4|2|2.33333333333333|1.50554530541816|Apalachicola Emergent Marsh Vegetation Monitoring|5009
+3|Apalachicola National Estuarine Research Reserve|2018|4|Marsh succulents|Species Richness|3|1|3|3|2.33333333333333|1.15470053837925|Apalachicola Emergent Marsh Vegetation Monitoring|5009
+3|Apalachicola National Estuarine Research Reserve|2018|11|Marsh|Species Richness|3|4|4|4|4|0|Apalachicola Emergent Marsh Vegetation Monitoring|5009
+3|Apalachicola National Estuarine Research Reserve|2018|11|Marsh succulents|Species Richness|3|1|3|3|2.33333333333333|1.15470053837925|Apalachicola Emergent Marsh Vegetation Monitoring|5009
+3|Apalachicola National Estuarine Research Reserve|2019|4|Marsh|Species Richness|4|1|4|3.5|3|1.4142135623731|Apalachicola Emergent Marsh Vegetation Monitoring|5009
+3|Apalachicola National Estuarine Research Reserve|2019|4|Marsh succulents|Species Richness|3|1|3|3|2.33333333333333|1.15470053837925|Apalachicola Emergent Marsh Vegetation Monitoring|5009
+3|Apalachicola National Estuarine Research Reserve|2019|11|Marsh|Species Richness|6|1|3|2|2|1.09544511501033|Apalachicola Emergent Marsh Vegetation Monitoring|5009
+3|Apalachicola National Estuarine Research Reserve|2019|11|Marsh succulents|Species Richness|3|1|3|3|2.33333333333333|1.15470053837925|Apalachicola Emergent Marsh Vegetation Monitoring|5009
+3|Apalachicola National Estuarine Research Reserve|2020|2|Marsh|Species Richness|3|1|1|1|1|0|Coastal Habitat Integrated Mapping and Monitoring Program (CHIMMP) Pilot Monitoring Data|651
+3|Apalachicola National Estuarine Research Reserve|2020|2|Marsh succulents|Species Richness|2|1|1|1|1|0|Coastal Habitat Integrated Mapping and Monitoring Program (CHIMMP) Pilot Monitoring Data|651
+3|Apalachicola National Estuarine Research Reserve|2020|5|Marsh|Species Richness|6|1|3|2|2|1.09544511501033|Apalachicola Emergent Marsh Vegetation Monitoring|5009
+3|Apalachicola National Estuarine Research Reserve|2020|5|Marsh succulents|Species Richness|3|1|3|3|2.33333333333333|1.15470053837925|Apalachicola Emergent Marsh Vegetation Monitoring|5009
+3|Apalachicola National Estuarine Research Reserve|2020|10|Marsh|Species Richness|5|1|4|2|2.2|1.30384048104053|Apalachicola Emergent Marsh Vegetation Monitoring|5009
+3|Apalachicola National Estuarine Research Reserve|2020|10|Marsh succulents|Species Richness|3|1|3|3|2.33333333333333|1.15470053837925|Apalachicola Emergent Marsh Vegetation Monitoring|5009
+3|Apalachicola National Estuarine Research Reserve|2021|3|Marsh|Species Richness|6|1|3|2|2|0.894427190999916|Apalachicola Emergent Marsh Vegetation Monitoring|5009
+3|Apalachicola National Estuarine Research Reserve|2021|3|Marsh succulents|Species Richness|3|1|3|3|2.33333333333333|1.15470053837925|Apalachicola Emergent Marsh Vegetation Monitoring|5009
+3|Apalachicola National Estuarine Research Reserve|2022|4|Mangroves and associates|Species Richness|2|1|1|1|1|0|Apalachicola Emergent Marsh Vegetation Monitoring|5009
+3|Apalachicola National Estuarine Research Reserve|2022|4|Marsh|Species Richness|29|1|4|1|1.79310344827586|0.977581211271239|Apalachicola Emergent Marsh Vegetation Monitoring|5009
+3|Apalachicola National Estuarine Research Reserve|2022|4|Marsh succulents|Species Richness|7|1|3|1|1.57142857142857|0.975900072948533|Apalachicola Emergent Marsh Vegetation Monitoring|5009
+3|Apalachicola National Estuarine Research Reserve|2023|4|Mangroves and associates|Species Richness|2|1|1|1|1|0|Apalachicola Emergent Marsh Vegetation Monitoring|5009
+3|Apalachicola National Estuarine Research Reserve|2023|4|Marsh|Species Richness|30|1|4|1|1.83333333333333|0.985527456652575|Apalachicola Emergent Marsh Vegetation Monitoring|5009
+3|Apalachicola National Estuarine Research Reserve|2023|4|Marsh succulents|Species Richness|5|1|3|1|1.8|1.09544511501033|Apalachicola Emergent Marsh Vegetation Monitoring|5009
 5|Big Bend Seagrasses Aquatic Preserve|2013|12|Marsh|Species Richness|3|1|2|2|1.66666666666667|0.577350269189626|Inventory and Monitoring Network Status and Trends|620
 5|Big Bend Seagrasses Aquatic Preserve|2016|12|Marsh|Species Richness|3|2|3|3|2.66666666666667|0.577350269189626|Inventory and Monitoring Network Status and Trends|620
 11|Cockroach Bay Aquatic Preserve|2015|8|Mangroves and associates|Species Richness|1|2|2|2|2||Tampa Bay Critical Coastal Habitat Assessment|906
@@ -105,66 +141,70 @@ AreaID|ManagedAreaName|Year|Month|SpeciesGroup1|ParameterName|N_Data|Min|Max|Med
 20|Guana Tolomato Matanzas National Estuarine Research Reserve|2012|9|Marsh succulents|Species Richness|3|1|1|1|1|0|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
 20|Guana Tolomato Matanzas National Estuarine Research Reserve|2012|10|Mangroves and associates|Species Richness|5|1|2|1|1.2|0.447213595499958|GTMNERR Mangrove Monitoring|5015
 20|Guana Tolomato Matanzas National Estuarine Research Reserve|2012|11|Mangroves and associates|Species Richness|1|1|1|1|1||Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
-20|Guana Tolomato Matanzas National Estuarine Research Reserve|2012|11|Marsh|Species Richness|67|1|2|1|1.17910447761194|0.386333704643128|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
-20|Guana Tolomato Matanzas National Estuarine Research Reserve|2012|11|Marsh succulents|Species Richness|30|1|2|1.5|1.5|0.508547627715608|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2012|11|Marsh|Species Richness|97|1|2|1|1.12371134020619|0.330962358092619|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2012|11|Marsh succulents|Species Richness|31|1|2|1|1.48387096774194|0.508000508000762|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
 20|Guana Tolomato Matanzas National Estuarine Research Reserve|2013|6|Mangroves and associates|Species Richness|3|1|1|1|1|0|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
 20|Guana Tolomato Matanzas National Estuarine Research Reserve|2013|6|Marsh|Species Richness|21|1|1|1|1|0|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
 20|Guana Tolomato Matanzas National Estuarine Research Reserve|2013|6|Marsh succulents|Species Richness|15|1|2|2|1.66666666666667|0.487950036474267|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
-20|Guana Tolomato Matanzas National Estuarine Research Reserve|2013|8|Marsh|Species Richness|8|1|1|1|1|0|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
-20|Guana Tolomato Matanzas National Estuarine Research Reserve|2013|8|Marsh succulents|Species Richness|15|1|2|2|1.73333333333333|0.457737708217063|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2013|8|Marsh|Species Richness|38|1|1|1|1|0|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2013|8|Marsh succulents|Species Richness|17|1|2|2|1.64705882352941|0.492592183071889|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
 20|Guana Tolomato Matanzas National Estuarine Research Reserve|2013|9|Marsh|Species Richness|28|1|2|1|1.25|0.440958551844098|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
 20|Guana Tolomato Matanzas National Estuarine Research Reserve|2013|9|Marsh succulents|Species Richness|14|1|2|1|1.28571428571429|0.468807230938495|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
 20|Guana Tolomato Matanzas National Estuarine Research Reserve|2013|10|Mangroves and associates|Species Richness|3|1|1|1|1|0|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
 20|Guana Tolomato Matanzas National Estuarine Research Reserve|2013|10|Marsh|Species Richness|14|1|1|1|1|0|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2014|1|Marsh|Species Richness|30|1|1|1|1|0|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2014|1|Marsh succulents|Species Richness|2|1|1|1|1|0|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
 20|Guana Tolomato Matanzas National Estuarine Research Reserve|2014|2|Mangroves and associates|Species Richness|3|1|1|1|1|0|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
-20|Guana Tolomato Matanzas National Estuarine Research Reserve|2014|2|Marsh|Species Richness|50|1|2|1|1.14|0.350509832753866|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
-20|Guana Tolomato Matanzas National Estuarine Research Reserve|2014|2|Marsh succulents|Species Richness|29|1|2|1|1.48275862068966|0.508547627715608|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2014|2|Marsh|Species Richness|80|1|2|1|1.0875|0.28434913465623|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2014|2|Marsh succulents|Species Richness|31|1|2|1|1.48387096774194|0.508000508000762|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
 20|Guana Tolomato Matanzas National Estuarine Research Reserve|2014|3|Mangroves and associates|Species Richness|5|1|1|1|1|0|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
-20|Guana Tolomato Matanzas National Estuarine Research Reserve|2014|3|Marsh|Species Richness|51|1|2|1|1.17647058823529|0.385013368751849|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
-20|Guana Tolomato Matanzas National Estuarine Research Reserve|2014|3|Marsh succulents|Species Richness|29|1|2|1|1.3448275862069|0.483725281314975|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2014|3|Marsh|Species Richness|66|1|2|1|1.13636363636364|0.34580401903451|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2014|3|Marsh succulents|Species Richness|30|1|2|1|1.33333333333333|0.479463301485384|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
 20|Guana Tolomato Matanzas National Estuarine Research Reserve|2014|4|Mangroves and associates|Species Richness|4|1|1|1|1|0|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
-20|Guana Tolomato Matanzas National Estuarine Research Reserve|2014|4|Marsh|Species Richness|52|1|2|1|1.17307692307692|0.382004714381845|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
-20|Guana Tolomato Matanzas National Estuarine Research Reserve|2014|4|Marsh succulents|Species Richness|28|1|2|1|1.28571428571429|0.460043706228236|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2014|4|Marsh|Species Richness|82|1|2|1|1.10975609756098|0.314509124128207|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2014|4|Marsh succulents|Species Richness|30|1|2|1|1.26666666666667|0.449776445108804|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
 20|Guana Tolomato Matanzas National Estuarine Research Reserve|2014|5|Mangroves and associates|Species Richness|4|1|1|1|1|0|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
-20|Guana Tolomato Matanzas National Estuarine Research Reserve|2014|5|Marsh|Species Richness|51|1|2|1|1.15686274509804|0.367290022712725|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
-20|Guana Tolomato Matanzas National Estuarine Research Reserve|2014|5|Marsh succulents|Species Richness|29|1|2|1|1.31034482758621|0.470823615430758|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2014|5|Marsh|Species Richness|81|1|2|1|1.09876543209877|0.300205690802362|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2014|5|Marsh succulents|Species Richness|31|1|2|1|1.29032258064516|0.461414375379064|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
 20|Guana Tolomato Matanzas National Estuarine Research Reserve|2014|6|Mangroves and associates|Species Richness|2|1|1|1|1|0|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
-20|Guana Tolomato Matanzas National Estuarine Research Reserve|2014|6|Marsh|Species Richness|44|1|2|1|1.22727272727273|0.423915105785721|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
-20|Guana Tolomato Matanzas National Estuarine Research Reserve|2014|6|Marsh succulents|Species Richness|14|1|2|1|1.28571428571429|0.468807230938495|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2014|6|Marsh|Species Richness|54|1|2|1|1.18518518518519|0.392095198012781|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2014|6|Marsh succulents|Species Richness|16|1|2|1|1.25|0.447213595499958|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
 20|Guana Tolomato Matanzas National Estuarine Research Reserve|2014|7|Mangroves and associates|Species Richness|4|1|1|1|1|0|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
-20|Guana Tolomato Matanzas National Estuarine Research Reserve|2014|7|Marsh|Species Richness|37|1|2|1|1.24324324324324|0.43495883620084|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
-20|Guana Tolomato Matanzas National Estuarine Research Reserve|2014|7|Marsh succulents|Species Richness|27|1|2|1|1.33333333333333|0.480384461415261|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2014|7|Marsh|Species Richness|67|1|2|1|1.13432835820896|0.343578423320653|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2014|7|Marsh succulents|Species Richness|29|1|2|1|1.31034482758621|0.470823615430758|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
 20|Guana Tolomato Matanzas National Estuarine Research Reserve|2014|8|Mangroves and associates|Species Richness|2|1|1|1|1|0|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
-20|Guana Tolomato Matanzas National Estuarine Research Reserve|2014|8|Marsh|Species Richness|45|1|2|1|1.15555555555556|0.36652889973839|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
-20|Guana Tolomato Matanzas National Estuarine Research Reserve|2014|8|Marsh succulents|Species Richness|29|1|2|1|1.41379310344828|0.501230014158765|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2014|8|Marsh|Species Richness|75|1|2|1|1.09333333333333|0.292857927612974|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2014|8|Marsh succulents|Species Richness|31|1|2|1|1.38709677419355|0.495137647854191|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
 20|Guana Tolomato Matanzas National Estuarine Research Reserve|2014|9|Mangroves and associates|Species Richness|5|1|1|1|1|0|GTMNERR Mangrove Monitoring, Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017, 5015
-20|Guana Tolomato Matanzas National Estuarine Research Reserve|2014|9|Marsh|Species Richness|49|1|2|1|1.16326530612245|0.373437789079955|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
-20|Guana Tolomato Matanzas National Estuarine Research Reserve|2014|9|Marsh succulents|Species Richness|28|1|2|1|1.42857142857143|0.50395263067897|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2014|9|Marsh|Species Richness|79|1|2|1|1.10126582278481|0.303608076851989|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2014|9|Marsh succulents|Species Richness|30|1|2|1|1.4|0.49827287912244|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
 20|Guana Tolomato Matanzas National Estuarine Research Reserve|2014|10|Mangroves and associates|Species Richness|4|1|1|1|1|0|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
-20|Guana Tolomato Matanzas National Estuarine Research Reserve|2014|10|Marsh|Species Richness|50|1|2|1|1.16|0.370328039909021|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
-20|Guana Tolomato Matanzas National Estuarine Research Reserve|2014|10|Marsh succulents|Species Richness|28|1|2|1|1.42857142857143|0.50395263067897|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2014|10|Marsh|Species Richness|80|1|2|1|1.1|0.301892763255977|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2014|10|Marsh succulents|Species Richness|30|1|2|1|1.4|0.49827287912244|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
 20|Guana Tolomato Matanzas National Estuarine Research Reserve|2014|11|Mangroves and associates|Species Richness|4|1|1|1|1|0|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
-20|Guana Tolomato Matanzas National Estuarine Research Reserve|2014|11|Marsh|Species Richness|37|1|2|1|1.24324324324324|0.43495883620084|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2014|11|Marsh|Species Richness|47|1|2|1|1.19148936170213|0.397727122553644|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
 20|Guana Tolomato Matanzas National Estuarine Research Reserve|2014|11|Marsh succulents|Species Richness|25|1|2|1|1.48|0.509901951359279|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
 20|Guana Tolomato Matanzas National Estuarine Research Reserve|2014|12|Mangroves and associates|Species Richness|4|1|1|1|1|0|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
-20|Guana Tolomato Matanzas National Estuarine Research Reserve|2014|12|Marsh|Species Richness|49|1|2|1|1.14285714285714|0.353553390593274|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
-20|Guana Tolomato Matanzas National Estuarine Research Reserve|2014|12|Marsh succulents|Species Richness|27|1|2|1|1.44444444444444|0.506369683541833|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2014|12|Marsh|Species Richness|69|1|2|1|1.10144927536232|0.304134622679994|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2014|12|Marsh succulents|Species Richness|29|1|2|1|1.41379310344828|0.501230014158765|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
 20|Guana Tolomato Matanzas National Estuarine Research Reserve|2015|5|Mangroves and associates|Species Richness|5|1|1|1|1|0|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
-20|Guana Tolomato Matanzas National Estuarine Research Reserve|2015|5|Marsh|Species Richness|52|1|2|1|1.15384615384615|0.364321307478654|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
-20|Guana Tolomato Matanzas National Estuarine Research Reserve|2015|5|Marsh succulents|Species Richness|27|1|2|1|1.2962962962963|0.465321626968075|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2015|5|Marsh|Species Richness|82|1|2|1|1.09756097560976|0.298546110654101|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2015|5|Marsh succulents|Species Richness|30|1|2|1|1.26666666666667|0.449776445108804|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
 20|Guana Tolomato Matanzas National Estuarine Research Reserve|2015|8|Marsh|Species Richness|15|1|2|2|1.53333333333333|0.516397779494322|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
 20|Guana Tolomato Matanzas National Estuarine Research Reserve|2015|8|Marsh succulents|Species Richness|12|1|2|1|1.33333333333333|0.492365963917331|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
 20|Guana Tolomato Matanzas National Estuarine Research Reserve|2015|9|Mangroves and associates|Species Richness|9|1|1|1|1|0|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
-20|Guana Tolomato Matanzas National Estuarine Research Reserve|2015|9|Marsh|Species Richness|23|1|1|1|1|0|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
-20|Guana Tolomato Matanzas National Estuarine Research Reserve|2015|9|Marsh succulents|Species Richness|12|1|2|2|1.58333333333333|0.514928650544437|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2015|9|Marsh|Species Richness|53|1|1|1|1|0|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2015|9|Marsh succulents|Species Richness|15|1|2|1|1.46666666666667|0.516397779494322|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
 20|Guana Tolomato Matanzas National Estuarine Research Reserve|2015|10|Marsh|Species Richness|49|1|2|1|1.30612244897959|0.465657314657332|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
 20|Guana Tolomato Matanzas National Estuarine Research Reserve|2015|10|Marsh succulents|Species Richness|2|1|1|1|1|0|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
 20|Guana Tolomato Matanzas National Estuarine Research Reserve|2016|4|Mangroves and associates|Species Richness|12|1|1|1|1|0|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
 20|Guana Tolomato Matanzas National Estuarine Research Reserve|2016|4|Marsh|Species Richness|50|1|2|1|1.08|0.27404751561787|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
 20|Guana Tolomato Matanzas National Estuarine Research Reserve|2016|4|Marsh succulents|Species Richness|26|1|2|1|1.42307692307692|0.503831473655779|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2016|5|Marsh|Species Richness|30|1|1|1|1|0|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2016|5|Marsh succulents|Species Richness|2|1|1|1|1|0|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
 20|Guana Tolomato Matanzas National Estuarine Research Reserve|2016|10|Mangroves and associates|Species Richness|12|1|1|1|1|0|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
-20|Guana Tolomato Matanzas National Estuarine Research Reserve|2016|10|Marsh|Species Richness|34|1|2|1|1.11764705882353|0.327034970083864|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
-20|Guana Tolomato Matanzas National Estuarine Research Reserve|2016|10|Marsh succulents|Species Richness|22|1|2|1|1.40909090909091|0.503236279740197|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2016|10|Marsh|Species Richness|59|1|2|1|1.06779661016949|0.253554508841448|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2016|10|Marsh succulents|Species Richness|24|1|2|1|1.375|0.49453535504684|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
 20|Guana Tolomato Matanzas National Estuarine Research Reserve|2017|2|Mangroves and associates|Species Richness|11|1|1|1|1|0|Coastal Habitat Integrated Mapping and Monitoring Program (CHIMMP) Pilot Monitoring Data|651
 20|Guana Tolomato Matanzas National Estuarine Research Reserve|2017|2|Marsh|Species Richness|10|1|3|1|1.7|0.948683298050514|Coastal Habitat Integrated Mapping and Monitoring Program (CHIMMP) Pilot Monitoring Data|651
 20|Guana Tolomato Matanzas National Estuarine Research Reserve|2017|2|Marsh succulents|Species Richness|9|1|4|2|2.33333333333333|1|Coastal Habitat Integrated Mapping and Monitoring Program (CHIMMP) Pilot Monitoring Data|651
@@ -172,70 +212,142 @@ AreaID|ManagedAreaName|Year|Month|SpeciesGroup1|ParameterName|N_Data|Min|Max|Med
 20|Guana Tolomato Matanzas National Estuarine Research Reserve|2017|5|Marsh|Species Richness|49|1|2|1|1.08163265306122|0.276641667586244|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
 20|Guana Tolomato Matanzas National Estuarine Research Reserve|2017|5|Marsh succulents|Species Richness|24|1|2|1|1.45833333333333|0.508977377704052|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
 20|Guana Tolomato Matanzas National Estuarine Research Reserve|2017|9|Mangroves and associates|Species Richness|16|1|1|1|1|0|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
-20|Guana Tolomato Matanzas National Estuarine Research Reserve|2017|9|Marsh|Species Richness|41|1|2|1|1.02439024390244|0.156173761888606|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
-20|Guana Tolomato Matanzas National Estuarine Research Reserve|2017|9|Marsh succulents|Species Richness|17|1|2|2|1.64705882352941|0.492592183071889|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2017|9|Marsh|Species Richness|68|1|2|1|1.01470588235294|0.121267812518167|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2017|9|Marsh succulents|Species Richness|19|1|2|2|1.57894736842105|0.507257273501788|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
 20|Guana Tolomato Matanzas National Estuarine Research Reserve|2017|11|Mangroves and associates|Species Richness|5|1|1|1|1|0|GTMNERR Mangrove Monitoring|5015
 20|Guana Tolomato Matanzas National Estuarine Research Reserve|2018|4|Mangroves and associates|Species Richness|13|1|1|1|1|0|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
-20|Guana Tolomato Matanzas National Estuarine Research Reserve|2018|4|Marsh|Species Richness|49|1|2|1|1.14285714285714|0.353553390593274|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
-20|Guana Tolomato Matanzas National Estuarine Research Reserve|2018|4|Marsh succulents|Species Richness|25|1|2|1|1.32|0.476095228569523|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2018|4|Marsh|Species Richness|77|1|2|1|1.09090909090909|0.289364920846097|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2018|4|Marsh succulents|Species Richness|27|1|2|1|1.2962962962963|0.465321626968075|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
 20|Guana Tolomato Matanzas National Estuarine Research Reserve|2018|5|Mangroves and associates|Species Richness|3|1|1|1|1|0|GTMNERR Mangrove Monitoring|5015
 20|Guana Tolomato Matanzas National Estuarine Research Reserve|2018|9|Mangroves and associates|Species Richness|8|1|1|1|1|0|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
 20|Guana Tolomato Matanzas National Estuarine Research Reserve|2018|9|Marsh|Species Richness|24|1|2|1|1.33333333333333|0.481543412343077|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
 20|Guana Tolomato Matanzas National Estuarine Research Reserve|2018|9|Marsh succulents|Species Richness|24|1|2|1|1.33333333333333|0.481543412343077|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
 20|Guana Tolomato Matanzas National Estuarine Research Reserve|2018|10|Mangroves and associates|Species Richness|8|1|1|1|1|0|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
-20|Guana Tolomato Matanzas National Estuarine Research Reserve|2018|10|Marsh|Species Richness|25|1|1|1|1|0|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
-20|Guana Tolomato Matanzas National Estuarine Research Reserve|2018|10|Marsh succulents|Species Richness|2|1|1|1|1|0|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2018|10|Marsh|Species Richness|53|1|1|1|1|0|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2018|10|Marsh succulents|Species Richness|4|1|1|1|1|0|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
 20|Guana Tolomato Matanzas National Estuarine Research Reserve|2018|11|Mangroves and associates|Species Richness|3|1|1|1|1|0|GTMNERR Mangrove Monitoring|5015
 20|Guana Tolomato Matanzas National Estuarine Research Reserve|2019|4|Mangroves and associates|Species Richness|14|1|1|1|1|0|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
-20|Guana Tolomato Matanzas National Estuarine Research Reserve|2019|4|Marsh|Species Richness|49|1|2|1|1.12244897959184|0.331200660553418|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
-20|Guana Tolomato Matanzas National Estuarine Research Reserve|2019|4|Marsh succulents|Species Richness|26|1|2|1|1.30769230769231|0.470678724331642|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2019|4|Marsh|Species Richness|74|1|2|1|1.08108108108108|0.274822819971154|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2019|4|Marsh succulents|Species Richness|28|1|2|1|1.28571428571429|0.460043706228236|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
 20|Guana Tolomato Matanzas National Estuarine Research Reserve|2019|5|Mangroves and associates|Species Richness|3|1|1|1|1|0|GTMNERR Mangrove Monitoring|5015
 20|Guana Tolomato Matanzas National Estuarine Research Reserve|2019|9|Mangroves and associates|Species Richness|3|1|1|1|1|0|GTMNERR Mangrove Monitoring|5015
 20|Guana Tolomato Matanzas National Estuarine Research Reserve|2019|10|Mangroves and associates|Species Richness|23|1|1|1|1|0|GTMNERR Mangrove Monitoring, Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017, 5015
-20|Guana Tolomato Matanzas National Estuarine Research Reserve|2019|10|Marsh|Species Richness|83|1|2|1|1.20481927710843|0.406022832007839|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
-20|Guana Tolomato Matanzas National Estuarine Research Reserve|2019|10|Marsh succulents|Species Richness|23|1|2|1|1.30434782608696|0.470471968896965|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2019|10|Marsh|Species Richness|108|1|2|1|1.15740740740741|0.365882291399257|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2019|10|Marsh succulents|Species Richness|25|1|2|1|1.32|0.476095228569523|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
 20|Guana Tolomato Matanzas National Estuarine Research Reserve|2020|4|Mangroves and associates|Species Richness|20|1|1|1|1|0|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
-20|Guana Tolomato Matanzas National Estuarine Research Reserve|2020|4|Marsh|Species Richness|49|1|2|1|1.12244897959184|0.331200660553418|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
-20|Guana Tolomato Matanzas National Estuarine Research Reserve|2020|4|Marsh succulents|Species Richness|25|1|2|1|1.32|0.476095228569523|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2020|4|Marsh|Species Richness|74|1|2|1|1.08108108108108|0.274822819971154|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2020|4|Marsh succulents|Species Richness|27|1|2|1|1.2962962962963|0.465321626968075|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
 20|Guana Tolomato Matanzas National Estuarine Research Reserve|2020|6|Marsh|Species Richness|31|1|2|1|1.03225806451613|0.179605302026775|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
 20|Guana Tolomato Matanzas National Estuarine Research Reserve|2020|6|Marsh succulents|Species Richness|3|1|2|1|1.33333333333333|0.577350269189626|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
 20|Guana Tolomato Matanzas National Estuarine Research Reserve|2020|9|Marsh|Species Richness|3|1|1|1|1|0|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
 20|Guana Tolomato Matanzas National Estuarine Research Reserve|2020|9|Marsh succulents|Species Richness|1|1|1|1|1||Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
 20|Guana Tolomato Matanzas National Estuarine Research Reserve|2020|10|Mangroves and associates|Species Richness|21|1|1|1|1|0|GTMNERR Mangrove Monitoring, Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017, 5015
-20|Guana Tolomato Matanzas National Estuarine Research Reserve|2020|10|Marsh|Species Richness|43|1|2|1|1.13953488372093|0.350604603563426|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
-20|Guana Tolomato Matanzas National Estuarine Research Reserve|2020|10|Marsh succulents|Species Richness|22|1|2|1|1.36363636363636|0.492365963917331|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2020|10|Marsh|Species Richness|67|1|2|1|1.08955223880597|0.287694244451234|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2020|10|Marsh succulents|Species Richness|24|1|2|1|1.33333333333333|0.481543412343077|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
 20|Guana Tolomato Matanzas National Estuarine Research Reserve|2021|2|Mangroves and associates|Species Richness|12|1|2|1|1.08333333333333|0.288675134594813|Coastal Habitat Integrated Mapping and Monitoring Program (CHIMMP) Pilot Monitoring Data|651
-20|Guana Tolomato Matanzas National Estuarine Research Reserve|2021|2|Marsh|Species Richness|18|1|3|1|1.55555555555556|0.783823376129674|Coastal Habitat Integrated Mapping and Monitoring Program (CHIMMP) Pilot Monitoring Data|651
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2021|2|Marsh|Species Richness|26|1|3|1|1.5|0.761577310586391|Coastal Habitat Integrated Mapping and Monitoring Program (CHIMMP) Pilot Monitoring Data|651
 20|Guana Tolomato Matanzas National Estuarine Research Reserve|2021|2|Marsh succulents|Species Richness|14|1|4|2|1.92857142857143|1.07161170596054|Coastal Habitat Integrated Mapping and Monitoring Program (CHIMMP) Pilot Monitoring Data|651
 20|Guana Tolomato Matanzas National Estuarine Research Reserve|2021|4|Mangroves and associates|Species Richness|20|1|1|1|1|0|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
-20|Guana Tolomato Matanzas National Estuarine Research Reserve|2021|4|Marsh|Species Richness|49|1|2|1|1.14285714285714|0.353553390593274|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
-20|Guana Tolomato Matanzas National Estuarine Research Reserve|2021|4|Marsh succulents|Species Richness|24|1|2|1|1.375|0.49453535504684|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2021|4|Marsh|Species Richness|76|1|2|1|1.09210526315789|0.291095932821575|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2021|4|Marsh succulents|Species Richness|26|1|2|1|1.38461538461538|0.496138938356834|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
 20|Guana Tolomato Matanzas National Estuarine Research Reserve|2021|6|Marsh|Species Richness|31|1|2|1|1.06451612903226|0.249731038114707|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
 20|Guana Tolomato Matanzas National Estuarine Research Reserve|2021|6|Marsh succulents|Species Richness|2|1|2|1.5|1.5|0.707106781186548|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
 20|Guana Tolomato Matanzas National Estuarine Research Reserve|2021|9|Mangroves and associates|Species Richness|22|1|1|1|1|0|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
-20|Guana Tolomato Matanzas National Estuarine Research Reserve|2021|9|Marsh|Species Richness|46|1|2|1|1.15217391304348|0.36315844747302|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
-20|Guana Tolomato Matanzas National Estuarine Research Reserve|2021|9|Marsh succulents|Species Richness|25|1|2|1|1.2|0.408248290463863|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2021|9|Marsh|Species Richness|73|1|2|1|1.0958904109589|0.29647857153426|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2021|9|Marsh succulents|Species Richness|27|1|2|1|1.22222222222222|0.423659272868162|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
 20|Guana Tolomato Matanzas National Estuarine Research Reserve|2022|4|Mangroves and associates|Species Richness|22|1|2|1|1.09090909090909|0.29424494316825|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
-20|Guana Tolomato Matanzas National Estuarine Research Reserve|2022|4|Marsh|Species Richness|46|1|2|1|1.17391304347826|0.383223046516833|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
-20|Guana Tolomato Matanzas National Estuarine Research Reserve|2022|4|Marsh succulents|Species Richness|24|1|2|1|1.25|0.442325868464691|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2022|4|Marsh|Species Richness|73|1|2|1|1.10958904109589|0.314538631950585|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2022|4|Marsh succulents|Species Richness|26|1|2|1|1.26923076923077|0.452344320861205|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
 20|Guana Tolomato Matanzas National Estuarine Research Reserve|2022|6|Marsh|Species Richness|31|1|2|1|1.12903225806452|0.340777100548239|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
 20|Guana Tolomato Matanzas National Estuarine Research Reserve|2022|6|Marsh succulents|Species Richness|2|1|2|1.5|1.5|0.707106781186548|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
 20|Guana Tolomato Matanzas National Estuarine Research Reserve|2022|10|Mangroves and associates|Species Richness|22|1|2|1|1.13636363636364|0.351250086657104|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
-20|Guana Tolomato Matanzas National Estuarine Research Reserve|2022|10|Marsh|Species Richness|81|1|2|1|1.25925925925926|0.440958551844098|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
-20|Guana Tolomato Matanzas National Estuarine Research Reserve|2022|10|Marsh succulents|Species Richness|23|1|2|1|1.26086956521739|0.44897775854488|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2022|10|Marsh|Species Richness|108|1|2|1|1.19444444444444|0.397617515300219|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2022|10|Marsh succulents|Species Richness|25|1|2|1|1.28|0.458257569495584|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
 20|Guana Tolomato Matanzas National Estuarine Research Reserve|2022|11|Mangroves and associates|Species Richness|6|1|1|1|1|0|GTMNERR Mangrove Monitoring|5015
 20|Guana Tolomato Matanzas National Estuarine Research Reserve|2023|6|Marsh|Species Richness|31|1|3|1|1.12903225806452|0.427546136603678|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
 20|Guana Tolomato Matanzas National Estuarine Research Reserve|2023|6|Marsh succulents|Species Richness|2|1|2|1.5|1.5|0.707106781186548|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
 20|Guana Tolomato Matanzas National Estuarine Research Reserve|2023|9|Mangroves and associates|Species Richness|12|1|2|1|1.08333333333333|0.288675134594813|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
-20|Guana Tolomato Matanzas National Estuarine Research Reserve|2023|9|Marsh|Species Richness|23|1|2|1|1.39130434782609|0.499010879347845|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2023|9|Marsh|Species Richness|37|1|2|1|1.24324324324324|0.43495883620084|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
 20|Guana Tolomato Matanzas National Estuarine Research Reserve|2023|9|Marsh succulents|Species Richness|21|1|2|1|1.33333333333333|0.483045891539648|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
 20|Guana Tolomato Matanzas National Estuarine Research Reserve|2023|10|Mangroves and associates|Species Richness|10|1|1|1|1|0|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
-20|Guana Tolomato Matanzas National Estuarine Research Reserve|2023|10|Marsh|Species Richness|19|1|1|1|1|0|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
-20|Guana Tolomato Matanzas National Estuarine Research Reserve|2023|10|Marsh succulents|Species Richness|1|1|1|1|1||Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2023|10|Marsh|Species Richness|32|1|1|1|1|0|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2023|10|Marsh succulents|Species Richness|3|1|1|1|1|0|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
 48|Nature Coast Aquatic Preserve|2020|10|Mangroves and associates|Species Richness|2|1|1|1|1|0|Coastal Habitat Integrated Mapping and Monitoring Program (CHIMMP) Pilot Monitoring Data|651
 48|Nature Coast Aquatic Preserve|2020|10|Marsh|Species Richness|8|1|3|1|1.5|0.755928946018454|Coastal Habitat Integrated Mapping and Monitoring Program (CHIMMP) Pilot Monitoring Data|651
 48|Nature Coast Aquatic Preserve|2020|11|Mangroves and associates|Species Richness|6|1|2|1.5|1.5|0.547722557505166|Coastal Habitat Integrated Mapping and Monitoring Program (CHIMMP) Pilot Monitoring Data|651
 48|Nature Coast Aquatic Preserve|2020|11|Marsh|Species Richness|6|1|1|1|1|0|Coastal Habitat Integrated Mapping and Monitoring Program (CHIMMP) Pilot Monitoring Data|651
+33|Pellicer Creek Aquatic Preserve|2012|11|Marsh|Species Richness|46|1|2|1|1.26086956521739|0.443961089821352|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+33|Pellicer Creek Aquatic Preserve|2012|11|Marsh succulents|Species Richness|15|1|2|1|1.26666666666667|0.457737708217063|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+33|Pellicer Creek Aquatic Preserve|2013|9|Marsh|Species Richness|15|1|2|1|1.46666666666667|0.516397779494322|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+33|Pellicer Creek Aquatic Preserve|2013|9|Marsh succulents|Species Richness|12|1|2|1|1.33333333333333|0.492365963917331|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+33|Pellicer Creek Aquatic Preserve|2014|2|Marsh|Species Richness|15|1|2|1|1.46666666666667|0.516397779494322|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+33|Pellicer Creek Aquatic Preserve|2014|2|Marsh succulents|Species Richness|12|1|2|1|1.33333333333333|0.492365963917331|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+33|Pellicer Creek Aquatic Preserve|2014|3|Marsh|Species Richness|15|1|2|2|1.6|0.50709255283711|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+33|Pellicer Creek Aquatic Preserve|2014|3|Marsh succulents|Species Richness|12|1|2|1|1.33333333333333|0.492365963917331|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+33|Pellicer Creek Aquatic Preserve|2014|4|Marsh|Species Richness|15|1|2|2|1.6|0.50709255283711|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+33|Pellicer Creek Aquatic Preserve|2014|4|Marsh succulents|Species Richness|12|1|2|1|1.25|0.452267016866646|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+33|Pellicer Creek Aquatic Preserve|2014|5|Marsh|Species Richness|15|1|2|2|1.53333333333333|0.516397779494322|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+33|Pellicer Creek Aquatic Preserve|2014|5|Marsh succulents|Species Richness|12|1|2|1|1.33333333333333|0.492365963917331|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+33|Pellicer Creek Aquatic Preserve|2014|6|Marsh|Species Richness|15|1|2|2|1.66666666666667|0.487950036474267|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+33|Pellicer Creek Aquatic Preserve|2014|6|Marsh succulents|Species Richness|12|1|2|1|1.33333333333333|0.492365963917331|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+33|Pellicer Creek Aquatic Preserve|2014|7|Marsh|Species Richness|15|1|2|2|1.6|0.50709255283711|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+33|Pellicer Creek Aquatic Preserve|2014|7|Marsh succulents|Species Richness|12|1|2|1|1.33333333333333|0.492365963917331|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+33|Pellicer Creek Aquatic Preserve|2014|8|Marsh|Species Richness|15|1|2|1|1.46666666666667|0.516397779494322|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+33|Pellicer Creek Aquatic Preserve|2014|8|Marsh succulents|Species Richness|12|1|2|1|1.33333333333333|0.492365963917331|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+33|Pellicer Creek Aquatic Preserve|2014|9|Marsh|Species Richness|15|1|2|2|1.53333333333333|0.516397779494322|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+33|Pellicer Creek Aquatic Preserve|2014|9|Marsh succulents|Species Richness|12|1|2|1|1.33333333333333|0.492365963917331|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+33|Pellicer Creek Aquatic Preserve|2014|10|Marsh|Species Richness|15|1|2|2|1.53333333333333|0.516397779494322|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+33|Pellicer Creek Aquatic Preserve|2014|10|Marsh succulents|Species Richness|12|1|2|1|1.33333333333333|0.492365963917331|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+33|Pellicer Creek Aquatic Preserve|2014|11|Marsh|Species Richness|15|1|2|2|1.6|0.50709255283711|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+33|Pellicer Creek Aquatic Preserve|2014|11|Marsh succulents|Species Richness|10|1|2|1|1.4|0.516397779494322|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+33|Pellicer Creek Aquatic Preserve|2014|12|Marsh|Species Richness|15|1|2|1|1.46666666666667|0.516397779494322|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+33|Pellicer Creek Aquatic Preserve|2014|12|Marsh succulents|Species Richness|10|1|2|1|1.4|0.516397779494322|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+33|Pellicer Creek Aquatic Preserve|2015|5|Marsh|Species Richness|15|1|2|2|1.53333333333333|0.516397779494322|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+33|Pellicer Creek Aquatic Preserve|2015|5|Marsh succulents|Species Richness|12|1|2|1|1.33333333333333|0.492365963917331|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+33|Pellicer Creek Aquatic Preserve|2015|8|Marsh|Species Richness|15|1|2|2|1.53333333333333|0.516397779494322|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+33|Pellicer Creek Aquatic Preserve|2015|8|Marsh succulents|Species Richness|12|1|2|1|1.33333333333333|0.492365963917331|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+33|Pellicer Creek Aquatic Preserve|2016|4|Marsh|Species Richness|13|1|2|1|1.30769230769231|0.480384461415261|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+33|Pellicer Creek Aquatic Preserve|2016|4|Marsh succulents|Species Richness|12|1|2|1|1.33333333333333|0.492365963917331|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+33|Pellicer Creek Aquatic Preserve|2016|10|Marsh|Species Richness|12|1|2|1|1.33333333333333|0.492365963917331|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+33|Pellicer Creek Aquatic Preserve|2016|10|Marsh succulents|Species Richness|10|1|2|1|1.4|0.516397779494322|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+33|Pellicer Creek Aquatic Preserve|2017|5|Marsh|Species Richness|12|1|2|1|1.33333333333333|0.492365963917331|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+33|Pellicer Creek Aquatic Preserve|2017|5|Marsh succulents|Species Richness|12|1|2|1|1.25|0.452267016866646|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+33|Pellicer Creek Aquatic Preserve|2017|9|Marsh|Species Richness|4|1|2|1|1.25|0.5|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+33|Pellicer Creek Aquatic Preserve|2017|9|Marsh succulents|Species Richness|4|1|2|1.5|1.5|0.577350269189626|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+33|Pellicer Creek Aquatic Preserve|2018|4|Marsh|Species Richness|12|1|2|2|1.58333333333333|0.514928650544437|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+33|Pellicer Creek Aquatic Preserve|2018|4|Marsh succulents|Species Richness|12|1|2|1|1.25|0.452267016866646|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+33|Pellicer Creek Aquatic Preserve|2018|9|Marsh|Species Richness|13|1|2|2|1.61538461538462|0.506369683541833|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+33|Pellicer Creek Aquatic Preserve|2018|9|Marsh succulents|Species Richness|12|1|1|1|1|0|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+33|Pellicer Creek Aquatic Preserve|2019|4|Marsh|Species Richness|14|1|2|1|1.42857142857143|0.513552591013096|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+33|Pellicer Creek Aquatic Preserve|2019|4|Marsh succulents|Species Richness|12|1|2|1|1.08333333333333|0.288675134594813|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+33|Pellicer Creek Aquatic Preserve|2019|10|Marsh|Species Richness|13|1|2|1|1.38461538461538|0.506369683541833|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+33|Pellicer Creek Aquatic Preserve|2019|10|Marsh succulents|Species Richness|10|1|1|1|1|0|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+33|Pellicer Creek Aquatic Preserve|2020|4|Marsh|Species Richness|12|1|2|1.5|1.5|0.522232967867094|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+33|Pellicer Creek Aquatic Preserve|2020|4|Marsh succulents|Species Richness|12|1|1|1|1|0|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+33|Pellicer Creek Aquatic Preserve|2020|6|Marsh|Species Richness|31|1|2|1|1.03225806451613|0.179605302026775|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+33|Pellicer Creek Aquatic Preserve|2020|6|Marsh succulents|Species Richness|3|1|2|1|1.33333333333333|0.577350269189626|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+33|Pellicer Creek Aquatic Preserve|2020|10|Mangroves and associates|Species Richness|1|1|1|1|1||Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+33|Pellicer Creek Aquatic Preserve|2020|10|Marsh|Species Richness|12|1|2|1.5|1.5|0.522232967867094|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+33|Pellicer Creek Aquatic Preserve|2020|10|Marsh succulents|Species Richness|10|1|1|1|1|0|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+33|Pellicer Creek Aquatic Preserve|2021|2|Marsh|Species Richness|8|1|3|1|1.625|0.916125381312904|Coastal Habitat Integrated Mapping and Monitoring Program (CHIMMP) Pilot Monitoring Data|651
+33|Pellicer Creek Aquatic Preserve|2021|2|Marsh succulents|Species Richness|5|1|4|1|1.8|1.30384048104053|Coastal Habitat Integrated Mapping and Monitoring Program (CHIMMP) Pilot Monitoring Data|651
+33|Pellicer Creek Aquatic Preserve|2021|4|Mangroves and associates|Species Richness|1|1|1|1|1||Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+33|Pellicer Creek Aquatic Preserve|2021|4|Marsh|Species Richness|12|1|2|2|1.58333333333333|0.514928650544437|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+33|Pellicer Creek Aquatic Preserve|2021|4|Marsh succulents|Species Richness|12|1|1|1|1|0|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+33|Pellicer Creek Aquatic Preserve|2021|6|Marsh|Species Richness|31|1|2|1|1.06451612903226|0.249731038114707|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+33|Pellicer Creek Aquatic Preserve|2021|6|Marsh succulents|Species Richness|2|1|2|1.5|1.5|0.707106781186548|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+33|Pellicer Creek Aquatic Preserve|2021|9|Marsh|Species Richness|12|1|2|2|1.58333333333333|0.514928650544437|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+33|Pellicer Creek Aquatic Preserve|2021|9|Marsh succulents|Species Richness|12|1|1|1|1|0|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+33|Pellicer Creek Aquatic Preserve|2022|4|Marsh|Species Richness|12|1|2|2|1.66666666666667|0.492365963917331|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+33|Pellicer Creek Aquatic Preserve|2022|4|Marsh succulents|Species Richness|11|1|1|1|1|0|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+33|Pellicer Creek Aquatic Preserve|2022|6|Marsh|Species Richness|31|1|2|1|1.12903225806452|0.340777100548239|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+33|Pellicer Creek Aquatic Preserve|2022|6|Marsh succulents|Species Richness|2|1|2|1.5|1.5|0.707106781186548|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+33|Pellicer Creek Aquatic Preserve|2022|10|Marsh|Species Richness|12|1|2|2|1.66666666666667|0.492365963917331|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+33|Pellicer Creek Aquatic Preserve|2022|10|Marsh succulents|Species Richness|10|1|1|1|1|0|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+33|Pellicer Creek Aquatic Preserve|2023|6|Marsh|Species Richness|31|1|3|1|1.12903225806452|0.427546136603678|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+33|Pellicer Creek Aquatic Preserve|2023|6|Marsh succulents|Species Richness|2|1|2|1.5|1.5|0.707106781186548|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+33|Pellicer Creek Aquatic Preserve|2023|9|Marsh|Species Richness|11|1|2|2|1.81818181818182|0.404519917477945|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
+33|Pellicer Creek Aquatic Preserve|2023|9|Marsh succulents|Species Richness|9|1|1|1|1|0|Guana Tolomato Matanzas NERR Emergent Intertidal Vegetation Monitoring|4017
 34|Pine Island Sound Aquatic Preserve|2004|9|Marsh succulents|Species Richness|9|1|2|1|1.22222222222222|0.440958551844098|Mangrove Monitoring|3029
 34|Pine Island Sound Aquatic Preserve|2004|10|Marsh succulents|Species Richness|4|1|1|1|1|0|Mangrove Monitoring|3029
 34|Pine Island Sound Aquatic Preserve|2004|11|Marsh succulents|Species Richness|4|1|1|1|1|0|Mangrove Monitoring|3029

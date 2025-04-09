@@ -146,8 +146,8 @@ tag.map.title <- tags$style(HTML("
     font-family: Arial, Helvetica, sans-serif;
     clear: none;
   }"))
-# published-on date
-today <- format(Sys.Date(), "%m/%d/%Y")
+# Export date
+exportDate <- max(format(unique(cw$ExportVersion), "%m/%d/%Y"))
 # Function to set radius / circle size by # of samples (for legend)
 calc_radius_cw <- function(n){sqrt(n)}
 
@@ -156,7 +156,7 @@ rcp <- st_read(paste0(seacar_shape_location,
                       "/orcp_all_sites/ORCP_Managed_Areas.shp")) %>%
   st_make_valid() %>% st_transform(crs = 4326)
 # Load in location point and line shapefiles
-GeoDBdate <- "5dec2024"
+GeoDBdate <- "5Mar2025"
 locs_pts <- st_read(paste0(seacar_shape_location, "/SampleLocations", GeoDBdate, "/seacar_dbo_vw_SampleLocation_Point.shp")) %>%
   st_make_valid() %>% st_transform(crs = 4326)
 locs_lns <- st_read(paste0(seacar_shape_location, "/SampleLocations", GeoDBdate, "/seacar_dbo_vw_SampleLocation_Line.shp")) %>%
@@ -226,7 +226,8 @@ for(ma in unique(cw$ManagedAreaName)){
   # Set up watermark text display
   ind <- "Species Composition"
   parameter <- "Total/Canopy Percent Cover"
-  fig_text <- tags$div(HTML(glue("{ma} - Coastal Wetlands - {ind} - {parameter} - Published: {today}")))
+  fig_text <- tags$div(HTML(glue("{ma} - Coastal Wetlands - {ind} - {parameter} - Export Date: {exportDate}")),
+                       style = "margin-bottom:10px;")
   
   # Create map (without pts or lines for now)
   map <- leaflet(cw_df_ma, options = leafletOptions(zoomControl = FALSE)) %>%

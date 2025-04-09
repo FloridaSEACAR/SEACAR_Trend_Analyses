@@ -72,7 +72,7 @@ data$ResultValue <- as.numeric(data$ResultValue)
 # Remove rows where ResultValue is 0
 data <- data[data$ResultValue!=0,]
 # Remove duplicate rows
-data <- data[data$MADup==1,]
+# data <- data[data$MADup==1,]
 # Create variable that combines the genus and species name
 data$gensp <- paste(data$GenusName, data$SpeciesName, sep=" ")
 
