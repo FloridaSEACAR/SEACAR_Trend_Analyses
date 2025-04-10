@@ -211,7 +211,7 @@ addfits <- function(models, plot_i, param) {
     # selecting for Total SAV and Total Seagrass to apply aesthetic conditions later
     is_ToSa <- grepl("ToSa", model_name)
     is_ToSe <- grepl("ToSe", model_name)
-    exclude <- c("DrAl","AtAl")
+    exclude <- c("AtAl")
     
     # declaring species & managed area of each model
     species <- unique(model$data[[aucol]])
@@ -220,7 +220,7 @@ addfits <- function(models, plot_i, param) {
     #extract p-value
     p_val <- summary(model)$tTab[2,5]
     
-    # exclude Drift algae from model plots
+    # exclude Attached algae from model plots
     if(!grepl(paste(exclude, collapse='|'), model_name)) {
       
       linetypes <- "solid"
@@ -360,14 +360,15 @@ spcollist <- c("#005396","#005396",
                "#F8CD6D",
                "#F5A800",
                "#F17B00",
+               "#C14134",
                "#900667",
                "#000099")
 
 spp <- c("Halophila spp.","Unidentified Halophila","Halophila johnsonii","Syringodium filiforme","Halophila decipiens","Halodule wrightii",
-         "Halophila engelmannii","Thalassia testudinum","Ruppia maritima","Attached algae", "Total SAV", "Total seagrass")
+         "Halophila engelmannii","Thalassia testudinum","Ruppia maritima","Attached algae", "Drift algae", "Total SAV", "Total seagrass")
 
 spp_common <- c("Halophila spp.", "Unidentified Halophila", "Johnson's seagrass", "Manatee grass", "Paddle grass", 
-                "Shoal grass", "Star grass", "Turtle grass", "Widgeon grass", "Attached algae", "Total SAV", "Total seagrass")
+                "Shoal grass", "Star grass", "Turtle grass", "Widgeon grass", "Attached algae", "Drift algae", "Total SAV", "Total seagrass")
 
 # Script now defaults to scientific throughout, will change labels
 # in final steps when plots are created if "common" is chosen
@@ -1271,6 +1272,7 @@ setwd(wd)
 
 #Gets list of all image files in output/Figures and creates zip directory
 fig_list <- list.files("output/website/images/", full = FALSE, recursive = TRUE)
+fig_list <- str_subset(fig_list, "multiplots/")
 setwd("output/website/images/")
 zip(zipfile=paste0("../SAVFigures_",usenames), 
     files=fig_list)

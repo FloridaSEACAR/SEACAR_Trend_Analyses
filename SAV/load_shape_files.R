@@ -5,7 +5,7 @@ shape_files <- list.files(seacar_shape_location, full=TRUE)
 
 shape_locate <- function(location){return(paste0(seacar_shape_location, location))}
 
-GeoDBdate <- "5dec2024"
+GeoDBdate <- "5Mar2025"
 locs_pts <- st_read(shape_locate(paste0("/SampleLocations", GeoDBdate, "/seacar_dbo_vw_SampleLocation_Point.shp")))
 locs_lns <- st_read(shape_locate(paste0("/SampleLocations", GeoDBdate, "/seacar_dbo_vw_SampleLocation_Line.shp")))
 rcp <- st_read(shape_locate("/orcp_all_sites/ORCP_Managed_Areas.shp"))

@@ -7,24 +7,24 @@ Banana River Aquatic Preserve|Syringodium filiforme|Median percent cover (from B
 Banana River Aquatic Preserve|Thalassia testudinum|Median percent cover (from BB scores)|1|Seagrass (SJRWMD)|3013|4921|27|1997|2023|TRUE
 Banana River Aquatic Preserve|Total SAV|Median percent cover (from BB scores)|1|Seagrass (SJRWMD)|3013|5156|30|1994|2023|TRUE
 Banana River Aquatic Preserve|Total seagrass|Median percent cover (from BB scores)|1|Seagrass (SJRWMD)|3013|0|0|||FALSE
-Biscayne Bay Aquatic Preserve|Attached algae|Median percent cover (from BB scores)|2|Miami-Dade County DERM Benthic Habitat Monitoring Program, The South Florida Fisheries Habitat Assessment Program (FHAP)|4018, 4049|1794|15|2008|2022|TRUE
-Biscayne Bay Aquatic Preserve|Drift algae|Median percent cover (from BB scores)|3|Miami-Dade County DERM Benthic Habitat Monitoring Program, South Florida Seagrass Fish and Invertebrate Assessment Network, The South Florida Fisheries Habitat Assessment Program (FHAP)|965, 4018, 4049|10925|24|1999|2022|TRUE
-Biscayne Bay Aquatic Preserve|Halodule wrightii|Median percent cover (from BB scores)|4|Miami-Dade County DERM Benthic Habitat Monitoring Program, North Biscayne Bay Seagrass Loss Monitoring Program, South Florida Seagrass Fish and Invertebrate Assessment Network, The South Florida Fisheries Habitat Assessment Program (FHAP)|965, 4018, 4049, 5027|12593|24|1999|2022|TRUE
-Biscayne Bay Aquatic Preserve|Halophila spp.|Median percent cover (from BB scores)|4|Miami-Dade County DERM Benthic Habitat Monitoring Program, North Biscayne Bay Seagrass Loss Monitoring Program, South Florida Seagrass Fish and Invertebrate Assessment Network, The South Florida Fisheries Habitat Assessment Program (FHAP)|965, 4018, 4049, 5027|37934|23|2000|2022|TRUE
-Biscayne Bay Aquatic Preserve|Ruppia maritima|Median percent cover (from BB scores)|3|Miami-Dade County DERM Benthic Habitat Monitoring Program, South Florida Seagrass Fish and Invertebrate Assessment Network, The South Florida Fisheries Habitat Assessment Program (FHAP)|965, 4018, 4049|9287|18|2005|2022|TRUE
-Biscayne Bay Aquatic Preserve|Syringodium filiforme|Median percent cover (from BB scores)|4|Miami-Dade County DERM Benthic Habitat Monitoring Program, North Biscayne Bay Seagrass Loss Monitoring Program, South Florida Seagrass Fish and Invertebrate Assessment Network, The South Florida Fisheries Habitat Assessment Program (FHAP)|965, 4018, 4049, 5027|12516|24|1999|2022|TRUE
-Biscayne Bay Aquatic Preserve|Thalassia testudinum|Median percent cover (from BB scores)|4|Miami-Dade County DERM Benthic Habitat Monitoring Program, North Biscayne Bay Seagrass Loss Monitoring Program, South Florida Seagrass Fish and Invertebrate Assessment Network, The South Florida Fisheries Habitat Assessment Program (FHAP)|965, 4018, 4049, 5027|12812|24|1999|2022|TRUE
-Biscayne Bay Aquatic Preserve|Total SAV|Median percent cover (from BB scores)|3|Miami-Dade County DERM Benthic Habitat Monitoring Program, South Florida Seagrass Fish and Invertebrate Assessment Network, The South Florida Fisheries Habitat Assessment Program (FHAP)|965, 4018, 4049|9041|24|1999|2022|TRUE
-Biscayne Bay Aquatic Preserve|Total seagrass|Median percent cover (from BB scores)|4|Miami-Dade County DERM Benthic Habitat Monitoring Program, North Biscayne Bay Seagrass Loss Monitoring Program, South Florida Seagrass Fish and Invertebrate Assessment Network, The South Florida Fisheries Habitat Assessment Program (FHAP)|965, 4018, 4049, 5027|10727|18|2005|2022|TRUE
-Florida Keys National Marine Sanctuary|Attached algae|Median percent cover (from BB scores)|2|Miami-Dade County DERM Benthic Habitat Monitoring Program, The South Florida Fisheries Habitat Assessment Program (FHAP)|4018, 4049|8536|16|2008|2023|TRUE
-Florida Keys National Marine Sanctuary|Drift algae|Median percent cover (from BB scores)|3|Miami-Dade County DERM Benthic Habitat Monitoring Program, South Florida Seagrass Fish and Invertebrate Assessment Network, The South Florida Fisheries Habitat Assessment Program (FHAP)|965, 4018, 4049|16913|25|1999|2023|TRUE
-Florida Keys National Marine Sanctuary|Halodule wrightii|Median percent cover (from BB scores)|4|Florida Keys National Marine Sanctuary Seagrass Monitoring Project, Miami-Dade County DERM Benthic Habitat Monitoring Program, South Florida Seagrass Fish and Invertebrate Assessment Network, The South Florida Fisheries Habitat Assessment Program (FHAP)|296, 965, 4018, 4049|18263|28|1996|2023|TRUE
-Florida Keys National Marine Sanctuary|Halophila spp.|Median percent cover (from BB scores)|3|Miami-Dade County DERM Benthic Habitat Monitoring Program, South Florida Seagrass Fish and Invertebrate Assessment Network, The South Florida Fisheries Habitat Assessment Program (FHAP)|965, 4018, 4049|45524|19|2005|2023|TRUE
-Florida Keys National Marine Sanctuary|Ruppia maritima|Median percent cover (from BB scores)|2|South Florida Seagrass Fish and Invertebrate Assessment Network, The South Florida Fisheries Habitat Assessment Program (FHAP)|965, 4049|16444|18|2005|2023|TRUE
-Florida Keys National Marine Sanctuary|Syringodium filiforme|Median percent cover (from BB scores)|4|Florida Keys National Marine Sanctuary Seagrass Monitoring Project, Miami-Dade County DERM Benthic Habitat Monitoring Program, South Florida Seagrass Fish and Invertebrate Assessment Network, The South Florida Fisheries Habitat Assessment Program (FHAP)|296, 965, 4018, 4049|18238|28|1996|2023|TRUE
-Florida Keys National Marine Sanctuary|Thalassia testudinum|Median percent cover (from BB scores)|4|Florida Keys National Marine Sanctuary Seagrass Monitoring Project, Miami-Dade County DERM Benthic Habitat Monitoring Program, South Florida Seagrass Fish and Invertebrate Assessment Network, The South Florida Fisheries Habitat Assessment Program (FHAP)|296, 965, 4018, 4049|18369|28|1996|2023|TRUE
-Florida Keys National Marine Sanctuary|Total SAV|Median percent cover (from BB scores)|3|Miami-Dade County DERM Benthic Habitat Monitoring Program, South Florida Seagrass Fish and Invertebrate Assessment Network, The South Florida Fisheries Habitat Assessment Program (FHAP)|965, 4018, 4049|15571|25|1999|2023|TRUE
-Florida Keys National Marine Sanctuary|Total seagrass|Median percent cover (from BB scores)|3|Miami-Dade County DERM Benthic Habitat Monitoring Program, South Florida Seagrass Fish and Invertebrate Assessment Network, The South Florida Fisheries Habitat Assessment Program (FHAP)|965, 4018, 4049|15108|19|2005|2023|TRUE
+Biscayne Bay Aquatic Preserve|Attached algae|Median percent cover (from BB scores)|2|Miami-Dade County DERM Benthic Habitat Monitoring Program, The South Florida Fisheries Habitat Assessment Program (FHAP)|4018, 4049|1954|16|2008|2023|TRUE
+Biscayne Bay Aquatic Preserve|Drift algae|Median percent cover (from BB scores)|3|Miami-Dade County DERM Benthic Habitat Monitoring Program, South Florida Seagrass Fish and Invertebrate Assessment Network, The South Florida Fisheries Habitat Assessment Program (FHAP)|965, 4018, 4049|11085|25|1999|2023|TRUE
+Biscayne Bay Aquatic Preserve|Halodule wrightii|Median percent cover (from BB scores)|4|Miami-Dade County DERM Benthic Habitat Monitoring Program, North Biscayne Bay Seagrass Loss Monitoring Program, South Florida Seagrass Fish and Invertebrate Assessment Network, The South Florida Fisheries Habitat Assessment Program (FHAP)|965, 4018, 4049, 5027|12753|25|1999|2023|TRUE
+Biscayne Bay Aquatic Preserve|Halophila spp.|Median percent cover (from BB scores)|4|Miami-Dade County DERM Benthic Habitat Monitoring Program, North Biscayne Bay Seagrass Loss Monitoring Program, South Florida Seagrass Fish and Invertebrate Assessment Network, The South Florida Fisheries Habitat Assessment Program (FHAP)|965, 4018, 4049, 5027|38278|24|2000|2023|TRUE
+Biscayne Bay Aquatic Preserve|Ruppia maritima|Median percent cover (from BB scores)|3|Miami-Dade County DERM Benthic Habitat Monitoring Program, South Florida Seagrass Fish and Invertebrate Assessment Network, The South Florida Fisheries Habitat Assessment Program (FHAP)|965, 4018, 4049|9311|19|2005|2023|TRUE
+Biscayne Bay Aquatic Preserve|Syringodium filiforme|Median percent cover (from BB scores)|4|Miami-Dade County DERM Benthic Habitat Monitoring Program, North Biscayne Bay Seagrass Loss Monitoring Program, South Florida Seagrass Fish and Invertebrate Assessment Network, The South Florida Fisheries Habitat Assessment Program (FHAP)|965, 4018, 4049, 5027|12676|25|1999|2023|TRUE
+Biscayne Bay Aquatic Preserve|Thalassia testudinum|Median percent cover (from BB scores)|4|Miami-Dade County DERM Benthic Habitat Monitoring Program, North Biscayne Bay Seagrass Loss Monitoring Program, South Florida Seagrass Fish and Invertebrate Assessment Network, The South Florida Fisheries Habitat Assessment Program (FHAP)|965, 4018, 4049, 5027|12972|25|1999|2023|TRUE
+Biscayne Bay Aquatic Preserve|Total SAV|Median percent cover (from BB scores)|3|Miami-Dade County DERM Benthic Habitat Monitoring Program, South Florida Seagrass Fish and Invertebrate Assessment Network, The South Florida Fisheries Habitat Assessment Program (FHAP)|965, 4018, 4049|9213|25|1999|2023|TRUE
+Biscayne Bay Aquatic Preserve|Total seagrass|Median percent cover (from BB scores)|4|Miami-Dade County DERM Benthic Habitat Monitoring Program, North Biscayne Bay Seagrass Loss Monitoring Program, South Florida Seagrass Fish and Invertebrate Assessment Network, The South Florida Fisheries Habitat Assessment Program (FHAP)|965, 4018, 4049, 5027|10887|19|2005|2023|TRUE
+Florida Keys National Marine Sanctuary|Attached algae|Median percent cover (from BB scores)|2|Miami-Dade County DERM Benthic Habitat Monitoring Program, The South Florida Fisheries Habitat Assessment Program (FHAP)|4018, 4049|9088|17|2008|2024|TRUE
+Florida Keys National Marine Sanctuary|Drift algae|Median percent cover (from BB scores)|3|Miami-Dade County DERM Benthic Habitat Monitoring Program, South Florida Seagrass Fish and Invertebrate Assessment Network, The South Florida Fisheries Habitat Assessment Program (FHAP)|965, 4018, 4049|17465|26|1999|2024|TRUE
+Florida Keys National Marine Sanctuary|Halodule wrightii|Median percent cover (from BB scores)|4|Florida Keys National Marine Sanctuary Seagrass Monitoring Project, Miami-Dade County DERM Benthic Habitat Monitoring Program, South Florida Seagrass Fish and Invertebrate Assessment Network, The South Florida Fisheries Habitat Assessment Program (FHAP)|296, 965, 4018, 4049|18815|29|1996|2024|TRUE
+Florida Keys National Marine Sanctuary|Halophila spp.|Median percent cover (from BB scores)|3|Miami-Dade County DERM Benthic Habitat Monitoring Program, South Florida Seagrass Fish and Invertebrate Assessment Network, The South Florida Fisheries Habitat Assessment Program (FHAP)|965, 4018, 4049|46628|20|2005|2024|TRUE
+Florida Keys National Marine Sanctuary|Ruppia maritima|Median percent cover (from BB scores)|2|South Florida Seagrass Fish and Invertebrate Assessment Network, The South Florida Fisheries Habitat Assessment Program (FHAP)|965, 4049|16956|19|2005|2024|TRUE
+Florida Keys National Marine Sanctuary|Syringodium filiforme|Median percent cover (from BB scores)|4|Florida Keys National Marine Sanctuary Seagrass Monitoring Project, Miami-Dade County DERM Benthic Habitat Monitoring Program, South Florida Seagrass Fish and Invertebrate Assessment Network, The South Florida Fisheries Habitat Assessment Program (FHAP)|296, 965, 4018, 4049|18790|29|1996|2024|TRUE
+Florida Keys National Marine Sanctuary|Thalassia testudinum|Median percent cover (from BB scores)|4|Florida Keys National Marine Sanctuary Seagrass Monitoring Project, Miami-Dade County DERM Benthic Habitat Monitoring Program, South Florida Seagrass Fish and Invertebrate Assessment Network, The South Florida Fisheries Habitat Assessment Program (FHAP)|296, 965, 4018, 4049|18921|29|1996|2024|TRUE
+Florida Keys National Marine Sanctuary|Total SAV|Median percent cover (from BB scores)|3|Miami-Dade County DERM Benthic Habitat Monitoring Program, South Florida Seagrass Fish and Invertebrate Assessment Network, The South Florida Fisheries Habitat Assessment Program (FHAP)|965, 4018, 4049|16182|26|1999|2024|TRUE
+Florida Keys National Marine Sanctuary|Total seagrass|Median percent cover (from BB scores)|3|Miami-Dade County DERM Benthic Habitat Monitoring Program, South Florida Seagrass Fish and Invertebrate Assessment Network, The South Florida Fisheries Habitat Assessment Program (FHAP)|965, 4018, 4049|15660|20|2005|2024|TRUE
 Indian River-Malabar to Vero Beach Aquatic Preserve|Drift algae|Median percent cover (from BB scores)|1|Seagrass (SJRWMD)|3013|0|0|||FALSE
 Indian River-Malabar to Vero Beach Aquatic Preserve|Halodule wrightii|Median percent cover (from BB scores)|1|Seagrass (SJRWMD)|3013|15335|27|1997|2023|TRUE
 Indian River-Malabar to Vero Beach Aquatic Preserve|Halophila spp.|Median percent cover (from BB scores)|1|Seagrass (SJRWMD)|3013|46085|27|1997|2023|TRUE
@@ -65,116 +65,118 @@ Mosquito Lagoon Aquatic Preserve|Syringodium filiforme|Median percent cover (fro
 Mosquito Lagoon Aquatic Preserve|Thalassia testudinum|Median percent cover (from BB scores)|1|Seagrass (SJRWMD)|3013|618|15|2009|2023|TRUE
 Mosquito Lagoon Aquatic Preserve|Total SAV|Median percent cover (from BB scores)|1|Seagrass (SJRWMD)|3013|618|15|2009|2023|TRUE
 Mosquito Lagoon Aquatic Preserve|Total seagrass|Median percent cover (from BB scores)|1|Seagrass (SJRWMD)|3013|0|0|||FALSE
-Alligator Harbor Aquatic Preserve|Drift algae|Median percent cover (from BB scores)|2|Central Panhandle Aquatic Preserves Seagrass Monitoring, Franklin County Coastal Waters Seagrass Monitoring|557, 558|135|7|2009|2022|TRUE
-Alligator Harbor Aquatic Preserve|Halodule wrightii|Median percent cover (from BB scores)|2|Central Panhandle Aquatic Preserves Seagrass Monitoring, Franklin County Coastal Waters Seagrass Monitoring|557, 558|244|12|2009|2022|TRUE
+Alligator Harbor Aquatic Preserve|Drift algae|Median percent cover (from BB scores)|2|Central Panhandle Aquatic Preserves Seagrass Monitoring, Franklin County Coastal Waters Seagrass Monitoring|557, 558|144|8|2009|2023|TRUE
+Alligator Harbor Aquatic Preserve|Halodule wrightii|Median percent cover (from BB scores)|2|Central Panhandle Aquatic Preserves Seagrass Monitoring, Franklin County Coastal Waters Seagrass Monitoring|557, 558|263|14|2008|2023|TRUE
 Alligator Harbor Aquatic Preserve|Halophila engelmannii|Median percent cover (from BB scores)|1|Franklin County Coastal Waters Seagrass Monitoring|558|1|1|2012|2012|FALSE
-Alligator Harbor Aquatic Preserve|No grass In Quadrat|Median percent cover (from BB scores)|1|Franklin County Coastal Waters Seagrass Monitoring|558|1599|7|2009|2017|TRUE
+Alligator Harbor Aquatic Preserve|No grass in quadrat|Median percent cover (from BB scores)|2|Central Panhandle Aquatic Preserves Seagrass Monitoring, Franklin County Coastal Waters Seagrass Monitoring|557, 558|1620|8|2009|2023|TRUE
 Alligator Harbor Aquatic Preserve|Ruppia maritima|Median percent cover (from BB scores)|1|Franklin County Coastal Waters Seagrass Monitoring|558|1|1|2014|2014|FALSE
-Alligator Harbor Aquatic Preserve|Syringodium filiforme|Median percent cover (from BB scores)|2|Central Panhandle Aquatic Preserves Seagrass Monitoring, Franklin County Coastal Waters Seagrass Monitoring|557, 558|772|13|2009|2022|TRUE
-Alligator Harbor Aquatic Preserve|Thalassia testudinum|Median percent cover (from BB scores)|2|Central Panhandle Aquatic Preserves Seagrass Monitoring, Franklin County Coastal Waters Seagrass Monitoring|557, 558|655|12|2009|2022|TRUE
-Apalachicola Bay Aquatic Preserve|Drift algae|Median percent cover (from BB scores)|2|Apalachicola Bay Ephemeral SAV Monitoring, Central Panhandle Aquatic Preserves Seagrass Monitoring|557, 997|79|3|2003|2021|FALSE
-Apalachicola Bay Aquatic Preserve|Halodule wrightii|Median percent cover (from BB scores)|1|Central Panhandle Aquatic Preserves Seagrass Monitoring|557|161|5|2008|2021|TRUE
-Apalachicola Bay Aquatic Preserve|No grass In Quadrat|Median percent cover (from BB scores)|2|Apalachicola Bay Ephemeral SAV Monitoring, Central Panhandle Aquatic Preserves Seagrass Monitoring|557, 997|65|4|2003|2021|FALSE
-Apalachicola Bay Aquatic Preserve|Ruppia maritima|Median percent cover (from BB scores)|1|Apalachicola Bay Ephemeral SAV Monitoring|997|50|1|2003|2003|FALSE
-Apalachicola National Estuarine Research Reserve|Drift algae|Median percent cover (from BB scores)|2|Apalachicola Bay Ephemeral SAV Monitoring, Central Panhandle Aquatic Preserves Seagrass Monitoring|557, 997|97|5|2003|2021|TRUE
-Apalachicola National Estuarine Research Reserve|Halodule wrightii|Median percent cover (from BB scores)|2|Central Panhandle Aquatic Preserves Seagrass Monitoring, Franklin County Coastal Waters Seagrass Monitoring|557, 558|841|10|2008|2021|TRUE
+Alligator Harbor Aquatic Preserve|Syringodium filiforme|Median percent cover (from BB scores)|2|Central Panhandle Aquatic Preserves Seagrass Monitoring, Franklin County Coastal Waters Seagrass Monitoring|557, 558|800|15|2008|2023|TRUE
+Alligator Harbor Aquatic Preserve|Thalassia testudinum|Median percent cover (from BB scores)|2|Central Panhandle Aquatic Preserves Seagrass Monitoring, Franklin County Coastal Waters Seagrass Monitoring|557, 558|686|14|2008|2023|TRUE
+Apalachicola Bay Aquatic Preserve|Drift algae|Median percent cover (from BB scores)|2|Apalachicola Bay Ephemeral SAV Monitoring, Central Panhandle Aquatic Preserves Seagrass Monitoring|557, 997|94|5|2003|2023|TRUE
+Apalachicola Bay Aquatic Preserve|Halodule wrightii|Median percent cover (from BB scores)|1|Central Panhandle Aquatic Preserves Seagrass Monitoring|557|248|7|2008|2023|TRUE
+Apalachicola Bay Aquatic Preserve|No grass in quadrat|Median percent cover (from BB scores)|2|Apalachicola Bay Ephemeral SAV Monitoring, Central Panhandle Aquatic Preserves Seagrass Monitoring|557, 997|74|6|2003|2023|TRUE
+Apalachicola Bay Aquatic Preserve|Ruppia maritima|Median percent cover (from BB scores)|2|Apalachicola Bay Ephemeral SAV Monitoring, Central Panhandle Aquatic Preserves Seagrass Monitoring|557, 997|52|3|2003|2023|FALSE
+Apalachicola National Estuarine Research Reserve|Drift algae|Median percent cover (from BB scores)|2|Apalachicola Bay Ephemeral SAV Monitoring, Central Panhandle Aquatic Preserves Seagrass Monitoring|557, 997|125|7|2003|2023|TRUE
+Apalachicola National Estuarine Research Reserve|Halodule wrightii|Median percent cover (from BB scores)|2|Central Panhandle Aquatic Preserves Seagrass Monitoring, Franklin County Coastal Waters Seagrass Monitoring|557, 558|1021|12|2008|2023|TRUE
 Apalachicola National Estuarine Research Reserve|Halophila engelmannii|Median percent cover (from BB scores)|1|Franklin County Coastal Waters Seagrass Monitoring|558|1|1|2017|2017|FALSE
-Apalachicola National Estuarine Research Reserve|No grass In Quadrat|Median percent cover (from BB scores)|3|Apalachicola Bay Ephemeral SAV Monitoring, Central Panhandle Aquatic Preserves Seagrass Monitoring, Franklin County Coastal Waters Seagrass Monitoring|557, 558, 997|894|10|2003|2021|TRUE
-Apalachicola National Estuarine Research Reserve|Ruppia maritima|Median percent cover (from BB scores)|1|Apalachicola Bay Ephemeral SAV Monitoring|997|50|1|2003|2003|FALSE
+Apalachicola National Estuarine Research Reserve|No grass in quadrat|Median percent cover (from BB scores)|3|Apalachicola Bay Ephemeral SAV Monitoring, Central Panhandle Aquatic Preserves Seagrass Monitoring, Franklin County Coastal Waters Seagrass Monitoring|557, 558, 997|906|12|2003|2023|TRUE
+Apalachicola National Estuarine Research Reserve|Ruppia maritima|Median percent cover (from BB scores)|2|Apalachicola Bay Ephemeral SAV Monitoring, Central Panhandle Aquatic Preserves Seagrass Monitoring|557, 997|55|3|2003|2023|FALSE
 Apalachicola National Estuarine Research Reserve|Syringodium filiforme|Median percent cover (from BB scores)|1|Franklin County Coastal Waters Seagrass Monitoring|558|44|4|2011|2017|FALSE
-Big Bend Seagrasses Aquatic Preserve|Drift algae|Median percent cover (from BB scores)|2|Big Bend Seagrasses & Nature Coast Aquatic Preserves - Seagrass Monitoring, Northern Big Bend Seagrass Monitoring|559, 560|2744|23|2000|2023|TRUE
-Big Bend Seagrasses Aquatic Preserve|Halodule wrightii|Median percent cover (from BB scores)|2|Big Bend Seagrasses & Nature Coast Aquatic Preserves - Seagrass Monitoring, Northern Big Bend Seagrass Monitoring|559, 560|2198|23|2000|2023|TRUE
-Big Bend Seagrasses Aquatic Preserve|Halophila engelmannii|Median percent cover (from BB scores)|2|Big Bend Seagrasses & Nature Coast Aquatic Preserves - Seagrass Monitoring, Northern Big Bend Seagrass Monitoring|559, 560|788|23|2000|2023|TRUE
-Big Bend Seagrasses Aquatic Preserve|No grass In Quadrat|Median percent cover (from BB scores)|1|Big Bend Seagrasses & Nature Coast Aquatic Preserves - Seagrass Monitoring|560|293|19|2004|2023|TRUE
-Big Bend Seagrasses Aquatic Preserve|Ruppia maritima|Median percent cover (from BB scores)|2|Big Bend Seagrasses & Nature Coast Aquatic Preserves - Seagrass Monitoring, Northern Big Bend Seagrass Monitoring|559, 560|80|14|2001|2022|TRUE
-Big Bend Seagrasses Aquatic Preserve|Syringodium filiforme|Median percent cover (from BB scores)|2|Big Bend Seagrasses & Nature Coast Aquatic Preserves - Seagrass Monitoring, Northern Big Bend Seagrass Monitoring|559, 560|4807|23|2000|2023|TRUE
-Big Bend Seagrasses Aquatic Preserve|Thalassia testudinum|Median percent cover (from BB scores)|2|Big Bend Seagrasses & Nature Coast Aquatic Preserves - Seagrass Monitoring, Northern Big Bend Seagrass Monitoring|559, 560|10632|23|2000|2023|TRUE
+Big Bend Seagrasses Aquatic Preserve|Drift algae|Median percent cover (from BB scores)|2|Big Bend Seagrasses & Nature Coast Aquatic Preserves - Seagrass Monitoring, Northern Big Bend Seagrass Monitoring|559, 560|3182|24|2000|2024|TRUE
+Big Bend Seagrasses Aquatic Preserve|Halodule wrightii|Median percent cover (from BB scores)|2|Big Bend Seagrasses & Nature Coast Aquatic Preserves - Seagrass Monitoring, Northern Big Bend Seagrass Monitoring|559, 560|2552|24|2000|2024|TRUE
+Big Bend Seagrasses Aquatic Preserve|Halophila engelmannii|Median percent cover (from BB scores)|2|Big Bend Seagrasses & Nature Coast Aquatic Preserves - Seagrass Monitoring, Northern Big Bend Seagrass Monitoring|559, 560|848|24|2000|2024|TRUE
+Big Bend Seagrasses Aquatic Preserve|No grass in quadrat|Median percent cover (from BB scores)|1|Big Bend Seagrasses & Nature Coast Aquatic Preserves - Seagrass Monitoring|560|345|20|2004|2024|TRUE
+Big Bend Seagrasses Aquatic Preserve|Ruppia maritima|Median percent cover (from BB scores)|2|Big Bend Seagrasses & Nature Coast Aquatic Preserves - Seagrass Monitoring, Northern Big Bend Seagrass Monitoring|559, 560|82|15|2001|2024|TRUE
+Big Bend Seagrasses Aquatic Preserve|Syringodium filiforme|Median percent cover (from BB scores)|2|Big Bend Seagrasses & Nature Coast Aquatic Preserves - Seagrass Monitoring, Northern Big Bend Seagrass Monitoring|559, 560|5411|24|2000|2024|TRUE
+Big Bend Seagrasses Aquatic Preserve|Thalassia testudinum|Median percent cover (from BB scores)|2|Big Bend Seagrasses & Nature Coast Aquatic Preserves - Seagrass Monitoring, Northern Big Bend Seagrass Monitoring|559, 560|12141|24|2000|2024|TRUE
 Boca Ciega Bay Aquatic Preserve|Drift algae|Median percent cover (from BB scores)|1|Tampa Bay Seagrass Monitoring|565|20|3|2020|2022|FALSE
-Boca Ciega Bay Aquatic Preserve|Halodule wrightii|Median percent cover (from BB scores)|2|Tampa Bay Seagrass Monitoring, Western Pinellas County Seagrass Monitoring|564, 565|1228|24|1998|2022|TRUE
-Boca Ciega Bay Aquatic Preserve|No grass In Quadrat|Median percent cover (from BB scores)|1|Tampa Bay Seagrass Monitoring|565|351|23|1998|2022|TRUE
-Boca Ciega Bay Aquatic Preserve|Syringodium filiforme|Median percent cover (from BB scores)|2|Tampa Bay Seagrass Monitoring, Western Pinellas County Seagrass Monitoring|564, 565|10|4|2003|2022|FALSE
-Boca Ciega Bay Aquatic Preserve|Thalassia testudinum|Median percent cover (from BB scores)|2|Tampa Bay Seagrass Monitoring, Western Pinellas County Seagrass Monitoring|564, 565|933|24|1998|2022|TRUE
+Boca Ciega Bay Aquatic Preserve|Halodule wrightii|Median percent cover (from BB scores)|2|Tampa Bay Seagrass Monitoring, Western Pinellas County Seagrass Monitoring|564, 565|1298|25|1998|2023|TRUE
+Boca Ciega Bay Aquatic Preserve|No grass in quadrat|Median percent cover (from BB scores)|1|Tampa Bay Seagrass Monitoring|565|367|24|1998|2023|TRUE
+Boca Ciega Bay Aquatic Preserve|Syringodium filiforme|Median percent cover (from BB scores)|2|Tampa Bay Seagrass Monitoring, Western Pinellas County Seagrass Monitoring|564, 565|13|5|2003|2023|TRUE
+Boca Ciega Bay Aquatic Preserve|Thalassia testudinum|Median percent cover (from BB scores)|2|Tampa Bay Seagrass Monitoring, Western Pinellas County Seagrass Monitoring|564, 565|983|25|1998|2023|TRUE
 Boca Ciega Bay Aquatic Preserve|Unidentified Halophila|Median percent cover (from BB scores)|1|Tampa Bay Seagrass Monitoring|565|1|1|2022|2022|FALSE
 Cape Haze Aquatic Preserve|Attached algae|Median percent cover (from BB scores)|1|Charlotte Harbor Seagrass Monitoring|570|1|1|2009|2009|FALSE
-Cape Haze Aquatic Preserve|Drift algae|Median percent cover (from BB scores)|1|Charlotte Harbor Seagrass Monitoring|570|98|17|2003|2022|TRUE
-Cape Haze Aquatic Preserve|Halodule wrightii|Median percent cover (from BB scores)|1|Charlotte Harbor Seagrass Monitoring|570|386|24|1998|2022|TRUE
-Cape Haze Aquatic Preserve|No grass In Quadrat|Median percent cover (from BB scores)|1|Charlotte Harbor Seagrass Monitoring|570|116|22|1998|2022|TRUE
-Cape Haze Aquatic Preserve|Syringodium filiforme|Median percent cover (from BB scores)|1|Charlotte Harbor Seagrass Monitoring|570|86|21|1998|2022|TRUE
-Cape Haze Aquatic Preserve|Thalassia testudinum|Median percent cover (from BB scores)|1|Charlotte Harbor Seagrass Monitoring|570|274|24|1998|2022|TRUE
-Cape Haze Aquatic Preserve|Total seagrass|Median percent cover (from BB scores)|1|Charlotte Harbor Seagrass Monitoring|570|597|20|1998|2022|TRUE
+Cape Haze Aquatic Preserve|Drift algae|Median percent cover (from BB scores)|1|Charlotte Harbor Seagrass Monitoring|570|110|18|2003|2023|TRUE
+Cape Haze Aquatic Preserve|Halodule wrightii|Median percent cover (from BB scores)|1|Charlotte Harbor Seagrass Monitoring|570|402|25|1998|2023|TRUE
+Cape Haze Aquatic Preserve|No grass in quadrat|Median percent cover (from BB scores)|1|Charlotte Harbor Seagrass Monitoring|570|121|23|1998|2023|TRUE
+Cape Haze Aquatic Preserve|Syringodium filiforme|Median percent cover (from BB scores)|1|Charlotte Harbor Seagrass Monitoring|570|91|22|1998|2023|TRUE
+Cape Haze Aquatic Preserve|Thalassia testudinum|Median percent cover (from BB scores)|1|Charlotte Harbor Seagrass Monitoring|570|293|25|1998|2023|TRUE
+Cape Haze Aquatic Preserve|Total seagrass|Median percent cover (from BB scores)|1|Charlotte Harbor Seagrass Monitoring|570|631|21|1998|2023|TRUE
 Cockroach Bay Aquatic Preserve|Attached algae|Median percent cover (from BB scores)|1|Tampa Bay Seagrass Monitoring|565|1|1|2021|2021|FALSE
 Cockroach Bay Aquatic Preserve|Drift algae|Median percent cover (from BB scores)|1|Tampa Bay Seagrass Monitoring|565|82|1|2021|2021|FALSE
-Cockroach Bay Aquatic Preserve|Halodule wrightii|Median percent cover (from BB scores)|1|Tampa Bay Seagrass Monitoring|565|502|15|2000|2022|TRUE
-Cockroach Bay Aquatic Preserve|No grass In Quadrat|Median percent cover (from BB scores)|1|Tampa Bay Seagrass Monitoring|565|342|15|2000|2022|TRUE
-Cockroach Bay Aquatic Preserve|Syringodium filiforme|Median percent cover (from BB scores)|1|Tampa Bay Seagrass Monitoring|565|322|15|2000|2022|TRUE
-Cockroach Bay Aquatic Preserve|Thalassia testudinum|Median percent cover (from BB scores)|1|Tampa Bay Seagrass Monitoring|565|404|15|2000|2022|TRUE
-Cockroach Bay Aquatic Preserve|Unidentified Halophila|Median percent cover (from BB scores)|1|Tampa Bay Seagrass Monitoring|565|5|2|2021|2022|FALSE
+Cockroach Bay Aquatic Preserve|Halodule wrightii|Median percent cover (from BB scores)|1|Tampa Bay Seagrass Monitoring|565|541|16|2000|2023|TRUE
+Cockroach Bay Aquatic Preserve|No grass in quadrat|Median percent cover (from BB scores)|1|Tampa Bay Seagrass Monitoring|565|363|16|2000|2023|TRUE
+Cockroach Bay Aquatic Preserve|Syringodium filiforme|Median percent cover (from BB scores)|1|Tampa Bay Seagrass Monitoring|565|358|16|2000|2023|TRUE
+Cockroach Bay Aquatic Preserve|Thalassia testudinum|Median percent cover (from BB scores)|1|Tampa Bay Seagrass Monitoring|565|438|16|2000|2023|TRUE
+Cockroach Bay Aquatic Preserve|Unidentified Halophila|Median percent cover (from BB scores)|1|Tampa Bay Seagrass Monitoring|565|8|3|2021|2023|FALSE
 Estero Bay Aquatic Preserve|Attached algae|Median percent cover (from BB scores)|1|Estero Bay Seagrass Monitoring|571|20|14|2002|2022|TRUE
-Estero Bay Aquatic Preserve|Drift algae|Median percent cover (from BB scores)|1|Estero Bay Seagrass Monitoring|571|391|21|2002|2022|TRUE
-Estero Bay Aquatic Preserve|Halodule wrightii|Median percent cover (from BB scores)|1|Estero Bay Seagrass Monitoring|571|744|21|2002|2022|TRUE
-Estero Bay Aquatic Preserve|Halophila decipiens|Median percent cover (from BB scores)|1|Estero Bay Seagrass Monitoring|571|19|8|2002|2018|TRUE
+Estero Bay Aquatic Preserve|Drift algae|Median percent cover (from BB scores)|1|Estero Bay Seagrass Monitoring|571|453|22|2002|2023|TRUE
+Estero Bay Aquatic Preserve|Halodule wrightii|Median percent cover (from BB scores)|1|Estero Bay Seagrass Monitoring|571|809|22|2002|2023|TRUE
+Estero Bay Aquatic Preserve|Halophila decipiens|Median percent cover (from BB scores)|1|Estero Bay Seagrass Monitoring|571|20|9|2002|2023|TRUE
 Estero Bay Aquatic Preserve|Halophila engelmannii|Median percent cover (from BB scores)|1|Estero Bay Seagrass Monitoring|571|15|11|2002|2022|TRUE
-Estero Bay Aquatic Preserve|No grass In Quadrat|Median percent cover (from BB scores)|1|Estero Bay Seagrass Monitoring|571|98|21|2002|2022|TRUE
+Estero Bay Aquatic Preserve|No grass in quadrat|Median percent cover (from BB scores)|1|Estero Bay Seagrass Monitoring|571|115|22|2002|2023|TRUE
 Estero Bay Aquatic Preserve|Syringodium filiforme|Median percent cover (from BB scores)|1|Estero Bay Seagrass Monitoring|571|15|13|2003|2021|TRUE
-Estero Bay Aquatic Preserve|Thalassia testudinum|Median percent cover (from BB scores)|1|Estero Bay Seagrass Monitoring|571|266|21|2002|2022|TRUE
-Estero Bay Aquatic Preserve|Total seagrass|Median percent cover (from BB scores)|1|Estero Bay Seagrass Monitoring|571|760|17|2006|2022|TRUE
+Estero Bay Aquatic Preserve|Thalassia testudinum|Median percent cover (from BB scores)|1|Estero Bay Seagrass Monitoring|571|284|22|2002|2023|TRUE
+Estero Bay Aquatic Preserve|Total seagrass|Median percent cover (from BB scores)|1|Estero Bay Seagrass Monitoring|571|843|18|2006|2023|TRUE
 Estero Bay Aquatic Preserve|Unidentified Halophila|Median percent cover (from BB scores)|1|Estero Bay Seagrass Monitoring|571|8|5|2003|2015|TRUE
-Fort Pickens State Park Aquatic Preserve|Halodule wrightii|Median percent cover (from BB scores)|1|Northwest Florida Aquatic Preserve Seagrass Survey|4065|1003|8|2016|2023|TRUE
-Fort Pickens State Park Aquatic Preserve|No grass In Quadrat|Median percent cover (from BB scores)|1|Northwest Florida Aquatic Preserve Seagrass Survey|4065|111|8|2016|2023|TRUE
-Fort Pickens State Park Aquatic Preserve|Thalassia testudinum|Median percent cover (from BB scores)|1|Northwest Florida Aquatic Preserve Seagrass Survey|4065|597|8|2016|2023|TRUE
-Fort Pickens State Park Aquatic Preserve|Total SAV|Median percent cover (from BB scores)|1|Northwest Florida Aquatic Preserve Seagrass Survey|4065|1197|8|2016|2023|TRUE
-Fort Pickens State Park Aquatic Preserve|Total seagrass|Median percent cover (from BB scores)|1|Northwest Florida Aquatic Preserve Seagrass Survey|4065|1084|8|2016|2023|TRUE
+Fort Pickens State Park Aquatic Preserve|Halodule wrightii|Median percent cover (from BB scores)|1|Northwest Florida Aquatic Preserve Seagrass Survey|4065|1134|9|2016|2024|TRUE
+Fort Pickens State Park Aquatic Preserve|No grass in quadrat|Median percent cover (from BB scores)|1|Northwest Florida Aquatic Preserve Seagrass Survey|4065|145|9|2016|2024|TRUE
+Fort Pickens State Park Aquatic Preserve|Ruppia maritima|Median percent cover (from BB scores)|1|Northwest Florida Aquatic Preserve Seagrass Survey|4065|4|2|2021|2022|FALSE
+Fort Pickens State Park Aquatic Preserve|Syringodium filiforme|Median percent cover (from BB scores)|1|Northwest Florida Aquatic Preserve Seagrass Survey|4065|3|2|2022|2024|FALSE
+Fort Pickens State Park Aquatic Preserve|Thalassia testudinum|Median percent cover (from BB scores)|1|Northwest Florida Aquatic Preserve Seagrass Survey|4065|693|9|2016|2024|TRUE
+Fort Pickens State Park Aquatic Preserve|Total SAV|Median percent cover (from BB scores)|1|Northwest Florida Aquatic Preserve Seagrass Survey|4065|1385|9|2016|2024|TRUE
+Fort Pickens State Park Aquatic Preserve|Total seagrass|Median percent cover (from BB scores)|1|Northwest Florida Aquatic Preserve Seagrass Survey|4065|1392|9|2016|2024|TRUE
 Gasparilla Sound-Charlotte Harbor Aquatic Preserve|Attached algae|Median percent cover (from BB scores)|1|Charlotte Harbor Seagrass Monitoring|570|24|8|2007|2022|TRUE
-Gasparilla Sound-Charlotte Harbor Aquatic Preserve|Drift algae|Median percent cover (from BB scores)|1|Charlotte Harbor Seagrass Monitoring|570|686|23|1999|2022|TRUE
-Gasparilla Sound-Charlotte Harbor Aquatic Preserve|Halodule wrightii|Median percent cover (from BB scores)|1|Charlotte Harbor Seagrass Monitoring|570|2163|25|1998|2022|TRUE
+Gasparilla Sound-Charlotte Harbor Aquatic Preserve|Drift algae|Median percent cover (from BB scores)|1|Charlotte Harbor Seagrass Monitoring|570|756|24|1999|2023|TRUE
+Gasparilla Sound-Charlotte Harbor Aquatic Preserve|Halodule wrightii|Median percent cover (from BB scores)|1|Charlotte Harbor Seagrass Monitoring|570|2248|26|1998|2023|TRUE
 Gasparilla Sound-Charlotte Harbor Aquatic Preserve|Halophila engelmannii|Median percent cover (from BB scores)|1|Charlotte Harbor Seagrass Monitoring|570|2|2|2011|2014|FALSE
-Gasparilla Sound-Charlotte Harbor Aquatic Preserve|No grass In Quadrat|Median percent cover (from BB scores)|1|Charlotte Harbor Seagrass Monitoring|570|594|25|1998|2022|TRUE
+Gasparilla Sound-Charlotte Harbor Aquatic Preserve|No grass in quadrat|Median percent cover (from BB scores)|1|Charlotte Harbor Seagrass Monitoring|570|644|26|1998|2023|TRUE
 Gasparilla Sound-Charlotte Harbor Aquatic Preserve|Ruppia maritima|Median percent cover (from BB scores)|1|Charlotte Harbor Seagrass Monitoring|570|40|10|1998|2019|TRUE
-Gasparilla Sound-Charlotte Harbor Aquatic Preserve|Syringodium filiforme|Median percent cover (from BB scores)|1|Charlotte Harbor Seagrass Monitoring|570|239|25|1998|2022|TRUE
-Gasparilla Sound-Charlotte Harbor Aquatic Preserve|Thalassia testudinum|Median percent cover (from BB scores)|1|Charlotte Harbor Seagrass Monitoring|570|989|25|1998|2022|TRUE
-Gasparilla Sound-Charlotte Harbor Aquatic Preserve|Total seagrass|Median percent cover (from BB scores)|1|Charlotte Harbor Seagrass Monitoring|570|3081|21|1998|2022|TRUE
-Lemon Bay Aquatic Preserve|Attached algae|Median percent cover (from BB scores)|1|Charlotte Harbor Seagrass Monitoring|570|64|14|1999|2022|TRUE
-Lemon Bay Aquatic Preserve|Drift algae|Median percent cover (from BB scores)|1|Charlotte Harbor Seagrass Monitoring|570|106|23|1999|2022|TRUE
-Lemon Bay Aquatic Preserve|Halodule wrightii|Median percent cover (from BB scores)|2|Charlotte Harbor Seagrass Monitoring, Sarasota County Seagrass Monitoring|568, 570|723|25|1998|2022|TRUE
-Lemon Bay Aquatic Preserve|No grass In Quadrat|Median percent cover (from BB scores)|1|Charlotte Harbor Seagrass Monitoring|570|99|23|1998|2022|TRUE
-Lemon Bay Aquatic Preserve|Syringodium filiforme|Median percent cover (from BB scores)|2|Charlotte Harbor Seagrass Monitoring, Sarasota County Seagrass Monitoring|568, 570|332|24|1998|2022|TRUE
-Lemon Bay Aquatic Preserve|Thalassia testudinum|Median percent cover (from BB scores)|2|Charlotte Harbor Seagrass Monitoring, Sarasota County Seagrass Monitoring|568, 570|477|23|1998|2022|TRUE
-Lemon Bay Aquatic Preserve|Total seagrass|Median percent cover (from BB scores)|2|Charlotte Harbor Seagrass Monitoring, Sarasota County Seagrass Monitoring|568, 570|922|21|1998|2022|TRUE
+Gasparilla Sound-Charlotte Harbor Aquatic Preserve|Syringodium filiforme|Median percent cover (from BB scores)|1|Charlotte Harbor Seagrass Monitoring|570|244|26|1998|2023|TRUE
+Gasparilla Sound-Charlotte Harbor Aquatic Preserve|Thalassia testudinum|Median percent cover (from BB scores)|1|Charlotte Harbor Seagrass Monitoring|570|1036|26|1998|2023|TRUE
+Gasparilla Sound-Charlotte Harbor Aquatic Preserve|Total seagrass|Median percent cover (from BB scores)|1|Charlotte Harbor Seagrass Monitoring|570|3243|22|1998|2023|TRUE
+Lemon Bay Aquatic Preserve|Attached algae|Median percent cover (from BB scores)|1|Charlotte Harbor Seagrass Monitoring|570|64|14|1999|2023|TRUE
+Lemon Bay Aquatic Preserve|Drift algae|Median percent cover (from BB scores)|1|Charlotte Harbor Seagrass Monitoring|570|114|24|1999|2023|TRUE
+Lemon Bay Aquatic Preserve|Halodule wrightii|Median percent cover (from BB scores)|2|Charlotte Harbor Seagrass Monitoring, Sarasota County Seagrass Monitoring|568, 570|754|26|1998|2023|TRUE
+Lemon Bay Aquatic Preserve|No grass in quadrat|Median percent cover (from BB scores)|1|Charlotte Harbor Seagrass Monitoring|570|106|24|1998|2023|TRUE
+Lemon Bay Aquatic Preserve|Syringodium filiforme|Median percent cover (from BB scores)|2|Charlotte Harbor Seagrass Monitoring, Sarasota County Seagrass Monitoring|568, 570|337|25|1998|2023|TRUE
+Lemon Bay Aquatic Preserve|Thalassia testudinum|Median percent cover (from BB scores)|2|Charlotte Harbor Seagrass Monitoring, Sarasota County Seagrass Monitoring|568, 570|490|24|1998|2023|TRUE
+Lemon Bay Aquatic Preserve|Total seagrass|Median percent cover (from BB scores)|2|Charlotte Harbor Seagrass Monitoring, Sarasota County Seagrass Monitoring|568, 570|964|22|1998|2023|TRUE
 Matlacha Pass Aquatic Preserve|Attached algae|Median percent cover (from BB scores)|1|Charlotte Harbor Seagrass Monitoring|570|1|1|2021|2021|FALSE
-Matlacha Pass Aquatic Preserve|Drift algae|Median percent cover (from BB scores)|1|Charlotte Harbor Seagrass Monitoring|570|199|23|2000|2022|TRUE
-Matlacha Pass Aquatic Preserve|Halodule wrightii|Median percent cover (from BB scores)|1|Charlotte Harbor Seagrass Monitoring|570|559|23|2000|2022|TRUE
-Matlacha Pass Aquatic Preserve|Halophila decipiens|Median percent cover (from BB scores)|1|Charlotte Harbor Seagrass Monitoring|570|2|1|2007|2007|FALSE
-Matlacha Pass Aquatic Preserve|Halophila engelmannii|Median percent cover (from BB scores)|1|Charlotte Harbor Seagrass Monitoring|570|19|10|2010|2022|TRUE
-Matlacha Pass Aquatic Preserve|No grass In Quadrat|Median percent cover (from BB scores)|1|Charlotte Harbor Seagrass Monitoring|570|71|19|2000|2022|TRUE
+Matlacha Pass Aquatic Preserve|Drift algae|Median percent cover (from BB scores)|1|Charlotte Harbor Seagrass Monitoring|570|215|24|2000|2023|TRUE
+Matlacha Pass Aquatic Preserve|Halodule wrightii|Median percent cover (from BB scores)|1|Charlotte Harbor Seagrass Monitoring|570|562|24|2000|2023|TRUE
+Matlacha Pass Aquatic Preserve|Halophila decipiens|Median percent cover (from BB scores)|1|Charlotte Harbor Seagrass Monitoring|570|4|2|2007|2023|FALSE
+Matlacha Pass Aquatic Preserve|Halophila engelmannii|Median percent cover (from BB scores)|1|Charlotte Harbor Seagrass Monitoring|570|20|11|2010|2023|TRUE
+Matlacha Pass Aquatic Preserve|No grass in quadrat|Median percent cover (from BB scores)|1|Charlotte Harbor Seagrass Monitoring|570|91|20|2000|2023|TRUE
 Matlacha Pass Aquatic Preserve|Ruppia maritima|Median percent cover (from BB scores)|1|Charlotte Harbor Seagrass Monitoring|570|2|2|2006|2018|FALSE
-Matlacha Pass Aquatic Preserve|Thalassia testudinum|Median percent cover (from BB scores)|1|Charlotte Harbor Seagrass Monitoring|570|160|23|2000|2022|TRUE
-Matlacha Pass Aquatic Preserve|Total seagrass|Median percent cover (from BB scores)|1|Charlotte Harbor Seagrass Monitoring|570|648|19|2004|2022|TRUE
+Matlacha Pass Aquatic Preserve|Thalassia testudinum|Median percent cover (from BB scores)|1|Charlotte Harbor Seagrass Monitoring|570|166|24|2000|2023|TRUE
+Matlacha Pass Aquatic Preserve|Total seagrass|Median percent cover (from BB scores)|1|Charlotte Harbor Seagrass Monitoring|570|680|20|2004|2023|TRUE
 Matlacha Pass Aquatic Preserve|Unidentified Halophila|Median percent cover (from BB scores)|1|Charlotte Harbor Seagrass Monitoring|570|4|4|2007|2014|FALSE
-Nature Coast Aquatic Preserve|Drift algae|Median percent cover (from BB scores)|1|Big Bend Seagrasses & Nature Coast Aquatic Preserves - Seagrass Monitoring|560|853|27|1997|2023|TRUE
-Nature Coast Aquatic Preserve|Halodule wrightii|Median percent cover (from BB scores)|1|Big Bend Seagrasses & Nature Coast Aquatic Preserves - Seagrass Monitoring|560|1278|27|1997|2023|TRUE
-Nature Coast Aquatic Preserve|Halophila engelmannii|Median percent cover (from BB scores)|1|Big Bend Seagrasses & Nature Coast Aquatic Preserves - Seagrass Monitoring|560|364|24|1997|2023|TRUE
-Nature Coast Aquatic Preserve|No grass In Quadrat|Median percent cover (from BB scores)|1|Big Bend Seagrasses & Nature Coast Aquatic Preserves - Seagrass Monitoring|560|38|6|1998|2023|TRUE
-Nature Coast Aquatic Preserve|Ruppia maritima|Median percent cover (from BB scores)|1|Big Bend Seagrasses & Nature Coast Aquatic Preserves - Seagrass Monitoring|560|22|9|1997|2023|TRUE
-Nature Coast Aquatic Preserve|Syringodium filiforme|Median percent cover (from BB scores)|1|Big Bend Seagrasses & Nature Coast Aquatic Preserves - Seagrass Monitoring|560|1884|27|1997|2023|TRUE
-Nature Coast Aquatic Preserve|Thalassia testudinum|Median percent cover (from BB scores)|1|Big Bend Seagrasses & Nature Coast Aquatic Preserves - Seagrass Monitoring|560|5446|27|1997|2023|TRUE
-Pine Island Sound Aquatic Preserve|Attached algae|Median percent cover (from BB scores)|1|Charlotte Harbor Seagrass Monitoring|570|18|12|2002|2022|TRUE
-Pine Island Sound Aquatic Preserve|Drift algae|Median percent cover (from BB scores)|1|Charlotte Harbor Seagrass Monitoring|570|246|21|2000|2022|TRUE
-Pine Island Sound Aquatic Preserve|Halodule wrightii|Median percent cover (from BB scores)|2|Charlotte Harbor Seagrass Monitoring, SCCF Seagrass Surveys|570, 3015|633|23|2000|2022|TRUE
+Nature Coast Aquatic Preserve|Drift algae|Median percent cover (from BB scores)|1|Big Bend Seagrasses & Nature Coast Aquatic Preserves - Seagrass Monitoring|560|3587|28|1997|2024|TRUE
+Nature Coast Aquatic Preserve|Halodule wrightii|Median percent cover (from BB scores)|1|Big Bend Seagrasses & Nature Coast Aquatic Preserves - Seagrass Monitoring|560|1902|28|1997|2024|TRUE
+Nature Coast Aquatic Preserve|Halophila engelmannii|Median percent cover (from BB scores)|1|Big Bend Seagrasses & Nature Coast Aquatic Preserves - Seagrass Monitoring|560|540|25|1997|2024|TRUE
+Nature Coast Aquatic Preserve|No grass in quadrat|Median percent cover (from BB scores)|1|Big Bend Seagrasses & Nature Coast Aquatic Preserves - Seagrass Monitoring|560|87|7|1998|2024|TRUE
+Nature Coast Aquatic Preserve|Ruppia maritima|Median percent cover (from BB scores)|1|Big Bend Seagrasses & Nature Coast Aquatic Preserves - Seagrass Monitoring|560|32|10|1997|2024|TRUE
+Nature Coast Aquatic Preserve|Syringodium filiforme|Median percent cover (from BB scores)|1|Big Bend Seagrasses & Nature Coast Aquatic Preserves - Seagrass Monitoring|560|2334|28|1997|2024|TRUE
+Nature Coast Aquatic Preserve|Thalassia testudinum|Median percent cover (from BB scores)|1|Big Bend Seagrasses & Nature Coast Aquatic Preserves - Seagrass Monitoring|560|7480|28|1997|2024|TRUE
+Pine Island Sound Aquatic Preserve|Attached algae|Median percent cover (from BB scores)|1|Charlotte Harbor Seagrass Monitoring|570|21|13|2002|2023|TRUE
+Pine Island Sound Aquatic Preserve|Drift algae|Median percent cover (from BB scores)|1|Charlotte Harbor Seagrass Monitoring|570|276|22|2000|2023|TRUE
+Pine Island Sound Aquatic Preserve|Halodule wrightii|Median percent cover (from BB scores)|2|Charlotte Harbor Seagrass Monitoring, SCCF Seagrass Surveys|570, 3015|669|24|2000|2023|TRUE
 Pine Island Sound Aquatic Preserve|Halophila decipiens|Median percent cover (from BB scores)|1|Charlotte Harbor Seagrass Monitoring|570|4|2|2006|2018|FALSE
 Pine Island Sound Aquatic Preserve|Halophila engelmannii|Median percent cover (from BB scores)|2|Charlotte Harbor Seagrass Monitoring, SCCF Seagrass Surveys|570, 3015|3|3|2006|2018|FALSE
-Pine Island Sound Aquatic Preserve|No grass In Quadrat|Median percent cover (from BB scores)|1|Charlotte Harbor Seagrass Monitoring|570|159|21|2002|2022|TRUE
+Pine Island Sound Aquatic Preserve|No grass in quadrat|Median percent cover (from BB scores)|1|Charlotte Harbor Seagrass Monitoring|570|174|22|2002|2023|TRUE
 Pine Island Sound Aquatic Preserve|Ruppia maritima|Median percent cover (from BB scores)|1|SCCF Seagrass Surveys|3015|0|0|||FALSE
-Pine Island Sound Aquatic Preserve|Syringodium filiforme|Median percent cover (from BB scores)|2|Charlotte Harbor Seagrass Monitoring, SCCF Seagrass Surveys|570, 3015|289|23|2000|2022|TRUE
-Pine Island Sound Aquatic Preserve|Thalassia testudinum|Median percent cover (from BB scores)|2|Charlotte Harbor Seagrass Monitoring, SCCF Seagrass Surveys|570, 3015|683|24|1998|2022|TRUE
-Pine Island Sound Aquatic Preserve|Total seagrass|Median percent cover (from BB scores)|1|Charlotte Harbor Seagrass Monitoring|570|1202|21|1998|2022|TRUE
+Pine Island Sound Aquatic Preserve|Syringodium filiforme|Median percent cover (from BB scores)|2|Charlotte Harbor Seagrass Monitoring, SCCF Seagrass Surveys|570, 3015|304|24|2000|2023|TRUE
+Pine Island Sound Aquatic Preserve|Thalassia testudinum|Median percent cover (from BB scores)|2|Charlotte Harbor Seagrass Monitoring, SCCF Seagrass Surveys|570, 3015|718|25|1998|2023|TRUE
+Pine Island Sound Aquatic Preserve|Total seagrass|Median percent cover (from BB scores)|1|Charlotte Harbor Seagrass Monitoring|570|1273|22|1998|2023|TRUE
 Pinellas County Aquatic Preserve|Attached algae|Median percent cover (from BB scores)|2|Tampa Bay Seagrass Monitoring, Western Pinellas County Seagrass Monitoring|564, 565|445|10|2000|2021|TRUE
-Pinellas County Aquatic Preserve|Drift algae|Median percent cover (from BB scores)|2|Tampa Bay Seagrass Monitoring, Western Pinellas County Seagrass Monitoring|564, 565|757|11|2012|2022|TRUE
-Pinellas County Aquatic Preserve|Halodule wrightii|Median percent cover (from BB scores)|3|Big Bend Seagrasses & Nature Coast Aquatic Preserves - Seagrass Monitoring, Tampa Bay Seagrass Monitoring, Western Pinellas County Seagrass Monitoring|560, 564, 565|6805|26|1998|2023|TRUE
+Pinellas County Aquatic Preserve|Drift algae|Median percent cover (from BB scores)|3|Big Bend Seagrasses & Nature Coast Aquatic Preserves - Seagrass Monitoring, Tampa Bay Seagrass Monitoring, Western Pinellas County Seagrass Monitoring|560, 564, 565|1013|13|2012|2024|TRUE
+Pinellas County Aquatic Preserve|Halodule wrightii|Median percent cover (from BB scores)|3|Big Bend Seagrasses & Nature Coast Aquatic Preserves - Seagrass Monitoring, Tampa Bay Seagrass Monitoring, Western Pinellas County Seagrass Monitoring|560, 564, 565|6971|27|1998|2024|TRUE
 Pinellas County Aquatic Preserve|Halophila engelmannii|Median percent cover (from BB scores)|1|Big Bend Seagrasses & Nature Coast Aquatic Preserves - Seagrass Monitoring|560|8|2|2021|2022|FALSE
-Pinellas County Aquatic Preserve|No grass In Quadrat|Median percent cover (from BB scores)|2|Big Bend Seagrasses & Nature Coast Aquatic Preserves - Seagrass Monitoring, Tampa Bay Seagrass Monitoring|560, 565|3563|26|1998|2023|TRUE
-Pinellas County Aquatic Preserve|Ruppia maritima|Median percent cover (from BB scores)|2|Tampa Bay Seagrass Monitoring, Western Pinellas County Seagrass Monitoring|564, 565|695|17|1998|2022|TRUE
-Pinellas County Aquatic Preserve|Syringodium filiforme|Median percent cover (from BB scores)|3|Big Bend Seagrasses & Nature Coast Aquatic Preserves - Seagrass Monitoring, Tampa Bay Seagrass Monitoring, Western Pinellas County Seagrass Monitoring|560, 564, 565|4215|26|1998|2023|TRUE
-Pinellas County Aquatic Preserve|Thalassia testudinum|Median percent cover (from BB scores)|3|Big Bend Seagrasses & Nature Coast Aquatic Preserves - Seagrass Monitoring, Tampa Bay Seagrass Monitoring, Western Pinellas County Seagrass Monitoring|560, 564, 565|3733|26|1998|2023|TRUE
+Pinellas County Aquatic Preserve|No grass in quadrat|Median percent cover (from BB scores)|2|Big Bend Seagrasses & Nature Coast Aquatic Preserves - Seagrass Monitoring, Tampa Bay Seagrass Monitoring|560, 565|3792|27|1998|2024|TRUE
+Pinellas County Aquatic Preserve|Ruppia maritima|Median percent cover (from BB scores)|2|Tampa Bay Seagrass Monitoring, Western Pinellas County Seagrass Monitoring|564, 565|702|18|1998|2023|TRUE
+Pinellas County Aquatic Preserve|Syringodium filiforme|Median percent cover (from BB scores)|3|Big Bend Seagrasses & Nature Coast Aquatic Preserves - Seagrass Monitoring, Tampa Bay Seagrass Monitoring, Western Pinellas County Seagrass Monitoring|560, 564, 565|4411|27|1998|2024|TRUE
+Pinellas County Aquatic Preserve|Thalassia testudinum|Median percent cover (from BB scores)|3|Big Bend Seagrasses & Nature Coast Aquatic Preserves - Seagrass Monitoring, Tampa Bay Seagrass Monitoring, Western Pinellas County Seagrass Monitoring|560, 564, 565|3925|27|1998|2024|TRUE
 Pinellas County Aquatic Preserve|Total SAV|Median percent cover (from BB scores)|1|Western Pinellas County Seagrass Monitoring|564|2602|9|2011|2019|TRUE
 Pinellas County Aquatic Preserve|Unidentified Halophila|Median percent cover (from BB scores)|2|Tampa Bay Seagrass Monitoring, Western Pinellas County Seagrass Monitoring|564, 565|519|16|1999|2022|TRUE
 Rookery Bay Aquatic Preserve|Halodule wrightii|Median percent cover (from BB scores)|1|Rookery Bay National Estuarine Research Reserve Seagrass Monitoring|572|222|8|1998|2005|TRUE
@@ -189,27 +191,28 @@ Rookery Bay National Estuarine Research Reserve|Halophila engelmannii|Median per
 Rookery Bay National Estuarine Research Reserve|Syringodium filiforme|Median percent cover (from BB scores)|1|Rookery Bay National Estuarine Research Reserve Seagrass Monitoring|572|221|8|1998|2005|TRUE
 Rookery Bay National Estuarine Research Reserve|Thalassia testudinum|Median percent cover (from BB scores)|1|Rookery Bay National Estuarine Research Reserve Seagrass Monitoring|572|222|8|1998|2005|TRUE
 Rookery Bay National Estuarine Research Reserve|Total seagrass|Median percent cover (from BB scores)|1|Rookery Bay National Estuarine Research Reserve Seagrass Monitoring|572|220|8|1998|2005|TRUE
-St. Andrews State Park Aquatic Preserve|Drift algae|Median percent cover (from BB scores)|1|Central Panhandle Aquatic Preserves Seagrass Monitoring|557|100|4|2016|2020|FALSE
-St. Andrews State Park Aquatic Preserve|Halodule wrightii|Median percent cover (from BB scores)|2|Central Panhandle Aquatic Preserves Seagrass Monitoring, St. Andrew Bay Aquatic Preserve Seagrass Monitoring|556, 557|449|13|2000|2021|TRUE
-St. Andrews State Park Aquatic Preserve|No grass In Quadrat|Median percent cover (from BB scores)|1|Central Panhandle Aquatic Preserves Seagrass Monitoring|557|43|5|2016|2021|TRUE
-St. Andrews State Park Aquatic Preserve|Syringodium filiforme|Median percent cover (from BB scores)|2|Central Panhandle Aquatic Preserves Seagrass Monitoring, St. Andrew Bay Aquatic Preserve Seagrass Monitoring|556, 557|426|12|2000|2021|TRUE
-St. Andrews State Park Aquatic Preserve|Thalassia testudinum|Median percent cover (from BB scores)|2|Central Panhandle Aquatic Preserves Seagrass Monitoring, St. Andrew Bay Aquatic Preserve Seagrass Monitoring|556, 557|744|13|2000|2021|TRUE
+St. Andrews State Park Aquatic Preserve|Drift algae|Median percent cover (from BB scores)|1|Central Panhandle Aquatic Preserves Seagrass Monitoring|557|133|6|2016|2023|TRUE
+St. Andrews State Park Aquatic Preserve|Halodule wrightii|Median percent cover (from BB scores)|2|Central Panhandle Aquatic Preserves Seagrass Monitoring, St. Andrew Bay Aquatic Preserve Seagrass Monitoring|556, 557|460|15|2000|2023|TRUE
+St. Andrews State Park Aquatic Preserve|No grass in quadrat|Median percent cover (from BB scores)|1|Central Panhandle Aquatic Preserves Seagrass Monitoring|557|76|7|2016|2023|TRUE
+St. Andrews State Park Aquatic Preserve|Syringodium filiforme|Median percent cover (from BB scores)|2|Central Panhandle Aquatic Preserves Seagrass Monitoring, St. Andrew Bay Aquatic Preserve Seagrass Monitoring|556, 557|432|14|2000|2023|TRUE
+St. Andrews State Park Aquatic Preserve|Thalassia testudinum|Median percent cover (from BB scores)|2|Central Panhandle Aquatic Preserves Seagrass Monitoring, St. Andrew Bay Aquatic Preserve Seagrass Monitoring|556, 557|841|15|2000|2023|TRUE
 St. Andrews State Park Aquatic Preserve|Total seagrass|Median percent cover (from BB scores)|1|St. Andrew Bay Aquatic Preserve Seagrass Monitoring|556|413|8|2000|2007|TRUE
-St. Joseph Bay Aquatic Preserve|Drift algae|Median percent cover (from BB scores)|1|Central Panhandle Aquatic Preserves Seagrass Monitoring|557|206|12|2006|2022|TRUE
-St. Joseph Bay Aquatic Preserve|Halodule wrightii|Median percent cover (from BB scores)|1|Central Panhandle Aquatic Preserves Seagrass Monitoring|557|47|9|2005|2022|TRUE
-St. Joseph Bay Aquatic Preserve|Syringodium filiforme|Median percent cover (from BB scores)|1|Central Panhandle Aquatic Preserves Seagrass Monitoring|557|78|9|2005|2022|TRUE
-St. Joseph Bay Aquatic Preserve|Thalassia testudinum|Median percent cover (from BB scores)|1|Central Panhandle Aquatic Preserves Seagrass Monitoring|557|793|10|2005|2022|TRUE
-St. Martins Marsh Aquatic Preserve|Drift algae|Median percent cover (from BB scores)|1|Big Bend Seagrasses & Nature Coast Aquatic Preserves - Seagrass Monitoring|560|696|27|1997|2023|TRUE
-St. Martins Marsh Aquatic Preserve|Halodule wrightii|Median percent cover (from BB scores)|1|Big Bend Seagrasses & Nature Coast Aquatic Preserves - Seagrass Monitoring|560|1266|27|1997|2023|TRUE
-St. Martins Marsh Aquatic Preserve|Halophila engelmannii|Median percent cover (from BB scores)|1|Big Bend Seagrasses & Nature Coast Aquatic Preserves - Seagrass Monitoring|560|396|25|1997|2023|TRUE
-St. Martins Marsh Aquatic Preserve|No grass In Quadrat|Median percent cover (from BB scores)|1|Big Bend Seagrasses & Nature Coast Aquatic Preserves - Seagrass Monitoring|560|20|7|1997|2021|TRUE
-St. Martins Marsh Aquatic Preserve|Ruppia maritima|Median percent cover (from BB scores)|1|Big Bend Seagrasses & Nature Coast Aquatic Preserves - Seagrass Monitoring|560|127|12|1997|2023|TRUE
-St. Martins Marsh Aquatic Preserve|Syringodium filiforme|Median percent cover (from BB scores)|1|Big Bend Seagrasses & Nature Coast Aquatic Preserves - Seagrass Monitoring|560|655|27|1997|2023|TRUE
-St. Martins Marsh Aquatic Preserve|Thalassia testudinum|Median percent cover (from BB scores)|1|Big Bend Seagrasses & Nature Coast Aquatic Preserves - Seagrass Monitoring|560|2845|27|1997|2023|TRUE
+St. Joseph Bay Aquatic Preserve|Drift algae|Median percent cover (from BB scores)|1|Central Panhandle Aquatic Preserves Seagrass Monitoring|557|243|13|2006|2023|TRUE
+St. Joseph Bay Aquatic Preserve|Halodule wrightii|Median percent cover (from BB scores)|1|Central Panhandle Aquatic Preserves Seagrass Monitoring|557|53|10|2005|2023|TRUE
+St. Joseph Bay Aquatic Preserve|No grass in quadrat|Median percent cover (from BB scores)|1|Central Panhandle Aquatic Preserves Seagrass Monitoring|557|21|2|2005|2023|FALSE
+St. Joseph Bay Aquatic Preserve|Syringodium filiforme|Median percent cover (from BB scores)|1|Central Panhandle Aquatic Preserves Seagrass Monitoring|557|90|10|2005|2023|TRUE
+St. Joseph Bay Aquatic Preserve|Thalassia testudinum|Median percent cover (from BB scores)|1|Central Panhandle Aquatic Preserves Seagrass Monitoring|557|865|11|2005|2023|TRUE
+St. Martins Marsh Aquatic Preserve|Drift algae|Median percent cover (from BB scores)|1|Big Bend Seagrasses & Nature Coast Aquatic Preserves - Seagrass Monitoring|560|1200|28|1997|2024|TRUE
+St. Martins Marsh Aquatic Preserve|Halodule wrightii|Median percent cover (from BB scores)|1|Big Bend Seagrasses & Nature Coast Aquatic Preserves - Seagrass Monitoring|560|1488|28|1997|2024|TRUE
+St. Martins Marsh Aquatic Preserve|Halophila engelmannii|Median percent cover (from BB scores)|1|Big Bend Seagrasses & Nature Coast Aquatic Preserves - Seagrass Monitoring|560|468|26|1997|2024|TRUE
+St. Martins Marsh Aquatic Preserve|No grass in quadrat|Median percent cover (from BB scores)|1|Big Bend Seagrasses & Nature Coast Aquatic Preserves - Seagrass Monitoring|560|21|7|1997|2021|TRUE
+St. Martins Marsh Aquatic Preserve|Ruppia maritima|Median percent cover (from BB scores)|1|Big Bend Seagrasses & Nature Coast Aquatic Preserves - Seagrass Monitoring|560|142|13|1997|2024|TRUE
+St. Martins Marsh Aquatic Preserve|Syringodium filiforme|Median percent cover (from BB scores)|1|Big Bend Seagrasses & Nature Coast Aquatic Preserves - Seagrass Monitoring|560|722|28|1997|2024|TRUE
+St. Martins Marsh Aquatic Preserve|Thalassia testudinum|Median percent cover (from BB scores)|1|Big Bend Seagrasses & Nature Coast Aquatic Preserves - Seagrass Monitoring|560|3169|28|1997|2024|TRUE
 Terra Ceia Aquatic Preserve|Drift algae|Median percent cover (from BB scores)|1|Tampa Bay Seagrass Monitoring|565|13|3|2018|2022|FALSE
-Terra Ceia Aquatic Preserve|Halodule wrightii|Median percent cover (from BB scores)|1|Tampa Bay Seagrass Monitoring|565|696|24|1999|2022|TRUE
-Terra Ceia Aquatic Preserve|No grass In Quadrat|Median percent cover (from BB scores)|1|Tampa Bay Seagrass Monitoring|565|963|24|1999|2022|TRUE
+Terra Ceia Aquatic Preserve|Halodule wrightii|Median percent cover (from BB scores)|1|Tampa Bay Seagrass Monitoring|565|731|25|1999|2023|TRUE
+Terra Ceia Aquatic Preserve|No grass in quadrat|Median percent cover (from BB scores)|1|Tampa Bay Seagrass Monitoring|565|976|25|1999|2023|TRUE
 Terra Ceia Aquatic Preserve|Ruppia maritima|Median percent cover (from BB scores)|1|Tampa Bay Seagrass Monitoring|565|2|2|2016|2021|FALSE
-Terra Ceia Aquatic Preserve|Syringodium filiforme|Median percent cover (from BB scores)|1|Tampa Bay Seagrass Monitoring|565|529|24|1999|2022|TRUE
-Terra Ceia Aquatic Preserve|Thalassia testudinum|Median percent cover (from BB scores)|1|Tampa Bay Seagrass Monitoring|565|1643|24|1999|2022|TRUE
+Terra Ceia Aquatic Preserve|Syringodium filiforme|Median percent cover (from BB scores)|1|Tampa Bay Seagrass Monitoring|565|559|25|1999|2023|TRUE
+Terra Ceia Aquatic Preserve|Thalassia testudinum|Median percent cover (from BB scores)|1|Tampa Bay Seagrass Monitoring|565|1684|25|1999|2023|TRUE
 Terra Ceia Aquatic Preserve|Unidentified Halophila|Median percent cover (from BB scores)|1|Tampa Bay Seagrass Monitoring|565|3|3|2016|2021|FALSE

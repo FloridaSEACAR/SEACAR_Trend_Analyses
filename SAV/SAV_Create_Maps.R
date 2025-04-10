@@ -151,9 +151,8 @@ tag.map.title <- tags$style(HTML("
     font-family: Arial, Helvetica, sans-serif;
     clear: none;
   }"))
-
-# published-on date
-today <- format(Sys.Date(), "%m/%d/%Y")
+# Export date
+exportDate <- max(format(unique(SAV4$ExportVersion), "%m/%d/%Y"))
 
 # Setting color palette
 seacar_palette <- c("#964059", "#E05E7B", "#E98C86", "#F1B8AB", "#F8CAAA",
@@ -232,7 +231,8 @@ sav_maps <- function(ma, ma_abrev){
   sav_df$alpha <- ifelse(sav_df$n_data<=10, 1, 0.8) # 0.8 is default
   
   # Set up watermark text display
-  fig_text <- tags$div(HTML(glue("{ma} - Submerged Aquatic Vegetation - Percent Cover - Published: {today}")))
+  fig_text <- tags$div(HTML(glue("{ma} - Submerged Aquatic Vegetation - Percent Cover (by species) - Percent Cover - Export Date: {exportDate}")),
+                       style = "margin-bottom:10px;")
   
   # create empty map template with shape file
   # previous shape col - #4E809C
@@ -251,7 +251,7 @@ sav_maps <- function(ma, ma_abrev){
               lat1=shape_coordinates$ymin,
               lng2=shape_coordinates$xmax,
               lat2=shape_coordinates$ymax) %>%
-    addControl(fig_text, position="bottomleft", className="map-title") %>%
+    addControl(fig_text, position="bottomleft", className = "map-title") %>%
     addScaleBar(position = "bottomright",
                 options = scaleBarOptions(metric=TRUE)) %>%
     addControl(
