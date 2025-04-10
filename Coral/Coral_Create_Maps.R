@@ -146,8 +146,9 @@ tag.map.title <- tags$style(HTML("
     font-family: Arial, Helvetica, sans-serif;
     clear: none;
   }"))
-# published-on date
-today <- format(Sys.Date(), "%m/%d/%Y")
+# Export date
+exportDate <- max(format(unique(coral_sr_data$ExportVersion), "%m/%d/%Y"),
+                  format(unique(coral_pc_data$ExportVersion), "%m/%d/%Y"))
 # Function to set radius / circle size by # of samples (for legend)
 calc_radius_coral <- function(n){sqrt(n)}
 
@@ -156,7 +157,7 @@ rcp <- st_read(paste0(seacar_shape_location,
                       "/orcp_all_sites/ORCP_Managed_Areas.shp")) %>%
   st_make_valid() %>% st_transform(crs = 4326)
 # Load in location point and line shapefiles
-GeoDBdate <- "5dec2024"
+GeoDBdate <- "5Mar2025"
 locs_pts <- st_read(paste0(seacar_shape_location, "/SampleLocations", GeoDBdate, "/seacar_dbo_vw_SampleLocation_Point.shp")) %>%
   st_make_valid() %>% st_transform(crs = 4326)
 locs_lns <- st_read(paste0(seacar_shape_location, "/SampleLocations", GeoDBdate, "/seacar_dbo_vw_SampleLocation_Line.shp")) %>%
@@ -243,7 +244,7 @@ for(i in c("Percent Cover", "Species Richness")){
   # Ensure correct file subset is being used for map generation, filter for a given MA
   if(i=="Percent Cover"){
     coral_df <- coral_pc_df
-    ma_include <- coral_pc_MA_Include
+    ma_include <- coral_pc_MA_All
   } else {
     coral_df <- coral_sr_df
     ma_include <- coral_sr_MA_Include
@@ -284,11 +285,8 @@ for(i in c("Percent Cover", "Species Richness")){
     labs <- shorten_program_names(ma_coral_programs, cutoff=60)
     
     # Set up watermark text display
-    if(i=="Percent Cover"){
-      fig_text <- tags$div(HTML(glue("{ma} - Coral Reef - {p} - Published: {today}")))
-    } else {
-      fig_text <- tags$div(HTML(glue("{ma} - Coral Reef - {i} - {p} - Published: {today}")))
-    }
+    fig_text <- tags$div(HTML(glue("{ma} - Coral Reef - {i} - {p} - Export Date: {exportDate}")),
+                         style = "margin-bottom:10px;")
     
     # Create map (without pts or lines for now)
     map <- leaflet(coral_df_ma, options = leafletOptions(zoomControl = FALSE)) %>%

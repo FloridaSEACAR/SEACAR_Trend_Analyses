@@ -87,7 +87,7 @@ data$ResultValue <- as.numeric(data$ResultValue)
 data <- data[data$ResultValue!=0,]
 data <- data[!is.na(data$ResultValue),]
 # Remove duplicate rows
-data <- data[data$MADup==1,]
+# data <- data[data$MADup==1,]
 # Create variable that combines the genus and species name
 data$gensp <- paste(data$GenusName, data$SpeciesName, sep=" ")
 
@@ -346,7 +346,7 @@ if(n==0){
                  shape=21, size=2, color="#333333", alpha=1) +
       labs(title="Grazers and Reef-Dependent Species Richness",
            subtitle=ma_i,
-           x="Year", y="Richness (# of species)") +
+           x="Year", y="Annual average richness (# of species)") +
       scale_x_continuous(limits=c(t_min-0.25, t_max+0.25),
                          breaks=seq(t_max, t_min, brk)) +
       scale_y_continuous(limits=c(y_min, y_max),
@@ -436,7 +436,7 @@ data <- data[!is.na(data$ResultValue),]
 # Remove rows with missing SampleDate
 data <- data[!is.na(data$SampleDate),]
 # Remove duplicate rows
-data <- data[data$MADup==1,]
+# data <- data[data$MADup==1,]
 # Remove rows with missing ManagedAreaName
 data <- data[!is.na(data$ManagedAreaName),]
 # Create variable that combines the genus and species name
@@ -548,6 +548,7 @@ fwrite(MA_Ov_Stats, paste0(out_dir,"/Coral_", param_file,
 # Creates a variable with the names of all the managed areas that contain
 # species observations
 coral_pc_MA_Include <- MA_Ov_Stats[!is.na(Mean) & SufficientData==TRUE, unique(ManagedAreaName)]
+coral_pc_MA_All <- MA_Ov_Stats[!is.na(Mean), unique(ManagedAreaName)]
 
 # Puts the managed areas in alphabetical order
 coral_pc_MA_Include <- coral_pc_MA_Include[order(coral_pc_MA_Include)]
@@ -563,7 +564,7 @@ lme_stats <- data.frame(matrix(ncol = 5, nrow = n))
 colnames(lme_stats) <- c("AreaID", "ManagedAreaName", "LME_Intercept",
                          "LME_Slope", "LME_p")
 
-# Begins to loop through each managed area for analysis
+# Begins to loop through each managed area for analysis (which have enough data)
 for(i in 1:n){
   ma_i <- coral_pc_MA_Include[i]
   # Gets data for current managegd area
@@ -624,14 +625,16 @@ if(n==0){
   # Prints a statement if there are no managed areas with appropriate data
   print("There are no locations that qualify.")
 } else {
-  for (i in 1:n) {
-    ma_i <- coral_pc_MA_Include[i]
+  for (i in 1:length(coral_pc_MA_All)) {
+    ma_i <- coral_pc_MA_All[i]
     # Get abbreviated name for filename
     ma_abrev <- MA_All[ManagedAreaName==ma_i, Abbreviation]
     # Gets data for target managed area
     plot_data <- data[ManagedAreaName==ma_i,]
+    if(ma_i %in% coral_pc_MA_Include){
+      lme_plot_data <- lme_plot[ManagedAreaName==ma_i,]
+    }
     
-    lme_plot_data <- lme_plot[ManagedAreaName==ma_i,]
     # Determines most recent year with available data for managed area
     t_max <- max(MA_Ov_Stats[ManagedAreaName==ma_i, LatestYear])
     # Determines earliest recent year with available data for managed area
@@ -639,32 +642,42 @@ if(n==0){
     # Determines how many years of data are present
     t <- t_max-t_min
     
+    current_year <- as.integer(format(Sys.Date(), "%Y"))
+    
     # Creates break intervals for plots based on number of years of data
     if(t>=30){
       # Set breaks to every 10 years if more than 30 years of data
       brk <- -10
-    }else if(t<30 & t>=10){
+    }else if(t>=10){
       # Set breaks to every 5 years if between 30 and 10 years of data
       brk <- -5
-    }else if(t<10 & t>=4){
-      # Set breaks to every 2 years if between 10 and 4 years of data
+    }else if(t>=5){
+      # Set breaks to every 2 years if between 10 and 5 years of data
       brk <- -2
-    }else if(t<4 & t>=2){
-      # Set breaks to every year if between 4 and 2 years of data
+    }else{
+      # Ensure 5 years are included on axis
+      total_ticks <- 5
+      extra_years <- total_ticks - t
+      # Always add 1 year before the first year
+      years_before <- min(1, extra_years)
+      years_after <- extra_years - years_before
+      # Adjust min and max year, without going beyond current year
+      t_min <- t_min - years_before
+      t_max <- min(t_max + years_after, current_year)
+      # Re-check if we have enough years (in case t_max hit current year)
+      t_min <- max(t_min, t_max - (total_ticks - 1))
       brk <- -1
-    }else if(t<2){
-      # Set breaks to every year if less than 2 years of data
-      brk <- -1
-      # Sets t_max to be 1 year greater and t_min to be 1 year lower
-      # Forces graph to have at least 3 tick marks
-      t_max <- t_max+1
-      t_min <- t_min-1
     }
     # Determine range of data values for the managed area
     y_range <- max(plot_data$ResultValue) - min(plot_data$ResultValue)
     
     # Sets y_min to be -1
-    y_min <- -1
+    y_min <- 0
+    if(ma_i %in% coral_pc_MA_Include){
+      y_min <- min(min(lme_plot_data$y), min(plot_data$ResultValue))
+    } else {
+      y_min <- 0
+    }
     
     # Sets upper bound of y-axis to be 10% of the data range above the
     # maximum value.
@@ -677,8 +690,10 @@ if(n==0){
       geom_point(aes(x=Year, y=ResultValue), 
                  position=plot_jitter, shape=21, size=2,
                  color="#333333", fill="#cccccc", alpha=1) +
-      geom_line(data=lme_plot_data, aes(x=x, y=y),
-                color="#000099", size=1.2, alpha=0.7) +
+      {if(ma_i %in% coral_pc_MA_Include){
+        geom_line(data=lme_plot_data, aes(x=x, y=y),
+                  color="#000099", size=1.2, alpha=0.7)
+      }} +
       labs(title="Coral Percent Cover",
            subtitle=ma_i,
            x="Year", y="Percent cover (%)") +
