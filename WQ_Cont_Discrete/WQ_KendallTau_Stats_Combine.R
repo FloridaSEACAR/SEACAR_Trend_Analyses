@@ -1,7 +1,7 @@
 # The purpose of this script is to combine the individual SKT results
 # into a combined .txt file for use in SEACAR Atlas website pages
 # Processes both discrete and continuous
-
+options(scipen = 999)
 library(data.table)
 library(dplyr)
 
@@ -47,7 +47,7 @@ for(file_type in c("Discrete", "Continuous")){
   
   if(file_type=="Discrete"){
     data <- data %>% 
-      select(-c("SamplingFrequency", "IndicatorName", "ParameterShort", "ParameterUnits")) %>%
+      select(-c("SamplingFrequency", "IndicatorName", "ParameterShort", "ParameterUnits", "IndicatorShort", "ParameterVisId")) %>%
       select(AreaID, ManagedAreaName, everything())
     
     data <- as.data.table(data[order(data$ManagedAreaName, data$ParameterName,
@@ -63,7 +63,10 @@ for(file_type in c("Discrete", "Continuous")){
   }
   
   # Remove leading spaces from NA P-values
-  data <- data[p %in% c("    NA","NA"), `:=` (p=NA)]
+  data <- data[str_detect(data$p, "NA"), `:=` (p=NA)]
+  data$p <- as.numeric(data$p)
+  data <- data %>%
+    mutate_if(is.numeric, round, 5)
   
   output_path <- paste0("output/WQ_", file_type, "_All_KendallTau_Stats")
   

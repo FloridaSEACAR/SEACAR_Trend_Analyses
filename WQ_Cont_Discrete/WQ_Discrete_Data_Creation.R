@@ -112,7 +112,7 @@ plot_theme <- theme_bw() +
         plot.title=element_text(hjust=0.5, size=12, color="#314963"),
         plot.subtitle=element_text(hjust=0.5, size=10, color="#314963"),
         legend.title=element_text(size=10),
-        legend.text.align = 0,
+        legend.text = element_text(hjust=0),
         axis.title.x = element_text(size=10, margin = margin(t = 5, r = 0,
                                                              b = 10, l = 0)),
         axis.title.y = element_text(size=10, margin = margin(t = 0, r = 10,
@@ -132,6 +132,7 @@ file_list <- list.files(seacar_data_location, full.names = T)
 # file_list <- list.files(paste0(seacar_data_location, "/archive/",exportDate), full.names = T)
 #####
 
+raw_models <- list()
 #Starts for loop that cycles through each parameter
 for (j in 1:length(all_params)){
   param_name <- all_params[j]
@@ -618,7 +619,7 @@ for (j in 1:length(all_params)){
       
       # List for column names
       c_names <- c("AreaID", "ManagedAreaName", "Independent", "tau", "p",
-                   "SennSlope", "SennIntercept", "ChiSquared", "pChiSquared", "Trend")
+                   "SennSlope", "SennIntercept", "ChiSquared", "pChiSquared", "ub", "lb", "Trend")
       
       skt_stats <- data.frame(matrix(ncol = length(c_names), nrow = n))
       
@@ -651,6 +652,8 @@ for (j in 1:length(all_params)){
                                               year=data_SKT$YearFromStart,
                                               independent.obs=SKT.ind)
             }
+            
+            raw_models[[param_name]][[depth]][[activity]][[MA_Summ$ManagedAreaName[MA_Summ$ManagedAreaName==MA_Include[i]]]] <- SKT
             skt_stats$AreaID[i] <-
               MA_Summ$AreaID[MA_Summ$ManagedAreaName==MA_Include[i]]
             skt_stats$ManagedAreaName[i] <-
@@ -662,6 +665,8 @@ for (j in 1:length(all_params)){
             skt_stats$SennIntercept[i] <- SKT$estimate[3]
             skt_stats$ChiSquared[i] <- SKT$statistic[1]
             skt_stats$pChiSquared[i] <- SKT$p.value[1]
+            skt_stats$ub[i] <- SKT$interval$limits["UCL"]
+            skt_stats$lb[i] <- SKT$interval$limits["LCL"]
             # If the p value is less than 5% and the slope is greater than 10% of the
             # median value, the trend is large (2).
             if (skt_stats$p[i] < .05 & abs(skt_stats$SennSlope[i]) >
@@ -698,8 +703,8 @@ for (j in 1:length(all_params)){
       skt_stats <- as.data.table(skt_stats[order(skt_stats$ManagedAreaName), ])
       
       # Sets variables to proper format and rounds values if necessary
-      skt_stats$tau <- round(as.numeric(skt_stats$tau), digits=4)
-      skt_stats$p <- format(round(as.numeric(skt_stats$p), digits=4),
+      skt_stats$tau <- as.numeric(skt_stats$tau)
+      skt_stats$p <- format(as.numeric(skt_stats$p),
                             scientific=FALSE)
       skt_stats$SennSlope <- as.numeric(skt_stats$SennSlope)
       skt_stats$SennIntercept <- as.numeric(skt_stats$SennIntercept)

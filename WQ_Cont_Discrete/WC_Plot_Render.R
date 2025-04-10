@@ -31,7 +31,7 @@ setwd(wd)
 # WQ_KendallTau_Stats_Combine produces the following files needed for Atlas updates
 # WQ_Discrete_All_KendallTau_Stats & WQ_Continuous_All_KendallTau_Status
 
-source("WQ_KendallTau_Stats_Combine.R", echo=T)
+# source("WQ_KendallTau_Stats_Combine.R", echo=T)
 
 ##########
 
@@ -274,6 +274,7 @@ skt_stats_disc <- skt_stats_disc %>%
                                                            ifelse(is.na(Trend), "Insufficient data to calculate trend","No significant trend"))))))
 skt_stats_disc[is.na(Trend), `:=` ("Statistical Trend" = "Insufficient data to calculate trend")]
 skt_stats_disc[str_detect("NA", p), `:=` ("p" = NA)]
+saveRDS(skt_stats_disc, file = "output/tables/disc/skt_stats_disc.rds")
 
 skt_stats_cont <- skt_stats_cont %>% 
   mutate("Period of Record" = paste0(EarliestYear, " - ", LatestYear),
@@ -286,6 +287,7 @@ skt_stats_cont[is.na(Trend), `:=` ("Statistical Trend" = "Insufficient data to c
 
 # Combine all discrete data into a single output file
 data_output_disc <- setDT(do.call(rbind, lapply(str_subset(disc_files, "data"), readRDS)))
+saveRDS(data_output_disc, file = "output/tables/disc/data_output_disc.rds")
 
 # # Create subset of all available "overall data" files so data can be included 
 # # from ALL stations not just the stations with successful Trends
@@ -513,7 +515,7 @@ plot_trendlines <- function(p, a, d, activity_label, depth_label, y_labels, para
     ggsave(filename = fileName,
            plot = p1, width = w, height = h, units = "px", dpi = 300,
            scale = 2)
-    
+    saveRDS(plot_data, file=paste0("output/figuredata/discrete_",ma_short, "_", p, ".rds"))
     rm(plot_data)
     rm(MA_YM_Stats)
     rm(skt_stats)
@@ -522,6 +524,9 @@ plot_trendlines <- function(p, a, d, activity_label, depth_label, y_labels, para
 
 # Number of stations above which plots are separated into individual programs
 n_cutoff <- 10
+
+# empty dataframe to store whether a continuous MA / PID gets multiple plots
+continuous_overview <- data.table()
 
 # function to plot continuous trendlines onto combined plot
 plot_trendlines_cont_combined <- function(ma, cont_plot_data, param, y_labels, parameter){
@@ -535,6 +540,7 @@ plot_trendlines_cont_combined <- function(ma, cont_plot_data, param, y_labels, p
     areaID <- MA_All[ManagedAreaName==ma, AreaID]
     pvID <- websiteParams[SamplingFrequency=="Continuous" & 
                             ParameterName==parameter, ParameterVisId]
+    
     filePath <- "output/WQ_Continuous/"
     
     # Account for managed areas with large number of continuous sites
@@ -542,6 +548,20 @@ plot_trendlines_cont_combined <- function(ma, cont_plot_data, param, y_labels, p
     if(length(unique(data$ProgramLocationID))>n_cutoff){
       for(prog_n in 1:length(unique(data$ProgramID))){
         pid <- unique(data$ProgramID)[prog_n]
+        
+        # record that this MA / PID contains multiple plots
+        temp_overview <- data.table(
+          "ManagedAreaName" = ma,
+          "ProgramID" = pid,
+          "areaID" = areaID,
+          "pvID" = pvID,
+          "ProgramNumber" = prog_n,
+          "fileName" = paste0("ma-", areaID, "-pv-", pvID, ".", prog_n),
+          "multiple" = TRUE
+        )
+        continuous_overview <- bind_rows(continuous_overview, temp_overview)
+        rm(temp_overview)
+        
         # all plots together for a given ProgramID
         plot_data <- setDT(data[ProgramID==pid, ])
         
@@ -579,6 +599,19 @@ plot_trendlines_cont_combined <- function(ma, cont_plot_data, param, y_labels, p
     } else {
       # all plots together
       plot_data <- setDT(data)
+      
+      # record that this MA / PID contains multiple plots
+      temp_overview <- data.table(
+        "ManagedAreaName" = ma,
+        "ProgramID" = NA,
+        "areaID" = areaID,
+        "pvID" = pvID,
+        "ProgramNumber" = NA,
+        "fileName" = paste0("ma-", areaID, "-pv-", pvID),
+        "multiple" = FALSE
+      )
+      continuous_overview <- bind_rows(continuous_overview, temp_overview)
+      rm(temp_overview)
       
       # number of stations for shape-palette
       n <- length(unique(plot_data$ProgramLocationID))

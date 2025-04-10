@@ -10,6 +10,11 @@ library(tictoc)
 wd <- dirname(getActiveDocumentContext()$path)
 setwd(wd)
 
+# Load in a single discrete file to retrieve 
+temp <- fread(str_subset(file_list, "_NUT_Water_Temperature"))
+exportDate <- unique(format(unique(temp$ExportVersion), "%m/%d/%Y"))
+rm(temp)
+
 ##### Create maps ----
 ## Functions to create plots for discrete and continuous
 # Function to add circle legends to map
@@ -146,8 +151,7 @@ tag.map.title <- tags$style(HTML("
     font-size: 28px;
     font-family: Arial, Helvetica, sans-serif;
   }"))
-# published-on date
-today <- format(Sys.Date(), "%m/%d/%Y")
+
 # Function to set radius / circle size by # of samples (for legend)
 calc_radius_cont <- function(n){sqrt(n)/20}
 calc_radius_disc <- function(n){sqrt(n)}
@@ -180,7 +184,8 @@ plot_discrete_maps <- function(parameter, ma, discrete_df, ma_abrev, ma_shape, s
     
     # Set up watermark text display
     ind <- websiteParams[ParameterName==parameter, unique(IndicatorName)]
-    fig_text <- tags$div(HTML(glue("{ma} - Water Column - Discrete {ind} - {parameter} - Published: {today}")))
+    fig_text <- tags$div(HTML(glue("{ma} - Water Column - Discrete {ind} - {parameter} - Export Date: {exportDate}")),
+                         style = "margin-bottom:10px;")
     
     # leaflet map
     map <- leaflet(subset_df, options = leafletOptions(zoomControl = FALSE)) %>%
@@ -255,7 +260,7 @@ plot_continuous_maps <- function(param_short, ma, cont_coordinates, ma_abrev, ma
   # Set up watermark text display
   parameter <- websiteParams[ParameterShort==param_short, unique(ParameterName)]
   ind <- websiteParams[ParameterName==parameter, unique(IndicatorName)]
-  fig_text <- tags$div(HTML(glue("{ma} - Water Column - Continuous {ind} - {parameter} - Published: {today}")))
+  fig_text <- tags$div(HTML(glue("{ma} - Water Column - Continuous {ind} - {parameter} - Export Date: {exportDate}")))
   
   map <- leaflet(ma_stations, 
                  options = leafletOptions(zoomControl = FALSE)) %>%
