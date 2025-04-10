@@ -146,8 +146,8 @@ tag.map.title <- tags$style(HTML("
     font-family: Arial, Helvetica, sans-serif;
     clear: none;
   }"))
-# published-on date
-today <- format(Sys.Date(), "%m/%d/%Y")
+# Export date
+exportDate <- max(format(unique(nekton$ExportVersion), "%m/%d/%Y"))
 # Function to set radius / circle size by # of samples (for legend)
 calc_radius_nekton <- function(n){sqrt(n)/2}
 
@@ -156,7 +156,7 @@ rcp <- st_read(paste0(seacar_shape_location,
                       "/orcp_all_sites/ORCP_Managed_Areas.shp")) %>%
   st_make_valid() %>% st_transform(crs = 4326)
 # Load in location point and line shapefiles
-GeoDBdate <- "5dec2024"
+GeoDBdate <- "5Mar2025"
 locs_pts <- st_read(paste0(seacar_shape_location, "/SampleLocations", GeoDBdate, "/seacar_dbo_vw_SampleLocation_Point.shp")) %>%
   st_make_valid() %>% st_transform(crs = 4326)
 locs_lns <- st_read(paste0(seacar_shape_location, "/SampleLocations", GeoDBdate, "/seacar_dbo_vw_SampleLocation_Line.shp")) %>%
@@ -250,7 +250,8 @@ for(ma in unique(nekton$ManagedAreaName)){
   # Set up watermark text display
   ind <- "Nekton"
   parameter <- "Presence/Absence"
-  fig_text <- tags$div(HTML(glue("{ma} - {ind} - {parameter} - Published: {today}")))
+  fig_text <- tags$div(HTML(glue("{ma} - Water Column - {ind} - {parameter} - Export Date: {exportDate}")),
+                       style = "margin-bottom:10px;")
   
   # Create map (without pts or lines for now)
   map <- leaflet(nekton_df_ma, options = leafletOptions(zoomControl = FALSE)) %>%

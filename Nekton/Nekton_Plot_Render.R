@@ -303,6 +303,10 @@ plot_data_all <- data %>%
 # Combine type and size into one label for plots
 plot_data_all$GearType_Plot <- paste0(plot_data_all$GearType, " (",
                                       plot_data_all$GearSize_m, " m)")
+
+plot_data_all$GearType_Plot <- factor(plot_data_all$GearType_Plot,
+                                      levels = unique(plot_data_all$GearType_Plot))
+
 # All unique SG2 groups
 sg2 <- unique(plot_data_all$SpeciesGroup2)
 # Create palette for all SG2 values so it is consistent across all MAs
@@ -401,7 +405,7 @@ if(n==0){
                  scales = "free_y") +
       labs(title="Nekton Species Richness",
            subtitle=ma_i,
-           x="Year", y=bquote('Richness (species/100'*~m^{2}*')')) +
+           x="Year", y=bquote('Annual average richness (species/100'*~m^{2}*')')) +
       scale_fill_manual(name = "Species group",
                         values = subset(sg2_palette, names(sg2_palette) %in% 
                                           unique(plot_data$SpeciesGroup2)),
