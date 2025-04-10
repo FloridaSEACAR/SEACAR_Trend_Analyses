@@ -345,7 +345,7 @@ if(n==0){
                  color="#333333", alpha=1) +
       labs(title="Coastal Wetlands Species Richness",
            subtitle=ma_i,
-           x="Year", y="Richness (# of species)",
+           x="Year", y="Annual average richness (# of species)",
            fill="Species group", color="Species group",
            shape="Species group") +
       scale_x_continuous(limits=c(t_min-0.25, t_max+0.25),
