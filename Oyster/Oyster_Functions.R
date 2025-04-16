@@ -109,7 +109,7 @@ diagnosticplots <- function(model, indicator, managedarea, sizeclass="",
 
 # Save marginal effects plots
 meplots <- function(models, data, indicator, managedarea, sizeclass="",
-                    zoom=FALSE){
+                    zoom=FALSE, habitat_type){
   ind <- case_when(str_detect(indicator, "ercent") ~ "Pct",
                    str_detect(indicator, "ensity") ~ "Den",
                    str_detect(indicator, "^S|^s") ~ "SH")
@@ -131,9 +131,6 @@ meplots <- function(models, data, indicator, managedarea, sizeclass="",
                            str_detect(sizeclass, "75") ~ "\u2265 75mm",
                          TRUE ~ "raw")
   }
-  
-  
-  
   
   if(ind=="Den"){ 
     nyrs <- max(data$LiveDate)-min(data$LiveDate)+1
@@ -206,12 +203,12 @@ meplots <- function(models, data, indicator, managedarea, sizeclass="",
                          breaks=yrlist) +
       plot_theme +
       {if("meanDen_int" %in% colnames(data)){
-        labs(title="Oyster Density",
+        labs(title=paste0("Oyster Density (", type, ")"),
              subtitle=managedarea,
              x="Year",
              y=bquote('Estimated density ('*~m^{-2}*')'))
       }else{
-        labs(title="Oyster Density",
+        labs(title=paste0("Oyster Density (", type, ")"),
              subtitle=managedarea,
              x="Year",
              y=bquote('Density ('*~m^{-2}*')'))
@@ -226,15 +223,16 @@ meplots <- function(models, data, indicator, managedarea, sizeclass="",
     
     ma_short <- MA_All[ManagedAreaName==ma, Abbreviation]
     
-    ggsave(paste0("output/Density/Figures/Oyster_Dens_GLMM_", ma_short, "_", type,
-                  ifelse(sizeclass != "", paste0(size), "_raw"), ".png"),
+    file_name <- paste0("output/Density/Figures/Oyster_Dens_GLMM_", ma_short, "_", type,
+                        ifelse(sizeclass != "", paste0("_",size), "_raw"), ".png")
+    
+    ggsave(file_name,
            plot1,
            width=8,
            height=4,
            units="in",
            dpi=200)
   }
-  
   
   #Marginal effects plot including random effects for percent live
   if(ind=="Pct"){
@@ -264,16 +262,6 @@ meplots <- function(models, data, indicator, managedarea, sizeclass="",
       minyr <- minyr - 1
     }
     yrlist <- seq(minyr,maxyr,brk)
-    # nbreaks <- ifelse(nyrs < 11, nyrs+1, 12)
-    # breaks <- if(minyr==0){
-    #   c(minyr, round(minyr+c(1:(nbreaks-2))*((nyrs/nbreaks) +
-    #                                            (nyrs/nbreaks)/nbreaks)),
-    #     maxyr)+1
-    # } else{
-    #   c(minyr, round(minyr+c(1:(nbreaks-2))*((nyrs/nbreaks) +
-    #                                            (nyrs/nbreaks)/nbreaks)),
-    #     maxyr)
-    # }
     
     set.seed(987)
     pctplots <- plot(conditional_effects(models[[1]], re_formula=NULL),
@@ -312,12 +300,12 @@ meplots <- function(models, data, indicator, managedarea, sizeclass="",
             legend.title=element_text(size=10)) +
       {
         if(managedarea=="Lemon Bay Aquatic Preserve"){
-          labs(title="Percent of Live vs. Dead Oysters",
+          labs(title=paste0("Percent of Live vs. Dead Oysters (", habitat_type, ")"),
                subtitle=managedarea,
                x="Year",
                y="Live vs. dead (%)")
         } else {
-          labs(title="Oyster Percent Live Cover",
+          labs(title=paste0("Oyster Percent Live Cover (", habitat_type, ")"),
                subtitle=managedarea,
                x="Year",
                y="Live cover (%)")
@@ -325,9 +313,9 @@ meplots <- function(models, data, indicator, managedarea, sizeclass="",
       }
     
     ma_short <- MA_All[ManagedAreaName==ma, Abbreviation]
-    
-    ggsave(paste0("output/Percent_Live/Figures/Oyster_PrcLive_GLMM_", ma_short,
-                  "_raw.png"),
+    file_name <- paste0("output/Percent_Live/Figures/Oyster_PrcLive_GLMM_", 
+                        ma_short, "_", habitat_type, "_raw.png")
+    ggsave(file_name,
            plot1,
            width=8,
            height=4,
@@ -344,7 +332,7 @@ meplots <- function(models, data, indicator, managedarea, sizeclass="",
         geom_pointinterval(fill="black", size=3,
                            fatten_point=4, shape=21,
                            color="black") +
-        labs(title="Oyster Percent Live Cover",
+        labs(title=paste0("Oyster Percent Live Cover (", type, ")"),
              subtitle=managedarea,
              y="Live cover (%)",
              fill=NULL) +
@@ -403,7 +391,7 @@ meplots <- function(models, data, indicator, managedarea, sizeclass="",
 }
 
 # Create model results tables and save diagnostic plots
-modresults <- function(datafile, models, indicator, meplotzoom=FALSE){
+modresults <- function(datafile, models, indicator, meplotzoom=FALSE, habitat_type = "natural"){
   for(m in seq_along(models)){
     modelobj <- models[[m]]
     sizeclass <- ifelse(str_detect(modelobj$file, "25to75|seed"),
@@ -473,18 +461,27 @@ modresults <- function(datafile, models, indicator, meplotzoom=FALSE){
   
   # Save marginal effects plots
   meplots(models, datafile, indicator, unique(datafile$ManagedAreaName),
-          sizeclass, meplotzoom)
+          sizeclass, meplotzoom, habitat_type = habitat_type)
 }
 # Marginal effects plots for shell height (attempt to combine models into one plot)
 meplotssh <- function(models1, data1, sizeclass1="", models2, data2,
-                      sizeclass2="", managedarea, indicator, zoom=FALSE){
+                      sizeclass2="", managedarea, indicator, zoom=FALSE, habitat_type){
   ind <- case_when(str_detect(indicator, "ercent") ~ "Pct",
                    str_detect(indicator, "ensity") ~ "Den",
                    str_detect(indicator, "^S|^s") ~ "SH")
   ma <- managedarea
   
-  sizeclass1 <- unique(data1$SizeClass)
-  sizeclass2 <- unique(data2$SizeClass)
+  if(nrow(data1)>0){
+    sizeclass1 <- unique(data1$SizeClass)
+  } else {
+    sizeclass1 <- ""
+  }
+  if(nrow(data2)>0){
+    sizeclass2 <- unique(data2$SizeClass)
+  } else {
+    sizeclass2 <- ""
+  }
+  
   # Set size labels
   if(sizeclass1 != ""){
     size1 <- case_when(
@@ -509,11 +506,18 @@ meplotssh <- function(models1, data1, sizeclass1="", models2, data2,
       str_detect(sizeclass2, "35") & str_detect(sizeclass2, "75") ~ "35-75mm",
       str_detect(sizeclass2, "25")==FALSE & str_detect(sizeclass2, "75") ~ "\u2265 75mm",
       TRUE ~ "raw")
+  } else {
+    size2 <- "o75"
+    sizelab2 <- "\u2265 75mm"
   }
   
   #Marginal effects plot including random effects
   ## Hist plot settings
-  y_max <- round(max(data2[!is.na(ShellHeight_mm), ShellHeight_mm]), -0)+1
+  if(nrow(data2)>0){
+    y_max <- round(max(data2[!is.na(ShellHeight_mm), ShellHeight_mm]), -0)+1
+  } else {
+    y_max <- round(max(data1[!is.na(ShellHeight_mm), ShellHeight_mm]), -0)+1
+  }
   y_breaks <- seq(25, 300, 50)
   y_labs <- seq(25, 300, 50)
   y_minor <- seq(0, 300, 25)
@@ -556,13 +560,6 @@ meplotssh <- function(models1, data1, sizeclass1="", models2, data2,
     return(list("seq" = seq(minyr,maxyr,brk),"maxyr" = maxyr, "minyr" = minyr))
   }
   
-  yrlist_hist <- set_breaks(type = "hist", data1 = data1, data2 = data2)[["seq"]]
-  maxyr_hist <- set_breaks(type = "hist", data1 = data1, data2 = data2)[["maxyr"]]
-  minyr_hist <- set_breaks(type = "hist", data1 = data1, data2 = data2)[["minyr"]]
-  yrlist_live <- set_breaks(type = "live", data1 = data1, data2 = data2)[["seq"]]
-  maxyr_live <- set_breaks(type = "live", data1 = data1, data2 = data2)[["maxyr"]]
-  minyr_live <- set_breaks(type = "live", data1 = data1, data2 = data2)[["minyr"]]
-  
   ## Check data for Exact and Estimate
   n_hist1 <- nrow(data1[data1$LiveDate_Qualifier=="Estimate" &
                           !is.na(data1$ShellHeight_mm),])
@@ -572,6 +569,23 @@ meplotssh <- function(models1, data1, sizeclass1="", models2, data2,
                           !is.na(data2$ShellHeight_mm),])
   n_live2 <- nrow(data2[data2$LiveDate_Qualifier=="Exact" &
                           !is.na(data2$ShellHeight_mm),])
+  
+  # Plot variable to record which plots to show (dead, live, or both)
+  available_plots <- c()
+  # If "Estimate" data exists, set y-axis (years)
+  if(n_hist1>0 | n_hist2>0){
+    yrlist_hist <- set_breaks(type = "hist", data1 = data1, data2 = data2)[["seq"]]
+    maxyr_hist <- set_breaks(type = "hist", data1 = data1, data2 = data2)[["maxyr"]]
+    minyr_hist <- set_breaks(type = "hist", data1 = data1, data2 = data2)[["minyr"]]
+    available_plots <- c(available_plots, "dead")
+  }
+  # If "Exact" data exists, set y-axis (years)
+  if(n_live1>0 | n_live2>0){
+    yrlist_live <- set_breaks(type = "live", data1 = data1, data2 = data2)[["seq"]]
+    maxyr_live <- set_breaks(type = "live", data1 = data1, data2 = data2)[["maxyr"]]
+    minyr_live <- set_breaks(type = "live", data1 = data1, data2 = data2)[["minyr"]]
+    available_plots <- c(available_plots, "live")
+  }
   
   set.seed(987)
   if(!is.null(models1)){
@@ -608,7 +622,7 @@ meplotssh <- function(models1, data1, sizeclass1="", models2, data2,
     col2 <- c(size2="transparent")
   }
   
-  p_color <- c(col1, col2)
+  p_color <- c(col2, col1)
   
   # Initial plots to set legends
   plot_leg <- ggplot() +
@@ -673,11 +687,11 @@ meplotssh <- function(models1, data1, sizeclass1="", models2, data2,
     plot_theme +
     theme(legend.position="right") +
     scale_shape_manual(name="Shell heights",
-                       breaks = c("size1", "size2"),
+                       breaks = c("size2", "size1"),
                        values=p_shape,
                        labels=sizelab) +
     scale_color_manual(name="Shell heights",
-                       breaks = c("size1", "size2"),
+                       breaks = c("size2", "size1"),
                        values=p_color,
                        labels=sizelab, 
                        aesthetics = c("color", "fill"))
@@ -686,123 +700,139 @@ meplotssh <- function(models1, data1, sizeclass1="", models2, data2,
   rm(plot_leg)
   
   # Dead oyster shell plot
-  plot1 <- ggplot() +
-    geom_hline(yintercept=75, size=1, color="grey") +
-    {if(n_hist1>0){
-      geom_point(data=data1[!is.na(RelYear) &
-                              !is.na(LiveDate) &
-                              LiveDate_Qualifier=="Estimate", ],
-                 aes(x=LiveDate, y=ShellHeight_mm, shape="size1"),
-                 position=plot_jitter, size=2, color="#333333", fill="#cccccc",
-                 alpha=0.2, inherit.aes=FALSE) 
-    }} +
-    {if(n_hist2>0){
-      geom_point(data=data2[!is.na(RelYear) & !is.na(LiveDate) &
-                              LiveDate_Qualifier=="Estimate", ],
-                 aes(x=LiveDate, y=ShellHeight_mm, shape="size2"),
-                 position=plot_jitter, size=2, color="#333333", fill="#cccccc",
-                 alpha=0.2, inherit.aes=FALSE)
-    }} +
-    scale_x_continuous(limits=c(minyr_hist-0.25, maxyr_hist+0.25),
-                       breaks=yrlist_hist) +
-    scale_y_continuous(breaks=y_breaks,
-                       labels=y_labs, minor_breaks=y_minor) +
-    plot_theme +
-    theme(plot.subtitle=element_text(hjust=0, size=10, color="#314963"),
-          legend.position="none",
-    ) +
-    labs(subtitle="Dead Oyster Shells",
-         x="Estimated year",
-         y="Shell height (mm)") +
-    scale_shape_manual(name="Shell heights",
-                       values=c("size1"=21, "size2"=24),
-                       labels=c(sizelab1, sizelab2)) +
-    scale_color_manual(name="Shell heights",
-                       values=c("size1"="#00374f", "size2"="#0094b0"),
-                       labels=c(sizelab1, sizelab2)) +
-    scale_fill_manual(name="Shell heights",
-                      values=c("size1"="#00374f", "size2"="#0094b0"),
-                      labels=c(sizelab1, sizelab2)) +
-    coord_cartesian(ylim=c(25, ylim_upper))
+  if("dead" %in% available_plots){
+    plot1 <- ggplot() +
+      geom_hline(yintercept=75, linewidth=1, color="grey") +
+      {if(n_hist1>0){
+        geom_point(data=data1[!is.na(RelYear) &
+                                !is.na(LiveDate) &
+                                LiveDate_Qualifier=="Estimate", ],
+                   aes(x=LiveDate, y=ShellHeight_mm, shape="size1"),
+                   position=plot_jitter, size=2, color="#333333", fill="#cccccc",
+                   alpha=0.2, inherit.aes=FALSE) 
+      }} +
+      {if(n_hist2>0){
+        geom_point(data=data2[!is.na(RelYear) & !is.na(LiveDate) &
+                                LiveDate_Qualifier=="Estimate", ],
+                   aes(x=LiveDate, y=ShellHeight_mm, shape="size2"),
+                   position=plot_jitter, size=2, color="#333333", fill="#cccccc",
+                   alpha=0.2, inherit.aes=FALSE)
+      }} +
+      scale_x_continuous(limits=c(minyr_hist-0.25, maxyr_hist+0.25),
+                         breaks=yrlist_hist) +
+      scale_y_continuous(breaks=y_breaks,
+                         labels=y_labs, minor_breaks=y_minor) +
+      plot_theme +
+      theme(plot.subtitle=element_text(hjust=0, size=10, color="#314963"),
+            legend.position="none") +
+      labs(subtitle="Dead Oyster Shells",
+           x="Estimated year",
+           y="Shell height (mm)") +
+      scale_shape_manual(name="Shell heights",
+                         values=c("size1"=21, "size2"=24),
+                         labels=c(sizelab1, sizelab2)) +
+      scale_color_manual(name="Shell heights",
+                         values=c("size1"="#00374f", "size2"="#0094b0"),
+                         labels=c(sizelab1, sizelab2)) +
+      scale_fill_manual(name="Shell heights",
+                        values=c("size1"="#00374f", "size2"="#0094b0"),
+                        labels=c(sizelab1, sizelab2)) +
+      coord_cartesian(ylim=c(25, ylim_upper))  
+  }
   
   # Live oyster shell plot
-  plot2 <- ggplot() +
-    geom_hline(yintercept=75, size=1, color="grey") +
-    {if(n_live1>0){
-      geom_point(data=data1[!is.na(RelYear) & !is.na(LiveDate) &
-                              LiveDate_Qualifier=="Exact", ],
-                 aes(x=LiveDate, y=ShellHeight_mm, shape="size1"),
-                 position=plot_jitter, size=2, color="#333333", fill="#cccccc",
-                 alpha=0.2, inherit.aes=FALSE) 
-    }} +
-    {if(n_live2>0){
-      geom_point(data=data2[!is.na(RelYear) & !is.na(LiveDate) &
-                              LiveDate_Qualifier=="Exact", ],
-                 aes(x=LiveDate, y=ShellHeight_mm, shape="size2"),
-                 position=plot_jitter, size=2, color="#333333", fill="#cccccc",
-                 alpha=0.2, inherit.aes=FALSE)
-    }} +
-    {if(liveplot1_avail){
-      list(geom_ribbon(data=liveplot_1$RelYear$data,
-                       aes(x=RelYear+yrdiff1, y=ShellHeight_mm,
-                           ymin=lower__, ymax=upper__, fill="size1"),
-                       alpha=a_ribb),
-           geom_line(data=liveplot_1$RelYear$data,
-                     aes(x=RelYear+yrdiff1, y=estimate__, color="size1"),
-                     lwd=0.75))
-    }} +
-    {if(liveplot2_avail){
-      list(geom_ribbon(data=liveplot_2$RelYear$data,
-                       aes(x=RelYear+yrdiff2, y=ShellHeight_mm,
-                           ymin=lower__, ymax=upper__, fill="size2"),
-                       alpha=a_ribb),
-           geom_line(data=liveplot_2$RelYear$data,
-                     aes(x=RelYear+yrdiff2, y=estimate__, color="size2"),
-                     lwd=0.75))
-    }} +
-    scale_x_continuous(limits=c(minyr_live-0.25, maxyr_live+0.25),
-                       breaks=yrlist_live) +
-    scale_y_continuous(breaks=y_breaks,
-                       labels=y_labs, minor_breaks=y_minor) +
-    plot_theme +
-    theme(plot.subtitle=element_text(hjust=0, size=10, color="#314963"),
-          legend.position="none",
-          axis.text.y=element_blank(),  #remove y-axis labels
-          axis.ticks.y=element_blank(),  #remove y-axis ticks
-          axis.title.y=element_blank()   #removes y-axis title
-    ) +
-    labs(subtitle="Live Oyster Shells",
-         x="Year",
-         y="Shell height (mm)") +
-    scale_shape_manual(name="Shell heights",
-                       values=c("size1"=21, "size2"=24),
-                       labels=c(sizelab1, sizelab2)) +
-    scale_color_manual(name="Shell heights",
-                       values=c("size1"="#00374f", "size2"="#0094b0"),
-                       labels=c(sizelab1, sizelab2)) +
-    scale_fill_manual(name="Shell heights",
-                      values=c("size1"="#00374f", "size2"="#0094b0"),
-                      labels=c(sizelab1, sizelab2)) +
-    coord_cartesian(ylim=c(25, ylim_upper))
+  if("live" %in% available_plots){
+    plot2 <- ggplot() +
+      geom_hline(yintercept=75, size=1, color="grey") +
+      {if(n_live1>0){
+        geom_point(data=data1[!is.na(RelYear) & !is.na(LiveDate) &
+                                LiveDate_Qualifier=="Exact", ],
+                   aes(x=LiveDate, y=ShellHeight_mm, shape="size1"),
+                   position=plot_jitter, size=2, color="#333333", fill="#cccccc",
+                   alpha=0.2, inherit.aes=FALSE) 
+      }} +
+      {if(n_live2>0){
+        geom_point(data=data2[!is.na(RelYear) & !is.na(LiveDate) &
+                                LiveDate_Qualifier=="Exact", ],
+                   aes(x=LiveDate, y=ShellHeight_mm, shape="size2"),
+                   position=plot_jitter, size=2, color="#333333", fill="#cccccc",
+                   alpha=0.2, inherit.aes=FALSE)
+      }} +
+      {if(liveplot1_avail){
+        list(geom_ribbon(data=liveplot_1$RelYear$data,
+                         aes(x=RelYear+yrdiff1, y=ShellHeight_mm,
+                             ymin=lower__, ymax=upper__, fill="size1"),
+                         alpha=a_ribb),
+             geom_line(data=liveplot_1$RelYear$data,
+                       aes(x=RelYear+yrdiff1, y=estimate__, color="size1"),
+                       lwd=0.75))
+      }} +
+      {if(liveplot2_avail){
+        list(geom_ribbon(data=liveplot_2$RelYear$data,
+                         aes(x=RelYear+yrdiff2, y=ShellHeight_mm,
+                             ymin=lower__, ymax=upper__, fill="size2"),
+                         alpha=a_ribb),
+             geom_line(data=liveplot_2$RelYear$data,
+                       aes(x=RelYear+yrdiff2, y=estimate__, color="size2"),
+                       lwd=0.75))
+      }} +
+      scale_x_continuous(limits=c(minyr_live-0.25, maxyr_live+0.25),
+                         breaks=yrlist_live) +
+      scale_y_continuous(breaks=y_breaks,
+                         labels=y_labs, minor_breaks=y_minor) +
+      plot_theme +
+      theme(plot.subtitle=element_text(hjust=0, size=10, color="#314963"),
+            legend.position="none") +
+      labs(subtitle="Live Oyster Shells",
+           x="Year",
+           y="Shell height (mm)") +
+      scale_shape_manual(name="Shell heights",
+                         values=c("size1"=21, "size2"=24),
+                         labels=c(sizelab1, sizelab2)) +
+      scale_color_manual(name="Shell heights",
+                         values=c("size1"="#00374f", "size2"="#0094b0"),
+                         labels=c(sizelab1, sizelab2)) +
+      scale_fill_manual(name="Shell heights",
+                        values=c("size1"="#00374f", "size2"="#0094b0"),
+                        labels=c(sizelab1, sizelab2)) +
+      coord_cartesian(ylim=c(25, ylim_upper))  
+  }
   
   # Set plot title
   plot_title <- ggplot() +
-    labs(title="Oyster Size Class", subtitle=ma) +
+    labs(title=paste0("Oyster Size Class (", habitat_type, ")"), subtitle=ma) +
     plot_theme +
     theme(plot.subtitle=element_text(hjust=0.5, size=10, color="#314963"),
           panel.border=element_blank(),
           panel.grid.major=element_blank(),
           panel.grid.minor=element_blank(), axis.line=element_blank())
   
-  plot_comb <- ggarrange(plot1, plot2, leg, nrow=1,
-                         widths=c(0.46, 0.39, 0.15))
+  if("live" %in% available_plots & "dead" %in% available_plots){
+    # Remove y-axis labels, ticks, title before combining both plots
+    plot2 <- plot2 +
+      theme(legend.position="none",
+            axis.text.y=element_blank(),  #remove y-axis labels
+            axis.ticks.y=element_blank(),  #remove y-axis ticks
+            axis.title.y=element_blank())   #removes y-axis title
+    # Combine live and dead plots + legend
+    plot_comb <- ggarrange(plot1, plot2, leg, nrow=1,
+                           widths=c(0.46, 0.39, 0.15))
+  } else if("live" %in% available_plots & !"dead" %in% available_plots){
+    # Combine live plots with legend
+    plot_comb <- ggarrange(plot2, leg, nrow=1,
+                           widths=c(0.85, 0.15))
+  } else if("dead" %in% available_plots & !"live" %in% available_plots){
+    # Combine dead plots with legend
+    plot_comb <- ggarrange(plot1, leg, nrow=1,
+                           widths=c(0.85, 0.15))
+  }
   
   plot_comb <- ggarrange(plot_title, plot_comb, ncol=1,
                          heights=c(0.125, 0.875))
   
   ma_abrev <- MA_All[ManagedAreaName==ma, Abbreviation]
   
-  ggsave(paste0("output/Shell_Height/Figures/Oyster_SH_GLMM_", ma_abrev, ".png"),
+  ggsave(paste0("output/Shell_Height/Figures/Oyster_SH_GLMM_", ma_abrev, "_", habitat_type, ".png"),
          plot_comb,
          width=8,
          height=4,
@@ -814,7 +844,7 @@ meplotssh <- function(models1, data1, sizeclass1="", models2, data2,
 
 # Create model results tables and save diagnostic plots
 modresultssh <- function(datafile1, models1, datafile2, models2, indicator,
-                         meplotzoom=FALSE){
+                         meplotzoom=FALSE, habitat_type = "natural"){
   datafile1$SizeClass[datafile1$SizeClass=="25to75mm" &
                         datafile1$MA_plotlab==
                         "St. Martins Marsh Aquatic Preserve_Natural"] <-
@@ -944,5 +974,142 @@ modresultssh <- function(datafile1, models1, datafile2, models2, indicator,
   
   # Save marginal effects plots
   meplotssh(models1, datafile1, sizeclass1, models2, datafile2, sizeclass2,
-            unique(datafile1$ManagedAreaName), indicator, meplotzoom)
+            unique(datafile1$ManagedAreaName), indicator, meplotzoom, habitat_type = habitat_type)
+}
+
+modresultssh_par <- function(datafile1, models1, datafile2, models2, indicator,
+                         meplotzoom=FALSE, habitat_type = "natural"){
+  oysterresults_temp <- data.frame()
+  datafile1$SizeClass[datafile1$SizeClass=="25to75mm" &
+                        datafile1$MA_plotlab==
+                        "St. Martins Marsh Aquatic Preserve_Natural"] <-
+    "35-75mm"
+  sizeclass1 <- unique(datafile1$SizeClass)
+  for(m in seq_along(models1)){
+    modelobj <- models1[[m]]
+    oyres_i <- setDT(broom.mixed::tidy(modelobj))
+    #tidy() does not like that parameter values have underscores
+    #for some reason, so the resulting table is incomplete
+    
+    if(nrow(oyres_i[effect=="fixed", ])-nrow(summary(modelobj)$fixed)==-1){
+      missingrow <- data.table(effect="fixed",
+                               component="cond",
+                               #not sure what "cond" means in the tidy summary.
+                               group=NA,
+                               term=rownames(summary(modelobj)$fixed)[2],
+                               estimate=summary(modelobj)$fixed$Estimate[2],
+                               std.error=summary(modelobj)$fixed$Est.Error[2],
+                               conf.low=summary(modelobj)$fixed$`l-95% CI`[2],
+                               conf.high=summary(modelobj)$fixed$`u-95% CI`[2])
+      oyres_i <- rbind(oyres_i, missingrow) %>% arrange(effect, group)
+    }
+    
+    setDT(oyres_i)
+    oyres_i[, `:=` (indicator=indicator,
+                    managed_area=unique(datafile1$ManagedAreaName),
+                    habitat_class=unique(datafile1$HabitatClassification),
+                    size_class=sizeclass1,
+                    live_date_qual=ifelse(
+                      str_detect(
+                        modelobj$file, "_hist"), "Estimate",
+                      "Exact"),
+                    n_programs=if(class(
+                      try(datafile1$LiveDate_Qualifier))!="try-error"){
+                      length(unique(
+                        datafile1[LiveDate_Qualifier==
+                                    ifelse(str_detect(
+                                      modelobj$file, "_hist"),
+                                      "Estimate", "Exact"),
+                                  ProgramID]))
+                    } else{length(unique(datafile1[, ProgramID]))},
+                    programs=if(class(try(
+                      datafile1$LiveDate_Qualifier)) != "try-error"){
+                      list(unique(
+                        datafile1[LiveDate_Qualifier==
+                                    ifelse(
+                                      str_detect(
+                                        modelobj$file,
+                                        "_hist"),
+                                      "Estimate",
+                                      "Exact"),
+                                  ProgramID]))
+                    } else{list(unique(datafile1[, ProgramID]))},
+                    filename=modelobj$file)]
+    
+    oysterresults_temp <<- rbind(oysterresults_temp, oyres_i)
+    
+    # Save diagnostic plots
+    #diagnosticplots(modelobj, indicator,
+    #unique(datafile$ManagedAreaName), sizeclass,
+    #ifelse(str_detect(modelobj$file, "_hist"), TRUE, FALSE))  
+  }
+  
+  datafile2$SizeClass[datafile2$SizeClass=="25to75mm" &
+                        datafile2$MA_plotlab==
+                        "St. Martins Marsh Aquatic Preserve_Natural"] <- "35-75mm"
+  sizeclass2 <- unique(datafile2$SizeClass)
+  
+  for(m in seq_along(models2)){
+    modelobj <- models2[[m]]
+    oyres_i <- setDT(broom.mixed::tidy(modelobj))
+    #tidy() does not like that parameter values have underscores for
+    #some reason, so the resulting table is incomplete
+    
+    if(nrow(oyres_i[effect=="fixed", ])-nrow(summary(modelobj)$fixed)==-1){
+      missingrow <- data.table(effect="fixed",
+                               component="cond",
+                               #not sure what "cond" means in the tidy summary.
+                               group=NA,
+                               term=rownames(summary(modelobj)$fixed)[2],
+                               estimate=summary(modelobj)$fixed$Estimate[2],
+                               std.error=summary(modelobj)$fixed$Est.Error[2],
+                               conf.low=summary(modelobj)$fixed$`l-95% CI`[2],
+                               conf.high=summary(modelobj)$fixed$`u-95% CI`[2])
+      oyres_i <- rbind(oyres_i, missingrow) %>% arrange(effect, group)
+    }
+    
+    oyres_i <- oyres_i %>%
+      mutate(
+        indicator = indicator,
+        managed_area = unique(datafile2$ManagedAreaName),
+        habitat_class = unique(datafile2$HabitatClassification),
+        size_class = sizeclass2,
+        live_date_qual = if_else(
+          str_detect(modelobj$file, "_hist"), "Estimate", "Exact"
+        ),
+        n_programs = if (class(try(datafile2$LiveDate_Qualifier)) != "try-error") {
+          datafile2 %>%
+            filter(LiveDate_Qualifier == if_else(str_detect(modelobj$file, "_hist"), "Estimate", "Exact")) %>%
+            pull(ProgramID) %>%
+            unique() %>%
+            length()
+        } else {
+          datafile2 %>%
+            pull(ProgramID) %>%
+            unique() %>%
+            length()
+        },
+        programs = if (class(try(datafile2$LiveDate_Qualifier)) != "try-error") {
+          list(datafile2 %>%
+                 filter(LiveDate_Qualifier == if_else(str_detect(modelobj$file, "_hist"), "Estimate", "Exact")) %>%
+                 pull(ProgramID) %>%
+                 unique())
+        } else {
+          list(datafile2 %>% pull(ProgramID) %>% unique())
+        },
+        filename = modelobj$file
+      )
+    oysterresults_temp <<- rbind(oysterresults_temp, oyres_i)
+    
+    # Save diagnostic plots
+    #diagnosticplots(modelobj, indicator,
+    #unique(datafile$ManagedAreaName), sizeclass,
+    #ifelse(str_detect(modelobj$file, "_hist"), TRUE, FALSE))  
+  }
+  
+  # Save marginal effects plots
+  meplotssh(models1, datafile1, sizeclass1, models2, datafile2, sizeclass2,
+            unique(datafile1$ManagedAreaName), indicator, meplotzoom, habitat_type = habitat_type)
+  
+  return(oysterresults_temp)
 }

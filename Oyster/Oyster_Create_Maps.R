@@ -178,8 +178,8 @@ shorten_program_names <- function(program_names, cutoff=50){
   }
 }
 
-# published-on date
-today <- format(Sys.Date(), "%m/%d/%Y")
+# Export date
+exportDate <- max(format(unique(oysterraw$ExportVersion), "%m/%d/%Y"))
 # Function to set radius / circle size by # of samples (for legend)
 calc_radius_oyster <- function(n){sqrt(n)}
 
@@ -188,7 +188,7 @@ rcp <- st_read(paste0(seacar_shape_location,
                       "/orcp_all_sites/ORCP_Managed_Areas.shp")) %>%
   st_make_valid() %>% st_transform(crs = 4326)
 # Load in location point and line shapefiles
-GeoDBdate <- "5dec2024"
+GeoDBdate <- "5Mar2025"
 locs_pts <- st_read(paste0(seacar_shape_location, "/SampleLocations", GeoDBdate, "/seacar_dbo_vw_SampleLocation_Point.shp")) %>%
   st_make_valid() %>% st_transform(crs = 4326)
 locs_lns <- st_read(paste0(seacar_shape_location, "/SampleLocations", GeoDBdate, "/seacar_dbo_vw_SampleLocation_Line.shp")) %>%
@@ -281,12 +281,13 @@ for(ma in unique(oyster$ManagedAreaName)){
   for(ind in unique(oyster_df_ma$IndicatorName)){
     parameter <- oyster_params[indicator==ind, unique(param)]
     ind_short <- oyster_params[indicator==ind, indicator_short]
-    if(ind==parameter){
-      fig_text <- tags$div(HTML(glue("{ma} - Oyster Reef - {parameter} - Published: {today}")))
-    } else {
-      fig_text <- tags$div(HTML(glue("{ma} - Oyster Reef - {ind} - {parameter} - Published: {today}")))
-    }
+    fig_text <- tags$div(HTML(glue("{ma} - Oyster Reef - {ind} - {parameter} - Export Date: {exportDate}")),
+                         style = "margin-bottom:10px;")
     oyster_df_ma_p <- oyster_df_ma %>% filter(IndicatorName==ind, ParameterName==parameter)
+    # Exclude where shell height values don't have plots
+    # if(ind=="Shell Height"){
+    #   oyster_df_ma_p <- oyster_df_ma_p %>% filter()
+    # }
     if(nrow(oyster_df_ma_p)<1) next
     labs <- shorten_program_names(unique(oyster_df_ma_p$ProgramName), cutoff=60)
     # Create map (without pts or lines for now)
