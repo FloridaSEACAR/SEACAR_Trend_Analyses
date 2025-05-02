@@ -1,29 +1,29 @@
 AreaID|ManagedAreaName|Year|ParameterName|ShellType|SizeClass|HabitatType|N_Data|Min|Max|Median|Mean|StandardDeviation|Programs|ProgramIDs
 2|Apalachicola Bay Aquatic Preserve|2016|PercentLive_pct|Live Oyster Shells||Restored|5|16.66666667|46.15384615|40|33.395643782|13.0769084846312|NRDA Oyster Cultch Recovery Project|4044
-2|Apalachicola Bay Aquatic Preserve|2017|PercentLive_pct|Live Oyster Shells||Restored|362|4.76190476|100|80|73.1038562181768|24.5649423365687|NRDA Oyster Cultch Recovery Project|4044
+2|Apalachicola Bay Aquatic Preserve|2017|PercentLive_pct|Live Oyster Shells||Restored|505|0|100|61.17647059|52.4031602989703|38.9763713072542|NRDA Oyster Cultch Recovery Project|4044
 2|Apalachicola Bay Aquatic Preserve|2018|PercentLive_pct|Live Oyster Shells||Natural|15|0|22|6|7.46666666666667|5.986492732652|Apalachicola Intertidal Oyster Project|5010
-2|Apalachicola Bay Aquatic Preserve|2018|PercentLive_pct|Live Oyster Shells||Restored|291|16.66666667|100|87.5|78.603536734433|21.5294154493007|NRDA Oyster Cultch Recovery Project, RESTORE Oyster Cultch Recovery|4044, 5007
+2|Apalachicola Bay Aquatic Preserve|2018|PercentLive_pct|Live Oyster Shells||Restored|431|0|100|66.66666667|53.0710654053828|40.8753022336751|NRDA Oyster Cultch Recovery Project, RESTORE Oyster Cultch Recovery|4044, 5007
 2|Apalachicola Bay Aquatic Preserve|2019|PercentLive_pct|Live Oyster Shells||Natural|26|0|3|0|0.153846153846154|0.612686392361227|Apalachicola Intertidal Oyster Project|5010
-2|Apalachicola Bay Aquatic Preserve|2019|PercentLive_pct|Live Oyster Shells||Restored|388|7.6923076|100|94.9358974|85.8418354457217|19.4368032422645|NRDA Oyster Cultch Recovery Project, RESTORE Oyster Cultch Recovery|4044, 5007
+2|Apalachicola Bay Aquatic Preserve|2019|PercentLive_pct|Live Oyster Shells||Restored|532|0|100|81.8181818|62.6064514153008|41.6264632207219|NRDA Oyster Cultch Recovery Project, RESTORE Oyster Cultch Recovery|4044, 5007
 2|Apalachicola Bay Aquatic Preserve|2020|PercentLive_pct|Live Oyster Shells||Natural|35|0|15|0|1.85714285714286|3.48224789757537|Apalachicola Intertidal Oyster Project|5010
 2|Apalachicola Bay Aquatic Preserve|2020|PercentLive_pct|Live Oyster Shells||Restored|44|50|100|97.88306445|95.6356468568182|8.96737972424191|RESTORE Oyster Cultch Recovery|5007
 2|Apalachicola Bay Aquatic Preserve|2021|PercentLive_pct|Live Oyster Shells||Natural|33|0|8|0|1.24242424242424|2.10698693384509|Apalachicola Intertidal Oyster Project|5010
-2|Apalachicola Bay Aquatic Preserve|2021|PercentLive_pct|Live Oyster Shells||Restored|423|8.33333333|100|97.6744186|90.2641097925296|14.9812941905808|NRDA Oyster Cultch Recovery Project, RESTORE Oyster Cultch Recovery|4044, 5007
+2|Apalachicola Bay Aquatic Preserve|2021|PercentLive_pct|Live Oyster Shells||Restored|512|0|100|93.75|74.5736688325|36.8474225170878|NRDA Oyster Cultch Recovery Project, RESTORE Oyster Cultch Recovery|4044, 5007
 2|Apalachicola Bay Aquatic Preserve|2023|PercentLive_pct|Live Oyster Shells||Natural|40|0|37|5|8.55|10.3551052688133|Apalachicola Intertidal Oyster Project|5010
-2|Apalachicola Bay Aquatic Preserve|2023|PercentLive_pct|Live Oyster Shells||Restored|138|25|100|100|87.6498258185507|18.2378120064582|NRDA Oyster Cultch Recovery Project|4044
+2|Apalachicola Bay Aquatic Preserve|2023|PercentLive_pct|Live Oyster Shells||Restored|420|0|100|0|28.7992284832381|42.5164966547055|NRDA Oyster Cultch Recovery Project|4044
 2|Apalachicola Bay Aquatic Preserve|2024|PercentLive_pct|Live Oyster Shells||Natural|35|0|71|2|16.4571428571429|20.687226603337|Apalachicola Intertidal Oyster Project|5010
 3|Apalachicola National Estuarine Research Reserve|2016|PercentLive_pct|Live Oyster Shells||Restored|5|16.66666667|46.15384615|40|33.395643782|13.0769084846312|NRDA Oyster Cultch Recovery Project|4044
-3|Apalachicola National Estuarine Research Reserve|2017|PercentLive_pct|Live Oyster Shells||Restored|362|4.76190476|100|80|73.1038562181768|24.5649423365687|NRDA Oyster Cultch Recovery Project|4044
+3|Apalachicola National Estuarine Research Reserve|2017|PercentLive_pct|Live Oyster Shells||Restored|505|0|100|61.17647059|52.4031602989703|38.9763713072542|NRDA Oyster Cultch Recovery Project|4044
 3|Apalachicola National Estuarine Research Reserve|2018|PercentLive_pct|Live Oyster Shells||Natural|35|0|59|10|17.0571428571429|15.270006851462|Apalachicola Intertidal Oyster Project|5010
-3|Apalachicola National Estuarine Research Reserve|2018|PercentLive_pct|Live Oyster Shells||Restored|531|16.66666667|100|90|83.5362424021092|17.8015123822785|NRDA Oyster Cultch Recovery Project, RESTORE Oyster Cultch Recovery|4044, 5007
+3|Apalachicola National Estuarine Research Reserve|2018|PercentLive_pct|Live Oyster Shells||Restored|671|0|100|84.8484848|66.1069220797616|37.477935364708|NRDA Oyster Cultch Recovery Project, RESTORE Oyster Cultch Recovery|4044, 5007
 3|Apalachicola National Estuarine Research Reserve|2019|PercentLive_pct|Live Oyster Shells||Natural|56|0|19|1|3.26785714285714|4.83356097388992|Apalachicola Bay Intertidal Oyster Sampling, Apalachicola Intertidal Oyster Project|5010, 5075
-3|Apalachicola National Estuarine Research Reserve|2019|PercentLive_pct|Live Oyster Shells||Restored|627|7.6923076|100|91.1504424|83.6265825794896|20.0644555029054|NRDA Oyster Cultch Recovery Project, RESTORE Oyster Cultch Recovery|4044, 5007
+3|Apalachicola National Estuarine Research Reserve|2019|PercentLive_pct|Live Oyster Shells||Restored|771|0|100|85.71428571|68.0076099576394|37.2945402497622|NRDA Oyster Cultch Recovery Project, RESTORE Oyster Cultch Recovery|4044, 5007
 3|Apalachicola National Estuarine Research Reserve|2020|PercentLive_pct|Live Oyster Shells||Natural|55|0|15|1|2.78181818181818|3.83787609613611|Apalachicola Intertidal Oyster Project|5010
 3|Apalachicola National Estuarine Research Reserve|2020|PercentLive_pct|Live Oyster Shells||Restored|44|50|100|97.88306445|95.6356468568182|8.96737972424191|RESTORE Oyster Cultch Recovery|5007
 3|Apalachicola National Estuarine Research Reserve|2021|PercentLive_pct|Live Oyster Shells||Natural|43|0|14|1|2.18604651162791|3.23121541303024|Apalachicola Intertidal Oyster Project|5010
-3|Apalachicola National Estuarine Research Reserve|2021|PercentLive_pct|Live Oyster Shells||Restored|661|8.33333333|100|95.5555555|91.5195597313767|12.4178104721865|NRDA Oyster Cultch Recovery Project, RESTORE Oyster Cultch Recovery|4044, 5007
+3|Apalachicola National Estuarine Research Reserve|2021|PercentLive_pct|Live Oyster Shells||Restored|750|0|100|94.11764703|80.6592386432533|31.8281906005385|NRDA Oyster Cultch Recovery Project, RESTORE Oyster Cultch Recovery|4044, 5007
 3|Apalachicola National Estuarine Research Reserve|2023|PercentLive_pct|Live Oyster Shells||Natural|70|0|37|5.5|7.98571428571429|8.78485662968616|Apalachicola Intertidal Oyster Project|5010
-3|Apalachicola National Estuarine Research Reserve|2023|PercentLive_pct|Live Oyster Shells||Restored|138|25|100|100|87.6498258185507|18.2378120064582|NRDA Oyster Cultch Recovery Project|4044
+3|Apalachicola National Estuarine Research Reserve|2023|PercentLive_pct|Live Oyster Shells||Restored|420|0|100|0|28.7992284832381|42.5164966547055|NRDA Oyster Cultch Recovery Project|4044
 3|Apalachicola National Estuarine Research Reserve|2024|PercentLive_pct|Live Oyster Shells||Natural|35|0|71|2|16.4571428571429|20.687226603337|Apalachicola Intertidal Oyster Project|5010
 8|Boca Ciega Bay Aquatic Preserve|2017|PercentLive_pct|Live Oyster Shells||Natural|15|7.27273|35.4545|15.4545|18.7777786666667|9.75570974412777|Oyster Integrated Mapping and Monitoring Program (OIMMP) Pilot Monitoring Data|4020
 8|Boca Ciega Bay Aquatic Preserve|2018|PercentLive_pct|Live Oyster Shells||Natural|15|0|49|31|26.8|16.7084238805289|Oyster Integrated Mapping and Monitoring Program (OIMMP) Pilot Monitoring Data|4020
@@ -73,8 +73,8 @@ AreaID|ManagedAreaName|Year|ParameterName|ShellType|SizeClass|HabitatType|N_Data
 25|Lemon Bay Aquatic Preserve|2008|PercentLive_pct|Live Oyster Shells||Natural|24|30.76923077|86.44067797|74.916457815|73.40071505625|11.6539917091372|Sarasota County Comprehensive Oyster Monitoring Program|972
 25|Lemon Bay Aquatic Preserve|2009|PercentLive_pct|Live Oyster Shells||Natural|36|11.21495327|81.88976378|64.55026455|57.6249962644445|18.6037999046599|Sarasota County Comprehensive Oyster Monitoring Program|972
 25|Lemon Bay Aquatic Preserve|2010|PercentLive_pct|Live Oyster Shells||Natural|36|0|90.5027933|73.073538655|67.3457345147222|20.227571355004|Sarasota County Comprehensive Oyster Monitoring Program|972
-25|Lemon Bay Aquatic Preserve|2011|PercentLive_pct|Live Oyster Shells||Natural|32|0|89.04109589|81.213235295|74.953469623125|18.0917103316825|Sarasota County Comprehensive Oyster Monitoring Program|972
-25|Lemon Bay Aquatic Preserve|2013|PercentLive_pct|Live Oyster Shells||Natural|33|1.58730159|90.83333333|64.63414634|57.0388939684849|24.0149427046135|Sarasota County Comprehensive Oyster Monitoring Program|972
+25|Lemon Bay Aquatic Preserve|2011|PercentLive_pct|Live Oyster Shells||Natural|36|0|89.04109589|80.58202154|66.6253063316667|29.3363747694801|Sarasota County Comprehensive Oyster Monitoring Program|972
+25|Lemon Bay Aquatic Preserve|2013|PercentLive_pct|Live Oyster Shells||Natural|36|0|90.83333333|59.90699405|52.2856528044445|27.9805578207159|Sarasota County Comprehensive Oyster Monitoring Program|972
 25|Lemon Bay Aquatic Preserve|2014|PercentLive_pct|Live Oyster Shells||Natural|36|13.04347826|96.96969697|72.97849788|69.5314123522222|18.5927853375188|Sarasota County Comprehensive Oyster Monitoring Program|972
 25|Lemon Bay Aquatic Preserve|2015|PercentLive_pct|Live Oyster Shells||Natural|36|30|96.2962963|78.094262295|76.49117764|14.1633223454267|Sarasota County Comprehensive Oyster Monitoring Program|972
 25|Lemon Bay Aquatic Preserve|2016|PercentLive_pct|Live Oyster Shells||Natural|36|8|94.44444444|82.451638375|75.8970289391667|20.4235766109548|Sarasota County Comprehensive Oyster Monitoring Program|972
@@ -82,7 +82,7 @@ AreaID|ManagedAreaName|Year|ParameterName|ShellType|SizeClass|HabitatType|N_Data
 25|Lemon Bay Aquatic Preserve|2018|PercentLive_pct|Live Oyster Shells||Natural|8|0|62|17|21.125|20.7532269435726|Historical Oyster Body Size (HOBS) Study|5035
 25|Lemon Bay Aquatic Preserve|2020|PercentLive_pct|Live Oyster Shells||Natural|15|15|90|79.06976744|69.605142436|23.5372210363806|Sarasota County Comprehensive Oyster Monitoring Program|972
 25|Lemon Bay Aquatic Preserve|2021|PercentLive_pct|Live Oyster Shells||Natural|30|20|90.90909091|71.352583585|64.832172559|19.065524476321|Sarasota County Comprehensive Oyster Monitoring Program|972
-25|Lemon Bay Aquatic Preserve|2022|PercentLive_pct|Live Oyster Shells||Natural|25|0|1|0.68131868|0.6077825212|0.284185576701668|Sarasota County Comprehensive Oyster Monitoring Program|972
+25|Lemon Bay Aquatic Preserve|2022|PercentLive_pct|Live Oyster Shells||Natural|27|0|100|68.08510638|56.6092056148148|31.1684251637372|Sarasota County Comprehensive Oyster Monitoring Program|972
 25|Lemon Bay Aquatic Preserve|2023|PercentLive_pct|Live Oyster Shells||Natural|30|0|100|77.075399845|70.6722408973333|22.4589199435367|Sarasota County Comprehensive Oyster Monitoring Program|972
 27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|2003|PercentLive_pct|Live Oyster Shells||Natural|13|16.6667|87.6459|71.1111|64.1649076923077|20.7553790600759|Loxahatchee River Oyster Mapping and Recruitment|4014
 27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|2008|PercentLive_pct|Live Oyster Shells||Natural|161|0|100|83|80.3913043478261|14.432244243812|Loxahatchee River Oyster Mapping and Recruitment|4014
@@ -103,8 +103,8 @@ AreaID|ManagedAreaName|Year|ParameterName|ShellType|SizeClass|HabitatType|N_Data
 35|Pinellas County Aquatic Preserve|2018|PercentLive_pct|Live Oyster Shells||Natural|25|0|49|28|27.92|14.1064996839518|Oyster Integrated Mapping and Monitoring Program (OIMMP) Pilot Monitoring Data|4020
 43|St. Martins Marsh Aquatic Preserve|2018|PercentLive_pct|Live Oyster Shells||Natural|11|68|96|92|89.8181818181818|7.66574434504806|Assessment of Oysters and Barnacles Along the Chassahowitzka, Homosassa, and Lower Withlacoochee River Systems|5074
 45|Tomoka Marsh Aquatic Preserve|2015|PercentLive_pct|Live Oyster Shells||Natural|5|1|14|2|5.8|5.84807660688538|Northern Coastal Basins and Mosquito Lagoon Oyster Condition Assessment|5017
-47|Yellow River Marsh Aquatic Preserve|2017|PercentLive_pct|Live Oyster Shells||Restored|10|5.26315789|58.33333333|12.338709675|20.327391056|18.6352000119573|NRDA Oyster Cultch Recovery Project|4044
+47|Yellow River Marsh Aquatic Preserve|2017|PercentLive_pct|Live Oyster Shells||Restored|15|0|58.33333333|8.33333333|13.5515940373333|17.9339639322314|NRDA Oyster Cultch Recovery Project|4044
 47|Yellow River Marsh Aquatic Preserve|2018|PercentLive_pct|Live Oyster Shells||Restored|15|75|100|88.57142857|87.9986740533333|8.62883498632616|NRDA Oyster Cultch Recovery Project|4044
 47|Yellow River Marsh Aquatic Preserve|2019|PercentLive_pct|Live Oyster Shells||Restored|15|91.66666667|100|98.4375|96.9976031733333|3.26917396714565|NRDA Oyster Cultch Recovery Project|4044
-47|Yellow River Marsh Aquatic Preserve|2022|PercentLive_pct|Live Oyster Shells||Restored|10|66.66666667|100|100|96.666666667|10.5409255328405|NRDA Oyster Cultch Recovery Project|4044
+47|Yellow River Marsh Aquatic Preserve|2022|PercentLive_pct|Live Oyster Shells||Restored|15|0|100|100|64.4444444446667|47.9196858952284|NRDA Oyster Cultch Recovery Project|4044
 47|Yellow River Marsh Aquatic Preserve|2023|PercentLive_pct|Live Oyster Shells||Restored|15|94.73684211|100|98.24561404|98.008027036|1.95591020041022|NRDA Oyster Cultch Recovery Project|4044
