@@ -131,72 +131,72 @@ AreaID|ManagedAreaName|Year|Month|ParameterName|N_Data|Min|Max|Median|Mean|Stand
 15|Florida Keys National Marine Sanctuary|2021|6|Species Richness|112|0|7|0|0.491071428571429|1.10686258751698|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
 15|Florida Keys National Marine Sanctuary|2021|7|Species Richness|112|0|1|0|0.223214285714286|0.418272324510883|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
 15|Florida Keys National Marine Sanctuary|2021|10|Species Richness|8|0|1|0.5|0.5|0.534522483824849|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2003|6|Species Richness|56|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2003|8|Species Richness|24|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2004|6|Species Richness|56|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2004|7|Species Richness|24|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2005|4|Species Richness|8|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2005|6|Species Richness|24|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2005|7|Species Richness|36|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2005|8|Species Richness|12|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2006|5|Species Richness|24|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2006|6|Species Richness|44|0|1|0|0.0227272727272727|0.150755672288882|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2006|7|Species Richness|12|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2006|8|Species Richness|12|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2007|6|Species Richness|44|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2007|7|Species Richness|40|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2007|8|Species Richness|12|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2008|5|Species Richness|28|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2008|6|Species Richness|18|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2008|7|Species Richness|24|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2008|8|Species Richness|22|0|1|0|0.0454545454545455|0.21320071635561|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2009|6|Species Richness|48|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2009|7|Species Richness|24|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2009|8|Species Richness|16|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2009|9|Species Richness|8|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2010|5|Species Richness|16|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2010|6|Species Richness|72|0|1|0|0.0138888888888889|0.117851130197758|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2010|7|Species Richness|24|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2011|5|Species Richness|16|0|1|0|0.0625|0.25|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2011|6|Species Richness|40|0|1|0|0.025|0.158113883008419|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2011|7|Species Richness|16|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2011|8|Species Richness|24|0|1|0|0.0833333333333333|0.28232985128664|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2011|9|Species Richness|16|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2012|6|Species Richness|48|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2012|8|Species Richness|32|0|1|0|0.03125|0.176776695296637|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2012|9|Species Richness|32|0|1|0|0.0625|0.245934688418982|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2013|6|Species Richness|40|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2013|7|Species Richness|16|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2013|8|Species Richness|24|0|1|0|0.0833333333333333|0.28232985128664|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2013|9|Species Richness|62|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2013|10|Species Richness|18|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2014|5|Species Richness|16|0|1|0|0.0625|0.25|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2014|6|Species Richness|80|0|1|0|0.025|0.157109975188711|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2014|7|Species Richness|38|0|1|0|0.105263157894737|0.311011747775905|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2014|8|Species Richness|26|0|1|0|0.0769230769230769|0.271746488194703|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2015|6|Species Richness|94|0|1|0|0.0212765957446809|0.145078651583462|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2015|7|Species Richness|48|0|1|0|0.0416666666666667|0.201940936523459|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2015|8|Species Richness|18|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2016|5|Species Richness|16|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2016|6|Species Richness|40|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2016|7|Species Richness|64|0|1|0|0.03125|0.17536809360305|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2016|8|Species Richness|40|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2017|6|Species Richness|56|0|2|0|0.0892857142857143|0.345189577125156|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2017|7|Species Richness|48|0|1|0|0.0625|0.244623027395041|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2017|8|Species Richness|56|0|1|0|0.0178571428571429|0.133630620956212|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2018|6|Species Richness|32|0|1|0|0.0625|0.245934688418982|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2018|7|Species Richness|96|0|1|0|0.03125|0.174905989786393|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2018|8|Species Richness|32|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2019|5|Species Richness|8|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2019|6|Species Richness|32|0|1|0|0.03125|0.176776695296637|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2019|7|Species Richness|96|0|1|0|0.0104166666666667|0.102062072615966|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2019|8|Species Richness|24|0|1|0|0.0833333333333333|0.28232985128664|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2020|5|Species Richness|8|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2020|6|Species Richness|32|0|2|0|0.09375|0.39015092199748|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2020|7|Species Richness|56|0|1|0|0.0535714285714286|0.227207782928703|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2020|8|Species Richness|56|0|1|0|0.0357142857142857|0.187256335179708|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2020|9|Species Richness|8|0|1|0|0.25|0.462910049886276|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2021|5|Species Richness|8|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2021|6|Species Richness|32|0|2|0|0.0625|0.353553390593274|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2021|7|Species Richness|72|0|1|0|0.0138888888888889|0.117851130197758|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
-12|Southeast Florida Coral Reef Ecosystem Conservation Area|2021|8|Species Richness|48|0|1|0|0.0416666666666667|0.201940936523459|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Kristin Jacobs Coral Aquatic Preserve|2003|6|Species Richness|56|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Kristin Jacobs Coral Aquatic Preserve|2003|8|Species Richness|24|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Kristin Jacobs Coral Aquatic Preserve|2004|6|Species Richness|56|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Kristin Jacobs Coral Aquatic Preserve|2004|7|Species Richness|24|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Kristin Jacobs Coral Aquatic Preserve|2005|4|Species Richness|8|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Kristin Jacobs Coral Aquatic Preserve|2005|6|Species Richness|24|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Kristin Jacobs Coral Aquatic Preserve|2005|7|Species Richness|36|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Kristin Jacobs Coral Aquatic Preserve|2005|8|Species Richness|12|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Kristin Jacobs Coral Aquatic Preserve|2006|5|Species Richness|24|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Kristin Jacobs Coral Aquatic Preserve|2006|6|Species Richness|44|0|1|0|0.0227272727272727|0.150755672288882|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Kristin Jacobs Coral Aquatic Preserve|2006|7|Species Richness|12|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Kristin Jacobs Coral Aquatic Preserve|2006|8|Species Richness|12|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Kristin Jacobs Coral Aquatic Preserve|2007|6|Species Richness|44|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Kristin Jacobs Coral Aquatic Preserve|2007|7|Species Richness|40|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Kristin Jacobs Coral Aquatic Preserve|2007|8|Species Richness|12|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Kristin Jacobs Coral Aquatic Preserve|2008|5|Species Richness|28|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Kristin Jacobs Coral Aquatic Preserve|2008|6|Species Richness|18|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Kristin Jacobs Coral Aquatic Preserve|2008|7|Species Richness|24|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Kristin Jacobs Coral Aquatic Preserve|2008|8|Species Richness|22|0|1|0|0.0454545454545455|0.21320071635561|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Kristin Jacobs Coral Aquatic Preserve|2009|6|Species Richness|48|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Kristin Jacobs Coral Aquatic Preserve|2009|7|Species Richness|24|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Kristin Jacobs Coral Aquatic Preserve|2009|8|Species Richness|16|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Kristin Jacobs Coral Aquatic Preserve|2009|9|Species Richness|8|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Kristin Jacobs Coral Aquatic Preserve|2010|5|Species Richness|16|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Kristin Jacobs Coral Aquatic Preserve|2010|6|Species Richness|72|0|1|0|0.0138888888888889|0.117851130197758|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Kristin Jacobs Coral Aquatic Preserve|2010|7|Species Richness|24|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Kristin Jacobs Coral Aquatic Preserve|2011|5|Species Richness|16|0|1|0|0.0625|0.25|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Kristin Jacobs Coral Aquatic Preserve|2011|6|Species Richness|40|0|1|0|0.025|0.158113883008419|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Kristin Jacobs Coral Aquatic Preserve|2011|7|Species Richness|16|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Kristin Jacobs Coral Aquatic Preserve|2011|8|Species Richness|24|0|1|0|0.0833333333333333|0.28232985128664|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Kristin Jacobs Coral Aquatic Preserve|2011|9|Species Richness|16|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Kristin Jacobs Coral Aquatic Preserve|2012|6|Species Richness|48|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Kristin Jacobs Coral Aquatic Preserve|2012|8|Species Richness|32|0|1|0|0.03125|0.176776695296637|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Kristin Jacobs Coral Aquatic Preserve|2012|9|Species Richness|32|0|1|0|0.0625|0.245934688418982|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Kristin Jacobs Coral Aquatic Preserve|2013|6|Species Richness|40|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Kristin Jacobs Coral Aquatic Preserve|2013|7|Species Richness|16|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Kristin Jacobs Coral Aquatic Preserve|2013|8|Species Richness|24|0|1|0|0.0833333333333333|0.28232985128664|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Kristin Jacobs Coral Aquatic Preserve|2013|9|Species Richness|62|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Kristin Jacobs Coral Aquatic Preserve|2013|10|Species Richness|18|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Kristin Jacobs Coral Aquatic Preserve|2014|5|Species Richness|16|0|1|0|0.0625|0.25|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Kristin Jacobs Coral Aquatic Preserve|2014|6|Species Richness|80|0|1|0|0.025|0.157109975188711|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Kristin Jacobs Coral Aquatic Preserve|2014|7|Species Richness|38|0|1|0|0.105263157894737|0.311011747775905|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Kristin Jacobs Coral Aquatic Preserve|2014|8|Species Richness|26|0|1|0|0.0769230769230769|0.271746488194703|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Kristin Jacobs Coral Aquatic Preserve|2015|6|Species Richness|94|0|1|0|0.0212765957446809|0.145078651583462|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Kristin Jacobs Coral Aquatic Preserve|2015|7|Species Richness|48|0|1|0|0.0416666666666667|0.201940936523459|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Kristin Jacobs Coral Aquatic Preserve|2015|8|Species Richness|18|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Kristin Jacobs Coral Aquatic Preserve|2016|5|Species Richness|16|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Kristin Jacobs Coral Aquatic Preserve|2016|6|Species Richness|40|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Kristin Jacobs Coral Aquatic Preserve|2016|7|Species Richness|64|0|1|0|0.03125|0.17536809360305|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Kristin Jacobs Coral Aquatic Preserve|2016|8|Species Richness|40|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Kristin Jacobs Coral Aquatic Preserve|2017|6|Species Richness|56|0|2|0|0.0892857142857143|0.345189577125156|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Kristin Jacobs Coral Aquatic Preserve|2017|7|Species Richness|48|0|1|0|0.0625|0.244623027395041|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Kristin Jacobs Coral Aquatic Preserve|2017|8|Species Richness|56|0|1|0|0.0178571428571429|0.133630620956212|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Kristin Jacobs Coral Aquatic Preserve|2018|6|Species Richness|32|0|1|0|0.0625|0.245934688418982|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Kristin Jacobs Coral Aquatic Preserve|2018|7|Species Richness|96|0|1|0|0.03125|0.174905989786393|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Kristin Jacobs Coral Aquatic Preserve|2018|8|Species Richness|32|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Kristin Jacobs Coral Aquatic Preserve|2019|5|Species Richness|8|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Kristin Jacobs Coral Aquatic Preserve|2019|6|Species Richness|32|0|1|0|0.03125|0.176776695296637|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Kristin Jacobs Coral Aquatic Preserve|2019|7|Species Richness|96|0|1|0|0.0104166666666667|0.102062072615966|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Kristin Jacobs Coral Aquatic Preserve|2019|8|Species Richness|24|0|1|0|0.0833333333333333|0.28232985128664|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Kristin Jacobs Coral Aquatic Preserve|2020|5|Species Richness|8|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Kristin Jacobs Coral Aquatic Preserve|2020|6|Species Richness|32|0|2|0|0.09375|0.39015092199748|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Kristin Jacobs Coral Aquatic Preserve|2020|7|Species Richness|56|0|1|0|0.0535714285714286|0.227207782928703|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Kristin Jacobs Coral Aquatic Preserve|2020|8|Species Richness|56|0|1|0|0.0357142857142857|0.187256335179708|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Kristin Jacobs Coral Aquatic Preserve|2020|9|Species Richness|8|0|1|0|0.25|0.462910049886276|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Kristin Jacobs Coral Aquatic Preserve|2021|5|Species Richness|8|0|0|0|0|0|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Kristin Jacobs Coral Aquatic Preserve|2021|6|Species Richness|32|0|2|0|0.0625|0.353553390593274|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Kristin Jacobs Coral Aquatic Preserve|2021|7|Species Richness|72|0|1|0|0.0138888888888889|0.117851130197758|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
+12|Kristin Jacobs Coral Aquatic Preserve|2021|8|Species Richness|48|0|1|0|0.0416666666666667|0.201940936523459|Florida Keys and Southeast Florida Coral Reef Evaluation and Monitoring Project (CREMP/SECREMP)|295
