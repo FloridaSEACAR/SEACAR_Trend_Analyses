@@ -12,6 +12,10 @@ library(doRNG)
 library(rstudioapi)
 library(ggpubr)
 
+# If QAQCPlots is TRUE, plots will be created without running models
+# Set to FALSE to run models
+QAQCPlots <- TRUE
+
 wd <- dirname(getActiveDocumentContext()$path)
 setwd(wd)
 
@@ -25,9 +29,11 @@ file_in <- str_subset(
   list.files("C:/SEACAR Data/SEACARdata/", full.names = TRUE), 
   "OYSTER")
 oysterraw <- fread(file_in, sep="|", na.strings=c("NULL"))
+# New OIMMP updates include samples without MA associations, exclude for these analyses currently
+oysterraw <- oysterraw[!is.na(AreaID), ]
 
 oyster <- copy(oysterraw)
-oysterraw2 <- pivot_wider(oysterraw, names_from="ParameterName",
+oysterraw2 <- tidyr::pivot_wider(oysterraw, names_from="ParameterName",
                           values_from="ResultValue")
 setDT(oysterraw2)
 setnames(oysterraw2, c("Density", "Percent Live", "Shell Height",
@@ -679,7 +685,7 @@ sh_stats <- ma_stats[["Shell Height"]][["MA_Ov_Stats"]] %>%
   as.data.table()
 
 task_list <- sh_stats[, .(HabitatType = unique(HabitatType)), by = ManagedAreaName]
-task_list <- task_list[!(ManagedAreaName %in% c("Apalachicola Bay Aquatic Preserve", 
+task_list <- task_list[!(ManagedAreaName %in% c("Apalachicola Bay Aquatic Preserve",
                                                 "Apalachicola National Estuarine Research Reserve") & HabitatType == "Restored")]
 # Add MA abbreviation
 task_list[, ma_abrev := MA_All[.SD, on = "ManagedAreaName", Abbreviation]]
@@ -735,7 +741,7 @@ shell_height_models_par <- function(ma, ma_abrev, habitat_type, oysterraw){
   # Subset for model data (where LiveDate_Qualifier is "Exact" NOT "Estimate")
   sh25to75_mod_data <- subset(sh25to75, sh25to75$LiveDate_Qualifier!="Estimate")
   
-  if(suff_years(sh25to75_mod_data)){
+  if(suff_years(sh25to75_mod_data) & !QAQCPlots){
     cat("---- Sufficient years of data for SH 25mm to 75mm. Running model. \n")
     # Set formula to account for multiple quadsizes
     if(length(unique(sh25to75_mod_data$QuadSize_m2))>1){
@@ -770,7 +776,7 @@ shell_height_models_par <- function(ma, ma_abrev, habitat_type, oysterraw){
   # Subset for model data (where LiveDate_Qualifier is "Exact" NOT "Estimate")
   sho75_mod_data <- subset(sho75, sho75$LiveDate_Qualifier!="Estimate")
   
-  if(suff_years(sho75_mod_data)){
+  if(suff_years(sho75_mod_data) & !QAQCPlots){
     cat("---- Sufficient years of data for SH over 75mm. Running model. \n")
     # Set formula to account for multiple quadsizes
     if(length(unique(sh25to75_mod_data$QuadSize_m2))>1){
@@ -1052,11 +1058,11 @@ shell_height_models_par <- function(ma, ma_abrev, habitat_type, oysterraw){
   }
   
   set.seed(987)
-  if(!is.null(models1)){
+  if(!is.null(models1) & !QAQCPlots){
     liveplot_1 <- plot(conditional_effects(models1[[1]], re_formula=NULL), plot=FALSE)
   }
   
-  if(!is.null(models2)){
+  if(!is.null(models2) & !QAQCPlots){
     liveplot_2 <- plot(conditional_effects(models2[[1]], re_formula=NULL), plot=FALSE)
   }
   
@@ -1144,27 +1150,27 @@ shell_height_models_par <- function(ma, ma_abrev, habitat_type, oysterraw){
     geom_point(data=data1[!is.na(RelYear) & !is.na(LiveDate), ],
                aes(x=LiveDate, y=ShellHeight_mm, shape="size2"),
                position=plot_jitter, size=2, color="transparent", fill = "transparent",
-               alpha=0.6, show.legend = TRUE) +
+               alpha=0.8, show.legend = TRUE) +
     geom_point(data=data1[!is.na(RelYear) & !is.na(LiveDate), ],
                aes(x=LiveDate, y=ShellHeight_mm, shape="size1"),
                position=plot_jitter, size=2, color="#333333", fill = "#cccccc",
-               alpha=0.6, show.legend = TRUE) +
+               alpha=0.8, show.legend = TRUE) +
     # Dummy points
     geom_point(data=data2[!is.na(RelYear) & !is.na(LiveDate), ],
                aes(x=LiveDate, y=ShellHeight_mm, shape="size1"),
                position=plot_jitter, size=2, color="transparent", fill = "transparent",
-               alpha=0.6, show.legend = TRUE) +
+               alpha=0.8, show.legend = TRUE) +
     geom_point(data=data2[!is.na(RelYear) & !is.na(LiveDate), ],
                aes(x=LiveDate, y=ShellHeight_mm, shape="size2"),
                position=plot_jitter, size=2, color="#333333", fill = "#cccccc",
-               alpha=0.6, show.legend = TRUE) +
+               alpha=0.8, show.legend = TRUE) +
     plot_theme +
     theme(legend.position="right") +
-    scale_shape_manual(name="Shell heights",
+    scale_shape_manual(name="Size class",
                        breaks = c("size2", "size1"),
                        values=p_shape,
                        labels=sizelab) +
-    scale_color_manual(name="Shell heights",
+    scale_color_manual(name="Size class",
                        breaks = c("size2", "size1"),
                        values=p_color,
                        labels=sizelab, 
@@ -1183,14 +1189,14 @@ shell_height_models_par <- function(ma, ma_abrev, habitat_type, oysterraw){
                                 LiveDate_Qualifier=="Estimate", ],
                    aes(x=LiveDate, y=ShellHeight_mm, shape="size1"),
                    position=plot_jitter, size=2, color="#333333", fill="#cccccc",
-                   alpha=0.2, inherit.aes=FALSE) 
+                   alpha=0.8, inherit.aes=FALSE) 
       }} +
       {if(n_hist2>0){
         geom_point(data=data2[!is.na(RelYear) & !is.na(LiveDate) &
                                 LiveDate_Qualifier=="Estimate", ],
                    aes(x=LiveDate, y=ShellHeight_mm, shape="size2"),
                    position=plot_jitter, size=2, color="#333333", fill="#cccccc",
-                   alpha=0.2, inherit.aes=FALSE)
+                   alpha=0.8, inherit.aes=FALSE)
       }} +
       scale_x_continuous(limits=c(minyr_hist-0.25, maxyr_hist+0.25),
                          breaks=yrlist_hist) +
@@ -1223,14 +1229,14 @@ shell_height_models_par <- function(ma, ma_abrev, habitat_type, oysterraw){
                                 LiveDate_Qualifier=="Exact", ],
                    aes(x=LiveDate, y=ShellHeight_mm, shape="size1"),
                    position=plot_jitter, size=2, color="#333333", fill="#cccccc",
-                   alpha=0.2, inherit.aes=FALSE) 
+                   alpha=0.8, inherit.aes=FALSE) 
       }} +
       {if(n_live2>0){
         geom_point(data=data2[!is.na(RelYear) & !is.na(LiveDate) &
                                 LiveDate_Qualifier=="Exact", ],
                    aes(x=LiveDate, y=ShellHeight_mm, shape="size2"),
                    position=plot_jitter, size=2, color="#333333", fill="#cccccc",
-                   alpha=0.2, inherit.aes=FALSE)
+                   alpha=0.8, inherit.aes=FALSE)
       }} +
       {if(liveplot1_avail){
         list(geom_ribbon(data=liveplot_1$RelYear$data,
@@ -1257,7 +1263,7 @@ shell_height_models_par <- function(ma, ma_abrev, habitat_type, oysterraw){
       plot_theme +
       theme(plot.subtitle=element_text(hjust=0, size=10, color="#314963"),
             legend.position="none") +
-      labs(subtitle="Live Oyster Shells",
+      labs(subtitle="Live Oysters",
            x="Year",
            y="Shell height (mm)") +
       scale_shape_manual(name="Shell heights",
@@ -1304,7 +1310,14 @@ shell_height_models_par <- function(ma, ma_abrev, habitat_type, oysterraw){
   plot_comb <- ggarrange(plot_title, plot_comb, ncol=1,
                          heights=c(0.125, 0.875))
   
-  ggsave(paste0("output/Shell_Height/Figures/Oyster_SH_GLMM_", ma_abrev, "_", habitat_type, ".png"),
+  # Specify save location (QAQC Plots saved elsewhere)
+  if(QAQCPlots){
+    file_name <- paste0("output/QAQC/Oyster_SH_GLMM_", ma_abrev, "_", habitat_type, ".png")
+  } else {
+    file_name <- paste0("output/Shell_Height/Figures/Oyster_SH_GLMM_", ma_abrev, "_", habitat_type, ".png")
+  }
+  
+  ggsave(file_name,
          plot_comb,
          width=8,
          height=4,
@@ -1447,7 +1460,7 @@ density_models_par <- function(ma, ma_abrev, habitat_type, oysterraw_den){
   # Save data used in model
   saveRDS(ma_subset, paste0("output/model_results/data/", ma_abrev, "_density_", Sys.Date(), "_", habitat_type, ".rds"))
   
-  if(suff_years(ma_subset)){
+  if(suff_years(ma_subset) & !QAQCPlots){
     cat("---- Sufficient years of data for Density. Running model. \n")
     # Determine model family
     # When to use negbinomial or zero-inflated-negbinomial 
@@ -1633,12 +1646,12 @@ density_models_par <- function(ma, ma_abrev, habitat_type, oysterraw_den){
         geom_point(data=data, aes(x=LiveDate,
                                   y=meanDen_int), position=plot_jitter,
                    shape=21, size=2, color="#333333", fill="#cccccc",
-                   alpha=1, inherit.aes=FALSE)
+                   alpha=0.8, inherit.aes=FALSE)
       } else{
         geom_point(data=data, aes(x=LiveDate,
                                   y=Density_m2), position=plot_jitter,
                    shape=21, size=2, color="#333333", fill="#cccccc",
-                   alpha=1, inherit.aes=FALSE)
+                   alpha=0.8, inherit.aes=FALSE)
       }} +
       {if(class(den_glmm)=="brmsfit"){
         list(geom_ribbon(data=denplots$RelYear$data,
@@ -1652,6 +1665,7 @@ density_models_par <- function(ma, ma_abrev, habitat_type, oysterraw_den){
       }} +
       scale_x_continuous(limits=c(minyr-0.25, maxyr+0.25),
                          breaks=yrlist) +
+      scale_y_continuous(breaks = scales::pretty_breaks(n = 6)) +
       plot_theme +
       {if("meanDen_int" %in% colnames(data)){
         labs(title=paste0("Oyster Density (", habitat_type, ")"),
@@ -1667,8 +1681,14 @@ density_models_par <- function(ma, ma_abrev, habitat_type, oysterraw_den){
     
     ma_short <- MA_All[ManagedAreaName==ma, Abbreviation]
     
-    file_name <- paste0("output/Density/Figures/Oyster_Dens_GLMM_", ma_short, "_", habitat_type,
-                        ifelse(sizeclass != "", paste0("_",size), "_raw"), ".png")
+    # Specify save location (QAQC Plots saved elsewhere)
+    if(QAQCPlots){
+      file_name <- paste0("output/QAQC/Oyster_Dens_GLMM_", ma_short, "_", habitat_type,
+                          ifelse(sizeclass != "", paste0("_",size), "_raw"), ".png")
+    } else {
+      file_name <- paste0("output/Density/Figures/Oyster_Dens_GLMM_", ma_short, "_", habitat_type,
+                          ifelse(sizeclass != "", paste0("_",size), "_raw"), ".png")
+    }
     
     ggsave(file_name,
            plot1,
@@ -1722,6 +1742,9 @@ fwrite(oysterresults_den, "output/oyresults/oysterresults_den.csv")
 #############################
 
 # oysterraw_pct <- oysterraw[!is.na(PercentLive_pct)]
+# Fix for HOBS (ID_5035) PctLive values in LBAP. Listed as PercentLiveMethod NA and should be Point-intercept
+# Not implemented currently as Point-intercept and Percent data are not (currently) comparable. Further methods will need to be devised
+# oysterraw[ManagedAreaName=="Lemon Bay Aquatic Preserve" & ProgramID==5035 & !is.na(PercentLive_pct), PercentLiveMethod := "Point-intercept"]
 oysterraw_pct <- oysterraw[!is.na(PercentLiveMethod) & !is.na(PercentLive_pct)]
 
 #Make a collapsed version of the oysterraw table for percent live
@@ -1795,6 +1818,7 @@ task_list[, ma_abrev := MA_All[.SD, on = "ManagedAreaName", Abbreviation]]
 task_list <- as.data.frame(task_list)
 
 pctlive_models_par <- function(ma, ma_abrev, habitat_type, oysterraw_pct){
+  library(data.table)
   # Combined MA name with habitat type
   ma_plotlabel <- paste0(ma, "_", str_to_title(habitat_type))
   # At least 5 years of data are required in order to run model analyses
@@ -1802,10 +1826,12 @@ pctlive_models_par <- function(ma, ma_abrev, habitat_type, oysterraw_pct){
   suff_years <- function(data){length(unique(data$Year))>=5}
   # Create subset for each MA
   ma_subset <- subset(oysterraw_pct, oysterraw_pct$MA_plotlab==ma_plotlabel)
+  # Exception to only run model on Percent data for LBAP (exclude 8 values from 5035 which are point-intercept)
+  if(ma_abrev=="LBAP"){ma_subset <- ma_subset[!PercentLiveMethod=="Point-intercept"]}
   # Save data used in model
   saveRDS(ma_subset, paste0("output/model_results/data/", ma_abrev, "_PrcLive_", Sys.Date(), "_", habitat_type, ".rds"))
   # If enough years of data, perform modelling. If not, plot data points only
-  if(suff_years(ma_subset)){
+  if(suff_years(ma_subset) & !QAQCPlots){
     cat("---- Sufficient years of data. \n")
     #PercentLiveMethod=="Percent" for Lemon Bay program(s) with sufficient data,
     #so cannot be modeled as binomial
@@ -1856,7 +1882,7 @@ pctlive_models_par <- function(ma, ma_abrev, habitat_type, oysterraw_pct){
     pct_glmm <- NA
   }
   # Create model results tables and save diagnostic plots and marginal effects plots
-  datafile <- ma_subset
+  datafile <- setDT(ma_subset)
   models <- list(pct_glmm)
   indicator <- "Percent live"
   meplotzoom <- FALSE
@@ -1997,7 +2023,7 @@ pctlive_models_par <- function(ma, ma_abrev, habitat_type, oysterraw_pct){
       geom_point(data=data, aes(x=LiveDate,
                                 y=100*PercentLive_dec), position=plot_jitter,
                  shape=21, size=2, color="#333333", fill="#cccccc",
-                 alpha=1, inherit.aes=FALSE) +
+                 alpha=0.8, inherit.aes=FALSE) +
       {if(class(pct_glmm)=="brmsfit"){
         list(
           geom_ribbon(data = pctplots$RelYear$data,
@@ -2014,17 +2040,35 @@ pctlive_models_par <- function(ma, ma_abrev, habitat_type, oysterraw_pct){
       }} +
       scale_x_continuous(limits=c(minyr-0.25, maxyr+0.25),
                          breaks=yrlist) +
+      scale_y_continuous(breaks = scales::pretty_breaks(n = 5)) +
       plot_theme +
       theme(legend.text=element_text(size=10), 
             legend.title=element_text(size=10)) +
-      labs(title=paste0("Oyster Percent Live Cover (", habitat_type, ")"),
-           subtitle=ma,
-           x="Year",
-           y="Live cover (%)")
+      {
+        if(unique(ma_subset$PercentLiveMethod)=="Percent"){
+          labs(title=paste0("Percent Live Oysters (", habitat_type, ")"),
+               subtitle=ma,
+               x="Year",
+               y="Percent live (%)")
+        } else {
+          labs(title=paste0("Oyster Percent Live Cover (", habitat_type, ")"),
+               subtitle=ma,
+               x="Year",
+               y="Live cover (%)")
+        }
+      }
     
     ma_short <- MA_All[ManagedAreaName==ma, Abbreviation]
-    file_name <- paste0("output/Percent_Live/Figures/Oyster_PrcLive_GLMM_", 
-                        ma_short, "_", habitat_type, "_raw.png")
+    
+    # Specify save location (QAQC Plots saved elsewhere)
+    if(QAQCPlots){
+      file_name <- paste0("output/QAQC/Oyster_PrcLive_GLMM_", 
+                          ma_short, "_", habitat_type, "_raw.png")
+    } else {
+      file_name <- paste0("output/Percent_Live/Figures/Oyster_PrcLive_GLMM_", 
+                          ma_short, "_", habitat_type, "_raw.png")
+    }
+
     ggsave(file_name,
            plot1,
            width=8,
