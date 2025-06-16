@@ -342,32 +342,37 @@ if(n==0){
     # remove_groups_df <- bind_rows(remove_groups_df, remove_groups)
     
     # Determines most recent year with available data for managed area
-    t_max <- max(MA_Ov_Stats[ManagedAreaName==ma_i, LatestYear])
+    maxyr <- max(MA_Ov_Stats[ManagedAreaName==ma_i, LatestYear])
     # Determines earliest recent year with available data for managed area
-    t_min <- min(MA_Ov_Stats[ManagedAreaName==ma_i, EarliestYear])
+    minyr <- min(MA_Ov_Stats[ManagedAreaName==ma_i, EarliestYear])
     # Determines how many years of data are present
-    t <- t_max-t_min
+    nyrs <- maxyr-minyr+1
+    
+    current_year <- as.integer(format(Sys.Date(), "%Y"))
     
     # Creates break intervals for plots based on number of years of data
-    if(t>=30){
-      # Set breaks to every 10 years if more than 30 years of data
-      brk <- -10
-    }else if(t<30 & t>=10){
-      # Set breaks to every 5 years if between 30 and 10 years of data
-      brk <- -5
-    }else if(t<10 & t>=4){
-      # Set breaks to every 2 years if between 10 and 4 years of data
-      brk <- -2
-    }else if(t<4 & t>=2){
-      # Set breaks to every year if between 4 and 2 years of data
-      brk <- -1
-    }else if(t<2){
-      # Set breaks to every year if less than 2 years of data
-      brk <- -1
-      # Sets t_max to be 1 year greater and t_min to be 1 year lower
-      # Forces graph to have at least 3 tick marks
-      t_max <- t_max+1
-      t_min <- t_min-1
+    if(nyrs>=30){
+      # Set breaks to every 10 years if more than 40 years of data
+      brk <- 10
+    } else if(nyrs>=10){
+      # Set breaks to every 5 years if between 40 and 20 years of data
+      brk <- 4
+    } else if(nyrs>=4){
+      # Set breaks to every year if between 8 and 4 years of data
+      brk <- 2
+    } else {
+      # Ensure 5 years are included on axis
+      total_ticks <- 5
+      extra_years <- total_ticks - nyrs
+      # Always add 1 year before the first year
+      years_before <- min(1, extra_years)
+      years_after <- extra_years - years_before
+      # Adjust min and max year, without going beyond current year
+      minyr <- minyr - years_before
+      maxyr <- min(maxyr + years_after, current_year)
+      # Re-check if we have enough years (in case maxyr hit current year)
+      minyr <- max(minyr, maxyr - (total_ticks - 1))
+      brk <- 1 
     }
     # Determine range of data values for the managed area
     y_range <- max(plot_data$Mean) - min(plot_data$Mean)
@@ -410,8 +415,8 @@ if(n==0){
                         values = subset(sg2_palette, names(sg2_palette) %in% 
                                           unique(plot_data$SpeciesGroup2)),
                         labels = sp_labels) +
-      scale_x_continuous(limits = c(t_min-1, t_max+1),
-                         breaks = seq(t_max, t_min, brk)) +
+      scale_x_continuous(limits = c(minyr-0.5, maxyr+0.5),
+                         breaks = seq(minyr, maxyr, brk)) +
       plot_theme
     # Sets file name of plot created
     outname <- paste0("Nekton_", param_file, "_", ma_abrev, ".png")
@@ -460,6 +465,10 @@ setwd(paste0(out_dir, "/Figures"))
 zip("NektonFigures", files=fig_list)
 setwd(wd)
 
+if(create_maps){
+  source("Nekton_Create_Maps.R")
+}
+
 #Renders Nekton_SpeciesRichness.Rmd and writes the report to a pdf and 
 #document stored in output directory
 file_out <-  paste0("Nekton_", param_file, "_Report")
@@ -474,7 +483,3 @@ rmarkdown::render(input = "Nekton_SpeciesRichness.Rmd",
 unlink(paste0(out_dir, "/", file_out, ".md"))
 unlink(paste0(file_out, ".log"))
 unlink(paste0(out_dir, "/", file_out, "_files"), recursive=TRUE)
-
-if(create_maps){
-  source("Nekton_Create_Maps.R")
-}

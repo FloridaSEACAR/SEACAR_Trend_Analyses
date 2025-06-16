@@ -33,11 +33,74 @@ This markdown file is designed to be compiled by [Nekton_SpeciesRichness_ReportR
 
 Details on the determination of catch per unit effort can be found in the document [SEACAR Nekton catch per unit effort.pdf](https://github.com/FloridaSEACAR/SEACAR_Trend_Analyses/blob/main/Nekton/SEACAR%20Nekton%20catch%20per%20unit%20effort.pdf) (https://github.com/FloridaSEACAR/SEACAR_Trend_Analyses/blob/main/Nekton/SEACAR%20Nekton%20catch%20per%20unit%20effort.pdf).
 
+\newpage
+# Nekton Species Richness
+
+```{r show_plots, results='asis', echo=FALSE}
+# Ensure SpeciesRichness MA_OV_Stats file is being used
+MA_Ov_Stats <- fread("output/Nekton_SpeciesRichness_MA_Overall_Stats.txt")
+
+nekton_sr_plots <- list.files("output/Figures", full.names = T, pattern=".png$")
+nekton_sr_maps <- list.files("output/maps", full.names = T, pattern=".png$")
+# Get plot function locates filepath
+get_plot <- function(ma){
+  ma_abrev <- MA_All[ManagedAreaName==ma, Abbreviation]
+  str_subset(nekton_sr_plots, paste0("_",ma_abrev))
+}
+get_map <- function(ma){
+  ma_abrev <- MA_All[ManagedAreaName==ma, Abbreviation]
+  str_subset(nekton_sr_maps, paste0("_",ma_abrev))
+}
+
+# Make table function shows trend results
+make_table <- function(ma){
+  ResultTable <- MA_Ov_Stats[ManagedAreaName==ma,]
+  # Removes location, species group, and parameter information because it is
+  # in plot labels
+  # Creates a data table object to be shown underneath plots in report
+  ResultTable <- ResultTable[,-c("AreaID", "ManagedAreaName",
+                                 "ProgramIDs", "Programs",
+                                 "ParameterName")]
+  # Renames StandardDeviation to StDev to save horizontal space
+  ResultTable <- ResultTable %>%
+     rename("StDev"="StandardDeviation")
+  # Converts all non-integer values to 2 decimal places for space
+  ResultTable$Min <- round(ResultTable$Min, digits=2)
+  ResultTable$Max <- round(ResultTable$Max, digits=2)
+  ResultTable$Median <- round(ResultTable$Median, digits=2)
+  ResultTable$Mean <- round(ResultTable$Mean, digits=2)
+  ResultTable$StDev <- round(ResultTable$StDev, digits=2)
+  names(ResultTable) <- gsub("_", "-", names(ResultTable))
+  
+  result_table <- kable(ResultTable, format="latex",
+                        caption=paste0("Nekton Species Richness - ", ma),
+                        row.names = FALSE, digits = 2,
+                        booktabs = T, linesep = "", escape = F, longtable = F) %>%
+    kableExtra::kable_styling(latex_options = c("scale_down", "HOLD_position"))
+  return(print(result_table))
+}
+
+for(ma in nekton_MA_Include){
+  cat("  \n")
+  cat(glue("## {ma}"))
+  plot_loc <- get_plot(ma)
+  cat("  \n")
+  cat("![](", plot_loc,")")
+  cat("  \n")
+  make_table(ma)
+  cat("  \n")
+  map_loc <- get_map(ma)
+  cat("![](", map_loc,")")
+  cat("  \n")
+}
+
+```
+
 # Libraries and Settings
 
 Loads libraries used in the script. The inclusion of `scipen` option limits how frequently R defaults to scientific notation. Sets default settings for displaying warning and messages in created document, and sets figure dpi.
 
-```{r libraries, message=FALSE}
+```{r libraries, message=FALSE, echo=T, include=T}
 library(knitr)
 library(data.table)
 library(dplyr)
@@ -500,67 +563,4 @@ if(n==0){
     }
   }
 }
-```
-
-\newpage
-# Nekton Species Richness
-
-```{r show_plots, results='asis', echo=FALSE}
-# Ensure SpeciesRichness MA_OV_Stats file is being used
-MA_OV_Stats <- fread("output/Nekton_SpeciesRichness_MA_Overall_Stats.txt")
-
-nekton_sr_plots <- list.files("output/Figures", full.names = T, pattern=".png$")
-nekton_sr_maps <- list.files("output/maps", full.names = T, pattern=".png$")
-# Get plot function locates filepath
-get_plot <- function(ma){
-  ma_abrev <- MA_All[ManagedAreaName==ma, Abbreviation]
-  str_subset(nekton_sr_plots, paste0("_",ma_abrev))
-}
-get_map <- function(ma){
-  ma_abrev <- MA_All[ManagedAreaName==ma, Abbreviation]
-  str_subset(nekton_sr_maps, paste0("_",ma_abrev))
-}
-
-# Make table function shows trend results
-make_table <- function(ma){
-  ResultTable <- MA_Ov_Stats[ManagedAreaName==ma,]
-  # Removes location, species group, and parameter information because it is
-  # in plot labels
-  # Creates a data table object to be shown underneath plots in report
-  ResultTable <- ResultTable[,-c("AreaID", "ManagedAreaName",
-                                 "ProgramIDs", "Programs", "GearType_Plot",
-                                 "ParameterName")]
-  # Renames StandardDeviation to StDev to save horizontal space
-  ResultTable <- ResultTable %>%
-     rename("StDev"="StandardDeviation")
-  # Converts all non-integer values to 2 decimal places for space
-  ResultTable$Min <- round(ResultTable$Min, digits=2)
-  ResultTable$Max <- round(ResultTable$Max, digits=2)
-  ResultTable$Median <- round(ResultTable$Median, digits=2)
-  ResultTable$Mean <- round(ResultTable$Mean, digits=2)
-  ResultTable$StDev <- round(ResultTable$StDev, digits=2)
-  names(ResultTable) <- gsub("_", "-", names(ResultTable))
-  
-  result_table <- kable(ResultTable, format="latex",
-                        caption=paste0("Nekton Species Richness - ", ma),
-                        row.names = FALSE, digits = 2,
-                        booktabs = T, linesep = "", escape = F, longtable = F) %>%
-    kableExtra::kable_styling(latex_options = c("scale_down", "HOLD_position"))
-  return(print(result_table))
-}
-
-for(ma in nekton_MA_Include){
-  cat("  \n")
-  cat(glue("## {ma}"))
-  plot_loc <- get_plot(ma)
-  cat("  \n")
-  cat("![](", plot_loc,")")
-  cat("  \n")
-  make_table(ma)
-  cat("  \n")
-  map_loc <- get_map(ma)
-  cat("![](", map_loc,")")
-  cat("  \n")
-}
-
 ```
