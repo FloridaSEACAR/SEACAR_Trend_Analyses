@@ -47,6 +47,8 @@ file_short <- tail(str_split(file_in, "/")[[1]], 1)
 data <- fread(file_in, sep="|", header=TRUE, stringsAsFactors=FALSE,
               na.strings=c("NULL","","NA"))
 
+data$ManagedAreaName[data$ManagedAreaName=="Southeast Florida Coral Reef Ecosystem Conservation Area"] <- "Kristin Jacobs Coral Aquatic Preserve"
+
 cat(paste("The data file(s) used:", file_short, sep="\n"))
 
 # Make a copy of main data file to save for Coral Percent Cover
@@ -321,17 +323,8 @@ if(n==0){
     # Determine range of data values for the managed area
     y_range <- max(plot_data$Mean) - min(plot_data$Mean)
     
-    # Determines lower bound of y-axis based on data range. Set based on
-    # relation of data range to minimum value. Designed to set lower boundary
-    # to be 10% of the data range below the minimum value
-    y_min <- if(min(plot_data$Mean)-(0.1*y_range)<0){
-      # If 10% of the data range below the minimum value is less than 0,
-      # set as 0
-      y_min <- 0
-    } else {
-      # Otherwise set minimum bound as 10% data range below minimum value
-      y_min <- min(plot_data$Mean)-(0.1*y_range)
-    }
+    # Determines lower bound of y-axis based on data range.
+    y_min <- 0
     
     # Sets upper bound of y-axis to be 10% of the data range above the
     # maximum value.
@@ -625,7 +618,7 @@ if(n==0){
   # Prints a statement if there are no managed areas with appropriate data
   print("There are no locations that qualify.")
 } else {
-  for (i in 1:length(coral_pc_MA_All)) {
+  for (i in 1:length(coral_pc_MA_All)) { 
     ma_i <- coral_pc_MA_All[i]
     # Get abbreviated name for filename
     ma_abrev <- MA_All[ManagedAreaName==ma_i, Abbreviation]
@@ -636,52 +629,56 @@ if(n==0){
     }
     
     # Determines most recent year with available data for managed area
-    t_max <- max(MA_Ov_Stats[ManagedAreaName==ma_i, LatestYear])
+    maxyr <- max(MA_Ov_Stats[ManagedAreaName==ma_i, LatestYear])
     # Determines earliest recent year with available data for managed area
-    t_min <- min(MA_Ov_Stats[ManagedAreaName==ma_i, EarliestYear])
+    minyr <- min(MA_Ov_Stats[ManagedAreaName==ma_i, EarliestYear])
     # Determines how many years of data are present
-    t <- t_max-t_min
+    nyrs <- maxyr-minyr+1
     
     current_year <- as.integer(format(Sys.Date(), "%Y"))
     
     # Creates break intervals for plots based on number of years of data
-    if(t>=30){
+    if(nyrs>=30){
       # Set breaks to every 10 years if more than 30 years of data
-      brk <- -10
-    }else if(t>=10){
+      brk <- 10
+    }else if(nyrs>=10){
       # Set breaks to every 5 years if between 30 and 10 years of data
-      brk <- -5
-    }else if(t>=5){
+      brk <- 5
+    }else if(nyrs>=5){
       # Set breaks to every 2 years if between 10 and 5 years of data
-      brk <- -2
+      brk <- 2
     }else{
       # Ensure 5 years are included on axis
       total_ticks <- 5
-      extra_years <- total_ticks - t
+      extra_years <- total_ticks - nyrs
       # Always add 1 year before the first year
       years_before <- min(1, extra_years)
       years_after <- extra_years - years_before
       # Adjust min and max year, without going beyond current year
-      t_min <- t_min - years_before
-      t_max <- min(t_max + years_after, current_year)
-      # Re-check if we have enough years (in case t_max hit current year)
-      t_min <- max(t_min, t_max - (total_ticks - 1))
-      brk <- -1
+      minyr <- minyr - years_before
+      maxyr <- min(maxyr + years_after, current_year)
+      # Re-check if we have enough years (in case maxyr hit current year)
+      minyr <- max(minyr, maxyr - (total_ticks - 1))
+      brk <- 1
     }
     # Determine range of data values for the managed area
     y_range <- max(plot_data$ResultValue) - min(plot_data$ResultValue)
     
-    # Sets y_min to be -1
-    y_min <- 0
+    # Sets y_min
     if(ma_i %in% coral_pc_MA_Include){
-      y_min <- min(min(lme_plot_data$y), min(plot_data$ResultValue))
+      # y_min <- min(min(lme_plot_data$y), min(plot_data$ResultValue))
+      y_min <- min(min(lme_plot_data$y), 0)
     } else {
       y_min <- 0
     }
     
     # Sets upper bound of y-axis to be 10% of the data range above the
-    # maximum value.
-    y_max <- max(plot_data$ResultValue)+(0.1*y_range)
+    # maximum value, unless both min and max are 0.
+    if(max(plot_data$ResultValue)==0 & y_min==0){
+      y_max <- max(plot_data$ResultValue)+1
+    } else {
+      y_max <- max(plot_data$ResultValue)+(0.1*y_range)
+    }
     
     # Creates plot object using plot_data.
     # Data is plotted as a point pot with jitter to show concentrations
@@ -697,8 +694,8 @@ if(n==0){
       labs(title="Coral Percent Cover",
            subtitle=ma_i,
            x="Year", y="Percent cover (%)") +
-      scale_x_continuous(limits=c(t_min-0.25, t_max+0.25),
-                         breaks=seq(t_max, t_min, brk)) +
+      scale_x_continuous(limits = c(minyr-0.25, maxyr+0.25),
+                         breaks = seq(minyr, maxyr, brk)) +
       scale_y_continuous(limits=c(y_min, y_max),
                          breaks=pretty_breaks(n=5)) +
       plot_theme
