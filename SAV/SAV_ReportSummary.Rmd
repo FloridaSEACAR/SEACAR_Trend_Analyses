@@ -15,7 +15,7 @@ output:
     toc: TRUE
     toc_depth: 2
     dev: png
-    extra_dependencies: ["float"]
+    extra_dependencies: ["float", "booktabs"]
     keep_md: yes
 urlcolor: blue
 always_allow_html: yes
@@ -29,7 +29,60 @@ All scripts and outputs can be found on the SEACAR GitHub repository:
 
 <https://github.com/FloridaSEACAR/SEACAR_Trend_Analyses>
 
-This script is based off of code originally written by Stephen Durham with comments by Marcus W. Beck.
+This script is based off of code originally written by Stephen Durham with comments by Marcus W. Beck. Modified by Tyler Hill.
+
+The file being used for the analysis is: **`r file_short`**
+
+```{r plot_locs, eval=T, echo=F, results='asis'}
+library(glue)
+# SAV Results
+sav_results <- fread("output/website/SAV_BBpct_LMEresults_All.txt")
+sav_results$`Period of Record` <- ifelse(is.na(sav_results$LME_Intercept), NA, paste0(sav_results$EarliestYear, " - ", sav_results$LatestYear))
+sav_results <- sav_results %>% rename(
+  "LME Intercept" = LME_Intercept,
+  "LME Slope" = LME_Slope,
+  "Statistical Trend" = StatisticalTrend
+)
+
+sav_plot_locs <- list.files("output/website/images/", recursive=T, full=T)
+plot_types <- c("barplots", "multiplots", "trendplots")
+# Function to locate relevant plots for each MA / plot_type
+locate_plots <- function(sav_plot_locs, ma_abrev, plot_type){
+  str_subset(str_subset(sav_plot_locs, plot_type), paste0("_",ma_abrev,"_"))
+}
+
+sav_map_locs <- list.files("output/maps/", full=T)
+
+for(ma in unique(sav_results$ManagedAreaName)){
+  cat("  \n")
+  cat(glue("# {ma}"))
+  cat("  \n")
+  ma_abrev <- MA_All[ManagedAreaName==ma, Abbreviation]
+  for(plot_type in plot_types){
+    plot_loc <- locate_plots(sav_plot_locs, ma_abrev, plot_type)
+    cat("  \n")
+    cat("![](", plot_loc,")")
+    cat("  \n")
+    # Add stats table beneath "multiplots"
+    if(plot_type=="multiplots"){
+      sav_subset <- sav_results[ManagedAreaName==ma, 
+                                c("Species","Statistical Trend","Period of Record","LME Intercept","LME Slope","p")]
+      cat("  \n")
+      display_table <- knitr::kable(sav_subset, format = "latex",
+                                    caption = paste0("SAV LME Results for ", ma),
+                                    row.names = FALSE, digits = 2, booktabs = T,
+                                    linesep = "", escape = F, longtable = F) %>%
+        kableExtra::kable_styling(latex_options = c("scale_down", "HOLD_position"))
+      print(display_table)
+      cat("  \n")
+    }
+  }
+  map_loc <- str_subset(sav_map_locs, paste0("_",ma_abrev,"_"))
+  cat("  \n")
+  cat("![](", map_loc,")")
+  cat("  \n")
+}
+```
 
 # Summary of SEACAR_SAV_BB_script_website.R
 

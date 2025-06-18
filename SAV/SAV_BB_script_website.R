@@ -26,9 +26,6 @@ library(rstudioapi)
 wd <- dirname(getActiveDocumentContext()$path)
 setwd(wd)
 
-# Create sample location maps? (for MA Report Generation & Atlas)
-create_maps <- TRUE
-
 source("../seacar_data_location.R")
 
 #Create folder paths if not already created
@@ -42,6 +39,7 @@ for(path in folder_paths){if(!dir.exists(path)){dir.create(path)}}
 file_in <- list.files(seacar_data_location, pattern="All_SAV", full=TRUE)
 SAV <- fread(file_in, sep = "|", header = TRUE, stringsAsFactors = FALSE,
              na.strings=c("NULL","","NA"))
+SAV$ManagedAreaName[SAV$ManagedAreaName=="St. Andrews State Park Aquatic Preserve"] <- "St. Andrews Aquatic Preserve"
 
 SAV <- SAV[!is.na(ResultValue), ]
 
@@ -312,13 +310,6 @@ modify_species_labels <- function(species_list, usenames) {
 # Specify what to produce --------------
 EDA <- "no" #Create and export Exploratory Data Analysis plots ("plots" = create data exploration plots only,
             #                                                   "no" (or anything else) = skip all EDA output)
-# Choose whether to generate spatio-temporal scope plots for SAV locations
-scope_plots <- FALSE
-
-# Source in external SAV_scope_plots.R to run scope plot generation
-if(scope_plots){
-  source("SAV_scope_plots.R", echo=TRUE)
-}
 
 Analyses <- c("BB_pct", "PC", "PA") #Which analyses to run? c("BB_all," "BB_pct", "PC", "PO", and/or "PA") or c("none") for just EDA plotting
 
@@ -1281,9 +1272,3 @@ setwd(wd)
 # LME Table convert
 # Combines all .rds objects and model results into SAV_BBpct_LMEresults_All
 source("SAV_BBpct_LME_tableconvert.R", echo=TRUE)
-
-## SAV Map generation
-# Maps are used within ManagedArea Reports
-if(create_maps){
-  source("SAV_Create_Maps.R", echo=TRUE)
-}
