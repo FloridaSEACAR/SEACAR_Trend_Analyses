@@ -37,7 +37,7 @@ table <- data %>%
 setnames(table, c("managed_area", "indicator", "size_class", "live_date_qual", "habitat_class"),
          c("ManagedAreaName", "ParameterName", "SizeClass", "ShellType", "HabitatType"))
 
-table$ShellType[table$ShellType=="Exact"] <- "Live Oyster Shells"
+table$ShellType[table$ShellType=="Exact"] <- "Live Oysters"
 table$ShellType[table$ShellType=="Estimate"] <- "Dead Oyster Shells"
 
 table$ParameterName[table$ParameterName=="Size class"] <- "Shell Height"
@@ -72,6 +72,7 @@ for(i in 1:length(files)){
 data_summ$ParameterName[data_summ$ParameterName=="ShellHeight_mm"] <- "Shell Height"
 data_summ$ParameterName[data_summ$ParameterName=="Density_m2"] <- "Density"
 data_summ$ParameterName[data_summ$ParameterName=="PercentLive_pct"] <- "Percent Live"
+data_summ$ShellType[data_summ$ShellType=="Live Oyster Shells"] <- "Live Oysters"
 
 
 finalTable <- merge.data.frame(data_summ, table, by=c("ManagedAreaName", "ParameterName",
@@ -81,14 +82,41 @@ finalTable <- merge.data.frame(data_summ, table, by=c("ManagedAreaName", "Parame
 finalTable <- as.data.table(finalTable[order(finalTable$ManagedAreaName, finalTable$ParameterName,
                                              finalTable$ShellType, finalTable$SizeClass,
                                              finalTable$HabitatType), ])
-finalTable <- finalTable %>% select(AreaID, everything())
+finalTable <- finalTable %>% dplyr::select(AreaID, everything())
 
-# finalTable <- finalTable %>% rowwise() %>% 
-#   mutate(modelFamily = ifelse(!is.na(ModelEstimate), fam_overview[param==ParameterName & habtype==HabitatType & ma==ManagedAreaName, unique(family)], NA)) %>%
-#   as.data.table()
+# Import results from back-transformation of models
+source("model_backtransformation.R")
+# Read in resulting .csv from the above transformation
+backtrans_results <- fread("output/model_transformations.csv")
 
-# Apply logit transformations to all but shell height
-finalTable[ParameterName %in% c("Density", "Percent Live"), `:=` (ModelEstimate = 100*(exp(ModelEstimate)-1))]
+replace_vals <- function(ma, param, hab_type, ret){
+  subset <- backtrans_results[ManagedAreaName==ma & ParameterName==param & 
+                                HabitatType==hab_type, ]
+  est_val <- subset$Estimate
+  se_val <- subset$StandardError
+  lc_val <- subset$LowerConfidence
+  uc_val <- subset$UpperConfidence
+  int_val <- subset$Intercept
+  return(get(ret))
+}
+
+mod_subset <- finalTable[SufficientData==TRUE & ParameterName %in% c("Density", "Percent Live"), ]
+unmod_subset <- setdiff(finalTable, mod_subset)
+# Replace values where needed
+mod_subset <- mod_subset %>% rowwise() %>% mutate(
+  ModelEstimate = replace_vals(ManagedAreaName, ParameterName, HabitatType, "est_val"),
+  StandardError = replace_vals(ManagedAreaName, ParameterName, HabitatType, "se_val"),
+  LowerConfidence = replace_vals(ManagedAreaName, ParameterName, HabitatType, "lc_val"),
+  UpperConfidence = replace_vals(ManagedAreaName, ParameterName, HabitatType, "uc_val"),
+  Intercept = replace_vals(ManagedAreaName, ParameterName, HabitatType, "int_val")
+)
+
+finalTable <- rbind(mod_subset, unmod_subset)
+
+finalTable <- as.data.table(finalTable[order(finalTable$ManagedAreaName, finalTable$ParameterName,
+                                             finalTable$ShellType, finalTable$SizeClass,
+                                             finalTable$HabitatType), ])
+finalTable <- finalTable %>% dplyr::select(AreaID, everything())
 
 #Write output table to a csv and pipe-delimited txt file
 fwrite(finalTable, "output/Oyster_All_GLMM_Stats.txt", sep="|")
@@ -96,7 +124,7 @@ fwrite(finalTable, "output/Oyster_All_GLMM_Stats.csv", sep=",")
 
 ###### Compile data used for plots
 # Date of latest script run (to ensure the proper data is collected)
-runDate <- "2025-04-15"
+runDate <- "2025-05-02"
 #List all of the files in the "Tables" directory that are Shell Heights
 file_list <- list.files("output/model_results/data", pattern="_sh", full.names=TRUE)
 file_list <- str_subset(file_list, runDate)
@@ -141,7 +169,6 @@ for(i in 1:length(file_list)){
 #Write output table to a csv and pipe-delimited txt file
 fwrite(data, "output/Density/Oyster_Den_plotdata.txt", sep="|")
 fwrite(data, "output/Density/Oyster_Den_plotdata.csv", sep=",")
-
 
 #List all of the files in the "tables" directory that are Density
 file_list <- list.files("output/model_results/data", pattern="_PrcLive_", full.names=TRUE)

@@ -18,8 +18,8 @@ library(data.table)
 library(rstudioapi)
 
 # Source in scripts to run Oyster analyses
-# Oyster_Models.R to run all models and generate plots
-source("Oyster_Models.R")
+# Oyster_Models_Clean_parallel.R to run all models and generate plots
+source("Oyster_Models_Clean_parallel.R")
 # Oyster_ResultsCompile.R to combine all results into single file (for Atlas)
 source("Oyster_ResultsCompile.R")
 
