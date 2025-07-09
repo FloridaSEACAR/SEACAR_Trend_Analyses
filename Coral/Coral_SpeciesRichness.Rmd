@@ -34,7 +34,14 @@ This markdown file is designed to be compiled by [Coral_SpeciesRichness_ReportRe
 \newpage
 # Coral Species Richness
 
-```{r show_plots, results='asis', echo=FALSE}
+```{r show_plots, results='asis', echo=FALSE, warning=FALSE}
+knitr::opts_chunk$set(
+   warning=FALSE,
+   message=FALSE,
+   echo=FALSE,
+   dpi=200,
+   fig.pos = 'H'
+   )
 # Ensure SpeciesRichness MA_OV_Stats file is being used
 MA_Ov_Stats <- fread("output/SpeciesRichness/Coral_SpeciesRichness_MA_Overall_Stats.txt")
 
@@ -68,7 +75,7 @@ make_table <- function(ma){
   ResultTable$StDev <- round(ResultTable$StDev, 2)
   names(ResultTable) <- gsub("_", "-", names(ResultTable))
   
-  result_table <- kable(ResultTable, format="latex",
+  result_table <- kable(ResultTable, format=tableFormat,
                         caption=paste0("Coral Species Richness - ", ma),
                         row.names = FALSE, digits = 2,
                         booktabs = T, linesep = "", escape = F, longtable = F) %>%
@@ -77,13 +84,17 @@ make_table <- function(ma){
 }
 
 for(ma in coral_sr_MA_Include){
+  fig_caption <- figureCaptions[HabitatName=="Coral/Coral Reef" & IndicatorName=="Grazers and Reef Dependent Species", FigureCaptions]
+  desc <- tableDesc[ManagedAreaName==ma & HabitatName=="Coral/Coral Reef" & ParameterName=="Presence/Absence", get(descriptionColumn)]
   cat("  \n")
   cat(glue("## {ma}"))
   plot_loc <- get_plot(ma)
   cat("  \n")
-  cat("![](", plot_loc,")")
+  SEACAR::subchunkify(cat("![", fig_caption, "](", plot_loc,")"))
   cat("  \n")
   make_table(ma)
+  cat("  \n")
+  cat(desc)
   cat("  \n")
   map_loc <- get_map(ma)
   cat("![](", map_loc,")")

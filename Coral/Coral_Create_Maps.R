@@ -208,7 +208,7 @@ seacar_palette <- c("#964059", "#E05E7B", "#E98C86", "#F1B8AB", "#F8CAAA",
                     "#8FD0EC", "#6FA1DD", "#889BD1", "#8F83D3", "#6B59AB")
 
 # Abbreviated MA names where "focus point" of map is shifted right (for legend display)
-right_shift <- c("CRCP")
+right_shift <- c("KJCAP")
 # Legend display alteration
 top_left <- c("BBAP", "BBCFMCAP", "CBAP", "FKNMS")
 # Function to add linebreaks to long Program names

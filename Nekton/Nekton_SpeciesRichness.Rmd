@@ -14,7 +14,7 @@ output:
     toc: TRUE
     toc_depth: 2
     dev: png
-    extra_dependencies: ["float", "booktabs"]
+    extra_dependencies: ["float", "booktabs", "wrapfig"]
     keep_md: yes
 urlcolor: blue
 ---
@@ -36,7 +36,7 @@ Details on the determination of catch per unit effort can be found in the docume
 \newpage
 # Nekton Species Richness
 
-```{r show_plots, results='asis', echo=FALSE}
+```{r show_plots, results='asis', echo=FALSE, warning=FALSE}
 # Ensure SpeciesRichness MA_OV_Stats file is being used
 MA_Ov_Stats <- fread("output/Nekton_SpeciesRichness_MA_Overall_Stats.txt")
 
@@ -72,7 +72,7 @@ make_table <- function(ma){
   ResultTable$StDev <- round(ResultTable$StDev, digits=2)
   names(ResultTable) <- gsub("_", "-", names(ResultTable))
   
-  result_table <- kable(ResultTable, format="latex",
+  result_table <- kable(ResultTable, format=tableFormat,
                         caption=paste0("Nekton Species Richness - ", ma),
                         row.names = FALSE, digits = 2,
                         booktabs = T, linesep = "", escape = F, longtable = F) %>%
@@ -81,13 +81,17 @@ make_table <- function(ma){
 }
 
 for(ma in nekton_MA_Include){
+  fig_caption <- figureCaptions[HabitatName=="Water Column" & IndicatorName=="Nekton", FigureCaptions]
+  desc <- tableDesc[ManagedAreaName==ma & IndicatorName=="Nekton", get(descriptionColumn)]
   cat("  \n")
   cat(glue("## {ma}"))
   plot_loc <- get_plot(ma)
   cat("  \n")
-  cat("![](", plot_loc,")")
+  SEACAR::subchunkify(cat("![", fig_caption, "](", plot_loc,")"))
   cat("  \n")
   make_table(ma)
+  cat("  \n")
+  cat(desc)
   cat("  \n")
   map_loc <- get_map(ma)
   cat("![](", map_loc,")")
@@ -117,7 +121,8 @@ options(scipen=999)
 knitr::opts_chunk$set(
    warning=FALSE,
    message=FALSE,
-   dpi=200
+   dpi=200,
+   fig.pos = 'H'
    )
 ```
 

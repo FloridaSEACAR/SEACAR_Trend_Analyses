@@ -19,7 +19,7 @@ library(rstudioapi)
 
 # Source in scripts to run Oyster analyses
 # Oyster_Models_Clean_parallel.R to run all models and generate plots
-source("Oyster_Models_Clean_parallel.R")
+source("Oyster_Models_parallel.R")
 # Oyster_ResultsCompile.R to combine all results into single file (for Atlas)
 source("Oyster_ResultsCompile.R")
 
@@ -43,12 +43,23 @@ out_dir <- "output"
 param_name <- "All_Oyster_Parameters"
 
 #Loads data file with list on managed area names and corresponding area IDs and short names
-MA_All <- fread("data/ManagedArea.csv", sep = ",", header = TRUE, stringsAsFactors = FALSE,
-                na.strings = "")
+MA_All <- SEACAR::ManagedAreas
+
+# Load in table descriptions
+tableDesc <- SEACAR::TableDescriptions %>%
+  mutate(DescriptionHTML = Description,
+         DescriptionLatex = stringi::stri_replace_all_regex(
+           Description,
+           pattern = c("<i>", "</i>", "&#8805;"),
+           replacement = c("*", "*", ">="),
+           vectorize = FALSE
+         )) %>%
+  as.data.table()
+# Load in figure captions
+figureCaptions <- SEACAR::FigureCaptions
 
 #Gets the files with the file names containing the desired parameter
-file_in <- str_subset(
-  list.files("C:/SEACAR Data/SEACARdata/", full.names = TRUE), "OYSTER")
+file_in <- str_subset(list.files("C:/SEACAR Data/SEACARdata/", full.names = TRUE), "OYSTER")
 
 #Gets the specific file used and removes the directory names
 file_short <- str_split(file_in, "/")[[1]][4]
@@ -57,17 +68,15 @@ file_short <- str_split(file_in, "/")[[1]][4]
 #report to an html and Word document stored in output directory
 file_out <-  paste0("Oyster_AllParameters_Report")
 
-rmarkdown::render(input = "Oyster.Rmd", 
-                  output_format = "pdf_document",
-                  output_file = paste0(file_out, ".pdf"),
-                  output_dir = out_dir,
-                  clean=TRUE)
-
-# rmarkdown::render(input = "Oyster.Rmd", 
-#                   output_format = "html_document",
-#                   output_file = paste0(file_out, ".html"),
-#                   output_dir = out_dir,
-#                   clean=TRUE)
+for(file_type in c("PDF", "HTML")){
+  descriptionColumn <- ifelse(file_type=="PDF", "DescriptionLatex", "DescriptionHTML")
+  tableFormat <- ifelse(file_type=="PDF", "latex", "simple")
+  rmarkdown::render(input = "Oyster.Rmd", 
+                    output_format = paste0(tolower(file_type),"_document"),
+                    output_file = paste0(file_out, ".", tolower(file_type)),
+                    output_dir = out_dir,
+                    clean=TRUE)  
+}
 
 #Removes unwanted files created in the rendering process
 unlink(paste0(out_dir, "/", file_out, ".md"))

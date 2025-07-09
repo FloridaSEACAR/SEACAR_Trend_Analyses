@@ -60,10 +60,10 @@ oyster_stats <- fread("output/Oyster_All_GLMM_Stats.txt", sep='|')
 # Function to add trend text
 trendText <- function(modelEstimate, lowConfidence, upConfidence){
   increasing <- modelEstimate > 0
-  trendPresent <- ifelse(lowConfidence < 0 & upConfidence < 0, TRUE, 
-                         ifelse(lowConfidence > 0 & upConfidence > 0, TRUE, FALSE))
+  trendPresent <- (lowConfidence < 0 & upConfidence < 0) | 
+                  (lowConfidence > 0 & upConfidence > 0)
   trendStatus <- "No significant change"
-  if(trendPresent){
+  if(isTRUE(trendPresent)){
     trendDirection <- ifelse(increasing, "increasing", "decreasing")
     trendStatus <- paste0("Significantly ", trendDirection, " trend")
   }
@@ -73,7 +73,7 @@ trendText <- function(modelEstimate, lowConfidence, upConfidence){
 oyster_stats <- oyster_stats %>% rowwise() %>%
   mutate(
     "Trend Status" = ifelse(!is.na(ModelEstimate), trendText(ModelEstimate, LowerConfidence, UpperConfidence), NA),
-    "Credible Interval" = paste0(round(LowerConfidence, 2), " to ", round(UpperConfidence, 2))
+    "Credible Interval" = ifelse(!is.na(LowerConfidence), paste0(round(LowerConfidence, 2), " to ", round(UpperConfidence, 2)), NA)
   ) %>%
   ungroup() %>% as.data.table()
 
@@ -114,7 +114,7 @@ oyster_tables <- function(ma, p, type){
                   "Estimate" = "ModelEstimate",
                   "Standard Error" = "StandardError")
   
-  result_table <- kable(ResultTable, format = "latex",
+  result_table <- kable(ResultTable, format = tableFormat,
                         caption = paste0("Model results for Oyster ", p, " - ", type),
                         row.names = FALSE, digits = 2,
                         booktabs = T, linesep = "", escape = F, longtable = F) %>%
@@ -148,7 +148,7 @@ get_maps <- function(indicator_short, ma_abrev){
 }
 ```
 
-```{r, Oyster figures, eval=T, echo=F, results='asis'}
+```{r, Oyster figures, eval=T, echo=F, results='asis', warning=FALSE}
 ## Begin report display
 cat("\\newpage")
 cat("  \n")
@@ -167,6 +167,7 @@ for(p in unique(oyster_includes$ParameterName)){
   for(ma in unique(p_subset$ManagedAreaName)){
     ma_subset <- p_subset[ManagedAreaName==ma, ]
     ma_abrev <- MA_All[ManagedAreaName==ma, Abbreviation]
+    desc <- tableDesc[ManagedAreaName==ma & HabitatName=="Oyster/Oyster Reef" & ParameterName==p, get(descriptionColumn)]
     cat(glue("## {ma}"))
     hab_types <- unique(ma_subset$HabitatType)
     for(type in hab_types){
@@ -176,10 +177,12 @@ for(p in unique(oyster_includes$ParameterName)){
         cat(glue("### {type}"))
         cat("  \n")
         plot_loc <- oy_file_loc(ma_abrev, p, type)
-        fig_caption <- paste0("Figure for Oyster ", p, " in ", ma)
+        fig_caption <- figureCaptions[HabitatName=="Oyster/Oyster Reef" & IndicatorName==p, FigureCaptions]
         subchunkify(cat("![", fig_caption, "](", plot_loc,")"))
         cat("  \n")
         oyster_tables(ma, p, type)
+        cat("  \n")
+        cat(desc)
         cat("  \n")
       }
     }

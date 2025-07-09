@@ -1,3 +1,4 @@
+library(SEACAR)
 library(readr)
 library(dplyr)
 library(data.table)
@@ -34,8 +35,21 @@ param_name <- "SpeciesRichness"
 param_file <- "SpeciesRichness"
 
 #Loads data file with list on managed area names and corresponding area IDs and short names
-MA_All <- fread("data/ManagedArea.csv", sep = ",", header = TRUE, stringsAsFactors = FALSE,
-                na.strings = "")
+MA_All <- SEACAR::ManagedAreas
+
+# Load in table descriptions
+tableDesc <- SEACAR::TableDescriptions %>%
+  mutate(DescriptionHTML = Description,
+         DescriptionLatex = stringi::stri_replace_all_regex(
+           Description,
+           pattern = c("<i>", "</i>", "&#8805;"),
+           replacement = c("*", "*", ">="),
+           vectorize = FALSE
+         )) %>%
+  as.data.table()
+
+# Load in figure captions
+figureCaptions <- SEACAR::FigureCaptions
 
 #Gets the files with the file names containing the desired parameter
 file_in <- list.files(seacar_data_location, pattern="All_CORAL", full=TRUE)
@@ -46,8 +60,6 @@ file_short <- tail(str_split(file_in, "/")[[1]], 1)
 # Read in data file
 data <- fread(file_in, sep="|", header=TRUE, stringsAsFactors=FALSE,
               na.strings=c("NULL","","NA"))
-
-data$ManagedAreaName[data$ManagedAreaName=="Southeast Florida Coral Reef Ecosystem Conservation Area"] <- "Kristin Jacobs Coral Aquatic Preserve"
 
 cat(paste("The data file(s) used:", file_short, sep="\n"))
 
@@ -262,20 +274,7 @@ MA_Ov_Stats <- MA_Ov_Stats[!is.na(MA_Ov_Stats$EarliestYear), ]
 # is size 10 and margins are padded on the right side to give more space for
 # axis labels. Axis labels are size 10 and the x-axis labels are rotated -45
 # degrees with a horizontal justification that aligns them with the tick mark
-plot_theme <- theme_bw() +
-  theme(panel.grid.major = element_blank(),
-        panel.grid.minor = element_blank(),
-        text=element_text(family="Arial"),
-        plot.title=element_text(hjust=0.5, size=12, color="#314963"),
-        plot.subtitle=element_text(hjust=0.5, size=10, color="#314963"),
-        legend.title=element_text(size=10),
-        legend.text = element_text(hjust=0),
-        axis.title.x = element_text(size=10, margin = margin(t = 5, r = 0,
-                                                             b = 10, l = 0)),
-        axis.title.y = element_text(size=10, margin = margin(t = 0, r = 10,
-                                                             b = 0, l = 0)),
-        axis.text=element_text(size=10),
-        axis.text.x=element_text(angle = -45, hjust = 0))
+plot_theme <- SEACAR::SEACAR_plot_theme()
 
 # Color palette for SEACAR
 color_palette <- c("#005396", "#0088B1", "#00ADAE", "#65CCB3", "#AEE4C1",
@@ -413,7 +412,7 @@ unit <- "%"
 data$ParameterUnits <- unit
 
 # Remove any rows that are not corals
-data <- data[SpeciesGroup1 %in% c("Octocoral","Milleporans","Scleractinian"), ]
+data <- data[SpeciesGroup1 %in% c("Octocorals","Milleporans","Scleractinians"), ]
 # Remove rows with missing GenusName
 data <- data[!is.na(data$GenusName),]
 # Remove rows with missing SpeciesName
@@ -756,17 +755,21 @@ if(create_maps){
 
 # Render both reports
 report_types <- c("SpeciesRichness","PercentCover")
-for(report_type in report_types){
-  file_out <-  paste0("Coral_", report_type, "_Report")
-  template <- ifelse(report_type=="SpeciesRichness", 
-                     "Coral_SpeciesRichness.Rmd", "Coral_PC.Rmd")
-  rmarkdown::render(input = template, 
-                    output_format = "pdf_document",
-                    output_file = paste0(file_out, ".pdf"),
-                    output_dir = paste0("output/", report_type),
-                    clean=TRUE)
-  #Removes unwanted files created in the rendering process
-  unlink(paste0(out_dir, "/", file_out, ".md"))
-  unlink(paste0(out_dir, "/", file_out, "_files"), recursive=TRUE)
-  unlink(paste0(file_out, ".log"))
+for(file_type in c("HTML", "PDF")){
+  descriptionColumn <- ifelse(file_type=="PDF", "DescriptionLatex", "DescriptionHTML")
+  tableFormat <- ifelse(file_type=="PDF", "latex", "simple")
+  for(report_type in report_types){
+    file_out <-  paste0("Coral_", report_type, "_Report")
+    template <- ifelse(report_type=="SpeciesRichness", 
+                       "Coral_SpeciesRichness.Rmd", "Coral_PC.Rmd")
+    rmarkdown::render(input = template, 
+                      output_format = paste0(tolower(file_type),"_document"),
+                      output_file = paste0(file_out, ".", tolower(file_type)),
+                      output_dir = paste0("output/", report_type),
+                      clean=TRUE)
+    #Removes unwanted files created in the rendering process
+    unlink(paste0(out_dir, "/", file_out, ".md"))
+    unlink(paste0(out_dir, "/", file_out, "_files"), recursive=TRUE)
+    unlink(paste0(file_out, ".log"))
+  }
 }

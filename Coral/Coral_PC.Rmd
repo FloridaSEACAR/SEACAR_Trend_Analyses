@@ -34,9 +34,16 @@ This markdown file is designed to be compiled by [Coral_PC_ReportRender.R](https
 \newpage
 # Coral Percent Cover
 
-```{r show_plots, results='asis', echo=FALSE}
+```{r show_plots, results='asis', echo=FALSE, warning=FALSE}
+knitr::opts_chunk$set(
+   warning=FALSE,
+   message=FALSE,
+   echo=FALSE,
+   dpi=200,
+   fig.pos = 'H'
+   )
 # Ensure SpeciesRichness MA_OV_Stats file is being used
-MA_OV_Stats <- fread("output/PercentCover/Coral_PC_MA_Overall_Stats.txt")
+coral_lme <- fread("output/PercentCover/Coral_PC_LME_Stats.txt")
 
 coral_pc_plots <- list.files("output/PercentCover/Figures", full.names = T, pattern=".png$")
 coral_pc_maps <- str_subset(list.files("output/maps", full.names = T, pattern=".png$"), "_PC_")
@@ -52,23 +59,19 @@ get_map <- function(ma){
 
 # Make table function shows trend results
 make_table <- function(ma){
-  ResultTable <- MA_Ov_Stats[ManagedAreaName==ma,]
-  # Removes location, species group, and parameter information because it is
-  # in plot labels
-  ResultTable <- ResultTable[,-c("AreaID", "ManagedAreaName",
-                                 "ProgramIDs", "Programs", "ParameterName")]
-  # Renames StandardDeviation to StDev to save horizontal space
-  ResultTable <- ResultTable %>%
-    rename("StDev"="StandardDeviation")
-  # Converts all non-integer values to 2 decimal places for space
-  ResultTable$Min <- round(ResultTable$Min, 2)
-  ResultTable$Max <- round(ResultTable$Max, 2)
-  ResultTable$Median <- round(ResultTable$Median, 2)
-  ResultTable$Mean <- round(ResultTable$Mean, 2)
-  ResultTable$StDev <- round(ResultTable$StDev, 2)
+  ResultTable <- coral_lme[ManagedAreaName==ma, ]
+  ResultTable %<>% rowwise() %>%
+    mutate(`Statistical Trend` = checkTrends(p = LME_p, Slope = LME_Slope, 
+                                             SufficientData = SufficientData),
+           `Period of Record` = paste0(EarliestYear, " - ", LatestYear)) %>% 
+    ungroup() %>% rename(`LME Intercept` = LME_Intercept, `LME Slope` = LME_Slope, 
+                         `p` = LME_p) %>% 
+    select(`Statistical Trend`, `Period of Record`, 
+           `LME Intercept`, `LME Slope`, p) %>% as.data.table()
+  # Convert for kable/latex format (no "_" allowed)
   names(ResultTable) <- gsub("_", "-", names(ResultTable))
   
-  result_table <- kable(ResultTable, format="latex",
+  result_table <- kable(ResultTable, format=tableFormat,
                         caption=paste0("Coral Percent Cover - ", ma),
                         row.names = FALSE, digits = 2,
                         booktabs = T, linesep = "", escape = F, longtable = F) %>%
@@ -77,13 +80,17 @@ make_table <- function(ma){
 }
 
 for(ma in coral_pc_MA_Include){
+  fig_caption <- figureCaptions[HabitatName=="Coral/Coral Reef" & IndicatorName=="Percent Cover", FigureCaptions]
+  desc <- tableDesc[ManagedAreaName==ma & HabitatName=="Coral/Coral Reef" & ParameterName=="Percent Cover", get(descriptionColumn)]
   cat("  \n")
   cat(glue("## {ma}"))
   plot_loc <- get_plot(ma)
   cat("  \n")
-  cat("![](", plot_loc,")")
+  SEACAR::subchunkify(cat("![", fig_caption, "](", plot_loc,")"))
   cat("  \n")
   make_table(ma)
+  cat("  \n")
+  cat(desc)
   cat("  \n")
   map_loc <- get_map(ma)
   cat("![](", map_loc,")")
