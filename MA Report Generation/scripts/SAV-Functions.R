@@ -1,127 +1,94 @@
 # Contains all SAV-related functions
 # Generates LMEresults tables for use in report
 library(mgcv)
-library(tidymv)
+# library(tidymv)
 library(tidygam)
 library(data.table)
 library(dplyr)
 
-# SAV LMEResults Table Generation
-# This script is designed to read the file names for the LME results of the BBpct analysis,
-# import each one, extract the intercept, slope, and p values, produce them for display in reports
-# originally from SAV_BBpct_LME_tableconvert.R
+source("../SAV/load_shape_files.R")
 
-#List all of the files in the "tables" directory that are LME results
-files <- list.files("output/tables/SAV", pattern="lmeresults", full.names=TRUE)
+# SEACAR Figure standards
+plot_theme <- theme_bw() +
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        text=element_text(family="Arial"),
+        plot.title=element_text(hjust=0.5, size=12, color="#314963"),
+        plot.subtitle=element_text(hjust=0.5, size=10, color="#314963"),
+        legend.title=element_text(size=10),
+        legend.text = element_text(hjust=0),
+        axis.title.x = element_text(size=10, margin = margin(t = 5, r = 0,
+                                                             b = 10, l = 0)),
+        axis.title.y = element_text(size=10, margin = margin(t = 0, r = 10,
+                                                             b = 0, l = 0)),
+        axis.text=element_text(size=10),
+        axis.text.x=element_text(angle = -45, hjust = 0))
 
-#Include only those that are BBpct
-files <- files[grep("BBpct", files)]
-
-#For loop cycles through each file name
-for (i in 1:length(files)) {
-  #Get filename from list
-  filename <- files[i]
-  
-  #Read in file
-  table <- readRDS(filename)
-  
-  #Keep only rows that are values with "fixed" in the effect column
-  table <- table[table$effect=="fixed" & !is.na(table$effect),]
-  
-  #For each managed area and species, get the LME intercept, slope, and p values
-  table <- table %>%
-    group_by(managed_area, species) %>%
-    summarise(LME_Intercept = estimate[term == "(Intercept)"],
-              LME_Slope = estimate[term == "relyear"],
-              p = p.value[term == "relyear"], .groups = "keep")
-  
-  #If this is the first file, the table from above is stored as the output table
-  #If not the first file, the table is added to the end of the output table
-  if(i==1) {
-    output <- table
-  } else {
-    output <- bind_rows(output, table)
-  }
-}
-
-#Add statistical trend column to denote where p<=0.05 and whether LME_slope increase or decreasing
-output$StatisticalTrend <- ifelse(output$p <= 0.05 & output$LME_Slope > 0, "Significantly increasing trend",
-                                  ifelse(output$p <= 0.05 & output$LME_Slope <0, "Significantly decreasing trend", "No significant trend"))
-
-#Change column names to better match other outputs
-output <- setnames(output, c("managed_area", "species"), c("ManagedAreaName", "Species"))
-
-# round P-val, LME_slope and LME_intercept
-output$p <- round(output$p,4)
-output$LME_Intercept <- round(output$LME_Intercept,4)
-output$LME_Slope <- round(output$LME_Slope,4)
-
-#Loads data file with list on managed area names and corresponding area IDs and short names
-MA_All <- fread("data/ManagedArea.csv", sep = ",", header = TRUE, stringsAsFactors = FALSE,
-                na.strings = "")
-
-stats <- fread("output/Data/SAV/SAV_BBpct_Stats.txt", sep = "|", header = TRUE, stringsAsFactors = FALSE,
-               na.strings = "")
-setnames(stats, c("analysisunit"), c("Species"))
-
-stats <-  merge.data.frame(stats, output,
-                           by=c("ManagedAreaName", "Species"), all=TRUE)
-
-stats <- merge.data.frame(MA_All[,c("AreaID", "ManagedAreaName")],
-                          stats, by=c("ManagedAreaName"), all=TRUE)
-
-stats <- as.data.table(stats[order(stats$ManagedAreaName, stats$Species), ])
-stats <- stats %>% select(AreaID, everything())
-
-stats$EarliestYear[stats$EarliestYear=="Inf"] <- NA
-stats$LatestYear[stats$LatestYear=="-Inf"] <- NA
-
-#filling remaining values in StatisticalTrend column
-stats$StatisticalTrend[stats$SufficientData==FALSE] <- "Insufficient data to calculate trend"
-stats$StatisticalTrend[stats$SufficientData==TRUE & is.na(stats$LME_Slope)] <- "Model did not fit the available data"
-
-#drop rows where ManagedArea does not contain data
-sav_stats_table <- stats[!apply(stats[, -c(1, 2), drop = FALSE], 1, function(row) all(is.na(row))), ]
+# Import SAV LME Stats
+sav_stats_table <- fread("../SAV/output/website/SAV_BBpct_LMEresults_All.txt", sep='|')
 
 #create Period of Record column (mirroring atlas)
 sav_stats_table$years <- paste0(sav_stats_table$EarliestYear," - ",sav_stats_table$LatestYear)
 sav_stats_table$years[sav_stats_table$SufficientData==FALSE] <- NA
 
-# Change Unidentified Halophila to Halophila, unk.
-sav_stats_table[Species=="Unidentified Halophila", Species := "Halophila, unk."]
+sav_managed_areas <- unique(sav_stats_table$ManagedAreaName)
 
-#Write output table to a pipe-delimited txt file
-fwrite(sav_stats_table, "output/Data/SAV/SAV_BBpct_LMEresults_All.txt", sep="|")
+# Plot locations
+trendplots <- list.files("../SAV/output/website/images/trendplots", full.names = T)
+barplots <- list.files("../SAV/output/website/images/barplots", full.names = T)
+multiplots <- list.files("../SAV/output/website/images/multiplots", full.names = T)
+# Generate list of MAs for each plottype
+trendplot_malist <- c()
+for(pl in trendplots){
+  ma_p <- str_split(pl, "_")[[1]][3]
+  trendplot_malist <- append(trendplot_malist, ma_p)
+}
+multiplot_malist <- c()
+for(pl in multiplots){
+  ma_p <- str_split(pl, "_")[[1]][3]
+  multiplot_malist <- append(multiplot_malist, ma_p)
+}
+barplot_malist <- c()
+for(pl in barplots){
+  ma_p <- str_split(pl, "_")[[1]][3]
+  barplot_malist <- append(barplot_malist, ma_p)
+}
 
 # SAV LMEResults Table Function
 # For use in report generation
-sav_trend_table <- function(ma, table_format = "latex"){
+sav_trend_table <- function(ma, report_format){
+  format_type <- ifelse(report_type=="HTML", "simple", "latex")
   table <- sav_stats_table[ManagedAreaName == ma, c("Species","StatisticalTrend","years","LME_Intercept","LME_Slope","p")] %>%
-    mutate(CommonName = modify_species_labels(Species, usenames="common")) %>%
-    mutate(CommonName = ifelse(CommonName==Species, NA, CommonName)) %>%
-    select(Species,CommonName,StatisticalTrend,years,LME_Intercept,LME_Slope,p)
+    select(Species,StatisticalTrend,years,LME_Intercept,LME_Slope,p)
   
-  caption <- paste0("Percent Cover Trend Analysis for ", ma)
+  # Grab relevant table description for a given plot
+  desc <- TableDescriptions[ManagedAreaName==ma & HabitatName=="Submerged Aquatic Vegetation", get(descriptionColumn)]
+  # Table title
+  table_title <- paste0("Percent Cover Trend Analysis for ", ma)
   
   sav_kable <- table %>%
-    kable(format=table_format,caption=caption, booktabs = T, linesep = "",
-          col.names = c("Species","CommonName","Trend Significance (0.05)","Period of Record","LME-Intercept","LME-Slope","p")) %>%
+    kable(format=format_type,caption=table_title, booktabs = T, linesep = "",
+          col.names = c("CommonName","Trend Significance (0.05)","Period of Record","LME-Intercept","LME-Slope","p")) %>%
     row_spec(0, italic=TRUE) %>%
-    kable_styling(latex_options=c("scale_down","HOLD_position"),
-                  position = "center")
+    kable_styling(latex_options=c("scale_down","hold_position"))
   
-  if(table_format=="latex"){
-    print(sav_kable)
-  } else if(table_format=="html"){
-    sav_kable
-  }
+  cat("  \n")
+  print(sav_kable)
+  cat("  \n")
+  cat(desc)
+  cat("  \n")
 }
 
-# source(here::here("scripts/load_shape_files.R"))
-
-##############################
-### SAV PLOTTING FUNCTIONS ###
-##############################
+sav_scope_plots <- function(ma, ma_abrev, sav_scope_locs){
+  file_loc <- str_subset(sav_scope_locs, paste0("_",ma_abrev,"_map"))
+  caption <- paste0("Maps showing the temporal scope of SAV sampling sites within the boundaries of *", ma, "* by Program name.")
+  cat("  \n")
+  subchunkify(cat("![", caption, "](", file_loc,")"))
+  # cat("![](", file_loc,")")
+  cat("  \n")
+  cat("Click [here](https://github.com/FloridaSEACAR/SEACAR_Trend_Analyses/tree/main/MA%20Report%20Generation/output/SAV-Temporal-Scope-Plots) to view spatio-temporal plots on GitHub.")
+  cat("  \n")
+}
 
 #Managed areas that should have Halophila species combined:
 ma_halspp <- c("Banana River Aquatic Preserve", "Indian River-Malabar to Vero Beach Aquatic Preserve", 
@@ -129,92 +96,39 @@ ma_halspp <- c("Banana River Aquatic Preserve", "Indian River-Malabar to Vero Be
                "Loxahatchee River-Lake Worth Creek Aquatic Preserve", "Mosquito Lagoon Aquatic Preserve", 
                "Biscayne Bay Aquatic Preserve", "Florida Keys National Marine Sanctuary")
 
-files <- list.files(here::here("output/Figures/BB/")) #get file list
-trendplots <- stringr::str_subset(files, "_trendplot") #identify map file
-trendplots <- stringr::str_subset(trendplots, "_BBpct_")
-
-mods <- list.files(here::here("output/models/"))
-models2 <- str_subset(mods, paste0(str_sub(trendplots[1], 1, str_locate_all(trendplots[1], "_")[[1]][2])))
-
-malist <- c()
-for(pl in trendplots){
-  ma_p <- str_split(pl, "_")[[1]][3]
-  malist <- append(malist, ma_p)
-}
-
-failedmodslist <- readRDS(here::here("output/models/failedmodslist.rds"))
-
-find_exact_matches <- function(pattern, filenames) {
-  regex <- paste0("(_|^)", pattern, "(_|$)")
-  matched_files <- str_subset(filenames, regex)
-  return(matched_files)
-}
-
-plot_sav_trendplot <- function(ma,ma_abrev,type){
+plot_sav_trendplot <- function(ma, ma_abrev, plot_type, plot_list, malist){
   if(ma_abrev %in% malist){
-    plot_file <- lapply(ma_abrev, find_exact_matches, filenames = trendplots)
-    plot <- readRDS(here::here(paste0("output/Figures/BB/", plot_file)))
-    print(plot)
-    cat("  \n")
-
-    #############
-    table_format <- ifelse(type=="PDF", "latex", "html")
-    sav_trend_table(ma, table_format = table_format)
-    cat("  \n")
-    #############
+    # Plot
+    plot_loc <- str_subset(plot_list, paste0("_", ma_abrev, "_"))
     
+    if(plot_type=="trendplots"){
+      fig_caption <- paste0("Trends in median percent cover for various seagrass species in ", ma, " - simplified")
+    } else if(plot_type=="multiplots"){
+      fig_caption <- FigureCaptions[HabitatName=="Submerged Aquatic Vegetation" & IndicatorName=="Percent Cover", FigureCaptions]
+    } else if(plot_type=="barplots"){
+      fig_caption <- paste0("Frequency of occurrence for various seagrass species in ", ma)
+    }
+    
+    cat("  \n")
+    subchunkify(cat("![", fig_caption, "](", plot_loc,")"))
+    # cat("![](", plot_loc,")")
+    cat("  \n")
+    
+    # Table
+    if(plot_type=="trendplots"){
+      sav_trend_table(ma, report_format = report_format)
+      cat("  \n")
+    }
   }
 }
 
-barplots <- stringr::str_subset(files, "_barplot") #identify map file
-
-malist2 <- c()
-for(pl in barplots){
-  ma_p <- str_split(pl, "_")[[1]][3]
-  malist2 <- append(malist2, ma_p)
-}
-
-
-plot_sav_barplot <- function(ma_abrev){
-  if(ma_abrev %in% malist2){
-    plot_file <- lapply(ma_abrev, find_exact_matches, filenames = barplots)
-    plot <- readRDS(here::here(paste0("output/Figures/BB/", plot_file)))
-    print(plot)
-    cat("  \n")
-  }
-}
-
-# Multiplots
-
-multiplots <- str_subset(files, "_multiplot")
-
-multiplot_list <- c()
-for(pl in multiplots){
-  ma_p <- str_split(pl, "_")[[1]][3]
-  multiplot_list <- append(multiplot_list, ma_p)
-}
-
-plot_sav_multiplot <- function(ma, ma_abrev){
-  if(ma_abrev %in% multiplot_list){
-    plot_file <- unlist(lapply(ma_abrev, find_exact_matches, filenames = multiplots))
-    if(length(plot_file)>1){plot_file <- str_subset(plot_file, "_BBpct_")}
-    plot <- readRDS(here::here(paste0("output/Figures/BB/", plot_file)))
-    caption <- paste0("Median percent cover by species in *", ma, "*. Linear mixed-effects models are applied to each species to produce species trends. The trendlines are then isolated and reproduced below for ease of viewing. The LME results are available in table form beneath the supplemental trendplot below.")
-    cat("  \n")
-    print(plot)
-    cat("  \n")
-    cat(caption)
-  }
-}
-
-sp_to_skip <- c("Drift algae", "Total seagrass", "Attached algae", "Total SAV", "No grass In Quadrat")
+sp_to_skip <- c("Drift algae", "Total seagrass", "Attached algae", "Total SAV", "No grass in quadrat")
 
 ggplot_gam <- function(ma, hal = "all", pal = "Dark2") {
   
   data <- SAV4 %>% filter(ManagedAreaName==ma)
   
   if (nrow(data) > 0 ){
-    
     if (hal == "combined"){
       species <- unique(data$analysisunit)
       au_col <- "analysisunit"
@@ -310,7 +224,7 @@ ggplot_gam <- function(ma, hal = "all", pal = "Dark2") {
       cat("  \n")
       cat(paste0("Generalized additive models for each species in ", ma, ". Species must have at least 10 years of data to be evaluated.  \n"))
       cat("  \n")
-      cat("*Drift algae*, *Total seagrass*, *Attached algae*, *No grass In Quadrat*, and *Total SAV* are excluded from the analyses.  \n")
+      cat("*Drift algae*, *Total seagrass*, *Attached algae*, *No grass in quadrat*, and *Total SAV* are excluded from the analyses.  \n")
       
       caption <- paste0("Amount of data for each species in ", ma)
       kable(table_display, format="simple", caption=caption, col.names= c("*Species*", "*Years of Data*", "*Year Range*"))
@@ -319,144 +233,85 @@ ggplot_gam <- function(ma, hal = "all", pal = "Dark2") {
   }
 }
 
-sav_maps <- function(ma, ma_abrev){
-  
-  map_output <- "output/maps/"
-  
-  # Grab a list of programs within SAV data for each MA
+sav_maps <- function(ma, ma_abrev, map_locs, report_type){
+  format_type <- ifelse(report_type=="HTML", "simple", "latex")
+  # Programs with SAV data for a given MA
   sav_programs <- SAV4 %>% filter(ManagedAreaName == ma) %>% distinct(ProgramID, ProgramName)
   sav_programs$ProgramID <- as.numeric(sav_programs$ProgramID)
   
-  # grab sample coordinates from those programs
-  pt_coord_df <- locs_pts_rcp %>% filter(ProgramID %in% sav_programs$ProgramID)
-  ln_coord_df <- locs_lns_rcp %>% filter(ProgramID %in% sav_programs$ProgramID)
-  
-  # frame to plot coordinates, allows for bubble size display of n_samples
-  # grouping by LocationID yields better results, PLID doesn't always match (BBAP)
-  sav_df <- SAV4 %>% filter(ManagedAreaName == ma, ProgramID %in% sav_programs$ProgramID) %>%
-    group_by(LocationID) %>%
-    summarise(n_data = n())
-  
-  # sav_df <- SAV4 %>% filter(ManagedAreaName == ma, ProgramID %in% sav_programs$ProgramID) %>%
-  #   group_by(ProgramLocationID) %>%
-  #   summarise(n_data = n()) %>%
-  #   rename(ProgramLoc = ProgramLocationID)
-  
-  pt_ln_df <- bind_rows(pt_coord_df, ln_coord_df)
-  
-  sav_df <- merge(sav_df, pt_ln_df)
-  sav_df <- sav_df[order(sav_df$n_data, decreasing=TRUE), ]
-  
-  # locate shape file for a given MA
-  ma_shape <- find_shape(ma)
-  
-  # get coordinates to set zoom level
-  shape_coordinates <- get_shape_coordinates(ma_shape)
-  
-  # color palette set up to match coloring on SAV_Scope_plots
-  color_values <- subset(prcols, names(prcols) %in% unique(sav_df$ProgramName))
-  # rename list names as ProgramID instead of ProgramName (display ID in map legend)
-  # names(color_values) <- sapply(
-  #   names(color_values), 
-  #   function(x){sav_df %>% filter(ProgramName==x) %>% distinct(ProgramID)})
-  
-  # setting color palette
-  pal <- colorFactor(palette = color_values, levels = names(color_values))
-  
-  # create empty map template with shape file
-  # previous shape col - #4E809C
-  map <- leaflet(sav_df, options = leafletOptions(zoomControl = FALSE)) %>%
-    addProviderTiles(providers$CartoDB.PositronNoLabels) %>%
-    addPolygons(data=ma_shape, color="black", weight = 1, smoothFactor = 0.5, opacity = 0.8, fillOpacity = 0.1) %>%
-    addLegend(pal=pal, values=~ProgramName, labFormat=labelFormat(prefix=""), title="") %>%
-    fitBounds(lng1=shape_coordinates$xmin,
-              lat1=shape_coordinates$ymin,
-              lng2=shape_coordinates$xmax,
-              lat2=shape_coordinates$ymax)
-  
-  # set sav_df as SF geo-object
-  sav_df <- st_as_sf(sav_df)
-  
-  # subsetting for lines vs points (coordinate vs transect)
-  pts <- sav_df %>% filter(!is.na(Longitude_))
-  lns <- sav_df %>% filter(!is.na(RawLineStr))
-  
-  # add transects and points where available
-  if(nrow(pts)>0){
-    # set pt-size weighting (some MAs have large amounts of samples)
-    pt_weight_setting <- ifelse(mean(pts$n_data)>40, 3, 1)
-    map <- map %>%
-      addCircleMarkers(data = pts,
-                       lat=~Latitude_D, lng=~Longitude_,
-                       color=~pal(pts$ProgramName), weight=0.5, 
-                       radius=sqrt(pts$n_data)/pt_weight_setting, 
-                       fillOpacity=0.6)
-  }
-  
-  if(nrow(lns)>0){
-    # set ln-size weighting
-    ln_weight_setting <- ifelse(sqrt(mean(lns$n_data))>100, 10, 
-                                ifelse(sqrt(mean(lns$n_data))>20, 2, 1))
-    map <- map %>%
-      addPolylines(data = lns,
-                   weight = sqrt(lns$n_data)/ln_weight_setting,
-                   color = ~pal(lns$ProgramName),smoothFactor = 0.5,
-                   stroke = TRUE, opacity = 0.6)
-  }
-  
-  # map output filepath
-  map_out <- paste0(map_output, ma_abrev, "_sav.png")
-  
-  # save file as png
-  mapshot(map, file = map_out)
-  
-  # draw .png with ggplot
-  p1 <- ggdraw() + draw_image(map_out, scale = 1)
+  map_loc <- str_subset(map_locs, paste0("_", ma_abrev, "_map.png"))
   
   # captions / label
   caption = paste0("Map showing SAV sampling sites within the boundaries of *", 
                    ma, "*. The point size reflects the number of samples at a given sampling site.  \n")
   
-  print(p1)
   cat("  \n")
-  cat(caption)
-  cat("  \n")
-  
-  # SAV program data tables
+  subchunkify(cat("![", caption, "](", map_loc,")"))
   cat("  \n")
   
-  for (p_id in sav_programs$ProgramID){
-    
-    p_name <- sav_programs[ProgramID==p_id, ]$ProgramName
-    
-    caption <- paste0(p_name, " - *Program ", p_id,"*")
-    
-    ma_sav <- SAV4 %>% filter(ManagedAreaName==ma, ProgramID==p_id) %>% 
-      group_by(method) %>% 
-      summarise(N_Data = n(),
-                YearMin = min(Year),
-                YearMax = max(Year),
-                "Sample Locations" = length(unique(ProgramLocationID))) %>%
-      select(N_Data, YearMin, YearMax, method, "Sample Locations") %>%
-      kable(format="simple", caption=caption, col.names = c("*N_Data*","*YearMin*","*YearMax*","*Collection Method*","*Sample Locations*")) %>%
-      kable_styling()
-    
-    print(ma_sav)
+  # SAV program data tables (for all programs)
+  table_caption <- "Program Information for Submerged Aquatic Vegetation"
+  sav_table <- SAV4 %>% 
+    filter(ManagedAreaName==ma) %>% 
+    group_by(method, ProgramID, ProgramName) %>% 
+    summarise(N_Data = n(),
+              YearMin = min(Year),
+              YearMax = max(Year),
+              "Sample Locations" = length(unique(ProgramLocationID))) %>%
+    select(ProgramID, ProgramName, N_Data, YearMin, YearMax, method, 
+           "Sample Locations") %>% 
+    as.data.table()
+  names(sav_table) <- gsub("_","-",names(sav_table))
+  
+  # Program name
+  # SAV table prep for latex styling
+  ma_sav_kable <- kable(sav_table %>% select(-ProgramName), format=format_type,
+                        caption=table_caption,
+                        row.names = FALSE, digits = 4,
+                        booktabs = T, linesep = "", escape = F, longtable = F) %>%
+    row_spec(0, italic=TRUE) %>%
+    kableExtra::kable_styling(latex_options = c("scale_down", "HOLD_position"))
+  # Display table
+  print(ma_sav_kable)
+  cat("  \n")
+  # Display ProgramName below data table
+  cat("\n **Program names:** \n \n")
+  for(p_id in sort(unique(sav_table$ProgramID))){
+    p_name <- sav_table[ProgramID==p_id, ]$ProgramName
+    cat(paste0("*",p_id,"*", " - ",p_name, knitcitations::citep(bib[[paste0("SEACARID", p_id)]]), "  \n"))
   }
+  cat("  \n")
 }
 
-sav_scope_plots <- function(ma, ma_abrev){
-
-  scope_files <- list.files(here::here("output/Figures/BB/maps"))
+# Function to locate which SAV_WC files are available for a given MA
+# Provides a link to github to access reports
+sav_wc <- list.files("../../SEACAR_Trend_Analyses/SAV_WC_Analysis/output/", ".png")
+sav_wc_loc <- function(ma){
+  ma_abrev <- MA_All[ManagedAreaName==ma, Abbreviation]
+  # Find available plots
+  avail <- str_subset(sav_wc, ma_abrev)
+  # Extract parameter names
+  params <- sapply(avail, function(x) str_split_1(x, "_")[[2]])
+  # Rename parameters for cleaner display
+  lookup <- c(CDOM = "Colored Disolved Organic Matter",
+              Chla = "Chlorophyll a",
+              DissolvedOxygen = "Dissolved Oxygen",
+              DissolvedOxygenSaturation = "Dissolved Oxygen Saturation",
+              pH = "pH", Salinity = "Salinity", Secchidepth = "Secchi Depth",
+              Temperature = "Water Temperature", TN = "Total Nitrogen", 
+              TSS = "Total Suspended Solids", Turbidity = "Turbidity")
+  full_names <- lookup[params]
   
-  ma_scope_file <- lapply(ma_abrev, find_exact_matches, filenames = scope_files)
-  
-  base <- readRDS(paste0("output/Figures/BB/maps/",ma_scope_file))
-  
-  print(base)
-  
+  cat("## SAV Water Column Analysis")
   cat("  \n")
-  caption <- paste0("Maps showing the temporal scope of SAV sampling sites within the boundaries of *", ma, "* by Program name.")
-  cat(caption)
+  cat(glue("The following parameters are available for {ma} within the SAV_WC_Report:"))
+  cat("  \n")
+  cat("  \n")
+  for(p in full_names){
+    cat(paste0("* ", p, "\n"))
+    cat("  \n")
+  }
+  cat("  \n")
+  cat("Access the reports here: [DRAFT_SAV_WC_Report_2024-11-20.pdf](https://github.com/FloridaSEACAR/SEACAR_Trend_Analyses/blob/main/SAV_WC_Analysis/DRAFT_SAV_WC_Report_2024-11-20.pdf)")
   cat("  \n")
 }

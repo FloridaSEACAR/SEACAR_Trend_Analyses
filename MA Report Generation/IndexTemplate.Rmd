@@ -1,17 +1,26 @@
 ---
 title: "Managed Area Reports - Directory"
 author: "SEACAR"
-date: "`r Sys.Date()`"
+date: "`r format(Sys.Date(), '%m/%d/%Y')`"
 output: html_document
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+# Find match function
+find_exact_matches <- function(pattern, filenames) {
+  regex <- paste0("(_|^)", pattern, "(_|$)")
+  matched_files <- str_subset(filenames, regex)
+  return(matched_files)
+}
+
+MA_All <- fread("data/ManagedArea.csv", sep = ",", header = TRUE, stringsAsFactors = FALSE, na.strings = "")
+MA_All <- MA_All[!MA_All$AreaID==7]
 ```
 
 ## Managed Area Reports
 
-Managed Area reports are available in PDF format. The GitHub Repository is located [here](https://github.com/FloridaSEACAR/SEACAR_Trend_Analyses/tree/main/MA%20Report%20Generation).
+Managed Area reports are available in PDF and HTML format. The GitHub Repository is located [here](https://github.com/FloridaSEACAR/SEACAR_Trend_Analyses/tree/main/MA%20Report%20Generation).
 
 
 ```{r ma_list, echo = FALSE, results='asis'}
@@ -26,11 +35,11 @@ html_files <- list.files("output/Reports/HTML", pattern=".html")
 links_table <- data.frame()
 
 for(ma in MA_All$ManagedAreaName){
-  
+  ma_abrev <- MA_All[ManagedAreaName==ma, Abbreviation]
   if(ma == "St. Joseph Bay State Buffer Preserve"){next}
   
-  pdf_file <- find_exact_matches(MA_All[ManagedAreaName==ma, Abbreviation], pdf_files)
-  html_file <- find_exact_matches(MA_All[ManagedAreaName==ma, Abbreviation], html_files)
+  pdf_file <- find_exact_matches(ma_abrev, pdf_files)
+  html_file <- find_exact_matches(ma_abrev, html_files)
   
   pdf_github_loc <- "https://floridaseacar.github.io/SEACAR_Trend_Analyses/MA%20Report%20Generation/output/Reports/PDF/"
   pdf_link <- paste0(pdf_github_loc, pdf_file)
@@ -42,18 +51,19 @@ for(ma in MA_All$ManagedAreaName){
   if(length(html_file)==0){html_file <- ""}
   
   link_table <- data.frame("Managed Area" = ma,
-                           "HTML" = make_link(html_file, html_link),
-                           "PDF" = make_link(pdf_file, pdf_link))
+                           "PDF" = make_link(pdf_file, pdf_link),
+                           "HTML" = make_link(html_file, html_link))
   
   links_table <- bind_rows(links_table, link_table)
 }
 
-# print(kable(links_table))
-print(kable(links_table %>% select(-HTML)))
+print(
+  kable(links_table, format = "simple", table.attr = "style='width:30%;'")
+)
 
 ```
 
-The reports were last ran on **`r Sys.Date()`** using the following export files:
+The reports were last ran on **`r format(Sys.Date(), '%m/%d/%Y')`** using the following export files:
 
 ```{r file_list, echo = FALSE, results='asis'}
 
@@ -96,4 +106,21 @@ cat("**Coastal Wetlands**:  \n\n")
 cat(paste0("* *", cw_file_short,"*"))
 cat("  \n")
 
+cat("  \n")
+cat("**Coastal Wetlands**:  \n\n")
+cat(paste0("* *", cw_file_short,"*"))
+cat("  \n")
+
+cat("  \n")
+cat("**Oyster**:  \n\n")
+cat(paste0("* *", oyster_file_short,"*"))
+cat("  \n")
+
+```
+
+```{r funding snippet, results='asis', echo=FALSE}
+# Intro snippet containing funding statement
+cat("  \n")
+cat(knitr::knit_child('snippets/funding.Rmd', quiet=TRUE))
+cat("  \n")
 ```

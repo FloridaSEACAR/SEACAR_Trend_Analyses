@@ -6,6 +6,32 @@ library(grid)
 library(kableExtra)
 library(cowplot)
 
+# Function to generate trend text for model results
+checkTrends <- function(p, Slope, SufficientData){
+  if(SufficientData){
+    if(is.na(Slope)){
+      return("Model did not fit the available data")
+    } else {
+      increasing <- Slope > 0
+      trendPresent <- p <= 0.05
+      trendStatus <- "No significant trend"
+      if(trendPresent){
+        trendStatus <- ifelse(increasing, "Significantly increasing trend", 
+                              "Significantly decreasing trend")
+      }          
+    }
+  } else {
+    trendStatus <- "Insufficient data to calculate trend"
+  }
+  return(trendStatus)
+}
+
+skt_stats_disc <- fread("../WQ_Cont_Discrete/output/WQ_Discrete_All_KendallTau_Stats.txt", sep='|')
+skt_stats_disc$`Period of Record` <- paste0(skt_stats_disc$EarliestYear, " - ", skt_stats_disc$LatestYear)
+skt_stats_disc <- skt_stats_disc %>% rowwise() %>% mutate(
+  `Statistical Trend` = checkTrends(`p` = p, Slope = SennSlope, SufficientData = SufficientData)
+) %>% as.data.table()
+
 all_depths <- c("Surface","Bottom","All")
 all_activities <- c("Field","Lab","All")
 all_params_short <- c(
@@ -24,17 +50,20 @@ all_params_short <- c(
   "TempW"
 )
 
+# Load in discrete snippets where possible
+discSnippets <- setDT(openxlsx::read.xlsx("data/discreteSnippets.xlsx"))
+snippetParams <- discSnippets[!is.na(Snippet), ParameterShort]
+
 ############################
 ######## FUNCTIONS #########
 ############################
+disc_file_loc <- "../WQ_Cont_Discrete/output/tables/disc/"
 
 # function of parameter, activity type, depth, with specified filetype
 # retrieves RDS filepath to be loaded
 get_files <- function(p, a, d, filetype) {
-  
   # Declaring RDS file list of respective tables
-  files <- list.files(here::here("output/tables/disc"),pattern = "\\.rds$")
-  
+  files <- list.files(disc_file_loc, pattern = "\\.rds$")
   # "data" contains overall data for each param, regardless of depth/activity
   if (filetype == "data") {
     pattern <- paste0(p,"_",filetype)
@@ -54,7 +83,7 @@ n_managedareas <- function(p, a, d) {
   n <- tryCatch(
     {
       ma_file <- get_files(p, a, d, "MA_Include")
-      ma_inclusion <- readRDS(paste0("output/tables/disc/", ma_file))
+      ma_inclusion <- readRDS(paste0(disc_file_loc, ma_file))
       n <- length(ma_inclusion)
       rm(ma_inclusion)
       n
@@ -72,7 +101,7 @@ n_managedareas <- function(p, a, d) {
 #function to make a list of managed area names
 get_managed_area_names <- function(p, a, d) {
   ma_list <- with(
-    readRDS(paste0("output/tables/disc/",get_files(p, a, d, "MA_MMYY"))),
+    readRDS(paste0(disc_file_loc,get_files(p, a, d, "MA_MMYY"))),
     {
       unique(ManagedAreaName)
     }
@@ -131,32 +160,17 @@ for (param in all_params_short) {
 
 # Bind the list of data frames using bind_rows()
 managed_area_df <- bind_rows(results_list)
+managed_area_df$ManagedAreaName[managed_area_df$ManagedAreaName=="St. Andrews State Park Aquatic Preserve"] <- "St. Andrews Aquatic Preserve"
+managed_area_df$ManagedAreaName[managed_area_df$ManagedAreaName=="Southeast Florida Coral Reef Ecosystem Conservation Area"] <- "Kristin Jacobs Coral Aquatic Preserve"
 
 disc_managed_areas <- unique(managed_area_df$ManagedAreaName)
-
-## Setting plot theme for plots
-plot_theme <- theme_bw() +
-  theme(panel.grid.major = element_blank(),
-        panel.grid.minor = element_blank(),
-        text=element_text(family="Arial"),
-        plot.title=element_text(hjust=0.5, size=12, color="#314963"),
-        plot.subtitle=element_text(hjust=0.5, size=10, color="#314963"),
-        legend.title=element_text(size=10),
-        legend.text.align = 0,
-        axis.title.x = element_text(size=10, margin = margin(t = 5, r = 0,
-                                                             b = 10, l = 0)),
-        axis.title.y = element_text(size=10, margin = margin(t = 0, r = 10,
-                                                             b = 0, l = 0)),
-        axis.text=element_text(size=10),
-        axis.text.x=element_text(angle = -45, hjust = 0))
-
 
 ## Load Data Table Function
 ## For loading discrete data
 load_data_table <- function(p, a="All", d="All", table) {
   
   # Declaring RDS file list of respective tables
-  files <- list.files(here::here("output/tables/disc"),pattern = "\\.rds$")
+  files <- list.files(disc_file_loc, pattern = "\\.rds$")
   
   if (table == "data") {
     filename_string <- paste0(p,"_",table)
@@ -165,7 +179,7 @@ load_data_table <- function(p, a="All", d="All", table) {
   }
   
   # subset file list to select desired table RDS file
-  table_file <- paste0("output/tables/disc/",str_subset(files, filename_string))
+  table_file <- paste0(disc_file_loc, str_subset(files, filename_string))
   
   # importing RDS files
   df <- lapply(table_file, readRDS)
@@ -188,206 +202,101 @@ vq_piechart <- function(ma, data){
 }
 
 ### Discrete sample location maps
-plot_discrete_maps <- function(ma, data, param_label, ma_abrev){
-  map_output <- "output/maps/discrete/"
-  
-  # Grab a list of programs within {discrete parameter} data for each MA
-  disc_programs <- data %>% filter(ManagedAreaName == ma) %>% distinct(ProgramID, ProgramName)
-  
-  # grab sample coordinates from those programs
-  coord_df <- locs_pts_rcp %>% filter(ProgramID %in% disc_programs$ProgramID)
-  
-  # frame to plot coordinates, allows for bubble size display of n_samples
-  ma_data <- data %>% filter(ManagedAreaName == ma, ProgramID %in% disc_programs$ProgramID) %>%
-    group_by(ProgramLocationID) %>%
-    summarise(n_data = n()) %>%
-    rename(ProgramLoc = ProgramLocationID)
-  
-  # merge frames together prior to plotting
-  discrete_df <- merge(ma_data, coord_df)
-  discrete_df <- discrete_df[order(discrete_df$n_data, decreasing=TRUE), ]
-  
-  # locate shape file for a given MA
-  ma_shape <- find_shape(ma)
-  
-  # get coordinates to set zoom level
-  shape_coordinates <- get_shape_coordinates(ma_shape)
-  
-  # setting color palette
-  # pal <- colorFactor(seacar_palette, discrete_df$ProgramID)
-  pal <- colorFactor("plasma", discrete_df$ProgramID)
-  
-  # leaflet map
-  map <- leaflet(discrete_df, options = leafletOptions(zoomControl = FALSE)) %>%
-    addProviderTiles(providers$CartoDB.PositronNoLabels) %>%
-    addPolygons(data=ma_shape, color="black", weight = 1, smoothFactor = 0.5, opacity = 0.8, fillOpacity = 0.1) %>%
-    addCircleMarkers(lat=~Latitude_D, lng=~Longitude_, color=~pal(ProgramID), weight=0.5, radius=sqrt(discrete_df$n_data), fillOpacity=0.3) %>%
-    addLegend(pal=pal, values=~ProgramID, labFormat=labelFormat(prefix="Program "), title="") %>%
-    fitBounds(lng1=shape_coordinates$xmin,
-              lat1=shape_coordinates$ymin,
-              lng2=shape_coordinates$xmax,
-              lat2=shape_coordinates$ymax)
-  
-  # map output filepath
-  map_out <- paste0(map_output, ma_abrev, "_wc_discrete.png")
-  
-  # save file as png
-  mapshot(map, file = map_out)
-  
-  # draw .png with ggplot
-  p1 <- ggdraw() + draw_image(map_out, scale = 1)
-  
+plot_discrete_maps <- function(ma_abrev, param_short, param_label, map_files){
+  # Locate map
+  map_loc <- str_subset(map_files, paste0("_", param_short, "_", ma_abrev, "_map"))
   # captions / label
   cat("\\newpage")
-  caption = paste0("Map showing location of Discrete sampling sites for ", param_label, "  \n")
-  
+  caption <- paste0("Map showing location of discrete water quality sampling locations within the boundaries of *", ma, 
+                    "*. The bubble size on the maps above reflect the amount of data available at each sampling site.  \n")
   cat("  \n")
-  cat(caption)
-  print(p1)
-  cat("  \n")
-  cat("The bubble size on the above plots reflects the amount of data available at each sampling site")
+  # Print map
+  subchunkify(cat("![", caption, "](", map_loc,")"))
   cat("  \n")
 }
 
 ## Kendall-Tau Trendlines Plot function ##
-plot_trendlines <- function(p, a, d, activity_label, depth_label, y_labels, parameter, data, include_map=TRUE, ma, ma_abrev) {
+plot_trendlines <- function(param, ma, ma_abrev, report_type){
+  format_type <- ifelse(report_type=="HTML", "simple", "latex")
   cat("  \n")
   cat(glue("**Seasonal Kendall-Tau Trend Analysis**"), "  \n")
   
-  MA_YM_Stats <- as.data.frame(load_data_table(p, a, d, "MA_MMYY_Stats"))
-  skt_stats <- as.data.frame(load_data_table(p, a, d, "skt_stats"))
+  skt_stats <- skt_stats_disc[ParameterName==param & ManagedAreaName==ma & Website==1, ]
   
-  setDT(skt_stats)
-  setDT(MA_YM_Stats)
-  
-  ### SKT STATS ###
-  # Gets x and y values for starting point for trendline
-  KT.Plot <- skt_stats %>%
-    dplyr::group_by(ManagedAreaName) %>%
-    dplyr::summarize(x=decimal_date(EarliestSampleDate),
-              y=(x-EarliestYear)*SennSlope+SennIntercept)
-  # Gets x and y values for ending point for trendline
-  KT.Plot2 <- skt_stats %>%
-    dplyr::group_by(ManagedAreaName) %>%
-    dplyr::summarize(x=decimal_date(LastSampleDate),
-              y=(x-EarliestYear)*SennSlope+SennIntercept)
-  # Combines the starting and endpoints for plotting the trendline
-  KT.Plot <- bind_rows(KT.Plot, KT.Plot2)
-  rm(KT.Plot2)
-  KT.Plot <- as.data.table(KT.Plot[order(KT.Plot$ManagedAreaName), ])
-  KT.Plot <- KT.Plot[!is.na(KT.Plot$y),]
-  setDT(KT.Plot)
-  
-  # Checking for missing values
-  check_ym <- MA_YM_Stats %>%
-    dplyr::filter(ManagedAreaName == ma)
-  
-  if (nrow(check_ym) == 0) {
+  if (nrow(skt_stats) == 0) {
     invisible()
-    # print("error")
   } else {
-    # Gets data to be used in plot for managed area
-    plot_data <- MA_YM_Stats[ManagedAreaName==ma,]
-    
-    # Gets trendline data for managed area
-    KT.plot_data <- KT.Plot[ManagedAreaName==ma,]
-    
-    #Determine max and min time (Year) for plot x-axis
-    t_min <- min(plot_data$Year)
-    t_max <- max(plot_data$YearMonthDec)
-    t_max_brk <- as.integer(round(t_max, 0))
-    t <- t_max-t_min
-    min_RV <- min(plot_data$Mean)
-    
-    # Sets break intervals based on the number of years spanned by data
-    if(t>=30){
-      brk <- -10
-    }else if(t<30 & t>=10){
-      brk <- -4
-    }else if(t<10 & t>=4){
-      brk <- -2
-    }else if(t<4){
-      brk <- -1
-    }
-    
-    # Create plot object with data and trendline
-    p1 <- ggplot(data=plot_data,
-                 aes(x=YearMonthDec, y=Mean)) +
-      # geom_line(size=0.75, color="#333333", alpha=0.6) +
-      geom_point(shape=21, size=3, color="#333333", fill="#cccccc",
-                 alpha=0.75) +
-      geom_line(data=KT.plot_data, aes(x=x, y=y),
-                color="#000099", size=1.2, alpha=0.7) +
-      labs(title=paste0(parameter,", ",activity_label, ", ",depth_label),
-           subtitle=ma,
-           x="Year", y=y_labels) +
-      scale_x_continuous(limits=c(t_min-0.25, t_max+0.25),
-                         breaks=seq(t_max_brk, t_min, brk)) +
-      plot_theme
-    # Creates ResultTable to display statistics below plot
-    ResultTable <- skt_stats[ManagedAreaName==ma, ] %>%
-      select(RelativeDepth, N_Data, N_Years, Median, Independent, tau, p,
-             SennSlope, SennIntercept, ChiSquared, pChiSquared, Trend)
-    # Create table object
-    t1 <- ggtexttable(ResultTable, rows=NULL,
-                      theme=ttheme(base_size=10)) %>%
-      tab_add_footnote(text="p < 0.00005 appear as 0 due to rounding.\n
-              SennIntercept is intercept value at beginning of
-              record for monitoring location",
-                       size=10, face="italic")
+    # Locate plot
+    plot_loc <- get_plot(ma_abrev = ma_abrev, parameter = param, type = "Discrete", pid = "none")
     
     # Arrange and display plot and statistic table
-    print(ggarrange(p1, t1, ncol=1, heights=c(0.85, 0.15)))
     cat("  \n")
     
-    #####################
-    ### Discrete Maps ###
-    #####################
+    # fig_caption <- paste0("Seasonal Kendall-Tau Results for ", param, " - Discrete")
+    fig_caption <- FigureCaptions[ParameterName==param & SamplingFrequency=="Discrete", FigureCaptions]
+    subchunkify(cat("![", fig_caption, "](", plot_loc,")"))
     
-    if (include_map==TRUE){
-      plot_discrete_maps(ma, data, param_label = parameter, ma_abrev = ma_abrev)
-    }
-    
-    #####################
-    #####################
-    
-    # Included Programs
-    program_table <- data %>%
-      filter(ManagedAreaName == ma) %>%
-      group_by(ProgramID) %>%
-      mutate(YearMin = min(Year),
-             YearMax = max(Year),
-             N_Data = length(ResultValue)) %>%
-      distinct(ProgramID, ProgramName, N_Data, YearMin, YearMax) %>%
-      select(ProgramID, ProgramName, N_Data, YearMin, YearMax) %>%
-      arrange(desc(N_Data))
-    
-    program_kable <- kable(program_table %>% select(-ProgramName),
-                           format="simple",
-                           caption=paste0("Programs contributing data for ", parameter),
-                           col.names = c("*ProgramID*","*N_Data*","*YearMin*","*YearMax*"))
-    
-    print(program_kable)
+    # cat("![](", plot_loc,")")
     cat("  \n")
     
-    # program names listed below (accounting for long names)
-    program_ids <- unique(program_table$ProgramID)
+    # Grab relevant table description for a given plot
+    desc <- TableDescriptions[ManagedAreaName==ma & ParameterName==param & SamplingFrequency=="Discrete", get(descriptionColumn)]
+    # Table title
+    table_title <- paste0("Seasonal Kendall-Tau Trend Analysis for ", param)
     
-    cat("\n **Program names:** \n \n")
-    
-    # Display ProgramName below data table
-    for (p_id in program_ids) {
-      p_name <- program_table %>% filter(ProgramID == p_id) %>% pull(ProgramName)
-      cat(paste0("*",p_id,"*", " - ",p_name, "  \n"))
-    }
-    
+    # Creates ResultTable to display statistics below plot
+    ResultTable <- skt_stats %>%
+      select(ActivityType, `Statistical Trend`, N_Data, N_Years, 
+             `Period of Record`, Median, tau, SennIntercept, SennSlope, p) %>%
+      rename("Activity Type" = ActivityType, "Sample Count" = N_Data, 
+             "Years with Data" = N_Years, "Sen Intercept" = SennIntercept, 
+             "Sen Slope" = SennSlope)
+    # Prep for latex-format
+    names(ResultTable) <- gsub("_", "-", names(ResultTable))
+    result_table <- kable(ResultTable, format = format_type,
+                          caption = table_title,
+                          row.names = FALSE, digits = 4,
+                          booktabs = T, linesep = "", escape = F, longtable = F) %>%
+      kableExtra::kable_styling(latex_options = c("scale_down", "HOLD_position"))
     cat("  \n")
-    
-    rm(plot_data, program_kable, program_table)
-    rm(MA_YM_Stats)
-    # rm(KT.Plot)
-    rm(skt_stats)
+    print(result_table)
+    cat("  \n")
+    cat(desc)
+    cat("  \n")
   }
+}
+
+disc_program_tables <- function(ma, data){
+  # Included Programs
+  program_table <- data %>%
+    filter(ManagedAreaName == ma) %>%
+    group_by(ProgramID) %>%
+    mutate(YearMin = min(Year),
+           YearMax = max(Year),
+           N_Data = length(ResultValue)) %>%
+    distinct(ProgramID, ProgramName, N_Data, YearMin, YearMax) %>%
+    select(ProgramID, ProgramName, N_Data, YearMin, YearMax) %>%
+    arrange(desc(N_Data))
+  
+  program_kable <- kable(program_table %>% select(-ProgramName),
+                         format="simple",
+                         caption=paste0("Programs contributing data for ", parameter),
+                         col.names = c("*ProgramID*","*N_Data*","*YearMin*","*YearMax*"))
+  
+  print(program_kable)
+  cat("  \n")
+  
+  # program names listed below (accounting for long names)
+  program_ids <- sort(unique(program_table$ProgramID))
+  
+  cat("\n **Program names:** \n \n")
+  
+  # Display ProgramName below data table
+  for (p_id in program_ids) {
+    p_name <- program_table %>% filter(ProgramID == p_id) %>% pull(ProgramName)
+    cat(paste0("*",p_id,"*", " - ",p_name, knitcitations::citep(bib[[paste0("SEACARID", p_id)]]), "  \n"))
+  }
+  cat("  \n")
 }
 
 ## Boxplots function ##
