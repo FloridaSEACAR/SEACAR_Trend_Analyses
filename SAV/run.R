@@ -6,7 +6,7 @@
 
 #######
 # Create sample location maps? (for MA Report Generation & Atlas)
-create_maps <- TRUE
+create_maps <- FALSE
 # Render SAV report?
 render_reports <- TRUE
 # Choose whether to generate spatio-temporal scope plots for SAV locations
@@ -15,6 +15,10 @@ scope_plots <- FALSE
 
 # Set working directory
 library(rstudioapi)
+library(SEACAR)
+library(stringr)
+library(data.table)
+library(tidyverse)
 wd <- dirname(getActiveDocumentContext()$path)
 setwd(wd)
 
@@ -36,10 +40,22 @@ if(scope_plots){
 ## Render reports
 
 #Loads data file with list on managed area names and corresponding area IDs and short names
-MA_All <- fread("data/ManagedArea.csv", sep = ",", header = TRUE, stringsAsFactors = FALSE,
-                na.strings = "")
+MA_All <- SEACAR::ManagedAreas
 
-# Declare CW File
+# Load in table descriptions
+tableDesc <- SEACAR::TableDescriptions %>%
+  mutate(DescriptionHTML = Description,
+         DescriptionLatex = stringi::stri_replace_all_regex(
+           Description,
+           pattern = c("<i>", "</i>", "&#8805;"),
+           replacement = c("*", "*", ">="),
+           vectorize = FALSE
+         )) %>%
+  as.data.table()
+# Load in figure captions
+figureCaptions <- SEACAR::FigureCaptions
+
+# Declare SAV File
 files <- list.files(seacar_data_location, full.names = T)
 file_in <- str_subset(files, "All_SAV")
 
@@ -48,11 +64,15 @@ file_short <- tail(str_split(file_in, "/")[[1]],1)
 
 file_out <-  "SAV_Report"
 if(render_reports){
-  rmarkdown::render(input = "SAV_ReportSummary.Rmd", 
-                    output_format = "pdf_document",
-                    output_file = paste0(file_out, ".pdf"),
-                    output_dir = "output",
-                    clean=TRUE)
+  for(file_type in c("PDF", "HTML")){
+    descriptionColumn <- ifelse(file_type=="PDF", "DescriptionLatex", "DescriptionHTML")
+    tableFormat <- ifelse(file_type=="PDF", "latex", "simple")
+    rmarkdown::render(input = "SAV_ReportSummary.Rmd", 
+                      output_format = paste0(tolower(file_type),"_document"),
+                      output_file = paste0(file_out, ".", tolower(file_type)),
+                      output_dir = "output",
+                      clean=TRUE)    
+  }
   #Removes unwanted files created in the rendering process
   unlink(paste0("output/", file_out, ".md"))
   unlink(paste0("output/", file_out, "_files"), recursive=TRUE)

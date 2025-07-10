@@ -15,10 +15,13 @@ output:
     toc: TRUE
     toc_depth: 2
     dev: png
-    extra_dependencies: ["float", "booktabs"]
+    extra_dependencies: ["booktabs", "wrapfig"]
     keep_md: yes
 urlcolor: blue
 always_allow_html: yes
+header-includes:
+  \usepackage{float}
+  \floatplacement{figure}{H}
 ---
 
 # Important Notes
@@ -33,7 +36,7 @@ This script is based off of code originally written by Stephen Durham with comme
 
 The file being used for the analysis is: **`r file_short`**
 
-```{r plot_locs, eval=T, echo=F, results='asis'}
+```{r plot_locs, eval=T, echo=F, results='asis', warning=F}
 library(glue)
 # SAV Results
 sav_results <- fread("output/website/SAV_BBpct_LMEresults_All.txt")
@@ -59,27 +62,40 @@ for(ma in unique(sav_results$ManagedAreaName)){
   cat("  \n")
   ma_abrev <- MA_All[ManagedAreaName==ma, Abbreviation]
   for(plot_type in plot_types){
+    if(plot_type=="multiplots"){
+      fig_caption <- figureCaptions[HabitatName=="Submerged Aquatic Vegetation" & IndicatorName=="Percent Cover", FigureCaptions]
+    } else if(plot_type=="barplots"){
+      fig_caption <- paste0("Frequency of occurrence for various seagrass species in ", ma)
+    } else if(plot_type=="trendplots"){
+      fig_caption <- paste0("Trends in median percent cover for various seagrass species in ", ma, " - simplified")
+    }
+    
     plot_loc <- locate_plots(sav_plot_locs, ma_abrev, plot_type)
     cat("  \n")
-    cat("![](", plot_loc,")")
+    SEACAR::subchunkify(cat("![", fig_caption, "](", plot_loc,")"))
     cat("  \n")
     # Add stats table beneath "multiplots"
     if(plot_type=="multiplots"){
       sav_subset <- sav_results[ManagedAreaName==ma, 
                                 c("Species","Statistical Trend","Period of Record","LME Intercept","LME Slope","p")]
       cat("  \n")
-      display_table <- knitr::kable(sav_subset, format = "latex",
+      display_table <- knitr::kable(sav_subset, format = tableFormat,
                                     caption = paste0("SAV LME Results for ", ma),
                                     row.names = FALSE, digits = 2, booktabs = T,
                                     linesep = "", escape = F, longtable = F) %>%
         kableExtra::kable_styling(latex_options = c("scale_down", "HOLD_position"))
       print(display_table)
       cat("  \n")
+      desc <- tableDesc[ManagedAreaName==ma & HabitatName=="Submerged Aquatic Vegetation", get(descriptionColumn)]
+      cat(desc)
+      cat("  \n")
     }
   }
   map_loc <- str_subset(sav_map_locs, paste0("_",ma_abrev,"_"))
   cat("  \n")
-  cat("![](", map_loc,")")
+  caption <- paste0("Map showing SAV sampling sites within the boundaries of *", 
+                    ma, "*. The point size reflects the number of samples at a given sampling site.  \n")
+  SEACAR::subchunkify(cat("![", caption, "](", map_loc,")"))
   cat("  \n")
 }
 ```
