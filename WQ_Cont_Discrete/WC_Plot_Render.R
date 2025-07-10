@@ -31,7 +31,7 @@ setwd(wd)
 # WQ_KendallTau_Stats_Combine produces the following files needed for Atlas updates
 # WQ_Discrete_All_KendallTau_Stats & WQ_Continuous_All_KendallTau_Status
 
-# source("WQ_KendallTau_Stats_Combine.R", echo=T)
+source("WQ_KendallTau_Stats_Combine.R", echo=T)
 
 ##########
 
@@ -74,11 +74,23 @@ disc_files <- list.files(disc_loc,pattern = "\\.rds$", full.names = T)
 cont_files <- list.files(cont_loc,pattern = "\\.rds$", full.names = T)
 
 #Loads data file with list on managed area names and corresponding area IDs and short names
-MA_All <- fread("data/ManagedArea.csv", sep = ",", header = TRUE, 
-                stringsAsFactors = FALSE, na.strings = "")
+MA_All <- SEACAR::ManagedAreas
+
+# Load in table descriptions
+tableDesc <- SEACAR::TableDescriptions %>%
+  mutate(DescriptionHTML = Description,
+         DescriptionLatex = stringi::stri_replace_all_regex(
+           Description,
+           pattern = c("<i>", "</i>", "&#8805;"),
+           replacement = c("*", "*", ">="),
+           vectorize = FALSE
+         )) %>%
+  as.data.table()
+# Load in figure captions
+figureCaptions <- SEACAR::FigureCaptions
+
 # Load websiteParams to determine which plots to show
-websiteParams <- fread("data/WebsiteParameters.csv", sep=",", header = TRUE, 
-                       stringsAsFactors = FALSE, na.strings = "")
+websiteParams <- SEACAR::WebsiteParameters
 # Correct order of websiteParams to match format from the Atlas
 websiteParams <- websiteParams %>% 
   arrange(factor(IndicatorName, levels = c("Nutrients","Water Quality","Water Clarity")),
@@ -86,15 +98,15 @@ websiteParams <- websiteParams %>%
                                            "Dissolved Oxygen", "Dissolved Oxygen Saturation", "Salinity", "Water Temperature", "pH",
                                            "Turbidity", "Total Suspended Solids", "Chlorophyll a, Uncorrected for Pheophytin",
                                            "Chlorophyll a, Corrected for Pheophytin", "Secchi Depth", "Colored Dissolved Organic Matter"))) %>%
-  filter(Website==1)
+  filter(Website==1, HabitatName=="Water Column", IndicatorName!="Nekton")
 setDT(websiteParams)
 
 # Load in Database_Thresholds output from IndicatorQuantiles
 # Quantiles are applied only to the viewing windows when final plots are displayed.
 # Does not influence / remove values from analyses
-db_thresholds <- setDT(openxlsx::read.xlsx("../../IndicatorQuantiles/output/ScriptResults/Database_Thresholds.xlsx", startRow = 6))
+db_thresholds <- SEACAR::DB_Thresholds
 db_thresholds <- db_thresholds[Habitat=="Water Column" & IndicatorName!="Nekton" & 
-                                 ParameterName!=	"Fluorescent dissolved organic matter, FDOM" &
+                                 ParameterName!=	"Fluorescent Dissolved Organic Matter" &
                                  ThresholdID!=31, 
                                c("CombinedTable", "ParameterName", "LowQuantile", "HighQuantile")]
 # Create function to retrieve high and low quantile values
@@ -251,7 +263,6 @@ for(type in c("disc", "cont")){
     tables <- c("Mon_YM_Stats", "skt_stats")
     files <- cont_files
   }
-  
   for(table in tables){
     # Subset for desired RDS files
     table_file <- str_subset(files, table)
@@ -273,8 +284,9 @@ skt_stats_disc <- skt_stats_disc %>%
                                                     ifelse(SufficientData==TRUE & is.na(SennSlope), "Model did not fit the available data", 
                                                            ifelse(is.na(Trend), "Insufficient data to calculate trend","No significant trend"))))))
 skt_stats_disc[is.na(Trend), `:=` ("Statistical Trend" = "Insufficient data to calculate trend")]
-skt_stats_disc[str_detect("NA", p), `:=` ("p" = NA)]
-saveRDS(skt_stats_disc, file = "output/tables/disc/skt_stats_disc.rds")
+skt_stats_disc[str_detect(p, "NA"), `:=` (p = NA)]
+skt_stats_disc[!is.na(p), `:=` (p = round(as.numeric(p), 4))]
+# saveRDS(skt_stats_disc, file = "output/tables/disc/skt_stats_disc.rds")
 
 skt_stats_cont <- skt_stats_cont %>% 
   mutate("Period of Record" = paste0(EarliestYear, " - ", LatestYear),
@@ -284,6 +296,8 @@ skt_stats_cont <- skt_stats_cont %>%
                                                     ifelse(SufficientData==TRUE & is.na(SennSlope), "Model did not fit the available data", 
                                                            ifelse(is.na(Trend), "Insufficient data to calculate trend","No significant trend"))))))
 skt_stats_cont[is.na(Trend), `:=` ("Statistical Trend" = "Insufficient data to calculate trend")]
+skt_stats_cont[str_detect(p, "NA"), `:=` (p = NA)]
+skt_stats_cont[!is.na(p), `:=` (p = round(as.numeric(p), 4))]
 
 # Combine all discrete data into a single output file
 data_output_disc <- setDT(do.call(rbind, lapply(str_subset(disc_files, "data"), readRDS)))
@@ -357,20 +371,7 @@ cont_plot_data[SufficientData==TRUE, `:=` (
 cont_plot_data[ , `:=` (label = paste0(ProgramLocationID, " - ", RelativeDepth))]
 
 ## Setting plot theme for plots
-plot_theme <- theme_bw() +
-  theme(panel.grid.major = element_blank(),
-        panel.grid.minor = element_blank(),
-        text=element_text(family="Arial"),
-        plot.title=element_text(hjust=0.5, size=12, color="#314963"),
-        plot.subtitle=element_text(hjust=0.5, size=10, color="#314963"),
-        legend.title=element_text(size=10),
-        legend.text.align = 0,
-        axis.title.x = element_text(size=10, margin = margin(t = 5, r = 0,
-                                                             b = 10, l = 0)),
-        axis.title.y = element_text(size=10, margin = margin(t = 0, r = 10,
-                                                             b = 0, l = 0)),
-        axis.text=element_text(size=10),
-        axis.text.x=element_text(angle = -45, hjust = 0))
+plot_theme <- SEACAR::SEACAR_plot_theme()
 
 # Full parameter names and units
 # Create dataframe containing that info so that 
@@ -389,7 +390,7 @@ breaks <- function(plot_data, type="Discrete", ret="break"){
     #Determine max and min time (Year) for plot x-axis
     t_min <- min(plot_data$Year)
     t_max <- max(plot_data$YearMonthDec)
-    t_max_brk <- as.integer(round(t_max, 0))
+    t_max_brk <- as.integer(ceiling(t_max))
     t <- t_max-t_min
     
     # Sets break intervals based on the number of years spanned by data
@@ -399,6 +400,20 @@ breaks <- function(plot_data, type="Discrete", ret="break"){
       brk <- -4
     }else if(t<10){
       brk <- -1
+      if(t<5){
+        # Ensure 5 years are included on axis
+        total_ticks <- 5
+        extra_years <- total_ticks - t
+        # Always add 1 year before the first year
+        years_before <- min(1, extra_years)
+        years_after <- extra_years - years_before
+        # Adjust min and max year, without going beyond current year
+        t_min <- t_min - years_before
+        t_max <- min(t_max + years_after, as.integer(format(Sys.Date(), "%Y")))
+        # Re-check if we have enough years (in case t_max hit current year)
+        t_min <- max(t_min, t_max - (total_ticks - 1))
+        t_max_brk <- t_max
+      }
     }
   }
   
@@ -406,7 +421,7 @@ breaks <- function(plot_data, type="Discrete", ret="break"){
     #Determine max and min time (Year) for plot x-axis
     t_min <- min(plot_data$Year)
     t_max <- max(plot_data$YearMonthDec)
-    t_max_brk <- as.integer(round(t_max, 0))
+    t_max_brk <- as.integer(ceiling(t_max))
     t <- t_max-t_min
     min_RV <- min(plot_data$Mean)
     
@@ -441,12 +456,14 @@ breaks <- function(plot_data, type="Discrete", ret="break"){
     return(c(t_min-0.25, t_max+0.25))
   }
 }
+
 # function to plot discrete trendlines
 plot_trendlines <- function(p, a, d, activity_label, depth_label, y_labels, parameter, skt_data, discrete_data){
   # SKT data
   skt_stats <- skt_data[ParameterName==parameter & RelativeDepth==d & ActivityType==a, ]
   # plot data
   data <- discrete_data[ParameterName==parameter & Include, ]
+  # Select only the necessary activity type (field, lab, or all)
   if(!a=="All"){
     data <- data[grep(a, data$ActivityType),]
     data$ActivityType <- a
@@ -454,6 +471,10 @@ plot_trendlines <- function(p, a, d, activity_label, depth_label, y_labels, para
     data <- data[grep("Lab|Field", data$ActivityType),]
     data[grep("Lab", data$ActivityType), `:=` (ActivityType = "Lab")]
     data[grep("Field", data$ActivityType), `:=` (ActivityType = "Field")]
+  }
+  # Select surface values only when depth=="Surface" (Secchi depth only)
+  if(d=="Surface"){
+    data <- data[grep(d, data$RelativeDepth),]
   }
   # Generate mean Result Values by Year / Month (monthly means creation)
   data[, Mean := mean(ResultValue, na.rm = TRUE), by = .(Year, Month, ActivityType)]
@@ -505,7 +526,6 @@ plot_trendlines <- function(p, a, d, activity_label, depth_label, y_labels, para
       guides(col = guide_legend(order = 1), 
              shape = guide_legend(order = 2, override.aes = list(linetype = NA))) + 
       coord_cartesian(ylim = set_view_window(plot_data, "Discrete WQ"))
-      # {if(parameter=="Secchi Depth"){ylim(c(min(plot_data$Mean), 0))}} # Adjust Y-axis for (inverted) secchi depth to always display 0 at top 
     
     # Save png
     areaID <- MA_All[Abbreviation==ma_short, AreaID]
@@ -724,6 +744,11 @@ if(save_plots){
 cont_plots <- list.files("output/WQ_Continuous/", full.names = T)
 disc_plots <- list.files("output/WQ_Discrete/", full.names = T)
 
+# Create maps if needed (must be done before report)
+if(save_maps){
+  source("WQ_Create_Maps.R")
+}
+
 # Render reports if `render_reports` is TRUE
 if(render_reports){
   # Loop through list of managed areas
@@ -741,18 +766,22 @@ if(render_reports){
     
     # Shortened names for managed areas
     ma_short <- MA_All[ManagedAreaName==ma, Abbreviation]
-    # if(!ma_short %in% c("EBAP")) next
     # record region name
     region <- MA_All[ManagedAreaName==ma, Region]
     # output path for managed area reports
     output_path <- "output/Reports/"
     file_out <- paste0(ma_short,"_WC_Report")
     ### RENDERING ###
-    rmarkdown::render(input = "WC_ReportTemplate.Rmd",
-                      output_format = "pdf_document",
-                      output_file = paste0(file_out, ".pdf"),
-                      output_dir = output_path,
-                      clean=TRUE)
+    for(file_type in c("PDF", "HTML")){
+      descriptionColumn <- ifelse(file_type=="PDF", "DescriptionLatex", "DescriptionHTML")
+      tableFormat <- ifelse(file_type=="PDF", "latex", "simple")
+        
+      rmarkdown::render(input = "WC_ReportTemplate.Rmd",
+                        output_format = paste0(tolower(file_type),"_document"),
+                        output_file = paste0(file_out, ".", tolower(file_type)),
+                        output_dir = output_path,
+                        clean=TRUE)
+    }
     unlink(paste0(output_path, file_out, ".md"))
     unlink(paste0(output_path, file_out, ".tex"))
     unlink(paste0(output_path, file_out, "_files"), recursive=TRUE)
@@ -760,15 +789,17 @@ if(render_reports){
   }
 }
 
+# Render index.html directory to list on GitHub pages
+rmarkdown::render(input = "IndexTemplate.Rmd",
+                  output_format = "html_document",
+                  output_file = "index.html",
+                  clean=TRUE)
+
 # Zip all files into Discrete and Continuous .zips in "output" folder
+setwd("output/")
 for(type in c("Discrete", "Continuous")){
   # Get list of all available plots
-  fig_list <- list.files(paste0("output/WQ_",type), pattern = ".png", full=TRUE)
-  zip(zipfile = paste0("output/WQ_",type), 
-      files = fig_list)
+  fig_list <- list.files(paste0("WQ_",type), pattern = ".png", full=TRUE)
+  zip(zipfile = paste0("WQ_",type), files = fig_list)
 }
-
-# Create maps if needed
-if(save_maps){
-  source("WQ_Create_Maps.R")
-}
+setwd(wd)

@@ -5,7 +5,6 @@ output:
     toc: TRUE
     toc_depth: 4
     dev: png
-    extra_dependencies: ["float"]
     keep_md: yes
     keep_tex: true
   word_document:
@@ -19,15 +18,13 @@ output:
     keep_md: yes
 urlcolor: blue
 geometry: "left=3cm,right=3cm"
-# params:
-#   managedarea: ma,
-#   p_inc: included_params,
-#   a_inc: included_acts,
-#   d_inc: included_depths
 title: '`r paste(ma)`'
 subtitle: '`r paste("SEACAR Water Quality Analysis")`'
 tables: yes
 graphics: yes
+header-includes:
+  \usepackage{float}
+  \floatplacement{figure}{H}
 ---
 
 ```{r setup, include=FALSE} 
@@ -40,11 +37,6 @@ options(knitr.kable.NA = '-')
 
 ```
 
-```{r snippetLoading}
-# Load in discrete snippets where possible
-discSnippets <- setDT(openxlsx::read.xlsx("data/discreteSnippets.xlsx"))
-snippetParams <- discSnippets[!is.na(Snippet), ParameterShort]
-```
 
 ```{r libraries, message=FALSE, echo=FALSE, warning=FALSE, include=FALSE}
 library(knitr)
@@ -142,13 +134,6 @@ plot_discrete <- function(p, a, d, parameter, skt_data, discrete_data, ma, ma_sh
     cat(glue("### {parameter} - {type}"))
     cat("  \n")
     
-    # Add in Discrete snippets where possible
-    # if(p %in% snippetParams){
-    #   cat("  \n")
-    #   cat(discSnippets[ParameterShort==p, Snippet])
-    #   cat("  \n")
-    # }
-    
     # Creates ResultTable to display statistics below plot
     ResultTable <- skt_stats %>%
       select(ActivityType, "Statistical Trend", N_Data, N_Years, "Period of Record", 
@@ -160,7 +145,7 @@ plot_discrete <- function(p, a, d, parameter, skt_data, discrete_data, ma, ma_sh
              "Tau" = tau, "Sen Intercept" = SennIntercept, "Sen Slope" = SennSlope, "P" = p)
     # names(ResultTable) <- gsub("_", "-", names(ResultTable))
     # Convert results table into kable format
-    result_table <- kable(ResultTable, format="latex",
+    result_table <- kable(ResultTable, format=tableFormat,
                           caption=paste0("Seasonal Kendall-Tau Results for - ", parameter),
                           row.names = FALSE, digits = 5,
                           booktabs = T, linesep = "", escape = F, longtable = F) %>%
@@ -170,16 +155,22 @@ plot_discrete <- function(p, a, d, parameter, skt_data, discrete_data, ma, ma_sh
     cat("  \n")
     # Display plot
     plot_loc <- get_plot(ma_short = ma_short, parameter = parameter, type = type, pid = "none")
-    # include_graphics() does not work within loop, force markdown format
-    cat("![](", plot_loc,")")
+    # Include figure captions
+    fig_caption <- figureCaptions[HabitatName=="Water Column" & ParameterName==parameter & SamplingFrequency=="Discrete", FigureCaptions]
+    SEACAR::subchunkify(cat("![", fig_caption, "](", plot_loc,")"))
     
     cat("  \n")
     # Display table in report
     print(result_table)
+    cat("  \n")
+    desc <- tableDesc[ManagedAreaName==ma & ParameterName==parameter & SamplingFrequency=="Discrete", get(descriptionColumn)]
+    cat(desc)
     cat("\n \n \n")
     
     map_loc <- get_map(ma_short = ma_short, indicator_short = indicator_short, param_short = p, type = type)
-    cat("![](", map_loc,")")
+    caption <- paste0("Map showing location of discrete water quality sampling locations within the boundaries of *", ma, 
+                  "*. The bubble size on the maps above reflect the amount of data available at each sampling site.  \n")
+    SEACAR::subchunkify(cat("![", caption, "](", map_loc,")"))
     # Add extra space at the end to prevent the next figure from being too
     # close.
     cat("\n \n \n")
@@ -230,7 +221,9 @@ plot_continuous <- function(ma, ma_short, cont_plot_data, param, parameter, indi
         ResultTable$`Program Location` <- gsub("_", "-", ResultTable$`Program Location`)
         ResultTable$`Program Location` <- gsub("&", "-and-", ResultTable$`Program Location`)
         
-        result_table <- kable(ResultTable, format="latex",
+        desc <- tableDesc[ManagedAreaName==ma & ParameterName==parameter & SamplingFrequency=="Continuous", get(descriptionColumn)]
+        
+        result_table <- kable(ResultTable, format=tableFormat,
                               caption=paste0("Seasonal Kendall-Tau Results for All Stations - ", parameter),
                               row.names = FALSE, digits = 5,
                               booktabs = T, linesep = "", escape = F, longtable = F) %>%
@@ -238,16 +231,22 @@ plot_continuous <- function(ma, ma_short, cont_plot_data, param, parameter, indi
         cat("  \n")
         # Display plot
         plot_loc <- get_plot(ma_short = ma_short, parameter = parameter, type = type, pid = prog_n)
-        # include_graphics() does not work within loop, force markdown format
-        cat("![](", plot_loc,")")
+        fig_caption <- figureCaptions[HabitatName=="Water Column" & ParameterName==parameter & SamplingFrequency=="Continuous", FigureCaptions]
+        SEACAR::subchunkify(cat("![", fig_caption, "](", plot_loc,")"))
         cat("  \n")
         print(result_table)
         cat("  \n")
+        cat(desc)
+        cat("  \n")
         map_loc <- get_map(ma_short = ma_short, indicator_short = indicator_short, param_short = param, type = type)
-        cat("![](", map_loc,")")
+        caption <- paste0("Map showing location of ", tolower(parameter), " continuous water quality sampling locations within the boundaries of *", ma, 
+                          "*. The bubble size on the maps above reflect the amount of data available at each sampling site.  \n")
+        SEACAR::subchunkify(cat("![", caption, "](", map_loc,")"))
         cat("\n \n \n")
       }
     } else {
+      
+      desc <- tableDesc[ManagedAreaName==ma & ParameterName==parameter & SamplingFrequency=="Continuous", get(descriptionColumn)]
       
       ResultTable <- skt_stats %>%
         select(ProgramLocationID, "Statistical Trend", N_Data, N_Years, "Period of Record", Median, tau,
@@ -264,8 +263,8 @@ plot_continuous <- function(ma, ma_short, cont_plot_data, param, parameter, indi
       ResultTable[is.na(ResultTable)] <- "-"
       names(ResultTable) <- gsub("_", "-", names(ResultTable))
       
-      result_table <- kable(ResultTable, format="latex",
-                            caption=paste0("Seasonal Kendall-Tau Results for All Stations - ", parameter),
+      result_table <- kable(ResultTable, format=tableFormat,
+                            caption=paste0("Seasonal Kendall-Tau Results - ", parameter),
                             row.names = FALSE, digits = 5,
                             booktabs = T, linesep = "", escape = F, longtable = F) %>%
         kable_styling(latex_options = c("scale_down", "HOLD_position"), position = "center")
@@ -273,13 +272,17 @@ plot_continuous <- function(ma, ma_short, cont_plot_data, param, parameter, indi
       cat("  \n")
       # Display plot
       plot_loc <- get_plot(ma_short = ma_short, parameter = parameter, type = type, pid = "none")
-      # include_graphics() does not work within loop, force markdown format
-      cat("![](", plot_loc,")")
+      fig_caption <- figureCaptions[HabitatName=="Water Column" & ParameterName==parameter & SamplingFrequency=="Continuous", FigureCaptions]
+      SEACAR::subchunkify(cat("![", fig_caption, "](", plot_loc,")"))
       cat("  \n")
       print(result_table)
       cat("  \n")
+      cat(desc)
+      cat("  \n")
       map_loc <- get_map(ma_short = ma_short, indicator_short = indicator_short, param_short = param, type = type)
-      cat("![](", map_loc,")")
+      caption <- paste0("Map showing location of ", tolower(parameter), " continuous water quality sampling locations within the boundaries of *", ma, 
+                        "*. The bubble size on the maps above reflect the amount of data available at each sampling site.  \n")
+      SEACAR::subchunkify(cat("![", caption, "](", map_loc,")"))
       cat("\n \n \n")
     }
   }
