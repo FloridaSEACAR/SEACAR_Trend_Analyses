@@ -1,0 +1,135 @@
+<html>
+
+<head>
+<title>SEACAR Managed Area Reports - Directory</title>
+<!--begin.rcode navbar, echo=F
+htmltools::includeHTML("https://floridaseacar.github.io/navbar.html")
+end.rcode-->
+</head>
+
+<body>
+
+<div style="margin:20px;">
+
+<h3>Managed Area Reports</h3>
+
+<p>Managed Area reports are available in PDF and HTML format. The GitHub Repository is located <a href="https://github.com/FloridaSEACAR/SEACAR_Trend_Analyses/tree/main/MA%20Report%20Generation", target="_blank">here</a>.</p>
+
+<!--begin.rcode echo=F
+# Find match function
+find_exact_matches <- function(pattern, filenames) {
+  regex <- paste0("(_|^)", pattern, "(_|$)")
+  matched_files <- str_subset(filenames, regex)
+  return(matched_files)
+}
+
+MA_All <- SEACAR::ManagedAreas
+MA_All <- MA_All[!MA_All$AreaID==7] %>% arrange(ManagedAreaName) %>% as.data.table()
+end.rcode-->
+
+<div style="padding:20px; border-radius:15px; background:#F2F2F2;">
+<!--begin.rcode include=TRUE, echo=FALSE, results='asis'
+# Returns a markdown-format hyperlink, target=_blank to open link in new window
+make_link <- function(text, link){return(paste0('<a href="', link, '" target="_blank">',text,'</a>'))}
+
+pdf_files <- list.files("output/Reports/PDF", pattern=".pdf")
+html_files <- list.files("output/Reports/HTML", pattern=".html")
+
+# Include link to BBSAP custom report
+bbsap_link <- make_link(text = "BBSAP Custom Report.pdf", 
+                        link = "https://floridaseacar.github.io/SEACAR_Trend_Analyses/MA%20Report%20Generation/Custom%20Reports/BBSAP/output/BBSAP_report_20241217.pdf")
+
+
+links_table <- data.frame()
+
+for(ma in MA_All$ManagedAreaName){
+  ma_abrev <- MA_All[ManagedAreaName==ma, Abbreviation]
+  if(ma == "St. Joseph Bay State Buffer Preserve"){next}
+  
+  pdf_file <- find_exact_matches(ma_abrev, pdf_files)
+  html_file <- find_exact_matches(ma_abrev, html_files)
+  
+  pdf_github_loc <- "https://floridaseacar.github.io/SEACAR_Trend_Analyses/MA%20Report%20Generation/output/Reports/PDF/"
+  pdf_link <- paste0(pdf_github_loc, pdf_file)
+  
+  html_github_loc <- "https://floridaseacar.github.io/SEACAR_Trend_Analyses/MA%20Report%20Generation/output/Reports/HTML/"
+  html_link <- paste0(html_github_loc, html_file)
+  
+  if(length(pdf_file)==0){pdf_file <- ""}
+  if(length(html_file)==0){html_file <- ""}
+  
+  custom_link <- ifelse(ma %in% c("Big Bend Seagrasses Aquatic Preserve"), bbsap_link, "")
+  
+  link_table <- data.frame("Managed Area" = ma,
+                           "PDF" = make_link(pdf_file, pdf_link),
+                           "HTML" = make_link(html_file, html_link),
+                           "Additional" = custom_link)
+  
+  links_table <- bind_rows(links_table, link_table)
+}
+
+print(
+  kable(links_table, format="html", table.attr = 'class="table table-striped"', escape=FALSE)
+)
+
+end.rcode -->
+</div>
+
+<div style = "margin:20px;">
+<p>The reports were last ran on <i><!--rinline Sys.Date() --></i> using the following export files:</p>
+<!-- begin.rcode, echo=FALSE, results='asis'
+cat("<h3>Discrete WQ</h3>\n<ul>\n")
+for(file in wq_discrete_files){
+  cat(paste0("<li><em>", file, "</em></li>\n"))
+}
+cat("</ul>\n")
+
+cat("<h3>Continuous WQ</h3>\n<ul>\n")
+for (param in cont_params_long){
+  p <- stringr::str_replace_all(param, " ", "_")
+  par_reg <- paste0(p, "_", region)
+  
+  file_name <- stringr::str_subset(wq_cont_files_short, par_reg)
+  
+  
+  cat(paste0("<li><em>", str_remove(file_name, "_SE"), "</em></li>\n"))
+}
+cat("</ul>\n")
+
+cat("<h3>Submerged Aquatic Vegetation</h3>\n<ul>\n")
+cat(paste0("<li><em>", sav_file_short, "</em></li>\n"))
+cat("</ul>\n")
+
+cat("<h3>Nekton</h3>\n<ul>\n")
+cat(paste0("<li><em>", nekton_file_short, "</em></li>\n"))
+cat("</ul>\n")
+
+cat("<h3>Coral</h3>\n<ul>\n")
+cat(paste0("<li><em>", coral_file_short, "</em></li>\n"))
+cat("</ul>\n")
+
+cat("<h3>Coastal Wetlands</h3>\n<ul>\n")
+cat(paste0("<li><em>", cw_file_short, "</em></li>\n"))
+cat("</ul>\n")
+
+cat("<h3>Oyster</h3>\n<ul>\n")
+cat(paste0("<li><em>", oyster_file_short, "</em></li>\n"))
+cat("</ul>\n")
+
+end.rcode -->
+
+
+</div>
+
+<hr>
+<div class="funding_text">
+<!--begin.rcode funding, echo=F, warning=F
+htmltools::includeHTML("https://floridaseacar.github.io/funding.html")
+end.rcode-->  
+  <p class="publish_date">Published: <!--rinline Sys.Date() --></p>
+</div>
+
+</div>
+
+</body>
+</html>
