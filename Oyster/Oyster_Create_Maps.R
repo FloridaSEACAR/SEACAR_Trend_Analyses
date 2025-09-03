@@ -6,6 +6,7 @@ library(htmlwidgets)
 library(htmltools)
 library(glue)
 library(rstudioapi)
+library(SEACAR)
 
 wd <- dirname(getActiveDocumentContext()$path)
 setwd(wd)
@@ -13,126 +14,6 @@ setwd(wd)
 source("../SEACAR_data_location.R")
 
 ##### Create maps ----
-# Function to add circle legends to map
-# From GitHub user PaulC91
-# https://gist.github.com/PaulC91/31c05f84b25975047092f13c2474507a
-addCircleLegend <- function(
-    map, title = "", range, scaling_fun, ...,
-    color, weight, fillColor, fillOpacity,
-    position = c("topright", "bottomright", "bottomleft", "topleft"),
-    data = leaflet::getMapData(map), layerId = NULL,
-    type = "discrete") {
-  
-  # Function to determine the number of circles to display, account for different habitat types
-  determine_range_size <- function(range, thresholds) {
-    range_diff <- abs(min(range) - max(range))
-    max_range <- max(range)
-    min_range <- min(range)
-    
-    if (range_diff > thresholds$large_cutoff) {
-      if (max_range <= thresholds$upper_limit | min_range >= max_range * thresholds$relative_threshold) {
-        if (range_diff / max_range >= thresholds$tight_lower | range_diff / max_range <= thresholds$tight_upper) {
-          return("small")
-        } else {
-          return("medium")
-        }
-      } else {
-        return("large")
-      }
-    } else {
-      return("small")
-    }
-  }
-  
-  # Define thresholds for continuous and discrete types
-  thresholds_list <- list(
-    continuous = list(large_cutoff = 3000, upper_limit = 70000, relative_threshold = 0.8, tight_lower = 0.95, tight_upper = 0.15),
-    discrete = list(large_cutoff = 20, upper_limit = 120, relative_threshold = 0.8, tight_lower = 0.95, tight_upper = 0.15),
-    cw = list(large_cutoff = 20, upper_limit = 120, relative_threshold = 0.8, tight_lower = 0.95, tight_upper = 0.15),
-    coral = list(large_cutoff = 20, upper_limit = 120, relative_threshold = 0.8, tight_lower = 0.95, tight_upper = 0.15),
-    nekton = list(large_cutoff = 20, upper_limit = 120, relative_threshold = 0.8, tight_lower = 0.95, tight_upper = 0.15),
-    oyster = list(large_cutoff = 20, upper_limit = 120, relative_threshold = 0.8, tight_lower = 0.95, tight_upper = 0.15),
-    sav = list(large_cutoff = 60, upper_limit = 120, relative_threshold = 0.6, tight_lower = 0.95, tight_upper = 0.15)
-  )
-  
-  # Apply function based on type
-  if (type %in% names(thresholds_list)) {
-    range_size <- determine_range_size(range, thresholds_list[[type]])
-  }
-  
-  if(range_size %in% c("medium","large")){range <- base::pretty(sort(range), 20)}
-  range <- range[range != 0]
-  min_n <- ceiling(min(range, na.rm = TRUE))
-  med_n <- round(median(range, na.rm = TRUE), 0)
-  max_n <- round(max(range, na.rm = TRUE), 0)
-  if(range_size=="small"){n_range<-max_n} else if(range_size=="medium"){
-    n_range<-c(min_n, max_n)} else {n_range<-c(min_n, med_n, max_n)}
-  radii <- scaling_fun(n_range, ...)
-  n_range <- scales::label_number()(n_range)
-  
-  circle_style <- glue::glue(
-    "border-radius:50%;
-    border: {weight}px solid {color};
-    background: {paste0(fillColor, round(fillOpacity*100, 0))};
-    position: absolute;
-    bottom:1px;
-    right:25%;
-    left:50%;"
-  )
-  
-  text_style <- glue::glue(
-    "text-align: right;
-    font-size: 11px;
-    position: absolute;
-    bottom:3px;
-    right:1px;"
-  )
-  
-  buffer <-  max(radii)
-  
-  size_map <- list(
-    large = c(3, 2, 1),
-    medium = c(2, 1),
-    small = c(1)
-  )
-  
-  # Logic to account for different size combinations, write HTML
-  sizes <- size_map[[range_size]]
-  
-  circle_elements <- glue::glue_collapse(
-    glue::glue(
-      '<div class="legendCircle" style="width: {radii[s] * 2}px; height: {radii[s] * 2}px; margin-left: {-radii[s]}px; {circle_style}"></div>',
-      s = sizes
-    ),
-    sep = "\n"
-  )
-  
-  value_elements <- glue::glue_collapse(
-    glue::glue(
-      '<div><p class="legendValue" style="margin-bottom: {radii[s] * 2 - 12}px; {text_style}">{n_range[s]}</p></div>',
-      s = sizes
-    ),
-    sep = "\n"
-  )
-  
-  min_width <- radii[max(sizes)] * 2 + buffer
-  min_height <- radii[max(sizes)] * 2 + 12
-  
-  circle_legend <- htmltools::HTML(glue::glue(
-    '<div class="bubble-legend">
-    <div id="legendTitle" style="text-align: center; font-weight: bold;">{title}</div>
-    <div class="symbolsContainer" style="min-width: {min_width}px; min-height: {min_height}px;">
-      {circle_elements}
-      {value_elements}
-    </div>
-  </div>'
-  ))
-  
-  return(
-    leaflet::addControl(map, html = circle_legend, position = position, layerId = layerId)
-  )
-}
-
 # style class for bottom-left leaflet/HTML metadata text
 tag.map.title <- tags$style(HTML("
   .leaflet-control.map-title { 
@@ -184,34 +65,12 @@ exportDate <- max(format(unique(oysterraw$ExportVersion), "%m/%d/%Y"))
 calc_radius_oyster <- function(n){sqrt(n)}
 
 # Load in RCP shapefiles, make valid, apply transform
-rcp <- st_read(paste0(seacar_shape_location, 
-                      "/orcp_all_sites/ORCP_Managed_Areas.shp")) %>%
-  st_make_valid() %>% st_transform(crs = 4326)
+rcp <- SEACAR::GeoData$`RCP Boundaries`
 # Load in location point and line shapefiles
-GeoDBdate <- "5Mar2025"
-locs_pts <- st_read(paste0(seacar_shape_location, "/SampleLocations", GeoDBdate, "/seacar_dbo_vw_SampleLocation_Point.shp")) %>%
-  st_make_valid() %>% st_transform(crs = 4326)
-locs_lns <- st_read(paste0(seacar_shape_location, "/SampleLocations", GeoDBdate, "/seacar_dbo_vw_SampleLocation_Line.shp")) %>%
-  st_make_valid() %>% st_transform(crs = 4326)
+locs_pts <- SEACAR::GeoData$pointLocations
+locs_lns <- SEACAR::GeoData$lineLocations
 locs_pts_rcp <- locs_pts[rcp, , op = st_intersects]
 locs_lns_rcp <- locs_lns[rcp, , op = st_intersects]
-
-###############
-## FUNCTIONS ##
-###############
-
-# Allows location of shapefile for each MA
-# Updated RCP shapefiles (including NCAP)
-find_shape <- function(rcp, ma){return(rcp %>% filter(LONG_NAME==ma))}
-
-# Gets coordinate min and max from shapefile
-# This allows for accurately setting view on the map
-get_shape_coordinates <- function(ma_shape){
-  bbox_list <- lapply(st_geometry(ma_shape), st_bbox)
-  maxmin <- as.data.frame(matrix(unlist(bbox_list),nrow=nrow(ma_shape)))
-  names(maxmin) <- names(bbox_list[[1]])
-  return(maxmin)
-}
 
 # Load in Oyster data file
 oyster <- fread(
@@ -234,9 +93,7 @@ pt_ln_df <- bind_rows(pt_coord_df, ln_coord_df)
 oyster_df <- merge(oyster_programs, pt_ln_df)
 
 # seacar color palette
-seacar_palette <- c("#964059", "#E05E7B", "#E98C86", "#F1B8AB", "#F8CAAA",
-                    "#F8E6B9", "#FEEEE1", "#DAE9DA", "#8BE4C2", "#7EE7E8",
-                    "#8FD0EC", "#6FA1DD", "#889BD1", "#8F83D3", "#6B59AB")
+seacar_palette <- SEACAR::seacar_palette2
 
 # Establish parameter / indicators which are available on Atlas
 oyster_params <- data.table(
@@ -251,6 +108,7 @@ right_shift <- c("ABAP")
 legend_loc <- "topright"
 
 for(ma in unique(oyster$ManagedAreaName)){
+  if(is.na(ma)) next
   # Filter data for a given MA
   oyster_df_ma <- oyster_df %>% filter(ManagedAreaName==ma)
   # Set up palette for this MA
@@ -271,9 +129,9 @@ for(ma in unique(oyster$ManagedAreaName)){
   if(ma_abrev %in% c("ABAP", "ANERR")){calc_radius_oyster <- function(n){sqrt(n)/3}} 
   else {calc_radius_oyster <- function(n){sqrt(n)}}
   # locate shape file for a given MA
-  ma_shape <- find_shape(rcp, ma)
+  ma_shape <- SEACAR::find_shape(rcp, ma)
   # get coordinates to set zoom level
-  shape_coordinates <- get_shape_coordinates(ma_shape)
+  shape_coordinates <- SEACAR::get_shape_coordinates(ma_shape)
   # apply right shift
   if(ma_abrev %in% right_shift){
     shape_coordinates$xmin <- shape_coordinates$xmin + 0.2
@@ -305,15 +163,15 @@ for(ma in unique(oyster$ManagedAreaName)){
                 lat1=shape_coordinates$ymin,
                 lng2=shape_coordinates$xmax,
                 lat2=shape_coordinates$ymax) %>% 
-      addCircleLegend(title = "Number of samples",
-                      range = oyster_df_ma_p$n_data,
-                      scaling_fun = calc_radius_oyster,
-                      fillColor = "#b3b3b3",
-                      fillOpacity = 0.8,
-                      weight = 1,
-                      color = "#000000",
-                      position = "topright",
-                      type = "oyster") %>%
+      SEACAR::addCircleLegend(title = "Number of samples",
+                              range = oyster_df_ma_p$n_data,
+                              scaling_fun = calc_radius_oyster,
+                              fillColor = "#b3b3b3",
+                              fillOpacity = 0.8,
+                              weight = 1,
+                              color = "#000000",
+                              position = "topright",
+                              type = "oyster") %>%
       addControl(fig_text, position="bottomleft", className="map-title") %>%
       addScaleBar(position = "bottomright",
                   options = scaleBarOptions(metric=TRUE)) %>%
