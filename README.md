@@ -36,7 +36,7 @@ Managed Area Reports contain the following information and visualizations if the
     - All stations combined for each parameter ("*combined continuous trendplots*")
     - For MAs with lots of continuous stations, the combined trendplots will be combined by ProgramID 
 * Submerged Aquatic Vegetation (SAV)
-  + [Spatio-temporal sample locations plot](MA%20Report%20Generation/output/SAV-Temporal-Scope-Plots) ("*SAV temporal scope plot*")
+  + [Spatio-temporal sample locations plot](SAV/output/SAV_temporal_scope_plots) ("*SAV temporal scope plot*")
   + Map of SAV sample locations ("*SAV maps*")
   + Program Summary tables / program-level overview
     - N_Data, Year Min and Max, Collection method, Number of sample locations
