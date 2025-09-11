@@ -101,12 +101,12 @@ data <- data %>%
   group_by(AreaID, ManagedAreaName, ProgramID, ProgramName, ProgramLocationID,
            SampleDate, SpeciesGroup2, GearType, GearSize_m) %>%
   filter(ResultValue==1) %>%
-  summarise(ParameterName=parameter,
-            Year=unique(Year), Month=unique(Month),
-            N_Species = length(unique(CommonIdentifier)),
-            EffortCorrection_100m2=as.numeric(unique(EffortCorrection_100m2)),
-            SpeciesRichness=N_Species/unique(EffortCorrection_100m2),
-            .groups = "keep")
+  reframe(ParameterName=parameter,
+          Year=unique(Year), Month=unique(Month),
+          N_Species = length(unique(CommonIdentifier)),
+          EffortCorrection_100m2=as.numeric(unique(EffortCorrection_100m2)),
+          SpeciesRichness=N_Species/unique(EffortCorrection_100m2),
+          .groups = "keep")
 
 # Writes this data that is used by the rest of the script to a text file
 fwrite(data, paste0(out_dir,"/Nekton_", param_file, "_UsedData.txt"), sep="|")
@@ -129,18 +129,17 @@ n <- length(nekton_MA_Include)
 # intervals, and each gear type and size.
 MA_YM_Stats <- data %>%
   group_by(AreaID, ManagedAreaName, Year, Month, GearType, GearSize_m) %>%
-  summarize(ParameterName=parameter,
-            N_Data=length(na.omit(SpeciesRichness)),
-            Min=min(SpeciesRichness),
-            Max=max(SpeciesRichness),
-            Median=median(SpeciesRichness),
-            Mean=mean(SpeciesRichness),
-            StandardDeviation=sd(SpeciesRichness),
-            Programs=paste(sort(unique(ProgramName), decreasing=FALSE),
-                           collapse=', '),
-            ProgramIDs=paste(sort(unique(ProgramID), decreasing=FALSE),
-                             collapse=', '),
-            .groups = "keep")
+  reframe(ParameterName=parameter,
+          N_Data=length(na.omit(SpeciesRichness)),
+          Min=min(SpeciesRichness),
+          Max=max(SpeciesRichness),
+          Median=median(SpeciesRichness),
+          Mean=mean(SpeciesRichness),
+          StandardDeviation=sd(SpeciesRichness),
+          Programs=paste(sort(unique(ProgramName), decreasing=FALSE),
+                         collapse=', '),
+          ProgramIDs=paste(sort(unique(ProgramID), decreasing=FALSE),
+                           collapse=', '))
 # Puts the data in order based on ManagedAreaName, Year, Month, then GearSize
 MA_YM_Stats <- as.data.table(MA_YM_Stats[order(MA_YM_Stats$ManagedAreaName,
                                                MA_YM_Stats$Year,
@@ -156,18 +155,17 @@ rm(MA_YM_Stats)
 # and each gear type and size.
 MA_Y_Stats <- data %>%
   group_by(AreaID, ManagedAreaName, Year, GearType, GearSize_m) %>%
-  summarize(ParameterName=parameter,
-            N_Data=length(na.omit(SpeciesRichness)),
-            Min=min(SpeciesRichness),
-            Max=max(SpeciesRichness),
-            Median=median(SpeciesRichness),
-            Mean=mean(SpeciesRichness),
-            StandardDeviation=sd(SpeciesRichness),
-            Programs=paste(sort(unique(ProgramName), decreasing=FALSE),
-                           collapse=', '),
-            ProgramIDs=paste(sort(unique(ProgramID), decreasing=FALSE),
-                             collapse=', '),
-            .groups = "keep")
+  reframe(ParameterName=parameter,
+          N_Data=length(na.omit(SpeciesRichness)),
+          Min=min(SpeciesRichness),
+          Max=max(SpeciesRichness),
+          Median=median(SpeciesRichness),
+          Mean=mean(SpeciesRichness),
+          StandardDeviation=sd(SpeciesRichness),
+          Programs=paste(sort(unique(ProgramName), decreasing=FALSE),
+                         collapse=', '),
+          ProgramIDs=paste(sort(unique(ProgramID), decreasing=FALSE),
+                           collapse=', '))
 # Puts the data in order based on ManagedAreaName, Year, then GearSize
 MA_Y_Stats <- as.data.table(MA_Y_Stats[order(MA_Y_Stats$ManagedAreaName,
                                              MA_Y_Stats$Year,
@@ -180,18 +178,17 @@ fwrite(MA_Y_Stats, paste0(out_dir,"/Nekton_", param_file,
 # and each gear type and size.
 MA_M_Stats <- data %>%
   group_by(AreaID, ManagedAreaName, Month, GearType, GearSize_m) %>%
-  summarize(ParameterName=parameter,
-            N_Data=length(na.omit(SpeciesRichness)),
-            Min=min(SpeciesRichness),
-            Max=max(SpeciesRichness),
-            Median=median(SpeciesRichness),
-            Mean=mean(SpeciesRichness),
-            StandardDeviation=sd(SpeciesRichness),
-            Programs=paste(sort(unique(ProgramName), decreasing=FALSE),
-                           collapse=', '),
-            ProgramIDs=paste(sort(unique(ProgramID), decreasing=FALSE),
-                             collapse=', '),
-            .groups = "keep")
+  reframe(ParameterName=parameter,
+          N_Data=length(na.omit(SpeciesRichness)),
+          Min=min(SpeciesRichness),
+          Max=max(SpeciesRichness),
+          Median=median(SpeciesRichness),
+          Mean=mean(SpeciesRichness),
+          StandardDeviation=sd(SpeciesRichness),
+          Programs=paste(sort(unique(ProgramName), decreasing=FALSE),
+                         collapse=', '),
+          ProgramIDs=paste(sort(unique(ProgramID), decreasing=FALSE),
+                           collapse=', '))
 # Puts the data in order based on ManagedAreaName, Month, then GearSize
 MA_M_Stats <- as.data.table(MA_M_Stats[order(MA_M_Stats$ManagedAreaName,
                                              MA_M_Stats$Month,
@@ -206,21 +203,20 @@ rm(MA_M_Stats)
 # and size.
 MA_Ov_Stats <- data %>%
   group_by(AreaID, ManagedAreaName, GearType, GearSize_m) %>%
-  summarize(ParameterName=parameter,
-            N_Years=length(unique(na.omit(Year))),
-            EarliestYear=min(Year),
-            LatestYear=max(Year),
-            N_Data=length(na.omit(SpeciesRichness)),
-            Min=min(SpeciesRichness),
-            Max=max(SpeciesRichness),
-            Median=median(SpeciesRichness),
-            Mean=mean(SpeciesRichness),
-            StandardDeviation=sd(SpeciesRichness),
-            Programs=paste(sort(unique(ProgramName), decreasing=FALSE),
-                           collapse=', '),
-            ProgramIDs=paste(sort(unique(ProgramID), decreasing=FALSE),
-                             collapse=', '),
-            .groups = "keep")
+  reframe(ParameterName=parameter,
+          N_Years=length(unique(na.omit(Year))),
+          EarliestYear=min(Year),
+          LatestYear=max(Year),
+          N_Data=length(na.omit(SpeciesRichness)),
+          Min=min(SpeciesRichness),
+          Max=max(SpeciesRichness),
+          Median=median(SpeciesRichness),
+          Mean=mean(SpeciesRichness),
+          StandardDeviation=sd(SpeciesRichness),
+          Programs=paste(sort(unique(ProgramName), decreasing=FALSE),
+                         collapse=', '),
+          ProgramIDs=paste(sort(unique(ProgramID), decreasing=FALSE),
+                           collapse=', '))
 # Puts the data in order based on ManagedAreaName then GearSize
 MA_Ov_Stats <- as.data.table(MA_Ov_Stats[order(MA_Ov_Stats$ManagedAreaName,
                                                MA_Ov_Stats$GearSize_m), ])
@@ -268,53 +264,28 @@ fwrite(MA_Ov_Stats, paste0(out_dir,"/Nekton_", param_file,
 MA_Ov_Stats <- MA_Ov_Stats[!is.na(EarliestYear), ]
 
 # SpeciesRichPlot ----
-# Defines standard plot theme: black and white, no major or minor grid lines,
-# Arial font. Title is centered, size 12, and blue (hex coded). Subtitle is
-# centered, size 10, and blue (hex coded). Legend title is size 10 and the
-# legend is left-justified. X-axis title is size 10 and the margins are padded
-# at the top and bottom to give more space for angled axis labels. Y-axis title
-# is size 10 and margins are padded on the right side to give more space for
-# axis labels. Axis labels are size 10 and the x-axis labels are rotated -45
-# degrees with a horizontal justification that aligns them with the tick mark
-plot_theme <- theme_bw() +
-  theme(panel.grid.major = element_blank(),
-        panel.grid.minor = element_blank(),
-        text=element_text(family="Arial"),
-        plot.title=element_text(hjust=0.5, size=12, color="#314963"),
-        plot.subtitle=element_text(hjust=0.5, size=10, color="#314963"),
-        legend.title=element_text(size=10),
-        legend.text = element_text(hjust=0),
-        axis.title.x = element_text(size=10, margin = margin(t = 5, r = 0,
-                                                             b = 10, l = 0)),
-        axis.title.y = element_text(size=10, margin = margin(t = 0, r = 10,
-                                                             b = 0, l = 0)),
-        axis.text=element_text(size=10),
-        axis.text.x=element_text(angle = -45, hjust = 0))
-
 # Color palette for SEACAR
-color_palette <- c("#005396", "#0088B1", "#00ADAE", "#65CCB3", "#AEE4C1", 
-                   "#FDEBA8", "#F8CD6D", "#F5A800", "#F17B00")
+color_palette <- SEACAR::seacar_palette1
 
 # Modified version of MA_Y_Stats which includes SG2
 plot_data_all <- data %>%
   group_by(AreaID, ManagedAreaName, Year, GearType, GearSize_m, SpeciesGroup2) %>%
-  summarize(ParameterName=parameter,
-            N_Data=length(na.omit(SpeciesRichness)),
-            Min=min(SpeciesRichness),
-            Max=max(SpeciesRichness),
-            Median=median(SpeciesRichness),
-            Mean=mean(SpeciesRichness),
-            StandardDeviation=sd(SpeciesRichness),
-            Programs=paste(sort(unique(ProgramName), decreasing=FALSE),
-                           collapse=', '),
-            ProgramIDs=paste(sort(unique(ProgramID), decreasing=FALSE),
-                             collapse=', '),
-            .groups = "keep") %>%
+  reframe(ParameterName=parameter,
+          N_Data=length(na.omit(SpeciesRichness)),
+          Min=min(SpeciesRichness),
+          Max=max(SpeciesRichness),
+          Median=median(SpeciesRichness),
+          Mean=mean(SpeciesRichness),
+          StandardDeviation=sd(SpeciesRichness),
+          Programs=paste(sort(unique(ProgramName), decreasing=FALSE),
+                         collapse=', '),
+          ProgramIDs=paste(sort(unique(ProgramID), decreasing=FALSE),
+                           collapse=', ')) %>%
   as.data.table()
 
 # Combine type and size into one label for plots
 plot_data_all$GearType_Plot <- paste0(plot_data_all$GearType, " (",
-                                      plot_data_all$GearSize_m, " m)")
+                                      plot_data_all$GearSize_m, "m)")
 
 plot_data_all$GearType_Plot <- factor(plot_data_all$GearType_Plot,
                                       levels = unique(plot_data_all$GearType_Plot))
@@ -422,14 +393,14 @@ if(n==0){
                  scales = "free_y") +
       labs(title="Nekton Species Richness",
            subtitle=ma_i,
-           x="Year", y=bquote('Annual average richness (species/100'*~m^{2}*')')) +
+           x="Year", y=bquote('Annual average richness (species/100 '*~m^{2}*')')) +
       scale_fill_manual(name = "Species group",
                         values = subset(sg2_palette, names(sg2_palette) %in% 
                                           unique(plot_data$SpeciesGroup2)),
                         labels = sp_labels) +
       scale_x_continuous(limits = c(minyr-0.5, maxyr+0.5),
                          breaks = seq(minyr, maxyr, brk)) +
-      plot_theme
+      SEACAR::SEACAR_plot_theme()
     # Sets file name of plot created
     outname <- paste0("Nekton_", param_file, "_", ma_abrev, ".png")
     # Saves plot as a png image

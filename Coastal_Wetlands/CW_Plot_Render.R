@@ -16,7 +16,7 @@ wd <- dirname(getActiveDocumentContext()$path)
 setwd(wd)
 
 # Create sample location maps? (for MA Report Generation & Atlas)
-create_maps <- FALSE
+create_maps <- TRUE
 
 source("../SEACAR_data_location.R")
 
@@ -259,8 +259,8 @@ MA_Ov_Stats <- MA_Ov_Stats[!is.na(MA_Ov_Stats$EarliestYear), ]
 plot_theme <- SEACAR::SEACAR_plot_theme()
 
 # Color palette for SEACAR
-color_palette <- c("#005396", "#0088B1", "#00ADAE", "#65CCB3", "#AEE4C1", 
-                   "#FDEBA8", "#F8CD6D", "#F5A800", "#F17B00")
+color_palette <- SEACAR::seacar_palette1
+
 # All unique SpeciesGroup1 values get assigned a shape and color
 cw_groups <- sort(unique(MA_Y_Stats$SpeciesGroup1), decreasing = T)
 

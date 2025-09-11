@@ -13,6 +13,8 @@ library(ggpubr)
 library(scales)
 library(nlme)
 library(stringr)
+library(knitr)
+library(kableExtra)
 options(scipen=999)
 
 # Coral Species Richness ----
@@ -266,19 +268,8 @@ fwrite(MA_Ov_Stats, paste0(out_dir,"/Coral_", param_file,
 MA_Ov_Stats <- MA_Ov_Stats[!is.na(MA_Ov_Stats$EarliestYear), ]
 
 ## Plot Species Richness ----
-# Defines standard plot theme: black and white, no major or minor grid lines,
-# Arial font. Title is centered, size 12, and blue (hex coded). Subtitle is
-# centered, size 10, and blue (hex coded). Legend title is size 10 and the
-# legend is left-justified. X-axis title is size 10 and the margins are padded
-# at the top and bottom to give more space for angled axis labels. Y-axis title
-# is size 10 and margins are padded on the right side to give more space for
-# axis labels. Axis labels are size 10 and the x-axis labels are rotated -45
-# degrees with a horizontal justification that aligns them with the tick mark
-plot_theme <- SEACAR::SEACAR_plot_theme()
-
 # Color palette for SEACAR
-color_palette <- c("#005396", "#0088B1", "#00ADAE", "#65CCB3", "#AEE4C1",
-                   "#FDEBA8", "#F8CD6D", "#F5A800", "#F17B00")
+color_palette <- SEACAR::seacar_palette1
 
 # Loop that cycles through each managed area with data
 if(n==0){
@@ -343,7 +334,7 @@ if(n==0){
                          breaks=seq(t_max, t_min, brk)) +
       scale_y_continuous(limits=c(y_min, y_max),
                          breaks=pretty_breaks(n=5)) +
-      plot_theme
+      SEACAR::SEACAR_plot_theme()
     # Sets file name of plot created
     outname <- paste0("Coral_", param_file, "_", ma_abrev, ".png")
     # Saves plot as a png image
@@ -697,7 +688,7 @@ if(n==0){
                          breaks = seq(minyr, maxyr, brk)) +
       scale_y_continuous(limits=c(y_min, y_max),
                          breaks=pretty_breaks(n=5)) +
-      plot_theme
+      SEACAR::SEACAR_plot_theme()
     # Sets file name of plot created
     outname <- paste0("Coral_", param_file, "_", ma_abrev, ".png")
     # Saves plot as a png image
