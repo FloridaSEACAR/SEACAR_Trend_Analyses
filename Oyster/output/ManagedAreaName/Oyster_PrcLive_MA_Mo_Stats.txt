@@ -1,0 +1,98 @@
+AreaID|ManagedAreaName|Month|ParameterName|ShellType|SizeClass|HabitatType|N_Data|Min|Max|Median|Mean|StandardDeviation|Programs|ProgramIDs
+2|Apalachicola Bay Aquatic Preserve|1|PercentLive_pct|Live Oyster Shells||Natural|55|0|71|0|10.8181818181818|18.1568178288497|Apalachicola Intertidal Oyster Project|5010
+2|Apalachicola Bay Aquatic Preserve|1|PercentLive_pct|Live Oyster Shells||Restored|45|84.2975206|99.4923857|95.8333333|94.8165270444444|3.61337709981903|RESTORE Oyster Cultch Recovery|5007
+2|Apalachicola Bay Aquatic Preserve|2|PercentLive_pct|Live Oyster Shells||Natural|20|5|37|13.5|16.15|9.40478601564119|Apalachicola Intertidal Oyster Project|5010
+2|Apalachicola Bay Aquatic Preserve|2|PercentLive_pct|Live Oyster Shells||Restored|45|0|100|0|24.3421516753333|35.2246726959008|NRDA Oyster Cultch Recovery Project|4044
+2|Apalachicola Bay Aquatic Preserve|3|PercentLive_pct|Live Oyster Shells||Restored|210|0|100|60.91269841|51.0076367441905|38.8974493601583|NRDA Oyster Cultch Recovery Project|4044
+2|Apalachicola Bay Aquatic Preserve|4|PercentLive_pct|Live Oyster Shells||Restored|242|0|100|59.824561405|53.6894685843388|40.9626971944356|NRDA Oyster Cultch Recovery Project, RESTORE Oyster Cultch Recovery|4044, 5007
+2|Apalachicola Bay Aquatic Preserve|5|PercentLive_pct|Live Oyster Shells||Restored|105|0|100|90.90909091|61.6090629726667|44.9647692334514|NRDA Oyster Cultch Recovery Project|4044
+2|Apalachicola Bay Aquatic Preserve|6|PercentLive_pct|Live Oyster Shells||Restored|386|0|100|73.24393355|56.4219787422798|38.9249311878248|NRDA Oyster Cultch Recovery Project, RESTORE Oyster Cultch Recovery|4044, 5007
+2|Apalachicola Bay Aquatic Preserve|7|PercentLive_pct|Live Oyster Shells||Restored|337|0|100|61.53846154|50.8200357176261|44.466309882756|NRDA Oyster Cultch Recovery Project, RESTORE Oyster Cultch Recovery|4044, 5007
+2|Apalachicola Bay Aquatic Preserve|8|PercentLive_pct|Live Oyster Shells||Restored|210|0|100|0|24.1179738251905|40.4680182971209|NRDA Oyster Cultch Recovery Project|4044
+2|Apalachicola Bay Aquatic Preserve|9|PercentLive_pct|Live Oyster Shells||Restored|285|0|100|80|57.7649273142456|45.190688604694|NRDA Oyster Cultch Recovery Project|4044
+2|Apalachicola Bay Aquatic Preserve|10|PercentLive_pct|Live Oyster Shells||Natural|41|0|22|0|2.82926829268293|5.04926944727844|Apalachicola Intertidal Oyster Project|5010
+2|Apalachicola Bay Aquatic Preserve|10|PercentLive_pct|Live Oyster Shells||Restored|120|0|100|85.71428571|63.9559098511667|42.3805685555811|NRDA Oyster Cultch Recovery Project|4044
+2|Apalachicola Bay Aquatic Preserve|11|PercentLive_pct|Live Oyster Shells||Natural|33|0|8|0|1.24242424242424|2.10698693384509|Apalachicola Intertidal Oyster Project|5010
+2|Apalachicola Bay Aquatic Preserve|11|PercentLive_pct|Live Oyster Shells||Restored|210|0|100|93.37719298|75.4893181059048|35.7512051056998|NRDA Oyster Cultch Recovery Project|4044
+2|Apalachicola Bay Aquatic Preserve|12|PercentLive_pct|Live Oyster Shells||Natural|35|0|15|0|1.85714285714286|3.48224789757537|Apalachicola Intertidal Oyster Project|5010
+2|Apalachicola Bay Aquatic Preserve|12|PercentLive_pct|Live Oyster Shells||Restored|254|0|100|86.425061425|70.079411447441|36.1864530354976|NRDA Oyster Cultch Recovery Project, RESTORE Oyster Cultch Recovery|4044, 5007
+3|Apalachicola National Estuarine Research Reserve|1|PercentLive_pct|Live Oyster Shells||Natural|85|0|71|3|9.55294117647059|15.1047973161107|Apalachicola Intertidal Oyster Project|5010
+3|Apalachicola National Estuarine Research Reserve|1|PercentLive_pct|Live Oyster Shells||Restored|45|84.2975206|99.4923857|95.8333333|94.8165270444444|3.61337709981903|RESTORE Oyster Cultch Recovery|5007
+3|Apalachicola National Estuarine Research Reserve|2|PercentLive_pct|Live Oyster Shells||Natural|20|5|37|13.5|16.15|9.40478601564119|Apalachicola Intertidal Oyster Project|5010
+3|Apalachicola National Estuarine Research Reserve|2|PercentLive_pct|Live Oyster Shells||Restored|45|0|100|0|24.3421516753333|35.2246726959008|NRDA Oyster Cultch Recovery Project|4044
+3|Apalachicola National Estuarine Research Reserve|3|PercentLive_pct|Live Oyster Shells||Restored|210|0|100|60.91269841|51.0076367441905|38.8974493601583|NRDA Oyster Cultch Recovery Project|4044
+3|Apalachicola National Estuarine Research Reserve|4|PercentLive_pct|Live Oyster Shells||Restored|317|0|100|84.95145631|63.4675643476656|39.9216709419401|NRDA Oyster Cultch Recovery Project, RESTORE Oyster Cultch Recovery|4044, 5007
+3|Apalachicola National Estuarine Research Reserve|5|PercentLive_pct|Live Oyster Shells||Restored|105|0|100|90.90909091|61.6090629726667|44.9647692334514|NRDA Oyster Cultch Recovery Project|4044
+3|Apalachicola National Estuarine Research Reserve|6|PercentLive_pct|Live Oyster Shells||Restored|593|0|100|85.2459016|66.2610235457336|36.373916175384|NRDA Oyster Cultch Recovery Project, RESTORE Oyster Cultch Recovery|4044, 5007
+3|Apalachicola National Estuarine Research Reserve|7|PercentLive_pct|Live Oyster Shells||Restored|397|0|100|66.66666667|53.9175922330982|41.8200375960546|NRDA Oyster Cultch Recovery Project, RESTORE Oyster Cultch Recovery|4044, 5007
+3|Apalachicola National Estuarine Research Reserve|8|PercentLive_pct|Live Oyster Shells||Restored|510|0|100|90.71794865|64.6608298650784|42.9136999489494|NRDA Oyster Cultch Recovery Project, RESTORE Oyster Cultch Recovery|4044, 5007
+3|Apalachicola National Estuarine Research Reserve|9|PercentLive_pct|Live Oyster Shells||Restored|360|0|100|80.67226885|62.6544861068333|41.4545999886574|NRDA Oyster Cultch Recovery Project, RESTORE Oyster Cultch Recovery|4044, 5007
+3|Apalachicola National Estuarine Research Reserve|10|PercentLive_pct|Live Oyster Shells||Natural|79|0|59|4|8.9873417721519|12.899506719734|Apalachicola Intertidal Oyster Project|5010
+3|Apalachicola National Estuarine Research Reserve|10|PercentLive_pct|Live Oyster Shells||Restored|120|0|100|85.71428571|63.9559098511667|42.3805685555811|NRDA Oyster Cultch Recovery Project|4044
+3|Apalachicola National Estuarine Research Reserve|11|PercentLive_pct|Live Oyster Shells||Natural|43|0|14|1|2.18604651162791|3.23121541303024|Apalachicola Intertidal Oyster Project|5010
+3|Apalachicola National Estuarine Research Reserve|11|PercentLive_pct|Live Oyster Shells||Restored|210|0|100|93.37719298|75.4893181059048|35.7512051056998|NRDA Oyster Cultch Recovery Project|4044
+3|Apalachicola National Estuarine Research Reserve|12|PercentLive_pct|Live Oyster Shells||Natural|67|0|15|1|3.32835820895522|4.1061227737829|Apalachicola Bay Intertidal Oyster Sampling, Apalachicola Intertidal Oyster Project|5010, 5075
+3|Apalachicola National Estuarine Research Reserve|12|PercentLive_pct|Live Oyster Shells||Restored|254|0|100|86.425061425|70.079411447441|36.1864530354976|NRDA Oyster Cultch Recovery Project, RESTORE Oyster Cultch Recovery|4044, 5007
+8|Boca Ciega Bay Aquatic Preserve|12|PercentLive_pct|Live Oyster Shells||Natural|30|0|49|20.45455|22.7888893333333|14.0485665976024|Oyster Integrated Mapping and Monitoring Program (OIMMP) Pilot Monitoring Data|4020
+14|Estero Bay Aquatic Preserve|1|PercentLive_pct|Live Oyster Shells||Natural|196|0|81|26|28.1785714285714|21.4627584434061|Estero Bay Oyster Monitoring|4042
+14|Estero Bay Aquatic Preserve|2|PercentLive_pct|Live Oyster Shells||Natural|33|0|70|12|22.3333333333333|23.2455192815017|Estero Bay Oyster Monitoring|4042
+14|Estero Bay Aquatic Preserve|3|PercentLive_pct|Live Oyster Shells||Natural|4|1|45|29.5|26.25|19.6192932254622|Estero Bay Oyster Monitoring|4042
+14|Estero Bay Aquatic Preserve|3|PercentLive_pct|Live Oyster Shells||Restored|30|0|92.1875|63.49385|57.7237633333333|22.3036420489861|SCCF Oyster Restoration Monitoring|4012
+14|Estero Bay Aquatic Preserve|4|PercentLive_pct|Live Oyster Shells||Natural|8|1|42|32.5|25|16.7332005306815|Estero Bay Oyster Monitoring|4042
+14|Estero Bay Aquatic Preserve|6|PercentLive_pct|Live Oyster Shells||Natural|12|5|76|63.5|50.4166666666667|25.3823787599813|Estero Bay Oyster Monitoring|4042
+14|Estero Bay Aquatic Preserve|10|PercentLive_pct|Live Oyster Shells||Natural|4|1|56|16.5|22.5|25.6190033633889|Estero Bay Oyster Monitoring|4042
+19|Guana River Marsh Aquatic Preserve|1|PercentLive_pct|Live Oyster Shells||Natural|113|1|55|27|26.6283185840708|11.029339678999|Guana Tolomato Matanzas NERR Oyster monitoring|4000
+19|Guana River Marsh Aquatic Preserve|2|PercentLive_pct|Live Oyster Shells||Natural|233|2|64|27|27.8583690987125|12.8734433575645|Guana Tolomato Matanzas NERR Oyster monitoring|4000
+19|Guana River Marsh Aquatic Preserve|3|PercentLive_pct|Live Oyster Shells||Natural|144|0|58|21.5|22.5347222222222|11.4059935136834|Guana Tolomato Matanzas NERR Oyster monitoring|4000
+19|Guana River Marsh Aquatic Preserve|5|PercentLive_pct|Live Oyster Shells||Natural|11|9|32.5|27.5|23.6818181818182|7.85580271924113|Guana Tolomato Matanzas NERR Oyster monitoring|4000
+19|Guana River Marsh Aquatic Preserve|6|PercentLive_pct|Live Oyster Shells||Natural|47|4|64|19|20.3404255319149|11.3334376298914|Guana Tolomato Matanzas NERR Oyster monitoring|4000
+19|Guana River Marsh Aquatic Preserve|7|PercentLive_pct|Live Oyster Shells||Natural|135|0|57|20|20.6888888888889|12.3539024390124|Guana Tolomato Matanzas NERR Oyster monitoring, Northern Coastal Basins and Mosquito Lagoon Oyster Condition Assessment|4000, 5017
+19|Guana River Marsh Aquatic Preserve|8|PercentLive_pct|Live Oyster Shells||Natural|84|1|62|27|26.7857142857143|13.0615516233314|Guana Tolomato Matanzas NERR Oyster monitoring|4000
+19|Guana River Marsh Aquatic Preserve|9|PercentLive_pct|Live Oyster Shells||Natural|78|11|56|28|29.1666666666667|9.56511066278598|Guana Tolomato Matanzas NERR Oyster monitoring|4000
+19|Guana River Marsh Aquatic Preserve|10|PercentLive_pct|Live Oyster Shells||Natural|38|1|37|17.5|19.1315789473684|8.13790281979391|Guana Tolomato Matanzas NERR Oyster monitoring|4000
+19|Guana River Marsh Aquatic Preserve|12|PercentLive_pct|Live Oyster Shells||Natural|23|17|49|31|30.8695652173913|7.39351280654557|Guana Tolomato Matanzas NERR Oyster monitoring|4000
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|1|PercentLive_pct|Live Oyster Shells||Natural|386|0|68|24|24.9300518134715|12.5946918729253|Guana Tolomato Matanzas NERR Oyster monitoring|4000
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|2|PercentLive_pct|Live Oyster Shells||Natural|365|1|64|27|26.5890410958904|11.9589908432971|Guana Tolomato Matanzas NERR Oyster monitoring|4000
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|3|PercentLive_pct|Live Oyster Shells||Natural|271|0|58|18|19.0258302583026|12.338860501472|Guana Tolomato Matanzas NERR Oyster monitoring|4000
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|5|PercentLive_pct|Live Oyster Shells||Natural|44|7|32.5|14.75|16.3636363636364|6.70418442429249|Guana Tolomato Matanzas NERR Oyster monitoring|4000
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|6|PercentLive_pct|Live Oyster Shells||Natural|192|0|76|22.5|23.4427083333333|14.1852681106133|Guana Tolomato Matanzas NERR Oyster monitoring, Northern Coastal Basins and Mosquito Lagoon Oyster Condition Assessment|4000, 5017
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|7|PercentLive_pct|Live Oyster Shells||Natural|347|0|57|20|21.1455331412104|10.6832212154686|Guana Tolomato Matanzas NERR Oyster monitoring, Northern Coastal Basins and Mosquito Lagoon Oyster Condition Assessment|4000, 5017
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|8|PercentLive_pct|Live Oyster Shells||Natural|243|0|62|25|24.0987654320988|12.7994107608482|Guana Tolomato Matanzas NERR Oyster monitoring, Northern Coastal Basins and Mosquito Lagoon Oyster Condition Assessment|4000, 5017
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|9|PercentLive_pct|Live Oyster Shells||Natural|108|9|56|26.5|27.0648148148148|9.66956217600706|Guana Tolomato Matanzas NERR Oyster monitoring|4000
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|10|PercentLive_pct|Live Oyster Shells||Natural|38|1|37|17.5|19.1315789473684|8.13790281979391|Guana Tolomato Matanzas NERR Oyster monitoring|4000
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|11|PercentLive_pct|Live Oyster Shells||Natural|6|18|48|29|30.3333333333333|10.2306728354819|Guana Tolomato Matanzas NERR Oyster monitoring|4000
+20|Guana Tolomato Matanzas National Estuarine Research Reserve|12|PercentLive_pct|Live Oyster Shells||Natural|136|0|58|25|24.0073529411765|16.4512732023456|Guana Tolomato Matanzas NERR Oyster monitoring|4000
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|6|PercentLive_pct|Live Oyster Shells||Natural|75|0|56.79012346|14.81481481|16.5961302382667|14.6679605843622|Indian River Lagoon Oyster, Coastal Wetlands and Mangroves (MarineGEO site)|4016
+21|Indian River-Malabar to Vero Beach Aquatic Preserve|8|PercentLive_pct|Live Oyster Shells||Natural|15|0|32.09876543|11.11111111|11.9341563773333|10.5859291199395|Indian River Lagoon Oyster, Coastal Wetlands and Mangroves (MarineGEO site)|4016
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|5|PercentLive_pct|Live Oyster Shells||Natural|45|0|34.56790123|8.64197531|11.7146776391111|10.6417325525733|Indian River Lagoon Oyster, Coastal Wetlands and Mangroves (MarineGEO site)|4016
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|6|PercentLive_pct|Live Oyster Shells||Natural|425|0|51.85185185|7.40740741|12.2581342316|12.2480796139402|Indian River Lagoon Oyster, Coastal Wetlands and Mangroves (MarineGEO site)|4016
+22|Indian River-Vero Beach to Ft. Pierce Aquatic Preserve|8|PercentLive_pct|Live Oyster Shells||Natural|9|4.9382716|44.73684211|13.58024691|15.5293104366667|12.1840146809246|Indian River Lagoon Oyster, Coastal Wetlands and Mangroves (MarineGEO site)|4016
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|6|PercentLive_pct|Live Oyster Shells||Natural|60|0|52.43902439|4.32098765|9.33077386283333|11.8936300981532|Indian River Lagoon Oyster, Coastal Wetlands and Mangroves (MarineGEO site)|4016
+23|Jensen Beach to Jupiter Inlet Aquatic Preserve|8|PercentLive_pct|Live Oyster Shells||Natural|9|0|9.87654321|4.9382716|4.80109739222222|3.51605092457937|Indian River Lagoon Oyster, Coastal Wetlands and Mangroves (MarineGEO site)|4016
+25|Lemon Bay Aquatic Preserve|5|PercentLive_pct|Live Oyster Shells||Natural|180|0|94.44444444|73.71002846|68.4541678463889|20.6358392174515|Sarasota County Comprehensive Oyster Monitoring Program|972
+25|Lemon Bay Aquatic Preserve|6|PercentLive_pct|Live Oyster Shells||Natural|42|0|100|75.397225725|68.352220882381|22.0638890586962|Sarasota County Comprehensive Oyster Monitoring Program|972
+25|Lemon Bay Aquatic Preserve|9|PercentLive_pct|Live Oyster Shells||Natural|6|66.31578947|81.88976378|78.010110295|75.6432455783333|5.94184807594496|Sarasota County Comprehensive Oyster Monitoring Program|972
+25|Lemon Bay Aquatic Preserve|10|PercentLive_pct|Live Oyster Shells||Natural|140|0|96.96969697|71.13247863|64.6771153947143|23.7790163655899|Historical Oyster Body Size (HOBS) Study, Sarasota County Comprehensive Oyster Monitoring Program|972, 5035
+25|Lemon Bay Aquatic Preserve|11|PercentLive_pct|Live Oyster Shells||Natural|72|0|90.90909091|72.65669925|61.0481919569445|28.0894279583644|Sarasota County Comprehensive Oyster Monitoring Program|972
+25|Lemon Bay Aquatic Preserve|12|PercentLive_pct|Live Oyster Shells||Natural|24|2.3255814|98.07692308|69.2010692|59.40710972|29.3624384778255|Sarasota County Comprehensive Oyster Monitoring Program|972
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|7|PercentLive_pct|Live Oyster Shells||Natural|80|41|100|78|76.40924125|11.8152062302233|Loxahatchee River Oyster Mapping and Recruitment|4014
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|8|PercentLive_pct|Live Oyster Shells||Natural|67|0|100|90|85.0581328358209|17.5537170786615|Loxahatchee River Oyster Mapping and Recruitment|4014
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|9|PercentLive_pct|Live Oyster Shells||Natural|25|16.6667|93|75|72.658664|15.7023194460744|Loxahatchee River Oyster Mapping and Recruitment|4014
+27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|10|PercentLive_pct|Live Oyster Shells||Natural|2|61.3971|87.6459|74.5215|74.5215|18.5607044780094|Loxahatchee River Oyster Mapping and Recruitment|4014
+29|Mosquito Lagoon Aquatic Preserve|5|PercentLive_pct|Live Oyster Shells||Natural|15|19|69|30|35.3333333333333|15.211211404124|Northern Coastal Basins and Mosquito Lagoon Oyster Condition Assessment|5017
+29|Mosquito Lagoon Aquatic Preserve|6|PercentLive_pct|Live Oyster Shells||Natural|105|10|87|44|46.6095238095238|15.9990956704141|Northern Coastal Basins and Mosquito Lagoon Oyster Condition Assessment|5017
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|5|PercentLive_pct|Live Oyster Shells||Natural|3|26|36|33|31.6666666666667|5.13160143944688|Northern Coastal Basins and Mosquito Lagoon Oyster Condition Assessment|5017
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|6|PercentLive_pct|Live Oyster Shells||Natural|25|11|46|28|26.84|9.09981684797374|Northern Coastal Basins and Mosquito Lagoon Oyster Condition Assessment|5017
+30|Nassau River-St. Johns River Marshes Aquatic Preserve|7|PercentLive_pct|Live Oyster Shells||Natural|15|10|32|20|19.7333333333333|6.71317113342619|Northern Coastal Basins and Mosquito Lagoon Oyster Condition Assessment|5017
+34|Pine Island Sound Aquatic Preserve|2|PercentLive_pct|Live Oyster Shells||Natural|5|57.14285714|86.23853211|70.27027027|72.379454712|11.6827137609656|SCCF Oyster Restoration Monitoring|4012
+34|Pine Island Sound Aquatic Preserve|2|PercentLive_pct|Live Oyster Shells||Restored|5|40|71.42857143|50|55.61904762|13.0297061616942|SCCF Oyster Restoration Monitoring|4012
+34|Pine Island Sound Aquatic Preserve|3|PercentLive_pct|Live Oyster Shells||Natural|17|0|97.14285714|60.9375|59.0312226147059|26.8258019474571|SCCF Oyster Restoration Monitoring|4012
+34|Pine Island Sound Aquatic Preserve|3|PercentLive_pct|Live Oyster Shells||Restored|21|8.33333333|100|50|54.3853500995238|25.939379311777|SCCF Oyster Restoration Monitoring|4012
+34|Pine Island Sound Aquatic Preserve|4|PercentLive_pct|Live Oyster Shells||Natural|10|5|90.09009009|40.711805555|46.224947039|40.0998855772555|SCCF Oyster Restoration Monitoring|4012
+34|Pine Island Sound Aquatic Preserve|4|PercentLive_pct|Live Oyster Shells||Restored|10|5|87.5|53.88888889|46.585158306|29.9067839859514|SCCF Oyster Restoration Monitoring|4012
+35|Pinellas County Aquatic Preserve|12|PercentLive_pct|Live Oyster Shells||Natural|40|0|49|24|24.491667|13.2933747657289|Oyster Integrated Mapping and Monitoring Program (OIMMP) Pilot Monitoring Data|4020
+43|St. Martins Marsh Aquatic Preserve|3|PercentLive_pct|Live Oyster Shells||Natural|11|68|96|92|89.8181818181818|7.66574434504806|Assessment of Oysters and Barnacles Along the Chassahowitzka, Homosassa, and Lower Withlacoochee River Systems|5074
+45|Tomoka Marsh Aquatic Preserve|7|PercentLive_pct|Live Oyster Shells||Natural|5|1|14|2|5.8|5.84807660688538|Northern Coastal Basins and Mosquito Lagoon Oyster Condition Assessment|5017
+47|Yellow River Marsh Aquatic Preserve|7|PercentLive_pct|Live Oyster Shells||Restored|30|0|100|90.454545455|76.221559249|35.8885037046943|NRDA Oyster Cultch Recovery Project|4044
+47|Yellow River Marsh Aquatic Preserve|10|PercentLive_pct|Live Oyster Shells||Restored|15|0|58.33333333|8.33333333|13.5515940373333|17.9339639322314|NRDA Oyster Cultch Recovery Project|4044
+47|Yellow River Marsh Aquatic Preserve|11|PercentLive_pct|Live Oyster Shells||Restored|30|91.66666667|100|98.34155702|97.5028151046667|2.69635985025718|NRDA Oyster Cultch Recovery Project|4044
