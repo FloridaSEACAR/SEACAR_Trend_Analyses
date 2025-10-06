@@ -26,8 +26,6 @@ library(stringr)
 source("../SEACAR_data_location.R")
 
 tic()
-#Sets whether to run documents with plots or not (APP_Plots==TRUE to include plots)
-APP_Plots <- TRUE
 
 #Set output directory
 out_dir <- "output"
@@ -90,35 +88,11 @@ all_activity <- c(
 )
 
 #Loads data file with list on managed area names and corresponding area IDs and short names
-MA_All <- fread("data/ManagedArea.csv", sep = ",", header = TRUE, stringsAsFactors = FALSE,
-                na.strings = "")
+MA_All <- SEACAR::ManagedAreas
 
 # Creates folders for outputs
 folder_paths <- c("output/tables/", "output/tables/disc")
 for (path in folder_paths) {if(!dir.exists(path)){dir.create(path)}}
-
-# Defines standard plot theme: black and white, no major or minor grid lines,
-# Arial font. Title is centered, size 12, and blue (hex coded). Subtitle is
-# centered, size 10, and blue (hex coded). Legend title is size 10 and the
-# legend is left-justified. X-axis title is size 10 and the margins are padded
-# at the top and bottom to give more space for angled axis labels. Y-axis title
-# is size 10 and margins are padded on the right side to give more space for
-# axis labels. Axis labels are size 10 and the x-axis labels are rotated -45
-# degrees with a horizontal justification that aligns them with the tick mark
-plot_theme <- theme_bw() +
-  theme(panel.grid.major = element_blank(),
-        panel.grid.minor = element_blank(),
-        text=element_text(family="Arial"),
-        plot.title=element_text(hjust=0.5, size=12, color="#314963"),
-        plot.subtitle=element_text(hjust=0.5, size=10, color="#314963"),
-        legend.title=element_text(size=10),
-        legend.text = element_text(hjust=0),
-        axis.title.x = element_text(size=10, margin = margin(t = 5, r = 0,
-                                                             b = 10, l = 0)),
-        axis.title.y = element_text(size=10, margin = margin(t = 0, r = 10,
-                                                             b = 0, l = 0)),
-        axis.text=element_text(size=10),
-        axis.text.x=element_text(angle = 60, hjust = 1))
 
 disc_file_list <- list()
 

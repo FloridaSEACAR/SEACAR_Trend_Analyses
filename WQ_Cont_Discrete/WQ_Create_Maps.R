@@ -6,137 +6,17 @@ library(leaflegend)
 library(leaflet.providers)
 library(rstudioapi)
 library(tictoc)
+library(mapview)
 
 wd <- dirname(getActiveDocumentContext()$path)
 setwd(wd)
 
-# Load in a single discrete file to retrieve 
-temp <- fread(str_subset(file_list, "_NUT_Water_Temperature"))
+# Load in a single discrete file to retrieve export date
+temp <- fread(str_subset(list.files(seacar_data_location, full=T), "_NUT_Water_Temperature"))
 exportDate <- unique(format(unique(temp$ExportVersion), "%m/%d/%Y"))
 rm(temp)
 
 ##### Create maps ----
-## Functions to create plots for discrete and continuous
-# Function to add circle legends to map
-# From GitHub user PaulC91
-# https://gist.github.com/PaulC91/31c05f84b25975047092f13c2474507a
-addCircleLegend <- function(
-    map, title = "", range, scaling_fun, ...,
-    color, weight, fillColor, fillOpacity,
-    position = c("topright", "bottomright", "bottomleft", "topleft"),
-    data = leaflet::getMapData(map), layerId = NULL,
-    type = "discrete") {
-  
-  # Function to determine the number of circles to display, account for different habitat types
-  determine_range_size <- function(range, thresholds) {
-    range_diff <- abs(min(range) - max(range))
-    max_range <- max(range)
-    min_range <- min(range)
-    
-    if (range_diff > thresholds$large_cutoff) {
-      if (max_range <= thresholds$upper_limit | min_range >= max_range * thresholds$relative_threshold) {
-        if (range_diff / max_range >= thresholds$tight_lower | range_diff / max_range <= thresholds$tight_upper) {
-          return("small")
-        } else {
-          return("medium")
-        }
-      } else {
-        return("large")
-      }
-    } else {
-      return("small")
-    }
-  }
-  
-  # Define thresholds for continuous and discrete types
-  thresholds_list <- list(
-    continuous = list(large_cutoff = 3000, upper_limit = 70000, relative_threshold = 0.8, tight_lower = 0.95, tight_upper = 0.15),
-    discrete = list(large_cutoff = 20, upper_limit = 120, relative_threshold = 0.8, tight_lower = 0.95, tight_upper = 0.15),
-    cw = list(large_cutoff = 20, upper_limit = 120, relative_threshold = 0.8, tight_lower = 0.95, tight_upper = 0.15),
-    coral = list(large_cutoff = 20, upper_limit = 120, relative_threshold = 0.8, tight_lower = 0.95, tight_upper = 0.15),
-    nekton = list(large_cutoff = 20, upper_limit = 120, relative_threshold = 0.8, tight_lower = 0.95, tight_upper = 0.15),
-    oyster = list(large_cutoff = 20, upper_limit = 120, relative_threshold = 0.8, tight_lower = 0.95, tight_upper = 0.15),
-    sav = list(large_cutoff = 60, upper_limit = 120, relative_threshold = 0.6, tight_lower = 0.95, tight_upper = 0.15)
-  )
-  
-  # Apply function based on type
-  if (type %in% names(thresholds_list)) {
-    range_size <- determine_range_size(range, thresholds_list[[type]])
-  }
-  
-  if(range_size %in% c("medium","large")){range <- base::pretty(sort(range), 20)}
-  range <- range[range != 0]
-  min_n <- ceiling(min(range, na.rm = TRUE))
-  med_n <- round(median(range, na.rm = TRUE), 0)
-  max_n <- round(max(range, na.rm = TRUE), 0)
-  if(range_size=="small"){n_range<-max_n} else if(range_size=="medium"){
-    n_range<-c(min_n, max_n)} else {n_range<-c(min_n, med_n, max_n)}
-  radii <- scaling_fun(n_range, ...)
-  n_range <- scales::label_number()(n_range)
-  
-  circle_style <- glue::glue(
-    "border-radius:50%;
-    border: {weight}px solid {color};
-    background: {paste0(fillColor, round(fillOpacity*100, 0))};
-    position: absolute;
-    bottom:1px;
-    right:25%;
-    left:50%;"
-  )
-  
-  text_style <- glue::glue(
-    "text-align: right;
-    font-size: 11px;
-    position: absolute;
-    bottom:3px;
-    right:1px;"
-  )
-  
-  buffer <-  max(radii)
-  
-  size_map <- list(
-    large = c(3, 2, 1),
-    medium = c(2, 1),
-    small = c(1)
-  )
-  
-  # Logic to account for different size combinations, write HTML
-  sizes <- size_map[[range_size]]
-  
-  circle_elements <- glue::glue_collapse(
-    glue::glue(
-      '<div class="legendCircle" style="width: {radii[s] * 2}px; height: {radii[s] * 2}px; margin-left: {-radii[s]}px; {circle_style}"></div>',
-      s = sizes
-    ),
-    sep = "\n"
-  )
-  
-  value_elements <- glue::glue_collapse(
-    glue::glue(
-      '<div><p class="legendValue" style="margin-bottom: {radii[s] * 2 - 12}px; {text_style}">{n_range[s]}</p></div>',
-      s = sizes
-    ),
-    sep = "\n"
-  )
-  
-  min_width <- radii[max(sizes)] * 2 + buffer
-  min_height <- radii[max(sizes)] * 2 + 12
-  
-  circle_legend <- htmltools::HTML(glue::glue(
-    '<div class="bubble-legend">
-    <div id="legendTitle" style="text-align: center; font-weight: bold;">{title}</div>
-    <div class="symbolsContainer" style="min-width: {min_width}px; min-height: {min_height}px;">
-      {circle_elements}
-      {value_elements}
-    </div>
-  </div>'
-  ))
-  
-  return(
-    leaflet::addControl(map, html = circle_legend, position = position, layerId = layerId)
-  )
-}
-
 # style class for bottom-left leaflet/HTML metadata text
 tag.map.title <- tags$style(HTML("
   .leaflet-control.map-title { 
@@ -204,15 +84,15 @@ plot_discrete_maps <- function(parameter, ma, discrete_df, ma_abrev, ma_shape, s
                 lat1=shape_coordinates$ymin,
                 lng2=shape_coordinates$xmax,
                 lat2=shape_coordinates$ymax) %>%
-      addCircleLegend(title = "Number of samples",
-                      range = subset_df$n_data,
-                      scaling_fun = calc_radius_disc,
-                      fillColor = "#b3b3b3",
-                      fillOpacity = 0.8,
-                      weight = 1,
-                      color = "#000000",
-                      position = legend_loc,
-                      type = "discrete") %>%
+      SEACAR::addCircleLegend(title = "Number of samples",
+                              range = subset_df$n_data,
+                              scaling_fun = calc_radius_disc,
+                              fillColor = "#b3b3b3",
+                              fillOpacity = 0.8,
+                              weight = 1,
+                              color = "#000000",
+                              position = legend_loc,
+                              type = "discrete") %>%
       addScaleBar(position = "bottomright",
                   options = scaleBarOptions(metric=TRUE)) %>%
       addControl(fig_text, position="bottomleft", className="map-title")
@@ -224,7 +104,7 @@ plot_discrete_maps <- function(parameter, ma, discrete_df, ma_abrev, ma_shape, s
     map_out <- paste0(map_output, "discrete_", ind_name, "_", param_short, "_", ma_abrev, "_map.png")
     
     # save file as png
-    mapshot(map, file = map_out, remove_controls = c("zoomControl"))
+    mapview::mapshot(map, file = map_out, remove_controls = c("zoomControl"))
     print(paste0("Map created for ", parameter, " - ", ma))  
   }
 }
@@ -251,7 +131,7 @@ plot_continuous_maps <- function(param_short, ma, cont_coordinates, ma_abrev, ma
       "ymax" = max(ma_stations$lat)
     )  
   } else {
-    shape_coordinates <- get_shape_coordinates(ma_shape)
+    shape_coordinates <- SEACAR::get_shape_coordinates(ma_shape)
   }
   # data frame of Entity, ProgramName, color associations (arrange by Entity is key)
   cols <- ma_stations %>% group_by(ProgramName, Entity, color) %>% 
@@ -280,15 +160,15 @@ plot_continuous_maps <- function(param_short, ma, cont_coordinates, ma_abrev, ma
               lat1=shape_coordinates$ymin,
               lng2=shape_coordinates$xmax,
               lat2=shape_coordinates$ymax) %>%
-    addCircleLegend(title = "Number of samples",
-                    range = ma_stations$n_data,
-                    scaling_fun = calc_radius_cont,
-                    fillColor = "#b3b3b3",
-                    fillOpacity = 0.8,
-                    weight = 1,
-                    color = "#000000",
-                    position = "topright",
-                    type = "continuous") %>%
+    SEACAR::addCircleLegend(title = "Number of samples",
+                            range = ma_stations$n_data,
+                            scaling_fun = calc_radius_cont,
+                            fillColor = "#b3b3b3",
+                            fillOpacity = 0.8,
+                            weight = 1,
+                            color = "#000000",
+                            position = "topright",
+                            type = "continuous") %>%
     addScaleBar(position = "bottomright", options = scaleBarOptions(metric=TRUE)) %>% 
     addControl(fig_text, position="bottomleft", className="map-title")
   
@@ -360,9 +240,7 @@ discrete_df <- discrete_df %>%
 setDT(discrete_df)
 
 # setting color palette
-seacar_palette <- c("#964059", "#E05E7B", "#E98C86", "#F1B8AB", "#F8CAAA",
-                    "#F8E6B9", "#FEEEE1", "#DAE9DA", "#8BE4C2", "#7EE7E8",
-                    "#8FD0EC", "#6FA1DD", "#889BD1", "#8F83D3", "#6B59AB")
+seacar_palette <- SEACAR::seacar_palette2
 
 # The most commonly-occurring programs (if in more than half of MAs) will get the same color across all MAs
 freq_programs <- disc_programs %>% 
@@ -382,14 +260,14 @@ tic()
 for(ma in unique(MA_All$ManagedAreaName)){
   # Abbreviated MA name for filenames
   ma_abrev <- MA_All[ManagedAreaName==ma, Abbreviation]
-  # if(!ma_abrev %in% c("SAAP")) next
+  # if(!ma_abrev %in% c("SAAP", "KJCAP")) next
   # find ma_shape and ma_coordinates for plotting
-  ma_shape <- find_shape(rcp, ma)
+  ma_shape <- SEACAR::find_shape(rcp, ma)
   # get coordinates to set zoom level
-  shape_coordinates <- get_shape_coordinates(ma_shape)
+  shape_coordinates <- SEACAR::get_shape_coordinates(ma_shape)
   # Hard-code legend locations for each MA (default to top-right if not in below vectors)
   top_left <- c("ABAP","CHAP","CBAP","FKNMS","GSCHAP","LKAP",
-                "SMMAP","TCAP","NCAP", "CRCP","SJBSBP")
+                "SMMAP","TCAP","NCAP", "KJCAP","SJBSBP")
   bottom_right <- c("AHAP","YRMAP","BBAP", "GSCHAP")
   bottom_left <- c("SAAP","IRVBFPAP","EBAP")
   # if(ma_abrev %in% top_left){
@@ -474,9 +352,8 @@ cont_pal <- function(x){cont_palette[as.character(x)]}
 tic()
 for(ma in unique(cont_coordinates$ManagedAreaName)){
   ma_abrev <- MA_All[ManagedAreaName==ma, Abbreviation]
-  # if(!ma_abrev %in% c("FKNMS","BBAP","EBAP","BBSAP","NCAP")) next
   # find ma_shape and ma_coordinates for plotting
-  ma_shape <- find_shape(rcp, ma)
+  ma_shape <- SEACAR::find_shape(rcp, ma)
   for(param_short in cont_coordinates[ManagedAreaName==ma, unique(Parameter)]){
     plot_continuous_maps(param_short = param_short, 
                          ma = ma, 

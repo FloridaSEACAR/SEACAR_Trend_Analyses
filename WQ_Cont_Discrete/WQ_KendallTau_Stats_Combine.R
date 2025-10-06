@@ -4,6 +4,7 @@
 options(scipen = 999)
 library(data.table)
 library(dplyr)
+library(stringr)
 
 # Find discrete KendallTau outputs
 discrete_files <- list.files("output/tables/disc", pattern = "\\KendallTau_Stats.rds$", full.names = TRUE)

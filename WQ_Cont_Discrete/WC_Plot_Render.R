@@ -13,6 +13,8 @@ library(grid)
 library(leaflet)
 library(mapview)
 library(sf)
+library(knitr)
+library(SEACAR)
 
 # Gets directory of this script and sets it as the working directory
 wd <- dirname(getActiveDocumentContext()$path)
@@ -71,6 +73,7 @@ cont_loc <- ifelse(cont_folder_date=="most recent",
 
 # Lists of disc and cont .rds objects to read
 disc_files <- list.files(disc_loc,pattern = "\\.rds$", full.names = T)
+disc_files <- str_subset(disc_files, "data_output_disc|skt_stats_disc", negate=T)
 cont_files <- list.files(cont_loc,pattern = "\\.rds$", full.names = T)
 
 #Loads data file with list on managed area names and corresponding area IDs and short names
@@ -286,7 +289,7 @@ skt_stats_disc <- skt_stats_disc %>%
 skt_stats_disc[is.na(Trend), `:=` ("Statistical Trend" = "Insufficient data to calculate trend")]
 skt_stats_disc[str_detect(p, "NA"), `:=` (p = NA)]
 skt_stats_disc[!is.na(p), `:=` (p = round(as.numeric(p), 4))]
-# saveRDS(skt_stats_disc, file = "output/tables/disc/skt_stats_disc.rds")
+saveRDS(skt_stats_disc, file = "output/tables/disc/skt_stats_disc.rds")
 
 skt_stats_cont <- skt_stats_cont %>% 
   mutate("Period of Record" = paste0(EarliestYear, " - ", LatestYear),
@@ -494,7 +497,7 @@ plot_trendlines <- function(p, a, d, activity_label, depth_label, y_labels, para
   setDT(KT.Plot)
   
   if (nrow(data) == 0) {invisible()} else {
-    cat(glue("## {parameter} - {type} \n"))
+    cat(glue("## {parameter} - {type}"), "\n")
     
     # Gets data to be used in plot for managed area
     plot_data <- merge(data, KT.Plot, by=c("ManagedAreaName"), all=TRUE)
@@ -554,7 +557,7 @@ plot_trendlines_cont_combined <- function(ma, cont_plot_data, param, y_labels, p
   data <- cont_plot_data[ManagedAreaName==ma & ParameterName==parameter, ]
   # Only perform operations when there are stations to plot
   if(length(unique(data$ProgramLocationID))>0){
-    cat(glue("## {parameter} - {type}\n"))
+    cat(glue("## {parameter} - {type}"), "\n")
     
     # Set variables for fileName convention
     areaID <- MA_All[ManagedAreaName==ma, AreaID]
@@ -597,8 +600,8 @@ plot_trendlines_cont_combined <- function(ma, cont_plot_data, param, y_labels, p
           geom_segment(aes(x = start_x, y = start_y, xend = end_x, yend = end_y, 
                            linetype = label, color = label),
                        linewidth = 1.2, alpha = 0.7, show.legend = TRUE) +
-          labs(title = paste0(ma, "\n", p_name, "\nProgramID: ", pid),
-               subtitle = paste0(parameter, " - Continuous"),
+          labs(title = paste0(parameter, " - Continuous"),
+               subtitle = paste0(ma, "\n", p_name, "\nProgramID: ", pid),
                x = "Year", y = y_labels) +
           scale_x_continuous(limits = breaks(plot_data, type = "Continuous", ret = "lims"),
                              breaks = breaks(plot_data, type = "Continuous", ret = "break")) +
@@ -642,8 +645,8 @@ plot_trendlines_cont_combined <- function(ma, cont_plot_data, param, y_labels, p
         geom_segment(aes(x = start_x, y = start_y, xend = end_x, yend = end_y, 
                          color = sig, linetype=label),
                      linewidth = 1.2, alpha = 0.7, show.legend = TRUE) +
-        labs(title=paste0(ma, "\nAll Stations"),
-             subtitle=paste0(parameter, " - Continuous"),
+        labs(title = paste0(parameter, " - Continuous\nAll Stations"),
+             subtitle = ma,
              x="Year", y=y_labels) +
         scale_x_continuous(limits=breaks(plot_data, type="Continuous", ret="lims"),
                            breaks=breaks(plot_data, type="Continuous", ret="break")) +
@@ -698,7 +701,7 @@ if(save_plots){
     region <- MA_All[ManagedAreaName==ma, Region]
     # create plots
     for(indicator in unique(websiteParams$IndicatorName)){
-      cat(glue("# {indicator} \n"))
+      cat(glue("# {indicator}"), "\n")
       
       # Filter once for the current indicator
       indicator_subset <- websiteParams[IndicatorName == indicator, ]
@@ -790,10 +793,12 @@ if(render_reports){
 }
 
 # Render index.html directory to list on GitHub pages
-rmarkdown::render(input = "IndexTemplate.Rmd",
-                  output_format = "html_document",
-                  output_file = "index.html",
-                  clean=TRUE)
+# rmarkdown::render(input = "IndexTemplate.Rmd",
+#                   output_format = "html_document",
+#                   output_file = "index.html",
+#                   clean=TRUE)
+
+knitr::knit("index.Rhtml")
 
 # Zip all files into Discrete and Continuous .zips in "output" folder
 setwd("output/")
