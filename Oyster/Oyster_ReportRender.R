@@ -17,22 +17,29 @@ library(dplyr)
 library(data.table)
 library(rstudioapi)
 
-# Source in scripts to run Oyster analyses
-# Oyster_Models_Clean_parallel.R to run all models and generate plots
-source("Oyster_Models_parallel.R")
-# Oyster_ResultsCompile.R to combine all results into single file (for Atlas)
-source("Oyster_ResultsCompile.R")
+# Gets directory of this script and sets it as the working directory
+wd <- dirname(getActiveDocumentContext()$path)
+setwd(wd)
+
+# Determine whether to run Oyster EDA plots (T or F)
+EDA <- FALSE
 
 # Determine whether to generate Oyster sampling maps (for SEACAR Atlas)
 create_maps <- TRUE
 
+if(EDA){
+  source("Oyster_EDA.R")
+}
+
+# Source in scripts to run Oyster analyses
+# Oyster_Models_Clean_parallel.R to run all models and generate plots
+source("Oyster_Models_parallel.R")
+# Oyster_ResultsCompile.R to combine all results into single file (for Atlas)
+source("Oyster_ResultsCompile.R", echo=T)
+
 if(create_maps){
   source("Oyster_Create_Maps.R")
 }
-
-# Gets directory of this script and sets it as the working directory
-wd <- dirname(getActiveDocumentContext()$path)
-setwd(wd)
 
 #Set output directory
 out_dir <- "output"

@@ -56,7 +56,7 @@ Compiled and edited by [J.E. Panzik](jepanzik@usf.edu) and [Tyler Hill](Tyler.Hi
 
 ```{r, functions to plot oysters, eval=T, echo=F}
 # Read in oyster results file
-oyster_stats <- fread("output/Oyster_All_GLMM_Stats.txt", sep='|')
+oyster_stats <- fread("output/ManagedAreaName/Oyster_All_GLMM_Stats.txt", sep='|')
 # Function to add trend text
 trendText <- function(modelEstimate, lowConfidence, upConfidence){
   increasing <- modelEstimate > 0
@@ -79,9 +79,9 @@ oyster_stats <- oyster_stats %>% rowwise() %>%
 
 # Oyster plot locations
 oy_figs <- list(
-  "Density" = list.files("output/Density/Figures", pattern = ".png", full.names = T),
-  "Percent Live" = list.files("output/Percent_Live/Figures", pattern = ".png", full.names = T),
-  "Shell Height" = list.files("output/Shell_Height/Figures", pattern = ".png", full.names = T)
+  "Density" = list.files("output/ManagedAreaName/Figures/Density/", pattern = ".png", full.names = T),
+  "Percent Live" = list.files("output/ManagedAreaName/Figures/Percent_Live/", pattern = ".png", full.names = T),
+  "Shell Height" = list.files("output/ManagedAreaName/Figures/Shell_Height/", pattern = ".png", full.names = T)
 )
 
 # Dataframe to determine which figures are included
