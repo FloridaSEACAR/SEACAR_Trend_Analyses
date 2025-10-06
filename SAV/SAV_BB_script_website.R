@@ -29,8 +29,8 @@ setwd(wd)
 source("../seacar_data_location.R")
 
 #Create folder paths if not already created
-folder_paths <- c("output/models", "output/Figures", "output/Figures/BB/", 
-                  "output/tables", "output/tables/SAV", 
+folder_paths <- c("output/models", "output/Figures", "output/Figures/BB/",
+                  "output/tables", "output/tables/SAV",
                   "output/website/images/", "output/website/images/multiplots",
                   "output/website/images/trendplots","output/website/images/barplots")
 for(path in folder_paths){if(!dir.exists(path)){dir.create(path)}}
@@ -156,9 +156,9 @@ addfits_multiplots <- function(models, plot_i, param, aucol){
       geom_line(data = species_data,
                 aes(x = relyear, y = predictions), color="#000099", linewidth=0.75, alpha=0.7, inherit.aes = FALSE)
   }
-  
+
   # order_match <- ifelse(usenames=="common", "order(match(spp_common))", "order(match(spp))")
-  
+
   if(usenames=="common"){
     plot_i <- plot_i +
       facet_wrap(~factor(modify_species_labels(eval(aucol), usenames),
@@ -194,7 +194,7 @@ addfits_multiplots <- function(models, plot_i, param, aucol){
                                     "Drift algae")),
                  ncol = 3, strip.position = "top")
   }
-  
+
   return(plot_i)
 }
 
@@ -205,56 +205,56 @@ addfits <- function(models, plot_i, param) {
   # empty data frame to fill with regression data
   regression_data <- data.frame()
   plot_data <- data.frame()
-  
+
   for (i in seq_along(models)) {
     # finding model name, calling previously created model variable
     model_name <- names(models[i])
     model <- models[[i]]
-    
+
     # selecting for Total SAV and Total Seagrass to apply aesthetic conditions later
     is_ToSa <- grepl("ToSa", model_name)
     is_ToSe <- grepl("ToSe", model_name)
     exclude <- c("AtAl")
-    
+
     # declaring species & managed area of each model
     species <- unique(model$data[[aucol]])
     managed_area <- unique(model$data$ManagedAreaName)
-    
+
     #extract p-value
     p_val <- summary(model)$tTab[2,5]
-    
+
     # exclude Attached algae from model plots
     if(!grepl(paste(exclude, collapse='|'), model_name)) {
-      
+
       linetypes <- "solid"
       size <- 1
       alpha <- 1
       #alpha <- if (p_val <= 0.05) 1 else 0.8
-      
+
       # filter dataframe for managed_area & species
       species_data <- SAV4 %>%
         filter(ManagedAreaName == managed_area,
                !is.na({{p}}),
                {{ aucol }} == species)
-      
+
       # create predicted values variable for each model
       predicted_values <- predict(model, level = 0, newdata = species_data)
-      
+
       # separate significant values
       significant <- if (p_val <=0.05) TRUE else FALSE
-      
+
       # Add predicted values to the regression_data dataframe, with species & relyear
       regression_data <- rbind(regression_data, data.frame(
         relyear = species_data$relyear,
         fit = predicted_values,
         species = unique(species_data[[aucol]]),
         significance = significant))
-      
+
       # in case we separate Total SAV and Total seagrass and treat them differently
       #if (is_ToSa || is_ToSe) {} else {}
       # regression_data <- regression_data %>%
       #   filter(!species %in% c("Total SAV", "Total seagrass"))
-      
+
       # Plot all other species
       plot_i <- plot_i +
         geom_line(data = regression_data,
@@ -269,34 +269,34 @@ addfits <- function(models, plot_i, param) {
                linetype = guide_legend(order=2))
     }
   }
-  
+
   # creating color scale so names line up correctly in legend
   species_list <- c("")
-  
+
   for (l in plot_i[["layers"]]) {
     new_species <- unique(l$data$species[!l$data$species %in% species_list])
     if (length(new_species) > 0) {
       species_list <- append(species_list, new_species)
     }
   }
-  
+
   # ordering species list to match spcols, with Total SAV & Total seagrass at bottom, otherwise alphabetical (Hal spp. at top)
   species_list <- species_list[order(match(species_list, names(spcols)))]
-  
+
   # determining if scientific or common names
   species_labels <- modify_species_labels(species_list, usenames)
-  
+
   plot_i <- plot_i + scale_color_manual(values = subset(spcols, names(spcols) %in% species_list),
                                         breaks = species_list,
                                         labels = species_labels)
-  
+
   return(plot_i)
 }
 
 # function to modify species labels prior to plotting (sci vs common names)
 # also replaces "Unidentified Halophila" with "Halophila, unk."
 modify_species_labels <- function(species_list, usenames) {
-  
+
   if(usenames == "scientific") {
     lab <- species_list
   } else {
@@ -314,9 +314,11 @@ modify_species_labels <- function(species_list, usenames) {
 
 # Functions and set up for streamlined EDA plots
 eda_output_path <- "output/Figures/EDA/"
-plot_names <- c("parvYear_bysp", "parvYear_bypr", "spvYear_bypr", "qsvYear_bysp", 
-                "qsvYear_bypr", "metvYear_bysp", "metvYear_bypr", "metvqs_bysp", 
+plot_names <- c("parvYear_bysp", "parvYear_bypr", "spvYear_bypr", "qsvYear_bysp",
+                "qsvYear_bypr", "metvYear_bysp", "metvYear_bypr", "metvqs_bysp",
                 "metvqs_bypr", "grvYear_bysp", "grvYear_bypr", "dpvYear_bysp", "dpvYear_bypr")
+# Create EDA folder
+if(!file.exists(eda_output_path)) dir.create(eda_output_path)
 
 plot_eda <- function(plot_type, p, i){
   # plot_type is EDA plot type (plot_names above)
@@ -327,10 +329,22 @@ plot_eda <- function(plot_type, p, i){
   y_axis <- str_split_1(str_split_1(plot_type, "_")[1], "v")[1]
   x_axis <- str_split_1(str_split_1(plot_type, "_")[1], "v")[2]
   
+  # Color palette set-up (should match spatio-temporal scope plots) - for program plots
+  progs <- SAV4[ManagedAreaName == i & !is.na(BB_pct), unique(ProgramName)]
+  # Set palette for these programs
+  color_pal <- prcollist[round(seq(1, length(prcollist), length.out = length(progs)))]
+  names(color_pal) <- progs
+
   if(x_axis=="Year"){x_par <- "Year"} else if(x_axis=="qs"){x_par <- "QuadSize_m2"}
-  
+
   au <- ifelse(i %in% ma_halspp, "analysisunit", "analysisunit_halid")
-  
+
+  if(y_axis=="met"){
+    dat <- SAV4[ManagedAreaName == i & get(au)!="No grass in quadrat", ]
+  } else {
+    dat <- SAV4[ManagedAreaName==i & !is.na(eval(p)) & get(au)!="No grass in quadrat", ]
+  }
+
   if(grouping=="bysp"){
     legend_lab <- "Species"
     color_group <- au
@@ -338,9 +352,9 @@ plot_eda <- function(plot_type, p, i){
   } else if(grouping=="bypr"){
     legend_lab <- "Program Name"
     color_group <- "ProgramName"
-    color_vals <- subset(prcols, names(prcols) %in% unique(dat$ProgramName))
+    color_vals <- color_pal
   }
-  
+
   if(y_axis=="par"){
     y_lab <- parameters[column == p, name]
     y_par <- p
@@ -360,34 +374,27 @@ plot_eda <- function(plot_type, p, i){
     y_lab <- "Depth (m)"
     y_par <- "Depth_M"
   }
-  
-  if(y_axis=="met"){
-    dat <- SAV4[ManagedAreaName == i & get(au)!="No grass in quadrat", ]
-  } else {
-    dat <- SAV4[ManagedAreaName==i & !is.na(eval(p)) & get(au)!="No grass in quadrat", ]
-  }
-  
+
   if(y_axis=="qs"){
     subtitle <- paste0("Unique QuadSize values: ", paste(unique(dat$QuadSize_m2), " m^2", collapse = ","))
   } else {
     subtitle <- ""
   }
-  
+
   plot <- ggplot(data = dat,
                  aes(x = get(x_par), y = get(y_par), color = as.factor(get(color_group)))) +
-    geom_jitter() + 
-    theme_bw() + 
+    geom_jitter(alpha=0.5) +
+    theme_bw() +
     labs(title = i, y = y_lab, color = legend_lab, x = x_par,
          subtitle = subtitle) +
-    scale_color_manual(values = color_vals, 
+    scale_color_manual(values = color_vals,
                        aesthetics = c("color", "fill"))
-  file_path <- paste0(eda_output_path, "SAV_", parameters[column == p, type], "_",
-                      ma_abrev, "_EDA_", plot_type, ".png")
+  file_path <- paste0(eda_output_path, ma_abrev, "_", parameters[column == p, type], "_", plot_type, ".png")
   ggsave(plot, filename = file_path, height = 6, width = 8)
 }
 
 # Specify what to produce --------------
-EDA <- "plots" #Create and export Exploratory Data Analysis plots ("plots" = create data exploration plots only, "no" (or anything else) = skip all EDA output)
+EDA <- "no" #Create and export Exploratory Data Analysis plots ("plots" = create data exploration plots only, "no" (or anything else) = skip all EDA output)
 
 Analyses <- c("BB_pct", "PC", "PA") #Which analyses to run? c("BB_all," "BB_pct", "PC", "PO", and/or "PA") or c("none") for just EDA plotting
 
@@ -396,14 +403,14 @@ failedmods <- data.table(model = character(),
                          error = character())
 
 #Create a table of the proportion of present SAV types by managed area and year
-props_halid <- SAV4 %>% 
-  filter(str_detect(analysisunit_halid, "Total|Drift|spp\\.", negate = TRUE), !is.na(PA)) %>% 
-  group_by(ManagedAreaName, analysisunit_halid, relyear) %>% 
-  summarize(n_P = sum(PA), ntot_PA = n(), prop_P = n_P/ntot_PA)
+props_halid <- SAV4 %>%
+  filter(str_detect(analysisunit_halid, "Total|Drift|spp\\.", negate = TRUE), !is.na(PA)) %>%
+  group_by(ManagedAreaName, analysisunit_halid, relyear) %>%
+  reframe(n_P = sum(PA), ntot_PA = n(), prop_P = n_P/ntot_PA)
 
-props <- SAV4 %>% 
-  filter(str_detect(analysisunit, "Total|Drift|decipiens|engelmannii|johnsonii|Unidentified", negate = TRUE), !is.na(PA)) %>% 
-  group_by(ManagedAreaName, analysisunit, relyear) %>% summarize(n_P = sum(PA), ntot_PA = n(), prop_P = n_P/ntot_PA)
+props <- SAV4 %>%
+  filter(str_detect(analysisunit, "Total|Drift|decipiens|engelmannii|johnsonii|Unidentified", negate = TRUE), !is.na(PA)) %>%
+  group_by(ManagedAreaName, analysisunit, relyear) %>% reframe(n_P = sum(PA), ntot_PA = n(), prop_P = n_P/ntot_PA)
 
 setDT(props_halid)
 setDT(props)
@@ -436,7 +443,7 @@ spcollist <- c("#005396","#005396",
 spp <- c("Halophila spp.","Unidentified Halophila","Halophila johnsonii","Syringodium filiforme","Halophila decipiens","Halodule wrightii",
          "Halophila engelmannii","Thalassia testudinum","Ruppia maritima","Attached algae", "Drift algae", "Total SAV", "Total seagrass")
 
-spp_common <- c("Halophila spp.", "Unidentified Halophila", "Johnson's seagrass", "Manatee grass", "Paddle grass", 
+spp_common <- c("Halophila spp.", "Unidentified Halophila", "Johnson's seagrass", "Manatee grass", "Paddle grass",
                 "Shoal grass", "Star grass", "Turtle grass", "Widgeon grass", "Attached algae", "Drift algae", "Total SAV", "Total seagrass")
 
 # Script now defaults to scientific throughout, will change labels
@@ -461,12 +468,12 @@ props <- props[, analysisunit := factor(analysisunit, levels = c("Unidentified H
 # prcollist <- hcl.colors(n = length(unique(SAV4$ProgramID)), palette = "viridis")
 prcollist_a <- sequential_hcl(length(unique(SAV4$ProgramName)), palette = "YlOrRd")
 prcollist_b <- sequential_hcl(length(unique(SAV4$ProgramName)), palette = "YlGnBu", rev = TRUE)
-prcollist <- append(prcollist_a[which(seq(1, length(prcollist_a)) %% 2 == 0)], 
+prcollist <- append(prcollist_a[which(seq(1, length(prcollist_a)) %% 2 == 0)],
                     prcollist_b[which(seq(1, length(prcollist_b)) %% 2 != 0)])
 prcollist <- rev(prcollist)
 set.seed(4691)
-progs <- sample(sort(unique(SAV4$ProgramName)))
-prcols <- setNames(prcollist, progs)
+progs <- sort(unique(SAV4$ProgramName))
+prcols <- setNames(prcollist, sample(progs))
 
 # parameters <- data.table(column = c(as.name("BB_all"), as.name("BB_pct"), as.name("PC"), as.name("PO"), as.name("PA")),
 #                          name = c("Braun Blanquet score", "Median percent cover", "Visual percent cover", "Percent occurrence", "Frequency of occurrence"),
@@ -477,42 +484,42 @@ parameters <- data.table(column = c(as.name("BB_pct"), as.name("PC"), as.name("P
                          type = c("BBpct", "PC", "PA"))
 
 #Managed areas that should have Halophila species combined:
-ma_halspp <- c("Banana River Aquatic Preserve", "Indian River-Malabar to Vero Beach Aquatic Preserve", 
+ma_halspp <- c("Banana River Aquatic Preserve", "Indian River-Malabar to Vero Beach Aquatic Preserve",
                "Indian River-Vero Beach to Ft. Pierce Aquatic Preserve", "Jensen Beach to Jupiter Inlet Aquatic Preserve",
-               "Loxahatchee River-Lake Worth Creek Aquatic Preserve", "Mosquito Lagoon Aquatic Preserve", 
+               "Loxahatchee River-Lake Worth Creek Aquatic Preserve", "Mosquito Lagoon Aquatic Preserve",
                "Biscayne Bay Aquatic Preserve", "Florida Keys National Marine Sanctuary")
 
 #save summary stats file
 stats_pct <- SAV4[ManagedAreaName %in% ma_halspp, ] %>%
   group_by(ManagedAreaName, analysisunit) %>%
-  summarize(ParameterName="Median percent cover (from BB scores)",
-            N_Programs=length(unique(ProgramID)),
-            Programs=paste(sort(unique(ProgramName), decreasing=FALSE),
+  reframe(ParameterName="Median percent cover (from BB scores)",
+          N_Programs=length(unique(ProgramID)),
+          Programs=paste(sort(unique(ProgramName), decreasing=FALSE),
+                         collapse=', '),
+          ProgramIDs=paste(sort(unique(ProgramID), decreasing=FALSE),
                            collapse=', '),
-            ProgramIDs=paste(sort(unique(ProgramID), decreasing=FALSE),
-                             collapse=', '),
-            N_Data=length(BB_pct[!is.na(BB_pct)]),
-            N_Years=length(unique(Year[!is.na(Year) & !is.na(BB_pct)])),
-            EarliestYear=ifelse(all(is.na(BB_pct)), NA_integer_,
-                                min(Year[!is.na(BB_pct)], na.rm = TRUE)),
-            LatestYear=ifelse(all(is.na(BB_pct)), NA_integer_,
-                              max(Year[!is.na(BB_pct)], na.rm = TRUE)),
-            SufficientData=ifelse(N_Data>0 & N_Years>=5, TRUE, FALSE), .groups = "keep")
+          N_Data=length(BB_pct[!is.na(BB_pct)]),
+          N_Years=length(unique(Year[!is.na(Year) & !is.na(BB_pct)])),
+          EarliestYear=ifelse(all(is.na(BB_pct)), NA_integer_,
+                              min(Year[!is.na(BB_pct)], na.rm = TRUE)),
+          LatestYear=ifelse(all(is.na(BB_pct)), NA_integer_,
+                            max(Year[!is.na(BB_pct)], na.rm = TRUE)),
+          SufficientData=ifelse(N_Data>0 & N_Years>=5, TRUE, FALSE))
 stats_pct2 <- SAV4[ManagedAreaName %in% setdiff(unique(SAV4$ManagedAreaName), ma_halspp), ] %>%
   group_by(ManagedAreaName, analysisunit_halid) %>%
-  summarize(ParameterName="Median percent cover (from BB scores)",
-            N_Programs=length(unique(ProgramID)),
-            Programs=paste(sort(unique(ProgramName), decreasing=FALSE),
+  reframe(ParameterName="Median percent cover (from BB scores)",
+          N_Programs=length(unique(ProgramID)),
+          Programs=paste(sort(unique(ProgramName), decreasing=FALSE),
+                         collapse=', '),
+          ProgramIDs=paste(sort(unique(ProgramID), decreasing=FALSE),
                            collapse=', '),
-            ProgramIDs=paste(sort(unique(ProgramID), decreasing=FALSE),
-                             collapse=', '),
-            N_Data=length(BB_pct[!is.na(BB_pct)]),
-            N_Years=length(unique(Year[!is.na(Year) & !is.na(BB_pct)])),
-            EarliestYear=ifelse(all(is.na(BB_pct)), NA_integer_,
-                                min(Year[!is.na(BB_pct)], na.rm = TRUE)),
-            LatestYear=ifelse(all(is.na(BB_pct)), NA_integer_,
-                              max(Year[!is.na(BB_pct)], na.rm = TRUE)),
-            SufficientData=ifelse(N_Data>0 & N_Years>=5, TRUE, FALSE), .groups = "keep")
+          N_Data=length(BB_pct[!is.na(BB_pct)]),
+          N_Years=length(unique(Year[!is.na(Year) & !is.na(BB_pct)])),
+          EarliestYear=ifelse(all(is.na(BB_pct)), NA_integer_,
+                              min(Year[!is.na(BB_pct)], na.rm = TRUE)),
+          LatestYear=ifelse(all(is.na(BB_pct)), NA_integer_,
+                            max(Year[!is.na(BB_pct)], na.rm = TRUE)),
+          SufficientData=ifelse(N_Data>0 & N_Years>=5, TRUE, FALSE))
 setDT(stats_pct2)
 setnames(stats_pct2, "analysisunit_halid", "analysisunit")
 stats_pct <- distinct(rbind(stats_pct, stats_pct2))
@@ -524,30 +531,30 @@ data.table::fwrite(stats_pct, "output/SAV_BBpct_Stats.txt", sep = "|")
 
 stats_pa <- SAV4[ManagedAreaName %in% ma_halspp, ] %>%
   group_by(ManagedAreaName, analysisunit) %>%
-  summarize(ParameterName="Frequency of occurrence",
-            N_Programs=length(unique(ProgramID)),
-            Programs=paste(sort(unique(ProgramName), decreasing=FALSE),
+  reframe(ParameterName="Frequency of occurrence",
+          N_Programs=length(unique(ProgramID)),
+          Programs=paste(sort(unique(ProgramName), decreasing=FALSE),
+                         collapse=', '),
+          ProgramIDs=paste(sort(unique(ProgramID), decreasing=FALSE),
                            collapse=', '),
-            ProgramIDs=paste(sort(unique(ProgramID), decreasing=FALSE),
-                             collapse=', '),
-            N_Data=length(PA[!is.na(PA)]),
-            N_Years=length(unique(Year[!is.na(Year) & !is.na(PA)])),
-            EarliestYear=min(Year[!is.na(PA)]),
-            LatestYear=max(Year[!is.na(PA)]),
-            SufficientData=ifelse(N_Data>0 & N_Years>=5, TRUE, FALSE), .groups = "keep")
+          N_Data=length(PA[!is.na(PA)]),
+          N_Years=length(unique(Year[!is.na(Year) & !is.na(PA)])),
+          EarliestYear=min(Year[!is.na(PA)]),
+          LatestYear=max(Year[!is.na(PA)]),
+          SufficientData=ifelse(N_Data>0 & N_Years>=5, TRUE, FALSE))
 stats_pa2 <- SAV4[ManagedAreaName %in% setdiff(unique(SAV4$ManagedAreaName), ma_halspp), ] %>%
   group_by(ManagedAreaName, analysisunit_halid) %>%
-  summarize(ParameterName="Frequency of occurrence",
-            N_Programs=length(unique(ProgramID)),
-            Programs=paste(sort(unique(ProgramName), decreasing=FALSE),
+  reframe(ParameterName="Frequency of occurrence",
+          N_Programs=length(unique(ProgramID)),
+          Programs=paste(sort(unique(ProgramName), decreasing=FALSE),
+                         collapse=', '),
+          ProgramIDs=paste(sort(unique(ProgramID), decreasing=FALSE),
                            collapse=', '),
-            ProgramIDs=paste(sort(unique(ProgramID), decreasing=FALSE),
-                             collapse=', '),
-            N_Data=length(PA[!is.na(PA)]),
-            N_Years=length(unique(Year[!is.na(Year) & !is.na(PA)])),
-            EarliestYear=min(Year[!is.na(PA)]),
-            LatestYear=max(Year[!is.na(PA)]),
-            SufficientData=ifelse(N_Data>0 & N_Years>=5, TRUE, FALSE), .groups = "keep")
+          N_Data=length(PA[!is.na(PA)]),
+          N_Years=length(unique(Year[!is.na(Year) & !is.na(PA)])),
+          EarliestYear=min(Year[!is.na(PA)]),
+          LatestYear=max(Year[!is.na(PA)]),
+          SufficientData=ifelse(N_Data>0 & N_Years>=5, TRUE, FALSE))
 setDT(stats_pa2)
 setnames(stats_pa2, "analysisunit_halid", "analysisunit")
 stats_pa <- distinct(rbind(stats_pa, stats_pa2))
@@ -577,24 +584,24 @@ set.seed(seed)
 data_directory <- list()
 
 for(p in parameters$column){
-  
+
   cat(paste0("\nStarting indicator: ", p, "\n"))
-  
+
   #List managed areas with at least 5 years of data
-  nyears <- SAV4[!is.na(eval(p)) & !is.na(analysisunit), ] %>% group_by(ManagedAreaName, analysisunit) %>% summarize(type = paste0(p), nyr = length(unique(Year)))
-  nyears2 <- SAV4[!is.na(eval(p)) & !is.na(analysisunit_halid), ] %>% group_by(ManagedAreaName, analysisunit_halid) %>% summarize(type = paste0(p), nyr = length(unique(Year)))
+  nyears <- SAV4[!is.na(eval(p)) & !is.na(analysisunit), ] %>% group_by(ManagedAreaName, analysisunit) %>% reframe(type = paste0(p), nyr = length(unique(Year)))
+  nyears2 <- SAV4[!is.na(eval(p)) & !is.na(analysisunit_halid), ] %>% group_by(ManagedAreaName, analysisunit_halid) %>% reframe(type = paste0(p), nyr = length(unique(Year)))
   setDT(nyears2)
   setnames(nyears2, "analysisunit_halid", "analysisunit")
   nyears <- distinct(rbind(nyears, nyears2))
   ma_include <- unique(subset(nyears, nyears$nyr >= 5)$ManagedAreaName)
-  
+
   #For each managed area, make sure there are multiple levels of BB scores per species; remove ones that don't from further consideration.
   for(i in ma_include){
-    
+
     ma_abrev <- MA_All %>% filter(ManagedAreaName==i) %>% pull(Abbreviation)
     
     cat(paste0("\nStarting MA: ", i, "\n"))
-    
+
     #create data exploration plots-----------------------------------------------------
     if(str_detect(EDA, "plots")){
       for(plot_type in plot_names){
@@ -605,14 +612,14 @@ for(p in parameters$column){
         # Run EDA plot function (exports .png into EDA output folder)
         plot_eda(plot_type, p, i)
       }
-      
+
       #Create and save the hist objects---------------------------------------------------
       # for(a in setdiff(unique(SAV4[ManagedAreaName == i & !is.na(eval(p)), analysisunit]), c("Total seagrass", "Attached algae", "Drift algae"))){
       #   dat <- SAV4[ManagedAreaName == i & !is.na(eval(p)) & analysisunit == a, ]
-      #   
+      #
       #   plot <- ggplot(data = dat, aes(x = Year, fill = analysisunit)) +
       #     geom_bar() +
-      #     scale_color_manual(values = subset(spcols, names(spcols) %in% unique(SAV4[ManagedAreaName == i & !is.na(eval(p)), analysisunit])), 
+      #     scale_color_manual(values = subset(spcols, names(spcols) %in% unique(SAV4[ManagedAreaName == i & !is.na(eval(p)), analysisunit])),
       #                        aesthetics = c("color", "fill")) +
       #     scale_x_continuous(limits = c(min(dat$Year - 1), max(dat$Year + 1))) +
       #     labs(y="Frequency of data", x="Year") +
@@ -620,16 +627,16 @@ for(p in parameters$column){
       #           axis.title = element_blank(),
       #           axis.text = element_text(size = 7),
       #           legend.position = "none")
-      #   
-      #   ggsave(plot, filename = paste0(eda_output_path, "SAV_", parameters[column == p, type], 
+      #
+      #   ggsave(plot, filename = paste0(eda_output_path, "SAV_", parameters[column == p, type],
       #                                  "_", ma_abrev, "_hist_", gsub(" ", "", a), ".png"))
       # }
-      # 
+      #
       # dat <- filter(SAV4[ManagedAreaName == i & !is.na(eval(p)), ], analysisunit %in% c("Total seagrass", "Attached algae", "Drift algae"))
-      # 
+      #
       # plot <- ggplot(data = dat, aes(x = Year, fill = analysisunit)) +
       #   geom_bar() +
-      #   scale_color_manual(values = subset(spcols, names(spcols) %in% unique(dat$analysisunit)), 
+      #   scale_color_manual(values = subset(spcols, names(spcols) %in% unique(dat$analysisunit)),
       #                      aesthetics = c("color", "fill")) +
       #   scale_x_continuous(limits = c(min(dat$Year - 1), max(dat$Year + 1))) +
       #   labs(y="Frequency of data", x="Year") +
@@ -637,16 +644,16 @@ for(p in parameters$column){
       #         axis.text = element_text(size = 7),
       #         legend.position = "none",
       #         legend.title = element_blank())
-      # 
-      # ggsave(plot, filename = paste0(eda_output_path, "SAV_", parameters[column == p, type], 
+      #
+      # ggsave(plot, filename = paste0(eda_output_path, "SAV_", parameters[column == p, type],
       #                                "_", ma_abrev, "_hist_SGvMA.png"))
       #Create and save the boxplot objects--------------------------------------------------
       # for(b in setdiff(unique(SAV4[ManagedAreaName == i & !is.na(eval(p)), analysisunit]), c("Total seagrass", "Attached algae", "Drift algae"))){
       #   dat <- filter(SAV4[ManagedAreaName == i & !is.na(eval(p)), ], analysisunit == b)
-      #   
+      #
       #   plot <- ggplot(data = dat, aes(group=Year, x = Year, y = eval(p), color = analysisunit)) +
       #     geom_boxplot() +
-      #     scale_color_manual(values = subset(spcols, names(spcols) %in% unique(SAV4[ManagedAreaName == i & !is.na(eval(p)), analysisunit])), 
+      #     scale_color_manual(values = subset(spcols, names(spcols) %in% unique(SAV4[ManagedAreaName == i & !is.na(eval(p)), analysisunit])),
       #                        aesthetics = c("color", "fill")) +
       #     scale_x_continuous(limits = c(min(dat$Year - 1), max(dat$Year + 1))) +
       #     labs(y = parameters[column == p, name], x = "Year") +
@@ -654,44 +661,44 @@ for(p in parameters$column){
       #           axis.title = element_blank(),
       #           axis.text = element_text(size = 7),
       #           legend.position = "none")
-      #   
-      #   ggsave(plot, filename = paste0(eda_output_path, "SAV_", parameters[column == p, type], 
+      #
+      #   ggsave(plot, filename = paste0(eda_output_path, "SAV_", parameters[column == p, type],
       #                                  "_", ma_abrev, "_boxplot_", gsub(" ", "", b), ".png"))
       # }
       # dat <- filter(SAV4[ManagedAreaName == i & !is.na(eval(p)), ], analysisunit %in% c("Total seagrass", "Attached algae", "Drift algae"))
-      # 
+      #
       # plot <- ggplot(data = dat, aes(x = as.factor(Year), y = eval(p), color = analysisunit)) +
       #   geom_boxplot() +
-      #   scale_color_manual(values = subset(spcols, names(spcols) %in% unique(dat$analysisunit)), 
+      #   scale_color_manual(values = subset(spcols, names(spcols) %in% unique(dat$analysisunit)),
       #                      aesthetics = c("color", "fill")) +
       #   labs(y = parameters[column == p, name], x = "Year") +
       #   theme(axis.text.x = element_text(angle = 45, hjust = 1),
       #         axis.text = element_text(size = 7),
       #         legend.position = "none",
       #         legend.title = element_blank())
-      # 
-      # ggsave(plot, filename = paste0(eda_output_path, "SAV_", parameters[column == p, type], 
+      #
+      # ggsave(plot, filename = paste0(eda_output_path, "SAV_", parameters[column == p, type],
       #                                "_", ma_abrev, "_boxplot_SGvMA.png"))
     }
-    
+
     if("none" %in% Analyses){
       if(p == parameters$column[length(parameters$column)] & i == ma_include[length(ma_include)]){
         toc()
       }
       next
-    } 
-    
+    }
+
     if(i %in% ma_halspp){
-      species <- subset(nyears, nyears$ManagedAreaName == i & nyears$nyr >= 5 & analysisunit %in% c("Attached algae", "Drift algae", "Halophila spp.", "Syringodium filiforme", 
-                                                                                                    "Halodule wrightii", "Total seagrass", "Total SAV", "Thalassia testudinum", 
+      species <- subset(nyears, nyears$ManagedAreaName == i & nyears$nyr >= 5 & analysisunit %in% c("Attached algae", "Drift algae", "Halophila spp.", "Syringodium filiforme",
+                                                                                                    "Halodule wrightii", "Total seagrass", "Total SAV", "Thalassia testudinum",
                                                                                                     "Ruppia maritima"))$analysisunit
     } else{
-      species <- subset(nyears, nyears$ManagedAreaName == i & nyears$nyr >= 5 & analysisunit %in% c("Attached algae", "Drift algae", "Unidentified Halophila", 
-                                                                                                    "Halophila johnsonii", "Syringodium filiforme", "Halophila decipiens", 
-                                                                                                    "Halodule wrightii", "Halophila engelmannii", "Total seagrass", "Total SAV", 
+      species <- subset(nyears, nyears$ManagedAreaName == i & nyears$nyr >= 5 & analysisunit %in% c("Attached algae", "Drift algae", "Unidentified Halophila",
+                                                                                                    "Halophila johnsonii", "Syringodium filiforme", "Halophila decipiens",
+                                                                                                    "Halodule wrightii", "Halophila engelmannii", "Total seagrass", "Total SAV",
                                                                                                     "Thalassia testudinum", "Ruppia maritima"))$analysisunit
     }
-    
+
     #Create data.tables to hold model results for managed area i----------------------------------------------------
     lmemodresults <- data.table(managed_area = character(),
                                 species = character(),
@@ -704,36 +711,36 @@ for(p in parameters$column){
                                 df = numeric(),
                                 statistic = numeric(),
                                 p.value = numeric())
-    
-    
+
+
     #In case model doesn't converge on the first try, attempt each model up to 5 times before moving on
     for(j in species){
-      
+
       cat(paste0("\n  Starting species: ", j, "\n"))
-      
+
       if(paste0(p) %in% c("BB_pct", "PC") & ("BB_pct" %in% Analyses | "PC" %in% Analyses)){
-        
+
         formula_j <- as.formula(paste0(p, " ~ relyear"))
-        
+
         set.seed(seed + n)
         if(j %in% setdiff(unique(SAV4$analysisunit_halid), unique(SAV4$analysisunit))){
           model_j <- try(lme(formula_j,
                              random = list(SiteIdentifier = ~relyear),
                              control = list(msMaxIter = 1000, msMaxEval = 1000, sing.tol=1e-20),
-                             na.action = na.omit, 
-                             data = SAV4[ManagedAreaName == i & !is.na(eval(p)) & analysisunit_halid == j, ]), 
+                             na.action = na.omit,
+                             data = SAV4[ManagedAreaName == i & !is.na(eval(p)) & analysisunit_halid == j, ]),
                          silent = TRUE)
           n <- n + 1
           x <- 0
-          
+
           while(class(model_j) == "try-error" & x < 5){
             if(x %% 25 == 0) print(paste0("    Model failed, starting attempt ", x, " of 5"))
-            
+
             set.seed(seed + n)
             model_j <- try(lme(formula_j,
                                random = list(SiteIdentifier = ~relyear),
                                control = list(msMaxIter = 1000, msMaxEval = 1000, sing.tol=1e-20),
-                               na.action = na.omit, 
+                               na.action = na.omit,
                                data = SAV4[ManagedAreaName == i & !is.na(eval(p)) & analysisunit_halid == j, ]),
                            silent = TRUE)
             n <- n + 1
@@ -743,64 +750,64 @@ for(p in parameters$column){
           model_j <- try(lme(formula_j,
                              random = list(SiteIdentifier = ~relyear),
                              control = list(msMaxIter = 1000, msMaxEval = 1000, sing.tol=1e-20),
-                             na.action = na.omit, 
-                             data = SAV4[ManagedAreaName == i & !is.na(eval(p)) & analysisunit == j, ]), 
+                             na.action = na.omit,
+                             data = SAV4[ManagedAreaName == i & !is.na(eval(p)) & analysisunit == j, ]),
                          silent = TRUE)
           n <- n + 1
           x <- 0
-          
+
           while(class(model_j) == "try-error" & x < 5){
             if(x %% 25 == 0) print(paste0("    Model failed, starting attempt ", x, " of 5"))
-            
+
             set.seed(seed + n)
             model_j <- try(lme(formula_j,
                                random = list(SiteIdentifier = ~relyear),
                                control = list(msMaxIter = 1000, msMaxEval = 1000, sing.tol=1e-20),
-                               na.action = na.omit, 
+                               na.action = na.omit,
                                data = SAV4[ManagedAreaName == i & !is.na(eval(p)) & analysisunit == j, ]),
                            silent = TRUE)
             n <- n + 1
             x <- x + 1
           }
         }
-        
+
         short_model_name <- gsub('\\b(\\p{Lu}\\p{Ll})|.','\\1', str_to_title(j), perl = TRUE)
-        
+
         #Save the model object as .rds
-        saveRDS(model_j, paste0("output/models/SAV_", parameters[column == p, type], "_", 
+        saveRDS(model_j, paste0("output/models/SAV_", parameters[column == p, type], "_",
                                            ma_abrev, "_",
-                                           short_model_name, 
+                                           short_model_name,
                                            ".rds"))
-        
-        print(paste0("  Model object saved: ", 
-                     ma_abrev, 
-                     "_", 
+
+        print(paste0("  Model object saved: ",
+                     ma_abrev,
+                     "_",
                      short_model_name))
-        
+
         #record lme model results------------------------------------------------------
         if(class(try(eval(model_j), silent = TRUE)) != "try-error"){
           # append only the successful models to data_directory object
           data_directory[[ma_abrev]][[p]][[short_model_name]] <- model_j
-          
+
           modj_i <- setDT(broom.mixed::tidy(eval(model_j)))
           modj_i[, `:=` (managed_area = i,
                          species = j,
-                         filename = paste0("SAV_", parameters[column == p, type], "_", 
+                         filename = paste0("SAV_", parameters[column == p, type], "_",
                                            ma_abrev, "_",
                                            short_model_name, ".rds"))]
           lmemodresults <- rbind(lmemodresults, modj_i)
-          
+
         } else{
           failedmod <- data.table(model = paste0("SAV_", parameters[column == p, type], "_",
                                                  ma_abrev, "_",
                                                  short_model_name, ".rds"),
                                   error = model_j[1])
-          
+
           failedmods <- rbind(failedmods, failedmod)
-          
+
           modj_i <- data.table(managed_area = i,
                                species = j,
-                               filename = paste0("SAV_", parameters[column == p, type], "_", 
+                               filename = paste0("SAV_", parameters[column == p, type], "_",
                                                  ma_abrev, "_",
                                                  short_model_name, ".rds"),
                                effect = NA,
@@ -814,18 +821,18 @@ for(p in parameters$column){
           lmemodresults <- rbind(lmemodresults, modj_i)
         }
       }
-      
+
       #Indicator == "BB_all"------------------------------------------------------
       if(paste0(p) == "BB_all" & "BB_all" %in% Analyses) next
-      
+
       #Indicator == "PO"--------------------------------------------------------
       if(paste0(p) == "PO" & "PO" %in% Analyses) next #Temporarily blocking the percent occurrence analyses because the binomial model doesn't seem to fit the data very well. Will probably have to figure something else out.
-      
-      
+
+
       #Indicator == "PA"------------------------------------------------------------
       if(paste0(p) == "PA" & "PA" %in% Analyses) next
     }
-    
+
     #Final results tables and plots--------------------------------------------------------------------
     ## Trend plots
     if(paste0(p) %in% c("BB_pct", "PC") & ("BB_pct" %in% Analyses | "PC" %in% Analyses)){
@@ -839,10 +846,10 @@ for(p in parameters$column){
       setDT(plotdat)
       setnames(plotdat, "eval(p)", "data")
       aucol <- names(plotdat[,1])
-      
+
       # declaring available models
       models <- data_directory[[ma_abrev]][[as.character(p)]]
-      
+
       miny <- c()
       for(v in seq_along(models)){
         miny_v <- try(predict(eval(models[[v]]), level = 0), silent = TRUE)
@@ -850,7 +857,7 @@ for(p in parameters$column){
         miny <- append(miny, min(miny_v))
       }
       miny <- ifelse(floor(min(miny)) < 0, floor(min(miny)), 0)
-      
+
       # Scale x-axis data
       breaks_seq <- seq(from = min(plotdat$relyear),
                         to = max(plotdat$relyear),
@@ -858,14 +865,14 @@ for(p in parameters$column){
       labels_seq <- seq(from = min(plotdat$Year),
                         to = max(plotdat$Year),
                         by = 3)
-      
+
       # Exclude "No grass in Quadrat" from plots
       plotdat <- plotdat[!eval(as.name(aucol)) == "No grass in quadrat"]
-      
+
       #create base plot of seagrass percent cover data over time for managed area i
       plot_i <- ggplot(data = droplevels(plotdat),
                        aes(x = relyear, y = data)) +
-        labs(title = parameters[column == p, name], 
+        labs(title = parameters[column == p, name],
              subtitle = i,
              x = "Year",
              y = parameters[column == p, name],
@@ -875,13 +882,13 @@ for(p in parameters$column){
         ylim(miny, 100) +
         scale_x_continuous(breaks = breaks_seq, labels = labels_seq) +
         scale_colour_manual(values = spcols)
-      
+
       #create second base plot to feature scatter points and make facetted multi-plots
       plot_i_2 <- ggplot(data = droplevels(plotdat),
                          aes(x = relyear, y = data, fill = npt)) +
         geom_point(shape = 21, alpha = 0.9, color = "grey50") +
         geom_hline(yintercept = 0, color = "grey10", lwd = 0.5) +
-        labs(title = parameters[column == p, name], 
+        labs(title = parameters[column == p, name],
              subtitle = i,
              x = "Year",
              y = parameters[column == p, name],
@@ -890,37 +897,37 @@ for(p in parameters$column){
         ylim(miny, 100) +
         scale_fill_continuous_sequential(palette = "YlGnBu") +
         scale_x_continuous(breaks = breaks_seq, labels = labels_seq)
-      
+
       if(length(models) > 0){
         #make sure that no failed models slipped through
         classes <- lapply(models, function(x) class(eval(x)))
         models <- models[classes != "try-error"]
-        
+
         # trendlines single plot (addfits function)
         plot_i <- addfits(models, plot_i, p)
-        
+
         # trendlines multi-plot (addfits_blacktrendlines function)
         aucol <- as.name(names(plot_i_2$data)[1])
-        
+
         # modify_species_labels changes scientific into common if needed
         # also replaces "Unidentified Halophila" with "Halophila, unk."
         plot_i_2 <- addfits_multiplots(models, plot_i_2, p, aucol)
       }
-      
+
       #Save the single plot object as .rds
       saveRDS(plot_i, paste0("output/Figures/BB/SAV_", parameters[column == p, type], "_",
                              paste0(str_sub(ma_abrev, 1, -1), "_trendplot.rds")))
-      
+
       #Save the multi plot object as .rds
       saveRDS(plot_i_2, paste0("output/Figures/BB/SAV_", parameters[column == p, type], "_",
                                paste0(str_sub(ma_abrev, 1, -1), "_multiplot.rds")))
-      
+
       #Save the results table objects as .rds
       saveRDS(lmemodresults, paste0("output/tables/SAV/SAV_", parameters[column == p, type], "_",
                                     paste0(str_sub(ma_abrev, 1, -1), "_lmeresults.rds")))
-      
+
     }
-    
+
     ### Bar Plots ###
     if(paste0(p) == "PA" & "PA" %in% Analyses){
       #Bar chart of proportions by analysisunit
@@ -928,22 +935,22 @@ for(p in parameters$column){
                       max(SAV4[ManagedAreaName == i & !is.na(PA), relyear]),
                       by = 2))
       yrlist <- sort(unique(SAV4$Year))
-      
+
       labels <- c()
       for(b in breaks){
         labels <- append(labels, yrlist[b + 1])
       }
-      
+
       if(i %in% ma_halspp){
-        
+
         bpdat <- props[ManagedAreaName == i & !is.na(analysisunit) & str_detect(analysisunit, "decipiens|engelmannii|johnsonii|Unidentified|Star|Paddle|Johnson", negate = TRUE), ]
-        
+
         sp_list <- unique(bpdat$analysisunit)
         sp_list <- sp_list[order(match(sp_list, names(spcols)))]
-        
+
         # add color scale, determining if scientific or common names
         sp_labels <- modify_species_labels(sp_list, usenames)
-        
+
         barplot_sp <- ggplot(data = bpdat, aes(x = relyear, y = sp_pct, fill = analysisunit)) +
           geom_col(color = "grey20") +
           scale_x_continuous(breaks = breaks, labels = labels) +
@@ -956,15 +963,15 @@ for(p in parameters$column){
                              labels = sp_labels,
                              aesthetics = c("color", "fill"))
       } else{
-        
+
         bpdat <- props[ManagedAreaName == i & !is.na(analysisunit) & analysisunit != "Halophila spp.", ]
-        
+
         sp_list <- unique(bpdat$analysisunit)
         sp_list <- sp_list[order(match(sp_list, names(spcols)))]
-        
+
         # add color scale, determining if scientific or common names
         sp_labels <- modify_species_labels(sp_list, usenames)
-        
+
         barplot_sp <- ggplot(data = bpdat, aes(x = relyear, y = sp_pct, fill = analysisunit)) +
           geom_col(color = "grey20") +
           scale_x_continuous(breaks = breaks, labels = labels) +
@@ -977,11 +984,11 @@ for(p in parameters$column){
                              labels = sp_labels,
                              aesthetics = c("color", "fill"))
       }
-      
+
       saveRDS(barplot_sp, paste0("output/Figures/BB/SAV_", parameters[column == p, type], "_",
                                  ma_abrev, "_barplot_sp.rds"))
     }
-    
+
     print(paste0("  Plot objects and results tables saved: ",
                  ma_abrev,
                  "_",
@@ -1017,11 +1024,11 @@ plot_types <- c("multiplot","trendplot","barplot")
 
 for(plot_type in plot_types){
   file_subset <- str_subset(files, plot_type)
-  
+
   if(plot_type %in% c("trendplot","multiplot")){
     file_subset <- str_subset(file_subset, "_BBpct_")
   }
-  
+
   for(file in file_subset){
     plot <- readRDS(paste0("output/Figures/BB/",file))
     plot <- plot + SEACAR::SEACAR_plot_theme()
@@ -1041,11 +1048,11 @@ for(plot_type in plot_types){
     } else {
       h <- 8
     }
-    
+
     # Set width and resolution
     w <- 8
     r <- 200
-    
+
     png(paste0("output/website/images/",plot_type,"s/", str_sub(file, 1, -5),".png"),
         width = w,
         height = h,
@@ -1053,7 +1060,7 @@ for(plot_type in plot_types){
         res = r)
     print(plot)
     print(paste0(str_sub(file, 1, -5), ".png exported"))
-    
+
     dev.off()
   }
 }
@@ -1067,7 +1074,7 @@ setwd(wd)
 fig_list <- list.files("output/website/images/", full = FALSE, recursive = TRUE)
 fig_list <- str_subset(fig_list, "multiplots/")
 setwd("output/website/images/")
-zip(zipfile=paste0("../SAVFigures_",usenames), 
+zip(zipfile=paste0("../SAVFigures_",usenames),
     files=fig_list)
 setwd(wd)
 

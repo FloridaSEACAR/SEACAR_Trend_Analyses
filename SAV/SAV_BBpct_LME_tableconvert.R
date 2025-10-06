@@ -47,8 +47,7 @@ output$StatisticalTrend <- ifelse(output$p <= 0.05 & output$LME_Slope > 0, "Sign
 setnames(output, c("managed_area", "species"), c("ManagedAreaName", "Species"))
 
 #Loads data file with list on managed area names and corresponding area IDs and short names
-MA_All <- fread("data/ManagedArea.csv", sep = ",", header = TRUE, stringsAsFactors = FALSE,
-                na.strings = "")
+MA_All <- SEACAR::ManagedAreas
 
 stats <- fread("output/SAV_BBpct_Stats.txt", sep = "|", header = TRUE, stringsAsFactors = FALSE,
                na.strings = "")

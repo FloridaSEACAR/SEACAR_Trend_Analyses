@@ -17,6 +17,9 @@ library(sf)
 # Load shape files from load_shape_files.R
 source("load_shape_files.R", echo = T)
 
+# Create directory to store .rds objects for each plot
+if(!file.exists("output/SAV_temporal_scope_plots/rds/")) dir.create("output/SAV_temporal_scope_plots/rds/")
+
 # set size of plot points
 pt_size <- 3
 
@@ -95,8 +98,12 @@ MA_All <- SEACAR::ManagedAreas
 #Create map(s) for the managed area-------------------------------------------
 
 for (i in unique(SAV4$ManagedAreaName)){
-# for (i in c("Alligator Harbor Aquatic Preserve")){
-
+  # Determine unique programs for MA
+  progs <- SAV4[ManagedAreaName == i & !is.na(BB_pct), unique(ProgramName)]
+  # Set palette for these programs
+  color_pal <- prcollist[round(seq(1, length(prcollist), length.out = length(progs)))]
+  names(color_pal) <- progs
+  
   ma_abrev <- MA_All %>% filter(ManagedAreaName==i) %>% pull(Abbreviation)
 
   fl_i <- st_crop(counties,
@@ -252,8 +259,9 @@ for (i in unique(SAV4$ManagedAreaName)){
     geom_sf(data = rotate_sf(narrow, ma = i, coast = corners[LONG_NAME == i, Coast[1]]), color = "grey50", linewidth = 1, inherit.aes = FALSE) +
     geom_sf_text(data = rotate_sf(sbarlab, ma = i, coast = corners[LONG_NAME == i, Coast[1]]), label = ifelse(wkm < 20, "3 km", ifelse(wkm < 50, "5 km", "10 km")), hjust = 0.5, angle = 4, color = "grey50", size = 3.5, inherit.aes = FALSE) +
     geom_sf_text(data = rotate_sf(narlab, ma = i, coast = corners[LONG_NAME == i, Coast[1]]), label = "N", hjust = 0.7, angle = 4, color = "grey50", size = 3.5, inherit.aes = FALSE) +
-    scale_color_manual(values = subset(prcols, names(prcols) %in% unique(SAV4[ManagedAreaName == i & !is.na(BB_pct), ProgramName])),
-                       aesthetics = c("color", "fill")) +
+    scale_color_manual(values = color_pal, aesthetics = c("color", "fill")) +
+    # scale_color_manual(values = subset(prcols, names(prcols) %in% unique(SAV4[ManagedAreaName == i & !is.na(BB_pct), ProgramName])),
+    #                    aesthetics = c("color", "fill")) +
     labs(title = paste0(i),
          subtitle = "SAV Percent Cover - Sample Locations",
          fill = "Program name", color = "Program name") +

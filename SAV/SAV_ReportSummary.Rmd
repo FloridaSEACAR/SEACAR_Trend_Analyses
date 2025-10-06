@@ -41,7 +41,7 @@ library(glue)
 # SAV Results
 sav_results <- fread("output/website/SAV_BBpct_LMEresults_All.txt")
 sav_results$`Period of Record` <- ifelse(is.na(sav_results$LME_Intercept), NA, paste0(sav_results$EarliestYear, " - ", sav_results$LatestYear))
-sav_results <- sav_results %>% rename(
+sav_results <- sav_results %>% dplyr::rename(
   "LME Intercept" = LME_Intercept,
   "LME Slope" = LME_Slope,
   "Statistical Trend" = StatisticalTrend
@@ -71,12 +71,13 @@ for(ma in unique(sav_results$ManagedAreaName)){
     }
     
     plot_loc <- locate_plots(sav_plot_locs, ma_abrev, plot_type)
+    if(length(plot_loc)==0) next
     cat("  \n")
     SEACAR::subchunkify(cat("![", fig_caption, "](", plot_loc,")"))
     cat("  \n")
     # Add stats table beneath "multiplots"
     if(plot_type=="multiplots"){
-      sav_subset <- sav_results[ManagedAreaName==ma, 
+      sav_subset <- sav_results[ManagedAreaName==ma & Species!="No grass in quadrat", 
                                 c("Species","Statistical Trend","Period of Record","LME Intercept","LME Slope","p")]
       cat("  \n")
       display_table <- knitr::kable(sav_subset, format = tableFormat,
@@ -92,6 +93,7 @@ for(ma in unique(sav_results$ManagedAreaName)){
     }
   }
   map_loc <- str_subset(sav_map_locs, paste0("_",ma_abrev,"_"))
+  if(length(map_loc)==0) next
   cat("  \n")
   caption <- paste0("Map showing SAV sampling sites within the boundaries of *", 
                     ma, "*. The point size reflects the number of samples at a given sampling site.  \n")
