@@ -28,56 +28,23 @@ wd <- dirname(getActiveDocumentContext()$path)
 setwd(wd)
 
 # SEACAR plot standards
-plot_theme <- theme_bw() +
-  theme(panel.grid.major = element_blank(),
-        panel.grid.minor = element_blank(),
-        text=element_text(family="Arial"),
-        plot.title=element_text(hjust=0.5, size=12, color="#314963"),
-        plot.subtitle=element_text(hjust=0.5, size=10, color="#314963"),
-        legend.title=element_text(size=10),
-        legend.text.align = 0,
-        axis.title.x = element_text(size=10, margin = margin(t = 5, r = 0,
-                                                             b = 10, l = 0)),
-        axis.title.y = element_text(size=10, margin = margin(t = 0, r = 10,
-                                                             b = 0, l = 0)),
-        axis.text=element_text(size=10),
-        axis.text.x=element_text(angle = -45, hjust = 0))
+plot_theme <- SEACAR::SEACAR_plot_theme()
 
 # Set up SAV Species palette
-spcollist <- c(
-  "#005396",
-  "#005396",
-  "#0088B1",
-  "#00ADAE",
-  "#65CCB3",
-  "#AEE4C1",
-  "#FDEBA8",
-  "#F8CD6D",
-  "#F5A800",
-  "#F17B00",
-  "#900667",
-  "#000099"
-)
-spp <- c("Halophila spp.","Unidentified Halophila","Halophila johnsonii","Syringodium filiforme","Halophila decipiens","Halodule wrightii",
-         "Halophila engelmannii","Thalassia testudinum","Ruppia maritima","Attached algae", "Total SAV", "Total seagrass")
-spcols <- setNames(spcollist, spp)
+spcols <- SEACAR::seacar_palette1_sav
 
 # Bring in list of MAs (for abbreviations)
-MA_All <- fread("../MA Report Generation/data/ManagedArea.csv", sep = ",", header = TRUE, stringsAsFactors = FALSE, na.strings = "")
+MA_All <- SEACAR::ManagedAreas
 
 SAV4 <- fread("../SAV/output/SAV_DataUsed.txt")
 SAV4[, monthdate := floor_date(SampleDate, unit = "months")]
 
 SAV4_sum <- distinct(SAV4[, .(BB_allmn = mean(BB_all), BB_allsd = sd(BB_all)), by = list(ManagedAreaName, SiteIdentifier, monthdate, analysisunit)])
 
-samplocs <- st_read("C:/SEACAR Data/SEACARshapes/SampleLocations9sep2024/vw_SampleLocation_Point.shp")
-samplocs <- st_make_valid(samplocs)
-samplocs <- st_transform(samplocs, crs = 4326)
+samplocs <- SEACAR::GeoData$pointLocations %>% st_make_valid %>% st_transform(crs = 4326)
 samplocs_sav <- subset(samplocs, samplocs$LocationID %in% unique(SAV4$LocationID))
 
-linelocs <- st_read("C:/SEACAR Data/SEACARshapes/SampleLocations9sep2024/vw_SampleLocation_Line.shp")
-linelocs <- st_make_valid(linelocs)
-linelocs <- st_transform(linelocs, crs = 4326)
+linelocs <- SEACAR::GeoData$lineLocations %>% st_make_valid %>% st_transform(crs = 4326)
 linelocs_sav <- subset(linelocs, linelocs$LocationID %in% unique(SAV4$LocationID))
 
 linelocs_sav$RawLineStr <- NULL
@@ -92,15 +59,11 @@ sampbuffs <- st_buffer(samplocs3, ifelse(samplocs3$len > minbuff, samplocs3$len,
 #   mapview(sampbuffs, col.regions = "firebrick")
 
 # Load DDI exports of water quality/clarity data
-watdat_exportdate <- "2024-Oct-03"
-watdat_files <- list.files("C:/SEACAR Data/SEACARdata", full.names = TRUE)
-files_toload <- watdat_files[which(str_detect(watdat_files, "Combined_WQ_WC_NUT_") & str_detect(watdat_files, watdat_exportdate))]
-
-# disc <- files_toload %>% 
-#   map_df(~fread(., sep = "|"))
+watdat_files <- list.files("C:/SEACAR Data/SEACARdata", full.names = TRUE, pattern = "Combined_WQ_WC_NUT_")
+watdat_files <- str_subset(watdat_files, "_cont_", negate = T)
 
 disc <- data.table()
-for(file in files_toload){
+for(file in watdat_files){
   df <- fread(file, sep='|', na.strings = "NULL")
   df$OriginalLatitude <- as.double(df$OriginalLatitude)
   df$OriginalLongitude <- as.double(df$OriginalLongitude)
@@ -124,6 +87,7 @@ disc_sav[, ParameterName := fcase(ParameterName == "Chlorophyll a, Corrected for
                                   ParameterName == "Colored Dissolved Organic Matter", "CDOM",
                                   ParameterName == "Dissolved Oxygen", "Dissolved Oxygen",
                                   ParameterName == "Dissolved Oxygen Saturation", "Dissolved Oxygen Saturation",
+                                  ParameterName == "pH", "pH",
                                   ParameterName == "Total Nitrogen", "Total Nitrogen",
                                   ParameterName == "Total Phosphorus", "Total Phosphorus",
                                   ParameterName == "Light Extinction Coefficient", "Light extinction",
@@ -153,6 +117,7 @@ included_params <- c("Chl a",
                      "CDOM",
                      "Dissolved Oxygen",
                      "Dissolved Oxygen Saturation",
+                     "pH",
                      "Salinity",
                      "Secchi depth",
                      "Total Nitrogen",
@@ -182,7 +147,8 @@ for(m in unique(SAV4$MA)){
 # for(m in "Estero Bay Aquatic Preserve"){
   ma_abrev <- MA_All[ManagedAreaName==m, Abbreviation]
   savdat_m <- savdat[ManagedAreaName == m, ]
-  if(nrow(savdat_m) == 0) next
+  if(nrow(savdat_m) == 0) next # skip if no data
+  if(length(unique(savdat_m$Year))<5) next # skip if not enough years of data
   
   # Set height for plots if there is only 1 row of species
   if(length(unique(savdat_m$analysisunit))>3){
@@ -323,17 +289,21 @@ for(m in unique(SAV4$MA)){
                color = "Value type") +
           facet_wrap(~analysisunit)
       } else {
+        # Include units in parameter display, except for pH
+        scale_title <- ifelse(p=="pH", glue("Annual mean {p}"), glue("Annual mean {p} ({axis2units})"))
+        plot_title <- ifelse(p=="pH", glue("{m}<br>{p}"), glue("{m}<br>{p} ({axis2units})"))
+        
         plot_miw <- ggplot() +
           geom_hline(yintercept = 0, color = "grey25", lwd = 0.5) +
           geom_bar(data = savdat_m, aes(x = Year, y = mean), stat = "identity", position = "dodge", fill=bar_color, alpha = 0.5) +
           geom_line(data = watdat_mw, aes(x = Year, y = mean / axis2scale), lty = "solid", color = mean_col, lwd = 1) +
           # geom_point(data = watdat_mw, aes(x = Year, y = mean / axis2scale), shape = 21, color = mean_col, fill = mean_col, size = 1.5) +
-          scale_y_continuous(sec.axis = sec_axis(name = glue("Annual Mean {p} ({axis2units})"),
+          scale_y_continuous(sec.axis = sec_axis(name = scale_title,
                                                  trans = ~. * axis2scale)) +
           plot_theme +
           labs(x = "Year", 
                y = "Annual Mean Braun Blanquet Score", 
-               title = glue("{m}<br>{p} ({axis2units})"),
+               title = plot_title,
                subtitle = "Limited to Growing Season (Apr - Oct)",
                fill = "Species",
                color = "Parameter") +
@@ -399,7 +369,7 @@ writeDataTable(wb, "SAV", sav_results, tableStyle = "TableStyleLight18")
 writeDataTable(wb, "WQ_ProgramInfo", program_data_wq, tableStyle = "TableStyleLight16")
 writeDataTable(wb, "SAV_ProgramInfo", program_data_sav, tableStyle = "TableStyleLight18")
 # Save excel file
-saveWorkbook(wb, file = paste0("output/tables/SAV_WC_", gsub("_","-",Sys.Date()), ".xlsx"))
+saveWorkbook(wb, file = paste0("output/tables/SAV_WC_", gsub("_","-",Sys.Date()), ".xlsx"), overwrite=T)
 
 #Gets list of all image files and creates zip
 fig_list <- list.files("output", pattern=".png", full=FALSE)
@@ -408,11 +378,13 @@ zip("SAV_WC_Figures", files=fig_list)
 setwd(wd)
 
 #Renders SAV_WC_ReportTemplate.Rmd and writes the report to pdf
-file_name <- paste0("SAV_WC_Report_", gsub("_","-",Sys.Date()))
+file_name <- paste0("DRAFT_SAV_WC_Report_", gsub("_","-",Sys.Date()))
 rmarkdown::render(input = "SAV_WC_ReportTemplate.Rmd", 
                   output_format = "pdf_document",
                   output_file = paste0(file_name, ".pdf"),
                   clean=TRUE)
+# Create copy without date for linking on GitHub pages website
+file.copy(from = paste0(file_name, ".pdf"), to = "DRAFT_SAV_WC_Report.pdf")
 
 #Removes unwanted files created in the rendering process
 unlink(paste0(file_name, ".md"))

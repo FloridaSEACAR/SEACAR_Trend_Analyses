@@ -52,10 +52,10 @@ get_plot <- function(ma, param){
 # Data table to rename from short-hand to full ParameterName
 param_list <- data.table(
   "params_short" = c("Chla", "CDOM", "Dissolved Oxygen", 
-                     "Dissolved Oxygen Saturation", "Salinity", "Secchi depth", 
+                     "Dissolved Oxygen Saturation", "pH", "Salinity", "Secchi depth", 
                      "TN_TP", "TSS", "Turbidity", "Temperature"),
   "params_long" = c("Chlorophyll-a (corrected & uncorrected)", "Colored Dissolved Organic Matter", 
-                    "Dissolved Oxygen", "Dissolved Oxygen Saturation", "Salinity", 
+                    "Dissolved Oxygen", "Dissolved Oxygen Saturation", "pH", "Salinity", 
                     "Secchi Depth", "Total Nitrogen & Total Phosphorus", 
                     "Total Susepended Solids", "Turbidity", "Water Temperature")
 )
