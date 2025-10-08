@@ -1,0 +1,15 @@
+\newpage
+
+# Funding & Acknowledgements
+
+The data used in this analysis is from the Export Standardized Tables in the SEACAR Data Discovery Interface (DDI). Documents and information available through the SEACAR DDI are owned by the data provider(s) and users are expected to provide appropriate credit following accepted citation formats. Users are encouraged to access data to maximize utilization of gained knowledge, reducing redundant research and facilitating partnerships and scientific innovation.
+
+With respect to documents and information available from SEACAR DDI, neither the State of Florida nor the Florida Department of Environmental Protection makes any warranty, expressed or implied, including the warranties of merchantability and fitness for a particular purpose arising out of the use or inability to use the data, or assumes any legal liability or responsibility for the accuracy, completeness, or usefulness of any information, apparatus, product, or process disclosed, or represents that its use would not infringe privately owned rights.
+
+This report was funded in part, through a grant agreement from the Florida Department of Environmental Protection, Florida Coastal Management Program, by a grant provided by the Office for Coastal Management under the Coastal Zone Management Act of 1972, as amended, National Oceanic and Atmospheric Administration. The views, statements, findings, conclusions and recommendations expressed herein are those of the author(s) and do not necessarily reflect the views of the State of Florida, NOAA or any of their sub agencies.
+
+**Published**: `r Sys.Date()`
+
+```{r, echo=FALSE, fig.align='center'}
+knitr::include_graphics("data/dep-logos.png")
+```

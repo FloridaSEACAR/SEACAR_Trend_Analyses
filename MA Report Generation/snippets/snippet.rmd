@@ -1,45 +1,16 @@
----
-output:
-  pdf_document: default
-  html_document: default
----
-\newpage
-
 # Threshold Filtering
 
 Threshold filters, following the guidance of Florida Department of Environmental Protection's (*FDEP*) Division of Environmental Assessment and Restoration (*DEAR*) are used to exclude specific results values from the SEACAR Analysis. Based on the threshold filters, Quality Assurance / Quality Control (*QAQC*) Flags are inserted into the *SEACAR_QAQCFlagCode* and *SEACAR_QAQC_Description* columns of the export data. The *Include* column indicates whether the *QAQC* Flag will also indicate that data are excluded from analysis. No data are excluded from the data export, but the analysis scripts can use the *Include* column to exclude data (1 to include, 0 to exclude).
 
+
 ```{r, results='asis', echo=FALSE, warning=FALSE}
 library(kableExtra)
-cont_threshold_values_df <- data.frame(
-  param_name = c(
-    "Dissolved Oxygen","Dissolved Oxygen","Dissolved Oxygen",
-    "Salinity","Salinity","Salinity",
-    "Water Temperature","Water Temperature","Water Temperature",
-    "pH","pH","pH",
-    "Dissolved Oxygen Saturation","Dissolved Oxygen Saturation","Dissolved Oxygen Saturation",
-    "Specific Conductivity", "Specific Conductivity",
-    "Turbidity","Turbidity","Turbidity"
-  ),
-  units = c(
-    "mg/L","mg/L","mg/L",
-    "ppt","ppt","ppt",
-    "Degrees C","Degrees C","Degrees C",
-    "pH","pH","pH",
-    "%","%","%",
-    "mS/cm","mS/cm",
-    "NTU","NTU","NTU"
-  ),
-  low_thres = c(0,0,0,0,0,0,-5,-5,-5,2,2,2,0,0,0,0,0,0,0,0),
-  high_thres = c(50,50,50,70,70,70,45,45,45,14,14,14,500,500,500,100,200,4000,1000,4000),
-  sensor_type = c(
-    "YSI EXOs","Analysis Only - 2022-04-04","6600 Series","6600 Series","YSI EXOs","Analysis Only - 2022-04-04","YSI EXOs",
-    "Analysis Only - 2022-04-04","6600 Series","Analysis Only - 2022-04-04","6600 Series","YSI EXOs","YSI EXOs","6600 Series",
-    "Analysis Only - 2022-04-04","6600 Series","YSI EXOs","YSI EXOs","6600 Series","Analysis Only - 2022-04-04"
-  )
-)
+cont_threshold_values_df <- thresholds %>% 
+  filter(Combined.Table == "Continuous WQ") %>%
+  select(Parameter.Name, Units, Low.Threshold, High.Threshold) %>% 
+  arrange(Parameter.Name)
 
-kable(cont_threshold_values_df, col.names = c("*Parameter Name*", "*Units*", "*Low Threshold*", "*High Threshold*","*Sensor Type*"), 
+kable(cont_threshold_values_df, col.names = c("*Parameter Name*", "*Units*", "*Low Threshold*", "*High Threshold*"), 
       escape = F, caption = "Continuous Water Quality threshold values",
       format = "simple") %>%
   kable_styling(latex_options = "scale_down",
@@ -50,20 +21,10 @@ cat("\n")
 
 ```{r, results='asis', echo=FALSE, warning=FALSE}
 library(kableExtra)
-disc_threshold_values_df <- data.frame(
-  param_name = c(
-    "Dissolved Oxygen","Salinity","Water Temperature","pH","Dissolved Oxygen Saturation",
-    "Specific Conductivity","Turbidity","Total Suspended Solids (TSS)", "Chlorophyll a uncorrected for pheophytin",
-    "Chlorophyll a corrected for pheophytin", "Secchi Depth","Light Extinction Coefficient","Colored dissolved organic matter, CDOM",
-    "Fluorescent dissolved organic matter, FDOM", "Total Nitrogen", "Total Kjeldahl Nitrogen TKN", "NO2+3 Filtered", "NH4 Filtered",
-    "Total Phosphorus","PO4 Filtered","Ammonia- Un-ionized (NH3)", "Nitrate (N)", "Nitrite (N)", "Nitrogen, organic"
-  ),
-  units = c("mg/L","ppt","Degrees C","","%","mS/cm","NTU","mg/L","ug/L","ug/L","m","m^1","PCU","QSE",
-            "mg/L","mg/L","mg/L","mg/L","mg/L","mg/L","mg/L","mg/L","mg/L","mg/L"
-  ),
-  low_thres = c("0.000001",0,3,2,"0.000001","0.005000001",0,0,0,0,"0.000001",0,0,0,0,0,0,0,0,0,0,0,0,0),
-  high_thres = c(22,70,40,13,310,100,"-","-","-","-",50,"-","-","-","-","-","-","-","-","-","-","-","-","-")
-)
+disc_threshold_values_df <- thresholds %>% 
+  filter(Combined.Table == "Discrete WQ") %>%
+  select(Parameter.Name, Units, Low.Threshold, High.Threshold) %>% 
+  arrange(Parameter.Name)
 
 kable(disc_threshold_values_df, col.names = c("*Parameter Name*", "*Units*", "*Low Threshold*", "*High Threshold*"), 
       escape = F, caption = "Discrete Water Quality threshold values",
@@ -75,16 +36,11 @@ cat("\n")
 ```
 
 ```{r, results='asis', echo=FALSE, warning=FALSE}
-threshold_df <- data.frame(desc = c("Exceeds Maximum threshold. Not verified in raw data", 
-                          "Exceeds Maximum threshold. Verified in raw data",
-                          "Below Minimum threshold. Not verified in raw data",
-                          "Below Minimum threshold. Verified in raw data",
-                          "Within threshold tolerance",
-                          "No defined thresholds for this parameter"),
-                 inc = c("No", "No", "No", "No", "Yes", "Yes"),
-                 flag = c("2Q", "3Q", "4Q", "5Q", "6Q", "7Q"))
-kable(threshold_df, col.names = c("*SEACAR QAQC Description*", "*Include*", "*SEACAR QAQCFlagCode*"),
-      escape = F, caption = "Quality Assurance Flags inserted based on threshold checks listed in Table 1 & 2",
+# Filter for 2Q,4Q,6Q,7Q because those flags are based on thresholds
+kable(qaqc_table %>% filter(`SEACAR QAQC Flag Code` %in% c("2Q","4Q","6Q","7Q")), 
+      col.names = c("*SEACAR QAQC Description*", "*Include*", "*SEACAR QAQCFlagCode*"),
+      escape = F, 
+      caption = "Quality Assurance Flags inserted based on threshold checks listed in Table 1 and 2",
       format = "simple") %>%
   kable_styling(latex_options = "scale_down",
                 position = "center")
@@ -101,14 +57,18 @@ Value qualifier codes from *STORET* and *WIN* data are examined with the databas
 ```{r, results='asis', echo=FALSE, warning=FALSE}
 vq_df <- data.frame(qual_soruce = c("STORET-WIN", "STORET-WIN", "STORET-WIN", "STORET-WIN"),
                     vq = c("H","J","V","Y"),
-                    inc = c("No", "No", "No", "No"), 
+                    inc = c(0, 0, 0, 0), 
                     mdl = c(0, 0, 0, 0),
                     desc = c("Value based on field kit determination; results may not be accurate",
                              "Estimated value",
                              "Analyte was detected at or above method detection limit",
                              "Lab analysis from an improperly preserved sample; \ndata may be inaccurate"))
 
-vq_df$desc = linebreak(vq_df$desc)
+if(report_type=="PDF"){
+  vq_df$desc = linebreak(vq_df$desc)
+} else {
+  vq_df$desc = gsub("\n", "", vq_df$desc)
+}
 
 kable(vq_df, col.names = c("*Qualifier Source*", "*Value Qualifier*", "*Include*", "*MDL*", "*Description*"),
       escape = F, 
@@ -175,12 +135,16 @@ Value qualifier codes from the *SWMP* continuous program are examined with the d
 ```{r, results='asis', echo=FALSE, warning=FALSE}
 swmp <- data.frame(qs = c("SWMP", "SWMP", "SWMP", "SWMP", "SWMP", "SWMP", "SWMP", "SWMP", "SWMP", "SWMP", "SWMP"),
                    vq = c(-1, -2, -3, -4, -5, 0, 1, 2, 3, 4, 5),
-                   inc = c("Yes", "No", "No", "No", "No", "Yes", "No", "Yes", "Yes", "Yes", "Yes"),
+                   inc = c(1, 0, 0, 0, 0, 1, 0, 1, 1, 1, 1),
                    desc = c("Optional parameter not collected","Missing data","Data rejected due to QA/QC","Outside low sensor range",
                             "Outside high sensor range","Passed initial QA/QC checks","Suspect data","Reserved for future use",
                             "Calculated data: non-vented depth/level sensor\ncorrection for changes in barometric pressure",
                             "Historical: Pre-auto QA/QC","Corrected data"))
-swmp$desc <- linebreak(swmp$desc)
+if(report_type=="PDF"){
+  swmp$desc <- linebreak(swmp$desc)
+} else {
+  swmp$desc <- gsub("\n", "", swmp$desc)
+}
 
 swmp %>% kable(col.names = c("*Qualifier Source*", "*Value Qualifier*", "*Include*", "*Description*"),
       escape = F, 

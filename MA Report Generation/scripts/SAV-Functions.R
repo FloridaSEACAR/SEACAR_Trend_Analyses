@@ -9,20 +9,7 @@ library(dplyr)
 source("../SAV/load_shape_files.R")
 
 # SEACAR Figure standards
-plot_theme <- theme_bw() +
-  theme(panel.grid.major = element_blank(),
-        panel.grid.minor = element_blank(),
-        text=element_text(family="Arial"),
-        plot.title=element_text(hjust=0.5, size=12, color="#314963"),
-        plot.subtitle=element_text(hjust=0.5, size=10, color="#314963"),
-        legend.title=element_text(size=10),
-        legend.text = element_text(hjust=0),
-        axis.title.x = element_text(size=10, margin = margin(t = 5, r = 0,
-                                                             b = 10, l = 0)),
-        axis.title.y = element_text(size=10, margin = margin(t = 0, r = 10,
-                                                             b = 0, l = 0)),
-        axis.text=element_text(size=10),
-        axis.text.x=element_text(angle = -45, hjust = 0))
+plot_theme <- SEACAR::SEACAR_plot_theme()
 
 # Import SAV LME Stats
 sav_stats_table <- fread("../SAV/output/website/SAV_BBpct_LMEresults_All.txt", sep='|')
@@ -81,6 +68,7 @@ sav_trend_table <- function(ma, report_format){
 
 sav_scope_plots <- function(ma, ma_abrev, sav_scope_locs){
   file_loc <- str_subset(sav_scope_locs, paste0("_",ma_abrev,"_map"))
+  if(length(file_loc)==0) return()
   caption <- paste0("Maps showing the temporal scope of SAV sampling sites within the boundaries of *", ma, "* by Program name.")
   cat("  \n")
   subchunkify(cat("![", caption, "](", file_loc,")"))
@@ -100,7 +88,6 @@ plot_sav_trendplot <- function(ma, ma_abrev, plot_type, plot_list, malist){
   if(ma_abrev %in% malist){
     # Plot
     plot_loc <- str_subset(plot_list, paste0("_", ma_abrev, "_"))
-    
     if(plot_type=="trendplots"){
       fig_caption <- paste0("Trends in median percent cover for various seagrass species in ", ma, " - simplified")
     } else if(plot_type=="multiplots"){
@@ -240,7 +227,7 @@ sav_maps <- function(ma, ma_abrev, map_locs, report_type){
   sav_programs$ProgramID <- as.numeric(sav_programs$ProgramID)
   
   map_loc <- str_subset(map_locs, paste0("_", ma_abrev, "_map.png"))
-  
+  if(length(map_loc)==0) return()
   # captions / label
   caption = paste0("Map showing SAV sampling sites within the boundaries of *", 
                    ma, "*. The point size reflects the number of samples at a given sampling site.  \n")
@@ -290,28 +277,30 @@ sav_wc_loc <- function(ma){
   ma_abrev <- MA_All[ManagedAreaName==ma, Abbreviation]
   # Find available plots
   avail <- str_subset(sav_wc, ma_abrev)
-  # Extract parameter names
-  params <- sapply(avail, function(x) str_split_1(x, "_")[[2]])
-  # Rename parameters for cleaner display
-  lookup <- c(CDOM = "Colored Disolved Organic Matter",
-              Chla = "Chlorophyll a",
-              DissolvedOxygen = "Dissolved Oxygen",
-              DissolvedOxygenSaturation = "Dissolved Oxygen Saturation",
-              pH = "pH", Salinity = "Salinity", Secchidepth = "Secchi Depth",
-              Temperature = "Water Temperature", TN = "Total Nitrogen", 
-              TSS = "Total Suspended Solids", Turbidity = "Turbidity")
-  full_names <- lookup[params]
-  
-  cat("## SAV Water Column Analysis")
-  cat("  \n")
-  cat(glue("The following parameters are available for {ma} within the SAV_WC_Report:"))
-  cat("  \n")
-  cat("  \n")
-  for(p in full_names){
-    cat(paste0("* ", p, "\n"))
+  if(length(avail)>0){
+    # Extract parameter names
+    params <- sapply(avail, function(x) str_split_1(x, "_")[[2]])
+    # Rename parameters for cleaner display
+    lookup <- c(CDOM = "Colored Disolved Organic Matter",
+                Chla = "Chlorophyll a",
+                DissolvedOxygen = "Dissolved Oxygen",
+                DissolvedOxygenSaturation = "Dissolved Oxygen Saturation",
+                pH = "pH", Salinity = "Salinity", Secchidepth = "Secchi Depth",
+                Temperature = "Water Temperature", TN = "Total Nitrogen", 
+                TSS = "Total Suspended Solids", Turbidity = "Turbidity")
+    full_names <- lookup[params]
+    
+    cat("## SAV Water Column Analysis")
     cat("  \n")
+    cat(glue("The following parameters are available for {ma} within the SAV_WC_Report:"))
+    cat("  \n")
+    cat("  \n")
+    for(p in full_names){
+      cat(paste0("* ", p, "\n"))
+      cat("  \n")
+    }
+    cat("  \n")
+    cat("Access the reports here: [DRAFT_SAV_WC_Report_2024-11-20.pdf](https://floridaseacar.github.io/SEACAR_Trend_Analyses/SAV_WC_Analysis/DRAFT_SAV_WC_Report_2024-11-20.pdf)")
+    cat("  \n")    
   }
-  cat("  \n")
-  cat("Access the reports here: [DRAFT_SAV_WC_Report_2024-11-20.pdf](https://github.com/FloridaSEACAR/SEACAR_Trend_Analyses/blob/main/SAV_WC_Analysis/DRAFT_SAV_WC_Report_2024-11-20.pdf)")
-  cat("  \n")
 }

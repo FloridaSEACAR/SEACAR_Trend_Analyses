@@ -23,8 +23,8 @@ knitr::include_graphics(here::here("images/TN_Calculation.png"))
 Additional Information:
 
 * Rules for use of sample fraction:
-  + FDEP report that if both “Total” and “Dissolved” are reported, only “Total” is used. If the total is not reported, they do use dissolved as a best available replacement. 
-  + An analysis of all SEACAR data shows that 90% of all possible TN calculations can be done using nitrogen components with the same sample fraction, rather than use nitrogen components with mixed total/dissolved sample fractions. In other words, TN can be calculated when TKN and NO3O2 are both total sample fraction, or when both are dissolved sample fraction. This is important, because then the calculated TN value is not based on components with mixed sample fractions.  
+  + Florida Department of Environmental Protection (FDEP) report that if both “Total” and “Dissolved” components are reported, only “Total” is used. If the total is not reported, then the dissolved components are used as a best available replacement. 
+  + Total nitrogen calculations are done using nitrogen components with the same sample fraction, nitrogen components with mixed total/dissolved sample fractions are not used. In other words, total nitrogen can be calculated when TKN and NO3O2 are both total sample fractions, or when both are dissolved sample fractions. *Future calculations of total nitrogen values may be based on components with mixed sample fractions.*
   
 * Values inserted into data:
   + ParameterName = “Total Nitrogen”

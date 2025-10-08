@@ -1,13 +1,13 @@
 # Read in oyster results file
-oyster_stats <- fread("../Oyster/output/Oyster_All_GLMM_Stats.txt", sep='|')
+oyster_stats <- fread("../Oyster/output/ManagedAreaName/Oyster_All_GLMM_Stats.txt", sep='|')
 
 # Function to add trend text
 trendText <- function(modelEstimate, lowConfidence, upConfidence){
   increasing <- modelEstimate > 0
-  trendPresent <- ifelse(lowConfidence < 0 & upConfidence < 0, TRUE, 
-                         ifelse(lowConfidence > 0 & upConfidence > 0, TRUE, FALSE))
+  trendPresent <- (lowConfidence < 0 & upConfidence < 0) | 
+                  (lowConfidence > 0 & upConfidence > 0)
   trendStatus <- "No significant change"
-  if(trendPresent){
+  if(isTRUE(trendPresent)){
     trendDirection <- ifelse(increasing, "increasing", "decreasing")
     trendStatus <- paste0("Significantly ", trendDirection, " trend")
   }
@@ -26,9 +26,9 @@ oyster_managed_areas <- oyster_stats[!is.na(Intercept), unique(ManagedAreaName)]
 
 # Oyster plot locations
 oy_figs <- list(
-  "Density" = list.files("../Oyster/output/Density/Figures", pattern = ".png", full.names = T),
-  "Percent Live" = list.files("../Oyster/output/Percent_Live/Figures", pattern = ".png", full.names = T),
-  "Shell Height" = list.files("../Oyster/output/Shell_Height/Figures", pattern = ".png", full.names = T)
+  "Density" = list.files("../Oyster/output/ManagedAreaName/Figures/Density/", pattern = ".png", full.names = T),
+  "Percent Live" = list.files("../Oyster/output/ManagedAreaName/Figures/Percent_Live/", pattern = ".png", full.names = T),
+  "Shell Height" = list.files("../Oyster/output/ManagedAreaName/Figures/Shell_Height/", pattern = ".png", full.names = T)
 )
 
 # Dataframe to determine which figures are included

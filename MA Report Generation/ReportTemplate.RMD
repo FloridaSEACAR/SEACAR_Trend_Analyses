@@ -209,7 +209,7 @@ if(in_continuous){
 ```
 
 ```{r SAVscopeplots, warning=FALSE, results="asis", echo=FALSE, fig.height=9, fig.width=11, eval=TRUE}
-sav_scope_locs <- list.files("../SAV/output/Figures/SAV_temporal_scope_plots", 
+sav_scope_locs <- list.files("../SAV/output/SAV_temporal_scope_plots", 
                              pattern = ".jpg", full.names = TRUE)
 
 if(in_sav){

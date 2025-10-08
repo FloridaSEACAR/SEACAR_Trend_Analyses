@@ -217,13 +217,13 @@ station_count_table <- function(coordinates_df, station_coordinates, ma, ma_abre
   # Create legend for station labels
   labels <- c()
   colors <- c()
-  for(sid in stationIDs$stationID){
-    plid <- stationIDs %>% filter(stationID==sid) %>% pull(ProgramLocationID)
-    use <- stationIDs %>% filter(stationID==sid) %>% pull(Use_In_Analysis)
+  for(sid in unique(stationIDs$stationID)){
+    plid <- unique(stationIDs %>% filter(stationID==sid) %>% pull(ProgramLocationID))
+    use <- unique(stationIDs %>% filter(stationID==sid) %>% pull(Use_In_Analysis))
     
     lab <- paste0(sid, " - ", plid)
     labels <- c(labels, lab)
-    col <- ifelse(use, "green", "orange")
+    col <- ifelse(TRUE %in% use, "green", "orange") # Make green if ANY param has SufficientData
     colors <- c(colors, col)
   }
   
