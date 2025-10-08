@@ -64,17 +64,97 @@
 }
 </style>
 <title>SEACAR Water Quality Reports - Directory</title>
-<div id="navbar-container"></div>
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    fetch("https://floridaseacar.github.io/navbar.html")
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById("navbar-container").innerHTML = data;
-      })
-      .catch(error => console.error("Error loading navbar:", error));
-  });
-</script>
+<div class="chunk" id="navbar"><div class="rcode"><!--html_preserve--><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://floridaseacar.github.io/style.css">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="background-color:#045273 !important;">
+  <a class="navbar-brand" href="https://floridaseacar.github.io/">
+    <img src="https://floridaseacar.github.io/images/logo-dep-color-small.png" width="82.5" height="55" alt="">Florida SEACAR
+  </a>
+  <div class="collapse navbar-collapse">
+    <ul class="navbar-nav">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">SEACAR Trend Analyses</a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#">Action</a></li>
+          <li><a class="dropdown-item" href="#">Another action</a></li>
+          <li><a class="dropdown-item" href="#">Something else here</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="#">Separated link</a></li>
+        </ul>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Reports</a>
+        <ul class="dropdown-menu">
+          <li>
+            <a class="dropdown-item" href="https://floridaseacar.github.io/SEACAR_Trend_Analyses/MA%20Report%20Generation/">Managed Area Reports</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="https://floridaseacar.github.io/SEACAR_Trend_Analyses/WQ_Cont_Discrete/">Water Quality Reports</a>
+          </li>
+          <li><hr class="dropdown-divider"></li>
+          <li>
+            <a class="dropdown-item" href="https://floridaseacar.github.io/SEACAR_Trend_Analyses/Coastal_Wetlands/output/CoastalWetlands_SpeciesRichness_Report.html", target="_blank">
+              Coastal Wetlands Species Richness
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="https://floridaseacar.github.io/SEACAR_Trend_Analyses/Coral/output/PercentCover/Coral_PercentCover_Report.html", target="_blank">
+             Coral Percent Cover
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="https://floridaseacar.github.io/SEACAR_Trend_Analyses/Coral/output/SpeciesRichness/Coral_SpeciesRichness_Report.html", target="_blank">
+             Coral Species Richness
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="https://floridaseacar.github.io/SEACAR_Trend_Analyses/Nekton/output/Nekton_SpeciesRichness_Report.html", target="_blank">
+             Nekton Species Richness
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="https://floridaseacar.github.io/SEACAR_Trend_Analyses/Oyster/output/Oyster_AllParameters_Report.html", target="_blank">
+             Oyster (All parameters)
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="https://floridaseacar.github.io/SEACAR_Trend_Analyses/SAV/output/SAV_Report.html", target="_blank">
+             Submerged Aquatic Vegetation
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="https://floridaseacar.github.io/SEACAR_Trend_Analyses/SAV_WC_Analysis/DRAFT_SAV_WC_Report.pdf", target="_blank">
+             Submerged Aquatic Vegetation - Water Column Analysis
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">SEACAR Dashboards</a>
+        <ul class="dropdown-menu">
+          <li>
+            <a class="dropdown-item" href="https://floridaapdata.shinyapps.io/SEACAR_Dashboard/", target="_blank">Habitat Dashboard</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="https://floridaapdata.shinyapps.io/continuous_wq/", target="_blank">Continuous WQ Dashboard</a>
+            </li>
+          <li>
+            <a class="dropdown-item" href="https://floridaapdata.shinyapps.io/MonitoringPlanningTools/", target="_blank">Monitoring Planning Tools</a>
+            </li>
+        </ul>
+      </li>
+    </ul>
+    <ul class = "nav ms-auto">
+      <li class="nav-item">
+        <a class="navbar-brand" href="https://github.com/FloridaSEACAR", target="_blank">
+          <img src="https://floridaseacar.github.io/images/GitHub_Invertocat_Light.png" width="30" height="30" alt="">
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav><!--/html_preserve--></div></div>
 </head>
 
 <body>
