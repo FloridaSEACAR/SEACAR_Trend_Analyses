@@ -17,20 +17,7 @@ all_activity <- c("Field", "Lab", "All")
 all_params <- unique(wq_data$ParameterName)
 
 # Define SEACAR-approved theme
-plot_theme <- theme_bw() +
-  theme(panel.grid.major = element_blank(),
-        panel.grid.minor = element_blank(),
-        text=element_text(family="Arial"),
-        plot.title=element_text(hjust=0.5, size=12, color="#314963"),
-        plot.subtitle=element_text(hjust=0.5, size=10, color="#314963"),
-        legend.title=element_text(size=10),
-        legend.text.align = 0,
-        axis.title.x = element_text(size=10, margin = margin(t = 5, r = 0,
-                                                             b = 10, l = 0)),
-        axis.title.y = element_text(size=10, margin = margin(t = 0, r = 10,
-                                                             b = 0, l = 0)),
-        axis.text=element_text(size=10),
-        axis.text.x=element_text(angle = 60, hjust = 1))
+plot_theme <- SEACAR::SEACAR_plot_theme()
 
 # Defines lists of params and their respective activity types
 # Determines which parameters should be analyzed for each activity type
@@ -73,9 +60,8 @@ for(i in 1:length(all_params)){
       
       ### Begin Data Creation ###
       # Subset data for each parameter
-      data <- wq_data[ParameterName==param, ]
-      data <- data[Include==1 & MADup==1, ]
-      
+      data <- wq_data %>% filter(ParameterName==param)
+      data <- data %>% filter(Include==1 & MADup==1)
       # grab unit of measurement
       unit <- unique(data$ParameterUnits)
       
@@ -98,8 +84,8 @@ for(i in 1:length(all_params)){
       # Removes missing RelativeDepth data and data for RelativeDepth
       # not of interest from all parameters except Secchi Depth
       if(param!="Secchi Depth" & depth!="All"){
-        data <- data[!is.na(RelativeDepth), ]
-        data <- data[RelativeDepth==depth, ]
+        data <- data %>% filter(!is.na(RelativeDepth))
+        data <- data %>% filter(RelativeDepth==depth)
       }
       
       # Changes Include to be logical (T/F)
@@ -174,23 +160,23 @@ for(i in 1:length(all_params)){
       # Creates data frame with summary for each managed area
       MA_Summ <- data %>%
         group_by(System, Type) %>%
-        summarize(ParameterName=param,
-                  RelativeDepth=depth,
-                  ActivityType=activity,
-                  N_Data=length(ResultValue[Include==TRUE & !is.na(ResultValue)]),
-                  N_Years=length(unique(Year[Include==TRUE & !is.na(Year)])),
-                  EarliestYear=min(Year[Include==TRUE & N_Data!=0]),
-                  LatestYear=max(Year[Include==TRUE & N_Data!=0]),
-                  EarliestSampleDate=min(SampleDate[Include==TRUE]),
-                  LastSampleDate=max(SampleDate[Include==TRUE]),
-                  ConsecutiveMonths=ifelse(unique(AreaID) %in%
-                                             consMonthIDs==TRUE, TRUE, FALSE),
-                  # Determines if monitoring location is sufficient for analysis
-                  # based on having more than 0 data entries, more than the
-                  # sufficient number of year, and the consecutive month criteria
-                  SufficientData=ifelse(N_Data>0 & N_Years>=suff_years &
-                                          ConsecutiveMonths==TRUE, TRUE, FALSE),
-                  Median=median(ResultValue[Include==TRUE & N_Data!=0], na.rm=TRUE))
+        reframe(ParameterName=param,
+                RelativeDepth=depth,
+                ActivityType=activity,
+                N_Data=length(ResultValue[Include==TRUE & !is.na(ResultValue)]),
+                N_Years=length(unique(Year[Include==TRUE & !is.na(Year)])),
+                EarliestYear=min(Year[Include==TRUE & N_Data!=0]),
+                LatestYear=max(Year[Include==TRUE & N_Data!=0]),
+                EarliestSampleDate=min(SampleDate[Include==TRUE]),
+                LastSampleDate=max(SampleDate[Include==TRUE]),
+                ConsecutiveMonths=ifelse(unique(AreaID) %in%
+                                           consMonthIDs==TRUE, TRUE, FALSE),
+                # Determines if monitoring location is sufficient for analysis
+                # based on having more than 0 data entries, more than the
+                # sufficient number of year, and the consecutive month criteria
+                SufficientData=ifelse(N_Data>0 & N_Years>=suff_years &
+                                        ConsecutiveMonths==TRUE, TRUE, FALSE),
+                Median=median(ResultValue[Include==TRUE & N_Data!=0], na.rm=TRUE))
       
       MA_Summ$ConsecutiveMonths <- NULL
       
@@ -310,21 +296,21 @@ for(i in 1:length(all_params)){
       # ValueQualifier H, I, Q, S, and U for each managed area each year
       data_summ <- data %>%
         group_by(System, Type, Year) %>%
-        summarize(ParameterName=param,
-                  RelativeDepth=depth,
-                  ActivityType=activity,
-                  N_Total=length(ResultValue),
-                  N_AnalysisUse=length(ResultValue[Use_In_Analysis==TRUE]),
-                  N_H=length(grep("H", ValueQualifier[ProgramID==476])),
-                  perc_H=100*N_H/length(ValueQualifier),
-                  N_I=length(grep("I", ValueQualifier)),
-                  perc_I=100*N_I/length(ValueQualifier),
-                  N_Q=length(grep("Q", ValueQualifier)),
-                  perc_Q=100*N_Q/length(ValueQualifier),
-                  N_S=length(grep("S", ValueQualifier)),
-                  perc_S=100*N_S/length(ValueQualifier),
-                  N_U=length(grep("U", ValueQualifier)),
-                  perc_U=100*N_U/length(ValueQualifier))
+        reframe(ParameterName=param,
+                RelativeDepth=depth,
+                ActivityType=activity,
+                N_Total=length(ResultValue),
+                N_AnalysisUse=length(ResultValue[Use_In_Analysis==TRUE]),
+                N_H=length(grep("H", ValueQualifier[ProgramID==476])),
+                perc_H=100*N_H/length(ValueQualifier),
+                N_I=length(grep("I", ValueQualifier)),
+                perc_I=100*N_I/length(ValueQualifier),
+                N_Q=length(grep("Q", ValueQualifier)),
+                perc_Q=100*N_Q/length(ValueQualifier),
+                N_S=length(grep("S", ValueQualifier)),
+                perc_S=100*N_S/length(ValueQualifier),
+                N_U=length(grep("U", ValueQualifier)),
+                perc_U=100*N_U/length(ValueQualifier))
       # Orders the data table rows based on managed area name
       data_summ <- as.data.table(data_summ[order(data_summ$System,
                                                  data_summ$Year), ])
@@ -336,19 +322,19 @@ for(i in 1:length(all_params)){
         # Create Summary statistics for each System based on Y and M intervals
         YM_Stats <- data[data$Use_In_Analysis==TRUE, ] %>%
           group_by(System, Type, Year, Month) %>%
-          summarize(ParameterName=param,
-                    RelativeDepth=depth,
-                    ActivityType=activity,
-                    N_Data=length(ResultValue),
-                    Min=min(ResultValue),
-                    Max=max(ResultValue),
-                    Median=median(ResultValue),
-                    Mean=mean(ResultValue),
-                    StandardDeviation=sd(ResultValue),
-                    Programs=paste(sort(unique(ProgramName), decreasing=FALSE),
-                                   collapse=", "),
-                    ProgramIDs=paste(sort(unique(ProgramID), decreasing=FALSE),
-                                     collapse=", "))
+          reframe(ParameterName=param,
+                  RelativeDepth=depth,
+                  ActivityType=activity,
+                  N_Data=length(ResultValue),
+                  Min=min(ResultValue),
+                  Max=max(ResultValue),
+                  Median=median(ResultValue),
+                  Mean=mean(ResultValue),
+                  StandardDeviation=sd(ResultValue),
+                  Programs=paste(sort(unique(ProgramName), decreasing=FALSE),
+                                 collapse=", "),
+                  ProgramIDs=paste(sort(unique(ProgramID), decreasing=FALSE),
+                                   collapse=", "))
         
         # Set order
         YM_Stats <- as.data.table(YM_Stats[order(YM_Stats$System,
@@ -472,20 +458,19 @@ for(i in 1:length(all_params)){
       # COMPUTE YM STATS FOR ALL DATA
       # Create Summary statistics for each System based on Y and M intervals
       YM_Stats2 <- data %>%
-        group_by(System, Type, Year, Month) %>%
-        summarize(ParameterName=param,
-                  RelativeDepth=depth,
-                  ActivityType=activity,
-                  N_Data=length(ResultValue),
-                  Min=min(ResultValue),
-                  Max=max(ResultValue),
-                  Median=median(ResultValue),
-                  Mean=mean(ResultValue),
-                  StandardDeviation=sd(ResultValue),
-                  Programs=paste(sort(unique(ProgramName), decreasing=FALSE),
-                                 collapse=", "),
-                  ProgramIDs=paste(sort(unique(ProgramID), decreasing=FALSE),
-                                   collapse=", "))
+        group_by(System, Type, Year, Month, ActivityType) %>%
+        reframe(ParameterName=param,
+                RelativeDepth = depth,
+                N_Data=length(ResultValue),
+                Min=min(ResultValue),
+                Max=max(ResultValue),
+                Median=median(ResultValue),
+                Mean=mean(ResultValue),
+                StandardDeviation=sd(ResultValue),
+                Programs=paste(sort(unique(ProgramName), decreasing=FALSE),
+                               collapse=", "),
+                ProgramIDs=paste(sort(unique(ProgramID), decreasing=FALSE),
+                                 collapse=", "))
       
       # Set order
       YM_Stats2 <- as.data.table(YM_Stats2[order(YM_Stats2$System,
@@ -498,6 +483,16 @@ for(i in 1:length(all_params)){
       
       # Create decimal value of year and month values
       YM_Stats2$YearMonthDec <- YM_Stats2$Year + ((YM_Stats2$Month-0.5)/12)
+      setDT(YM_Stats2)
+      # Select only the necessary activity type (field, lab, or all)
+      if(!activity=="All"){
+        YM_Stats2 <- YM_Stats2[grep(activity, YM_Stats2$ActivityType),]
+        YM_Stats2$ActivityType <- activity
+      } else {
+        YM_Stats2 <- YM_Stats2[grep("Lab|Field", YM_Stats2$ActivityType),]
+        YM_Stats2[grep("Lab", YM_Stats2$ActivityType), `:=` (ActivityType = "Lab")]
+        YM_Stats2[grep("Field", YM_Stats2$ActivityType), `:=` (ActivityType = "Field")]
+      }
       
       # Store results
       data_directory[["YM_Stats2"]][[param]] <- YM_Stats2

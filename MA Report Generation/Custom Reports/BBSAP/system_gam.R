@@ -1,6 +1,5 @@
 ## Script meant to produce GAM predictive models for each species
 ## Plots each system as an individual model for each species
-library(tidymv)
 library(tidygam)
 library(nlme)
 library(mgcv)

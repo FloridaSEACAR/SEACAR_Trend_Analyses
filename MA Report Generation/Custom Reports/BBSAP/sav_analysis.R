@@ -20,10 +20,10 @@ library(stringr)
 library(utils)
 library(ggpubr)
 library(mgcv)
-library(tidymv)
 library(tidygam)
+library(ggspatial)
 
-SAV <- sav_data[!is.na(ResultValue), ]
+SAV <- sav_data %>% filter(!is.na(ResultValue))
 
 # Create data columns based on old parameter results to make script run
 SAV$BB <- NA
@@ -128,7 +128,7 @@ addfits_multiplots <- function(models, plot_i, param, aucol){
     
     plot_i <- plot_i +
       geom_line(data = species_data,
-                aes(x = relyear, y = predictions), color="#000099", size=0.75, alpha=0.7, inherit.aes = FALSE)
+                aes(x = relyear, y = predictions), color="#000099", linewidth=0.75, alpha=0.7, inherit.aes = FALSE)
   }
   
   # order_match <- ifelse(usenames=="common", "order(match(spp_common))", "order(match(spp))")
@@ -201,7 +201,7 @@ addfits <- function(models, plot_i, param) {
       plot_i <- plot_i +
         geom_line(data = regression_data,
                   aes(x = relyear, y = fit, color=species, linetype=factor(significance)),
-                  size=size, alpha=alpha, inherit.aes = FALSE) +
+                  linewidth=size, alpha=alpha, inherit.aes = FALSE) +
         # geom_bar(data = plot_dat, aes(x=relyear, y=npt), stat = "identity") +
         scale_linetype_manual(name="Trend significance (alpha = 0.05)",
                               values=c("TRUE" = "solid", "FALSE" = "dotdash"),
@@ -337,21 +337,7 @@ parameters <- data.table(column = c(as.name("BB_pct"), as.name("PC"), as.name("P
                          name = c("Median percent cover", "Visual percent cover", "Frequency of occurrence"),
                          type = c("BBpct", "PC", "PA"))
 
-plot_theme <- theme_bw() +
-  theme(panel.grid.major = element_blank(),
-        panel.grid.minor = element_blank(),
-        text = element_text(family = "Arial"),
-        # title = element_text(face="bold"),
-        plot.title = element_text(hjust = 0.5, size = 12, color = "#314963"),
-        plot.subtitle = element_text(hjust = 0.5, size = 10, color = "#314963"),
-        legend.title = element_text(size = 10),
-        legend.text.align = 0,
-        axis.title.x = element_text(size = 10, margin = margin(t = 5, r = 0,
-                                                               b = 10, l = 0)),
-        axis.title.y = element_text(size = 10, margin = margin(t = 0, r = 10,
-                                                               b = 0, l = 0)),
-        axis.text = element_text(size = 10),
-        axis.text.x = element_text(angle = -45, hjust = 0))
+plot_theme <- SEACAR::SEACAR_plot_theme()
 
 ######################
 #### START SCRIPT ####
@@ -723,49 +709,217 @@ stats$years[stats$SufficientData==FALSE] <- NA
 # Write output table to a pipe-delimited txt file
 fwrite(stats, "output/tables/SAV_BBpct_LMEresults_All.txt", sep="|")
 
-# SAV Map generation
-# Store results in sav_maps_list to call within report
-sav_maps_list <- list()
-# Define palette
-pal <- colorFactor("plasma", SAV4$ProgramID)
-
-for(sys in sys_include){
-  # Gather amount of data at each sampling location
-  data <- SAV4[System==sys, ] %>% 
-    group_by(ProgramLocationID) %>%
-    summarise(n_data = n(),
-              lat = unique(Latitude_D),
-              lon = unique(Longitude_),
-              ProgramID = unique(ProgramID))
-  # Define radius to display n_data
-  rad <- sqrt(data$n_data)
-
-  # Map
-  map <- leaflet(data, options = leafletOptions(zoomControl = FALSE)) %>% 
-    addProviderTiles(providers$CartoDB.PositronNoLabels) %>%
-    addCircleMarkers(lat = ~lat, lng = ~lon, fillColor=~pal(ProgramID),
-                     weight=0.5, fillOpacity = 0.4, radius=rad,
-                     color="black") %>%
-    addLegend(pal=pal, values=~ProgramID, 
-              labFormat=labelFormat(prefix="Program "), title="")
+## SAV Map generation -----
+# Function to generate various maps
+make_map <- function(type="SAV", output="all", sys){
+  if(type=="SAV"){
+    data <- sav_map_df
+    # Set order for display on map (N to S)
+    data <- data[order(factor(data$System, levels=c("St. Marks",
+                                                    "Aucilla",
+                                                    "Keaton Beach",
+                                                    "Steinhatchee",
+                                                    "Cedar Key")))]
+    
+    # map output filepath
+    map_out <- "output/maps/sav.png"
+    
+  } else if(type=="WQ"){
+    data <- map_df
+    # Set order for display on map (N to S)
+    data <- data[order(factor(data$System, levels=c(c("St. Marks",
+                                                      "Aucilla",
+                                                      "Econfina",
+                                                      "Keaton Beach",
+                                                      "Steinhatchee",
+                                                      "Horseshoe Beach",
+                                                      "Suwannee",
+                                                      "Cedar Key",
+                                                      "Waccasassa"))))]
+    
+    # map output filepath
+    map_out <- "output/maps/wq.png"
+    typeMap_out <- "output/maps/wq_types.png"
+    sysMap_out <- paste0("output/maps/",sys,"_map.png")
+  }
   
-  # Add mini map and scale
-  map <- map %>%
-    addMiniMap(centerFixed = c(mean(data$lat),mean(data$lon)), 
-               zoomLevelOffset = -5, 
+  # Define palette
+  pal <- colorFactor("plasma", levels = c("St. Marks",
+                                          "Aucilla",
+                                          "Econfina",
+                                          "Keaton Beach",
+                                          "Steinhatchee",
+                                          "Horseshoe Beach",
+                                          "Suwannee",
+                                          "Cedar Key",
+                                          "Waccasassa"))
+  
+  typePal <- colorFactor(c("#6FA1DD", "#964059"),
+                         c("Estuary", "River"))
+  
+  # Calculate N_data for point sizes
+  sys_data_info <- data %>%
+    group_by(ProgramLocationID) %>%
+    summarise(n_data = n()) %>%
+    rename(ProgramLoc = ProgramLocationID)
+  
+  # Define radius
+  rad <- ifelse(type=="SAV", sqrt(sys_data_info$n_data)/5, 3)
+  
+  data$System <- factor(data$System, levels = c("St. Marks",
+                                                "Aucilla",
+                                                "Econfina",
+                                                "Keaton Beach",
+                                                "Steinhatchee",
+                                                "Horseshoe Beach",
+                                                "Suwannee",
+                                                "Cedar Key",
+                                                "Waccasassa"))
+  
+  # Create leaflet map
+  map <- leaflet(data, options = leafletOptions(zoomControl = FALSE)) %>%
+    addProviderTiles(providers$CartoDB.PositronNoLabels) %>%
+    addCircleMarkers(lat=~OriginalLatitude, lng=~OriginalLongitude, color=~pal(System), 
+                     radius=rad, fillOpacity=0.3) %>%
+    addLegend(pal=pal, values=~System, title="Watershed") %>% 
+    addMiniMap(centerFixed = c(mean(data$OriginalLatitude),mean(data$OriginalLongitude)), 
+               zoomLevelOffset = -6, 
                position = 'topleft', 
                tiles = providers$CartoDB.PositronNoLabels) %>%
     addScaleBar(position = "bottomright",
                 options = scaleBarOptions(metric=TRUE))
   
+  if(type=="WQ"){
+    # Create leaflet map with Type (Estuary vs River)
+    map2 <- leaflet(data, options = leafletOptions(zoomControl = FALSE)) %>%
+      addProviderTiles(providers$CartoDB.PositronNoLabels) %>%
+      addCircleMarkers(lat=~OriginalLatitude, lng=~OriginalLongitude, color=~typePal(Type),
+                       radius=rad, fillOpacity=0.3) %>%
+      addLegend(pal=typePal, values=~Type, title="Watershed Type") %>% 
+      addMiniMap(centerFixed = c(mean(data$OriginalLatitude),mean(data$OriginalLongitude)),  
+                 zoomLevelOffset = -6, 
+                 position = 'topleft', 
+                 tiles = providers$CartoDB.PositronNoLabels) %>%
+      addScaleBar(position = "bottomright",
+                  options = scaleBarOptions(metric=TRUE))
+    
+    # Create map for each system
+    sys_map <- leaflet(data %>% filter(System==sys), options = leafletOptions(zoomControl = FALSE)) %>%
+      addProviderTiles(providers$CartoDB.PositronNoLabels) %>%
+      addCircleMarkers(lat=~OriginalLatitude, lng=~OriginalLongitude, color=~typePal(Type),
+                       radius=rad, fillOpacity=0.3) %>%
+      addLegend(pal=typePal, values=~Type, title="Watershed Type") %>% 
+      addMiniMap(centerFixed = c(mean(data$OriginalLatitude),mean(data$OriginalLongitude)),  
+                 zoomLevelOffset = -6, 
+                 position = 'topleft', 
+                 tiles = providers$CartoDB.PositronNoLabels) %>%
+      addScaleBar(position = "bottomright",
+                  options = scaleBarOptions(metric=TRUE))
+    
+    # Save as .png
+    mapshot(map2, file = typeMap_out, vwidth = 1200, vheight = 1080, remove_controls = NULL)
+    mapshot(sys_map, file = sysMap_out, vwidth = 1200, vheight = 1080, remove_controls = NULL)
+    
+    # draw with ggplot
+    p2 <- ggdraw() + draw_image(typeMap_out, scale = 1) +
+      annotation_north_arrow(location = "bl", which_north = "true",
+                             pad_x = unit(0.3, "in"), pad_y = unit(0.8, "in"),
+                             style = north_arrow_fancy_orienteering)
+    p3 <- ggdraw() + draw_image(sysMap_out, scale = 1) +
+      annotation_north_arrow(location = "bl", which_north = "true",
+                             pad_x = unit(0.3, "in"), pad_y = unit(0.8, "in"),
+                             style = north_arrow_fancy_orienteering)
+  }
+  
+  # save file as png
+  mapshot(map, file = map_out, vwidth = 1200, vheight = 1080, remove_controls = NULL)
+  
+  # draw .png with ggplot
+  p1 <- ggdraw() + draw_image(map_out, scale = 1) +
+    annotation_north_arrow(location = "bl", which_north = "true",
+                           pad_x = unit(0.3, "in"), pad_y = unit(0.8, "in"),
+                           style = north_arrow_fancy_orienteering)
+  
+  if(output=="all"){
+    return(p1)
+  } else if(output=="wq_types"){
+    return(p2)
+  } else if(output=="sys_map"){
+    return(p3)
+  }
+}
+
+# Store results in sav_maps_list to call within report
+sav_maps_list <- list()
+# Define palette
+pal <- colorFactor("plasma", SAV4$ProgramID)
+# Function to set radius / circle size by # of samples
+calc_radius <- function(n){sqrt(n)}
+
+# Generate maps to be displayed at beginning of report (All Systems maps)
+sav_maps_list[["all_sys_map"]] <- make_map("WQ", "all", sys = "none")
+sav_maps_list[["all_sys_type_map"]] <- make_map("WQ", "wq_types", sys = "none")
+sav_maps_list[["all_sys_sav_map"]] <- make_map("SAV", "all", sys = "none")
+
+for(sys in sys_include){
+  # Grab number of samples at each site for each ProgramLocationID
+  # Prog ID_559 contains Year within ProgramLocationID, extract from string
+  data <- SAV4[System==sys, ] %>% rowwise() %>%
+    mutate(ProgramLocationID = ifelse(ProgramID==559, str_split_1(ProgramLocationID, "-")[1], ProgramLocationID)) %>%
+    group_by(ProgramLocationID) %>%
+    reframe(n_data = n(),
+            ProgramID = unique(ProgramID))
+  # Create reference of Lat and Lon values for each ProgramLocationID
+  locs <- sav_map_df %>% filter(System==sys) %>% rowwise() %>%
+    mutate(ProgramLocationID = ifelse(ProgramID==559, str_split_1(ProgramLocationID, "-")[1], ProgramLocationID)) %>%
+    group_by(ProgramLocationID) %>% reframe(
+      OriginalLatitude = mean(OriginalLatitude),
+      OriginalLongitude = mean(OriginalLongitude),
+    )
+  # Merge together
+  data <- data %>% left_join(locs)
+  # Define radius to display n_data
+  rad <- calc_radius(data$n_data)
+  
+  # Map
+  map <- leaflet(data, options = leafletOptions(zoomControl = FALSE)) %>% 
+    addProviderTiles(providers$CartoDB.PositronNoLabels) %>%
+    addCircleMarkers(lat = ~OriginalLatitude, lng = ~OriginalLongitude, fillColor=~pal(ProgramID),
+                     weight=0.5, fillOpacity = 0.4, radius=rad,
+                     color="black") %>%
+    addLegend(pal=pal, values=~ProgramID, 
+              labFormat=labelFormat(prefix="Program "), title="SEACAR ProgramID")
+  
+  # Add mini map and scale
+  map2 <- map %>%
+    addMiniMap(centerFixed = c(mean(data$OriginalLatitude),mean(data$OriginalLongitude)), 
+               zoomLevelOffset = -6, 
+               position = 'topleft', 
+               tiles = providers$CartoDB.PositronNoLabels) %>%
+    addScaleBar(position = "bottomright",
+                options = scaleBarOptions(metric=TRUE)) %>%
+    SEACAR::addCircleLegend(title = "Number of samples",
+                            range = data$n_data,
+                            scaling_fun = calc_radius,fillColor = "#b3b3b3",
+                            fillOpacity = 0.8,weight = 1,color = "#000000",
+                            position = "topright")
+  
   # Map output filepath
   map_out <- paste0("output/maps/SAV_",sys,".png")
   # Export map to png
-  mapshot(map, file = map_out, vwidth = 1200, vheight = 1080)
+  mapshot(map2, file = map_out, vwidth = 960, vheight = 864, remove_controls = NULL)
   # draw .png with ggplot
-  p1 <- ggdraw() + draw_image(map_out, scale = 1)
+  p1 <- ggdraw() + draw_image(map_out, scale = 1) + 
+    annotation_north_arrow(location = "bl", which_north = "true",
+                           pad_x = unit(0.5, "in"), pad_y = unit(0.8, "in"),
+                           style = north_arrow_fancy_orienteering)
   # Store static map objects
-  sav_maps_list[[sys]] <- p1
+  sav_maps_list[["sav_sys_maps"]][[sys]] <- p1
+}
+
+for(sys in unique(wq_data$System)){
+  # Maps for WQ parameters in each system
+  sav_maps_list[["wq_sys_maps"]][[sys]] <- make_map("WQ", output = "sys_map", sys = sys)
 }
 
 # SAV LMEResults Table Function
