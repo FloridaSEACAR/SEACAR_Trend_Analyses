@@ -67,9 +67,8 @@ for(ma in MA_All$ManagedAreaName){
   links_table <- bind_rows(links_table, link_table)
 }
 
-print(
-  kable(links_table, format="html", table.attr = 'class="table table-striped"', escape=FALSE)
-)
+
+kable(links_table, format="html", table.attr = 'class="table table-striped"', escape=FALSE)
 
 end.rcode -->
 </div>
