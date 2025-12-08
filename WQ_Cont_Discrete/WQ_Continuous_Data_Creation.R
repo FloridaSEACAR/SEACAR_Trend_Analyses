@@ -134,13 +134,13 @@ for (j in 1:length(all_params)){
     ### FILE IMPORT ###
     ###################
     
-    data <- fread(file_in, sep="|", header=TRUE, stringsAsFactors=FALSE,
-                  select=c("ManagedAreaName", "ProgramID", "ProgramName",
-                           "ProgramLocationID", "SampleDate", "Year", "Month",
-                           "RelativeDepth", "ActivityType", "ParameterName",
-                           "ResultValue", "ParameterUnits", "ValueQualifier",
-                           "SEACAR_QAQCFlagCode", "Include", "OriginalLatitude", "OriginalLongitude"),
-                  na.strings=c("NULL","","NA"))
+    data <- fread(file = file_in, sep="|", header=TRUE, stringsAsFactors=FALSE, na.strings="NULL")
+    
+    # Apply SEACAR clean_managed_areas function to remove concatenation from MA name
+    data <- SEACAR::clean_managed_areas(data)
+    setDT(data)
+    # Remove all non-MA data, analyze only MA values
+    data <- data[!is.na(AreaID)]
     
     parameter <- unique(data$ParameterName)
     unit <- unique(data$ParameterUnits)
@@ -159,15 +159,6 @@ for (j in 1:length(all_params)){
     data <- data[!is.na(data$RelativeDepth),]
     # Rremoves rows that have an ActivityType with Blank
     data <- data[!grep("Blank", data$ActivityType),]
-    
-    # Gets list of managed areas for the specific region being looked at
-    MA_All_Region <- MA_All[MA_All$Region==region,]
-    
-    # Gets AreaID for data by merging data with the managed area list for the region
-    # data <- merge.data.frame(MA_All_Region[,c("AreaID", "ManagedAreaName")],
-    #                          data, by="ManagedAreaName", all=TRUE)
-    data <- merge(MA_All_Region[,c("AreaID", "ManagedAreaName")],
-                  data, by="ManagedAreaName", all=TRUE)
     
     # Creates MonitoringID to more easily cycle through monitoring locations
     setDT(data)

@@ -177,13 +177,20 @@ for (j in 1:length(all_params)){
       ###################
       
       data <- fread(file_in, sep="|", header=TRUE, stringsAsFactors=FALSE,
-                    select=c("ManagedAreaName", "ProgramID", "ProgramName",
+                    select=c("AreaID", "ManagedAreaName", "ProgramID", "ProgramName",
                              "ProgramLocationID", "SampleDate", "Year", "Month",
                              "RelativeDepth", "ActivityType", "ParameterName",
                              "ResultValue", "ParameterUnits", "ValueQualifier",
                              "SEACAR_QAQCFlagCode", "Include"),
                     na.strings=c("NULL","","NA"))
       
+      # Apply SEACAR clean_managed_areas function to remove concatenation from MA name
+      data <- SEACAR::clean_managed_areas(data)
+      setDT(data)
+      # Remove all non-MA data, analyze only MA values
+      data <- data[!is.na(AreaID)]
+      
+      # Delcare parameter names and unit values
       parameter <- unique(data$ParameterName)
       unit <- unique(data$ParameterUnits)
       cat(paste("The data file(s) used:", file_short, sep="\n"))
@@ -232,9 +239,6 @@ for (j in 1:length(all_params)){
       if(param_name=="Secchi_Depth"){
         data$Include[grep("U", data$ValueQualifier)] <- FALSE
       }
-      # Gets AreaID for data by merging data with the managed area list
-      data <- merge.data.frame(MA_All[,c("AreaID", "ManagedAreaName")],
-                               data, by="ManagedAreaName", all=TRUE)
       # Creates function to checks managed area for at least 2 years of
       # continuous consecutive data
       DiscreteConsecutiveCheck <- function(con_data){
