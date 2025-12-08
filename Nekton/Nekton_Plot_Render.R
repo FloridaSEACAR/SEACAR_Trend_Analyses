@@ -34,16 +34,6 @@ param_name <- "Presence/Absence"
 #Loads data file with list on managed area names and corresponding area IDs and short names
 MA_All <- SEACAR::ManagedAreas
 
-# Load in table descriptions
-tableDesc <- SEACAR::TableDescriptions %>%
-  mutate(DescriptionHTML = Description,
-         DescriptionLatex = stringi::stri_replace_all_regex(
-           Description,
-           pattern = c("<i>", "</i>", "&#8805;"),
-           replacement = c("*", "*", ">="),
-           vectorize = FALSE
-         )) %>%
-  as.data.table()
 # Load in figure captions
 figureCaptions <- SEACAR::FigureCaptions
 
@@ -259,6 +249,9 @@ MA_Ov_Stats$Programs <- replace(MA_Ov_Stats$Programs,
 # Write overall statistics to file
 fwrite(MA_Ov_Stats, paste0(out_dir,"/Nekton_", param_file,
                            "_MA_Overall_Stats.txt"), sep="|")
+
+# Save a copy for table description generation
+nek_stats <- copy(MA_Ov_Stats)
 # Removes entries from the overall statistics that do not have data.
 # Based on presence or absence of EarliestYear
 MA_Ov_Stats <- MA_Ov_Stats[!is.na(EarliestYear), ]
@@ -433,12 +426,6 @@ if(n==0){
                       # theme=ttheme(base_size=7))
     # Combines plot and table into one figure
     # print(ggarrange(p1, t1, ncol=1, heights=c(0.85, 0.15)))
-    
-    # Add extra space at the end to prevent the next figure from being too
-    # close. Does not add space after last plot
-    if(i!=n){
-      cat("\n \n \n \n")
-    }
   }
 }
 
@@ -451,6 +438,19 @@ setwd(wd)
 if(create_maps){
   source("Nekton_Create_Maps.R")
 }
+
+##### Generate Table Descriptions
+# Empty table to store results
+descriptionTable <- data.table()
+# Loop through available managed areas
+for(ma in unique(nek_stats$ManagedAreaName)){
+  # Save description in excel workbook
+  descriptionText <- generate_description(data = nek_stats[ManagedAreaName==ma, ], habitat = "Nekton")
+  descriptionTable <- bind_rows(descriptionTable, descriptionText)
+}
+
+# Write .csv of text results
+fwrite(descriptionTable, file = "output/nekton_tableDescriptions.csv")
 
 #Renders Nekton_SpeciesRichness.Rmd and writes the report to a pdf and 
 #document stored in output directory

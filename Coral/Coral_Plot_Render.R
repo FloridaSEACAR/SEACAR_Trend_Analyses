@@ -23,7 +23,7 @@ wd <- dirname(getActiveDocumentContext()$path)
 setwd(wd)
 
 # Create sample location maps? (for MA Report Generation & Atlas)
-create_maps <- TRUE
+create_maps <- FALSE
 
 source("../SEACAR_data_location.R")
 
@@ -38,17 +38,6 @@ param_file <- "SpeciesRichness"
 
 #Loads data file with list on managed area names and corresponding area IDs and short names
 MA_All <- SEACAR::ManagedAreas
-
-# Load in table descriptions
-tableDesc <- SEACAR::TableDescriptions %>%
-  mutate(DescriptionHTML = Description,
-         DescriptionLatex = stringi::stri_replace_all_regex(
-           Description,
-           pattern = c("<i>", "</i>", "&#8805;"),
-           replacement = c("*", "*", ">="),
-           vectorize = FALSE
-         )) %>%
-  as.data.table()
 
 # Load in figure captions
 figureCaptions <- SEACAR::FigureCaptions
@@ -267,6 +256,9 @@ fwrite(MA_Ov_Stats, paste0(out_dir,"/Coral_", param_file,
 # Based on presence or absence of EarliestYear
 MA_Ov_Stats <- MA_Ov_Stats[!is.na(MA_Ov_Stats$EarliestYear), ]
 
+# Save Coral PC stats for description generation
+coral_sr_stats <- copy(MA_Ov_Stats)
+
 ## Plot Species Richness ----
 # Color palette for SEACAR
 color_palette <- SEACAR::seacar_palette1
@@ -366,12 +358,6 @@ if(n==0){
                       theme=ttheme(base_size=7))
     # Combines plot and table into one figure
     print(ggarrange(p1, t1, ncol=1, heights=c(0.85, 0.15)))
-    
-    # Add extra space at the end to prevent the next figure from being too
-    # close. Does not add space after last plot
-    if(i!=n){
-      cat("\n \n \n \n") 
-    }
   }
 }
 
@@ -580,6 +566,9 @@ lme_stats <- as.data.table(lme_stats[order(lme_stats$ManagedAreaName), ])
 fwrite(lme_stats, paste0(out_dir,"/Coral_", param_file,
                          "_LME_Stats.txt"), sep="|")
 
+# Save a copy of lme_stats for description generation
+coral_pc_stats <- copy(lme_stats)
+
 # Gets lower x and y values based on LME fit to use in plot
 lme_plot <- lme_stats %>%
   group_by(AreaID, ManagedAreaName) %>%
@@ -725,12 +714,6 @@ if(n==0){
                        size=10, face="italic")
     # Combines plot and table into one figure
     print(ggarrange(p1, t1, ncol=1, heights=c(0.85, 0.15)))
-    
-    # Add extra space at the end to prevent the next figure from being too
-    # close. Does not add space after last plot
-    if(i!=n){
-      cat("\n \n \n \n")
-    }
   }
 }
 
@@ -743,6 +726,24 @@ setwd(wd)
 if(create_maps){
   source("Coral_Create_Maps.R")
 }
+
+##### Generate Table Descriptions
+# Empty table to store results
+descriptionTable <- data.table()
+# Loop through MAs and apply necessary functions
+for(ma in unique(c(coral_pc_stats$ManagedAreaName, coral_sr_stats$ManagedAreaName))){
+  if(ma %in% coral_pc_stats$ManagedAreaName){
+    descriptionText <- generate_description(data = coral_pc_stats[ManagedAreaName==ma, ], habitat = "Coral")
+    descriptionTable <- bind_rows(descriptionTable, descriptionText)
+  }
+  if(ma %in% coral_sr_stats$ManagedAreaName){
+    descriptionText <- generate_description(data = coral_sr_stats[ManagedAreaName==ma, ], habitat = "Coral")
+    descriptionTable <- bind_rows(descriptionTable, descriptionText)
+  }
+}
+
+# Write .csv of text results
+fwrite(descriptionTable, file = "output/coral_tableDescriptions.csv")
 
 # Render both reports
 report_types <- c("SpeciesRichness","PercentCover")

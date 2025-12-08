@@ -2185,10 +2185,10 @@ pctlive_models_par <- function(loc, habitat_type, oysterraw_pct){
       } else if(length(unique(data$PercentLiveMethod))>1){
         cols <- c("#00374f", "#0094b0")
         shapes <- c(21, 24)
-        names(cols) <- unique(d$PercentLiveMethod)
-        names(shapes) <- unique(d$PercentLiveMethod)
         pctplots <- plot(conditional_effects(models[[1]], re_formula=NULL, effects = "RelYear:PercentLiveMethod"), plot=FALSE)
         d <- pctplots$`RelYear:PercentLiveMethod`$data
+        names(cols) <- unique(d$PercentLiveMethod)
+        names(shapes) <- unique(d$PercentLiveMethod)        
         
         for(plm in unique(d$PercentLiveMethod)){
           # Grab lowest relYear for a given PLM
@@ -2327,7 +2327,8 @@ if(!QAQCPlots){
   rhats_sum <- data.table(filename=character(),
                           rhat=numeric())
   fam_overview <- data.table(filename=character(),
-                             family=character())
+                             family=character(),
+                             formula=character())
   
   for(mod in model_list){
     mod_i <- readRDS(mod)
@@ -2342,7 +2343,8 @@ if(!QAQCPlots){
     rhats_sum <- rbind(rhats_sum, sumrhat_model_i)
     sum <- summary(mod_i)
     familyType <- sum$formula$family$family
-    fam_overview <- rbind(fam_overview, data.table(filename=mod,family=familyType))
+    formula <- as.character(mod_i$formula)
+    fam_overview <- rbind(fam_overview, data.table(filename=mod,family=familyType,formula=formula))
   }
   
   rhats_all[, rhat_r := round(rhat, 2)]
@@ -2350,7 +2352,7 @@ if(!QAQCPlots){
   
   saveRDS(rhats_all, paste0(output_path, "model_results/rhats_all_", Sys.Date(), ".rds"))
   saveRDS(rhats_sum, paste0(output_path, "model_results/rhats_sum_", Sys.Date(), ".rds"))
-  # saveRDS(fam_overview, paste0(output_path, "model_family_overview", Sys.Date(), ".rds"))
+  fwrite(fam_overview, paste0(output_path, "model_results/model_family_overview_", Sys.Date(), ".csv"))
   
   models_to_check_allrhat <- unique(rhats_all[rhat_r > 1.05, filename])
   models_to_check_sumrhat <- unique(rhats_sum[rhat_r > 1.05, filename])  

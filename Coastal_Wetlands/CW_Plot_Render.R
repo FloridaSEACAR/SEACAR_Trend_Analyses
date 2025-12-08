@@ -10,6 +10,7 @@ library(gridExtra)
 library(ggpubr)
 library(scales)
 library(rstudioapi)
+library(glue)
 
 # Gets directory of this script and sets it as the working directory
 wd <- dirname(getActiveDocumentContext()$path)
@@ -29,16 +30,6 @@ out_dir <- "output"
 #Loads data file with list on managed area names and corresponding area IDs and short names
 MA_All <- SEACAR::ManagedAreas
 
-# Load in table descriptions
-tableDesc <- SEACAR::TableDescriptions %>%
-  mutate(DescriptionHTML = Description,
-         DescriptionLatex = stringi::stri_replace_all_regex(
-           Description,
-           pattern = c("<i>", "</i>", "&#8805;"),
-           replacement = c("*", "*", ">="),
-           vectorize = FALSE
-         )) %>%
-  as.data.table()
 # Load in figure captions
 figureCaptions <- SEACAR::FigureCaptions
 
@@ -50,6 +41,9 @@ file_in <- str_subset(files, "All_CW")
 #Import data from coastal wetlands file
 data <- fread(file_in, sep="|", header=TRUE, stringsAsFactors=FALSE,
               na.strings=c("NULL"))
+
+# Apply Managed Area transformation - de-concatenate MA names
+data <- setDT(SEACAR::clean_managed_areas(data))
 
 file_short <- tail(str_split(file_in, "/")[[1]],1)
 
@@ -84,24 +78,16 @@ data <- data[!is.na(data$Year),]
 data$ResultValue <- as.numeric(data$ResultValue)
 # Remove rows where ResultValue is 0
 data <- data[data$ResultValue!=0,]
-# Remove duplicate rows
-# data <- data[data$MADup==1,]
 # Create variable that combines the genus and species name
 data$gensp <- paste(data$GenusName, data$SpeciesName, sep=" ")
 
 # Create Species Richness values for groups of unique combinations of
 # ManagedAreaName, ProgramID, ProgramName, ProgramLocationID, and SampleDate.
 data <- data %>%
-  group_by(ManagedAreaName, ProgramID, ProgramName, ProgramLocationID,
+  group_by(AreaID, ManagedAreaName, ProgramID, ProgramName, ProgramLocationID,
            SampleDate, SpeciesGroup1) %>%
-  summarise(ParameterName=parameter,
-            Year=unique(Year), Month=unique(Month),
-            SpeciesRichness=length(unique(gensp)))
-
-# Adds AreaID for each managed area by combining the MA_All datatable to the
-# data based on ManagedAreaName
-data <- merge.data.frame(MA_All[,c("AreaID", "ManagedAreaName")],
-                         data, by="ManagedAreaName")
+  reframe(ParameterName=parameter, Year=unique(Year), 
+          Month=unique(Month), SpeciesRichness=length(unique(gensp)))
 
 # Writes this data that is used by the rest of the script to a text file
 fwrite(data, paste0(out_dir,"/CoastalWetlands_", param_file, "_UsedData.txt"),
@@ -244,6 +230,7 @@ MA_Ov_Stats$Programs <- replace(MA_Ov_Stats$Programs,
 # Write overall statistics to file
 fwrite(MA_Ov_Stats, paste0(out_dir,"/CoastalWetlands_", param_file,
                            "_MA_Overall_Stats.txt"), sep="|")
+cw_stats <- copy(MA_Ov_Stats)
 # Removes entries from the overall statistics that do not have data.
 # Based on presence or absence of EarliestYear
 MA_Ov_Stats <- MA_Ov_Stats[!is.na(MA_Ov_Stats$EarliestYear), ]
@@ -383,6 +370,19 @@ setwd(wd)
 if(create_maps){
   source("CW_Create_Maps.R")
 }
+
+##### Generate Table Descriptions
+# Empty table to store results
+descriptionTable <- data.table()
+# Loop through available managed areas
+for(ma in unique(cw_stats$ManagedAreaName)){
+  # Save description in excel workbook
+  descriptionText <- SEACAR::generate_description(data = cw_stats[ManagedAreaName==ma, ], habitat = "CW")
+  descriptionTable <- bind_rows(descriptionTable, descriptionText)
+}
+
+# Write .csv of text results
+fwrite(descriptionTable, file = "output/cw_tableDescriptions.csv")
 
 #Renders CoastalWetlands_SpeciesRichness.Rmd and writes the report to a pdf and 
 #Word document stored in output directory

@@ -16,6 +16,7 @@ library(readr)
 library(dplyr)
 library(data.table)
 library(rstudioapi)
+library(SEACAR)
 
 # Gets directory of this script and sets it as the working directory
 wd <- dirname(getActiveDocumentContext()$path)
@@ -52,16 +53,6 @@ param_name <- "All_Oyster_Parameters"
 #Loads data file with list on managed area names and corresponding area IDs and short names
 MA_All <- SEACAR::ManagedAreas
 
-# Load in table descriptions
-tableDesc <- SEACAR::TableDescriptions %>%
-  mutate(DescriptionHTML = Description,
-         DescriptionLatex = stringi::stri_replace_all_regex(
-           Description,
-           pattern = c("<i>", "</i>", "&#8805;"),
-           replacement = c("*", "*", ">="),
-           vectorize = FALSE
-         )) %>%
-  as.data.table()
 # Load in figure captions
 figureCaptions <- SEACAR::FigureCaptions
 
@@ -70,6 +61,21 @@ file_in <- str_subset(list.files("C:/SEACAR Data/SEACARdata/", full.names = TRUE
 
 #Gets the specific file used and removes the directory names
 file_short <- str_split(file_in, "/")[[1]][4]
+
+##### Generate Table Descriptions
+# Load in oyster stats file (output from Oyster_ResultsCompile.R)
+oyster_stats <- fread("output/ManagedAreaName/Oyster_All_GLMM_Stats.txt") %>% distinct() %>% as.data.table()
+# Empty table to store results
+descriptionTable <- data.table()
+# Loop through available managed areas
+for(ma in unique(oyster_stats$ManagedAreaName)){
+  # Save description in excel workbook
+  descriptionText <- generate_description(data = oyster_stats[ManagedAreaName==ma, ], habitat = "Oyster")
+  descriptionTable <- bind_rows(descriptionTable, descriptionText)
+}
+
+# Write .csv of text results
+fwrite(descriptionTable, file = "output/oyster_tableDescriptions.csv")
 
 #Renders Oyster.Rmd for each parameter combination and writes the
 #report to an html and Word document stored in output directory

@@ -10,7 +10,7 @@ create_maps <- FALSE
 # Render SAV report?
 render_reports <- TRUE
 # Choose whether to generate spatio-temporal scope plots for SAV locations
-scope_plots <- FALSE
+scope_plots <- TRUE
 #######
 
 # Set working directory
@@ -37,21 +37,38 @@ if(scope_plots){
   source("SAV_scope_plots.R", echo=TRUE)
 }
 
-## Render reports
+##### Generate Table Descriptions
+# Order species according to their order on the Atlas / plots
+species_order <- c("Total SAV","Total seagrass","Halophila spp.","Halophila, unk.",
+                   "Johnson's seagrass","Manatee grass","Paddle grass","Shoal grass",
+                   "Star grass","Turtle grass","Widgeon grass","Attached algae","Drift algae")
+# Import stats results (output from SAV_BBpct_LME_tableconvert.R)
+sav_stats <- fread("output/website/SAV_BBpct_LMEresults_All.txt") %>% distinct() %>%
+  mutate(Period = paste0(EarliestYear, " - ", LatestYear)) %>%
+  filter(!Species=="No grass in quadrat") %>%
+  mutate(Species = factor(Species, levels = species_order)) %>%
+  arrange(ManagedAreaName, Species) %>% as.data.table()
 
+# Lower-case species names, exception for acronym SAV
+sav_stats[Species!="Total SAV", `:=` (Species = tolower(Species))]
+sav_stats[Species=="Total SAV", `:=` (Species = "total SAV")]
+
+# Empty table to store results
+descriptionTable <- data.table()
+# Loop through available managed areas
+for(ma in unique(sav_stats$ManagedAreaName)){
+  # Save description in excel workbook
+  descriptionText <- generate_description(data = sav_stats[ManagedAreaName==ma, ], habitat = "SAV")
+  descriptionTable <- bind_rows(descriptionTable, descriptionText)
+}
+
+# Write .csv of text results
+fwrite(descriptionTable, file = "output/sav_tableDescriptions.csv")
+
+## Render reports
 #Loads data file with list on managed area names and corresponding area IDs and short names
 MA_All <- SEACAR::ManagedAreas
 
-# Load in table descriptions
-tableDesc <- SEACAR::TableDescriptions %>%
-  mutate(DescriptionHTML = Description,
-         DescriptionLatex = stringi::stri_replace_all_regex(
-           Description,
-           pattern = c("<i>", "</i>", "&#8805;"),
-           replacement = c("*", "*", ">="),
-           vectorize = FALSE
-         )) %>%
-  as.data.table()
 # Load in figure captions
 figureCaptions <- SEACAR::FigureCaptions
 
@@ -67,11 +84,11 @@ if(render_reports){
   for(file_type in c("PDF", "HTML")){
     descriptionColumn <- ifelse(file_type=="PDF", "DescriptionLatex", "DescriptionHTML")
     tableFormat <- ifelse(file_type=="PDF", "latex", "simple")
-    rmarkdown::render(input = "SAV_ReportSummary.Rmd", 
+    rmarkdown::render(input = "SAV_ReportSummary.Rmd",
                       output_format = paste0(tolower(file_type),"_document"),
                       output_file = paste0(file_out, ".", tolower(file_type)),
                       output_dir = "output",
-                      clean=TRUE)    
+                      clean=TRUE)
   }
   #Removes unwanted files created in the rendering process
   unlink(paste0("output/", file_out, ".md"))

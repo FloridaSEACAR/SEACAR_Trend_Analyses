@@ -85,7 +85,7 @@ make_table <- function(ma){
 
 for(ma in coral_sr_MA_Include){
   fig_caption <- figureCaptions[HabitatName=="Coral/Coral Reef" & IndicatorName=="Grazers and Reef Dependent Species", FigureCaptions]
-  desc <- tableDesc[ManagedAreaName==ma & HabitatName=="Coral/Coral Reef" & ParameterName=="Presence/Absence", get(descriptionColumn)]
+  desc <- descriptionTable[ManagedAreaName==ma & HabitatName=="Coral/Coral Reef" & ParameterName=="Presence/Absence", get(descriptionColumn)]
   cat("  \n")
   cat(glue("## {ma}"))
   plot_loc <- get_plot(ma)

@@ -163,7 +163,7 @@ plot_discrete <- function(p, a, d, parameter, skt_data, discrete_data, ma, ma_sh
     # Display table in report
     print(result_table)
     cat("  \n")
-    desc <- tableDesc[ManagedAreaName==ma & ParameterName==parameter & SamplingFrequency=="Discrete", get(descriptionColumn)]
+    desc <- descriptionTable[ManagedAreaName==ma & ParameterName==parameter & SamplingFrequency=="Discrete", get(descriptionColumn)]
     cat(desc)
     cat("\n \n \n")
     
@@ -221,7 +221,7 @@ plot_continuous <- function(ma, ma_short, cont_plot_data, param, parameter, indi
         ResultTable$`Program Location` <- gsub("_", "-", ResultTable$`Program Location`)
         ResultTable$`Program Location` <- gsub("&", "-and-", ResultTable$`Program Location`)
         
-        desc <- tableDesc[ManagedAreaName==ma & ParameterName==parameter & SamplingFrequency=="Continuous", get(descriptionColumn)]
+        desc <- descriptionTable[ManagedAreaName==ma & ParameterName==parameter & SamplingFrequency=="Continuous", get(descriptionColumn)]
         
         result_table <- kable(ResultTable, format=tableFormat,
                               caption=paste0("Seasonal Kendall-Tau Results for All Stations - ", parameter),
@@ -246,7 +246,7 @@ plot_continuous <- function(ma, ma_short, cont_plot_data, param, parameter, indi
       }
     } else {
       
-      desc <- tableDesc[ManagedAreaName==ma & ParameterName==parameter & SamplingFrequency=="Continuous", get(descriptionColumn)]
+      desc <- descriptionTable[ManagedAreaName==ma & ParameterName==parameter & SamplingFrequency=="Continuous", get(descriptionColumn)]
       
       ResultTable <- skt_stats %>%
         select(ProgramLocationID, "Statistical Trend", N_Data, N_Years, "Period of Record", Median, tau,

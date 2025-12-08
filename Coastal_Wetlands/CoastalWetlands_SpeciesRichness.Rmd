@@ -97,7 +97,7 @@ make_table <- function(ma){
 
 for(ma in cw_MA_Include){
   fig_caption <- figureCaptions[HabitatName=="Coastal Wetlands" & IndicatorName=="Species Composition", FigureCaptions]
-  desc <- tableDesc[ManagedAreaName==ma & HabitatName=="Coastal Wetlands", get(descriptionColumn)]
+  desc <- descriptionTable[ManagedAreaName==ma & HabitatName=="Coastal Wetlands", get(descriptionColumn)]
   cat("  \n")
   cat(glue("## {ma}"))
   plot_loc <- get_plot(ma)

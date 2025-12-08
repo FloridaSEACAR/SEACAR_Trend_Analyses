@@ -87,7 +87,7 @@ for(ma in unique(sav_results$ManagedAreaName)){
         kableExtra::kable_styling(latex_options = c("scale_down", "HOLD_position"))
       print(display_table)
       cat("  \n")
-      desc <- tableDesc[ManagedAreaName==ma & HabitatName=="Submerged Aquatic Vegetation", get(descriptionColumn)]
+      desc <- descriptionTable[ManagedAreaName==ma & HabitatName=="Submerged Aquatic Vegetation", get(descriptionColumn)]
       cat(desc)
       cat("  \n")
     }

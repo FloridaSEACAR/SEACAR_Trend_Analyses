@@ -27,8 +27,8 @@ setwd(wd)
 # These scripts should be run when there are new combined tables available
 # Comment out if they have been run for this export, Cont. processing takes ~1.5hr
 
-# source("WQ_Discrete_Data_Creation.R", echo=T)
-# source("WQ_Continuous_Data_Creation.R", echo=T)
+source("WQ_Discrete_Data_Creation.R", echo=T)
+source("WQ_Continuous_Data_Creation.R", echo=T)
 
 # WQ_KendallTau_Stats_Combine produces the following files needed for Atlas updates
 # WQ_Discrete_All_KendallTau_Stats & WQ_Continuous_All_KendallTau_Status
@@ -79,16 +79,6 @@ cont_files <- list.files(cont_loc,pattern = "\\.rds$", full.names = T)
 #Loads data file with list on managed area names and corresponding area IDs and short names
 MA_All <- SEACAR::ManagedAreas
 
-# Load in table descriptions
-tableDesc <- SEACAR::TableDescriptions %>%
-  mutate(DescriptionHTML = Description,
-         DescriptionLatex = stringi::stri_replace_all_regex(
-           Description,
-           pattern = c("<i>", "</i>", "&#8805;"),
-           replacement = c("*", "*", ">="),
-           vectorize = FALSE
-         )) %>%
-  as.data.table()
 # Load in figure captions
 figureCaptions <- SEACAR::FigureCaptions
 
@@ -752,6 +742,57 @@ if(save_maps){
   source("WQ_Create_Maps.R")
 }
 
+##### Generate Table Descriptions
+# Apply text trend designations, convert from numeric
+checkWCTrends <- function(p, SennSlope){
+  increasing <- SennSlope > 0
+  trendPresent <- p < 0.05
+  trendStatus <- "No significant trend"
+  if(trendPresent){
+    trendStatus <- ifelse(increasing, "Significantly increasing trend", "Significantly decreasing trend")
+  }          
+  return(trendStatus)
+}
+
+# Read in stats files (output from WQ_KendallTau_Stats_Combine.R)
+wq_stats_disc <- fread("output/WQ_Discrete_All_KendallTau_Stats.txt") %>% distinct()
+# Create Period of Record column
+wq_stats_disc[, `:=` (Period = paste0(EarliestYear, " - ", LatestYear))]
+
+wq_stats_disc <- wq_stats_disc[Website==1, ] %>% rowwise() %>%
+  mutate(
+    StatisticalTrend = ifelse(!is.na(Trend), checkWCTrends(p, SennSlope), "Insufficient data")
+  ) %>%
+  group_by(ManagedAreaName, ParameterName, StatisticalTrend, SennSlope, 
+           EarliestYear, LatestYear) %>%
+  mutate(SennSlope = abs(
+    ifelse(ParameterName %in% c("Total Nitrogen", "Total Phosphorus"), 
+           round(SennSlope, 3), round(SennSlope, 2)))) %>%
+  reframe() %>% as.data.table()
+wq_stats_cont <- fread("output/WQ_Continuous_All_KendallTau_Stats.txt") %>% distinct() %>%
+  mutate(Period = paste0(EarliestYear, " - ", LatestYear)) %>% filter(Website==1) %>% rowwise() %>% 
+  mutate(StatisticalTrend = ifelse(!is.na(Trend), checkWCTrends(p, SennSlope), "Insufficient data")) %>% 
+  as.data.table()
+
+# Empty table to store results
+descriptionTable <- data.table()
+# Loop through available managed areas
+for(ma in unique(c(wq_stats_disc$ManagedAreaName, wq_stats_cont$ManagedAreaName))){
+  # Discrete
+  if(ma %in% unique(wq_stats_disc$ManagedAreaName)){
+    descriptionText <- SEACAR::generate_description(data = wq_stats_disc[ManagedAreaName==ma, ], habitat = "WC")
+    descriptionTable <- bind_rows(descriptionTable, descriptionText)
+  }
+  # Continuous
+  if(ma %in% unique(wq_stats_cont$ManagedAreaName)){
+    descriptionText <- SEACAR::generate_description(data = wq_stats_cont[ManagedAreaName==ma, ], habitat = "WC")
+    descriptionTable <- bind_rows(descriptionTable, descriptionText)
+  }
+}
+
+# Write .csv of text results
+fwrite(descriptionTable, file = "output/WQ_tableDescriptions.csv")
+
 # Render reports if `render_reports` is TRUE
 if(render_reports){
   # Loop through list of managed areas
@@ -791,12 +832,6 @@ if(render_reports){
     unlink(paste0(file_out, ".log"))
   }
 }
-
-# Render index.html directory to list on GitHub pages
-# rmarkdown::render(input = "IndexTemplate.Rmd",
-#                   output_format = "html_document",
-#                   output_file = "index.html",
-#                   clean=TRUE)
 
 knitr::knit("index.Rhtml")
 

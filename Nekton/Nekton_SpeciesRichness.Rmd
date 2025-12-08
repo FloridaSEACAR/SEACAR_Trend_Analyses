@@ -82,7 +82,7 @@ make_table <- function(ma){
 
 for(ma in nekton_MA_Include){
   fig_caption <- figureCaptions[HabitatName=="Water Column" & IndicatorName=="Nekton", FigureCaptions]
-  desc <- tableDesc[ManagedAreaName==ma & IndicatorName=="Nekton", get(descriptionColumn)]
+  desc <- descriptionTable[ManagedAreaName==ma & IndicatorName=="Nekton", get(descriptionColumn)]
   cat("  \n")
   cat(glue("## {ma}"))
   plot_loc <- get_plot(ma)
