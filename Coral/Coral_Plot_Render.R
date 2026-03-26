@@ -15,6 +15,7 @@ library(nlme)
 library(stringr)
 library(knitr)
 library(kableExtra)
+library(glue)
 options(scipen=999)
 
 # Coral Species Richness ----
@@ -23,7 +24,7 @@ wd <- dirname(getActiveDocumentContext()$path)
 setwd(wd)
 
 # Create sample location maps? (for MA Report Generation & Atlas)
-create_maps <- FALSE
+create_maps <- TRUE
 
 source("../SEACAR_data_location.R")
 
@@ -49,8 +50,9 @@ file_in <- list.files(seacar_data_location, pattern="All_CORAL", full=TRUE)
 file_short <- tail(str_split(file_in, "/")[[1]], 1)
 
 # Read in data file
-data <- fread(file_in, sep="|", header=TRUE, stringsAsFactors=FALSE,
-              na.strings=c("NULL","","NA"))
+data <- fread(file_in, sep="|", header=TRUE, stringsAsFactors=FALSE, na.strings="NULL")
+# Apply Managed Area transformation - de-concatenate MA names
+data <- setDT(SEACAR::clean_managed_areas(data, "ma"))
 
 cat(paste("The data file(s) used:", file_short, sep="\n"))
 
@@ -91,10 +93,6 @@ data$ResultValue <- as.numeric(data$ResultValue)
 # Remove rows where ResultValue is 0 and missing
 data <- data[data$ResultValue!=0,]
 data <- data[!is.na(data$ResultValue),]
-# Remove duplicate rows
-# data <- data[data$MADup==1,]
-# Create variable that combines the genus and species name
-data$gensp <- paste(data$GenusName, data$SpeciesName, sep=" ")
 
 # Create Species Richness values for groups of unique combinations of
 # ManagedAreaName, ProgramID, ProgramName, ProgramLocationID, and SampleDate.
@@ -103,7 +101,7 @@ data <- data[data$ResultValue==1] %>%
            SampleDate) %>%
   summarise(ParameterName=parameter,
             Year=unique(Year), Month=unique(Month),
-            SpeciesRichness=length(unique(gensp)))
+            SpeciesRichness=length(unique(CommonIdentifier)))
 setDT(data)
 
 # Writes this data that is used by the rest of the script to a text file
@@ -330,14 +328,11 @@ if(n==0){
     # Sets file name of plot created
     outname <- paste0("Coral_", param_file, "_", ma_abrev, ".png")
     # Saves plot as a png image
-    png(paste0(out_dir, "/Figures/", outname),
-        width = 8,
-        height = 4,
-        units = "in",
-        res = 200)
-    print(p1)
-    dev.off()
-    
+    ggsave(filename = paste0(out_dir, "/Figures/", outname), 
+           plot = p1,
+           width = 8,
+           height = 4,
+           units = "in")
     # Creates a data table object to be shown underneath plots in report
     ResultTable <- MA_Ov_Stats[ManagedAreaName==ma_i,]
     # Removes location, and parameter information because it is in plot
@@ -353,11 +348,6 @@ if(n==0){
     ResultTable$Median <- round(ResultTable$Median, digits=2)
     ResultTable$Mean <- round(ResultTable$Mean, digits=2)
     ResultTable$StDev <- round(ResultTable$StDev, digits=2)
-    # Stores as plot table object
-    t1 <- ggtexttable(ResultTable, rows = NULL,
-                      theme=ttheme(base_size=7))
-    # Combines plot and table into one figure
-    print(ggarrange(p1, t1, ncol=1, heights=c(0.85, 0.15)))
   }
 }
 
@@ -404,12 +394,8 @@ data <- data[!is.na(data$SpeciesGroup1),]
 data <- data[!is.na(data$ResultValue),]
 # Remove rows with missing SampleDate
 data <- data[!is.na(data$SampleDate),]
-# Remove duplicate rows
-# data <- data[data$MADup==1,]
 # Remove rows with missing ManagedAreaName
 data <- data[!is.na(data$ManagedAreaName),]
-# Create variable that combines the genus and species name
-data$gensp <- paste(data$GenusName, data$SpeciesName, sep=" ")
 
 # Managed Area Stats ----
 # Create summary statistics for each managed area based on Year and Month
@@ -539,20 +525,34 @@ for(i in 1:n){
   # Gets data for current managegd area
   lme_data <- data[ManagedAreaName==ma_i,]
   # Perform LME for relation between ResultValue and Year for current managed area
-  AnyCoral<-lme(ResultValue ~ Year,
-                random =~1|ProgramLocationID,
-                na.action = na.omit,
-                data = lme_data)
+  fit <- try(
+    nlme::lme(ResultValue ~ Year,
+              random =~1|ProgramLocationID,
+              na.action = na.omit,
+              data = lme_data),
+    silent = TRUE
+  )
+  
+  if(inherits(fit, "try-error")) {
+    message("LME failed for: ", ma_i)
+    lme_stats$AreaID[i] <- unique(lme_data$AreaID)
+    lme_stats$ManagedAreaName[i] <- ma_i
+    lme_stats$LME_Intercept[i] <- NA
+    lme_stats$LME_Slope[i] <- NA
+    lme_stats$LME_p[i] <- NA
+    next
+  }
+  
   # Store information and model fits in appropriate row of data frame
   lme_stats$AreaID[i] <- unique(lme_data$AreaID)
   lme_stats$ManagedAreaName[i] <- ma_i
-  lme_stats$LME_Intercept[i] <- AnyCoral$coefficients$fixed[1]
-  lme_stats$LME_Slope[i] <- AnyCoral$coefficients$fixed[2]
-  lme_stats$LME_p[i] <- anova(AnyCoral)$p[2]
+  lme_stats$LME_Intercept[i] <- fit$coefficients$fixed[1]
+  lme_stats$LME_Slope[i] <- fit$coefficients$fixed[2]
+  lme_stats$LME_p[i] <- anova(fit)$p[2]
   
   # Clears temporary variables for memory
   rm(lme_data)
-  (AnyCoral)
+  rm(fit)
 }
 
 # Merges LME stats with overall stats to complete stats for each managed area
@@ -681,14 +681,11 @@ if(n==0){
     # Sets file name of plot created
     outname <- paste0("Coral_", param_file, "_", ma_abrev, ".png")
     # Saves plot as a png image
-    png(paste0(out_dir, "/Figures/", outname),
-        width = 8,
-        height = 4,
-        units = "in",
-        res = 200)
-    print(p1)
-    dev.off()
-    
+    ggsave(filename = paste0(out_dir, "/Figures/", outname), 
+           plot = p1,
+           width = 8,
+           height = 4,
+           units = "in")
     # Creates a data table object to be shown underneath plots in report
     ResultTable <- lme_stats[ManagedAreaName==ma_i,]
     # Removes location, and parameter information because it is in plot
@@ -707,13 +704,6 @@ if(n==0){
     ResultTable$LME_Intercept <- round(ResultTable$LME_Intercept, digits=2)
     ResultTable$LME_Slope <- round(ResultTable$LME_Slope, digits=2)
     ResultTable$LME_p <- round(ResultTable$LME_p, digits=4)
-    # Stores as plot table object
-    t1 <- ggtexttable(ResultTable, rows = NULL,
-                      theme=ttheme(base_size=7)) %>%
-      tab_add_footnote(text="LME_p < 0.00005 appear as 0 due to rounding.",
-                       size=10, face="italic")
-    # Combines plot and table into one figure
-    print(ggarrange(p1, t1, ncol=1, heights=c(0.85, 0.15)))
   }
 }
 

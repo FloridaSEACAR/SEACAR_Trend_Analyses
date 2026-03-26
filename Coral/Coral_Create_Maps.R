@@ -28,8 +28,10 @@ tag.map.title <- tags$style(HTML("
     clear: none;
   }"))
 # Export date
-exportDate <- max(format(unique(coral_sr_data$ExportVersion), "%m/%d/%Y"),
-                  format(unique(coral_pc_data$ExportVersion), "%m/%d/%Y"))
+ed1 <- unique(coral_sr_data$ExportVersion)
+ed2 <- unique(coral_pc_data$ExportVersion)
+exportDate <- max(format(as.POSIXct(ed1), "%m/%d/%Y"),
+                  format(as.POSIXct(ed2), "%m/%d/%Y"))
 # Function to set radius / circle size by # of samples (for legend)
 calc_radius_coral <- function(n){sqrt(n)}
 
@@ -95,7 +97,7 @@ shorten_program_names <- function(program_names, cutoff=50){
     return(program_names)
   }
 }
-  
+
 for(i in c("Percent Cover", "Species Richness")){
   # Ensure correct file subset is being used for map generation, filter for a given MA
   if(i=="Percent Cover"){

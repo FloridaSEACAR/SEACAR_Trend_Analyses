@@ -17,6 +17,8 @@ output:
     extra_dependencies: ["float", "booktabs"]
     keep_md: no
 urlcolor: blue
+header-includes:
+  - \usepackage{float}
 ---
 
 # Important Notes
@@ -58,7 +60,7 @@ get_map <- function(ma){
 }
 
 # Make table function shows trend results
-make_table <- function(ma){
+make_table <- function(ma, tableFormat){
   ResultTable <- coral_lme[ManagedAreaName==ma, ]
   ResultTable %<>% rowwise() %>%
     mutate(`Statistical Trend` = checkTrends(p = LME_p, Slope = LME_Slope, 
@@ -76,7 +78,7 @@ make_table <- function(ma){
                         row.names = FALSE, digits = 2,
                         booktabs = T, linesep = "", escape = F, longtable = F) %>%
     kableExtra::kable_styling(latex_options = c("scale_down", "HOLD_position"))
-  return(print(result_table))
+  return(result_table)
 }
 
 for(ma in coral_pc_MA_Include){
@@ -88,7 +90,7 @@ for(ma in coral_pc_MA_Include){
   cat("  \n")
   SEACAR::subchunkify(cat("![", fig_caption, "](", plot_loc,")"))
   cat("  \n")
-  make_table(ma)
+  SEACAR::subchunkify(make_table(ma, tableFormat))
   cat("  \n")
   cat(desc)
   cat("  \n")
@@ -114,7 +116,6 @@ library(scales)
 library(tidyr)
 library(gridExtra)
 #library(tidyverse)
-library(hrbrthemes)
 library(nlme)
 library(ggpubr)
 options(scipen=999)
