@@ -8,6 +8,9 @@ library(rstudioapi)
 library(tictoc)
 library(mapview)
 
+MA_All <- SEACAR::ManagedAreas
+rcp <- SEACAR::GeoData$`RCP Boundaries`
+
 wd <- dirname(getActiveDocumentContext()$path)
 setwd(wd)
 

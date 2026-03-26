@@ -92,7 +92,7 @@ MA_All <- SEACAR::ManagedAreas
 
 # Creates folders for outputs
 folder_paths <- c("output/tables/", "output/tables/disc")
-for (path in folder_paths) {if(!dir.exists(path)){dir.create(path)}}
+for(path in folder_paths){if(!dir.exists(path)){dir.create(path)}}
 
 disc_file_list <- list()
 
@@ -185,7 +185,7 @@ for (j in 1:length(all_params)){
                     na.strings=c("NULL","","NA"))
       
       # Apply SEACAR clean_managed_areas function to remove concatenation from MA name
-      data <- SEACAR::clean_managed_areas(data)
+      data <- SEACAR::clean_managed_areas(data, "ma")
       setDT(data)
       # Remove all non-MA data, analyze only MA values
       data <- data[!is.na(AreaID)]

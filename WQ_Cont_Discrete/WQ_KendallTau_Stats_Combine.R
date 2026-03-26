@@ -71,6 +71,13 @@ for(file_type in c("Discrete", "Continuous")){
   
   output_path <- paste0("output/WQ_", file_type, "_All_KendallTau_Stats")
   
+  # De-concatenate continuous results
+  if(file_type=="Continuous"){
+    data <- setDT(SEACAR::clean_managed_areas(data, "ma"))
+  }
+  
+  data$ProgramLocationID <- as.character(data$ProgramLocationID)
+  
   fwrite(data[!N_Data==0, ], paste0(output_path, ".txt"), sep="|")
   fwrite(data[!N_Data==0, ], paste0(output_path, ".csv"), sep=",")
   
@@ -98,21 +105,19 @@ load_cont_data_table <- function(param, region, table) {
   return(df)
 }
 
-params <- c("DO","DOS","pH","Sal","TempW","Turb")
-regions <- c("NE","NW","SE","SW")
+files <- list.files(cont_rds_loc,pattern = "\\.rds$", full=T)
+skt_files <- str_subset(files, "skt_stats")
+ym_files <- str_subset(files, "Mon_YM_Stats")
 
-YM_combined <- data.table()
-skt_combined <- data.table()
-
-for(p in params){
-  for(r in regions){
-    Mon_YM_Stats <- as.data.frame(load_cont_data_table(p, r, "Mon_YM_Stats"))
-    skt_stats <- as.data.frame(load_cont_data_table(p, r, "skt_stats"))
-    
-    YM_combined <- bind_rows(YM_combined, Mon_YM_Stats)
-    skt_combined <- bind_rows(skt_combined, skt_stats)
-  }
+read_combine <- function(x){
+  df <- readRDS(x)
+  df$AreaID <- as.character(df$AreaID)
+  SEACAR::clean_managed_areas(df, "ma")
 }
+
+YM_combined <- lapply(ym_files, read_combine) %>% bind_rows()
+skt_combined <- lapply(skt_files, read_combine) %>% bind_rows()
+
 # output path should be location of wq_continuous dashboard /data/ folder
 out_path <- "../../SEACAR-Dashboards/Continuous WQ/data/"
 saveRDS(YM_combined, file = paste0(out_path, "YM_combined.rds"))

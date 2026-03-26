@@ -161,7 +161,7 @@ plot_discrete <- function(p, a, d, parameter, skt_data, discrete_data, ma, ma_sh
     
     cat("  \n")
     # Display table in report
-    print(result_table)
+    SEACAR::subchunkify(result_table)
     cat("  \n")
     desc <- descriptionTable[ManagedAreaName==ma & ParameterName==parameter & SamplingFrequency=="Discrete", get(descriptionColumn)]
     cat(desc)
@@ -234,7 +234,7 @@ plot_continuous <- function(ma, ma_short, cont_plot_data, param, parameter, indi
         fig_caption <- figureCaptions[HabitatName=="Water Column" & ParameterName==parameter & SamplingFrequency=="Continuous", FigureCaptions]
         SEACAR::subchunkify(cat("![", fig_caption, "](", plot_loc,")"))
         cat("  \n")
-        print(result_table)
+        SEACAR::subchunkify(result_table)
         cat("  \n")
         cat(desc)
         cat("  \n")
@@ -275,7 +275,7 @@ plot_continuous <- function(ma, ma_short, cont_plot_data, param, parameter, indi
       fig_caption <- figureCaptions[HabitatName=="Water Column" & ParameterName==parameter & SamplingFrequency=="Continuous", FigureCaptions]
       SEACAR::subchunkify(cat("![", fig_caption, "](", plot_loc,")"))
       cat("  \n")
-      print(result_table)
+      SEACAR::subchunkify(result_table)
       cat("  \n")
       cat(desc)
       cat("  \n")
