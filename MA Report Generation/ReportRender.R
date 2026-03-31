@@ -155,10 +155,10 @@ get_plot <- function(ma_abrev, parameter, type, pid){
 
 # Read each species-based habitat file in separately for more efficient parsing in species_available function
 species_data <- list()
-species_data[["SAV"]] <- fread(sav_file_in, sep='|', na.strings = "NULL")
-species_data[["Coral"]] <- fread(coral_file_in, sep='|', na.strings = "NULL")
-species_data[["CW"]] <- fread(cw_file_in, sep='|', na.strings = "NULL")
-species_data[["Nekton"]] <- fread(nekton_file_in, sep='|', na.strings = "NULL")
+species_data[["SAV"]] <- fread(sav_file_in, sep='|', na.strings = "NULL") %>% SEACAR::clean_managed_areas(type = "ma") %>% as.data.table()
+species_data[["Coral"]] <- fread(coral_file_in, sep='|', na.strings = "NULL") %>% SEACAR::clean_managed_areas(type = "ma") %>% as.data.table()
+species_data[["CW"]] <- fread(cw_file_in, sep='|', na.strings = "NULL") %>% SEACAR::clean_managed_areas(type = "ma") %>% as.data.table()
+species_data[["Nekton"]] <- fread(nekton_file_in, sep='|', na.strings = "NULL") %>% SEACAR::clean_managed_areas(type = "ma") %>% as.data.table()
 
 # Function to return species lists at end of report
 species_available <- function(ma){

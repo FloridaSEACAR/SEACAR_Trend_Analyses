@@ -1,0 +1,859 @@
+---
+date: "Last compiled on `r format(Sys.time(), '%d %B, %Y')`"
+output:
+  word_document:
+    toc: TRUE
+    toc_depth: 3
+  html_document:
+    toc: TRUE
+    toc_float: TRUE
+    toc_depth: 3
+    dev: png
+    keep_md: yes
+  pdf_document:
+    toc: TRUE
+    toc_depth: 3
+    dev: png
+    extra_dependencies: ["longtable", "float"]
+    keep_md: yes
+    fig_crop: false
+    fig_caption: true
+    keep_tex: true
+    includes:
+      in_header: "preamble.tex"
+urlcolor: blue
+title: '`r paste(ma)`'
+subtitle: "SEACAR Habitat Analyses - Atlas Report"
+geometry: margin=0.75in
+params:
+  ma: NULL
+  MA_All: NULL
+  managed_area_df: NULL
+  ma_abrev: NULL
+  in_sav: NULL
+  in_nekton: NULL
+  in_coral: NULL
+  in_cw: NULL
+  in_discrete: NULL
+  in_continuous: NULL
+bibliography: "seacar_bibs_2024-12-17_copy.bib"
+csl: "nature.csl"
+header-includes:
+  \usepackage{float}
+  \floatplacement{figure}{H}
+---
+
+```{r libraries, message=FALSE, warning=FALSE, echo=FALSE}
+options(scipen=999)
+knitr::opts_chunk$set(
+   warning=FALSE,
+   message=FALSE,
+   echo=FALSE,
+   dpi=200,
+   fig.pos = 'H',
+   cache=FALSE
+   )
+options(kableExtra.auto_format = FALSE)
+options(knitr.kable.NA = '-')
+
+# Citations set up
+library(knitcitations)
+knitcitations::cleanbib()
+options("citation_format" = "pandoc",
+        "cite.style" = "numeric")
+
+# Load in bibliography
+bib <- read.bibtex("seacar_bibs_2024-12-17.bib")
+
+# Function to allow dynamic plot sizes
+subchunkify <- function(g, fig_height=9, fig_width=10, fig_cap) {
+  g_deparsed <- paste0(deparse(
+    function() {g}
+  ), collapse = '')
+
+  sub_chunk <- paste0("
+  \n`","``{r sub_chunk_", floor(runif(1) * 10000), ", fig.height=",
+   fig_height, ", fig.width=", fig_width, ", echo=FALSE, results='asis'}",
+  "\n(", 
+    g_deparsed
+    , ")()",
+  "\n`","``
+  ")
+
+  cat(knitr::knit(text = knitr::knit_expand(text = sub_chunk), quiet = TRUE))
+}
+
+```
+
+```{r modified functions for Atlas Reports}
+disc_maps <- list.files("../WQ_Cont_Discrete/output/maps/discrete", full.names=T)
+cont_maps <- list.files("../WQ_Cont_Discrete/output/maps/continuous", full.names=T)
+sav_maps <- list.files("../SAV/output/maps/", full.names=T)
+nekton_maps <- list.files("../Nekton/output/maps/", full.names=T)
+coral_maps <- list.files("../Coral/output/maps/", full.names=T)
+cw_maps <- list.files("../Coastal_Wetlands/output/maps/", full.names=T)
+oyster_maps <- list.files("../Oyster/output/maps/", full.names=T)
+
+# Get map function
+get_maps <- function(parameter, ma_abrev, type = "disc"){
+  if(type %in% c("sav","nekton","cw")){
+    pattern <- paste0(ma_abrev, "_map.png")
+  } else {
+    if(type %in% c("disc","cont")){
+      param_short <- websiteParams[ParameterName==parameter, unique(ParameterShort)]
+    } else {param_short <- parameter}
+    pattern <- paste0(param_short, "_", ma_abrev, "_map.png") 
+  }
+  str_subset(get(paste0(type, "_maps")), pattern)
+}
+
+plot_trendlines_atlas <- function(param, ma, ma_abrev){
+  cat("  \n")
+  
+  skt_stats <- skt_stats_disc[ParameterName==param & ManagedAreaName==ma & Website==1, ]
+  skt_stats$p <- round(skt_stats$p,5)
+  
+  if (nrow(skt_stats) == 0) {
+    invisible()
+  } else {
+    # Locate plot
+    plot_loc <- get_plot(ma_abrev = ma_abrev, parameter = param, type = "Discrete", pid = "none")
+    # Locate map
+    map_loc <- get_maps(parameter = param, ma_abrev = ma_abrev, type = "disc")
+    
+    # Arrange and display plot and statistic table
+    cat("  \n")
+    
+    # fig_caption <- paste0("Seasonal Kendall-Tau Results for ", param, " - Discrete")
+    fig_caption <- FigureCaptions[Parameter==param & SamplingFrequency=="Discrete", FigureCaption]
+    subchunkify(cat("![", fig_caption, "](", plot_loc,")"))
+    
+    # Table descriptions
+    tableDesc <- TableDescriptions[Type=="Discrete" & ParameterName==param & ManagedAreaName==ma, Description]
+    # tableDesc <- paste0("Seasonal Kendall-Tau Trend Analysis Results for ", param)
+    
+    # cat("![](", plot_loc,")")
+    cat("  \n")
+    # Kendall tau results table
+    ResultTable <- skt_stats[, c("ActivityType", "Trend", "N_Data", "N_Years", "Period of Record", "Median", "tau", "SennIntercept", "SennSlope", "p")] %>%
+      rename("Activity Type" = "ActivityType", "Statistical Trend" = "Trend", 
+             "Sample Count" = "N_Data", "Years with Data" = "N_Years", 
+             "Median Result Value" = "Median", "Tau" = "tau", "Sen Intercept" = "SennIntercept",
+             "Sen Slope" = "SennSlope")
+    # Prep for latex-format
+    names(ResultTable) <- gsub("_", "-", names(ResultTable))
+    result_table <- kable(ResultTable, format="pandoc",
+                          caption=tableDesc,
+                          row.names = FALSE, digits = 4) %>%
+      kableExtra::kable_styling(latex_options = c("scale_down", "HOLD_position"))
+    print(result_table)
+    cat("  \n")
+    cat("![](", map_loc,")")
+    cat("  \n")
+  }
+}
+
+plot_cont_combined_atlas <- function(param, parameter, region, ma, ma_abrev){
+  Mon_YM_Stats <- as.data.table(load_cont_data_table(param, region, "Mon_YM_Stats"))
+  Mon_YM_Stats <- Mon_YM_Stats[ManagedAreaName == ma & ParameterName == parameter, ]
+  skt_stats <- as.data.table(load_cont_data_table(param, region, "skt_stats"))
+  skt_stats <- skt_stats[ManagedAreaName==ma, ]
+  skt_stats$p <- round(as.numeric(skt_stats$p), 5)
+  
+  if(length(unique(skt_stats$ProgramLocationID))>1){
+    # Account for managed areas with large number of continuous sites
+    # Too many to plot together, plot combined by Program
+    if(length(unique(skt_stats$ProgramLocationID))>10){
+      for(prog_n in 1:length(unique(skt_stats$ProgramID))){
+        # pid is ProgramID, prog_n is the current program's number
+        pid <- unique(skt_stats$ProgramID)[prog_n]
+        #Locate plot file, including prog_n
+        plot_loc <- get_plot(ma_abrev = ma_abrev, parameter = parameter, type = "Continuous", pid = prog_n)
+        # Locate map
+        map_loc <- get_maps(parameter = parameter, ma_abrev = ma_abrev, type = "cont")
+        
+        ResultTable <- skt_stats %>%
+          filter(ProgramID==pid) %>%
+          mutate("Period of Record" = paste0(EarliestYear, " - ", LatestYear)) %>%
+          select(ProgramLocationID, Trend, N_Data, N_Years, "Period of Record", Median, tau,
+                 SennIntercept, SennSlope, p) %>%
+          rename("Station" = "ProgramLocationID",
+                 "Statistical Trend" = "Trend", "Sample Count" = "N_Data", 
+                 "Years with Data" = "N_Years", "Median Result Value" = "Median",
+                 "Tau" = "tau", "Sen Intercept" = "SennIntercept", 
+                 "Sen Slope" = "SennSlope") %>%
+          mutate_if(is.numeric, ~round(., 2))
+        setDT(ResultTable)
+        # Remove text-based "NA" values in p column
+        if (nrow(ResultTable[ResultTable$p=="    NA", ]) > 0){
+          ResultTable[ResultTable$p=="    NA", ]$p <- NA
+        }
+        ResultTable[is.na(ResultTable)] <- "-"
+        
+        cat("  \n")
+        
+        fig_caption <- FigureCaptions[Parameter==parameter & SamplingFrequency=="Continuous", FigureCaption]
+        subchunkify(cat("![", fig_caption, "](", plot_loc,")"))
+
+        # cat("![](", plot_loc,")")
+        cat("  \n")
+        
+        # Table descriptions
+        tableDesc <- TableDescriptions[Type=="Continuous" & ParameterName==param & ManagedAreaName==ma, Description]
+        # tableDesc <- paste0("Seasonal Kendall-Tau Results for All Stations - ", parameter)
+        
+        result_table <- kable(ResultTable, format="simple",
+                              caption=tableDesc,
+                              row.names = FALSE, digits = 5) %>%
+          kable_styling(font_size=8)
+        
+        print(result_table)
+        cat("  \n")
+        cat("![](", map_loc,")")
+        cat("\n \n \n")    
+      }
+    } else {
+      #Locate plot file
+      plot_loc <- get_plot(ma_abrev = ma_abrev, parameter = parameter, type = "Continuous", pid = "none")
+      # Locate map
+      map_loc <- get_maps(parameter = parameter, ma_abrev = ma_abrev, type = "cont")
+      
+      ResultTable <- skt_stats %>%
+        mutate("Period of Record" = paste0(EarliestYear, " - ", LatestYear)) %>%
+        select(ProgramLocationID, N_Data, N_Years, "Period of Record", Median, tau,
+               SennIntercept, SennSlope, p, Trend) %>%
+        rename("Station" = "ProgramLocationID","Statistical Trend" = "Trend", 
+               "Sample Count" = "N_Data", "Years with Data" = "N_Years", 
+               "Median Result Value" = "Median","Tau" = "tau", 
+               "Sen Intercept" = "SennIntercept", "Sen Slope" = "SennSlope") %>%
+        mutate_if(is.numeric, ~round(., 2)) %>% as.data.table()
+      
+      # Remove text-based "NA" values in p column
+      if (nrow(ResultTable[ResultTable$p=="    NA", ]) > 0){
+        ResultTable[ResultTable$p=="    NA", ]$p <- NA
+      }
+      ResultTable[is.na(ResultTable)] <- "-"
+      
+      cat("  \n")
+      
+      fig_caption <- FigureCaptions[Parameter==parameter & SamplingFrequency=="Continuous", FigureCaption]
+      subchunkify(cat("![", fig_caption, "](", plot_loc,")"))
+      # cat("![](", plot_loc,")")
+      
+      cat("  \n")
+      
+      # Table descriptions
+      tableDesc <- TableDescriptions[Type=="Continuous" & ParameterName==param & ManagedAreaName==ma, Description]
+      # tableDesc <- paste0("Seasonal Kendall-Tau Results for All Stations - ", parameter)
+      
+      result_table <- kable(ResultTable, format="simple",
+                            caption=tableDesc,
+                            row.names = FALSE, digits = 5) %>%
+        kable_styling(font_size=8)
+      
+      print(result_table)
+      cat("  \n")
+      cat("![](", map_loc,")")
+      cat("\n \n \n")    
+    }
+  }
+}
+
+plot_sav_trendplot_atlas <- function(ma, ma_abrev, plot_type, plot_list, malist){
+  if(ma_abrev %in% malist){
+    # Plot
+    plot_loc <- str_subset(plot_list, paste0("_", ma_abrev, "_"))
+    # Locate map
+    map_loc <- get_maps(parameter = "none", ma_abrev = ma_abrev, type = "sav")
+    
+    fig_caption <- FigureCaptions[Habitat=="Submerged Aquatic Vegetation" & Indicator=="Percent Cover", FigureCaption]
+    
+    cat("  \n")
+    subchunkify(cat("![", fig_caption, "](", plot_loc,")"))
+    # cat("![](", plot_loc,")")
+    cat("  \n")
+    
+    # Table
+
+    table <- sav_stats_table[ManagedAreaName == ma, c("Species","StatisticalTrend","years","LME_Intercept","LME_Slope","p")] %>%
+      select(Species,StatisticalTrend,years,LME_Intercept,LME_Slope,p)
+    
+    # Table descriptions
+    tableDesc <- TableDescriptions[Type=="Submerged Aquatic Vegetation" & ManagedAreaName==ma, Description]
+    # tableDesc <- paste0("Percent Cover Trend Analysis for ", ma)
+
+    sav_kable <- table %>%
+      kable(format="simple",caption=tableDesc, booktabs = T, linesep = "",
+            col.names = c("CommonName","Trend Significance (0.05)","Period of Record","LME-Intercept","LME-Slope","p")) %>%
+      row_spec(0, italic=TRUE) %>%
+      kable_styling(latex_options=c("scale_down","hold_position"))
+    
+    cat("  \n")
+    print(sav_kable)
+    cat("  \n")
+    cat("![](", map_loc,")")
+    cat("  \n")
+  }
+}
+
+plot_nekton_atlas <- function(ma, ma_abrev, MA_Y_Stats = "MA_Y_Stats_nek", MA_Ov_Stats = "MA_Ov_Stats_nek", nekton_plots){
+  # Creates a data table object to be shown underneath plots in report
+  ResultTable <- MA_Ov_Stats[ManagedAreaName==ma,]
+  
+  # Removes location, gear, and parameter information because it is in plot
+  # labels
+  ResultTable <- ResultTable[,-c("AreaID", "ManagedAreaName",
+                                 "ProgramIDs", "Programs", "GearType_Plot",
+                                 "ParameterName")]
+  # Renames StandardDeviation to StDev to save horizontal space
+  ResultTable <- ResultTable %>%
+    dplyr::rename("StDev"="StandardDeviation")
+  # Converts all non-integer values to 2 decimal places for space
+  ResultTable$Min <- round(ResultTable$Min, digits=2)
+  ResultTable$Max <- round(ResultTable$Max, digits=2)
+  ResultTable$Median <- round(ResultTable$Median, digits=2)
+  ResultTable$Mean <- round(ResultTable$Mean, digits=2)
+  ResultTable$StDev <- round(ResultTable$StDev, digits=2)
+  
+  ResultTable <- ResultTable %>% 
+    mutate("Gear Type" = paste0(GearType, " (", GearSize_m, ")"),
+           "Period of Record" = paste0(EarliestYear, " - ", LatestYear)) %>%
+    rename("Sample Count" = N_Data,
+           "Number of Years" = N_Years,
+           "Median N of Taxa" = Median,
+           "Mean N of Taxa" = Mean) %>%
+    select("Gear Type", "Sample Count", "Number of Years", "Period of Record", 
+           "Median N of Taxa", "Mean N of Taxa")
+  
+  # Convert results table into kable format
+  result_table <- kable(ResultTable, format="simple",
+                        caption="Nekton Species Richness",
+                        row.names = FALSE, digits = 5,
+                        booktabs = T, linesep = "", escape = F, longtable = F) %>%
+    row_spec(row = 0, italic = TRUE) %>%
+    kable_styling(latex_options = c("scale_down", "HOLD_position"))
+  # Locate plot
+  plot_loc <- str_subset(nekton_plots, paste0("_", ma_abrev, ".png"))
+  # Locate map
+  map_loc <- get_maps(parameter = "none", ma_abrev = ma_abrev, type = "nekton")
+  
+  # Print plots
+  cat("  \n")
+  fig_caption <- FigureCaptions[Habitat=="Water Column" & Indicator=="Nekton", FigureCaption]
+  subchunkify(cat("![", fig_caption, "](", plot_loc,")"))
+  # cat("![](", plot_loc,")")
+  cat("  \n")
+  print(result_table)
+  cat("  \n")
+  cat("![](", map_loc,")")
+  cat("  \n")
+}
+
+# Function to create statisticalTrend column
+checkTrends <- function(p, LME_Slope, SufficientData){
+  if(SufficientData){
+    if(is.na(LME_Slope)){
+      return("Model did not fit the available data")
+    } else {
+      increasing <- LME_Slope > 0
+      trendPresent <- p <= 0.05
+      trendStatus <- "No significant trend"
+      if(trendPresent){
+        trendStatus <- ifelse(increasing, "Significantly increasing trend", 
+                              "Significantly decreasing trend")
+      }          
+    }
+  } else {
+    trendStatus <- "Insufficient data to calculate trend"
+  }
+  return(trendStatus)
+}
+
+plot_coral_pc_atlas <- function(ma, ma_abrev, lme_plot = lme_plot_pc, coral_pc_plots){
+  # Creates a data table object to be shown underneath plots in report
+  ResultTable <- lme_plot[ManagedAreaName==ma,]
+  ResultTable <- ResultTable %>% rowwise() %>%
+    mutate(`Statistical Trend` = checkTrends(p = LME_p, LME_Slope = LME_Slope, 
+                                             SufficientData = SufficientData),
+           `Period of Record` = paste0(EarliestYear, " - ", LatestYear)) %>% 
+    ungroup() %>% rename(`LME Intercept` = LME_Intercept, `LME Slope` = LME_Slope, 
+                         `p` = LME_p) %>% 
+    select(`Statistical Trend`, `Period of Record`, 
+           `LME Intercept`, `LME Slope`, p) %>% as.data.table()
+  
+  # Convert for kable/latex format (no "_" allowed)
+  names(ResultTable) <- gsub("_", "-", names(ResultTable))
+  # Convert results table into kable format
+  result_table <- kable(ResultTable, format="simple",
+                        caption="Coral Percent Cover",
+                        row.names = FALSE, digits = 5,
+                        booktabs = T, linesep = "", escape = F, longtable = F) %>%
+    kable_styling(latex_options = c("scale_down", "HOLD_position"))
+  # Locate plot
+  plot_loc <- str_subset(coral_pc_plots, paste0("_", ma_abrev, ".png"))
+  # Locate map
+  map_loc <- get_maps(parameter = "PC", ma_abrev = ma_abrev, type = "coral")
+  
+  # Print plots
+  cat("  \n")
+  fig_caption <- FigureCaptions[Habitat=="Coral/Coral Reef" & Indicator=="Percent Cover", FigureCaption]
+  subchunkify(cat("![", fig_caption, "](", plot_loc,")"))
+  # cat("![](", plot_loc,")")
+  cat("  \n")
+  print(result_table)
+  cat("  \n")
+  cat("![](", map_loc,")")
+  cat("  \n")
+  # Add extra space at the end to prevent the next figure from being too
+  # close. Does not add space after last plot
+  # if(i!=n){
+  #   cat("\n \n \n \n") 
+  # }
+}
+
+plot_coral_sr_atlas <- function(ma, ma_abrev, MA_Ov_Stats = MA_Ov_Stats_sr, coral_sr_plots){
+  # Creates a data table object to be shown underneath plots in report
+  ResultTable <- MA_Ov_Stats[ManagedAreaName==ma,]
+  
+  ResultTable <- ResultTable %>%
+    mutate(`Period of Record` = paste0(EarliestYear, " - ", LatestYear)) %>%
+    rename(`Sample Count` = N_Data, `Number of Years` = N_Years, 
+           `Median # of Taxa` = Median, `Mean # of Taxa` = Mean) %>% 
+    select(`Sample Count`, `Number of Years`, `Period of Record`, 
+           `Median # of Taxa`, `Mean # of Taxa`) %>% as.data.table()
+  
+  # Convert for kable/latex format (no "_" allowed)
+  names(ResultTable) <- gsub("_", "-", names(ResultTable))
+  # Convert results table into kable format
+  result_table <- kable(ResultTable, format="simple",
+                        caption="Coral Species Richness",
+                        row.names = FALSE, digits = 5,
+                        booktabs = T, linesep = "", escape = F, longtable = F) %>%
+    row_spec(row = 0, italic = TRUE) %>%
+    kable_styling(latex_options = c("scale_down", "HOLD_position"))
+  # Locate plot
+  plot_loc <- str_subset(coral_sr_plots, paste0("_", ma_abrev, ".png"))
+  
+  # Print plots
+  cat("  \n")
+  fig_caption <- FigureCaptions[Habitat=="Coral/Coral Reef" & Indicator=="Grazers and Reef Dependent Species", FigureCaption]
+  subchunkify(cat("![", fig_caption, "](", plot_loc,")"))
+  # cat("![](", plot_loc,")")
+  cat("  \n")
+  print(result_table)
+  cat("  \n")
+  
+  # Add extra space at the end to prevent the next figure from being too
+  # close. Does not add space after last plot
+  # if(i!=n){
+  #   cat("\n \n \n \n") 
+  # }
+}
+
+plot_cw_atlas <- function(ma, ma_abrev, MA_Ov_Stats = "MA_Ov_Stats_cw", MA_Y_Stats = "MA_Y_Stats_cw", cw_plots){
+  # Creates a data table object to be shown underneath plots in report
+  ResultTable <- MA_Ov_Stats[ManagedAreaName==ma,]
+  # Removes location, species group, and parameter information because it is
+  # in plot labels
+  ResultTable <- ResultTable[,-c("AreaID", "ManagedAreaName",
+                                 "ProgramIDs", "Programs", "ParameterName")]
+  # Renames StandardDeviation to StDev to save horizontal space
+  ResultTable <- ResultTable %>%
+    rename("StDev"="StandardDeviation")
+  # Converts all non-integer values to 2 decimal places for space
+  ResultTable$Min <- round(ResultTable$Min, digits=2)
+  ResultTable$Max <- round(ResultTable$Max, digits=2)
+  ResultTable$Median <- round(ResultTable$Median, digits=2)
+  ResultTable$Mean <- round(ResultTable$Mean, digits=2)
+  ResultTable$StDev <- round(ResultTable$StDev, digits=2)
+  
+  ResultTable <- ResultTable %>%
+    mutate("Period of Record" = paste0(EarliestYear, " - ", LatestYear)) %>%
+    select(SpeciesGroup1, N_Data, N_Years, "Period of Record", Median, Mean) %>%
+    rename(
+      "Species Group" = SpeciesGroup1,
+      "Sample Count" = N_Data,
+      "Number of Years" = N_Years,
+      "Median N of Taxa" = Median,
+      "Mean N of Taxa" = Mean
+    )
+  
+  # Convert results table into kable format
+  result_table <- kable(ResultTable, format="simple",
+                        caption="Coastal Wetlands Species Richness",
+                        row.names = FALSE, digits = 5,
+                        booktabs = T, linesep = "", escape = F, longtable = F) %>%
+    row_spec(row = 0, italic = TRUE) %>%
+    kable_styling(latex_options = c("scale_down", "HOLD_position"))
+  # Locate plot
+  plot_loc <- str_subset(cw_plots, paste0("_", ma_abrev, ".png"))
+  # Locate map
+  map_loc <- get_maps(parameter = "none", ma_abrev = ma_abrev, type = "cw")
+  
+  # Print plots
+  cat("  \n")
+  fig_caption <- FigureCaptions[Habitat=="Coastal Wetlands" & Indicator=="Species Composition", FigureCaption]
+  subchunkify(cat("![", fig_caption, "](", plot_loc,")"))
+  cat("  \n")
+  print(result_table)
+  cat("  \n")
+  cat("![](", map_loc,")")
+  cat("  \n")
+}
+
+plot_oyster_atlas <- function(ma, ma_abrev, oyster_includes, oy_figs, p){
+  subset <- oyster_includes[ManagedAreaName==ma, ]
+  
+  # parameter subset
+  p_subset <- subset[ParameterName==p, ]
+  
+  p_name <- ifelse(p=="Shell Height", "Size Class",  p)
+  
+  fig_caption <- FigureCaptions[Habitat=="Oyster/Oyster Reef" & Indicator==p_name, FigureCaption]
+  
+  hab_types <- unique(p_subset$HabitatType)
+  for(type in hab_types){
+    cat("  \n")
+    cat(glue("### {type}"))
+    cat("  \n")
+    plot_loc <- oy_file_loc(ma_abrev, p, type)
+    subchunkify(cat("![", fig_caption, "](", plot_loc,")"))
+    # cat("![](", plot_loc,")")
+    cat("  \n")
+    # Oyster tables
+    oy_tables <- oyster_stats[ManagedAreaName==ma & ParameterName==p & HabitatType==type,]
+    ResultTable <- oy_tables %>% 
+      select(ShellType, HabitatType, "Trend Status", ModelEstimate, StandardError, 
+             "Credible Interval") %>%
+      rename("Shell Type" = "ShellType",
+             "Habitat Type" = "HabitatType",
+             "Estimate" = "ModelEstimate",
+             "Standard Error" = "StandardError")
+
+    result_table <- kable(ResultTable, format = "simple",
+                          caption = paste0("Model results for Oyster ", p, " - ", type),
+                          row.names = FALSE, digits = 2,
+                          booktabs = T, linesep = "", escape = F, longtable = F) %>%
+      row_spec(row = 0, italic = TRUE) %>%
+      kable_styling(latex_options = c("scale_down", "HOLD_position"))
+    cat("  \n")
+    print(result_table)
+    cat("  \n")
+  }
+  short_p <- ifelse(p=="Density", "Dens", ifelse(p=="Percent Live", "PrcLive", "SH"))
+  map_loc <- get_maps(parameter = short_p, ma_abrev = ma_abrev, type = "oyster")
+  cat("![](", map_loc,")")
+  cat("  \n")
+}
+```
+
+```{r plot_all_habs, results='asis', fig.height=4.5, fig.width=5}
+# Get list of available Nekton plots
+nekton_plots <- list.files("../Nekton/output/Figures", pattern = ".png", full.names=TRUE)
+# Get list of available CW plots
+cw_plots <- list.files("../Coastal_Wetlands/output/Figures", pattern = ".png", full.names=TRUE)
+
+# Get list of available Coral plots (spec. richness & PC)
+coral_pc_plots <- list.files("../Coral/output/PercentCover/Figures", pattern = ".png", full.names=TRUE)
+coral_sr_plots <- list.files("../Coral/output/SpeciesRichness/Figures", pattern = ".png", full.names=TRUE)
+
+MA_Ov_Stats_pc <- fread("../Coral/output/PercentCover/Coral_PC_MA_Overall_Stats.txt")
+MA_Ov_Stats_pc <- MA_Ov_Stats_pc[!is.na(MA_Ov_Stats_pc$EarliestYear), ]
+lme_plot_pc <- fread("../Coral/output/PercentCover/Coral_PC_LME_Stats.txt")
+
+# Species Richness
+MA_Y_Stats_sr <- fread("../Coral/output/SpeciesRichness/Coral_SpeciesRichness_MA_Yr_Stats.txt")
+MA_Ov_Stats_sr <- fread("../Coral/output/SpeciesRichness/Coral_SpeciesRichness_MA_Overall_Stats.txt")
+
+for(habitat in unique(websiteParams$HabitatName)){
+  if(habitat=="Water Column" & !(in_discrete | in_continuous | in_nekton)) next
+  if(habitat=="Coastal Wetlands" & !in_cw) next
+  if(habitat=="Oyster/Oyster Reef" & !in_oyster) next
+  if(habitat=="Coral/Coral Reef" & !in_coral) next
+  if(habitat=="Submerged Aquatic Vegetation" & !in_sav) next
+  cat("  \n")
+  cat(glue("# {habitat}"))
+  cat("  \n")
+  for(indicator in websiteParams[HabitatName==habitat, unique(IndicatorName)]){
+    if(indicator=="Nekton" & !in_nekton) next
+    if(indicator=="Water Quality" & (!in_discrete | !in_continuous)) next
+    if(indicator=="Water Clarity" & (!in_discrete | !in_continuous)) next
+    if(indicator=="Nutrients" & (!in_discrete | !in_continuous)) next
+    cat("  \n")
+    cat(glue("## {indicator}"))
+    cat("  \n")
+    # Filter once for the current indicator
+    indicator_subset <- websiteParams[HabitatName==habitat & 
+                                        IndicatorName == indicator, ]
+    for(p in unique(indicator_subset$ParameterName)){
+      filteredSubset <- indicator_subset[ParameterName==p, ]
+      parameter <- unique(filteredSubset$ParameterName)
+      param_short <- unique(filteredSubset$ParameterShort)
+      types <- unique(filteredSubset$SamplingFrequency)
+      
+      if(in_discrete & "Discrete" %in% types){
+        cat("  \n")
+        cat(glue("### {parameter} - Discrete"))
+        cat("  \n")
+        plot_trendlines_atlas(param = parameter, ma = ma, ma_abrev = ma_abrev)
+      }
+      if(in_continuous & param_short %in% cont_params_short & "Continuous" %in% types){
+        cat("  \n")
+        cat(glue("### {parameter} - Continuous"))
+        cat("  \n")
+        # extract region for each MA to determine which cont. file to load
+        region <- MA_All[ManagedAreaName == ma, unique(Region)]
+        
+        plot_cont_combined_atlas(param = param_short, parameter = parameter, 
+                                 region = region, ma = ma, ma_abrev = ma_abrev)
+      }
+      if(in_nekton & indicator=="Nekton"){
+        cat("  \n")
+        plot_nekton_atlas(ma, ma_abrev, MA_Y_Stats_nek, MA_Ov_Stats_nek, nekton_plots)
+        cat("  \n")
+      }
+      if(in_sav & habitat=="Submerged Aquatic Vegetation"){
+        cat("  \n")
+        plot_sav_trendplot_atlas(ma = ma, ma_abrev = ma_abrev, plot_type = "multiplots", 
+                                 plot_list = multiplots, malist = multiplot_malist)
+        cat("  \n")
+      }
+      if(in_cw & habitat=="Coastal Wetlands"){
+        cat("  \n")
+        plot_cw_atlas(ma, ma_abrev, MA_Ov_Stats_cw, MA_Y_Stats_cw, cw_plots)
+        cat("  \n")
+      }
+      if(in_coral & habitat=="Coral/Coral Reef"){
+        cat("  \n")
+        if(ma %in% coral_pc_MA_Include & param_short=="PC"){
+          cat("  \n")
+          plot_coral_pc_atlas(ma, ma_abrev, lme_plot_pc, coral_pc_plots)
+          cat("  \n")
+        }
+  
+        if(ma %in% coral_sr_MA_Include & param_short=="PA"){
+          cat("  \n")
+          plot_coral_sr_atlas(ma, ma_abrev, MA_Ov_Stats_sr, coral_sr_plots)
+          cat("  \n")
+        }
+      }
+      if(in_oyster & habitat=="Oyster/Oyster Reef"){
+        cat("  \n")
+        plot_oyster_atlas(
+          ma = ma,
+          ma_abrev = ma_abrev,
+          oyster_includes = oyster_includes,
+          oy_figs = oy_figs,
+          p = p
+        )
+        cat("  \n")
+      }
+
+    }
+  }
+}
+
+```
+
+
+```{r plotting WQ_Discrete, warning=FALSE, fig.height=9, fig.width=10, results="asis", eval=FALSE, cache=FALSE}
+if(in_discrete){
+  ma_df <- managed_area_df %>% dplyr::filter(ManagedAreaName == ma)
+  p_inc <- unique(ma_df$Parameter)
+  d_inc <- unique(ma_df$Depth)
+  a_inc <- unique(ma_df$Activity)
+  
+  cat("\\newpage")
+  cat("  \n\n")
+  cat("# Water Quality - Discrete  \n")
+  
+  for(param in p_inc){
+    # load overall discrete data
+    data <- as.data.frame(load_data_table(param, table="data"))
+    
+    # getting full parameter & unit names
+    parameter <- unique(data$ParameterName)
+    unit <- unique(data$ParameterUnits)
+    
+    cat("  \n")
+    subtitle <- glue("## {parameter}")
+    cat(subtitle, "\n\n")
+    
+    #Because secchi depth is does not have a bottom measurement, this statement skips
+    #Secchi depth for bottom
+    if (param == "Secchi"){
+      depth <- "Surface"
+    } else {
+      depth <- "All"
+    }
+    
+    # Choosing which analyses to plot, when to combine 
+    if (param == "ChlaC" |
+        param == "Chla" |
+        param == "CDOM" |
+        param == "TN" |
+        param == "TP") {activity = "Lab"} else if (
+          param == "DO" |
+          param == "DOS" |
+          param == "pH" |
+          param == "Secchi" |
+          param == "TempW") {activity = "Field"} else if (
+            param == "Sal" |
+            param == "TSS" |
+            param == "Turb") {activity = "All"}
+  
+    if (activity == "All") {
+      activity_label <- "Lab and Field Combined"
+    } else if (activity == "Field" | activity == "Lab") {
+      activity_label <- activity
+    }
+  
+    if (depth == "All") {
+      depth_label <- "All Depths"
+    } else if (depth == "Surface") {
+      depth_label <- "Surface"
+    }
+    
+    ## Show Discrete plots ##
+    # Plot
+    plot_trendlines_atlas(param = parameter, ma = ma, ma_abrev = ma_abrev)
+    # Map
+    # plot_discrete_maps(ma_abrev = ma_abrev, param_short = param, param_label = parameter, map_files = discrete_map_locs)
+    # # Program Table
+    # disc_program_tables(ma = ma, data = data)
+  }
+}
+
+```
+
+```{r plotting WQ_Continuous, warning=FALSE, fig.height=9, fig.width=10, results="asis", fig.cap="Continuous Water Quality", eval=FALSE}
+
+# extract region for each MA to determine which cont. file to load
+region <- MA_All[ManagedAreaName == ma, unique(Region)]
+
+if(in_continuous){
+  
+  cat("\\newpage")
+  cat("# Water Quality - Continuous  \n")
+  
+  for (i in 1:length(cont_params_short)){
+    param <- cont_params_short[i]
+    
+    # getting full parameter & unit names
+    parameter <- cont_param_df[param_short == param, unique(parameter)]
+    
+    ###########################
+    ### Begin Plotting Cont ###
+    ###########################
+    
+    cat("\\newpage")
+    
+    plot_cont_combined_atlas(param = param, parameter = parameter, 
+                             region = region, ma = ma, ma_abrev = ma_abrev)
+  }
+}
+
+```
+
+```{r plotting SAV, warning=FALSE, fig.height=9, fig.width=10, results="asis", eval=FALSE}
+
+if(in_sav){
+  cat("\\newpage")
+  cat("  \n")
+  cat("# Submerged Aquatic Vegetation  \n")
+  plot_sav_trendplot_atlas(ma = ma, ma_abrev = ma_abrev, plot_type = "multiplots", 
+                           plot_list = multiplots, malist = multiplot_malist)
+  cat("  \n")
+}
+
+```
+
+```{r plotting nekton, warning=FALSE, fig.height=8, fig.width=11, results="asis", fig.cap="Nekton", eval=FALSE}
+# Get list of available Nekton plots
+nekton_plots <- list.files("../Nekton/output/Figures", pattern = ".png", full.names=TRUE)
+
+if(in_nekton){
+  cat("\\newpage")
+  cat("  \n")
+  cat("# Nekton  \n")
+  cat(paste0("The data file used is: **", nekton_file_short,"**"))
+  cat("  \n")
+  plot_nekton_atlas(ma, ma_abrev, MA_Y_Stats_nek, MA_Ov_Stats_nek, nekton_plots)
+  cat("  \n")
+  
+}
+
+
+```
+
+```{r plotting Coral, warning=FALSE, fig.height=6, fig.width=8, results="asis", fig.cap="Coral", eval=FALSE}
+# Get list of available Coral plots (spec. richness & PC)
+coral_pc_plots <- list.files("../Coral/output/PercentCover/Figures", pattern = ".png", full.names=TRUE)
+coral_sr_plots <- list.files("../Coral/output/SpeciesRichness/Figures", pattern = ".png", full.names=TRUE)
+
+MA_Ov_Stats_pc <- fread("../Coral/output/PercentCover/Coral_PC_MA_Overall_Stats.txt")
+MA_Ov_Stats_pc <- MA_Ov_Stats_pc[!is.na(MA_Ov_Stats_pc$EarliestYear), ]
+lme_plot_pc <- fread("../Coral/output/PercentCover/Coral_PC_LME_Stats.txt")
+
+# Species Richness
+MA_Y_Stats_sr <- fread("../Coral/output/SpeciesRichness/Coral_SpeciesRichness_MA_Yr_Stats.txt")
+MA_Ov_Stats_sr <- fread("../Coral/output/SpeciesRichness/Coral_SpeciesRichness_MA_Overall_Stats.txt")
+
+if(ma %in% coral_pc_MA_Include | ma %in% coral_sr_MA_Include){
+  cat("\\newpage")
+  cat("  \n")
+  cat("# Coral Reef \n")
+  cat("  \n")
+  cat(paste0("The data file used is: **", coral_file_short,"**"))
+  cat("  \n")
+  
+  if(ma %in% coral_pc_MA_Include){
+    cat("  \n")
+    cat("**Percent Cover**")
+    plot_coral_pc_atlas(ma, ma_abrev, lme_plot_pc, coral_pc_plots)
+    cat("  \n")
+  }
+  
+  if(ma %in% coral_sr_MA_Include){
+    cat("**Species Richness**")
+    plot_coral_sr_atlas(ma, ma_abrev, MA_Ov_Stats_sr, coral_sr_plots)
+    cat("  \n")
+  }
+}
+
+```
+
+```{r plotting coastalwetlands, warning=FALSE, fig.height=6, fig.width=8, results="asis", fig.cap="Coastal Wetlands", eval=FALSE}
+# Get list of available CW plots
+cw_plots <- list.files("../Coastal_Wetlands/output/Figures", pattern = ".png", full.names=TRUE)
+
+if(in_cw){
+  cat("\\newpage")
+  cat("  \n")
+  cat("# Coastal Wetlands  \n")
+  cat(paste0("The data file used is: **", cw_file_short,"**"))
+  cat("  \n")
+  plot_cw_atlas(ma, ma_abrev, MA_Ov_Stats_cw, MA_Y_Stats_cw, cw_plots)
+  cat("  \n")
+}
+
+```
+
+```{r plotting Oyster, warning=FALSE, fig.height=8, fig.width=11, results="asis", fig.cap="Oyster", eval=FALSE}
+if(in_oyster){
+  cat("\\newpage")
+  cat("  \n")
+  cat("# Oyster Reef  \n")
+  cat(paste0("The data file used is: **", oyster_file_short,"**"))
+  cat("  \n")
+  
+  plot_oyster_atlas(
+    ma = ma,
+    ma_abrev = ma_abrev,
+    oyster_includes = oyster_includes,
+    oy_figs = oy_figs
+  )
+  
+  cat("  \n")
+}
+```
