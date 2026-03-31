@@ -384,7 +384,7 @@ rmarkdown::render(input = "SAV_WC_ReportTemplate.Rmd",
                   output_file = paste0(file_name, ".pdf"),
                   clean=TRUE)
 # Create copy without date for linking on GitHub pages website
-file.copy(from = paste0(file_name, ".pdf"), to = "DRAFT_SAV_WC_Report.pdf")
+file.copy(from = paste0(file_name, ".pdf"), to = "DRAFT_SAV_WC_Report.pdf", overwrite = T)
 
 #Removes unwanted files created in the rendering process
 unlink(paste0(file_name, ".md"))
