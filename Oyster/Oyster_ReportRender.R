@@ -7,9 +7,6 @@
 ## To ensure this script runs smoothly, please run in a fresh session of R
 ## Some other libraries cause this script not to work properly
 
-## THIS SCRIPT WILL ONLY RUN WITH brms version 2.16.3 or lower. DOES NOT WORK WITH brms 2.17.0
-# The above is no longer the case, now working with brms version 2.22.0
-
 #Load libraries
 library(knitr)
 library(readr)
@@ -17,6 +14,16 @@ library(dplyr)
 library(data.table)
 library(rstudioapi)
 library(SEACAR)
+library(stringr)
+
+source("../SEACAR_data_location.R")
+
+##### Which analysis to run? Select one, can only be run individually (by ManagedAreaName: "ma" or by OIMMP: "oimmp")
+analysis <- "oimmp"
+# analysis <- "ma"
+#####
+
+analysis_col <- ifelse(analysis=="ma", "ManagedAreaName", "OIMMP")
 
 # Gets directory of this script and sets it as the working directory
 wd <- dirname(getActiveDocumentContext()$path)
@@ -28,8 +35,15 @@ EDA <- FALSE
 # Determine whether to generate Oyster sampling maps (for SEACAR Atlas)
 create_maps <- TRUE
 
+# Determine whether to generate Oyster spatio-temporal scope plots
+scope_plots <- FALSE
+
 if(EDA){
   source("Oyster_EDA.R")
+}
+
+if(scope_plots){
+  source("Oyster_scope_plots.R")
 }
 
 # Source in scripts to run Oyster analyses
@@ -37,6 +51,10 @@ if(EDA){
 source("Oyster_Models_parallel.R")
 # Oyster_ResultsCompile.R to combine all results into single file (for Atlas)
 source("Oyster_ResultsCompile.R", echo=T)
+# Generate SD plots and maps for OIMMP-only (for now)
+if(analysis=="oimmp"){
+  source("OIMMP_SupplementalFigures.R")
+}
 
 if(create_maps){
   source("Oyster_Create_Maps.R")
@@ -64,31 +82,47 @@ file_short <- str_split(file_in, "/")[[1]][4]
 
 ##### Generate Table Descriptions
 # Load in oyster stats file (output from Oyster_ResultsCompile.R)
-oyster_stats <- fread("output/ManagedAreaName/Oyster_All_GLMM_Stats.txt") %>% distinct() %>% as.data.table()
+oy_stats_file_loc <- paste0("output/", analysis_col, "/Oyster_All_GLMM_Stats.txt")
+oyster_stats <- fread(oy_stats_file_loc) %>% distinct() %>% as.data.table()
 # Empty table to store results
 descriptionTable <- data.table()
 # Loop through available managed areas
-for(ma in unique(oyster_stats$ManagedAreaName)){
+for(ma in unique(oyster_stats[[analysis_col]])){
+  if(analysis=="ma"){
+    dataFile <- oyster_stats[ManagedAreaName==ma, ]
+  } else {
+    dataFile <- oyster_stats[OIMMP==ma, ]
+  }
   # Save description in excel workbook
-  descriptionText <- generate_description(data = oyster_stats[ManagedAreaName==ma, ], habitat = "Oyster")
+  descriptionText <- SEACAR::generate_description(data = dataFile, habitat = "Oyster")
   descriptionTable <- bind_rows(descriptionTable, descriptionText)
 }
 
 # Write .csv of text results
-fwrite(descriptionTable, file = "output/oyster_tableDescriptions.csv")
+if(analysis=="oimmp"){
+  descriptionTable <- descriptionTable %>% dplyr::rename(OIMMP = ManagedAreaName)
+  fwrite(descriptionTable, file = "output/oyster_tableDescriptions_OIMMP.csv")
+} else {
+  fwrite(descriptionTable, file = "output/oyster_tableDescriptions.csv")
+}
 
-#Renders Oyster.Rmd for each parameter combination and writes the
-#report to an html and Word document stored in output directory
-file_out <-  paste0("Oyster_AllParameters_Report")
+##### Render Reports
+if(analysis=="ma"){
+  file_out <-  "Oyster_AllParameters_Report"
+  input_template <- "Oyster.Rmd"
+} else if(analysis=="oimmp"){
+  file_out <- "Oyster_OIMMP_AllParameters_Report"
+  input_template <- "OIMMP_Template.Rmd"
+}
 
 for(file_type in c("PDF", "HTML")){
   descriptionColumn <- ifelse(file_type=="PDF", "DescriptionLatex", "DescriptionHTML")
   tableFormat <- ifelse(file_type=="PDF", "latex", "simple")
-  rmarkdown::render(input = "Oyster.Rmd", 
+  rmarkdown::render(input = input_template, 
                     output_format = paste0(tolower(file_type),"_document"),
                     output_file = paste0(file_out, ".", tolower(file_type)),
                     output_dir = out_dir,
-                    clean=TRUE)  
+                    clean=TRUE)
 }
 
 #Removes unwanted files created in the rendering process

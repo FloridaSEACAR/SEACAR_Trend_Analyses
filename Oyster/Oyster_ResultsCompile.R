@@ -22,17 +22,17 @@ for(analysis in c("ManagedAreaName", "OIMMP")){
   data <- data[data$effect=="fixed" & !is.na(data$effect),]
   #For each managed area and species, get the LME intercept, slope, and p values
   table <- data %>%
-        group_by(areaName, indicator, live_date_qual, size_class, habitat_class) %>%
-        dplyr::reframe(
-          Intercept = estimate[term == "(Intercept)"],
-          ModelEstimate = estimate[term == "RelYear" | 
-                                     term == "meRelYearSampleAge_StdevgrEQQuadIdentifier"],
-          StandardError = std.error[term == "RelYear" | 
-                                      term == "meRelYearSampleAge_StdevgrEQQuadIdentifier"],
-          LowerConfidence = conf.low[term == "RelYear" | 
-                                       term == "meRelYearSampleAge_StdevgrEQQuadIdentifier"],
-          UpperConfidence = conf.high[term == "RelYear" | 
-                                        term == "meRelYearSampleAge_StdevgrEQQuadIdentifier"])
+    group_by(areaName, indicator, live_date_qual, size_class, habitat_class) %>%
+    dplyr::reframe(
+      Intercept = estimate[term == "(Intercept)"],
+      ModelEstimate = estimate[term == "RelYear" | 
+                                 term == "meRelYearSampleAge_StdevgrEQQuadIdentifier"],
+      StandardError = std.error[term == "RelYear" | 
+                                  term == "meRelYearSampleAge_StdevgrEQQuadIdentifier"],
+      LowerConfidence = conf.low[term == "RelYear" | 
+                                   term == "meRelYearSampleAge_StdevgrEQQuadIdentifier"],
+      UpperConfidence = conf.high[term == "RelYear" | 
+                                    term == "meRelYearSampleAge_StdevgrEQQuadIdentifier"])
   #Change column names to better match other outputs
   setnames(table, c("areaName", "indicator", "size_class", "live_date_qual", "habitat_class"),
            c(eval(analysis), "ParameterName", "SizeClass", "ShellType", "HabitatType"))
@@ -54,10 +54,6 @@ for(analysis in c("ManagedAreaName", "OIMMP")){
                                                         "ShellType", "SizeClass", "HabitatType"), 
                                  all=TRUE) %>% 
     arrange(get(analysis), ParameterName, ShellType, SizeClass, HabitatType) %>% as.data.table()
-  # Remove AreaID from OIMMP output
-  if(analysis=="OIMMP"){
-    finalTable <- finalTable %>% select(-AreaID)
-  }
   
   ##### Model back-transformation procedures (previous model_backtransformation.R)
   # Function to perform percent change calculation

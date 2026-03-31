@@ -1,3 +1,5 @@
+# Set directory for compiled Stan models
+options(cmdstanr_write_stan_file_dir = normalizePath("C:/SEACAR_Stan"))
 library(brms)
 library(Rmisc)
 library(rstan)
@@ -12,6 +14,7 @@ library(doRNG)
 library(rstudioapi)
 library(ggpubr)
 library(SEACAR)
+library(cmdstanr)
 
 source("../SEACAR_data_location.R")
 
@@ -23,11 +26,11 @@ warmup <- 1000
 iter <- 3000
 nchains <- 4
 ncores <- 4
+nthreads <- 1
 
-##### Which analysis to run? Select one, can only be run individually (either "ma" or "oimmp")
-# analysis <- "oimmp"
-analysis <- "ma"
-#####
+###### parallel plan set up
+plan(multisession, workers = 4) #to run 4 models at a time
+options(future.globals.maxSize = 2 * 1024 * 1024 * 1024)
 
 ##### If QAQCPlots is TRUE, plots will be created without running models
 # Set to FALSE to run models
@@ -48,12 +51,14 @@ out_dir <- "output"
 output_path <- paste0(out_dir, "/", col_name, "/")
 
 # Create paths for model and figure outputs for each analysis type
-for(subfolder in c("model_results", "QAQC", "tmp")){
+for(subfolder in c("model_results", "QAQC", "tmp", "model_results/data", "model_results/GLMMs", "model_results/GLMMs/archive")){
   if(!file.exists(paste0(output_path, subfolder, "/"))) dir.create(paste0(output_path, subfolder, "/"))
 }
 
 file_in <- str_subset(list.files(seacar_data_location, full.names = TRUE),"OYSTER")
 oysterraw <- fread(file_in, sep="|", na.strings=c("NULL"))
+# Apply Managed Area transformation - de-concatenate MA names
+oysterraw <- setDT(SEACAR::clean_managed_areas(oysterraw, "ma"))
 # New OIMMP updates include samples without MA associations, exclude for these analyses currently
 if(analysis=="ma"){
   oysterraw <- oysterraw[!is.na(AreaID), ]
@@ -105,7 +110,6 @@ oysterraw[, `:=` (RowID=as.integer(RowID),
                   MinimumSizeMeasured_mm=as.character(MinimumSizeMeasured_mm),
                   NumberMeasured_n=as.character(NumberMeasured_n),
                   QuadSize_m2=as.numeric(QuadSize_m2),
-                  MADup=as.integer(MADup),
                   Density_m2=as.numeric(Density_m2),
                   PercentLive_pct=as.numeric(PercentLive_pct),
                   ShellHeight_mm=as.numeric(ShellHeight_mm),
@@ -214,25 +218,6 @@ oysterraw[!is.na(ShellHeight_mm), `:=` (nyrpar="ShellHeight_mm",
           by=get(plotlab_col)]
 MAinclude <- distinct(oysterraw[, .(get(plotlab_col), nyrpar, nyears)])
 # View(MAinclude[!is.na(nyrpar) & nyears >= 5, ])
-
-oysterraw[str_detect(MA_plotlab, "Pine Island Sound"),
-          `:=` (MA_plotlab=ifelse(str_detect(ProgramLocationID,
-                                             "Reference") |
-                                    str_detect(ProgramLocationID,
-                                               "Control"),
-                                  "Pine Island Sound Aquatic Preserve_Natural",
-                                  "Pine Island Sound Aquatic Preserve_Restored"),
-                OIMMP_plotlab=ifelse(str_detect(ProgramLocationID,
-                                             "Reference") |
-                                    str_detect(ProgramLocationID,
-                                               "Control"),
-                                  paste0(OIMMP, "_Natural"),
-                                  paste0(OIMMP, "_Restored")),
-                HabitatClassification=ifelse(str_detect(ProgramLocationID,
-                                                        "Reference") |
-                                               str_detect(ProgramLocationID,
-                                                          "Control"),
-                                             "Natural", "Restored"))]
 
 ### Managed Area Statistics -----
 # Create a directory to store all MA stats files for each indicator
@@ -344,7 +329,7 @@ rm(MA_M_Stats)
 
 # Create summary overall statistics for each managed area.
 MA_Ov_Stats <- oysterraw[oysterraw$nyrpar=="Density_m2",] %>%
-  group_by(AreaID, !!sym(col_name), nyrpar,
+  group_by(!!sym(col_name), nyrpar,
            LiveDate_Qualifier, SizeClass,
            HabitatClassification) %>%
   dplyr::summarize(N_Years=length(unique(
@@ -363,6 +348,9 @@ MA_Ov_Stats <- oysterraw[oysterraw$nyrpar=="Density_m2",] %>%
                    collapse=', '),
     ProgramIDs=paste(sort(unique(ProgramID), decreasing=FALSE),
                      collapse=', '))
+if(analysis=="ma"){
+  MA_Ov_Stats <- MA_Ov_Stats %>% merge(SEACAR::ManagedAreas[, c("AreaID", "ManagedAreaName")], all.x=T)
+}
 setnames(MA_Ov_Stats, c("nyrpar", "LiveDate_Qualifier",
                         "HabitatClassification"),
          c("ParameterName", "ShellType", "HabitatType"))
@@ -488,7 +476,7 @@ rm(MA_M_Stats)
 
 # Create summary overall statistics for each managed area.
 MA_Ov_Stats <- oysterraw[oysterraw$nyrpar=="ShellHeight_mm",] %>%
-  group_by(AreaID, !!sym(col_name), nyrpar,
+  group_by(!!sym(col_name), nyrpar,
            LiveDate_Qualifier, SizeClass,
            HabitatClassification) %>%
   dplyr::summarize(N_Years=length(unique(
@@ -507,6 +495,9 @@ MA_Ov_Stats <- oysterraw[oysterraw$nyrpar=="ShellHeight_mm",] %>%
                    collapse=', '),
     ProgramIDs=paste(sort(unique(ProgramID), decreasing=FALSE),
                      collapse=', '))
+if(analysis=="ma"){
+  MA_Ov_Stats <- MA_Ov_Stats %>% merge(SEACAR::ManagedAreas[, c("AreaID", "ManagedAreaName")], all.x=T)
+}
 setnames(MA_Ov_Stats, c("nyrpar", "LiveDate_Qualifier",
                         "HabitatClassification"),
          c("ParameterName", "ShellType", "HabitatType"))
@@ -632,7 +623,7 @@ rm(MA_M_Stats)
 
 # Create summary overall statistics for each managed area.
 MA_Ov_Stats <- oysterraw[oysterraw$nyrpar=="PercentLive_pct",] %>%
-  group_by(AreaID, !!sym(col_name), nyrpar,
+  group_by(!!sym(col_name), nyrpar,
            LiveDate_Qualifier, SizeClass,
            HabitatClassification) %>%
   dplyr::summarize(N_Years=length(unique(
@@ -651,6 +642,9 @@ MA_Ov_Stats <- oysterraw[oysterraw$nyrpar=="PercentLive_pct",] %>%
                    collapse=', '),
     ProgramIDs=paste(sort(unique(ProgramID), decreasing=FALSE),
                      collapse=', '))
+if(analysis=="ma"){
+  MA_Ov_Stats <- MA_Ov_Stats %>% merge(SEACAR::ManagedAreas[, c("AreaID", "ManagedAreaName")], all.x=T)
+}
 setnames(MA_Ov_Stats, c("nyrpar", "LiveDate_Qualifier",
                         "HabitatClassification"),
          c("ParameterName", "ShellType", "HabitatType"))
@@ -668,7 +662,7 @@ MA_Ov_Stats$ProgramIDs <- replace(MA_Ov_Stats$ProgramIDs,
 MA_Ov_Stats$Programs <- replace(MA_Ov_Stats$Programs,
                                 MA_Ov_Stats$Programs=="", NA)
 # Write overall statistics to file
-fwrite(MA_Ov_Stats, paste0(output_path,"/Oyster_PrcLive_",toupper(analysis),"_Overall_Stats.txt"), sep="|")
+fwrite(MA_Ov_Stats, paste0(output_path,"Oyster_PrcLive_",toupper(analysis),"_Overall_Stats.txt"), sep="|")
 # Save stats file to directory
 ma_stats[[analysis]][["Percent Live"]][["MA_Ov_Stats"]] <- MA_Ov_Stats
 # Removes variable storing data to improve computer memory
@@ -764,37 +758,46 @@ shell_height_models_par <- function(loc, habitat_type, oysterraw){
   # Subset and save for shell height data >25 & <75
   sh25to75 <- sho25[ShellHeight_mm < 75, ]
   saveRDS(sh25to75, paste0(output_path, "model_results/data/", abrev, "_sh25to75_", Sys.Date(), "_", habitat_type, ".rds"))
+  # Subset for model data (where LiveDate_Qualifier is "Exact" NOT "Estimate")
+  sh25to75_mod_data <- subset(sh25to75, sh25to75$LiveDate_Qualifier!="Estimate")
   
   # run 25to75 model?
-  # .rds objects are saved before models are run, load in previous data, check how much data is within the previous to see if new model is necessary
-  # First list all available matching data, regardless of date
-  available_data <- list.files(paste0(output_path, "model_results/data/"), 
-                               full.names = T, pattern = paste0(abrev, "_sh25to75_"))
-  available_data <- str_subset(available_data, pattern = habitat_type) # subset for correct habitat type
-  file_info <- file.info(available_data) # grab file info to determine most recent
-  most_recent <- rownames(file_info)[which.max(file_info$mtime)]
-  prev25to75data <- tryCatch({
-    readRDS(most_recent)
+  # Load in previous model (if available) to determine if new data has been added
+  # If new data has been added, run model again.
+  model_loc <- paste0(output_path, "model_results/GLMMs/", abrev, "_sh25to75_glmm_", habitat_type, ".rds")
+  prevMod <- tryCatch({
+    readRDS(model_loc)
   }, error = function(e){
-    message("Error reading RDS file, previous data not found: will run new model")
+    message("Error reading in previous model file (sh25to75): ", conditionMessage(e))
     NULL
   })
   
-  if(is.null(prev25to75data)){
+  if(is.null(prevMod)){
     run25to75model <- TRUE
-  } else if(nrow(sh25to75)!=nrow(prev25to75data)){
+  } else if(nrow(sh25to75_mod_data)!=nrow(prevMod$data)){ #Check if amount of data has changed
     run25to75model <- TRUE
   } else {
     run25to75model <- FALSE
   }
-  # If the above is TRUE, then delete the old model so a new one can be run
-  if(run25to75model & !is.null(prev25to75data)){
-    file.remove(paste0(output_path, "model_results/GLMMs/", abrev, "_sh25to75_glmm_", habitat_type, ".rds"))
-  }
-  cat(paste0("N_Row previous (25to75): ", nrow(prev25to75data), "\nN_Row current (25to75): ", nrow(sh25to75), "\n"))
   
-  # Subset for model data (where LiveDate_Qualifier is "Exact" NOT "Estimate")
-  sh25to75_mod_data <- subset(sh25to75, sh25to75$LiveDate_Qualifier!="Estimate")
+  print(paste0("Sufficient years of data?: ", suff_years(sh25to75_mod_data)))
+  
+  # Don't run model if not enough years of data (5)
+  if(!suff_years(sh25to75_mod_data) & run25to75model){
+    run25to75model <- FALSE
+  }
+  
+  print(paste0("Run new model?: ", run25to75model))
+  
+  # If the above is TRUE, then delete the old model so a new one can be run
+  if(run25to75model & !is.null(prevMod)){
+    print("Archive old model")
+    file.rename(
+      from = model_loc,
+      to = paste0(output_path, "model_results/GLMMs/archive/", abrev, "_sh25to75_glmm_", habitat_type, "_", Sys.Date(), ".rds")
+    )
+  }
+  cat(paste0("N_Row previous (sh25to75): ", nrow(prevMod$data), "\n N_Row current (sh25to75): ", nrow(sh25to75_mod_data), "\n"))
   
   if(suff_years(sh25to75_mod_data) & !QAQCPlots){
     cat("---- Sufficient years of data for SH 25mm to 75mm. \n")
@@ -808,11 +811,9 @@ shell_height_models_par <- function(loc, habitat_type, oysterraw){
     if(abrev=="PISAP"){
       f <- brms::brmsformula(ShellHeight_mm | trunc(lb=25, ub=75) ~ RelYear)
     }
-    # Specify filepath for model
-    model_loc <- paste0(output_path, "model_results/GLMMs/", abrev, "_sh25to75_glmm_", habitat_type, ".rds")
     # Run model if needed
     if(run25to75model){
-      cat("---- Running model. \n")
+      cat("---- Running model 25to75. \n")
       sh25to75_glmm <- brm(
         # formula=ShellHeight_mm | trunc(lb=25, ub=75) ~ RelYear+QuadSize_m2+(1 | UniversalReefID),
         formula = f,
@@ -820,9 +821,10 @@ shell_height_models_par <- function(loc, habitat_type, oysterraw){
         family=gaussian, cores=ncores,
         control=list(adapt_delta=0.995, max_treedepth=20),
         iter=iter, warmup=warmup, chains=nchains, thin=3, seed=5699,
-        backend="rstan",
-        file=model_loc
-      )      
+        backend="cmdstanr",
+        file=model_loc,
+        threads = threading(nthreads)
+      )
     } else {
       sh25to75_glmm <- readRDS(model_loc)
       sh25to75_glmm$file <- model_loc
@@ -838,39 +840,46 @@ shell_height_models_par <- function(loc, habitat_type, oysterraw){
   # Remove any large values to avoid truncation error
   sho75 <- sho75[ShellHeight_mm<=250, ]
   saveRDS(sho75, paste0(output_path, "model_results/data/", abrev, "_sho75_", Sys.Date(), "_", habitat_type, ".rds"))
+  # Subset for model data (where LiveDate_Qualifier is "Exact" NOT "Estimate")
+  sho75_mod_data <- subset(sho75, sho75$LiveDate_Qualifier!="Estimate")
   
   # run sho75 model?
-  # First list all available matching data, regardless of date
-  available_data <- list.files(paste0(output_path, "model_results/data/"), 
-                               full.names = T, pattern = paste0(abrev, "_sho75_"))
-  available_data <- str_subset(available_data, pattern = habitat_type) # subset for correct habitat type
-  file_info <- file.info(available_data) # grab file info to determine most recent
-  most_recent <- rownames(file_info)[which.max(file_info$mtime)]
-  prev75data <- tryCatch({
-    readRDS(most_recent)
+  # Load in previous model (if available) to determine if new data has been added
+  # If new data has been added, run model again.
+  model_loc <- paste0(output_path, "model_results/GLMMs/", abrev, "_sho75_glmm_", habitat_type, ".rds")
+  prevMod <- tryCatch({
+    readRDS(model_loc)
   }, error = function(e){
-    message("Error reading RDS file, previous data not found: will run new model")
+    message("Error reading in previous model file (sho75): ", conditionMessage(e))
     NULL
   })
   
-  if(is.null(prev75data)){
+  if(is.null(prevMod)){
     runsho75model <- TRUE
-  } else if(nrow(sho75)!=nrow(prev75data)){
+  } else if(nrow(sho75_mod_data)!=nrow(prevMod$data)){ #Check if amount of data has changed
     runsho75model <- TRUE
   } else {
     runsho75model <- FALSE
   }
   
-  runsho75model <- ifelse(nrow(sho75)==nrow(prev75data), FALSE, TRUE)
-  cat(paste0("N_Row previous (o75): ", nrow(prev75data), "\nN_Row current (o75): ", nrow(sho75), "\n"))
+  print(paste0("Sufficient years of data?: ", suff_years(sho75_mod_data)))
   
-  # If the above is TRUE, then delete the old model so a new one can be run
-  if(runsho75model & !is.null(prev75data)){
-    file.remove(paste0(output_path, "model_results/GLMMs/", abrev, "_sho75_glmm_", habitat_type, ".rds"))
+  # Don't run model if not enough years of data (5)
+  if(!suff_years(sho75_mod_data) & runsho75model){
+    runsho75model <- FALSE
   }
   
-  # Subset for model data (where LiveDate_Qualifier is "Exact" NOT "Estimate")
-  sho75_mod_data <- subset(sho75, sho75$LiveDate_Qualifier!="Estimate")
+  print(paste0("Run new model?: ", runsho75model))
+  
+  # If the above is TRUE, then delete the old model so a new one can be run
+  if(runsho75model & !is.null(prevMod)){
+    print("Archive old model")
+    file.rename(
+      from = model_loc,
+      to = paste0(output_path, "model_results/GLMMs/archive/", abrev, "_pct_glmm_", habitat_type, "_", Sys.Date(), ".rds")
+    )
+  }
+  cat(paste0("N_Row previous (sho75): ", nrow(prevMod$data), "\n N_Row current (sho75): ", nrow(sho75_mod_data), "\n"))
   
   if(suff_years(sho75_mod_data) & !QAQCPlots){
     cat("---- Sufficient years of data for SH over 75mm. \n")
@@ -884,20 +893,19 @@ shell_height_models_par <- function(loc, habitat_type, oysterraw){
     if(abrev=="PISAP"){
       f <- brms::brmsformula(ShellHeight_mm | trunc(lb=75, ub=250) ~ RelYear)
     }
-    # Specify filepath for model
-    model_loc <- paste0(output_path, "model_results/GLMMs/", abrev, "_sho75_glmm_", habitat_type, ".rds")
     # Run model if needed
     if(runsho75model){
-      cat("---- Running model. \n")
+      cat("---- Running model >75. \n")
       sho75_glmm <- brm(
         formula = f,
         data=sho75_mod_data,
         family=gaussian, cores=ncores,
         control= list(adapt_delta=0.995, max_treedepth=20),
         iter=iter, warmup=warmup, chains=nchains, thin=3, seed=3639,
-        backend="rstan",
-        file=model_loc
-      )      
+        backend="cmdstanr",
+        file=model_loc,
+        threads = threading(nthreads)
+      )
     } else {
       sho75_glmm <- readRDS(model_loc)
       sho75_glmm$file <- model_loc
@@ -1383,9 +1391,11 @@ shell_height_models_par <- function(loc, habitat_type, oysterraw){
       coord_cartesian(ylim=c(25, ylim_upper))  
   }
   
+  location_subtitle <- ifelse(analysis=="oimmp", paste0(loc, " OIMMP Region"), loc)
+  
   # Set plot title
   plot_title <- ggplot() +
-    labs(title=paste0("Oyster Size Class (", habitat_type, ")"), subtitle=loc) +
+    labs(title=paste0("Oyster Size Class (", habitat_type, ")"), subtitle=location_subtitle) +
     plot_theme +
     theme(plot.subtitle=element_text(hjust=0.5, size=10, color="#314963"),
           panel.border=element_blank(),
@@ -1445,6 +1455,7 @@ for(ma in unique(oyster_sh[[col_name]])){
 
 results_all <- list()
 for(b in seq_along(split_tasks)){
+  if(b!=2) next
   batch <- split_tasks[[b]]
   
   results_list <- future_lapply(seq_len(nrow(batch)), function(i) {
@@ -1484,8 +1495,8 @@ oysterraw_den <- oysterraw_den %>%
   dplyr::group_by(ProgramID, ProgramName, LocationID, ProgramLocationID,
                   QuadIdentifier, ReefIdentifier, LiveDate,
                   LiveDate_Qualifier, SampleDate, Year, Month,
-                  !!sym(col_name), Region, SurveyMethod,
-                  HabitatClassification, QuadSize_m2, MADup, UniversalReefID, 
+                  !!sym(col_name), SurveyMethod,
+                  HabitatClassification, QuadSize_m2, UniversalReefID, 
                   !!sym(plotlab_col), Subtidal) %>%
   tidyr::fill(Density_m2, Number_of_Oysters_Counted_Total_Count,
               Number_of_Oysters_Counted_Live_Count,
@@ -1557,33 +1568,42 @@ density_models_par <- function(loc, habitat_type, oysterraw_den){
   # Save data used in model
   saveRDS(ma_subset, paste0(output_path, "model_results/data/", abrev, "_density_", Sys.Date(), "_", habitat_type, ".rds"))
   
-  # Check to see if amount of data has changed
-  available_data <- list.files(paste0(output_path, "model_results/data/"), 
-                               full.names = T, pattern = paste0(abrev, "_density_"))
-  available_data <- str_subset(available_data, pattern = habitat_type) # subset for correct habitat type
-  file_info <- file.info(available_data) # grab file info to determine most recent
-  most_recent <- rownames(file_info)[which.max(file_info$mtime)]
-  
-  prevDensData <- tryCatch({
-    readRDS(most_recent)
+  # run new model?
+  # Load in previous model (if available) to determine if new data has been added
+  # If new data has been added, run model again.
+  model_loc <- paste0(output_path, "model_results/GLMMs/", abrev, "_den_glmm9_", habitat_type, ".rds")
+  prevMod <- tryCatch({
+    readRDS(model_loc)
   }, error = function(e){
-    message("Error reading RDS file: ", conditionMessage(e))
+    message("Error reading in previous model file: ", conditionMessage(e))
     NULL
   })
-  
-  if(is.null(prevDensData)){
-    runDensModel <- TRUE
-  } else if(nrow(ma_subset)!=nrow(prevDensData)){
-    runDensModel <- TRUE
+  # Determine whether to run new model using runDenModel
+  if(is.null(prevMod)){
+    runDenModel <- TRUE
+  } else if(nrow(ma_subset)!=nrow(prevMod$data)){ #Check if amount of data has changed
+    runDenModel <- TRUE
   } else {
-    runDensModel <- FALSE
+    runDenModel <- FALSE
   }
+  
+  print(paste0("Sufficient years of data?: ", suff_years(ma_subset)))
+  # Don't run model if not enough years of data (5)
+  if(!suff_years(ma_subset) & runDenModel){
+    runDenModel <- FALSE
+  }
+  
+  print(paste0("Run new model?: ", runDenModel))
   
   # If the above is TRUE, then delete the old model so a new one can be run
-  if(runDensModel & !is.null(prevDensData)){
-    file.remove(paste0(output_path, "model_results/GLMMs/", abrev, "_den_glmm9_", habitat_type, ".rds"))
+  if(runDenModel & !is.null(prevMod)){
+    print("Archive old model")
+    file.rename(
+      from = model_loc,
+      to = paste0(output_path, "model_results/GLMMs/archive/", abrev, "_den_glmm9_", habitat_type, "_", Sys.Date(), ".rds")
+    )
   }
-  cat(paste0("N_Row previous (dens): ", nrow(prevDensData), "\n N_Row current (dens): ", nrow(ma_subset), "\n"))
+  cat(paste0("N_Row previous (PctLive): ", nrow(prevMod$data), "\n N_Row current (PctLive): ", nrow(ma_subset), "\n"))
   
   if(suff_years(ma_subset) & !QAQCPlots){
     cat("---- Sufficient years of data for Density. \n")
@@ -1618,16 +1638,16 @@ density_models_par <- function(loc, habitat_type, oysterraw_den){
     cat("------ Using Formula: ", paste(f[1]), "\n")
     cat("------ Using Family: ", paste(fam[1]), "\n")
     
-    model_loc <- paste0(output_path, "model_results/GLMMs/", abrev, "_den_glmm9_", habitat_type, ".rds")
-    if(runDensModel){
+    if(runDenModel){
       cat("---- Running model. \n")
       den_glmm <- brm(formula=f, data=ma_subset,
                       family=fam, cores=ncores,
                       control= list(adapt_delta=0.995, max_treedepth=20),
                       iter=iter, warmup=warmup, chains=nchains,
                       init=0, thin=3, seed=sample.int(.Machine$integer.max, 1),
-                      backend="rstan",
-                      file=model_loc)
+                      backend="cmdstanr",
+                      file=model_loc,
+                      threads = threading(nthreads))
     } else {
       den_glmm <- readRDS(model_loc)
       den_glmm$file <- model_loc
@@ -1768,6 +1788,8 @@ density_models_par <- function(loc, habitat_type, oysterraw_den){
     denplots <- plot(conditional_effects(models[[1]], re_formula=NULL), plot=FALSE)    
   }
   
+  location_subtitle <- ifelse(analysis=="oimmp", paste0(loc, " OIMMP Region"), loc)
+  
   plot1 <- ggplot() +
     {if("meanDen_int" %in% colnames(data)){
       geom_point(data=data, aes(x=LiveDate,
@@ -1795,12 +1817,12 @@ density_models_par <- function(loc, habitat_type, oysterraw_den){
     plot_theme +
     {if("meanDen_int" %in% colnames(data)){
       labs(title=paste0("Oyster Density (", habitat_type, ")"),
-           subtitle=loc,
+           subtitle=location_subtitle,
            x="Year",
            y=bquote('Estimated density ('*~m^{-2}*')'))
     }else{
       labs(title=paste0("Oyster Density (", habitat_type, ")"),
-           subtitle=loc,
+           subtitle=location_subtitle,
            x="Year",
            y=bquote('Density ('*~m^{-2}*')'))
     }}
@@ -1861,12 +1883,7 @@ if(!QAQCPlots){
 #############################
 ####### Percent Live ########
 #############################
-
-# oysterraw_pct <- oysterraw[!is.na(PercentLive_pct)]
-# Fix for HOBS (ID_5035) PctLive values in LBAP. Listed as PercentLiveMethod NA and should be Point-intercept
-# Not implemented currently as Point-intercept and Percent data are not (currently) comparable. Further methods will need to be devised
-# oysterraw[ManagedAreaName=="Lemon Bay Aquatic Preserve" & ProgramID==5035 & !is.na(PercentLive_pct), PercentLiveMethod := "Point-intercept"]
-oysterraw_pct <- oysterraw[!is.na(PercentLiveMethod) & !is.na(PercentLive_pct)]
+oysterraw_pct <- oysterraw[!is.na(PercentLive_pct)]
 
 oysterraw_pct[!is.na(PercentLive_pct), PctIndex := ObsIndex]
 oysterraw_pct[!is.na(Number_of_Oysters_Counted_Total_Count),
@@ -1881,9 +1898,9 @@ oysterraw_pct <- unique(oysterraw_pct)
 oysterraw_pct <- oysterraw_pct %>%
   dplyr::group_by(ProgramID, ProgramName, ProgramLocationID, QuadIdentifier,
                   ReefIdentifier, LiveDate, LiveDate_Qualifier, SampleDate,
-                  Year, Month, !!sym(col_name), Region, SurveyMethod,
+                  Year, Month, !!sym(col_name), SurveyMethod,
                   PercentLiveMethod, HabitatClassification, QuadSize_m2,
-                  MADup, UniversalReefID, !!sym(plotlab_col), Subtidal,
+                  UniversalReefID, !!sym(plotlab_col), Subtidal,
                   RelYear) %>%
   tidyr::fill(PercentLive_pct, Number_of_Oysters_Counted_Total_Count,
               Number_of_Oysters_Counted_Live_Count,
@@ -1911,7 +1928,7 @@ oysterraw_pct[, PercentLive_dec := PercentLive_pct/100]
 
 #Summarize percent live values
 pct_all_sum <- summarySE(oysterraw_pct, measurevar='PercentLive_pct',
-                         groupvars=c(eval(col_name), 'Year', 'PercentLiveMethod'))
+                         groupvars=c(eval(col_name), 'Year', 'PercentLiveMethod', 'HabitatClassification'))
 
 # Find out which MAs should receive models for Percent Live
 pct_stats <- ma_stats[[analysis]][["Percent Live"]][["MA_Ov_Stats"]] %>% 
@@ -1936,91 +1953,90 @@ pctlive_models_par <- function(loc, habitat_type, oysterraw_pct){
   suff_years <- function(data){length(unique(data$Year))>=5}
   # Create subset for each MA
   ma_subset <- subset(oysterraw_pct, oysterraw_pct[[plotlab_col]]==plotlabel)
-  # Exception to only run model on Percent data for LBAP (exclude 8 values from 5035 which are point-intercept)
-  ma_subset <- ma_subset[!(ProgramID==5035 & PercentLiveMethod=="Point-intercept")]
   # ma_subset <- ma_subset[str_detect(PercentLiveMethod,"Percent"),]
   # Save data used in model
   saveRDS(ma_subset, paste0(output_path, "model_results/data/", abrev, "_PrcLive_", Sys.Date(), "_", habitat_type, ".rds"))
   
   # run new model?
-  available_data <- list.files(paste0(output_path, "model_results/data/"), 
-                               full.names = T, pattern = paste0(abrev, "_PrcLive_"))
-  available_data <- str_subset(available_data, pattern = habitat_type) # subset for correct habitat type
-  file_info <- file.info(available_data) # grab file info to determine most recent
-  most_recent <- rownames(file_info)[which.max(file_info$mtime)]
-  
-  prevPctData <- tryCatch({
-    readRDS(most_recent)
+  # Load in previous model (if available) to determine if new data has been added
+  # If new data has been added, run model again.
+  model_loc <- paste0(output_path, "model_results/GLMMs/", abrev, "_pct_glmm_", habitat_type, ".rds")
+  prevMod <- tryCatch({
+    readRDS(model_loc)
   }, error = function(e){
-    message("Error reading RDS file: ", conditionMessage(e))
+    message("Error reading in previous model file: ", conditionMessage(e))
     NULL
   })
   
-  if(is.null(prevPctData)){
+  if(is.null(prevMod)){
     runPctModel <- TRUE
-  } else if(nrow(ma_subset)!=nrow(prevPctData)){
+  } else if(nrow(ma_subset)!=nrow(prevMod$data)){ #Check if amount of data has changed
     runPctModel <- TRUE
   } else {
     runPctModel <- FALSE
   }
   
-  # If the above is TRUE, then delete the old model so a new one can be run
-  model_loc <- paste0(output_path, "model_results/GLMMs/", abrev, "_pct_glmm_", habitat_type, ".rds")
-  if(runPctModel & !is.null(prevPctData)){
-    file.remove(model_loc)
+  print(paste0("Sufficient years of data?: ", suff_years(ma_subset)))
+  
+  # Don't run model if not enough years of data (5)
+  if(!suff_years(ma_subset) & runPctModel){
+    runPctModel <- FALSE
   }
-  cat(paste0("N_Row previous (PctLive): ", nrow(prevPctData), "\n N_Row current (PctLive): ", nrow(ma_subset), "\n"))
+  
+  print(paste0("Run new model?: ", runPctModel))
+  
+  # If the above is TRUE, then delete the old model so a new one can be run
+  if(runPctModel & !is.null(prevMod)){
+    print("Archive old model")
+    file.rename(
+      from = model_loc,
+      to = paste0(output_path, "model_results/GLMMs/archive/", abrev, "_pct_glmm_", habitat_type, "_", Sys.Date(), ".rds")
+    )
+  }
+  cat(paste0("N_Row previous (PctLive): ", nrow(prevMod$data), "\n N_Row current (PctLive): ", nrow(ma_subset), "\n"))
   
   # If enough years of data, perform modelling. If not, plot data points only
   if(suff_years(ma_subset) & !QAQCPlots){
     cat("---- Sufficient years of data. \n")
-    #PercentLiveMethod=="Percent" for Lemon Bay program(s) with sufficient data,
-    #so cannot be modeled as binomial
-    if(abrev=="LBAP"){
-      if(runPctModel){
-        pct_glmm <- brm(
-          formula=PercentLive_dec ~ RelYear + (0 + RelYear | ReefIdentifier),
-          data=subset(ma_subset, ma_subset$PercentLive_dec > 0 & ma_subset$PercentLive_dec < 1),family=Beta,
-          cores=ncores, control= list(adapt_delta=0.995, max_treedepth=20),
-          iter=iter, warmup=warmup, chains=nchains, init=0, thin=3, seed=8465,
-          backend="rstan", save_pars = save_pars(all = TRUE),
-          file=model_loc
-        )        
+    # Check to see if previous model already exists
+    if(!file.exists(model_loc)){
+      
+      ma_subset <- as.data.frame(ma_subset)
+      ma_subset$LiveSuccess <- round(ma_subset$PercentLive_pct)
+      ma_subset$Trials <- 100
+      
+      # Save data (used in model)
+      saveRDS(ma_subset, paste0(output_path, "model_results/data/", abrev, "_PrcLive_binom_", Sys.Date(), "_", habitat_type, ".rds"))
+      # Run model
+      cat("------ Running model \n")
+      # Determine whether to include PercentLiveMethod as a contrast within formula
+      if(length(unique(ma_subset$PercentLiveMethod))>1){
+        # ManagedAreaName
+        f <- brms::brmsformula(LiveSuccess | trials(Trials) ~ RelYear * PercentLiveMethod + (1 | UniversalReefID)) # binomial
+        # f <- brms::brmsformula(PercentLive_pct | trunc(lb = 0) ~ RelYear + (1 | PercentLiveMethod) + (1 | UniversalReefID)) # gaussian
+        # For OIMMP only
+        # f <- brms::brmsformula(LiveSuccess | trials(Trials) ~ RelYear + (1 | PercentLiveMethod) + (1 || ManagedAreaName) + (1 | UniversalReefID))
+        # f <- brms::brmsformula(PercentLive_pct ~ RelYear + (1 | PercentLiveMethod) + (1 || ManagedAreaName) + (1 || OIMMP) + (1 | UniversalReefID)) # with guassian
       } else {
-        pct_glmm <- readRDS(model_loc)
+        f <- brms::brmsformula(LiveSuccess | trials(Trials) ~ RelYear + (1 | UniversalReefID)) # binomial
+        # f <- brms::brmsformula(PercentLive_pct | trunc(lb = 0) ~ RelYear + (1 | UniversalReefID)) # gaussian
+      }
+      if(runPctModel){
+        print(paste0("RUNNING MODEL FOR PERCENT LIVE: ", loc, " - ", habitat_type))
+        pct_glmm <- brm(
+          formula=f,
+          data=ma_subset, family=gaussian, cores=ncores, # family=binomial
+          control= list(adapt_delta=0.995, max_treedepth=20),
+          iter=iter, warmup=warmup, chains=nchains, init=0, thin=3,
+          seed=4331, backend="cmdstanr", save_pars = save_pars(all = TRUE),
+          file=model_loc,
+          threads = threading(nthreads)
+        )
+        pct_glmm <- NA
       }
     } else {
-      # Check to see if previous model already exists
-      if(!file.exists(model_loc)){
-        
-        ma_subset <- as.data.frame(ma_subset)
-        ma_subset$LiveSuccess <- round(ma_subset$PercentLive_pct)
-        ma_subset$Trials <- 100
-        
-        # Save binomial data (used in model)
-        saveRDS(ma_subset, paste0(output_path, "model_results/data/", abrev, "_PrcLive_binom_", Sys.Date(), "_", habitat_type, ".rds"))
-        # Run model
-        cat("------ Running binomial model \n")
-        # Determine whether to include PercentLiveMethod as a contrast within formula
-        if(length(unique(ma_subset$PercentLiveMethod))>1){
-          f <- brms::brmsformula(LiveSuccess | trials(Trials) ~ RelYear * PercentLiveMethod + (1 | UniversalReefID))
-        } else {
-          f <- brms::brmsformula(LiveSuccess | trials(Trials) ~ RelYear + (1 | UniversalReefID))
-        }
-        if(runPctModel){
-          pct_glmm <- brm(
-            formula=f,
-            data=ma_subset, family=binomial, cores=ncores,
-            control= list(adapt_delta=0.995, max_treedepth=20),
-            iter=iter, warmup=warmup, chains=nchains, init=0, thin=3, 
-            seed=4331, backend="rstan", save_pars = save_pars(all = TRUE),
-            file=model_loc
-          )          
-        }
-      } else {
-        pct_glmm <- readRDS(model_loc)
-        pct_glmm$file <- model_loc
-      }
+      pct_glmm <- readRDS(model_loc)
+      pct_glmm$file <- model_loc
     }
   } else {
     pct_glmm <- NA
@@ -2158,85 +2174,52 @@ pctlive_models_par <- function(loc, habitat_type, oysterraw_pct){
     }
     yrlist <- seq(minyr,maxyr,brk)
     
+    cols <- c("#00374f", "#00374f", "#0094b0")
+    shapes <- c(21, 21, 24)
+    
+    names(cols) <- c("Percent", "Estimated percent", "Point-intercept")
+    names(shapes) <- c("Percent", "Estimated percent", "Point-intercept")
+    
     set.seed(987)
     # Empty list to store necessary plot layers
     plot_layers <- list()
     if(class(pct_glmm)=="brmsfit"){
-      if(length(unique(data$PercentLiveMethod))==1){
-        pctplots <- plot(conditional_effects(models[[1]], re_formula=NULL), plot=FALSE)
-        
-        plot_layers <- c(
-          geom_point(data=data, aes(x=LiveDate,
-                                    y=100*PercentLive_dec), 
-                     position=plot_jitter,
-                     shape=21, size=2, color="#333333", fill="#cccccc",
-                     alpha=0.8, inherit.aes=FALSE),
-          geom_ribbon(data = pctplots$RelYear$data,
-                      aes(x = RelYear + yrdiff,
-                          y = 100 * estimate__,
-                          ymin = 100 * lower__,
-                          ymax = 100 * upper__),
-                      fill = "#000099", alpha = 0.1, inherit.aes = FALSE),
-          geom_line(data = pctplots$RelYear$data,
-                    aes(x = RelYear + yrdiff,
-                        y = 100 * estimate__),
-                    color = "#000099", lwd = 0.75, inherit.aes = FALSE))
-        
-      } else if(length(unique(data$PercentLiveMethod))>1){
-        cols <- c("#00374f", "#0094b0")
-        shapes <- c(21, 24)
-        pctplots <- plot(conditional_effects(models[[1]], re_formula=NULL, effects = "RelYear:PercentLiveMethod"), plot=FALSE)
-        d <- pctplots$`RelYear:PercentLiveMethod`$data
-        names(cols) <- unique(d$PercentLiveMethod)
-        names(shapes) <- unique(d$PercentLiveMethod)        
-        
-        for(plm in unique(d$PercentLiveMethod)){
-          # Grab lowest relYear for a given PLM
-          minRelYear <- data[PercentLiveMethod==plm, min(RelYear)]-0.2
-          d_subset <- d %>% filter(PercentLiveMethod==plm, RelYear >= minRelYear)
-          plot_layers <- c(plot_layers,
-                           geom_ribbon(data = d_subset,
-                                       aes(x = RelYear + yrdiff,
-                                           y = 100 * estimate__,
-                                           ymin = 100 * lower__,
-                                           ymax = 100 * upper__,
-                                           fill = PercentLiveMethod), 
-                                       alpha = 0.1, inherit.aes = FALSE),
-                           geom_line(data = d_subset,
-                                     aes(x = RelYear + yrdiff,
-                                         y = 100 * estimate__,
-                                         color = PercentLiveMethod),
-                                     lwd = 0.75, inherit.aes = FALSE))
-        }
-        plot_layers <- c(plot_layers,
-                         scale_fill_manual(name = "Percent Live Method", 
-                                           breaks = names(cols),
-                                           values = cols,
-                                           labels = names(cols)),
-                         scale_color_manual(name = "Percent Live Method", 
-                                            breaks = names(cols),
-                                            values = cols,
-                                            labels = names(cols)),
-                         geom_point(data=data, aes(x=LiveDate,
-                                                   y=100*PercentLive_dec,
-                                                   fill = PercentLiveMethod,
-                                                   shape = PercentLiveMethod), 
-                                    position=plot_jitter, size=2, color="#333333",
-                                    alpha=0.8, inherit.aes=FALSE),
-                         scale_shape_manual(name = "Percent Live Method", 
-                                            breaks = names(shapes),
-                                            values = shapes,
-                                            labels = names(shapes)))
-      }  
-    } else {
+      pctplots <- plot(conditional_effects(models[[1]], re_formula=NULL), plot=FALSE)
+      
       plot_layers <- c(
-        geom_point(data=data, aes(x=LiveDate,
-                                  y=100*PercentLive_dec), 
-                   position=plot_jitter,
-                   shape=21, size=2, color="#333333", fill="#cccccc",
-                   alpha=0.8, inherit.aes=FALSE)
-      )
+        geom_ribbon(data = pctplots$RelYear$data,
+                    aes(x = RelYear + yrdiff,
+                        y = estimate__*100,
+                        ymin = lower__*100,
+                        ymax = upper__*100),
+                    fill = "#000099", alpha = 0.1, inherit.aes = FALSE),
+        geom_line(data = pctplots$RelYear$data,
+                  aes(x = RelYear + yrdiff,
+                      y = estimate__*100),
+                  color = "#000099", lwd = 0.75, inherit.aes = FALSE))
     }
+    
+    plot_layers <- c(plot_layers,
+                     scale_fill_manual(name = "Percent Live Method", 
+                                       breaks = names(cols),
+                                       values = cols,
+                                       labels = names(cols)),
+                     scale_color_manual(name = "Percent Live Method", 
+                                        breaks = names(cols),
+                                        values = cols,
+                                        labels = names(cols)),
+                     geom_point(data=data, aes(x=LiveDate,
+                                               y=PercentLive_pct,
+                                               fill = PercentLiveMethod,
+                                               shape = PercentLiveMethod), 
+                                position=plot_jitter, size=2, color="#333333",
+                                alpha=0.4, inherit.aes=FALSE),
+                     scale_shape_manual(name = "Percent Live Method", 
+                                        breaks = names(shapes),
+                                        values = shapes,
+                                        labels = names(shapes)))
+    
+    location_subtitle <- ifelse(analysis=="oimmp", paste0(loc, " OIMMP Region"), loc)
     
     plot1 <- ggplot() +
       plot_layers +
@@ -2247,17 +2230,29 @@ pctlive_models_par <- function(loc, habitat_type, oysterraw_pct){
       theme(legend.text=element_text(size=10), 
             legend.title=element_text(size=10)) +
       {
-        if("Percent" %in% unique(ma_subset$PercentLiveMethod)){
-          labs(title=paste0("Percent Live Oysters (", habitat_type, ")"),
-               subtitle=loc,
-               x="Year",
-               y="Percent live (%)")
+        if(length(unique(ma_subset$PercentLiveMethod))>1){
+          # More than 1 PercentLiveMethod
+          location_title <- paste0("Percent Live Oysters (", habitat_type, ")")
+          y_axis_label <- "Percent live (%)"
         } else {
-          labs(title=paste0("Oyster Percent Live Cover (", habitat_type, ")"),
-               subtitle=loc,
-               x="Year",
-               y="Live cover (%)")
+          if(unique(ma_subset$PercentLiveMethod)=="Percent"){
+            # PercentLiveMethod == Percent
+            location_title <- paste0("Percent Live Oysters (", habitat_type, ")")
+            y_axis_label <- "Percent live (%)"
+          } else if(unique(ma_subset$PercentLiveMethod)=="Estimated percent"){
+            # PercentLiveMethod == Estimated percent
+            location_title <- paste0("Percent Live Oysters (", habitat_type, ")")
+            y_axis_label <- "Estimated percent live (%)"
+          } else {
+            # PercentLiveMethod == Point-intercept
+            location_title <- paste0("Oyster Percent Live Cover (", habitat_type, ")")
+            y_axis_label <- "Live cover (%)"
+          }
         }
+        labs(title = location_title,
+             subtitle = location_subtitle,
+             x = "Year",
+             y = y_axis_label)
       }
     
     # Specify save location (QAQC Plots saved elsewhere)
@@ -2289,8 +2284,9 @@ for(ma in unique(oysterraw_pct[[col_name]])){
 
 results_all <- list()
 for(b in seq_along(split_tasks)){
+  # if(!b==5) next
   batch <- split_tasks[[b]]
-  results_list <- future_lapply(seq_len(nrow(batch)), function(i) {
+  results_list <- future_lapply(seq_len(nrow(batch)), function(i){
     task <- batch[i, ]
     oysterraw_path <- paste0(output_path, "tmp/oysterpct_", make.names(task[[col_name]]), ".rds")
     oysterraw_sub <- readRDS(oysterraw_path)
@@ -2320,7 +2316,7 @@ if(!QAQCPlots){
   
   #Get Rhat values for all models to check which ones may need to be reparameterized
   model_list <- unique(all_oysterresults$filename)
-
+  
   rhats_all <- data.table(filename=character(),
                           term=character(),
                           rhat=numeric())
@@ -2358,10 +2354,12 @@ if(!QAQCPlots){
   models_to_check_sumrhat <- unique(rhats_sum[rhat_r > 1.05, filename])  
 }
 
-# Zip all figures
-out_dir <- paste0(output_path, "Figures")
-fig_list <- list.files(paste0(output_path, "Figures"), recursive = T)
-filename <- paste0("AllOysterFigures_", toupper(analysis))
-setwd(out_dir)
-zip(filename, files=fig_list)
-setwd(wd)
+if(!QAQCPlots){
+  # Zip all figures
+  out_dir <- paste0(output_path, "Figures")
+  fig_list <- list.files(paste0(output_path, "Figures"), recursive = T)
+  filename <- paste0("AllOysterFigures_", toupper(analysis))
+  setwd(out_dir)
+  zip(filename, files=fig_list)
+  setwd(wd)  
+}

@@ -1,0 +1,313 @@
+---
+title: "SEACAR Oyster Analysis by OIMMP Region"
+date: "Last compiled on `r format(Sys.time(), '%d %B, %Y')`"
+output:
+  word_document:
+    toc: TRUE
+    toc_depth: 4
+  html_document:
+    toc: TRUE
+    toc_float: TRUE
+    toc_depth: 4
+    dev: png
+    keep_md: yes
+  pdf_document:
+    toc: TRUE
+    toc_depth: 4
+    dev: png
+    extra_dependencies: ["float"]
+    keep_md: yes
+urlcolor: blue
+always_allow_html: yes
+header-includes:
+  \usepackage{float}
+  \usepackage{makecell}
+  \usepackage{booktabs}
+  \usepackage{longtable}
+  \usepackage{array}
+  \usepackage{multirow}
+  \usepackage{wrapfig}
+  \usepackage{colortbl}
+  \usepackage{pdflscape}
+  \usepackage{tabu}
+  \usepackage{threeparttable}
+  \usepackage{threeparttablex}
+  \usepackage[normalem]{ulem}
+  \usepackage[utf8]{inputenc}
+  \usepackage{makecell}
+  \usepackage{xcolor}
+  \usepackage{graphicx}
+  \floatplacement{figure}{H}
+---
+```{r, global options, warning=FALSE, message=FALSE, echo=FALSE}
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+options(knitr.kable.NA = '-')
+```
+
+
+```{r, functions to plot oysters, eval=TRUE, echo=FALSE, warning=FALSE, message=FALSE}
+library(glue)
+library(kableExtra)
+library(sf)
+library(ggplot2)
+# Read in oyster results file
+oyster_stats <- fread("output/OIMMP/Oyster_All_GLMM_Stats.txt", sep='|')
+# Function to add trend text
+trendText <- function(modelEstimate, lowConfidence, upConfidence, sufficientData){
+  if(sufficientData){
+    increasing <- modelEstimate > 0
+    trendPresent <- (lowConfidence < 0 & upConfidence < 0) | 
+      (lowConfidence > 0 & upConfidence > 0)
+    trendStatus <- "No significant change"
+    if(isTRUE(trendPresent)){
+      trendDirection <- ifelse(increasing, "increasing", "decreasing")
+      trendStatus <- paste0("Significantly ", trendDirection, " trend")
+    } else if(is.na(modelEstimate)){
+      trendStatus <- "A model could not be fitted"
+    }
+  } else {
+    trendStatus <- "Insufficient data"
+  }
+  return(trendStatus)
+}
+# Apply function, add credible interval
+oyster_stats <- oyster_stats %>% rowwise() %>%
+  mutate(
+    "Trend Status" = trendText(ModelEstimate, LowerConfidence, UpperConfidence, SufficientData),
+    "Credible Interval" = ifelse(!is.na(LowerConfidence), paste0(round(LowerConfidence, 2), " to ", round(UpperConfidence, 2)), NA)
+  ) %>%
+  ungroup() %>% as.data.table()
+
+# Oyster plot locations
+oy_figs <- list(
+  "Density" = list.files("output/OIMMP/Figures/Density/", pattern = ".png", full.names = T),
+  "Percent Live" = list.files("output/OIMMP/Figures/Percent_Live/", pattern = ".png", full.names = T),
+  "Shell Height" = list.files("output/OIMMP/Figures/Shell_Height/", pattern = ".png", full.names = T)
+)
+
+# Dataframe to determine which figures are included
+oyster_includes <- oyster_stats %>% 
+  group_by(OIMMP, ParameterName, SufficientData, HabitatType, Intercept) %>%
+  reframe() %>% as.data.table()
+
+oyster_includes <- oyster_includes[!(HabitatType=="Restored" & OIMMP=="Apalachicola Bay" & ParameterName=="Shell Height")]
+
+# Function to locate oyster figures
+oy_file_loc <- function(ma_abrev, p, type){
+  if(p=="Density"){
+    pattern <- paste0("_GLMM_", ma_abrev, "_", type, "_raw.png")
+  } else if(p=="Percent Live"){
+    pattern <- paste0("_GLMM_", ma_abrev, "_", type, "_raw.png")
+  } else if(p=="Shell Height"){
+    pattern <- paste0("_GLMM_", ma_abrev, "_", type, ".png")
+  }
+  return(str_subset(oy_figs[[p]], pattern))
+}
+
+# Function to display oyster results tables
+oyster_tables <- function(ma, p, type){
+  if(p=="Shell Height"){
+    select_cols <- c("ShellType", "SizeClass", "HabitatType", "Trend Status", "ModelEstimate", "StandardError", "Credible Interval")
+  } else {
+    select_cols <- c("ShellType", "HabitatType", "Trend Status", "ModelEstimate", "StandardError", "Credible Interval")
+  }
+  subset <- oyster_stats[OIMMP==ma & ParameterName==p & HabitatType==type,]
+  ResultTable <- subset %>% 
+    dplyr::select(select_cols) %>%
+    dplyr::rename("Shell Type" = "ShellType",
+                  "Habitat Type" = "HabitatType",
+                  "Estimate" = "ModelEstimate",
+                  "Standard Error" = "StandardError")
+  if(p=="Shell Height"){
+    ResultTable <- ResultTable %>% 
+      filter(!is.na(SizeClass)) %>%
+      dplyr::rename("Size Class" = "SizeClass")
+  }
+  
+  result_table <- kable(ResultTable, format = tableFormat,
+                        caption = paste0("Model results for Oyster ", p, " - ", type),
+                        row.names = FALSE, digits = 2,
+                        booktabs = T, linesep = "", escape = F, longtable = F) %>%
+    row_spec(row = 0, italic = TRUE) %>%
+    kable_styling(latex_options = c("scale_down", "HOLD_position"))
+  
+  print(result_table)
+}
+
+# Function to allow dynamic plot sizes
+subchunkify <- function(g, fig_height=9, fig_width=10, fig_cap) {
+  g_deparsed <- paste0(deparse(
+    function() {g}
+  ), collapse = '')
+
+  sub_chunk <- paste0("
+  \n`","``{r sub_chunk_", floor(runif(1) * 10000), ", fig.height=",
+   fig_height, ", fig.width=", fig_width, ", echo=FALSE, results='asis'}",
+  "\n(", 
+    g_deparsed
+    , ")()",
+  "\n`","``
+  ")
+
+  cat(knitr::knit(text = knitr::knit_expand(text = sub_chunk), quiet = TRUE))
+}
+
+map_locs <- list.files("output/maps/OIMMP", full.names = T, pattern = ".png")
+get_maps <- function(indicator_short, ma_abrev){
+  str_subset(map_locs, paste0(indicator_short, "_", ma_abrev))
+}
+
+# Read in table description file
+tableDesc <- fread("output/oyster_tableDescriptions_OIMMP.csv")
+
+##### Table + plots to display OIMMP reef stats (OysterReefID output)
+show_reef_overview <- function(oimmp){
+  # Determine color palette for all programs
+  oimmp_programs <- unique(reef_data_overview$ProgramID)
+  prog_palette <- colorRampPalette(seacar_palette)(length(oimmp_programs))
+  names(prog_palette) <- oimmp_programs
+  # Locate relevant files
+  txt_string <- paste0(gsub(" ", "_", oimmp), "_reef_overview")
+  reef_overview_file <- list.files("output/OIMMP/ReportFigures/", full=T, pattern = txt_string)
+  # Subset reefs for each OIMMP region
+  reef_subset <- reef_data_overview %>% filter(OIMMP==oimmp)
+  if(nrow(reef_subset)==0) next
+  # Gather total number of reefs in region
+  n_reefs_tot <- reef_overview %>% filter(OIMMP==oimmp) %>% pull(n)
+  # Gather total number of reefs sampled in region
+  n_reefs_sampled <- unique(reef_subset$n_tot)
+  cat("  \n")
+  cat(glue("Total number of FWC reefs in {oimmp} OIMMP region: {n_reefs_tot}. 
+           Number of unique reefs that have been sampled: {n_reefs_sampled} 
+           ({round((n_reefs_sampled / n_reefs_tot)*100,1)}%)."))
+  cat("  \n")
+  # Create reef plot to show overview
+  fig_cap <- glue("Number of oyster reefs sampled by SEACAR ProgramID in {oimmp}")
+  # PLOT HERE
+  subchunkify(cat("![", fig_cap, "](", reef_overview_file,")"))
+  
+  # Create table overview
+  ResultTable <- reef_subset %>%
+    dplyr::select(ProgramID, n_reefs, n_tot) %>% 
+    dplyr::rename("Number of URIDs sampled by ProgramID" = "n_reefs",
+                  "Number of URIDs sampled in OIMMP Region" = "n_tot")
+  # Convert to kable
+  result_table <- kable(ResultTable, format = tableFormat,
+                        caption = paste0("Number of UniversalReefIDs (URID) sampled in ", oimmp, "; ", n_reefs_sampled, " mapped reefs"),
+                        row.names = FALSE, digits = 2,
+                        booktabs = T, linesep = "", escape = F, longtable = F) %>%
+    kableExtra::row_spec(row = 0, italic = TRUE) %>%
+    kableExtra::kable_styling(latex_options = c("scale_down", "HOLD_position"))
+  cat("  \n")
+  # cat("  \n")
+  # print(result_table)
+  cat("  \n")
+  for(p_id in unique(reef_subset$ProgramID)){
+    p_name <- reef_subset[reef_subset$ProgramID==p_id, ]$ProgramName
+    me <- managing_entities[ProgramID==p_id, ManagingEntity]
+    cat(paste0("**", p_id, "** - ", p_name, " - *", me, "*   \n"))
+  }
+  cat("  \n")
+}
+
+# Function to show SD plots and maps for each parameter
+show_sd_plots <- function(oimmp, p){
+  # text string to isolate relevant oimmp - param combination (both map and plot)
+  txt_string <- paste0(gsub(" ", "_", oimmp), "_", gsub(" ", "_", p))
+  sd_files <- list.files("output/OIMMP/ReportFigures/",full=T, pattern = txt_string)
+  cat("  \n")
+  subchunkify(cat("![", glue("Map of standard deviation by reef for oyster {tolower(p)} in {oimmp}"), "](", str_subset(sd_files, "_sdmap"),")"))
+  cat("  \n")
+  subchunkify(cat("![", glue("Standard deviation by sample size and number of sites for oyster {tolower(p)} in {oimmp}"), "](", str_subset(sd_files, "_sdplot"),")"))
+  cat("  \n")
+}
+# Function to display maps for each parameter
+show_maps <- function(oimmp, p, indicator_short){
+  ma_short <- gsub(" ", "_", oimmp)
+  map_loc <- get_maps(indicator_short = indicator_short, ma_abrev = ma_short)
+  map_caption <- glue("Map showing sampling locations by program for oyster {tolower(p)} in {oimmp}")
+  subchunkify(cat("![",map_caption,"](", map_loc,")"))
+}
+
+# Import and include Managing Entity information
+managing_entities <- openxlsx::read.xlsx("data/MonitoringPrograms_ManagingEntityUpdate_2025-12.xlsx") %>% as.data.table()
+managing_entities[, `:=` (ManagingEntity = ifelse(is.na(Managing.Entity_proposed), Managing.Entity, Managing.Entity_proposed))] %>%
+  setnames(., "Id", "ProgramID")
+
+### PULL FROM SEACAR MATRIX WHEN UPDATED ###
+# managing_entities <- openxlsx::read.xlsx("data/SEACAR Program Matrix.xlsx")
+# colnames(managing_entities) <- managing_entities[1, ]
+# managing_entities <- managing_entities[-1, ]
+# managing_entities <- managing_entities %>% 
+#   rename("ProgramID" = "ID",
+#          "ManagingEntity" = "Managing Entity") %>% as.data.table()
+############################################
+
+
+# Import necessary .rds objects for supplemental OIMMP figures
+reef_data_overview <- readRDS("output/OIMMP/ReportFigures/reef_data_overview.rds")
+reef_overview <- readRDS("output/OIMMP/ReportFigures/reef_overview.rds")
+```
+
+```{r, OIMMP_overview, eval=T, echo=F, results='asis', warning=FALSE, message=FALSE}
+cat("\\newpage")
+cat("# Overview")
+cat("  \n")
+subchunkify(cat("![Map showing available OIMMP boundaries in SEACAR](", str_subset(map_locs, "OIMMP_Regions"),")"))
+cat("  \n")
+```
+
+```{r, Oyster_figures, eval=T, echo=F, results='asis', warning=FALSE, message=FALSE}
+## Begin report display
+for(oimmp in unique(oyster_includes$OIMMP)){
+  cat("  \n")
+  cat("\\newpage")
+  cat("  \n")
+  # Grab table description
+  ma_subset <- oyster_includes[OIMMP==oimmp, ]
+  cat("  \n")
+  cat(glue("# {oimmp}"))
+  cat("  \n")
+  cat("In the following sections, the values for 'Number of reefs sampled' 
+      may add up to more than 100% because the same reef may have been sampled by more than one program.")
+  cat("  \n")
+  subchunkify(show_reef_overview(oimmp), fig_height = 6, fig_width = 10)
+  cat("  \n")
+  for(p in unique(ma_subset$ParameterName)){
+    # Indicator short
+    indicator_short <- ifelse(p=="Density", "Dens", ifelse(p=="Percent Live", "PrcLive", "SH"))
+    cat("  \n")
+    cat(glue("## {p}"))
+    cat("  \n")
+    subchunkify(show_maps(oimmp = oimmp, p = p, indicator_short = indicator_short), fig_height = 6, fig_width = 10)
+    cat("  \n")
+    subchunkify(show_sd_plots(oimmp, p), fig_height = 6, fig_width = 10)
+    cat("  \n")
+    # parameter subset
+    p_subset <- ma_subset[ParameterName==p, ]
+    # Add table description before Natural vs. Restored (text describes both trends)
+    cat("  \n")
+    desc <- tableDesc[OIMMP==oimmp & HabitatName=="Oyster/Oyster Reef" & ParameterName==p, get(descriptionColumn)] 
+    cat("  \n")
+    cat(desc)
+    # Determine which habitats are available for each parameter / OIMMP combination
+    hab_types <- unique(p_subset$HabitatType)
+    for(type in hab_types){
+      type_subset <- p_subset[HabitatType==type, ]
+      if(nrow(type_subset)>0){
+        cat("  \n")
+        cat(glue("### {type}"))
+        cat("  \n")
+        plot_loc <- oy_file_loc(oimmp, p, type)
+        fig_caption <- figureCaptions[HabitatName=="Oyster/Oyster Reef" & IndicatorName==p, FigureCaptions]
+        subchunkify(cat("![", fig_caption, "](", plot_loc,")"))
+        cat("  \n")
+        oyster_tables(oimmp, p, type)
+        cat("  \n")
+      }
+    }
+    cat("  \n")
+  }
+}
+
+```

@@ -146,6 +146,9 @@ map_locs <- list.files("output/maps", full.names = T, pattern = ".png")
 get_maps <- function(indicator_short, ma_abrev){
   str_subset(map_locs, paste0(indicator_short, "_", ma_abrev))
 }
+
+# Read in table description file
+tableDesc <- fread("output/oyster_tableDescriptions.csv")
 ```
 
 ```{r, Oyster figures, eval=T, echo=F, results='asis', warning=FALSE}
@@ -167,8 +170,12 @@ for(p in unique(oyster_includes$ParameterName)){
   for(ma in unique(p_subset$ManagedAreaName)){
     ma_subset <- p_subset[ManagedAreaName==ma, ]
     ma_abrev <- MA_All[ManagedAreaName==ma, Abbreviation]
+    # Grab table description
     desc <- tableDesc[ManagedAreaName==ma & HabitatName=="Oyster/Oyster Reef" & ParameterName==p, get(descriptionColumn)]
     cat(glue("## {ma}"))
+    cat("  \n")
+    cat(desc)
+    cat("  \n")
     hab_types <- unique(ma_subset$HabitatType)
     for(type in hab_types){
       type_subset <- ma_subset[HabitatType==type, ]
@@ -181,8 +188,6 @@ for(p in unique(oyster_includes$ParameterName)){
         subchunkify(cat("![", fig_caption, "](", plot_loc,")"))
         cat("  \n")
         oyster_tables(ma, p, type)
-        cat("  \n")
-        cat(desc)
         cat("  \n")
       }
     }
