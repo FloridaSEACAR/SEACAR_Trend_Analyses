@@ -13,42 +13,74 @@ library(magick)
 library(mgcv)
 library(cowplot)
 library(sf)
+library(this.path)
 
-# Determine whether to run oyster or SAV scope plots
-analysis <- c("oyster")
-# analysis <- c("sav")
+# Set working directory to SEACAR_Trend_Analyses root folder
+setwd(this.path::here())
 
-if(analysis=="oyster"){
+# # Determine whether to run oyster or SAV scope plots
+# analyze_hab <- "oyster"
+# analyze_hab <- "sav"
+
+# # Determine whether to create plots by OIMMP region or by MA
+# analyze_type <- "ma"
+# analyze_type <- "oimmp"
+
+# # Determine whether to include county "backdrop" for each year (to see shoreline/rivers)
+county_backdrop <- ifelse(analyze_type=="oimmp", TRUE, FALSE)
+
+if(analyze_hab=="oyster"){
   # Bring in oyster data
   file_in <- str_subset(list.files("C:/SEACAR Data/SEACARdata/", full.names = TRUE), "OYSTER")
-} else if(analysis=="SAV"){
+} else if(analyze_hab=="sav"){
   # Bring in SAV data
-  file_in <- fread(str_subset(list.files("C:/SEACAR Data/SEACARdata/", full.names = TRUE), "SAV"))
+  file_in <- str_subset(list.files("C:/SEACAR Data/SEACARdata/", full.names = TRUE), "SAV")
 }
-
+# Bring in available habitat data
 hab_data <- fread(file_in, sep = "|", na.strings = "NULL")
-hab_data <- SEACAR::clean_managed_areas(hab_data, "ma")
-setDT(hab_data)
+
+# Smaller subset of available MAs to de-concatenate
+if(analyze_type=="ma"){
+  ma_subset <- hab_data %>% group_by(AreaID, ManagedAreaName) %>% reframe() %>%
+    SEACAR::clean_managed_areas(type = "ma") %>% distinct() %>% arrange(AreaID)
+} else {
+  ma_subset <- hab_data %>% group_by(OIMMP) %>% reframe()
+}
 
 locs_pts <- SEACAR::GeoData$pointLocations
 locs_lns <- SEACAR::GeoData$lineLocations
 rcp <- SEACAR::GeoData$`RCP Boundaries`
 corners <- setDT(SEACAR::GeoData$corners)
+oimmp_boundaries <- SEACAR::GeoData$OIMMP
 
-locs_pts_rcp <- locs_pts[rcp, , op = st_intersects]
-locs_lns_rcp <- locs_lns[rcp, , op = st_intersects]
+if(analyze_type=="ma"){
+  locs_pts_rcp <- locs_pts[rcp, , op = st_intersects]
+  locs_lns_rcp <- locs_lns[rcp, , op = st_intersects]
+} else {
+  locs_pts_rcp <- locs_pts[oimmp_boundaries, , op = st_intersects]
+  locs_lns_rcp <- locs_lns[oimmp_boundaries, , op = st_intersects]
+}
 
 pnames <- distinct(hab_data[, .(ProgramID, ProgramName)])
 locs_pts_rcp <- merge(locs_pts_rcp, pnames, by = "ProgramID", all.x = TRUE)
-locs_lns_rcp <- merge(locs_lns_rcp, pnames, by = "ProgramID", all.x = TRUE)
-
+locs_lns_rcp <- merge(locs_lns_rcp, pnames, by = "ProgramID", all.x = TRUE)  
+  
 # Bring in county-line shapefile for scope plot creation
 counties <- st_read("C:/SEACAR Data/SEACARshapes/FLCounties/Counties_-_Detailed_Shoreline.shp") %>%
   st_make_valid() %>% st_transform(crs = 4326)
 
 # Create directory to store .rds objects for each plot
-file_dir <- paste0("output/", str_to_title(analysis), "_temporal_scope_plots/rds/")
-if(!file.exists(file_dir)) dir.create(file_dir, recursive = T)
+if(analyze_hab=="oyster"){
+  file_dir <- paste0("Oyster/output/Oyster_temporal_scope_plots/")
+} else if(analyze_hab=="sav"){
+  file_dir <- paste0("SAV/output/SAV_temporal_scope_plots/")
+}
+# Add OIMMP subfolder for OIMMP plots
+if(analyze_type=="oimmp"){
+  file_dir <- paste0(file_dir, "OIMMP/")
+}
+file_dirs <- c(file_dir, paste0(file_dir, "rds/")) # rds subdirectory
+lapply(file_dirs, function(x){if(!file.exists(x)) dir.create(x)})
 
 # set size of plot points
 pt_size <- 3
@@ -126,15 +158,26 @@ MA_All <- SEACAR::ManagedAreas
 
 set.seed(4691)
 
-managed_areas <- unique(hab_data$ManagedAreaName)
+if(analyze_type=="ma"){
+  managed_areas <- unique(ma_subset$ManagedAreaName)
+} else {
+  managed_areas <- unique(ma_subset$OIMMP)
+}
+
+# Use str_detect when filtering by ManagedAreaName within hab_data
+# This avoids de-concatenating the entire dataset by MA
 
 for(i in managed_areas){
-  # Set color palette independently for each MA
-  progs <- sample(sort(hab_data[ManagedAreaName==i, unique(ProgramName)]))
-  seacar_palette <- colorRampPalette(SEACAR::seacar_palette2)(length(progs))
-  color_pal <- setNames(seacar_palette, progs)
+  if(is.na(i)) next
+  ma_abrev <- ifelse(analyze_type=="ma", MA_All[ManagedAreaName==i, unique(Abbreviation)], gsub(" ", "_", i))
   
-  ma_abrev <- MA_All[ManagedAreaName==i, unique(Abbreviation)]
+  if(analyze_type=="ma"){
+    rcp_i <- subset(rcp, rcp$LONG_NAME == i)
+    hab_data_subset <- hab_data[str_detect(ManagedAreaName, i), ]
+  } else {
+    rcp_i <- oimmp_boundaries %>% filter(OIMMP==i)
+    hab_data_subset <- hab_data[OIMMP==i, ]
+  }
   
   fl_i <- st_crop(counties, 
                   xmin = corners[LONG_NAME == i, xmin], 
@@ -142,7 +185,10 @@ for(i in managed_areas){
                   ymin = corners[LONG_NAME == i, ymin], 
                   ymax = corners[LONG_NAME == i, ymax])
   
-  rcp_i <- subset(rcp, rcp$LONG_NAME == i)
+  # Set color palette independently for each MA
+  progs <- sample(sort(unique(hab_data_subset$ProgramName)))
+  seacar_palette <- colorRampPalette(SEACAR::seacar_palette2)(length(progs))
+  color_pal <- setNames(seacar_palette, progs)
   
   #create scalebar and north arrow (https://stackoverflow.com/questions/34183049/plot-circle-with-a-certain-radius-around-point-on-a-map-in-ggplot2)
   if(corners[LONG_NAME == i, Coast[1]] == "Atlantic"){
@@ -277,7 +323,9 @@ for(i in managed_areas){
   
   yadd <- 0
   xadd <- 0
-  startyear <- min(hab_data[ManagedAreaName == i, Year])
+  startyear <- min(hab_data_subset$Year)
+  
+  hab_display <- ifelse(analyze_hab=="oyster", str_to_title(analyze_hab), toupper(analyze_hab))
   
   base <- ggplot() +
     geom_sf(data = rotate_sf(fl_i, ma = i, coast = corners[LONG_NAME == i, Coast[1]]), fill = "beige", color = "navajowhite3", lwd = 0.5, inherit.aes = FALSE) +
@@ -289,7 +337,7 @@ for(i in managed_areas){
     scale_color_manual(values = color_pal, 
                        aesthetics = c("color", "fill")) +
     labs(title = i,
-         subtitle = paste0("Sample Locations - ", str_to_title(analysis)),
+         subtitle = paste0("Sample Locations - ", hab_display),
          fill = "Program name", color = "Program name") +
     theme(panel.grid.major = element_line(colour = NA),
           panel.grid.minor = element_line(colour = NA),
@@ -319,62 +367,96 @@ for(i in managed_areas){
   maxydist <- max(MApolycoords$ydists) + ((max(MApolycoords$ydists)/25) / xyratio)
   maxxdist <- 0
   
+  if(analyze_type=="ma"){
+    n_pt_data <- locs_pts_rcp_i %>% filter(LocationID %in% hab_data_subset[Year == startyear, unique(LocationID)])
+    n_ln_data <- locs_lns_rcp_i %>% filter(LocationID %in% hab_data_subset[Year == startyear, unique(LocationID)])
+  } else {
+    n_pt_data <- locs_pts_rcp_i %>% filter(LocationID %in% hab_data_subset[Year == startyear, unique(LocationID)])
+    n_ln_data <- locs_lns_rcp_i %>% filter(LocationID %in% hab_data_subset[Year == startyear, unique(LocationID)])
+  }
+  
+  if(nrow(n_pt_data) > 0){
+    base <- base +
+      geom_sf(data = rotate_sf(n_pt_data,
+                               ma = i, coast = corners[LONG_NAME == i, Coast[1]]),
+              aes(fill = droplevels(as.factor(ProgramName))), shape = 21, color = "black", size=pt_size, alpha=0.7)
+  }
+  
+  if(nrow(n_ln_data) > 0){
+    base <- base +
+      geom_sf(data = rotate_sf(n_ln_data,
+                               ma = i, coast = corners[LONG_NAME == i, Coast[1]]),
+              aes(color = droplevels(as.factor(ProgramName))), shape = 21, size=pt_size, alpha=0.7)
+  }
+  
   ###############
+  
+  years <- sort(unique(hab_data_subset[Year != startyear, Year]))
+  total_years <- length(years)
+  
   ## Determine number of columns to for each plot
-  ## Determine level of "nudge" in x-axis
-  four_cols <- c("ABAP", "ANERR")
-  if(ma_abrev %in% four_cols){
+  ## Determine level of "nudge" in x-axis when new column is made
+  nudge_val <- 1.2 # default is +20%
+  # Many years of oyster data in Apalachicola
+  if(ma_abrev %in% c("ABAP", "ANERR", "Apalachicola_Bay") & analyze_hab=="oyster"){
     num_cols <- 4
     nudge_val <- 1.4 # +40%
+  } else if(total_years > 30) {
+    num_cols <- 4
+  } else if(total_years > 20){
+    num_cols <- 3
   } else {
     num_cols <- 2
-    nudge_val <- 1.2
   }
+  
+  # Individual exceptions
+  if(str_detect(i, "Florida Keys National Marine Sanctuary")){
+    maxydist <- maxydist * 3
+    num_cols <- 2
+  } 
+  
+  rows_per_column <- ceiling(total_years / num_cols)
   
   bbox <- st_bbox(rotate_sf(rcp_i, x_add = xadd, y_add = yadd+maxydist, ma = i, coast = corners[LONG_NAME == i, Coast[1]]))
   max_width <- abs(abs(bbox$xmax) - abs(bbox$xmin))
   x_increment <- max_width * nudge_val
   
-  ###############
-  
-  if(length(subset(locs_pts_rcp_i, locs_pts_rcp_i$LocationID %in% unique(hab_data[ManagedAreaName == i & Year == startyear, LocationID]))$LocationID) > 0){
-    base <- base +
-      geom_sf(data = rotate_sf(subset(locs_pts_rcp_i, locs_pts_rcp_i$LocationID %in% unique(hab_data[ManagedAreaName == i & Year == startyear, LocationID])),
-                               ma = i, coast = corners[LONG_NAME == i, Coast[1]]),
-              aes(fill = droplevels(as.factor(ProgramName))), shape = 21, color = "black", size=pt_size, alpha=0.5)
-  }
-  
-  if(length(subset(locs_lns_rcp_i, locs_lns_rcp_i$LocationID %in% unique(hab_data[ManagedAreaName == i & Year == startyear, LocationID]))$LocationID) > 0){
-    base <- base +
-      geom_sf(data = rotate_sf(subset(locs_lns_rcp_i, locs_lns_rcp_i$LocationID %in% unique(hab_data[ManagedAreaName == i & Year == startyear, LocationID])),
-                               ma = i, coast = corners[LONG_NAME == i, Coast[1]]),
-              aes(color = droplevels(as.factor(ProgramName))), shape = 21, size=pt_size, alpha=0.5)
-  }
-  
-  years <- sort(unique(hab_data[ManagedAreaName == i & Year != startyear, Year]))
-  total_years <- length(years)
-  rows_per_column <- ceiling(total_years / num_cols)
+  ###############  
   
   for(index in seq_along(years)){
     y <- years[index]
     
+    n_pt_data_y <- locs_pts_rcp_i %>% filter(LocationID %in% hab_data_subset[Year == y, unique(LocationID)])
+    n_ln_data_y <- locs_lns_rcp_i %>% filter(LocationID %in% hab_data_subset[Year == y, unique(LocationID)])
+    
+    # Rotated county and RCP/OIMMP shapefile
+    rcp_rot <- rotate_sf(rcp_i, x_add = xadd + maxxdist, y_add = yadd + maxydist, ma = i, coast = corners[LONG_NAME == i, Coast[1]])
+    county_rot <- rotate_sf(fl_i, x_add = xadd + maxxdist, y_add = yadd + maxydist, ma = i, coast = corners[LONG_NAME == i, Coast[1]])
+    # County subset for RCP/OIMMP location (for county backdrop)
+    county_subset <- sf::st_intersection(county_rot, rcp_rot)
+    
+    if(county_backdrop){
+      base <- base + 
+        geom_sf(data = county_subset, fill = "beige", color = "navajowhite3", lwd = 0.5, inherit.aes = FALSE)
+    }
+    
     base <- base +
-      geom_sf(data = rotate_sf(rcp_i, x_add = xadd + maxxdist, y_add = yadd + maxydist, ma = i, coast = corners[LONG_NAME == i, Coast[1]]),
+      geom_sf(data = rcp_rot, 
               color = "grey50", fill = "powderblue", alpha = 0.65, lwd = 0.5, inherit.aes = FALSE) +
       annotate("text", x = xlab + xadd + maxxdist, y = xmax_y + yadd + maxydist, label = y, hjust = "left")
     
-    if(length(subset(locs_pts_rcp_i, locs_pts_rcp_i$LocationID %in% unique(hab_data[ManagedAreaName == i & Year == y, LocationID]))$LocationID) > 0){
+    if(nrow(n_pt_data_y) > 0){
       base <- base +
-        geom_sf(data = rotate_sf(subset(locs_pts_rcp_i, locs_pts_rcp_i$LocationID %in% unique(hab_data[ManagedAreaName == i & Year == y, LocationID])),
+        geom_sf(data = rotate_sf(n_pt_data_y, 
                                  x_add = xadd + maxxdist, y_add = yadd + maxydist, ma = i, coast = corners[LONG_NAME == i, Coast[1]]), 
-                aes(fill = droplevels(as.factor(ProgramName))), shape = 21, color = "black", size=pt_size, alpha=0.5)
+                aes(fill = droplevels(as.factor(ProgramName))), shape = 21, color = "black", size=pt_size, alpha=0.7)
     }
     
-    if(length(subset(locs_lns_rcp_i, locs_lns_rcp_i$LocationID %in% unique(hab_data[ManagedAreaName == i & Year == startyear, LocationID]))$LocationID) > 0){
+    if(nrow(n_ln_data_y) > 0){
       base <- base +
-        geom_sf(data = rotate_sf(subset(locs_lns_rcp_i, locs_lns_rcp_i$LocationID %in% unique(hab_data[ManagedAreaName == i & Year == startyear, LocationID])),
+        geom_sf(data = rotate_sf(n_ln_data_y,
                                  x_add = xadd + maxxdist, y_add = yadd + maxydist, ma = i, coast = corners[LONG_NAME == i, Coast[1]]),
-                aes(color = droplevels(as.factor(ProgramName))), shape = 21, size=pt_size, alpha=0.5)
+                aes(color = droplevels(as.factor(ProgramName))), shape = 21, size=pt_size, alpha=0.7)
     }
     
     yadd <- yadd + maxydist
@@ -391,12 +473,12 @@ for(i in managed_areas){
           legend.justification='left',
           legend.direction='vertical')
   
+  a_stem <- ifelse(analyze_hab=="oyster", str_to_title(analyze_hab), str_to_upper(analyze_hab))
+  file_stem <- paste0(a_stem, "_", ma_abrev, "_temporal_scope")
   
-  file_loc <- paste0("output/", str_to_title(analysis), "_temporal_scope_plots/rds/", str_to_title(analysis), "_", ma_abrev, "_temporal_scope")
+  saveRDS(base, paste0(file_dir, "rds/", file_stem, ".rds"))
   
-  saveRDS(base, paste0(file_loc, ".rds"))
-  
-  ggsave(filename = paste0(file_loc, ".jpg"),
+  ggsave(filename = paste0(file_dir, file_stem, ".jpg"),
          plot = base,
          dpi = 300,
          width = 15,
@@ -405,6 +487,5 @@ for(i in managed_areas){
          limitsize = FALSE)
   
   rm(base)
-  print(paste0(i, " - ", str_to_title(analysis), " Scope plot object created"))
-  
+  print(paste0(i, " - ", hab_display, " scope plot object created"))
 }
