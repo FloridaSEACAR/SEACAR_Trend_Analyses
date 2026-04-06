@@ -83,6 +83,7 @@ shorten_program_names <- function(program_names, cutoff=50){
 }
 
 for(ma in unique(nekton$ManagedAreaName)){
+  if(ma=="NA") next
   # Filter data for a given MA
   nekton_df_ma <- nekton_df %>% filter(ManagedAreaName==ma)
   # Unique programs for a given MA

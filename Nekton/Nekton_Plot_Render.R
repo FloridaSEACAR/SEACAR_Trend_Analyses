@@ -48,8 +48,11 @@ file_short <- tail(str_split(file_in, "/")[[1]], 1)
 
 # File Import ----
 #Import data from nekton file
-data <- fread(file_in, sep="|", header=TRUE, stringsAsFactors=FALSE,
-              na.strings=c("NULL"))
+data <- fread(file_in, sep="|", na.strings="NULL")
+# Apply Managed Area transformation - de-concatenate MA names
+data <- setDT(SEACAR::clean_managed_areas(data, "ma"))
+# Convert NA Managed Area to text-based NA for proper display in summary tables
+data$ManagedAreaName[is.na(data$ManagedAreaName)] <- "NA"
 
 cat(paste("The data file used is:", file_short, sep="\n"))
 
@@ -301,6 +304,7 @@ if(n==0){
 } else {
   for (i in 1:n) {
     ma_i <- nekton_MA_Include[i]
+    if(ma_i=="NA") next
     ma_abrev <- MA_All[ManagedAreaName==ma_i, Abbreviation]
     # Gets data for target managed area
     plot_data <- plot_data_all[ManagedAreaName==ma_i, ]
@@ -397,14 +401,11 @@ if(n==0){
     # Sets file name of plot created
     outname <- paste0("Nekton_", param_file, "_", ma_abrev, ".png")
     # Saves plot as a png image
-    png(paste0(out_dir, "/Figures/", outname),
-        width = 8,
-        height = 4,
-        units = "in",
-        res = 200)
-    print(p1)
-    dev.off()
-    
+    ggsave(filename = paste0(out_dir, "/Figures/", outname),
+           plot = p1,
+           width = 8,
+           height = 4,
+           units = "in")
     # Creates a data table object to be shown underneath plots in report
     ResultTable <- MA_Ov_Stats[ManagedAreaName==ma_i, ]
     # Removes location, gear, and parameter information because it is in plot
@@ -421,11 +422,6 @@ if(n==0){
     ResultTable$Median <- round(ResultTable$Median, digits=2)
     ResultTable$Mean <- round(ResultTable$Mean, digits=2)
     ResultTable$StDev <- round(ResultTable$StDev, digits=2)
-    # Stores as plot table object
-    # t1 <- ggtexttable(ResultTable, rows = NULL,
-                      # theme=ttheme(base_size=7))
-    # Combines plot and table into one figure
-    # print(ggarrange(p1, t1, ncol=1, heights=c(0.85, 0.15)))
   }
 }
 
@@ -458,7 +454,7 @@ file_out <-  paste0("Nekton_", param_file, "_Report")
 
 for(file_type in c("PDF", "HTML")){
   descriptionColumn <- ifelse(file_type=="PDF", "DescriptionLatex", "DescriptionHTML")
-  tableFormat <- ifelse(file_type=="PDF", "latex", "simple")
+  tableFormat <- ifelse(file_type=="PDF", "latex", "html")
   rmarkdown::render(input = "Nekton_SpeciesRichness.Rmd", 
                     output_format = paste0(tolower(file_type),"_document"),
                     output_file = paste0(file_out, ".", tolower(file_type)),

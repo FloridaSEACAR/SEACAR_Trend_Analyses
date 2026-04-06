@@ -17,6 +17,8 @@ output:
     extra_dependencies: ["float", "booktabs", "wrapfig"]
     keep_md: yes
 urlcolor: blue
+header-includes:
+  - \usepackage{float}
 ---
 
 # Important Notes
@@ -53,7 +55,7 @@ get_map <- function(ma){
 }
 
 # Make table function shows trend results
-make_table <- function(ma){
+make_table <- function(ma, tableFormat){
   ResultTable <- MA_Ov_Stats[ManagedAreaName==ma,]
   # Removes location, species group, and parameter information because it is
   # in plot labels
@@ -75,12 +77,22 @@ make_table <- function(ma){
   result_table <- kable(ResultTable, format=tableFormat,
                         caption=paste0("Nekton Species Richness - ", ma),
                         row.names = FALSE, digits = 2,
-                        booktabs = T, linesep = "", escape = F, longtable = F) %>%
-    kableExtra::kable_styling(latex_options = c("scale_down", "HOLD_position"))
-  return(print(result_table))
+                        booktabs = T, linesep = "", escape = F, longtable = F)
+    
+  
+  if(tableFormat=="latex"){
+    result_table <- result_table %>%
+      kableExtra::kable_styling(latex_options = c("scale_down", "HOLD_position"))
+  } else {
+    result_table <- result_table %>%
+      kableExtra::kable_styling(full_width = FALSE)
+  }
+  
+  return(result_table)
 }
 
 for(ma in nekton_MA_Include){
+  if(ma=="NA") next
   fig_caption <- figureCaptions[HabitatName=="Water Column" & IndicatorName=="Nekton", FigureCaptions]
   desc <- descriptionTable[ManagedAreaName==ma & IndicatorName=="Nekton", get(descriptionColumn)]
   cat("  \n")
@@ -89,12 +101,12 @@ for(ma in nekton_MA_Include){
   cat("  \n")
   SEACAR::subchunkify(cat("![", fig_caption, "](", plot_loc,")"))
   cat("  \n")
-  make_table(ma)
+  SEACAR::subchunkify(make_table(ma, tableFormat))
   cat("  \n")
   cat(desc)
   cat("  \n")
   map_loc <- get_map(ma)
-  cat("![](", map_loc,")")
+  SEACAR::subchunkify(cat("![](", map_loc,")"))
   cat("  \n")
 }
 
