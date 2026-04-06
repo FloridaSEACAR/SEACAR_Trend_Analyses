@@ -20,8 +20,8 @@ library(scales)
 library(EnvStats)
 library(tidyr)
 library(kableExtra)
-library(collapse)
 library(stringr)
+library(polars)
 
 source("../SEACAR_data_location.R")
 
@@ -29,6 +29,8 @@ tic()
 
 #Set output directory
 out_dir <- "output"
+
+out_dir_tables <- "output/tables/cont"
 
 #Set number of unique years a location must have to be considered for analysis
 suff_years <- 5
@@ -50,13 +52,12 @@ all_params_short <- c(
 MA_All <- SEACAR::ManagedAreas
 
 # Creates folders for outputs
-folder_paths <- c("output/tables","output/tables/cont")
+folder_paths <- c("output/tables","output/tables/cont", "output/models/")
 for(path in folder_paths) {if(!dir.exists(path)){dir.create(path)}}
 
 cont_files_short <- data.frame()
 cont_stations <- data.frame()
 coordinates_df <- data.frame()
-data_directory <- list()
 
 # Use the below line for most recent exports
 file_list <- list.files(seacar_data_location, full.names = T)
@@ -133,7 +134,6 @@ for(file in cont_file_list){
   cat(paste0("Starting parameter: ", p, "  \n\n"))
   # Shortened filename for use within reports
   file_short <- tail(str_split_1(file, "/"), 1)
-  data_directory[[p]][["file_short"]] <- file_short
   cont_files_short <- bind_rows(cont_files_short, data.frame("ParameterName" = p,
                                                              "file_short" = file_short))
   cat("Using file", file_short, "\n")
@@ -161,8 +161,7 @@ for(file in cont_file_list){
   data <- data[!is.na(data$RelativeDepth),]
   # Rremoves rows that have an ActivityType with Blank
   data <- data[!grep("Blank", data$ActivityType),]
-  # Creates MonitoringID to more easily cycle through monitoring locations
-  data[, MonitoringID := .GRP, by = .(AreaID, ManagedAreaName, ProgramID, ProgramName, ProgramLocationID)]
+  
   # Stores the MonitoringID that pass the consecutive year check
   consMonthIDs <- ContinuousConsecutiveCheck(data)
   # Creates data frame with summary for each monitoring location.
@@ -198,8 +197,7 @@ for(file in cont_file_list){
   Mon_IDs <- sort(unique(data$MonitoringID[data$Use_In_Analysis==TRUE]))
   n <- length(Mon_IDs)
   # Save Mon_IDs file for each parameter
-  # saveRDS(Mon_IDs, file = paste0(out_dir_tables,"/WC_Continuous_", param_abrev, "_Mon_IDs.rds"))
-  data_directory[[p]][["Mon_IDs"]] <- Mon_IDs
+  saveRDS(Mon_IDs, file = paste0(out_dir_tables,"/WC_Continuous_", param_abrev, "_Mon_IDs.rds"))
   
   ###################
   ### Coordinates ###
@@ -218,8 +216,7 @@ for(file in cont_file_list){
   coordinates <- coordinates[complete.cases(coordinates)]
   coordinates$AreaID <- as.character(coordinates$AreaID)
   
-  # saveRDS(coordinates, file = paste0(out_dir_tables,"/WC_Continuous_", param_abrev, "_Station_Coordinates.rds"))
-  data_directory[[p]][["coordinates"]] <- coordinates
+  saveRDS(coordinates, file = paste0(out_dir_tables,"/WC_Continuous_", param_abrev, "_Station_Coordinates.rds"))
   coordinates_df <- bind_rows(coordinates_df, coordinates)
   
   ############################
@@ -228,20 +225,17 @@ for(file in cont_file_list){
   
   # Create summary statistics for each monitoring location based on Year and Month
   # intervals.
-  # Filtered data to be used for all summary statistics
-  filtered_data <- data[Use_In_Analysis == TRUE]
-  
-  Mon_YM_Stats <- filtered_data[, .(RelativeDepth = unique(RelativeDepth),
-                                    EarliestSampleDate = min(SampleDate),
-                                    LastSampleDate = max(SampleDate),
-                                    N_Data = .N,
-                                    Min = min(ResultValue),
-                                    Max = max(ResultValue),
-                                    Median = median(ResultValue),
-                                    Mean = mean(ResultValue),
-                                    StandardDeviation = sd(ResultValue)),
-                                by = .(MonitoringID, AreaID, ManagedAreaName, ParameterName, 
-                                       ProgramID, ProgramName, ProgramLocationID, Year, Month)]
+  Mon_YM_Stats <- data[Use_In_Analysis == TRUE, .(RelativeDepth = unique(RelativeDepth),
+                                                  EarliestSampleDate = min(SampleDate),
+                                                  LastSampleDate = max(SampleDate),
+                                                  N_Data = .N,
+                                                  Min = min(ResultValue),
+                                                  Max = max(ResultValue),
+                                                  Median = median(ResultValue),
+                                                  Mean = mean(ResultValue),
+                                                  StandardDeviation = sd(ResultValue)),
+                       by = .(MonitoringID, AreaID, ManagedAreaName, ParameterName, 
+                              ProgramID, ProgramName, ProgramLocationID, Year, Month)]
   # Puts the data in order based on ManagedAreaName, ProgramID, ProgramName,
   # ProgramLocationID, Year, then Month
   Mon_YM_Stats <- as.data.table(Mon_YM_Stats[order(Mon_YM_Stats$ManagedAreaName,
@@ -258,22 +252,21 @@ for(file in cont_file_list){
   
   # Saving RDS object to file
   cat("Saving Mon_YM_Stats", "\n")
-  data_directory[[p]][["Mon_YM_Stats"]] <- Mon_YM_Stats
   saveRDS(Mon_YM_Stats, file = paste0(out_dir_tables,"/WC_Continuous_", param_abrev, "_Mon_YM_Stats.rds"))
   
   # Create summary statistics for each monitoring location based on Year
   # intervals.
-  Mon_Y_Stats <- filtered_data[, .(RelativeDepth = unique(RelativeDepth),
-                                   EarliestSampleDate = min(SampleDate),
-                                   LastSampleDate = max(SampleDate),
-                                   N_Data = .N,
-                                   Min = min(ResultValue),
-                                   Max = max(ResultValue),
-                                   Median = median(ResultValue),
-                                   Mean = mean(ResultValue),
-                                   StandardDeviation = sd(ResultValue)),
-                               by = .(AreaID, ManagedAreaName, ParameterName,
-                                      ProgramID, ProgramName, ProgramLocationID, Year)]
+  Mon_Y_Stats <- data[Use_In_Analysis == TRUE, .(RelativeDepth = unique(RelativeDepth),
+                                                 EarliestSampleDate = min(SampleDate),
+                                                 LastSampleDate = max(SampleDate),
+                                                 N_Data = .N,
+                                                 Min = min(ResultValue),
+                                                 Max = max(ResultValue),
+                                                 Median = median(ResultValue),
+                                                 Mean = mean(ResultValue),
+                                                 StandardDeviation = sd(ResultValue)),
+                      by = .(AreaID, ManagedAreaName, ParameterName,
+                             ProgramID, ProgramName, ProgramLocationID, Year)]
   # Puts the data in order based on ManagedAreaName, ProgramID, ProgramName,
   # ProgramLocationID, then Year
   Mon_Y_Stats <- as.data.table(Mon_Y_Stats[order(Mon_Y_Stats$ManagedAreaName,
@@ -284,22 +277,22 @@ for(file in cont_file_list){
   
   # Saving RDS object
   cat("Saving Mon_Y_Stats", "\n")
-  data_directory[[p]][["Mon_Y_Stats"]] <- Mon_Y_Stats
   saveRDS(Mon_Y_Stats, file = paste0(out_dir_tables,"/WC_Continuous_", param_abrev, "_Mon_Y_Stats.rds"))
+  rm(Mon_Y_Stats)
   
   # Create summary statistics for each monitoring location based on Month
   # intervals.
-  Mon_M_Stats <- filtered_data[, .(RelativeDepth = unique(RelativeDepth),
-                                   EarliestSampleDate = min(SampleDate),
-                                   LastSampleDate = max(SampleDate),
-                                   N_Data = .N,
-                                   Min = min(ResultValue),
-                                   Max = max(ResultValue),
-                                   Median = median(ResultValue),
-                                   Mean = mean(ResultValue),
-                                   StandardDeviation = sd(ResultValue)),
-                               by = .(AreaID, ManagedAreaName, ParameterName, 
-                                      ProgramID, ProgramName, ProgramLocationID, Month)]
+  Mon_M_Stats <- data[Use_In_Analysis == TRUE, .(RelativeDepth = unique(RelativeDepth),
+                                                 EarliestSampleDate = min(SampleDate),
+                                                 LastSampleDate = max(SampleDate),
+                                                 N_Data = .N,
+                                                 Min = min(ResultValue),
+                                                 Max = max(ResultValue),
+                                                 Median = median(ResultValue),
+                                                 Mean = mean(ResultValue),
+                                                 StandardDeviation = sd(ResultValue)),
+                      by = .(AreaID, ManagedAreaName, ParameterName, 
+                             ProgramID, ProgramName, ProgramLocationID, Month)]
   # Puts the data in order based on ManagedAreaName, ProgramID, ProgramName,
   # ProgramLocationID, then Month
   Mon_M_Stats <- as.data.table(Mon_M_Stats[order(Mon_M_Stats$ManagedAreaName,
@@ -310,20 +303,34 @@ for(file in cont_file_list){
   
   # Saving RDS object
   cat("Saving Mon_M_Stats", "\n")
-  data_directory[[p]][["Mon_M_Stats"]] <- Mon_M_Stats
   saveRDS(Mon_M_Stats, file = paste0(out_dir_tables,"/WC_Continuous_", param_abrev, "_Mon_M_Stats.rds"))
+  rm(Mon_M_Stats)
   
   # Reduces size of data by getting a monthly average (this is the efficiency bottleneck)
-  # New method uses "Collapse" package to more efficiently group & summarise
-  data <- data %>%
-    collapse::fgroup_by(MonitoringID, AreaID, ManagedAreaName, ProgramID, ProgramName,
-                        ProgramLocationID, SampleDate) %>%
-    collapse::fsummarise(Year = first(Year), 
-                         Month = first(Month),
-                         RelativeDepth = first(RelativeDepth),
-                         ResultValue = fmean(ResultValue), 
-                         Include = first(Include),
-                         Use_In_Analysis = first(Use_In_Analysis))
+  # New method uses polars package to more efficiently group & summarise
+  tic()
+  data <- as_polars_df(data)$
+    lazy()$
+    group_by(
+      "MonitoringID",
+      "AreaID",
+      "ManagedAreaName",
+      "ProgramID",
+      "ProgramName",
+      "ProgramLocationID",
+      "SampleDate"
+    )$
+    agg(
+      pl$col("Year")$first()$alias("Year"),
+      pl$col("Month")$first()$alias("Month"),
+      pl$col("RelativeDepth")$first()$alias("RelativeDepth"),
+      pl$col("ResultValue")$mean()$alias("ResultValue"),
+      pl$col("Include")$first()$alias("Include"),
+      pl$col("Use_In_Analysis")$first()$alias("Use_In_Analysis")
+    )$
+    collect() |>
+    as.data.frame()
+  toc()
   
   # Sets column formats to appropriate types
   data$SampleDate <- as.Date(data$SampleDate)
@@ -335,7 +342,7 @@ for(file in cont_file_list){
   #### SEASONAL KENDALL TAU ANALYSIS ####
   #######################################
   
-  # Dataframe for SKT results (CHECK OUTPUTS TO ALIGN HERE)
+  # Dataframe for SKT results
   skt_stats_df <- data.table()
   # Determines if there are any monitoring locations to analyze
   if(n==0){
@@ -361,7 +368,6 @@ for(file in cont_file_list){
                                         independent.obs=SKT.ind)
         
         # saveRDS(SKT, file=paste0("output/models/",param_abrev,"_",station_name,".rds"))
-        data_directory[[p]][["SKT"]] <- SKT
         
         if(is.na(SKT$estimate[1])){
           SKT.ind <- FALSE
@@ -414,7 +420,6 @@ for(file in cont_file_list){
   skt_stats <- as.data.table(skt_stats[order(skt_stats$MonitoringID), ])
   
   cat("Saving SKT_stats", "\n")
-  data_directory[[p]][["skt_stats"]] <- skt_stats
   saveRDS(skt_stats, file = paste0(out_dir_tables,"/WC_Continuous_", param_abrev, "_skt_stats.rds"))
   saveRDS(select(skt_stats, -c(EarliestSampleDate)), file = paste0(out_dir_tables,"/WC_Continuous_", param_abrev, "_KendallTau_Stats.rds"))
   
@@ -422,14 +427,14 @@ for(file in cont_file_list){
   data <- data[!is.na(data$ResultValue),]
   
   # Saving overall data object
-  data_directory[[p]][["data"]] <- data
   saveRDS(data, file = paste0(out_dir_tables,"/WC_Continuous_", param_abrev, "_data.rds"))
   
   # Grab list of unique stations by ManagedAreaName
   stations <- data %>% group_by(ManagedAreaName) %>% reframe(Stations = unique(ProgramLocationID), ParameterName = p)
-  data_directory[[p]][["stations"]] <- stations
   # append stations to list
   cont_stations <- bind_rows(cont_stations, stations)
+  # Remove existing data objects
+  rm(Mon_Y_Stats, coordinates, n, Mon_IDs, stations, data)
 }
 
 # Save Coordinates data frame
@@ -440,9 +445,6 @@ fwrite(cont_files_short, "output/tables/cont/cont_file_list.txt", sep='|')
 
 # all stations write to file
 fwrite(cont_stations, "output/tables/cont/cont_station_list.txt", sep='|')
-
-# Save entire data_directory for all parameters
-saveRDS(data_directory, file = "output/tables/cont/data_directory.rds")
 
 toc()
 End_time <- Sys.time()
