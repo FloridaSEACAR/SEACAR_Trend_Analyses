@@ -1,9 +1,6 @@
-# Set directory for compiled Stan models
-options(cmdstanr_write_stan_file_dir = normalizePath("C:/SEACAR_Stan"))
+Sys.setenv(CMDSTAN = path_cmdstan_install) # Set to your local configuration of cmdstan
 library(brms)
 library(Rmisc)
-library(rstan)
-library(rstantools)
 library(stringr)
 library(data.table)
 library(sf)
@@ -16,6 +13,11 @@ library(ggpubr)
 library(SEACAR)
 library(cmdstanr)
 
+##### Which analysis to run? Select one, can only be run individually (by ManagedAreaName: "ma" or by OIMMP: "oimmp")
+# analysis <- "oimmp"
+analysis <- "ma"
+#####
+
 source("../SEACAR_data_location.R")
 
 # Read in ManagedAreas reference file
@@ -26,7 +28,7 @@ warmup <- 1000
 iter <- 3000
 nchains <- 4
 ncores <- 4
-nthreads <- 1
+nthreads <- 4
 
 ###### parallel plan set up
 plan(multisession, workers = 4) #to run 4 models at a time
@@ -714,7 +716,7 @@ shell_height_models_par <- function(loc, habitat_type, oysterraw){
   library(ggplot2)
   library(brms)
   library(Rmisc)
-  library(rstan)
+  library(cmdstanr)
   library(rstantools)
   library(stringr)
   library(sf)
@@ -1455,7 +1457,6 @@ for(ma in unique(oyster_sh[[col_name]])){
 
 results_all <- list()
 for(b in seq_along(split_tasks)){
-  if(b!=2) next
   batch <- split_tasks[[b]]
   
   results_list <- future_lapply(seq_len(nrow(batch)), function(i) {
@@ -1540,7 +1541,7 @@ density_models_par <- function(loc, habitat_type, oysterraw_den){
   library(ggplot2)
   library(brms)
   library(Rmisc)
-  library(rstan)
+  library(cmdstanr)
   library(rstantools)
   library(stringr)
   library(sf)
@@ -1629,10 +1630,10 @@ density_models_par <- function(loc, habitat_type, oysterraw_den){
       f <- brms::brmsformula(Density_m2 ~ RelYear + (1 + RelYear | UniversalReefID))
     }
     if(abrev=="PISAP"){
-      f <- Density_m2 ~ RelYear + (0 + RelYear | UniversalReefID)
+      f <- brms::brmsformula(Density_m2 ~ RelYear + (0 + RelYear | UniversalReefID))
     }
     if(abrev=="ANERR" & habitat_type=="Natural"){
-      f <- Density_m2 ~ RelYear + Subtidal + QuadSize_m2 + (0 + RelYear | UniversalReefID)
+      f <- brms::brmsformula(Density_m2 ~ RelYear + Subtidal + QuadSize_m2 + (0 + RelYear | UniversalReefID))
     }
     
     cat("------ Using Formula: ", paste(f[1]), "\n")
@@ -1940,6 +1941,7 @@ task_list <- as.data.frame(task_list)
 
 pctlive_models_par <- function(loc, habitat_type, oysterraw_pct){
   library(data.table)
+  library(cmdstanr)
   # Set abbreviation name
   if(analysis=="ma"){
     abrev <- MA_All[ManagedAreaName==loc, Abbreviation]
@@ -2025,7 +2027,7 @@ pctlive_models_par <- function(loc, habitat_type, oysterraw_pct){
         print(paste0("RUNNING MODEL FOR PERCENT LIVE: ", loc, " - ", habitat_type))
         pct_glmm <- brm(
           formula=f,
-          data=ma_subset, family=gaussian, cores=ncores, # family=binomial
+          data=ma_subset, family=binomial, cores=ncores, # family=gaussian
           control= list(adapt_delta=0.995, max_treedepth=20),
           iter=iter, warmup=warmup, chains=nchains, init=0, thin=3,
           seed=4331, backend="cmdstanr", save_pars = save_pars(all = TRUE),
@@ -2284,7 +2286,6 @@ for(ma in unique(oysterraw_pct[[col_name]])){
 
 results_all <- list()
 for(b in seq_along(split_tasks)){
-  # if(!b==5) next
   batch <- split_tasks[[b]]
   results_list <- future_lapply(seq_len(nrow(batch)), function(i){
     task <- batch[i, ]

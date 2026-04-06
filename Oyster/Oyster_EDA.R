@@ -10,8 +10,12 @@ library(rstudioapi)
 library(scales)
 library(SEACAR)
 
+source("../SEACAR_data_location.R")
+
 wd <- dirname(getActiveDocumentContext()$path)
 setwd(wd)
+
+MA_All <- SEACAR::ManagedAreas
 
 # Create necessary filepaths to store results
 for(file_path in c("output/EDA/", "output/EDA/hist", "output/EDA/ma", "output/EDA/oimmp")){
@@ -22,6 +26,8 @@ for(file_path in c("output/EDA/", "output/EDA/hist", "output/EDA/ma", "output/ED
 seacar_palette <- SEACAR::seacar_palette2
 
 oyster <- fread(str_subset(list.files(seacar_data_location, full=T), "OYSTER"), sep='|', na.strings = "NULL")
+# Apply Managed Area transformation - de-concatenate MA names
+oyster <- setDT(SEACAR::clean_managed_areas(oyster, "ma"))
 # Determine whether a data point is Inside or Outside of Managed Area Boundaries
 oyster$in_MA <- ifelse(is.na(oyster$ManagedAreaName), "Outside MA", "Inside MA")
 # Add abbreviated MA names for easier display in table

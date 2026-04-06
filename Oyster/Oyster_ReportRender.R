@@ -36,14 +36,17 @@ EDA <- FALSE
 create_maps <- TRUE
 
 # Determine whether to generate Oyster spatio-temporal scope plots
-scope_plots <- FALSE
+create_scope_plots <- TRUE
+
+# Spatio-temporal plots are created by scrip located in SEACAR_Trend_Analyses parent folder (multi-habitat)
+if(create_scope_plots){
+  analyze_type <- analysis
+  analyze_hab <- "oyster"
+  source("../AllHabitats_Spatiotemporal_Scope_Plots.R", echo = T, chdir = T)
+}
 
 if(EDA){
   source("Oyster_EDA.R")
-}
-
-if(scope_plots){
-  source("Oyster_scope_plots.R")
 }
 
 # Source in scripts to run Oyster analyses

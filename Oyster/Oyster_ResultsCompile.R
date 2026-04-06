@@ -9,6 +9,7 @@ options(scipen = 999)
 
 # Perform results compilation for both MA and OIMMP results, where available
 for(analysis in c("ManagedAreaName", "OIMMP")){
+# for(analysis in c("ManagedAreaName")){
   out_path <- paste0("output/", analysis, "/")
   #List all of the files in the "tables" directory that are LME results
   file_list <- list.files(out_path, pattern="ModelResults", full.names=TRUE)
@@ -128,7 +129,7 @@ for(analysis in c("ManagedAreaName", "OIMMP")){
     Intercept = replace_vals(get(analysis), ParameterName, HabitatType, "int_val")
   )
   
-  finalTable <- rbind(mod_subset, unmod_subset) %>%
+  finalTable <- rbind(mod_subset, unmod_subset) %>% as.data.frame() %>%
     arrange(get(analysis), ParameterName, ShellType, SizeClass, HabitatType)
   
   #Write output table to a csv and pipe-delimited txt file
