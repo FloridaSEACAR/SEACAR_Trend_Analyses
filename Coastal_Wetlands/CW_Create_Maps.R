@@ -28,39 +28,18 @@ tag.map.title <- tags$style(HTML("
     clear: none;
   }"))
 # Export date
+cw$ExportVersion <- as.POSIXct(cw$ExportVersion)
 exportDate <- max(format(unique(cw$ExportVersion), "%m/%d/%Y"))
 # Function to set radius / circle size by # of samples (for legend)
 calc_radius_cw <- function(n){sqrt(n)}
 
 # Load in RCP shapefiles, make valid, apply transform
-rcp <- st_read(paste0(seacar_shape_location, 
-                      "/orcp_all_sites/ORCP_Managed_Areas.shp")) %>%
-  st_make_valid() %>% st_transform(crs = 4326)
+rcp <- SEACAR::GeoData$`RCP Boundaries`
 # Load in location point and line shapefiles
-GeoDBdate <- "5Mar2025"
-locs_pts <- st_read(paste0(seacar_shape_location, "/SampleLocations", GeoDBdate, "/seacar_dbo_vw_SampleLocation_Point.shp")) %>%
-  st_make_valid() %>% st_transform(crs = 4326)
-locs_lns <- st_read(paste0(seacar_shape_location, "/SampleLocations", GeoDBdate, "/seacar_dbo_vw_SampleLocation_Line.shp")) %>%
-  st_make_valid() %>% st_transform(crs = 4326)
+locs_pts <- SEACAR::GeoData$pointLocations
+locs_lns <- SEACAR::GeoData$lineLocations
 locs_pts_rcp <- locs_pts[rcp, , op = st_intersects]
 locs_lns_rcp <- locs_lns[rcp, , op = st_intersects]
-
-###############
-## FUNCTIONS ##
-###############
-
-# Allows location of shapefile for each MA
-# Updated RCP shapefiles (including NCAP)
-find_shape <- function(rcp, ma){return(rcp %>% filter(LONG_NAME==ma))}
-
-# Gets coordinate min and max from shapefile
-# This allows for accurately setting view on the map
-get_shape_coordinates <- function(ma_shape){
-  bbox_list <- lapply(st_geometry(ma_shape), st_bbox)
-  maxmin <- as.data.frame(matrix(unlist(bbox_list),nrow=nrow(ma_shape)))
-  names(maxmin) <- names(bbox_list[[1]])
-  return(maxmin)
-}
 
 # Grab all unique CW sample locations
 cw_programs <- cw %>% 
@@ -89,6 +68,7 @@ names(cw_palette) <- all_cw_programs
 cw_pal <- function(x){cw_palette[as.character(x)]}
 
 for(ma in unique(cw$ManagedAreaName)){
+  if(is.na(ma)) next
   # Filter data for a given MA
   cw_df_ma <- cw_df %>% filter(ManagedAreaName==ma)
   # Create radius from N_data column
@@ -100,9 +80,9 @@ for(ma in unique(cw$ManagedAreaName)){
   # Get abbreviated MA name
   ma_abrev <- MA_All[ManagedAreaName==ma, Abbreviation]
   # locate shape file for a given MA
-  ma_shape <- find_shape(rcp, ma)
+  ma_shape <- SEACAR::find_shape(rcp, ma)
   # get coordinates to set zoom level
-  shape_coordinates <- get_shape_coordinates(ma_shape)
+  shape_coordinates <- SEACAR::get_shape_coordinates(ma_shape)
   
   # Set up watermark text display
   ind <- "Species Composition"

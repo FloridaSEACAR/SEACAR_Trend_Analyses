@@ -11,6 +11,7 @@ library(ggpubr)
 library(scales)
 library(rstudioapi)
 library(glue)
+library(htmltools)
 
 # Gets directory of this script and sets it as the working directory
 wd <- dirname(getActiveDocumentContext()$path)
@@ -39,11 +40,15 @@ file_in <- str_subset(files, "All_CW")
 
 # Data Import ----
 #Import data from coastal wetlands file
-data <- fread(file_in, sep="|", header=TRUE, stringsAsFactors=FALSE,
-              na.strings=c("NULL"))
+data <- fread(file_in, sep="|", na.strings="NULL")
 
 # Apply Managed Area transformation - de-concatenate MA names
-data <- setDT(SEACAR::clean_managed_areas(data))
+# Use type = "buff" only for Coastal Wetlands - this ensures the process is performed on the *_Buff columns
+data <- setDT(SEACAR::clean_managed_areas(data, type="buff"))
+
+# Rename the AreaID_Buff and ManagedAreaName_Buff columns to AreaID and ManagedAreaName for ease of use
+data$AreaID <- data$AreaID_Buff
+data$ManagedAreaName <- data$ManagedAreaName_Buff
 
 file_short <- tail(str_split(file_in, "/")[[1]],1)
 
@@ -267,11 +272,9 @@ if(n==0){
     # Gets data for target managed area
     plot_data <- MA_Y_Stats[MA_Y_Stats$ManagedAreaName==ma_i]
     # Determines most recent year with available data for managed area
-    maxyr <- max(MA_Ov_Stats$LatestYear[MA_Ov_Stats$ManagedAreaName==
-                                          ma_i])
+    maxyr <- max(MA_Ov_Stats$LatestYear[MA_Ov_Stats$ManagedAreaName==ma_i])
     # Determines earliest recent year with available data for managed area
-    minyr <- min(MA_Ov_Stats$EarliestYear[MA_Ov_Stats$ManagedAreaName==
-                                            ma_i])
+    minyr <- min(MA_Ov_Stats$EarliestYear[MA_Ov_Stats$ManagedAreaName==ma_i])
     # Determines how many years of data are present
     nyrs <- maxyr-minyr+1
     
@@ -329,7 +332,7 @@ if(n==0){
     
     # Creates plot object using plot_data.
     # Data is plotted as symbols with connected lines.
-    p1 <- ggplot(data=plot_data, group=as.factor(SpeciesGroup1)) +
+    p1 <- ggplot(data=plot_data) +
       geom_line(aes(x=Year, y=Mean, color=as.factor(SpeciesGroup1)),
                 size=0.75, alpha=1) +
       geom_point(aes(x=Year, y=Mean, fill=as.factor(SpeciesGroup1),
@@ -351,13 +354,11 @@ if(n==0){
     # Sets file name of plot created
     outname <- paste0("CoastalWetlands_", param_file, "_", ma_abrev, ".png")
     # Saves plot as a png image
-    png(paste0(out_dir, "/Figures/", outname),
-        width = 8,
-        height = 4,
-        units = "in",
-        res = 200)
-    print(p1)
-    dev.off()
+    ggsave(filename = paste0(out_dir, "/Figures/", outname), 
+           plot = p1,
+           width = 8,
+           height = 4,
+           units = "in")
   }
 }
 

@@ -17,6 +17,8 @@ output:
     extra_dependencies: ["float", "booktabs"]
     keep_md: no
 urlcolor: blue
+header-includes:
+  - \usepackage{float}
 ---
 
 ```{r setup, include=FALSE} 
@@ -70,7 +72,7 @@ get_map <- function(ma){
   str_subset(cw_maps, paste0("_",ma_abrev))
 }
 # Make table function shows trend results
-make_table <- function(ma){
+make_table <- function(ma, tableFormat){
   ResultTable <- MA_Ov_Stats[ManagedAreaName==ma,]
   # Removes location, species group, and parameter information because it is
   # in plot labels
@@ -92,7 +94,7 @@ make_table <- function(ma){
                         row.names = FALSE, digits = 2,
                         booktabs = T, linesep = "", escape = F, longtable = F) %>%
     kableExtra::kable_styling(latex_options = c("scale_down", "HOLD_position"))
-  return(print(result_table))
+  return(result_table)
 }
 
 for(ma in cw_MA_Include){
@@ -104,7 +106,7 @@ for(ma in cw_MA_Include){
   cat("  \n")
   SEACAR::subchunkify(cat("![", fig_caption, "](", plot_loc,")"))
   cat("  \n")
-  make_table(ma)
+  SEACAR::subchunkify(make_table(ma, tableFormat))
   cat("  \n")
   cat(desc)
   cat("  \n")
