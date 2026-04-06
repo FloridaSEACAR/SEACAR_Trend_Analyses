@@ -6,11 +6,11 @@
 
 #######
 # Create sample location maps? (for MA Report Generation & Atlas)
-create_maps <- FALSE
+create_maps <- TRUE
 # Render SAV report?
 render_reports <- TRUE
 # Choose whether to generate spatio-temporal scope plots for SAV locations
-scope_plots <- TRUE
+create_scope_plots <- TRUE
 #######
 
 # Set working directory
@@ -33,8 +33,10 @@ if(create_maps){
 
 ## SAV temporal scope plot generation
 # Source in external SAV_scope_plots.R to run scope plot generation
-if(scope_plots){
-  source("SAV_scope_plots.R", echo=TRUE)
+if(create_scope_plots){
+  analyze_type <- "ma"
+  analyze_hab <- "sav"
+  source("../AllHabitats_Spatiotemporal_Scope_Plots.R")
 }
 
 ##### Generate Table Descriptions

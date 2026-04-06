@@ -15,13 +15,16 @@ library(nlme)
 library(colorspace)
 library(here)
 library(patchwork)
-#library(future)
 library(extrafont)
 library(magick)
 library(rstudioapi)
-# library(ggspatial)
 # font_import()
 # loadfonts()
+
+# Specify what to produce --------------
+EDA <- "plots" #Create and export Exploratory Data Analysis plots ("plots" = create data exploration plots only, "no" (or anything else) = skip all EDA output)
+
+Analyses <- c("BB_pct", "PC", "PA") #Which analyses to run? c("BB_all," "BB_pct", "PC", and/or "PA") or c("none") for just EDA plotting
 
 wd <- dirname(getActiveDocumentContext()$path)
 setwd(wd)
@@ -37,8 +40,10 @@ for(path in folder_paths){if(!dir.exists(path)){dir.create(path)}}
 
 #Load and wrangle data------------------------------------------------------------
 file_in <- list.files(seacar_data_location, pattern="All_SAV", full=TRUE)
-SAV <- fread(file_in, sep = "|", header = TRUE, stringsAsFactors = FALSE,
-             na.strings=c("NULL","","NA"))
+SAV <- fread(file_in, sep = "|", na.strings="NULL")
+# Apply clean_managed_areas function to transform concatenated MA names
+SAV <- SEACAR::clean_managed_areas(SAV, "ma")
+setDT(SAV)
 SAV <- SAV[!is.na(AreaID), ]
 SAV <- SAV[!is.na(ResultValue), ]
 
@@ -296,7 +301,6 @@ addfits <- function(models, plot_i, param) {
 # function to modify species labels prior to plotting (sci vs common names)
 # also replaces "Unidentified Halophila" with "Halophila, unk."
 modify_species_labels <- function(species_list, usenames) {
-
   if(usenames == "scientific") {
     lab <- species_list
   } else {
@@ -392,11 +396,6 @@ plot_eda <- function(plot_type, p, i){
   file_path <- paste0(eda_output_path, ma_abrev, "_", parameters[column == p, type], "_", plot_type, ".png")
   ggsave(plot, filename = file_path, height = 6, width = 8)
 }
-
-# Specify what to produce --------------
-EDA <- "no" #Create and export Exploratory Data Analysis plots ("plots" = create data exploration plots only, "no" (or anything else) = skip all EDA output)
-
-Analyses <- c("BB_pct", "PC", "PA") #Which analyses to run? c("BB_all," "BB_pct", "PC", "PO", and/or "PA") or c("none") for just EDA plotting
 
 #Empty data.table to house names of any failed models generated below.
 failedmods <- data.table(model = character(),
