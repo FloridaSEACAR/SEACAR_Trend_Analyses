@@ -256,7 +256,7 @@ color_palette <- SEACAR::seacar_palette1
 # All unique SpeciesGroup1 values get assigned a shape and color
 cw_groups <- sort(unique(MA_Y_Stats$SpeciesGroup1), decreasing = T)
 
-group_colors <- color_palette[seq_len(length(cw_groups))]
+group_colors <- color_palette[seq(from = 1, to = length(color_palette), by = length(color_palette) / length(cw_groups))]
 group_shapes <- c(21,22,24,25)
 names(group_colors) <- cw_groups
 names(group_shapes) <- cw_groups
