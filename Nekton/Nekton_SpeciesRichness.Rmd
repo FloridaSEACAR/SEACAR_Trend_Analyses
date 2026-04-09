@@ -31,7 +31,7 @@ All scripts and outputs can be found on the SEACAR GitHub repository:
 
 https://github.com/FloridaSEACAR/SEACAR_Trend_Analyses
 
-This markdown file is designed to be compiled by [Nekton_SpeciesRichness_ReportRender.R](https://github.com/FloridaSEACAR/SEACAR_Trend_Analyses/blob/main/Nekton/Nekton_SpeciesRichness_ReportRender.R) (https://github.com/FloridaSEACAR/SEACAR_Trend_Analyses/blob/main/Nekton/Nekton_SpeciesRichness_ReportRender.R).
+This markdown file is designed to be compiled by [Nekton_Plot_Render.R](https://github.com/FloridaSEACAR/SEACAR_Trend_Analyses/blob/main/Nekton/Nekton_Plot_Render.R) (https://github.com/FloridaSEACAR/SEACAR_Trend_Analyses/blob/main/Nekton/Nekton_Plot_Render.R).
 
 Details on the determination of catch per unit effort can be found in the document [SEACAR Nekton catch per unit effort.pdf](https://github.com/FloridaSEACAR/SEACAR_Trend_Analyses/blob/main/Nekton/SEACAR%20Nekton%20catch%20per%20unit%20effort.pdf) (https://github.com/FloridaSEACAR/SEACAR_Trend_Analyses/blob/main/Nekton/SEACAR%20Nekton%20catch%20per%20unit%20effort.pdf).
 

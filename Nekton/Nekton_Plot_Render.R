@@ -260,8 +260,6 @@ nek_stats <- copy(MA_Ov_Stats)
 MA_Ov_Stats <- MA_Ov_Stats[!is.na(EarliestYear), ]
 
 # SpeciesRichPlot ----
-# Color palette for SEACAR
-color_palette <- SEACAR::seacar_palette1
 
 # Modified version of MA_Y_Stats which includes SG2
 plot_data_all <- data %>%
@@ -286,10 +284,13 @@ plot_data_all$GearType_Plot <- paste0(plot_data_all$GearType, " (",
 plot_data_all$GearType_Plot <- factor(plot_data_all$GearType_Plot,
                                       levels = unique(plot_data_all$GearType_Plot))
 
+# Color palette for SEACAR
+color_palette <- SEACAR::seacar_palette1
 # All unique SG2 groups
 sg2 <- unique(plot_data_all$SpeciesGroup2)
 # Create palette for all SG2 values so it is consistent across all MAs
 sg2_palette <- color_palette[seq(1, length(sg2))]
+# sg2_palette <- color_palette[seq(from = 1, to = length(color_palette), by = length(color_palette) / length(sg2))]
 names(sg2_palette) <- sg2
 
 sg_common <- c("Cephalopods", "Cartilaginous fishes", "Decapod crustaceans", 
