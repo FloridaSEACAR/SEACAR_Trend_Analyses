@@ -31,7 +31,7 @@ All scripts and outputs can be found on the SEACAR GitHub repository:
 
 https://github.com/FloridaSEACAR/SEACAR_Trend_Analyses
 
-This markdown file is designed to be compiled by [Coral_SpeciesRichness_ReportRender.R](https://github.com/FloridaSEACAR/SEACAR_Trend_Analyses/blob/main/Coral/Coral_SpeciesRichness_ReportRender.R) (https://github.com/FloridaSEACAR/SEACAR_Trend_Analyses/blob/main/Coral/Coral_SpeciesRichness_ReportRender.R).
+This markdown file is designed to be compiled by [Coral_Plot_Render.R](https://github.com/FloridaSEACAR/SEACAR_Trend_Analyses/blob/main/Coral/Coral_Plot_Render.R) (https://github.com/FloridaSEACAR/SEACAR_Trend_Analyses/blob/main/Coral/Coral_Plot_Render.R).
 
 \newpage
 # Coral Species Richness

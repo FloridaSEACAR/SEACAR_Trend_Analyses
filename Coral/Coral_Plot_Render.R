@@ -105,8 +105,7 @@ data <- data[data$ResultValue==1] %>%
 setDT(data)
 
 # Writes this data that is used by the rest of the script to a text file
-fwrite(data, paste0(out_dir,"/Coral_", param_file, "_UsedData.txt"),
-       sep="|")
+fwrite(data, paste0(out_dir,"/Coral_", param_file, "_UsedData.txt"), sep="|")
 
 # Makes sure SampleDate is being stored as a Date object
 data$SampleDate <- as.Date(data$SampleDate)
@@ -396,6 +395,9 @@ data <- data[!is.na(data$ResultValue),]
 data <- data[!is.na(data$SampleDate),]
 # Remove rows with missing ManagedAreaName
 data <- data[!is.na(data$ManagedAreaName),]
+
+# Writes this data that is used by the rest of the script to a text file (too large to share)
+# fwrite(data, paste0(out_dir,"/Coral_", param_file, "_UsedData.txt"), sep="|")
 
 # Managed Area Stats ----
 # Create summary statistics for each managed area based on Year and Month

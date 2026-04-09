@@ -1,24 +1,5 @@
 AreaID|ManagedAreaName|Year|Month|ParameterName|N_Data|Min|Max|Median|Mean|StandardDeviation|Programs|ProgramIDs
-7|Biscayne Bay-Cape Florida to Monroe County Line Aquatic Preserve|2009|4|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
-7|Biscayne Bay-Cape Florida to Monroe County Line Aquatic Preserve|2010|7|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
 7|Biscayne Bay-Cape Florida to Monroe County Line Aquatic Preserve|2014|10|Species Richness|2|200|200|200|200|0|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|915
-7|Biscayne Bay-Cape Florida to Monroe County Line Aquatic Preserve|2015|12|Species Richness|2|1|2|1.5|1.5|0.707106781186548|Nonindigenous Aquatic Species Database|379
-6|Biscayne Bay Aquatic Preserve|2010|9|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
-6|Biscayne Bay Aquatic Preserve|2010|10|Species Richness|2|2|2|2|2|0|Nonindigenous Aquatic Species Database|379
-6|Biscayne Bay Aquatic Preserve|2011|3|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
-6|Biscayne Bay Aquatic Preserve|2011|7|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
-6|Biscayne Bay Aquatic Preserve|2011|8|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
-6|Biscayne Bay Aquatic Preserve|2012|2|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
-6|Biscayne Bay Aquatic Preserve|2012|5|Species Richness|2|2|2|2|2|0|Nonindigenous Aquatic Species Database|379
-6|Biscayne Bay Aquatic Preserve|2012|6|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
-6|Biscayne Bay Aquatic Preserve|2012|7|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
-6|Biscayne Bay Aquatic Preserve|2013|6|Species Richness|2|1|2|1.5|1.5|0.707106781186548|Nonindigenous Aquatic Species Database|379
-6|Biscayne Bay Aquatic Preserve|2013|7|Species Richness|3|1|2|2|1.66666666666667|0.577350269189626|Nonindigenous Aquatic Species Database|379
-6|Biscayne Bay Aquatic Preserve|2013|8|Species Richness|2|1|2|1.5|1.5|0.707106781186548|Nonindigenous Aquatic Species Database|379
-6|Biscayne Bay Aquatic Preserve|2014|10|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
-6|Biscayne Bay Aquatic Preserve|2015|10|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
-6|Biscayne Bay Aquatic Preserve|2017|3|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
-6|Biscayne Bay Aquatic Preserve|2017|6|Species Richness|2|1|2|1.5|1.5|0.707106781186548|Nonindigenous Aquatic Species Database|379
 13|Coupon Bight Aquatic Preserve|1999|6|Species Richness|1|281|281|281|281||NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|915
 13|Coupon Bight Aquatic Preserve|1999|8|Species Richness|5|281|281|281|281|0|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|915
 13|Coupon Bight Aquatic Preserve|2000|8|Species Richness|3|281|281|281|281|0|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|915
@@ -31,27 +12,11 @@ AreaID|ManagedAreaName|Year|Month|ParameterName|N_Data|Min|Max|Median|Mean|Stand
 13|Coupon Bight Aquatic Preserve|2007|8|Species Richness|4|281|281|281|281|0|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|915
 13|Coupon Bight Aquatic Preserve|2008|8|Species Richness|2|281|281|281|281|0|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|915
 13|Coupon Bight Aquatic Preserve|2009|8|Species Richness|6|281|281|281|281|0|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|915
-13|Coupon Bight Aquatic Preserve|2009|11|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
-13|Coupon Bight Aquatic Preserve|2010|3|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
-13|Coupon Bight Aquatic Preserve|2010|4|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
-13|Coupon Bight Aquatic Preserve|2010|5|Species Richness|2|2|2|2|2|0|Nonindigenous Aquatic Species Database|379
-13|Coupon Bight Aquatic Preserve|2010|7|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
-13|Coupon Bight Aquatic Preserve|2010|8|Species Richness|5|2|2|2|2|0|Nonindigenous Aquatic Species Database|379
-13|Coupon Bight Aquatic Preserve|2010|9|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
-13|Coupon Bight Aquatic Preserve|2010|10|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
-13|Coupon Bight Aquatic Preserve|2010|11|Species Richness|3|2|281|281|188|161.080725103906|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|379, 915
-13|Coupon Bight Aquatic Preserve|2011|3|Species Richness|2|2|2|2|2|0|Nonindigenous Aquatic Species Database|379
-13|Coupon Bight Aquatic Preserve|2011|5|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
-13|Coupon Bight Aquatic Preserve|2011|6|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
+13|Coupon Bight Aquatic Preserve|2010|11|Species Richness|2|281|281|281|281|0|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|915
 13|Coupon Bight Aquatic Preserve|2011|7|Species Richness|1|281|281|281|281||NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|915
 13|Coupon Bight Aquatic Preserve|2012|10|Species Richness|1|284|284|284|284||NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|915
-13|Coupon Bight Aquatic Preserve|2013|5|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
-13|Coupon Bight Aquatic Preserve|2013|6|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
-13|Coupon Bight Aquatic Preserve|2013|8|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
-13|Coupon Bight Aquatic Preserve|2014|7|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
 13|Coupon Bight Aquatic Preserve|2014|10|Species Richness|3|200|200|200|200|0|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|915
 13|Coupon Bight Aquatic Preserve|2016|8|Species Richness|6|204|204|204|204|0|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|915
-13|Coupon Bight Aquatic Preserve|2017|8|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
 15|Florida Keys National Marine Sanctuary|1999|5|Species Richness|21|263|281|281|274.142857142857|8.95704032750615|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|915
 15|Florida Keys National Marine Sanctuary|1999|6|Species Richness|160|263|281|263|271.4375|9.01060695712831|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|915
 15|Florida Keys National Marine Sanctuary|1999|7|Species Richness|128|263|281|263|270.3125|8.87511783219992|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|915
@@ -91,7 +56,7 @@ AreaID|ManagedAreaName|Year|Month|ParameterName|N_Data|Min|Max|Median|Mean|Stand
 15|Florida Keys National Marine Sanctuary|2004|5|Species Richness|1|1|1|1|1||Population Status of Elkhorn Coral|136
 15|Florida Keys National Marine Sanctuary|2004|6|Species Richness|241|281|281|281|281|0|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|915
 15|Florida Keys National Marine Sanctuary|2004|7|Species Richness|27|1|281|281|187.851851851852|134.241087285784|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Population Status of Elkhorn Coral|136, 915
-15|Florida Keys National Marine Sanctuary|2004|8|Species Richness|114|2|281|281|278.552631578947|26.1307441431293|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Population Status of Elkhorn Coral|136, 915
+15|Florida Keys National Marine Sanctuary|2004|8|Species Richness|113|2|281|281|278.530973451327|26.2461122279024|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Population Status of Elkhorn Coral|136, 915
 15|Florida Keys National Marine Sanctuary|2004|9|Species Richness|5|1|2|2|1.8|0.447213595499958|Population Status of Elkhorn Coral|136
 15|Florida Keys National Marine Sanctuary|2004|10|Species Richness|30|1|281|281|197.266666666667|130.091462078597|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Population Status of Elkhorn Coral|136, 915
 15|Florida Keys National Marine Sanctuary|2005|1|Species Richness|7|1|2|2|1.57142857142857|0.534522483824849|Population Status of Elkhorn Coral|136
@@ -127,133 +92,74 @@ AreaID|ManagedAreaName|Year|Month|ParameterName|N_Data|Min|Max|Median|Mean|Stand
 15|Florida Keys National Marine Sanctuary|2008|10|Species Richness|49|281|281|281|281|0|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|915
 15|Florida Keys National Marine Sanctuary|2008|11|Species Richness|32|281|281|281|281|0|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|915
 15|Florida Keys National Marine Sanctuary|2008|12|Species Richness|9|1|2|2|1.77777777777778|0.440958551844098|Population Status of Elkhorn Coral|136
-15|Florida Keys National Marine Sanctuary|2009|1|Species Richness|6|2|2|2|2|0|Nonindigenous Aquatic Species Database, Population Status of Elkhorn Coral|136, 379
-15|Florida Keys National Marine Sanctuary|2009|3|Species Richness|2|2|2|2|2|0|Nonindigenous Aquatic Species Database|379
-15|Florida Keys National Marine Sanctuary|2009|4|Species Richness|2|2|2|2|2|0|Nonindigenous Aquatic Species Database|379
-15|Florida Keys National Marine Sanctuary|2009|5|Species Richness|14|1|281|2|81.6428571428572|130.844362709088|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Population Status of Elkhorn Coral|136, 379, 915
-15|Florida Keys National Marine Sanctuary|2009|6|Species Richness|181|1|281|281|260.955801104972|72.2561664576818|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Population Status of Elkhorn Coral|136, 379, 915
-15|Florida Keys National Marine Sanctuary|2009|7|Species Richness|177|2|281|281|266.813559322034|61.4663085586521|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|379, 915
-15|Florida Keys National Marine Sanctuary|2009|8|Species Richness|299|2|281|281|275.401337792642|39.1895171345331|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|379, 915
-15|Florida Keys National Marine Sanctuary|2009|9|Species Richness|192|1|281|281|244.645833333333|94.2056321797187|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Population Status of Elkhorn Coral|136, 379, 915
-15|Florida Keys National Marine Sanctuary|2009|10|Species Richness|6|2|2|2|2|0|Nonindigenous Aquatic Species Database|379
-15|Florida Keys National Marine Sanctuary|2009|11|Species Richness|9|2|2|2|2|0|Nonindigenous Aquatic Species Database|379
-15|Florida Keys National Marine Sanctuary|2009|12|Species Richness|24|1|2|2|1.79166666666667|0.414851116999053|Nonindigenous Aquatic Species Database, Population Status of Elkhorn Coral|136, 379
-15|Florida Keys National Marine Sanctuary|2010|1|Species Richness|2|2|2|2|2|0|Nonindigenous Aquatic Species Database|379
-15|Florida Keys National Marine Sanctuary|2010|2|Species Richness|6|2|2|2|2|0|Nonindigenous Aquatic Species Database|379
-15|Florida Keys National Marine Sanctuary|2010|3|Species Richness|8|2|2|2|2|0|Nonindigenous Aquatic Species Database|379
-15|Florida Keys National Marine Sanctuary|2010|4|Species Richness|28|2|2|2|2|0|Nonindigenous Aquatic Species Database|379
-15|Florida Keys National Marine Sanctuary|2010|5|Species Richness|197|1|281|281|207.335025380711|123.324317088444|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Population Status of Elkhorn Coral|136, 379, 915
-15|Florida Keys National Marine Sanctuary|2010|6|Species Richness|217|2|281|281|212.857142857143|120.145447568473|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Population Status of Elkhorn Coral|136, 379, 915
-15|Florida Keys National Marine Sanctuary|2010|7|Species Richness|247|1|281|2|133.024291497976|139.529083925836|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Population Status of Elkhorn Coral|136, 379, 915
-15|Florida Keys National Marine Sanctuary|2010|8|Species Richness|417|1|281|281|206.724220623501|123.471844398092|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Population Status of Elkhorn Coral|136, 379, 915
-15|Florida Keys National Marine Sanctuary|2010|9|Species Richness|112|2|281|281|183.848214285714|133.514193315176|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|379, 915
-15|Florida Keys National Marine Sanctuary|2010|10|Species Richness|106|1|281|281|170.424528301887|137.145869379543|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Population Status of Elkhorn Coral|136, 379, 915
-15|Florida Keys National Marine Sanctuary|2010|11|Species Richness|55|2|281|281|179.545454545455|135.448749113322|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|379, 915
-15|Florida Keys National Marine Sanctuary|2010|12|Species Richness|18|2|2|2|2|0|Nonindigenous Aquatic Species Database|379
-15|Florida Keys National Marine Sanctuary|2011|1|Species Richness|29|1|2|2|1.89655172413793|0.309934046694603|Nonindigenous Aquatic Species Database, Population Status of Elkhorn Coral|136, 379
-15|Florida Keys National Marine Sanctuary|2011|2|Species Richness|41|1|2|2|1.8780487804878|0.33129457822454|Nonindigenous Aquatic Species Database, Population Status of Elkhorn Coral|136, 379
-15|Florida Keys National Marine Sanctuary|2011|3|Species Richness|31|2|2|2|2|0|Nonindigenous Aquatic Species Database|379
-15|Florida Keys National Marine Sanctuary|2011|4|Species Richness|54|2|2|2|2|0|Nonindigenous Aquatic Species Database|379
-15|Florida Keys National Marine Sanctuary|2011|5|Species Richness|79|1|2|2|1.9493670886076|0.220647890820344|Nonindigenous Aquatic Species Database, Population Status of Elkhorn Coral|136, 379
-15|Florida Keys National Marine Sanctuary|2011|6|Species Richness|396|1|281|281|240.133838383838|98.7773343878737|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Population Status of Elkhorn Coral|136, 379, 915
-15|Florida Keys National Marine Sanctuary|2011|7|Species Richness|157|2|281|2|138.834394904459|139.920849747357|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|379, 915
-15|Florida Keys National Marine Sanctuary|2011|8|Species Richness|193|1|281|281|249.19170984456|88.9109428824636|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Population Status of Elkhorn Coral|136, 379, 915
-15|Florida Keys National Marine Sanctuary|2011|9|Species Richness|69|1|281|2|139.391304347826|140.593826468024|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Population Status of Elkhorn Coral|136, 379, 915
-15|Florida Keys National Marine Sanctuary|2011|10|Species Richness|7|2|2|2|2|0|Nonindigenous Aquatic Species Database|379
-15|Florida Keys National Marine Sanctuary|2011|11|Species Richness|26|2|2|2|2|0|Nonindigenous Aquatic Species Database|379
-15|Florida Keys National Marine Sanctuary|2011|12|Species Richness|11|2|2|2|2|0|Nonindigenous Aquatic Species Database|379
-15|Florida Keys National Marine Sanctuary|2012|1|Species Richness|19|1|2|2|1.73684210526316|0.452413928358864|Nonindigenous Aquatic Species Database, Population Status of Elkhorn Coral|136, 379
-15|Florida Keys National Marine Sanctuary|2012|2|Species Richness|14|1|2|2|1.85714285714286|0.363136519601281|Nonindigenous Aquatic Species Database, Population Status of Elkhorn Coral|136, 379
-15|Florida Keys National Marine Sanctuary|2012|3|Species Richness|5|2|2|2|2|0|Nonindigenous Aquatic Species Database|379
-15|Florida Keys National Marine Sanctuary|2012|4|Species Richness|5|1|2|2|1.8|0.447213595499958|Nonindigenous Aquatic Species Database|379
-15|Florida Keys National Marine Sanctuary|2012|5|Species Richness|51|1|287|2|68.921568627451|122.172311615563|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Population Status of Elkhorn Coral|136, 379, 915
-15|Florida Keys National Marine Sanctuary|2012|6|Species Richness|309|2|287|287|277.029126213592|50.3952796782041|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|379, 915
-15|Florida Keys National Marine Sanctuary|2012|7|Species Richness|155|2|287|284|259.554838709677|81.4316016017238|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|379, 915
-15|Florida Keys National Marine Sanctuary|2012|8|Species Richness|266|1|284|284|259.609022556391|79.4303620088208|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|379, 915
-15|Florida Keys National Marine Sanctuary|2012|9|Species Richness|135|1|284|284|208.748148148148|125.256019518622|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Population Status of Elkhorn Coral|136, 379, 915
-15|Florida Keys National Marine Sanctuary|2012|10|Species Richness|49|2|284|284|214.938775510204|122.524216681721|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|379, 915
+15|Florida Keys National Marine Sanctuary|2009|1|Species Richness|5|2|2|2|2|0|Population Status of Elkhorn Coral|136
+15|Florida Keys National Marine Sanctuary|2009|5|Species Richness|12|1|281|2|94.9166666666667|137.431939078177|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Population Status of Elkhorn Coral|136, 915
+15|Florida Keys National Marine Sanctuary|2009|6|Species Richness|176|1|281|281|268.3125|58.3073537386152|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Population Status of Elkhorn Coral|136, 915
+15|Florida Keys National Marine Sanctuary|2009|7|Species Richness|168|281|281|281|281|0|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|915
+15|Florida Keys National Marine Sanctuary|2009|8|Species Richness|293|281|281|281|281|0|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|915
+15|Florida Keys National Marine Sanctuary|2009|9|Species Richness|187|1|281|281|249.641711229947|88.4019107299829|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Population Status of Elkhorn Coral|136, 915
+15|Florida Keys National Marine Sanctuary|2009|12|Species Richness|20|1|2|2|1.75|0.444261658319319|Population Status of Elkhorn Coral|136
+15|Florida Keys National Marine Sanctuary|2010|5|Species Richness|157|1|281|281|259.649681528662|74.4536395282359|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Population Status of Elkhorn Coral|136, 915
+15|Florida Keys National Marine Sanctuary|2010|6|Species Richness|167|2|281|281|275.988023952096|37.1684521013975|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Population Status of Elkhorn Coral|136, 915
+15|Florida Keys National Marine Sanctuary|2010|7|Species Richness|117|1|281|281|278.606837606838|25.8860091571774|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Population Status of Elkhorn Coral|136, 915
+15|Florida Keys National Marine Sanctuary|2010|8|Species Richness|311|1|281|281|276.501607717042|35.2478665195654|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Population Status of Elkhorn Coral|136, 915
+15|Florida Keys National Marine Sanctuary|2010|9|Species Richness|73|281|281|281|281|0|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|915
+15|Florida Keys National Marine Sanctuary|2010|10|Species Richness|80|1|281|281|225.1625|112.379718399696|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Population Status of Elkhorn Coral|136, 915
+15|Florida Keys National Marine Sanctuary|2010|11|Species Richness|35|281|281|281|281|0|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|915
+15|Florida Keys National Marine Sanctuary|2011|1|Species Richness|5|1|2|1|1.4|0.547722557505166|Population Status of Elkhorn Coral|136
+15|Florida Keys National Marine Sanctuary|2011|2|Species Richness|17|1|2|2|1.70588235294118|0.469668218313862|Population Status of Elkhorn Coral|136
+15|Florida Keys National Marine Sanctuary|2011|5|Species Richness|20|1|2|2|1.8|0.410391340834062|Population Status of Elkhorn Coral|136
+15|Florida Keys National Marine Sanctuary|2011|6|Species Richness|339|1|281|281|280.174041297935|15.2075125046199|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Population Status of Elkhorn Coral|136, 915
+15|Florida Keys National Marine Sanctuary|2011|7|Species Richness|77|281|281|281|281|0|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|915
+15|Florida Keys National Marine Sanctuary|2011|8|Species Richness|172|1|281|281|279.372093023256|21.3497998465647|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Population Status of Elkhorn Coral|136, 915
+15|Florida Keys National Marine Sanctuary|2011|9|Species Richness|54|1|281|281|177.555555555556|136.141805463893|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Population Status of Elkhorn Coral|136, 915
+15|Florida Keys National Marine Sanctuary|2012|1|Species Richness|16|1|2|2|1.6875|0.478713553878169|Population Status of Elkhorn Coral|136
+15|Florida Keys National Marine Sanctuary|2012|2|Species Richness|7|1|2|2|1.71428571428571|0.487950036474267|Population Status of Elkhorn Coral|136
+15|Florida Keys National Marine Sanctuary|2012|5|Species Richness|34|1|287|2|102.382352941176|138.40016962371|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Population Status of Elkhorn Coral|136, 915
+15|Florida Keys National Marine Sanctuary|2012|6|Species Richness|299|284|287|287|286.227424749164|1.3140121421002|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|915
+15|Florida Keys National Marine Sanctuary|2012|7|Species Richness|141|284|287|284|285.127659574468|1.45823309830663|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|915
+15|Florida Keys National Marine Sanctuary|2012|8|Species Richness|243|284|284|284|284|0|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|915
+15|Florida Keys National Marine Sanctuary|2012|9|Species Richness|120|1|284|284|234.6|107.709178935181|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Population Status of Elkhorn Coral|136, 915
+15|Florida Keys National Marine Sanctuary|2012|10|Species Richness|37|284|284|284|284|0|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|915
 15|Florida Keys National Marine Sanctuary|2012|11|Species Richness|24|284|284|284|284|0|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|915
-15|Florida Keys National Marine Sanctuary|2012|12|Species Richness|9|2|2|2|2|0|Nonindigenous Aquatic Species Database|379
-15|Florida Keys National Marine Sanctuary|2013|1|Species Richness|4|2|2|2|2|0|Nonindigenous Aquatic Species Database|379
-15|Florida Keys National Marine Sanctuary|2013|2|Species Richness|28|1|2|2|1.75|0.440958551844098|Nonindigenous Aquatic Species Database, Population Status of Elkhorn Coral|136, 379
-15|Florida Keys National Marine Sanctuary|2013|3|Species Richness|3|2|2|2|2|0|Nonindigenous Aquatic Species Database|379
-15|Florida Keys National Marine Sanctuary|2013|4|Species Richness|11|1|2|2|1.90909090909091|0.301511344577764|Nonindigenous Aquatic Species Database|379
-15|Florida Keys National Marine Sanctuary|2013|5|Species Richness|27|1|2|2|1.66666666666667|0.480384461415261|Nonindigenous Aquatic Species Database, Population Status of Elkhorn Coral|136, 379
-15|Florida Keys National Marine Sanctuary|2013|6|Species Richness|23|1|2|2|1.91304347826087|0.28810406552003|Nonindigenous Aquatic Species Database, Population Status of Elkhorn Coral|136, 379
-15|Florida Keys National Marine Sanctuary|2013|7|Species Richness|17|1|2|2|1.94117647058824|0.242535625036333|Nonindigenous Aquatic Species Database|379
-15|Florida Keys National Marine Sanctuary|2013|8|Species Richness|6|2|2|2|2|0|Nonindigenous Aquatic Species Database|379
-15|Florida Keys National Marine Sanctuary|2013|9|Species Richness|21|1|2|2|1.71428571428571|0.462910049886276|Nonindigenous Aquatic Species Database, Population Status of Elkhorn Coral|136, 379
-15|Florida Keys National Marine Sanctuary|2013|10|Species Richness|10|1|2|2|1.7|0.483045891539648|Nonindigenous Aquatic Species Database, Population Status of Elkhorn Coral|136, 379
-15|Florida Keys National Marine Sanctuary|2013|11|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
-15|Florida Keys National Marine Sanctuary|2013|12|Species Richness|5|2|2|2|2|0|Nonindigenous Aquatic Species Database|379
-15|Florida Keys National Marine Sanctuary|2014|1|Species Richness|15|1|2|2|1.6|0.50709255283711|Nonindigenous Aquatic Species Database, Population Status of Elkhorn Coral|136, 379
-15|Florida Keys National Marine Sanctuary|2014|2|Species Richness|11|1|2|2|1.72727272727273|0.467099366496914|Nonindigenous Aquatic Species Database, Population Status of Elkhorn Coral|136, 379
-15|Florida Keys National Marine Sanctuary|2014|3|Species Richness|2|2|2|2|2|0|Nonindigenous Aquatic Species Database|379
-15|Florida Keys National Marine Sanctuary|2014|4|Species Richness|5|2|2|2|2|0|Nonindigenous Aquatic Species Database|379
-15|Florida Keys National Marine Sanctuary|2014|5|Species Richness|14|1|2|2|1.92857142857143|0.267261241912424|Nonindigenous Aquatic Species Database, Population Status of Elkhorn Coral|136, 379
-15|Florida Keys National Marine Sanctuary|2014|6|Species Richness|291|1|302|200|236.518900343643|81.9116985886823|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Population Status of Elkhorn Coral|136, 379, 915
-15|Florida Keys National Marine Sanctuary|2014|7|Species Richness|224|2|302|302|259.785714285714|62.1849445495893|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|379, 915
-15|Florida Keys National Marine Sanctuary|2014|8|Species Richness|177|2|200|200|195.525423728814|29.5104118368358|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|379, 915
-15|Florida Keys National Marine Sanctuary|2014|9|Species Richness|183|1|200|200|187|49.2086832326827|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Population Status of Elkhorn Coral|136, 379, 915
-15|Florida Keys National Marine Sanctuary|2014|10|Species Richness|114|1|200|200|172.19298245614|69.1228068599242|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Population Status of Elkhorn Coral|136, 379, 915
-15|Florida Keys National Marine Sanctuary|2014|12|Species Richness|2|2|2|2|2|0|Nonindigenous Aquatic Species Database|379
+15|Florida Keys National Marine Sanctuary|2013|2|Species Richness|21|1|2|2|1.66666666666667|0.483045891539648|Population Status of Elkhorn Coral|136
+15|Florida Keys National Marine Sanctuary|2013|5|Species Richness|14|1|2|1|1.42857142857143|0.513552591013096|Population Status of Elkhorn Coral|136
+15|Florida Keys National Marine Sanctuary|2013|6|Species Richness|8|1|2|2|1.875|0.353553390593274|Population Status of Elkhorn Coral|136
+15|Florida Keys National Marine Sanctuary|2013|9|Species Richness|14|1|2|2|1.64285714285714|0.497245158098847|Population Status of Elkhorn Coral|136
+15|Florida Keys National Marine Sanctuary|2013|10|Species Richness|7|1|2|2|1.57142857142857|0.534522483824849|Population Status of Elkhorn Coral|136
+15|Florida Keys National Marine Sanctuary|2014|1|Species Richness|14|1|2|2|1.57142857142857|0.513552591013096|Population Status of Elkhorn Coral|136
+15|Florida Keys National Marine Sanctuary|2014|2|Species Richness|6|1|2|2|1.66666666666667|0.516397779494322|Population Status of Elkhorn Coral|136
+15|Florida Keys National Marine Sanctuary|2014|5|Species Richness|10|1|2|2|1.9|0.316227766016838|Population Status of Elkhorn Coral|136
+15|Florida Keys National Marine Sanctuary|2014|6|Species Richness|282|1|302|302|244.003546099291|71.4609366563823|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Population Status of Elkhorn Coral|136, 915
+15|Florida Keys National Marine Sanctuary|2014|7|Species Richness|219|200|302|302|265.671232876712|48.956090078891|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|915
+15|Florida Keys National Marine Sanctuary|2014|8|Species Richness|173|200|200|200|200|0|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|915
+15|Florida Keys National Marine Sanctuary|2014|9|Species Richness|182|1|200|200|188.016483516484|47.3787461120082|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Population Status of Elkhorn Coral|136, 915
+15|Florida Keys National Marine Sanctuary|2014|10|Species Richness|108|1|200|200|181.648148148148|57.718348499831|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Population Status of Elkhorn Coral|136, 915
 15|Florida Keys National Marine Sanctuary|2015|2|Species Richness|19|1|2|2|1.52631578947368|0.512989176042577|Population Status of Elkhorn Coral|136
-15|Florida Keys National Marine Sanctuary|2015|6|Species Richness|25|1|2|2|1.64|0.489897948556636|Nonindigenous Aquatic Species Database, Population Status of Elkhorn Coral|136, 379
-15|Florida Keys National Marine Sanctuary|2015|7|Species Richness|5|2|2|2|2|0|Nonindigenous Aquatic Species Database|379
-15|Florida Keys National Marine Sanctuary|2015|8|Species Richness|2|2|2|2|2|0|Nonindigenous Aquatic Species Database|379
+15|Florida Keys National Marine Sanctuary|2015|6|Species Richness|20|1|2|2|1.55|0.51041778553404|Population Status of Elkhorn Coral|136
 15|Florida Keys National Marine Sanctuary|2015|9|Species Richness|17|1|2|2|1.70588235294118|0.469668218313862|Population Status of Elkhorn Coral|136
-15|Florida Keys National Marine Sanctuary|2015|10|Species Richness|7|1|2|2|1.71428571428571|0.487950036474267|Nonindigenous Aquatic Species Database, Population Status of Elkhorn Coral|136, 379
-15|Florida Keys National Marine Sanctuary|2016|3|Species Richness|3|2|2|2|2|0|Nonindigenous Aquatic Species Database|379
-15|Florida Keys National Marine Sanctuary|2016|4|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
-15|Florida Keys National Marine Sanctuary|2016|5|Species Richness|78|2|205|205|202.397435897436|22.9852237931353|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|379, 915
-15|Florida Keys National Marine Sanctuary|2016|6|Species Richness|235|1|205|204|184.570212765957|60.3943448238879|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Population Status of Elkhorn Coral|136, 379, 915
-15|Florida Keys National Marine Sanctuary|2016|7|Species Richness|48|2|204|204|199.791666666667|29.1561885940761|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|379, 915
-15|Florida Keys National Marine Sanctuary|2016|8|Species Richness|141|2|204|204|201.13475177305|23.9717750275956|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|379, 915
-15|Florida Keys National Marine Sanctuary|2016|9|Species Richness|185|1|204|204|181.037837837838|64.3432851440283|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Population Status of Elkhorn Coral|136, 379, 915
-15|Florida Keys National Marine Sanctuary|2016|10|Species Richness|23|2|204|204|195.217391304348|42.1199116395291|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|379, 915
-15|Florida Keys National Marine Sanctuary|2016|11|Species Richness|73|2|204|204|198.465753424658|33.2022766085989|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|379, 915
-15|Florida Keys National Marine Sanctuary|2016|12|Species Richness|10|2|204|204|163.6|85.1706783138684|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|379, 915
-15|Florida Keys National Marine Sanctuary|2017|1|Species Richness|20|1|2|2|1.75|0.444261658319319|Nonindigenous Aquatic Species Database, Population Status of Elkhorn Coral|136, 379
-15|Florida Keys National Marine Sanctuary|2017|2|Species Richness|4|1|2|2|1.75|0.5|Nonindigenous Aquatic Species Database|379
-15|Florida Keys National Marine Sanctuary|2017|3|Species Richness|3|2|2|2|2|0|Nonindigenous Aquatic Species Database|379
-15|Florida Keys National Marine Sanctuary|2017|4|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
-15|Florida Keys National Marine Sanctuary|2017|5|Species Richness|2|2|2|2|2|0|Nonindigenous Aquatic Species Database|379
-15|Florida Keys National Marine Sanctuary|2017|6|Species Richness|22|1|2|2|1.63636363636364|0.492365963917331|Nonindigenous Aquatic Species Database, Population Status of Elkhorn Coral|136, 379
-15|Florida Keys National Marine Sanctuary|2017|7|Species Richness|7|1|2|2|1.85714285714286|0.377964473009227|Nonindigenous Aquatic Species Database|379
-15|Florida Keys National Marine Sanctuary|2017|8|Species Richness|3|2|2|2|2|0|Nonindigenous Aquatic Species Database|379
-15|Florida Keys National Marine Sanctuary|2017|9|Species Richness|5|1|2|2|1.8|0.447213595499958|Nonindigenous Aquatic Species Database, Population Status of Elkhorn Coral|136, 379
+15|Florida Keys National Marine Sanctuary|2015|10|Species Richness|3|1|2|2|1.66666666666667|0.577350269189626|Population Status of Elkhorn Coral|136
+15|Florida Keys National Marine Sanctuary|2016|5|Species Richness|77|205|205|205|205|0|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|915
+15|Florida Keys National Marine Sanctuary|2016|6|Species Richness|230|1|205|204|188.539130434783|54.621650130658|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Population Status of Elkhorn Coral|136, 915
+15|Florida Keys National Marine Sanctuary|2016|7|Species Richness|47|204|204|204|204|0|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|915
+15|Florida Keys National Marine Sanctuary|2016|8|Species Richness|139|204|204|204|204|0|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|915
+15|Florida Keys National Marine Sanctuary|2016|9|Species Richness|183|1|204|204|182.994535519126|61.8825986358962|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Population Status of Elkhorn Coral|136, 915
+15|Florida Keys National Marine Sanctuary|2016|10|Species Richness|22|204|204|204|204|0|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|915
+15|Florida Keys National Marine Sanctuary|2016|11|Species Richness|71|204|204|204|204|0|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|915
+15|Florida Keys National Marine Sanctuary|2016|12|Species Richness|8|204|204|204|204|0|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|915
+15|Florida Keys National Marine Sanctuary|2017|1|Species Richness|18|1|2|2|1.72222222222222|0.460888598962477|Population Status of Elkhorn Coral|136
+15|Florida Keys National Marine Sanctuary|2017|6|Species Richness|18|1|2|2|1.55555555555556|0.511309992564914|Population Status of Elkhorn Coral|136
+15|Florida Keys National Marine Sanctuary|2017|9|Species Richness|4|1|2|2|1.75|0.5|Population Status of Elkhorn Coral|136
 15|Florida Keys National Marine Sanctuary|2017|10|Species Richness|6|1|2|1|1.16666666666667|0.408248290463863|Population Status of Elkhorn Coral|136
 15|Florida Keys National Marine Sanctuary|2017|11|Species Richness|1|2|2|2|2||Population Status of Elkhorn Coral|136
-15|Florida Keys National Marine Sanctuary|2017|12|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
-15|Florida Keys National Marine Sanctuary|2018|2|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
-15|Florida Keys National Marine Sanctuary|2018|3|Species Richness|2|2|2|2|2|0|Nonindigenous Aquatic Species Database|379
-15|Florida Keys National Marine Sanctuary|2018|4|Species Richness|3|2|2|2|2|0|Nonindigenous Aquatic Species Database|379
-15|Florida Keys National Marine Sanctuary|2018|5|Species Richness|8|1|2|2|1.625|0.517549169506766|Nonindigenous Aquatic Species Database, Population Status of Elkhorn Coral|136, 379
-15|Florida Keys National Marine Sanctuary|2018|6|Species Richness|11|1|2|2|1.72727272727273|0.467099366496914|Nonindigenous Aquatic Species Database, Population Status of Elkhorn Coral|136, 379
-15|Florida Keys National Marine Sanctuary|2018|7|Species Richness|3|2|2|2|2|0|Nonindigenous Aquatic Species Database|379
+15|Florida Keys National Marine Sanctuary|2018|5|Species Richness|7|1|2|2|1.57142857142857|0.534522483824849|Population Status of Elkhorn Coral|136
+15|Florida Keys National Marine Sanctuary|2018|6|Species Richness|7|1|2|2|1.57142857142857|0.534522483824849|Population Status of Elkhorn Coral|136
 15|Florida Keys National Marine Sanctuary|2018|9|Species Richness|3|1|2|2|1.66666666666667|0.577350269189626|Population Status of Elkhorn Coral|136
 15|Florida Keys National Marine Sanctuary|2018|10|Species Richness|4|1|2|1.5|1.5|0.577350269189626|Population Status of Elkhorn Coral|136
-15|Florida Keys National Marine Sanctuary|2018|11|Species Richness|3|1|2|2|1.66666666666667|0.577350269189626|Nonindigenous Aquatic Species Database, Population Status of Elkhorn Coral|136, 379
+15|Florida Keys National Marine Sanctuary|2018|11|Species Richness|2|2|2|2|2|0|Population Status of Elkhorn Coral|136
 15|Florida Keys National Marine Sanctuary|2018|12|Species Richness|2|1|1|1|1|0|Population Status of Elkhorn Coral|136
 15|Florida Keys National Marine Sanctuary|2019|6|Species Richness|7|1|2|2|1.71428571428571|0.487950036474267|Population Status of Elkhorn Coral|136
 15|Florida Keys National Marine Sanctuary|2019|10|Species Richness|13|1|2|2|1.53846153846154|0.518874521662771|Population Status of Elkhorn Coral|136
-23|Jensen Beach to Jupiter Inlet Aquatic Preserve|2008|7|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
-23|Jensen Beach to Jupiter Inlet Aquatic Preserve|2008|11|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
-23|Jensen Beach to Jupiter Inlet Aquatic Preserve|2010|5|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
-23|Jensen Beach to Jupiter Inlet Aquatic Preserve|2010|7|Species Richness|4|2|2|2|2|0|Nonindigenous Aquatic Species Database|379
-23|Jensen Beach to Jupiter Inlet Aquatic Preserve|2010|8|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
-23|Jensen Beach to Jupiter Inlet Aquatic Preserve|2010|9|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
-23|Jensen Beach to Jupiter Inlet Aquatic Preserve|2010|10|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
-23|Jensen Beach to Jupiter Inlet Aquatic Preserve|2011|6|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
-23|Jensen Beach to Jupiter Inlet Aquatic Preserve|2012|4|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
-23|Jensen Beach to Jupiter Inlet Aquatic Preserve|2012|7|Species Richness|3|2|2|2|2|0|Nonindigenous Aquatic Species Database|379
-23|Jensen Beach to Jupiter Inlet Aquatic Preserve|2012|8|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
-23|Jensen Beach to Jupiter Inlet Aquatic Preserve|2013|1|Species Richness|2|1|2|1.5|1.5|0.707106781186548|Nonindigenous Aquatic Species Database|379
-23|Jensen Beach to Jupiter Inlet Aquatic Preserve|2013|5|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
-23|Jensen Beach to Jupiter Inlet Aquatic Preserve|2013|7|Species Richness|2|2|2|2|2|0|Nonindigenous Aquatic Species Database|379
-23|Jensen Beach to Jupiter Inlet Aquatic Preserve|2014|4|Species Richness|2|1|2|1.5|1.5|0.707106781186548|Nonindigenous Aquatic Species Database|379
-23|Jensen Beach to Jupiter Inlet Aquatic Preserve|2014|10|Species Richness|2|2|2|2|2|0|Nonindigenous Aquatic Species Database|379
-12|Kristin Jacobs Coral Aquatic Preserve|1985|10|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
 12|Kristin Jacobs Coral Aquatic Preserve|1992|1|Species Richness|1|2|2|2|2||Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Kristin Jacobs Coral Aquatic Preserve|1992|2|Species Richness|1|1|1|1|1||Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Kristin Jacobs Coral Aquatic Preserve|1992|3|Species Richness|1|3|3|3|3||Palm Beach County Artificial and Natural Reef Monitoring Program|3024
@@ -264,7 +170,6 @@ AreaID|ManagedAreaName|Year|Month|ParameterName|N_Data|Min|Max|Median|Mean|Stand
 12|Kristin Jacobs Coral Aquatic Preserve|1995|6|Species Richness|3|19|32|23|24.6666666666667|6.65832811847939|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Kristin Jacobs Coral Aquatic Preserve|1995|7|Species Richness|2|26|33|29.5|29.5|4.94974746830583|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Kristin Jacobs Coral Aquatic Preserve|1995|9|Species Richness|2|24|27|25.5|25.5|2.12132034355964|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
-12|Kristin Jacobs Coral Aquatic Preserve|1995|12|Species Richness|2|2|2|2|2|0|Nonindigenous Aquatic Species Database|379
 12|Kristin Jacobs Coral Aquatic Preserve|1997|4|Species Richness|2|31|46|38.5|38.5|10.6066017177982|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Kristin Jacobs Coral Aquatic Preserve|1997|5|Species Richness|3|36|42|40|39.3333333333333|3.05505046330389|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Kristin Jacobs Coral Aquatic Preserve|1997|6|Species Richness|1|46|46|46|46||Palm Beach County Artificial and Natural Reef Monitoring Program|3024
@@ -294,7 +199,7 @@ AreaID|ManagedAreaName|Year|Month|ParameterName|N_Data|Min|Max|Median|Mean|Stand
 12|Kristin Jacobs Coral Aquatic Preserve|2000|8|Species Richness|8|30|56|37.5|40.5|8.68496237346895|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Kristin Jacobs Coral Aquatic Preserve|2000|9|Species Richness|4|25|281|32.5|92.75|125.550454665312|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Palm Beach County Artificial and Natural Reef Monitoring Program|915, 3024
 12|Kristin Jacobs Coral Aquatic Preserve|2000|11|Species Richness|1|56|56|56|56||Palm Beach County Artificial and Natural Reef Monitoring Program|3024
-12|Kristin Jacobs Coral Aquatic Preserve|2000|12|Species Richness|7|2|40|27|24.8571428571429|14.9936494493343|Nonindigenous Aquatic Species Database, Palm Beach County Artificial and Natural Reef Monitoring Program|379, 3024
+12|Kristin Jacobs Coral Aquatic Preserve|2000|12|Species Richness|6|11|40|31.5|28.6666666666667|12.16004385957|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Kristin Jacobs Coral Aquatic Preserve|2001|1|Species Richness|1|19|19|19|19||Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Kristin Jacobs Coral Aquatic Preserve|2001|2|Species Richness|4|22|41|32|31.75|9.63932916061417|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Kristin Jacobs Coral Aquatic Preserve|2001|3|Species Richness|4|12|46|29.5|29.25|14.5916642870739|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
@@ -302,21 +207,19 @@ AreaID|ManagedAreaName|Year|Month|ParameterName|N_Data|Min|Max|Median|Mean|Stand
 12|Kristin Jacobs Coral Aquatic Preserve|2001|5|Species Richness|7|8|69|29|35|21.3541565040626|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Kristin Jacobs Coral Aquatic Preserve|2001|6|Species Richness|23|11|65|37|36.1739130434783|16.7946208214877|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Kristin Jacobs Coral Aquatic Preserve|2001|7|Species Richness|19|5|281|36|49.5789473684211|58.039561018971|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Palm Beach County Artificial and Natural Reef Monitoring Program|915, 3024
-12|Kristin Jacobs Coral Aquatic Preserve|2001|8|Species Richness|32|2|73|34.5|36.5|17.2102745006318|Nonindigenous Aquatic Species Database, Palm Beach County Artificial and Natural Reef Monitoring Program|379, 3024
-12|Kristin Jacobs Coral Aquatic Preserve|2001|9|Species Richness|2|2|51|26.5|26.5|34.6482322781408|Nonindigenous Aquatic Species Database, Palm Beach County Artificial and Natural Reef Monitoring Program|379, 3024
+12|Kristin Jacobs Coral Aquatic Preserve|2001|8|Species Richness|31|14|73|35|37.6129032258065|16.2822550022099|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
+12|Kristin Jacobs Coral Aquatic Preserve|2001|9|Species Richness|1|51|51|51|51||Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Kristin Jacobs Coral Aquatic Preserve|2001|10|Species Richness|5|20|61|28|37.4|17.9666357451806|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Kristin Jacobs Coral Aquatic Preserve|2001|12|Species Richness|4|15|42|37|32.75|12.5|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Kristin Jacobs Coral Aquatic Preserve|2002|1|Species Richness|2|52|80|66|66|19.7989898732233|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
-12|Kristin Jacobs Coral Aquatic Preserve|2002|3|Species Richness|2|2|2|2|2|0|Nonindigenous Aquatic Species Database|379
 12|Kristin Jacobs Coral Aquatic Preserve|2002|4|Species Richness|9|21|57|46|42.1111111111111|12.5742240759067|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Kristin Jacobs Coral Aquatic Preserve|2002|5|Species Richness|4|49|281|61.5|113.25|112.078469535113|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Palm Beach County Artificial and Natural Reef Monitoring Program|915, 3024
 12|Kristin Jacobs Coral Aquatic Preserve|2002|6|Species Richness|3|39|64|57|53.3333333333333|12.8970280814354|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Kristin Jacobs Coral Aquatic Preserve|2002|7|Species Richness|15|17|76|44|45|19.7158384481687|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Kristin Jacobs Coral Aquatic Preserve|2002|8|Species Richness|6|35|75|46.5|52.1666666666667|15.1184214343518|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
-12|Kristin Jacobs Coral Aquatic Preserve|2002|9|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
 12|Kristin Jacobs Coral Aquatic Preserve|2002|10|Species Richness|5|16|52|42|36.6|13.7040140105007|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Kristin Jacobs Coral Aquatic Preserve|2002|11|Species Richness|4|21|63|31|36.5|19.157244060668|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
-12|Kristin Jacobs Coral Aquatic Preserve|2002|12|Species Richness|6|2|61|50|40.6666666666667|22.4558826739602|Nonindigenous Aquatic Species Database, Palm Beach County Artificial and Natural Reef Monitoring Program|379, 3024
+12|Kristin Jacobs Coral Aquatic Preserve|2002|12|Species Richness|5|26|61|53|48.4|13.4833230325465|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Kristin Jacobs Coral Aquatic Preserve|2003|1|Species Richness|1|45|45|45|45||Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Kristin Jacobs Coral Aquatic Preserve|2003|2|Species Richness|9|12|72|43|38.8888888888889|20.1769946005621|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Kristin Jacobs Coral Aquatic Preserve|2003|3|Species Richness|5|15|77|45|47|25.0699022734434|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
@@ -324,12 +227,12 @@ AreaID|ManagedAreaName|Year|Month|ParameterName|N_Data|Min|Max|Median|Mean|Stand
 12|Kristin Jacobs Coral Aquatic Preserve|2003|5|Species Richness|8|24|73|41.5|43.625|15.9905105788223|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Kristin Jacobs Coral Aquatic Preserve|2003|6|Species Richness|10|21|64|42|41.8|17.3576752155607|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Kristin Jacobs Coral Aquatic Preserve|2003|7|Species Richness|8|30|79|39|46|19.1833260932509|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
-12|Kristin Jacobs Coral Aquatic Preserve|2003|8|Species Richness|6|2|50|30|28|17.3666346768739|Nonindigenous Aquatic Species Database, Palm Beach County Artificial and Natural Reef Monitoring Program|379, 3024
-12|Kristin Jacobs Coral Aquatic Preserve|2003|9|Species Richness|6|2|65|35|36.1666666666667|25.6859235120458|Nonindigenous Aquatic Species Database, Palm Beach County Artificial and Natural Reef Monitoring Program|379, 3024
-12|Kristin Jacobs Coral Aquatic Preserve|2003|10|Species Richness|6|2|48|29|25.3333333333333|19.7855165883195|Nonindigenous Aquatic Species Database, Palm Beach County Artificial and Natural Reef Monitoring Program|379, 3024
+12|Kristin Jacobs Coral Aquatic Preserve|2003|8|Species Richness|5|15|50|31|33.2|13.1984847615171|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
+12|Kristin Jacobs Coral Aquatic Preserve|2003|9|Species Richness|5|15|65|38|43|21.783020910792|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
+12|Kristin Jacobs Coral Aquatic Preserve|2003|10|Species Richness|4|24|48|38|37|10.3923048454133|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Kristin Jacobs Coral Aquatic Preserve|2003|11|Species Richness|2|19|60|39.5|39.5|28.9913780286485|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Kristin Jacobs Coral Aquatic Preserve|2003|12|Species Richness|1|71|71|71|71||Palm Beach County Artificial and Natural Reef Monitoring Program|3024
-12|Kristin Jacobs Coral Aquatic Preserve|2004|2|Species Richness|11|2|73|33|29.8181818181818|18.7286848540851|Nonindigenous Aquatic Species Database, Palm Beach County Artificial and Natural Reef Monitoring Program|379, 3024
+12|Kristin Jacobs Coral Aquatic Preserve|2004|2|Species Richness|10|12|73|33.5|32.6|17.1800918378091|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Kristin Jacobs Coral Aquatic Preserve|2004|3|Species Richness|2|58|62|60|60|2.82842712474619|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Kristin Jacobs Coral Aquatic Preserve|2004|4|Species Richness|6|18|44|34.5|32|11.1175536877498|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Kristin Jacobs Coral Aquatic Preserve|2004|5|Species Richness|13|15|52|24|29.2307692307692|12.9044814318763|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
@@ -338,24 +241,21 @@ AreaID|ManagedAreaName|Year|Month|ParameterName|N_Data|Min|Max|Median|Mean|Stand
 12|Kristin Jacobs Coral Aquatic Preserve|2004|8|Species Richness|7|9|65|25|31.1428571428571|22.0410871739468|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Kristin Jacobs Coral Aquatic Preserve|2004|9|Species Richness|2|281|281|281|281|0|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|915
 12|Kristin Jacobs Coral Aquatic Preserve|2004|10|Species Richness|4|33|79|57.5|56.75|19.5341581168305|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
-12|Kristin Jacobs Coral Aquatic Preserve|2004|12|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
-12|Kristin Jacobs Coral Aquatic Preserve|2005|1|Species Richness|3|1|2|2|1.66666666666667|0.577350269189626|Nonindigenous Aquatic Species Database|379
 12|Kristin Jacobs Coral Aquatic Preserve|2005|2|Species Richness|2|65|72|68.5|68.5|4.94974746830583|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Kristin Jacobs Coral Aquatic Preserve|2005|3|Species Richness|1|48|48|48|48||Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Kristin Jacobs Coral Aquatic Preserve|2005|4|Species Richness|3|18|34|26|26|8|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Kristin Jacobs Coral Aquatic Preserve|2005|5|Species Richness|7|11|34|23|24.2857142857143|8.26063528053958|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Kristin Jacobs Coral Aquatic Preserve|2005|6|Species Richness|4|13|33|20|21.5|9.29157324317757|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
-12|Kristin Jacobs Coral Aquatic Preserve|2005|7|Species Richness|15|2|81|33|38.2|20.1643249329106|Nonindigenous Aquatic Species Database, Palm Beach County Artificial and Natural Reef Monitoring Program|379, 3024
+12|Kristin Jacobs Coral Aquatic Preserve|2005|7|Species Richness|14|18|81|33|40.7857142857143|18.1624234719276|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Kristin Jacobs Coral Aquatic Preserve|2005|8|Species Richness|7|19|56|29|33.7142857142857|12.1753067820936|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Kristin Jacobs Coral Aquatic Preserve|2005|9|Species Richness|5|18|44|39|35.4|10.899541274751|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Kristin Jacobs Coral Aquatic Preserve|2005|12|Species Richness|4|13|61|31|34|19.9666388424959|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
-12|Kristin Jacobs Coral Aquatic Preserve|2006|1|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
 12|Kristin Jacobs Coral Aquatic Preserve|2006|2|Species Richness|7|16|68|37|39.5714285714286|20.3867370517954|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Kristin Jacobs Coral Aquatic Preserve|2006|3|Species Richness|3|8|17|9|11.3333333333333|4.93288286231625|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Kristin Jacobs Coral Aquatic Preserve|2006|4|Species Richness|5|19|30|25|24.4|5.27257053058563|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Kristin Jacobs Coral Aquatic Preserve|2006|5|Species Richness|12|25|281|171.5|163.166666666667|123.467208258515|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Palm Beach County Artificial and Natural Reef Monitoring Program|915, 3024
 12|Kristin Jacobs Coral Aquatic Preserve|2006|6|Species Richness|16|26|78|38|41.8125|14.9363929157388|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
-12|Kristin Jacobs Coral Aquatic Preserve|2006|7|Species Richness|13|2|89|41|43.3846153846154|24.226495349577|Nonindigenous Aquatic Species Database, Palm Beach County Artificial and Natural Reef Monitoring Program|379, 3024
+12|Kristin Jacobs Coral Aquatic Preserve|2006|7|Species Richness|12|18|89|41.5|46.8333333333333|21.7164928247187|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Kristin Jacobs Coral Aquatic Preserve|2006|8|Species Richness|7|18|64|26|30.7142857142857|16.2554020324966|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Kristin Jacobs Coral Aquatic Preserve|2006|9|Species Richness|6|24|51|30.5|34.8333333333333|12.2215656389297|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Kristin Jacobs Coral Aquatic Preserve|2006|10|Species Richness|4|45|70|50|53.75|11.0867789130417|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
@@ -379,110 +279,81 @@ AreaID|ManagedAreaName|Year|Month|ParameterName|N_Data|Min|Max|Median|Mean|Stand
 12|Kristin Jacobs Coral Aquatic Preserve|2008|6|Species Richness|6|29|281|60|124.333333333333|122.012567658691|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Palm Beach County Artificial and Natural Reef Monitoring Program|915, 3024
 12|Kristin Jacobs Coral Aquatic Preserve|2008|7|Species Richness|5|51|76|58|59.8|9.70566844684074|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Kristin Jacobs Coral Aquatic Preserve|2008|8|Species Richness|6|38|66|42|46.3333333333333|10.4817301370846|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
-12|Kristin Jacobs Coral Aquatic Preserve|2008|9|Species Richness|3|2|64|55|40.3333333333333|33.501243758006|Nonindigenous Aquatic Species Database, Palm Beach County Artificial and Natural Reef Monitoring Program|379, 3024
+12|Kristin Jacobs Coral Aquatic Preserve|2008|9|Species Richness|2|55|64|59.5|59.5|6.36396103067893|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Kristin Jacobs Coral Aquatic Preserve|2008|10|Species Richness|2|39|44|41.5|41.5|3.53553390593274|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
-12|Kristin Jacobs Coral Aquatic Preserve|2009|1|Species Richness|5|2|50|2|17|21.8403296678416|Nonindigenous Aquatic Species Database, Palm Beach County Artificial and Natural Reef Monitoring Program|379, 3024
-12|Kristin Jacobs Coral Aquatic Preserve|2009|2|Species Richness|6|2|52|2|16.8333333333333|23.2414858962732|Nonindigenous Aquatic Species Database, Palm Beach County Artificial and Natural Reef Monitoring Program|379, 3024
-12|Kristin Jacobs Coral Aquatic Preserve|2009|3|Species Richness|6|2|58|2|18.8333333333333|26.3090605432172|Nonindigenous Aquatic Species Database, Palm Beach County Artificial and Natural Reef Monitoring Program|379, 3024
-12|Kristin Jacobs Coral Aquatic Preserve|2009|4|Species Richness|8|2|32|2|12.25|14.2402849088673|Nonindigenous Aquatic Species Database, Palm Beach County Artificial and Natural Reef Monitoring Program|379, 3024
-12|Kristin Jacobs Coral Aquatic Preserve|2009|5|Species Richness|25|2|281|281|194.6|129.278768558491|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Palm Beach County Artificial and Natural Reef Monitoring Program|379, 915, 3024
-12|Kristin Jacobs Coral Aquatic Preserve|2009|6|Species Richness|15|2|57|13|20.1333333333333|22.1903024722405|Nonindigenous Aquatic Species Database, Palm Beach County Artificial and Natural Reef Monitoring Program|379, 3024
-12|Kristin Jacobs Coral Aquatic Preserve|2009|7|Species Richness|12|2|40|13.5|17.0833333333333|16.2841715301775|Nonindigenous Aquatic Species Database, Palm Beach County Artificial and Natural Reef Monitoring Program|379, 3024
-12|Kristin Jacobs Coral Aquatic Preserve|2009|8|Species Richness|15|2|49|2|13.9333333333333|18.6603730887012|Nonindigenous Aquatic Species Database, Palm Beach County Artificial and Natural Reef Monitoring Program|379, 3024
-12|Kristin Jacobs Coral Aquatic Preserve|2009|9|Species Richness|14|2|61|21|19.7857142857143|17.8548789773749|Nonindigenous Aquatic Species Database, Palm Beach County Artificial and Natural Reef Monitoring Program|379, 3024
-12|Kristin Jacobs Coral Aquatic Preserve|2009|10|Species Richness|11|2|43|2|9.36363636363636|16.3845825535637|Nonindigenous Aquatic Species Database, Palm Beach County Artificial and Natural Reef Monitoring Program|379, 3024
-12|Kristin Jacobs Coral Aquatic Preserve|2009|11|Species Richness|8|1|2|2|1.875|0.353553390593274|Nonindigenous Aquatic Species Database|379
-12|Kristin Jacobs Coral Aquatic Preserve|2009|12|Species Richness|7|2|2|2|2|0|Nonindigenous Aquatic Species Database|379
-12|Kristin Jacobs Coral Aquatic Preserve|2010|1|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
-12|Kristin Jacobs Coral Aquatic Preserve|2010|2|Species Richness|9|2|58|2|20.5555555555556|23.0711460005301|Nonindigenous Aquatic Species Database, Palm Beach County Artificial and Natural Reef Monitoring Program|379, 3024
-12|Kristin Jacobs Coral Aquatic Preserve|2010|3|Species Richness|5|2|43|2|14.8|18.6467155284785|Nonindigenous Aquatic Species Database, Palm Beach County Artificial and Natural Reef Monitoring Program|379, 3024
-12|Kristin Jacobs Coral Aquatic Preserve|2010|4|Species Richness|5|2|29|2|12.6|14.5189531303052|Nonindigenous Aquatic Species Database, Palm Beach County Artificial and Natural Reef Monitoring Program|379, 3024
-12|Kristin Jacobs Coral Aquatic Preserve|2010|5|Species Richness|24|2|46|2|8.375|13.5030189861057|Nonindigenous Aquatic Species Database, Palm Beach County Artificial and Natural Reef Monitoring Program|379, 3024
-12|Kristin Jacobs Coral Aquatic Preserve|2010|6|Species Richness|17|2|62|2|12|22.3606797749979|Nonindigenous Aquatic Species Database, Palm Beach County Artificial and Natural Reef Monitoring Program|379, 3024
-12|Kristin Jacobs Coral Aquatic Preserve|2010|7|Species Richness|51|2|56|2|5.90196078431373|13.5591369960787|Nonindigenous Aquatic Species Database, Palm Beach County Artificial and Natural Reef Monitoring Program|379, 3024
-12|Kristin Jacobs Coral Aquatic Preserve|2010|8|Species Richness|50|2|60|2|8.38|14.9991700450664|Nonindigenous Aquatic Species Database, Palm Beach County Artificial and Natural Reef Monitoring Program|379, 3024
-12|Kristin Jacobs Coral Aquatic Preserve|2010|9|Species Richness|11|2|28|2|6.72727272727273|10.5175178544266|Nonindigenous Aquatic Species Database, Palm Beach County Artificial and Natural Reef Monitoring Program|379, 3024
-12|Kristin Jacobs Coral Aquatic Preserve|2010|10|Species Richness|15|2|281|281|173.4|136.722241894183|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Palm Beach County Artificial and Natural Reef Monitoring Program|379, 915, 3024
-12|Kristin Jacobs Coral Aquatic Preserve|2010|11|Species Richness|6|2|2|2|2|0|Nonindigenous Aquatic Species Database|379
-12|Kristin Jacobs Coral Aquatic Preserve|2010|12|Species Richness|2|2|2|2|2|0|Nonindigenous Aquatic Species Database|379
-12|Kristin Jacobs Coral Aquatic Preserve|2011|1|Species Richness|7|2|67|2|22.2857142857143|30.5762123538015|Nonindigenous Aquatic Species Database, Palm Beach County Artificial and Natural Reef Monitoring Program|379, 3024
-12|Kristin Jacobs Coral Aquatic Preserve|2011|2|Species Richness|5|2|40|2|16.6|20.0199900099875|Nonindigenous Aquatic Species Database, Palm Beach County Artificial and Natural Reef Monitoring Program|379, 3024
-12|Kristin Jacobs Coral Aquatic Preserve|2011|3|Species Richness|4|2|29|2|8.75|13.5|Nonindigenous Aquatic Species Database, Palm Beach County Artificial and Natural Reef Monitoring Program|379, 3024
-12|Kristin Jacobs Coral Aquatic Preserve|2011|4|Species Richness|12|2|53|2|9.58333333333333|17.8654482850065|Nonindigenous Aquatic Species Database, Palm Beach County Artificial and Natural Reef Monitoring Program|379, 3024
-12|Kristin Jacobs Coral Aquatic Preserve|2011|5|Species Richness|14|2|281|2|21.9285714285714|74.5658864935664|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|379, 915
-12|Kristin Jacobs Coral Aquatic Preserve|2011|6|Species Richness|14|2|24|2|3.57142857142857|5.87974732207334|Nonindigenous Aquatic Species Database, Palm Beach County Artificial and Natural Reef Monitoring Program|379, 3024
-12|Kristin Jacobs Coral Aquatic Preserve|2011|7|Species Richness|14|2|34|2|10.2142857142857|12.5402648201002|Nonindigenous Aquatic Species Database, Palm Beach County Artificial and Natural Reef Monitoring Program|379, 3024
-12|Kristin Jacobs Coral Aquatic Preserve|2011|8|Species Richness|4|2|2|2|2|0|Nonindigenous Aquatic Species Database|379
-12|Kristin Jacobs Coral Aquatic Preserve|2011|9|Species Richness|7|2|36|7|13.1428571428571|13.6189643687099|Nonindigenous Aquatic Species Database, Palm Beach County Artificial and Natural Reef Monitoring Program|379, 3024
-12|Kristin Jacobs Coral Aquatic Preserve|2011|10|Species Richness|5|2|36|2|13.6|16.2726764854464|Nonindigenous Aquatic Species Database, Palm Beach County Artificial and Natural Reef Monitoring Program|379, 3024
-12|Kristin Jacobs Coral Aquatic Preserve|2011|11|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
-12|Kristin Jacobs Coral Aquatic Preserve|2012|2|Species Richness|2|2|2|2|2|0|Nonindigenous Aquatic Species Database|379
+12|Kristin Jacobs Coral Aquatic Preserve|2009|1|Species Richness|2|29|50|39.5|39.5|14.8492424049175|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
+12|Kristin Jacobs Coral Aquatic Preserve|2009|2|Species Richness|2|41|52|46.5|46.5|7.77817459305202|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
+12|Kristin Jacobs Coral Aquatic Preserve|2009|3|Species Richness|2|47|58|52.5|52.5|7.77817459305202|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
+12|Kristin Jacobs Coral Aquatic Preserve|2009|4|Species Richness|3|26|32|30|29.3333333333333|3.05505046330389|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
+12|Kristin Jacobs Coral Aquatic Preserve|2009|5|Species Richness|18|74|281|281|269.5|48.7903679018718|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Palm Beach County Artificial and Natural Reef Monitoring Program|915, 3024
+12|Kristin Jacobs Coral Aquatic Preserve|2009|6|Species Richness|8|13|57|37.5|36|19.1907715917238|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
+12|Kristin Jacobs Coral Aquatic Preserve|2009|7|Species Richness|6|25|40|31.5|32.1666666666667|6.11282804164052|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
+12|Kristin Jacobs Coral Aquatic Preserve|2009|8|Species Richness|5|18|49|38|37.8|12.2759928315391|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
+12|Kristin Jacobs Coral Aquatic Preserve|2009|9|Species Richness|9|14|61|24|29.6666666666667|14.5086181285469|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
+12|Kristin Jacobs Coral Aquatic Preserve|2009|10|Species Richness|2|42|43|42.5|42.5|0.707106781186548|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
+12|Kristin Jacobs Coral Aquatic Preserve|2010|2|Species Richness|4|31|58|43|43.75|11.3247516529061|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
+12|Kristin Jacobs Coral Aquatic Preserve|2010|3|Species Richness|2|25|43|34|34|12.7279220613579|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
+12|Kristin Jacobs Coral Aquatic Preserve|2010|4|Species Richness|2|28|29|28.5|28.5|0.707106781186548|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
+12|Kristin Jacobs Coral Aquatic Preserve|2010|5|Species Richness|5|20|46|34|32.6|11.0363037290571|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
+12|Kristin Jacobs Coral Aquatic Preserve|2010|6|Species Richness|3|52|62|62|58.6666666666667|5.77350269189626|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
+12|Kristin Jacobs Coral Aquatic Preserve|2010|7|Species Richness|4|45|56|53|51.75|4.78713553878169|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
+12|Kristin Jacobs Coral Aquatic Preserve|2010|8|Species Richness|9|8|60|40|37.4444444444444|14.7995870813269|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
+12|Kristin Jacobs Coral Aquatic Preserve|2010|9|Species Richness|2|28|28|28|28|0|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
+12|Kristin Jacobs Coral Aquatic Preserve|2010|10|Species Richness|11|31|281|281|235.727272727273|100.726452244771|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Palm Beach County Artificial and Natural Reef Monitoring Program|915, 3024
+12|Kristin Jacobs Coral Aquatic Preserve|2011|1|Species Richness|3|15|67|66|49.3333333333333|29.7377425729213|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
+12|Kristin Jacobs Coral Aquatic Preserve|2011|2|Species Richness|2|37|40|38.5|38.5|2.12132034355964|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
+12|Kristin Jacobs Coral Aquatic Preserve|2011|3|Species Richness|1|29|29|29|29||Palm Beach County Artificial and Natural Reef Monitoring Program|3024
+12|Kristin Jacobs Coral Aquatic Preserve|2011|4|Species Richness|2|42|53|47.5|47.5|7.77817459305202|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
+12|Kristin Jacobs Coral Aquatic Preserve|2011|5|Species Richness|1|281|281|281|281||NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|915
+12|Kristin Jacobs Coral Aquatic Preserve|2011|6|Species Richness|1|24|24|24|24||Palm Beach County Artificial and Natural Reef Monitoring Program|3024
+12|Kristin Jacobs Coral Aquatic Preserve|2011|7|Species Richness|5|10|34|28|25|9.2736184954957|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
+12|Kristin Jacobs Coral Aquatic Preserve|2011|9|Species Richness|4|7|36|21.5|21.5|12.396235987858|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
+12|Kristin Jacobs Coral Aquatic Preserve|2011|10|Species Richness|2|26|36|31|31|7.07106781186548|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Kristin Jacobs Coral Aquatic Preserve|2012|3|Species Richness|5|13|32|29|25.2|7.79102047231298|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Kristin Jacobs Coral Aquatic Preserve|2012|4|Species Richness|6|21|51|35.5|36|9.63327566303384|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
-12|Kristin Jacobs Coral Aquatic Preserve|2012|5|Species Richness|10|2|28|10|12.8|11.6599980941489|Nonindigenous Aquatic Species Database, Palm Beach County Artificial and Natural Reef Monitoring Program|379, 3024
+12|Kristin Jacobs Coral Aquatic Preserve|2012|5|Species Richness|5|18|28|23|23.6|3.78153408023781|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Kristin Jacobs Coral Aquatic Preserve|2012|6|Species Richness|5|16|67|60|53.4|21.1730961363708|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
-12|Kristin Jacobs Coral Aquatic Preserve|2012|7|Species Richness|11|2|50|2|14.0909090909091|18.2452982735528|Nonindigenous Aquatic Species Database, Palm Beach County Artificial and Natural Reef Monitoring Program|379, 3024
-12|Kristin Jacobs Coral Aquatic Preserve|2012|8|Species Richness|10|2|46|2|16.1|18.7109593554152|Nonindigenous Aquatic Species Database, Palm Beach County Artificial and Natural Reef Monitoring Program|379, 3024
-12|Kristin Jacobs Coral Aquatic Preserve|2012|9|Species Richness|15|2|284|20|102.066666666667|133.54638930064|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Palm Beach County Artificial and Natural Reef Monitoring Program|379, 915, 3024
-12|Kristin Jacobs Coral Aquatic Preserve|2012|10|Species Richness|8|2|52|29.5|24.875|20.6012308924907|Nonindigenous Aquatic Species Database, Palm Beach County Artificial and Natural Reef Monitoring Program|379, 3024
-12|Kristin Jacobs Coral Aquatic Preserve|2012|11|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
-12|Kristin Jacobs Coral Aquatic Preserve|2012|12|Species Richness|4|2|52|18.5|22.75|24.9449393665328|Nonindigenous Aquatic Species Database, Palm Beach County Artificial and Natural Reef Monitoring Program|379, 3024
-12|Kristin Jacobs Coral Aquatic Preserve|2013|1|Species Richness|2|1|2|1.5|1.5|0.707106781186548|Nonindigenous Aquatic Species Database|379
+12|Kristin Jacobs Coral Aquatic Preserve|2012|7|Species Richness|4|19|50|36|35.25|13.0989821487524|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
+12|Kristin Jacobs Coral Aquatic Preserve|2012|8|Species Richness|4|31|46|36|37.25|7.5|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
+12|Kristin Jacobs Coral Aquatic Preserve|2012|9|Species Richness|9|16|284|284|168.777777777778|136.725800215045|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Palm Beach County Artificial and Natural Reef Monitoring Program|915, 3024
+12|Kristin Jacobs Coral Aquatic Preserve|2012|10|Species Richness|5|23|52|38|38.6|10.7144761887831|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
+12|Kristin Jacobs Coral Aquatic Preserve|2012|12|Species Richness|2|35|52|43.5|43.5|12.0208152801713|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Kristin Jacobs Coral Aquatic Preserve|2013|2|Species Richness|1|36|36|36|36||Palm Beach County Artificial and Natural Reef Monitoring Program|3024
-12|Kristin Jacobs Coral Aquatic Preserve|2013|3|Species Richness|5|1|22|2|5.8|9.06642156531451|Nonindigenous Aquatic Species Database, Palm Beach County Artificial and Natural Reef Monitoring Program|379, 3024
-12|Kristin Jacobs Coral Aquatic Preserve|2013|4|Species Richness|7|2|46|2|15|18.2665450117603|Nonindigenous Aquatic Species Database, Palm Beach County Artificial and Natural Reef Monitoring Program|379, 3024
-12|Kristin Jacobs Coral Aquatic Preserve|2013|5|Species Richness|14|2|294|294|195.928571428571|137.188508313149|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Palm Beach County Artificial and Natural Reef Monitoring Program|379, 915, 3024
-12|Kristin Jacobs Coral Aquatic Preserve|2013|6|Species Richness|84|2|294|294|271.130952380952|76.5605170133216|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Palm Beach County Artificial and Natural Reef Monitoring Program|379, 915, 3024
-12|Kristin Jacobs Coral Aquatic Preserve|2013|7|Species Richness|166|2|294|294|287.66265060241|40.5596536678878|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Palm Beach County Artificial and Natural Reef Monitoring Program|379, 915, 3024
-12|Kristin Jacobs Coral Aquatic Preserve|2013|8|Species Richness|279|1|294|294|289.810035842294|34.8038145959658|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|379, 915
-12|Kristin Jacobs Coral Aquatic Preserve|2013|9|Species Richness|245|1|294|294|288.534693877551|38.0853740644793|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Palm Beach County Artificial and Natural Reef Monitoring Program|379, 915, 3024
-12|Kristin Jacobs Coral Aquatic Preserve|2013|10|Species Richness|186|1|294|294|284.849462365591|50.3024251173078|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Palm Beach County Artificial and Natural Reef Monitoring Program|379, 915, 3024
-12|Kristin Jacobs Coral Aquatic Preserve|2013|11|Species Richness|2|2|47|24.5|24.5|31.8198051533946|Nonindigenous Aquatic Species Database, Palm Beach County Artificial and Natural Reef Monitoring Program|379, 3024
+12|Kristin Jacobs Coral Aquatic Preserve|2013|3|Species Richness|1|22|22|22|22||Palm Beach County Artificial and Natural Reef Monitoring Program|3024
+12|Kristin Jacobs Coral Aquatic Preserve|2013|4|Species Richness|3|17|46|34|32.3333333333333|14.5716619962629|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
+12|Kristin Jacobs Coral Aquatic Preserve|2013|5|Species Richness|11|42|294|294|248.818181818182|100.535384996347|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Palm Beach County Artificial and Natural Reef Monitoring Program|915, 3024
+12|Kristin Jacobs Coral Aquatic Preserve|2013|6|Species Richness|81|10|294|294|281.098765432099|57.1361542585497|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Palm Beach County Artificial and Natural Reef Monitoring Program|915, 3024
+12|Kristin Jacobs Coral Aquatic Preserve|2013|7|Species Richness|165|33|294|294|289.393939393939|33.9782385469347|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Palm Beach County Artificial and Natural Reef Monitoring Program|915, 3024
+12|Kristin Jacobs Coral Aquatic Preserve|2013|8|Species Richness|275|294|294|294|294|0|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|915
+12|Kristin Jacobs Coral Aquatic Preserve|2013|9|Species Richness|243|24|294|294|290.897119341564|27.8563632791251|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Palm Beach County Artificial and Natural Reef Monitoring Program|915, 3024
+12|Kristin Jacobs Coral Aquatic Preserve|2013|10|Species Richness|182|27|294|294|291.071428571429|27.8595601323063|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Palm Beach County Artificial and Natural Reef Monitoring Program|915, 3024
+12|Kristin Jacobs Coral Aquatic Preserve|2013|11|Species Richness|1|47|47|47|47||Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Kristin Jacobs Coral Aquatic Preserve|2013|12|Species Richness|2|33|33|33|33|0|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Kristin Jacobs Coral Aquatic Preserve|2014|1|Species Richness|1|22|22|22|22||Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Kristin Jacobs Coral Aquatic Preserve|2014|2|Species Richness|3|24|30|29|27.6666666666667|3.21455025366432|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Kristin Jacobs Coral Aquatic Preserve|2014|3|Species Richness|1|39|39|39|39||Palm Beach County Artificial and Natural Reef Monitoring Program|3024
-12|Kristin Jacobs Coral Aquatic Preserve|2014|5|Species Richness|21|2|302|302|262.333333333333|99.7533625164252|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Palm Beach County Artificial and Natural Reef Monitoring Program|379, 915, 3024
-12|Kristin Jacobs Coral Aquatic Preserve|2014|6|Species Richness|131|2|302|302|297.664122137405|35.0122199957547|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Palm Beach County Artificial and Natural Reef Monitoring Program|379, 915, 3024
-12|Kristin Jacobs Coral Aquatic Preserve|2014|7|Species Richness|81|2|302|302|277.604938271605|79.9663490182504|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Palm Beach County Artificial and Natural Reef Monitoring Program|379, 915, 3024
-12|Kristin Jacobs Coral Aquatic Preserve|2014|8|Species Richness|190|2|302|302|293.226315789474|48.7904095670436|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Palm Beach County Artificial and Natural Reef Monitoring Program|379, 915, 3024
-12|Kristin Jacobs Coral Aquatic Preserve|2014|9|Species Richness|80|2|302|302|288.2625|60.3751444687319|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Palm Beach County Artificial and Natural Reef Monitoring Program|379, 915, 3024
-12|Kristin Jacobs Coral Aquatic Preserve|2014|10|Species Richness|104|2|302|302|272.269230769231|69.8219970859646|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Palm Beach County Artificial and Natural Reef Monitoring Program|379, 915, 3024
-12|Kristin Jacobs Coral Aquatic Preserve|2014|12|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
-12|Kristin Jacobs Coral Aquatic Preserve|2015|1|Species Richness|4|2|40|20.5|20.75|21.6544837543329|Nonindigenous Aquatic Species Database, Palm Beach County Artificial and Natural Reef Monitoring Program|379, 3024
+12|Kristin Jacobs Coral Aquatic Preserve|2014|5|Species Richness|20|33|302|302|275.35|82.0309793855186|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Palm Beach County Artificial and Natural Reef Monitoring Program|915, 3024
+12|Kristin Jacobs Coral Aquatic Preserve|2014|6|Species Richness|131|34|302|302|299.954198473282|23.4152687185158|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Palm Beach County Artificial and Natural Reef Monitoring Program|915, 3024
+12|Kristin Jacobs Coral Aquatic Preserve|2014|7|Species Richness|78|24|302|302|288.205128205128|59.7539020025371|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Palm Beach County Artificial and Natural Reef Monitoring Program|915, 3024
+12|Kristin Jacobs Coral Aquatic Preserve|2014|8|Species Richness|189|11|302|302|294.767195767196|44.041430966336|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Palm Beach County Artificial and Natural Reef Monitoring Program|915, 3024
+12|Kristin Jacobs Coral Aquatic Preserve|2014|9|Species Richness|79|24|302|302|291.886075949367|51.2640193062352|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Palm Beach County Artificial and Natural Reef Monitoring Program|915, 3024
+12|Kristin Jacobs Coral Aquatic Preserve|2014|10|Species Richness|100|42|302|302|283.08|44.7515430578724|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Palm Beach County Artificial and Natural Reef Monitoring Program|915, 3024
+12|Kristin Jacobs Coral Aquatic Preserve|2015|1|Species Richness|2|39|40|39.5|39.5|0.707106781186548|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Kristin Jacobs Coral Aquatic Preserve|2015|2|Species Richness|4|27|42|34|34.25|6.9462219947249|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Kristin Jacobs Coral Aquatic Preserve|2015|3|Species Richness|2|19|32|25.5|25.5|9.19238815542512|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Kristin Jacobs Coral Aquatic Preserve|2015|4|Species Richness|1|37|37|37|37||Palm Beach County Artificial and Natural Reef Monitoring Program|3024
-12|Kristin Jacobs Coral Aquatic Preserve|2015|5|Species Richness|6|2|50|16|20|18.8891503249882|Nonindigenous Aquatic Species Database, Palm Beach County Artificial and Natural Reef Monitoring Program|379, 3024
+12|Kristin Jacobs Coral Aquatic Preserve|2015|5|Species Richness|4|14|50|26|29|16.4519502390041|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Kristin Jacobs Coral Aquatic Preserve|2015|6|Species Richness|26|34|302|302|261.115384615385|97.783567913255|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Palm Beach County Artificial and Natural Reef Monitoring Program|915, 3024
-12|Kristin Jacobs Coral Aquatic Preserve|2015|7|Species Richness|58|1|302|302|272.155172413793|88.7201003203161|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Palm Beach County Artificial and Natural Reef Monitoring Program|379, 915, 3024
+12|Kristin Jacobs Coral Aquatic Preserve|2015|7|Species Richness|55|21|302|302|286.909090909091|63.4204876136903|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Palm Beach County Artificial and Natural Reef Monitoring Program|915, 3024
 12|Kristin Jacobs Coral Aquatic Preserve|2015|8|Species Richness|136|30|302|302|294.058823529412|45.7886877030629|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Palm Beach County Artificial and Natural Reef Monitoring Program|915, 3024
 12|Kristin Jacobs Coral Aquatic Preserve|2015|9|Species Richness|110|302|302|302|302|0|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|915
-12|Kristin Jacobs Coral Aquatic Preserve|2015|10|Species Richness|63|1|302|302|270.666666666667|89.5070730670613|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Palm Beach County Artificial and Natural Reef Monitoring Program|379, 915, 3024
+12|Kristin Jacobs Coral Aquatic Preserve|2015|10|Species Richness|60|24|302|302|284.116666666667|67.4946555741523|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Palm Beach County Artificial and Natural Reef Monitoring Program|915, 3024
 12|Kristin Jacobs Coral Aquatic Preserve|2015|11|Species Richness|2|27|30|28.5|28.5|2.12132034355964|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
-12|Kristin Jacobs Coral Aquatic Preserve|2015|12|Species Richness|2|1|2|1.5|1.5|0.707106781186548|Nonindigenous Aquatic Species Database|379
 12|Kristin Jacobs Coral Aquatic Preserve|2016|5|Species Richness|66|202|202|202|202|0|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|915
-12|Kristin Jacobs Coral Aquatic Preserve|2016|6|Species Richness|107|1|202|202|196.383177570093|33.2266785455044|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|379, 915
+12|Kristin Jacobs Coral Aquatic Preserve|2016|6|Species Richness|104|202|202|202|202|0|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|915
 12|Kristin Jacobs Coral Aquatic Preserve|2016|7|Species Richness|58|202|202|202|202|0|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|915
-12|Kristin Jacobs Coral Aquatic Preserve|2016|8|Species Richness|99|2|202|202|197.959595959596|28.2813557940452|Nonindigenous Aquatic Species Database, NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|379, 915
+12|Kristin Jacobs Coral Aquatic Preserve|2016|8|Species Richness|97|202|202|202|202|0|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|915
 12|Kristin Jacobs Coral Aquatic Preserve|2016|9|Species Richness|122|202|202|202|202|0|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|915
 12|Kristin Jacobs Coral Aquatic Preserve|2016|10|Species Richness|44|202|204|202|202.090909090909|0.421414109882971|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|915
 12|Kristin Jacobs Coral Aquatic Preserve|2016|11|Species Richness|41|202|204|202|202.243902439024|0.662589156449079|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|915
 12|Kristin Jacobs Coral Aquatic Preserve|2017|1|Species Richness|3|26|37|29|30.6666666666667|5.68624070307733|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
-12|Kristin Jacobs Coral Aquatic Preserve|2017|3|Species Richness|3|1|2|2|1.66666666666667|0.577350269189626|Nonindigenous Aquatic Species Database|379
-12|Kristin Jacobs Coral Aquatic Preserve|2017|5|Species Richness|3|1|2|2|1.66666666666667|0.577350269189626|Nonindigenous Aquatic Species Database|379
-12|Kristin Jacobs Coral Aquatic Preserve|2017|7|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
-12|Kristin Jacobs Coral Aquatic Preserve|2017|11|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
-12|Kristin Jacobs Coral Aquatic Preserve|2018|2|Species Richness|2|1|2|1.5|1.5|0.707106781186548|Nonindigenous Aquatic Species Database|379
-12|Kristin Jacobs Coral Aquatic Preserve|2020|8|Species Richness|1|1|1|1|1||Nonindigenous Aquatic Species Database|379
-26|Lignumvitae Key Aquatic Preserve|2010|7|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
-26|Lignumvitae Key Aquatic Preserve|2010|10|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
-26|Lignumvitae Key Aquatic Preserve|2013|2|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
-27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|2010|5|Species Richness|1|1|1|1|1||Nonindigenous Aquatic Species Database|379
-27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|2010|6|Species Richness|1|1|1|1|1||Nonindigenous Aquatic Species Database|379
-27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|2010|7|Species Richness|3|2|2|2|2|0|Nonindigenous Aquatic Species Database|379
-27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|2010|9|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
-27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|2011|4|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
-27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|2012|6|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
-27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|2012|8|Species Richness|1|2|2|2|2||Nonindigenous Aquatic Species Database|379
-27|Loxahatchee River-Lake Worth Creek Aquatic Preserve|2017|7|Species Richness|2|1|2|1.5|1.5|0.707106781186548|Nonindigenous Aquatic Species Database|379
