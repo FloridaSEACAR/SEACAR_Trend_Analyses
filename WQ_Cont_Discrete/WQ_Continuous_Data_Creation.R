@@ -52,12 +52,13 @@ all_params_short <- c(
 MA_All <- SEACAR::ManagedAreas
 
 # Creates folders for outputs
-folder_paths <- c("output/tables","output/tables/cont", "output/models/")
+folder_paths <- c("output/tables","output/tables/cont", "output/models/cont")
 for(path in folder_paths) {if(!dir.exists(path)){dir.create(path)}}
 
 cont_files_short <- data.frame()
 cont_stations <- data.frame()
 coordinates_df <- data.frame()
+raw_cont_models <- list() # store raw model outputs for model aggregation
 
 # Use the below line for most recent exports
 file_list <- list.files(seacar_data_location, full.names = T)
@@ -141,6 +142,16 @@ for(file in cont_file_list){
   ############################
   ### FILTERING & CLEANING ###
   ############################
+  
+  
+  
+  ##### TEMPORARY FIX
+  # Awaiting implementation of SpCond thresholds for Continunous
+  if(p=="Specific Conductivity"){
+    data <- data[ResultValue < 200 & ResultValue > 0, ]
+  }
+  ##############
+  
   
   # Separate reference file to prevent having to de-concatenate ManagedAreaName on entire continuous dataset
   # This is a crosswalk of individual MonitoringID and ProgramLocationID associations by ManagedAreaName
@@ -367,7 +378,6 @@ for(file in cont_file_list){
                                         year=data_SKT$YearFromStart,
                                         independent.obs=SKT.ind)
         
-        # saveRDS(SKT, file=paste0("output/models/",param_abrev,"_",station_name,".rds"))
         
         if(is.na(SKT$estimate[1])){
           SKT.ind <- FALSE
@@ -377,7 +387,8 @@ for(file in cont_file_list){
                                           independent.obs=SKT.ind)
         }
         # Save SKT output
-        saveRDS(SKT, file=paste0("output/models/",param_abrev,"_",station_name,".rds"))
+        raw_cont_models[[param_abrev]][[station_name]] <- SKT
+        
         # Create dataframe of results
         skt_stats <- data.table(
           "MonitoringID" = mon_id, 
@@ -434,7 +445,7 @@ for(file in cont_file_list){
   # append stations to list
   cont_stations <- bind_rows(cont_stations, stations)
   # Remove existing data objects
-  rm(Mon_Y_Stats, coordinates, n, Mon_IDs, stations, data)
+  rm(coordinates, n, Mon_IDs, stations, data)
 }
 
 # Save Coordinates data frame
@@ -445,6 +456,9 @@ fwrite(cont_files_short, "output/tables/cont/cont_file_list.txt", sep='|')
 
 # all stations write to file
 fwrite(cont_stations, "output/tables/cont/cont_station_list.txt", sep='|')
+
+# Save model results
+saveRDS(raw_cont_models, "output/models/All_Continuous_Models.rds")
 
 toc()
 End_time <- Sys.time()

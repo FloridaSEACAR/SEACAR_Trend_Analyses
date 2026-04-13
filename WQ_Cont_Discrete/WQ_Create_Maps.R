@@ -1,3 +1,4 @@
+library(data.table)
 library(htmlwidgets)
 library(htmltools)
 library(glue)
@@ -7,9 +8,21 @@ library(leaflet.providers)
 library(rstudioapi)
 library(tictoc)
 library(mapview)
+library(stringr)
+library(dplyr)
+
+library(sf)
+# Load in necessary shapefiles: MA boundaries, point and line/transect data
+locs_pts <- SEACAR::GeoData$pointLocations
+locs_lns <- SEACAR::GeoData$lineLocations
+rcp <- SEACAR::GeoData$`RCP Boundaries`
+
+locs_pts_rcp <- locs_pts[rcp, , op = st_intersects]
+locs_lns_rcp <- locs_lns[rcp, , op = st_intersects]
+
+websiteParams <- SEACAR::WebsiteParameters
 
 MA_All <- SEACAR::ManagedAreas
-rcp <- SEACAR::GeoData$`RCP Boundaries`
 
 wd <- dirname(getActiveDocumentContext()$path)
 setwd(wd)
@@ -115,7 +128,7 @@ plot_discrete_maps <- function(parameter, ma, discrete_df, ma_abrev, ma_shape, s
 ## Continuous mapping function
 plot_continuous_maps <- function(param_short, ma, cont_coordinates, ma_abrev, ma_shape){
   # Get list of stations for a given MA/param and their info
-  ma_stations <- cont_coordinates[Parameter==param_short & ManagedAreaName==ma, ]
+  ma_stations <- cont_coordinates[ParameterShort==param_short & ManagedAreaName==ma, ]
   # Create radius from N_data column
   ma_stations$rad <- sqrt(ma_stations$n_data)/20
   # Create color column using palette function
@@ -205,11 +218,6 @@ ma_data <- data_output_disc %>%
 discrete_df <- merge(ma_data, coord_df)
 discrete_df <- discrete_df[order(discrete_df$n_data, decreasing=TRUE), ]
 
-##### TEMPORARY #####
-# Continuous site loaded into discrete data causes large bubbles on maps
-discrete_df <- discrete_df[!discrete_df$ProgramLoc=="11NPSWRD_WQX-TIMU_BRD_CPK", ]
-#####################
-
 # Make ProgramNames shorter for map display
 replacements <- c(
   "Aquatic Preserves" = "AP",
@@ -260,7 +268,7 @@ names(manual_colors) <- freq_programs
 ## Discrete map generation; ----------
 # Loop through available MAs
 tic()
-for(ma in unique(MA_All$ManagedAreaName)){
+for(ma in unique(MA_All$ManagedAreaName)[30:44]){
   # Abbreviated MA name for filenames
   ma_abrev <- MA_All[ManagedAreaName==ma, Abbreviation]
   # if(!ma_abrev %in% c("SAAP", "KJCAP")) next
@@ -300,14 +308,10 @@ for(ma in unique(MA_All$ManagedAreaName)){
 toc()
 
 ## Continuous ----------------------------------------
-cont_coordinates <- data.table()
-for(param in cont_params_short){
-  for(region in c("NE","NW","SE","SW")){
-    df <- readRDS(str_subset(cont_files, paste0(param, "_", region, "_Station_Coordinates")))
-    cont_coordinates <- bind_rows(cont_coordinates, df)
-  }
-}
-rm(df, region)
+cont_coordinates <- readRDS(str_subset(cont_files, "Continuous_coordinates")) %>% 
+  SEACAR::clean_managed_areas(type = "ma") %>%
+  left_join(websiteParams[, c("ParameterName", "ParameterShort")] %>% distinct())
+
 # add 1 to years_of_data (result of subtracting years)
 cont_coordinates$years_of_data <- cont_coordinates$years_of_data + 1
 # Rename programs: shorten program names, combine APCWQ and NERR SWMP into Entity
@@ -357,7 +361,7 @@ for(ma in unique(cont_coordinates$ManagedAreaName)){
   ma_abrev <- MA_All[ManagedAreaName==ma, Abbreviation]
   # find ma_shape and ma_coordinates for plotting
   ma_shape <- SEACAR::find_shape(rcp, ma)
-  for(param_short in cont_coordinates[ManagedAreaName==ma, unique(Parameter)]){
+  for(param_short in cont_coordinates[ManagedAreaName==ma, unique(ParameterShort)]){
     plot_continuous_maps(param_short = param_short, 
                          ma = ma, 
                          cont_coordinates = cont_coordinates, 

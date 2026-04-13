@@ -137,12 +137,12 @@ plot_discrete <- function(p, a, d, parameter, skt_data, discrete_data, ma, ma_sh
     # Creates ResultTable to display statistics below plot
     ResultTable <- skt_stats %>%
       select(ActivityType, "Statistical Trend", N_Data, N_Years, "Period of Record", 
-             Median, tau, SennIntercept, SennSlope, p) %>%
+             Median, tau, SenIntercept, SenSlope, p) %>%
       rename("Activity Type" = ActivityType,
              "Sample Count" = N_Data,
              "Years with Data" = N_Years,
              "Median Result Value" = Median,
-             "Tau" = tau, "Sen Intercept" = SennIntercept, "Sen Slope" = SennSlope, "P" = p)
+             "Tau" = tau, "Sen Intercept" = SenIntercept, "Sen Slope" = SenSlope, "P" = p)
     # names(ResultTable) <- gsub("_", "-", names(ResultTable))
     # Convert results table into kable format
     result_table <- kable(ResultTable, format=tableFormat,
@@ -205,11 +205,11 @@ plot_continuous <- function(ma, ma_short, cont_plot_data, param, parameter, indi
         ResultTable <- skt_stats %>%
           filter(ProgramID==pid) %>%
           select(ProgramLocationID, "Statistical Trend", N_Data, N_Years, "Period of Record", Median, tau,
-                 SennIntercept, SennSlope, p) %>%
+                 SenIntercept, SenSlope, p) %>%
           mutate_if(is.numeric, ~round(., 2)) %>%
         rename("Program Location" = ProgramLocationID, "Sample Count" = N_Data,
                "Years with Data" = N_Years, "Median Result Value" = Median,
-               "Tau" = tau, "Sen Intercept" = SennIntercept, "Sen Slope" = SennSlope, "P" = p)
+               "Tau" = tau, "Sen Intercept" = SenIntercept, "Sen Slope" = SenSlope, "P" = p)
         
         # Remove text-based "NA" values in p column
         if (nrow(ResultTable[ResultTable$p=="    NA", ]) > 0){
@@ -250,11 +250,11 @@ plot_continuous <- function(ma, ma_short, cont_plot_data, param, parameter, indi
       
       ResultTable <- skt_stats %>%
         select(ProgramLocationID, "Statistical Trend", N_Data, N_Years, "Period of Record", Median, tau,
-               SennIntercept, SennSlope, p) %>%
+               SenIntercept, SenSlope, p) %>%
         mutate_if(is.numeric, ~round(., 2)) %>%
       rename("Program Location" = ProgramLocationID, "Sample Count" = N_Data,
              "Years with Data" = N_Years, "Median Result Value" = Median,
-             "Tau" = tau, "Sen Intercept" = SennIntercept, "Sen Slope" = SennSlope, "P" = p)
+             "Tau" = tau, "Sen Intercept" = SenIntercept, "Sen Slope" = SenSlope, "P" = p)
       
       # Remove text-based "NA" values in p column
       if (nrow(ResultTable[ResultTable$p=="    NA", ]) > 0){

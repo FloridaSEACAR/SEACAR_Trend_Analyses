@@ -43,10 +43,6 @@ save_plots <- TRUE
 render_reports <- TRUE
 # save_maps variable == TRUE will render maps (for MA Report Gen)
 save_maps <- TRUE
-# Import necessary shapefiles if save_maps is TRUE
-if(save_maps){
-  source("load_shape_files.R", echo=T)
-}
 
 # Set height and width for plot outputs (.png outputs only)
 h <- 891
@@ -73,7 +69,7 @@ cont_loc <- ifelse(cont_folder_date=="most recent",
 
 # Lists of disc and cont .rds objects to read
 disc_files <- list.files(disc_loc,pattern = "\\.rds$", full.names = T)
-disc_files <- str_subset(disc_files, "data_output_disc|skt_stats_disc", negate=T)
+disc_files <- str_subset(disc_files, "data_output_disc|skt_stats_disc|data_directory", negate=T)
 cont_files <- list.files(cont_loc,pattern = "\\.rds$", full.names = T)
 
 #Loads data file with list on managed area names and corresponding area IDs and short names
@@ -201,8 +197,8 @@ results_list <- list()
 # Record which combinations of Disc files to select/load
 disc_file_list <- c()
 
-for (param in all_params_short) {
-  if (param == "Secchi"){
+for(param in all_params_short) {
+  if(param == "Secchi"){
     depth <- "Surface"
   } else {
     depth <- "All"
@@ -263,6 +259,8 @@ for(type in c("disc", "cont")){
     df <- lapply(table_file, readRDS)
     # Combine all regions into 1 single output dataframe
     output <- do.call(rbind, df)
+    # De-concatenate continuous files
+    if(type=="cont"){output <- SEACAR::clean_managed_areas(output, "ma")}
     # Create variable of same name
     eval(call("<-", as.name(paste0(table,"_",type)),output))
   }
@@ -271,11 +269,12 @@ for(type in c("disc", "cont")){
 # Apply preliminary trend-text logic
 skt_stats_disc <- skt_stats_disc %>% 
   mutate("Period of Record" = paste0(EarliestYear, " - ", LatestYear),
-         "Statistical Trend" = ifelse(p <= 0.05 & SennSlope > 0, "Significantly increasing trend",
-                                      ifelse(p <= 0.05 & SennSlope < 0, "Significantly decreasing trend", 
+         "Statistical Trend" = ifelse(p <= 0.05 & SenSlope > 0, "Significantly increasing trend",
+                                      ifelse(p <= 0.05 & SenSlope < 0, "Significantly decreasing trend", 
                                              ifelse(SufficientData==FALSE, "Insufficient data to calculate trend",
-                                                    ifelse(SufficientData==TRUE & is.na(SennSlope), "Model did not fit the available data", 
-                                                           ifelse(is.na(Trend), "Insufficient data to calculate trend","No significant trend"))))))
+                                                    ifelse(SufficientData==TRUE & is.na(SenSlope), "Model did not fit the available data", 
+                                                           ifelse(is.na(Trend), "Insufficient data to calculate trend","No significant trend")))))) %>%
+  as.data.table()
 skt_stats_disc[is.na(Trend), `:=` ("Statistical Trend" = "Insufficient data to calculate trend")]
 skt_stats_disc[str_detect(p, "NA"), `:=` (p = NA)]
 skt_stats_disc[!is.na(p), `:=` (p = round(as.numeric(p), 4))]
@@ -283,11 +282,12 @@ saveRDS(skt_stats_disc, file = "output/tables/disc/skt_stats_disc.rds")
 
 skt_stats_cont <- skt_stats_cont %>% 
   mutate("Period of Record" = paste0(EarliestYear, " - ", LatestYear),
-         "Statistical Trend" = ifelse(p <= 0.05 & SennSlope > 0, "Significantly increasing trend",
-                                      ifelse(p <= 0.05 & SennSlope < 0, "Significantly decreasing trend", 
+         "Statistical Trend" = ifelse(p <= 0.05 & SenSlope > 0, "Significantly increasing trend",
+                                      ifelse(p <= 0.05 & SenSlope < 0, "Significantly decreasing trend", 
                                              ifelse(SufficientData==FALSE, "Insufficient data to calculate trend",
-                                                    ifelse(SufficientData==TRUE & is.na(SennSlope), "Model did not fit the available data", 
-                                                           ifelse(is.na(Trend), "Insufficient data to calculate trend","No significant trend"))))))
+                                                    ifelse(SufficientData==TRUE & is.na(SenSlope), "Model did not fit the available data", 
+                                                           ifelse(is.na(Trend), "Insufficient data to calculate trend","No significant trend")))))) %>%
+  as.data.table()
 skt_stats_cont[is.na(Trend), `:=` ("Statistical Trend" = "Insufficient data to calculate trend")]
 skt_stats_cont[str_detect(p, "NA"), `:=` (p = NA)]
 skt_stats_cont[!is.na(p), `:=` (p = round(as.numeric(p), 4))]
@@ -303,12 +303,11 @@ cont_data_files <- str_subset(cont_files, "_data.rds")
 # # Append to directory-style archive for more efficient access within reports
 data_output_cont <- list()
 for(param in cont_params_short){
-  # Combines data files for all regions for a given parameter
-  param_files <- str_subset(cont_data_files, paste0("_",param,"_"))
+  file <- str_subset(cont_data_files, paste0("_", param, "_"))
   # Full ParameterName
   parameter <- websiteParams[ParameterShort==param, unique(ParameterName)]
-  # Read in data files for each region and combine
-  data <- setDT(do.call(rbind, lapply(param_files, readRDS)))
+  # Read in data file
+  data <- setDT(readRDS(file))
   # Included data only. Group and determine summary stats
   data <- data[Include==1, ]
   data <- data[, .(ParameterName = parameter,
@@ -331,13 +330,14 @@ for(param in cont_params_short){
 }
 # Combine all continuous results together
 cont_data_combined <- bind_rows(data_output_cont)
+cont_data_combined <- SEACAR::clean_managed_areas(cont_data_combined, "ma")
 # Grab skt results (start and end of x and y to plot trendlines)
 KT.Plot <- skt_stats_cont %>%
   group_by(ProgramID, ProgramLocationID, ManagedAreaName, ParameterName) %>%
   reframe(start_x=decimal_date(EarliestSampleDate),
-          start_y=(start_x-EarliestYear)*SennSlope+SennIntercept,
+          start_y=(start_x-EarliestYear)*SenSlope+SenIntercept,
           end_x=decimal_date(LastSampleDate),
-          end_y=(end_x-EarliestYear)*SennSlope+SennIntercept)
+          end_y=(end_x-EarliestYear)*SenSlope+SenIntercept)
 KT.Plot <- as.data.table(KT.Plot[order(KT.Plot$ProgramLocationID), ])
 KT.Plot <- KT.Plot[!is.na(KT.Plot$end_y),]
 KT.Plot <- KT.Plot[!is.na(KT.Plot$start_y),]
@@ -366,17 +366,6 @@ cont_plot_data[ , `:=` (label = paste0(ProgramLocationID, " - ", RelativeDepth))
 ## Setting plot theme for plots
 plot_theme <- SEACAR::SEACAR_plot_theme()
 
-# Full parameter names and units
-# Create dataframe containing that info so that 
-# full data file doesn't have to load each time
-cont_params_long <- c("Dissolved Oxygen","Dissolved Oxygen Saturation","pH",
-                      "Salinity","Turbidity","Water Temperature")
-cont_params_short <- c("DO","DOS","pH","Sal","Turb","TempW")
-cont_param_units <- c("mg/L","%","pH","ppt","NTU","Degrees C")
-cont_regions <- c("NE","NW","SE","SW")
-cont_param_df <- data.table(param_short = cont_params_short,
-                            parameter = cont_params_long,
-                            unit = cont_param_units)
 # function to determine x-axis breaks and labels
 breaks <- function(plot_data, type="Discrete", ret="break"){
   if(type=="Discrete"){
@@ -477,9 +466,9 @@ plot_trendlines <- function(p, a, d, activity_label, depth_label, y_labels, para
   KT.Plot <- skt_stats %>%
     group_by(ManagedAreaName) %>%
     summarize(start_x=decimal_date(EarliestSampleDate),
-              start_y=(start_x-EarliestYear)*SennSlope+SennIntercept,
+              start_y=(start_x-EarliestYear)*SenSlope+SenIntercept,
               end_x=decimal_date(LastSampleDate),
-              end_y=(end_x-EarliestYear)*SennSlope+SennIntercept,
+              end_y=(end_x-EarliestYear)*SenSlope+SenIntercept,
               p = unique(p))
   KT.Plot <- as.data.table(KT.Plot[order(KT.Plot$ManagedAreaName), ])
   KT.Plot <- KT.Plot[!is.na(KT.Plot$end_y),]
@@ -635,7 +624,7 @@ plot_trendlines_cont_combined <- function(ma, cont_plot_data, param, y_labels, p
         geom_segment(aes(x = start_x, y = start_y, xend = end_x, yend = end_y, 
                          color = sig, linetype=label),
                      linewidth = 1.2, alpha = 0.7, show.legend = TRUE) +
-        labs(title = paste0(parameter, " - Continuous\nAll Stations"),
+        labs(title = paste0(parameter, " - Continuous"),
              subtitle = ma,
              x="Year", y=y_labels) +
         scale_x_continuous(limits=breaks(plot_data, type="Continuous", ret="lims"),
@@ -744,8 +733,8 @@ if(save_maps){
 
 ##### Generate Table Descriptions
 # Apply text trend designations, convert from numeric
-checkWCTrends <- function(p, SennSlope){
-  increasing <- SennSlope > 0
+checkWCTrends <- function(p, SenSlope){
+  increasing <- SenSlope > 0
   trendPresent <- p < 0.05
   trendStatus <- "No significant trend"
   if(trendPresent){
@@ -761,17 +750,17 @@ wq_stats_disc[, `:=` (Period = paste0(EarliestYear, " - ", LatestYear))]
 
 wq_stats_disc <- wq_stats_disc[Website==1, ] %>% rowwise() %>%
   mutate(
-    StatisticalTrend = ifelse(!is.na(Trend), checkWCTrends(p, SennSlope), "Insufficient data")
+    StatisticalTrend = ifelse(!is.na(Trend), checkWCTrends(p, SenSlope), "Insufficient data")
   ) %>%
-  group_by(ManagedAreaName, ParameterName, StatisticalTrend, SennSlope, 
+  group_by(ManagedAreaName, ParameterName, StatisticalTrend, SenSlope, 
            EarliestYear, LatestYear) %>%
-  mutate(SennSlope = abs(
+  mutate(SenSlope = abs(
     ifelse(ParameterName %in% c("Total Nitrogen", "Total Phosphorus"), 
-           round(SennSlope, 3), round(SennSlope, 2)))) %>%
+           round(SenSlope, 3), round(SenSlope, 2)))) %>%
   reframe() %>% as.data.table()
 wq_stats_cont <- fread("output/WQ_Continuous_All_KendallTau_Stats.txt") %>% distinct() %>%
   mutate(Period = paste0(EarliestYear, " - ", LatestYear)) %>% filter(Website==1) %>% rowwise() %>% 
-  mutate(StatisticalTrend = ifelse(!is.na(Trend), checkWCTrends(p, SennSlope), "Insufficient data")) %>% 
+  mutate(StatisticalTrend = ifelse(!is.na(Trend), checkWCTrends(p, SenSlope), "Insufficient data")) %>% 
   as.data.table()
 
 # Empty table to store results

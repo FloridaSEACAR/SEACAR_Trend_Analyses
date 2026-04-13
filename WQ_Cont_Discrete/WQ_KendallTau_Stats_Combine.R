@@ -33,8 +33,7 @@ for(file_type in c("Discrete", "Continuous")){
   data$EarliestYear[data$EarliestYear=="Inf"] <- NA
   
   # Load in WebsiteParameters.csv
-  website <- fread("data/WebsiteParameters.csv",  sep=",", header=TRUE,
-                   stringsAsFactors=FALSE, na.strings=c("NULL","","NA"))
+  website <- SEACAR::WebsiteParameters
   
   # Select discrete/cont parameters only
   website <- website[SamplingFrequency==file_type, ]
