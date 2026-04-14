@@ -109,7 +109,7 @@ for(oimmp in unique(oyster$OIMMP)){
 
 ##### Generate plots to show reef overview
 # Load in OIMMP shapefiles
-oimmp_boundaries <- sf::st_read("C:/SEACAR Data/SEACARshapes/RCP/BoundaryUpdate2025oct3/ORCP_MA_Coral_MAbuff_CHIMMP_OIMMP_2025oct3.shp", quiet = TRUE) %>% 
+oimmp_boundaries <- sf::st_read("C:/SEACAR Data/SEACARshapes/BoundaryUpdate2025oct3/ORCP_MA_Coral_MAbuff_CHIMMP_OIMMP_2025oct3.shp", quiet = TRUE) %>% 
   rename("OIMMP" = "Region") %>% st_make_valid() %>% st_transform(crs = 4326) %>%
   group_by(OIMMP) %>% summarise() %>% filter(!OIMMP=="9999")
 # Overview of all available reefs by OIMMP region
@@ -173,3 +173,41 @@ for(oimmp in unique(reef_data_overview$OIMMP)){
   ggsave(reef_plot, filename = paste0(output_path, "ReportFigures/", gsub(" ", "_", oimmp), "_reef_overview.png"), 
          height = 6, width = 10)
 }
+
+#### Maps to show proportion of reefs monitored in all OIMMP regions
+oimmp_props <- oy %>% 
+  group_by(OIMMP) %>%
+  reframe(n_reefs = length(unique(UniversalReefID))) %>% 
+  left_join(reef_overview) %>% rename("n_total" = "n") %>%
+  mutate(prop = round(n_reefs / n_total, 3)*100)
+# Combine with oimmp boundaries file
+oimmp_props_sf <- oimmp_boundaries %>% left_join(oimmp_props)
+# Set up color palette
+prop_pal <- colorBin("YlOrRd", oimmp_props_sf$prop, bins = 3)
+
+prop_map <- leaflet(data = oimmp_props_sf, 
+                    options = leafletOptions(zoomControl = FALSE)) %>% 
+  addProviderTiles(providers$CartoDB.PositronNoLabels) %>%
+  addPolygons(fillColor = ~prop_pal(prop),
+              weight = 1, smoothFactor = 0.5, color = "black",
+              fillOpacity = 0.6) %>%
+  addLegend(title = "Percent of mapped reefs</br>sampled by OIMMP region",
+            pal = prop_pal,
+            values = ~prop,
+            labFormat = labelFormat(suffix = " %")) %>%
+  leafem::addStaticLabels(label = ~prop)
+
+mapshot(prop_map, file = paste0(output_path, "ReportFigures/OIMMP_PctSampled_FL.png"))
+
+## Trivia?
+# Most-monitored reef in the state, how many times?
+most_sampled <- oy %>% 
+  group_by(UniversalReefID, Year, Month) %>% 
+  reframe(n = n()) %>%
+  group_by(UniversalReefID) %>%
+  reframe(sampling_events = sum(n)) %>%
+  arrange(desc(sampling_events)) %>% 
+  filter(sampling_events == max(sampling_events))
+
+print(paste0("UniversalReefID of most sampled reef: ", most_sampled$UniversalReefID))
+print(paste0("Number of times sampled: ", most_sampled$sampling_events))

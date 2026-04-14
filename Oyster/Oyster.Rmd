@@ -109,12 +109,25 @@ oy_file_loc <- function(ma_abrev, p, type){
 # Function to display oyster results tables
 oyster_tables <- function(ma, p, type){
   subset <- oyster_stats[ManagedAreaName==ma & ParameterName==p & HabitatType==type,]
-  ResultTable <- subset %>% 
-    dplyr::select(ShellType, HabitatType, "Trend Status", ModelEstimate, StandardError,"Credible Interval") %>%
-    dplyr::rename("Shell Type" = "ShellType",
-                  "Habitat Type" = "HabitatType",
-                  "Estimate" = "ModelEstimate",
-                  "Standard Error" = "StandardError")
+  # Determine which columns to select for display within report tables (shell height includes additional size class column)
+  if(p=="Shell Height"){
+    ResultTable <- subset %>% 
+      filter(!SizeClass=="") %>%
+      dplyr::select(ShellType, HabitatType, SizeClass, "Trend Status", ModelEstimate, StandardError,"Credible Interval") %>%
+      dplyr::rename("Shell Type" = "ShellType",
+                    "Habitat Type" = "HabitatType",
+                    "Estimate" = "ModelEstimate",
+                    "Standard Error" = "StandardError", 
+                    "Size Class" = "SizeClass")
+  } else {
+    ResultTable <- subset %>% 
+      dplyr::select(ShellType, HabitatType, "Trend Status", ModelEstimate, StandardError,"Credible Interval") %>%
+      dplyr::rename("Shell Type" = "ShellType",
+                    "Habitat Type" = "HabitatType",
+                    "Estimate" = "ModelEstimate",
+                    "Standard Error" = "StandardError")
+  }
+
   
   result_table <- kable(ResultTable, format = tableFormat,
                         caption = paste0("Model results for Oyster ", p, " - ", type),

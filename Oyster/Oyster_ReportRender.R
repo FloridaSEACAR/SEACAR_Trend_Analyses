@@ -19,8 +19,8 @@ library(stringr)
 source("../SEACAR_data_location.R")
 
 ##### Which analysis to run? Select one, can only be run individually (by ManagedAreaName: "ma" or by OIMMP: "oimmp")
-analysis <- "oimmp"
-# analysis <- "ma"
+# analysis <- "oimmp"
+analysis <- "ma"
 #####
 
 analysis_col <- ifelse(analysis=="ma", "ManagedAreaName", "OIMMP")
@@ -30,7 +30,7 @@ wd <- dirname(getActiveDocumentContext()$path)
 setwd(wd)
 
 # Determine whether to run Oyster EDA plots (T or F)
-EDA <- FALSE
+EDA <- TRUE
 
 # Determine whether to generate Oyster sampling maps (for SEACAR Atlas)
 create_maps <- TRUE

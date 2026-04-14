@@ -1,4 +1,4 @@
-Sys.setenv(CMDSTAN = path_cmdstan_install) # Set to your local configuration of cmdstan
+Sys.setenv(CMDSTAN = cmdstanr::cmdstan_default_path()) # Set to your local configuration of cmdstan
 library(brms)
 library(Rmisc)
 library(stringr)
@@ -15,7 +15,7 @@ library(cmdstanr)
 
 ##### Which analysis to run? Select one, can only be run individually (by ManagedAreaName: "ma" or by OIMMP: "oimmp")
 # analysis <- "oimmp"
-analysis <- "ma"
+# analysis <- "ma"
 #####
 
 source("../SEACAR_data_location.R")
@@ -2014,20 +2014,20 @@ pctlive_models_par <- function(loc, habitat_type, oysterraw_pct){
       # Determine whether to include PercentLiveMethod as a contrast within formula
       if(length(unique(ma_subset$PercentLiveMethod))>1){
         # ManagedAreaName
-        f <- brms::brmsformula(LiveSuccess | trials(Trials) ~ RelYear * PercentLiveMethod + (1 | UniversalReefID)) # binomial
-        # f <- brms::brmsformula(PercentLive_pct | trunc(lb = 0) ~ RelYear + (1 | PercentLiveMethod) + (1 | UniversalReefID)) # gaussian
+        # f <- brms::brmsformula(LiveSuccess | trials(Trials) ~ RelYear * PercentLiveMethod + (1 | UniversalReefID)) # binomial
+        f <- brms::brmsformula(PercentLive_pct | trunc(lb = 0) ~ RelYear + (1 | PercentLiveMethod) + (1 | UniversalReefID)) # gaussian
         # For OIMMP only
         # f <- brms::brmsformula(LiveSuccess | trials(Trials) ~ RelYear + (1 | PercentLiveMethod) + (1 || ManagedAreaName) + (1 | UniversalReefID))
         # f <- brms::brmsformula(PercentLive_pct ~ RelYear + (1 | PercentLiveMethod) + (1 || ManagedAreaName) + (1 || OIMMP) + (1 | UniversalReefID)) # with guassian
       } else {
-        f <- brms::brmsformula(LiveSuccess | trials(Trials) ~ RelYear + (1 | UniversalReefID)) # binomial
-        # f <- brms::brmsformula(PercentLive_pct | trunc(lb = 0) ~ RelYear + (1 | UniversalReefID)) # gaussian
+        # f <- brms::brmsformula(LiveSuccess | trials(Trials) ~ RelYear + (1 | UniversalReefID)) # binomial
+        f <- brms::brmsformula(PercentLive_pct | trunc(lb = 0) ~ RelYear + (1 | UniversalReefID)) # gaussian
       }
       if(runPctModel){
         print(paste0("RUNNING MODEL FOR PERCENT LIVE: ", loc, " - ", habitat_type))
         pct_glmm <- brm(
           formula=f,
-          data=ma_subset, family=binomial, cores=ncores, # family=gaussian
+          data=ma_subset, family=gaussian, cores=ncores, # family=gaussian
           control= list(adapt_delta=0.995, max_treedepth=20),
           iter=iter, warmup=warmup, chains=nchains, init=0, thin=3,
           seed=4331, backend="cmdstanr", save_pars = save_pars(all = TRUE),
@@ -2191,13 +2191,13 @@ pctlive_models_par <- function(loc, habitat_type, oysterraw_pct){
       plot_layers <- c(
         geom_ribbon(data = pctplots$RelYear$data,
                     aes(x = RelYear + yrdiff,
-                        y = estimate__*100,
-                        ymin = lower__*100,
-                        ymax = upper__*100),
+                        y = estimate__,
+                        ymin = lower__,
+                        ymax = upper__),
                     fill = "#000099", alpha = 0.1, inherit.aes = FALSE),
         geom_line(data = pctplots$RelYear$data,
                   aes(x = RelYear + yrdiff,
-                      y = estimate__*100),
+                      y = estimate__),
                   color = "#000099", lwd = 0.75, inherit.aes = FALSE))
     }
     

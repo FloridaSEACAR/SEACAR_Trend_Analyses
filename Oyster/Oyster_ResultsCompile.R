@@ -1,5 +1,3 @@
-#The purpose of this script is to read the file names for the LME results of the BBpct analysis,
-#import each one, extract the intercept, slope, and p values, then write them to a pipe-delimited file
 library(data.table)
 library(dplyr)
 library(brms)
@@ -8,9 +6,9 @@ library(stringr)
 options(scipen = 999)
 
 # Perform results compilation for both MA and OIMMP results, where available
-for(analysis in c("ManagedAreaName", "OIMMP")){
-# for(analysis in c("ManagedAreaName")){
-  out_path <- paste0("output/", analysis, "/")
+for(analysis_column in c("ManagedAreaName", "OIMMP")){
+# for(analysis_column in c("ManagedAreaName")){
+  out_path <- paste0("output/", analysis_column, "/")
   #List all of the files in the "tables" directory that are LME results
   file_list <- list.files(out_path, pattern="ModelResults", full.names=TRUE)
   # Determine which analyses have been performed (skip if unavailable)
@@ -36,7 +34,7 @@ for(analysis in c("ManagedAreaName", "OIMMP")){
                                     term == "meRelYearSampleAge_StdevgrEQQuadIdentifier"])
   #Change column names to better match other outputs
   setnames(table, c("areaName", "indicator", "size_class", "live_date_qual", "habitat_class"),
-           c(eval(analysis), "ParameterName", "SizeClass", "ShellType", "HabitatType"))
+           c(eval(analysis_column), "ParameterName", "SizeClass", "ShellType", "HabitatType"))
   # Ensure proper display of parameter names
   table$ShellType[table$ShellType=="Exact"] <- "Live Oysters"
   table$ShellType[table$ShellType=="Estimate"] <- "Dead Oyster Shells"
@@ -51,10 +49,10 @@ for(analysis in c("ManagedAreaName", "OIMMP")){
   data_summ$ParameterName[data_summ$ParameterName=="PercentLive_pct"] <- "Percent Live"
   data_summ$ShellType[data_summ$ShellType=="Live Oyster Shells"] <- "Live Oysters"
   # Combine results
-  finalTable <- merge.data.frame(data_summ, table, by=c(eval(analysis), "ParameterName", 
+  finalTable <- merge.data.frame(data_summ, table, by=c(eval(analysis_column), "ParameterName", 
                                                         "ShellType", "SizeClass", "HabitatType"), 
                                  all=TRUE) %>% 
-    arrange(get(analysis), ParameterName, ShellType, SizeClass, HabitatType) %>% as.data.table()
+    arrange(get(analysis_column), ParameterName, ShellType, SizeClass, HabitatType) %>% as.data.table()
   
   ##### Model back-transformation procedures (previous model_backtransformation.R)
   # Function to perform percent change calculation
@@ -99,7 +97,7 @@ for(analysis in c("ManagedAreaName", "OIMMP")){
     m_results <- bind_rows(m_results, get_percent_change(mod_i))
   }
   
-  if(analysis=="ManagedAreaName"){
+  if(analysis_column=="ManagedAreaName"){
     backtrans_results <- merge(m_results, MA_All[, c("ManagedAreaName", "Abbreviation", "AreaID")])
   } else {
     backtrans_results <- m_results[, `:=` (ManagedAreaName = Abbreviation)]
@@ -122,15 +120,15 @@ for(analysis in c("ManagedAreaName", "OIMMP")){
   unmod_subset <- setdiff(finalTable, mod_subset)
   # Replace values where needed
   mod_subset <- mod_subset %>% rowwise() %>% mutate(
-    ModelEstimate = replace_vals(get(analysis), ParameterName, HabitatType, "est_val"),
-    StandardError = replace_vals(get(analysis), ParameterName, HabitatType, "se_val"),
-    LowerConfidence = replace_vals(get(analysis), ParameterName, HabitatType, "lc_val"),
-    UpperConfidence = replace_vals(get(analysis), ParameterName, HabitatType, "uc_val"),
-    Intercept = replace_vals(get(analysis), ParameterName, HabitatType, "int_val")
+    ModelEstimate = replace_vals(get(analysis_column), ParameterName, HabitatType, "est_val"),
+    StandardError = replace_vals(get(analysis_column), ParameterName, HabitatType, "se_val"),
+    LowerConfidence = replace_vals(get(analysis_column), ParameterName, HabitatType, "lc_val"),
+    UpperConfidence = replace_vals(get(analysis_column), ParameterName, HabitatType, "uc_val"),
+    Intercept = replace_vals(get(analysis_column), ParameterName, HabitatType, "int_val")
   )
   
   finalTable <- rbind(mod_subset, unmod_subset) %>% as.data.frame() %>%
-    arrange(get(analysis), ParameterName, ShellType, SizeClass, HabitatType)
+    arrange(get(analysis_column), ParameterName, ShellType, SizeClass, HabitatType)
   
   #Write output table to a csv and pipe-delimited txt file
   fwrite(finalTable, paste0(out_path, "Oyster_All_GLMM_Stats.txt"), sep="|")

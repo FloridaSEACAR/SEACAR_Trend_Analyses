@@ -70,11 +70,8 @@ calc_radius_oyster <- function(n){sqrt(n)}
 
 # Load in RCP shapefiles, make valid, apply transform
 rcp <- SEACAR::GeoData$`RCP Boundaries`
-# Load in OIMMP shapefiles (***TEMP: add to SEACAR package)
-oimmp_boundaries <- sf::st_read("C:/SEACAR Data/SEACARshapes/RCP/BoundaryUpdate2025oct3/ORCP_MA_Coral_MAbuff_CHIMMP_OIMMP_2025oct3.shp") %>% 
-  rename("OIMMP" = "Region") %>% st_make_valid() %>% st_transform(crs = 4326) %>%
-  group_by(OIMMP) %>% summarise()
-oimmp_boundaries <- oimmp_boundaries %>% filter(!OIMMP=="9999")
+# Load in OIMMP shapefiles
+oimmp_boundaries <- SEACAR::GeoData$OIMMP
 # Load in location point and line shapefiles
 locs_pts <- SEACAR::GeoData$pointLocations
 locs_lns <- SEACAR::GeoData$lineLocations
