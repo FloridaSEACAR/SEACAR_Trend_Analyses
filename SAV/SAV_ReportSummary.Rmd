@@ -37,6 +37,7 @@ This script is based off of code originally written by Stephen Durham with comme
 The file being used for the analysis is: **`r file_short`**
 
 ```{r plot_locs, eval=T, echo=F, results='asis', warning=F}
+options(knitr.kable.NA = '-')
 library(glue)
 # SAV Results
 sav_results <- fread("output/website/SAV_BBpct_LMEresults_All.txt")
