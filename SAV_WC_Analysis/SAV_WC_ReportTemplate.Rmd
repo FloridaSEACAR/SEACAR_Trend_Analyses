@@ -45,7 +45,7 @@ fig_list <- list.files("output", pattern=".png", full=TRUE)
 get_plot <- function(ma, param){
   ma_abrev <- MA_All[ManagedAreaName==ma, Abbreviation]
   ma_files <- str_subset(fig_list, paste0("output/",ma_abrev))
-  pattern <- paste0(ma_abrev, "_", param, "_")
+  pattern <- paste0(ma_abrev, "_", param, ".png")
   str_subset(ma_files, pattern)
 }
 
@@ -98,7 +98,7 @@ make_tables <- function(ma, p){
   # Parameter display (long name)
   p_long <- param_list[params_short==p, params_long]
   # Subset for wq programs
-  programs_wq <- program_data_wq %>% filter(ManagedAreaName==ma, ParameterName %in% params)
+  programs_wq <- program_data_wq %>% filter(str_detect(ManagedAreaName, ma), ParameterName %in% params)
   # Subset wq summary stats
   wq_table <- wq_results %>% filter(ManagedAreaName==ma, ParameterName %in% params)
   # Remove "_" from column names
