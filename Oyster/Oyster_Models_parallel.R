@@ -16,7 +16,7 @@ library(cmdstanr)
 ##### Which analysis to run? Select one, can only be run individually (by ManagedAreaName: "ma" or by OIMMP: "oimmp")
 # analysis <- "oimmp"
 # analysis <- "ma"
-#####
+####
 
 source("../SEACAR_data_location.R")
 
@@ -351,7 +351,8 @@ MA_Ov_Stats <- oysterraw[oysterraw$nyrpar=="Density_m2",] %>%
     ProgramIDs=paste(sort(unique(ProgramID), decreasing=FALSE),
                      collapse=', '))
 if(analysis=="ma"){
-  MA_Ov_Stats <- MA_Ov_Stats %>% merge(SEACAR::ManagedAreas[, c("AreaID", "ManagedAreaName")], all.x=T)
+  MA_Ov_Stats <- MA_Ov_Stats %>% merge(SEACAR::ManagedAreas[, c("AreaID", "ManagedAreaName")], all.x=T) %>%
+    select(AreaID, everything())
 }
 setnames(MA_Ov_Stats, c("nyrpar", "LiveDate_Qualifier",
                         "HabitatClassification"),
@@ -498,7 +499,8 @@ MA_Ov_Stats <- oysterraw[oysterraw$nyrpar=="ShellHeight_mm",] %>%
     ProgramIDs=paste(sort(unique(ProgramID), decreasing=FALSE),
                      collapse=', '))
 if(analysis=="ma"){
-  MA_Ov_Stats <- MA_Ov_Stats %>% merge(SEACAR::ManagedAreas[, c("AreaID", "ManagedAreaName")], all.x=T)
+  MA_Ov_Stats <- MA_Ov_Stats %>% merge(SEACAR::ManagedAreas[, c("AreaID", "ManagedAreaName")], all.x=T) %>%
+    select(AreaID, everything())
 }
 setnames(MA_Ov_Stats, c("nyrpar", "LiveDate_Qualifier",
                         "HabitatClassification"),
@@ -645,7 +647,8 @@ MA_Ov_Stats <- oysterraw[oysterraw$nyrpar=="PercentLive_pct",] %>%
     ProgramIDs=paste(sort(unique(ProgramID), decreasing=FALSE),
                      collapse=', '))
 if(analysis=="ma"){
-  MA_Ov_Stats <- MA_Ov_Stats %>% merge(SEACAR::ManagedAreas[, c("AreaID", "ManagedAreaName")], all.x=T)
+  MA_Ov_Stats <- MA_Ov_Stats %>% merge(SEACAR::ManagedAreas[, c("AreaID", "ManagedAreaName")], all.x=T) %>%
+    select(AreaID, everything())
 }
 setnames(MA_Ov_Stats, c("nyrpar", "LiveDate_Qualifier",
                         "HabitatClassification"),
@@ -695,16 +698,7 @@ sh_stats <- ma_stats[[analysis]][["Shell Height"]][["MA_Ov_Stats"]] %>%
   select(!!sym(col_name), ParameterName, ShellType, SizeClass, HabitatType) %>%
   as.data.table()
 
-# Apalachicola Bay Exclusion for now
-if(analysis=="ma"){
-  excl <- c("Apalachicola Bay Aquatic Preserve",
-            "Apalachicola National Estuarine Research Reserve")
-} else {
-  excl <- "Apalachicola Bay"
-}
-
 task_list <- sh_stats[, .(HabitatType = unique(HabitatType)), by = eval(col_name)]
-task_list <- task_list[!(get(col_name) %in% excl & HabitatType == "Restored")]
 task_list <- as.data.frame(task_list)
 
 # Function to subset data and run models where possible
@@ -789,6 +783,11 @@ shell_height_models_par <- function(loc, habitat_type, oysterraw){
     run25to75model <- FALSE
   }
   
+  # Model unable to run in AB Restored
+  if(abrev %in% c("ABAP", "ANERR", "Apalachicola Bay") & habitat_type=="Restored"){
+    run25to75model <- FALSE
+  }
+  
   print(paste0("Run new model?: ", run25to75model))
   
   # If the above is TRUE, then delete the old model so a new one can be run
@@ -813,6 +812,11 @@ shell_height_models_par <- function(loc, habitat_type, oysterraw){
     if(abrev=="PISAP"){
       f <- brms::brmsformula(ShellHeight_mm | trunc(lb=25, ub=75) ~ RelYear)
     }
+    
+    # Add ProgramID for Apalach Restored?
+    if(abrev %in% c("ABAP", "ANERR") & habitat_type=="Restored"){
+      f <- brms::brmsformula(ShellHeight_mm | trunc(lb=25, ub=75) ~ RelYear + (1 | UniversalReefID) + ProgramID)
+    }
     # Run model if needed
     if(run25to75model){
       cat("---- Running model 25to75. \n")
@@ -828,8 +832,12 @@ shell_height_models_par <- function(loc, habitat_type, oysterraw){
         threads = threading(nthreads)
       )
     } else {
-      sh25to75_glmm <- readRDS(model_loc)
-      sh25to75_glmm$file <- model_loc
+      if(abrev %in% c("ABAP", "ANERR") & habitat_type=="Restored"){
+        sh25to75_glmm <- NULL
+      } else {
+        sh25to75_glmm <- readRDS(model_loc)
+        sh25to75_glmm$file <- model_loc      
+      }
     }
     models1 <- list(sh25to75_glmm)
   } else {models1 <- NULL}
@@ -871,6 +879,11 @@ shell_height_models_par <- function(loc, habitat_type, oysterraw){
     runsho75model <- FALSE
   }
   
+  # Model unable to run in AB Restored
+  if(abrev %in% c("ABAP", "ANERR", "Apalachicola Bay") & habitat_type=="Restored"){
+    runsho75model <- FALSE
+  }
+  
   print(paste0("Run new model?: ", runsho75model))
   
   # If the above is TRUE, then delete the old model so a new one can be run
@@ -909,8 +922,12 @@ shell_height_models_par <- function(loc, habitat_type, oysterraw){
         threads = threading(nthreads)
       )
     } else {
-      sho75_glmm <- readRDS(model_loc)
-      sho75_glmm$file <- model_loc
+      if(abrev %in% c("ABAP", "ANERR") & habitat_type=="Restored"){
+        sho75_glmm <- NULL
+      } else {
+        sho75_glmm <- readRDS(model_loc)
+        sho75_glmm$file <- model_loc      
+      }
     }
     models2 <- list(sho75_glmm)
   } else {models2 <- NULL}
@@ -931,6 +948,7 @@ shell_height_models_par <- function(loc, habitat_type, oysterraw){
   sizeclass1 <- unique(datafile1$SizeClass)
   for(m in seq_along(models1)){
     modelobj <- models1[[m]]
+    if(is.null(modelobj)) next
     oyres_i <- setDT(broom.mixed::tidy(modelobj))
     #tidy() does not like that parameter values have underscores
     #for some reason, so the resulting table is incomplete
@@ -990,6 +1008,7 @@ shell_height_models_par <- function(loc, habitat_type, oysterraw){
   
   for(m in seq_along(models2)){
     modelobj <- models2[[m]]
+    if(is.null(modelobj)) next
     oyres_i <- setDT(broom.mixed::tidy(modelobj))
     #tidy() does not like that parameter values have underscores for
     #some reason, so the resulting table is incomplete
@@ -1173,11 +1192,11 @@ shell_height_models_par <- function(loc, habitat_type, oysterraw){
   }
   
   set.seed(987)
-  if(!is.null(models1) & !QAQCPlots){
+  if(!is.null(models1[[1]]) & !QAQCPlots){
     liveplot_1 <- plot(conditional_effects(models1[[1]], re_formula=NULL), plot=FALSE)
   }
   
-  if(!is.null(models2) & !QAQCPlots){
+  if(!is.null(models2[[1]]) & !QAQCPlots){
     liveplot_2 <- plot(conditional_effects(models2[[1]], re_formula=NULL), plot=FALSE)
   }
   

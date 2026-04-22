@@ -50,6 +50,7 @@ library(glue)
 library(kableExtra)
 library(sf)
 library(ggplot2)
+options(knitr.kable.NA = '-')
 # Read in oyster results file
 oyster_stats <- fread("output/OIMMP/Oyster_All_GLMM_Stats.txt", sep='|')
 # Function to add trend text

@@ -54,9 +54,10 @@ This script is based off of code originally written by Stephen Durham.
 
 Compiled and edited by [J.E. Panzik](jepanzik@usf.edu) and [Tyler Hill](Tyler.Hill@FloridaDEP.gov) for SEACAR.
 
-```{r, functions to plot oysters, eval=T, echo=F, warning=FALSE}
+```{r, functions to plot oysters, eval=T, echo=F, warning=FALSE, message=FALSE}
 library(glue)
 library(kableExtra)
+options(knitr.kable.NA = '-')
 # Read in oyster results file
 oyster_stats <- fread("output/ManagedAreaName/Oyster_All_GLMM_Stats.txt", sep='|')
 # Function to add trend text
@@ -91,7 +92,6 @@ oyster_includes <- oyster_stats %>%
   group_by(ManagedAreaName, ParameterName, SufficientData, HabitatType, Intercept) %>%
   reframe() %>% as.data.table()
 
-oyster_includes <- oyster_includes[!(HabitatType=="Restored" & ManagedAreaName %in% c("Apalachicola Bay Aquatic Preserve", "Apalachicola National Estuarine Research Reserve") & ParameterName=="Shell Height")]
 oyster_includes <- oyster_includes[!(HabitatType=="Natural" & ManagedAreaName %in% c("Tomoka Marsh Aquatic Preserve") & ParameterName=="Shell Height")]
 
 # Function to locate oyster figures

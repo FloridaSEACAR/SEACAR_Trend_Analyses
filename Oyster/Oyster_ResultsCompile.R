@@ -130,12 +130,15 @@ for(analysis_column in c("ManagedAreaName", "OIMMP")){
   finalTable <- rbind(mod_subset, unmod_subset) %>% as.data.frame() %>%
     arrange(get(analysis_column), ParameterName, ShellType, SizeClass, HabitatType)
   
+  if(analysis_column=="ManagedAreaName"){
+    finalTable <- finalTable %>% select(AreaID, everything()) # Put AreaID first
+  }
+  
   #Write output table to a csv and pipe-delimited txt file
   fwrite(finalTable, paste0(out_path, "Oyster_All_GLMM_Stats.txt"), sep="|")
   fwrite(finalTable, paste0(out_path, "Oyster_All_GLMM_Stats.csv"), sep=",")
 }
 
-# 
 #   ###### Compile data used for plots
 #   # Date of latest script run (to ensure the proper data is collected)
 #   runDate <- "2025-05-02"
