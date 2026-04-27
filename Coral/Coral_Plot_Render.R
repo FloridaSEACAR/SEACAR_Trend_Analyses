@@ -561,8 +561,20 @@ for(i in 1:n){
 lme_stats <- merge.data.frame(MA_Ov_Stats[,-c("Programs", "ProgramIDs")],
                               lme_stats, by=c("AreaID", "ManagedAreaName"), all=TRUE)
 
-# Puts the data in order based on ManagedAreaName
-lme_stats <- as.data.table(lme_stats[order(lme_stats$ManagedAreaName), ])
+## Add in TrendText and TrendIcon columns
+lme_stats <- lme_stats %>% 
+  mutate(TrendText = ifelse(LME_p <= 0.05 & LME_Slope > 0, "Increasing trend",
+                            ifelse(LME_p <= 0.05 & LME_Slope < 0, "Decreasing trend", "No detectable trend")),
+         TrendIcon = ifelse(LME_p <= 0.05 & LME_Slope > 0, 1,
+                            ifelse(LME_p <= 0.05 & LME_Slope < 0, -1, 0))) %>%
+  arrange(ManagedAreaName) %>% 
+  as.data.table()
+
+#filling remaining values in TrendText + TrendIcon column
+lme_stats[SufficientData==FALSE, TrendText := "Insufficient data"]
+lme_stats[SufficientData==FALSE, TrendIcon := 2]
+lme_stats[SufficientData==TRUE & is.na(LME_Slope), TrendText := "Model did not fit the available data"]
+lme_stats[SufficientData==TRUE & is.na(LME_Slope), TrendIcon := 3]
 
 # Write lme statistics to file
 fwrite(lme_stats, paste0(out_dir,"/Coral_", param_file,
@@ -725,11 +737,11 @@ descriptionTable <- data.table()
 # Loop through MAs and apply necessary functions
 for(ma in unique(c(coral_pc_stats$ManagedAreaName, coral_sr_stats$ManagedAreaName))){
   if(ma %in% coral_pc_stats$ManagedAreaName){
-    descriptionText <- generate_description(data = coral_pc_stats[ManagedAreaName==ma, ], habitat = "Coral")
+    descriptionText <- SEACAR::generate_description(data = coral_pc_stats[ManagedAreaName==ma, ], habitat = "Coral")
     descriptionTable <- bind_rows(descriptionTable, descriptionText)
   }
   if(ma %in% coral_sr_stats$ManagedAreaName){
-    descriptionText <- generate_description(data = coral_sr_stats[ManagedAreaName==ma, ], habitat = "Coral")
+    descriptionText <- SEACAR::generate_description(data = coral_sr_stats[ManagedAreaName==ma, ], habitat = "Coral")
     descriptionTable <- bind_rows(descriptionTable, descriptionText)
   }
 }
