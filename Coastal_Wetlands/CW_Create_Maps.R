@@ -30,8 +30,6 @@ tag.map.title <- tags$style(HTML("
 # Export date
 cw$ExportVersion <- as.POSIXct(cw$ExportVersion)
 exportDate <- max(format(unique(cw$ExportVersion), "%m/%d/%Y"))
-# Function to set radius / circle size by # of samples (for legend)
-calc_radius_cw <- function(n){sqrt(n)}
 
 # Load in RCP shapefiles, make valid, apply transform
 rcp <- SEACAR::GeoData$`RCP Boundaries`
@@ -90,6 +88,17 @@ for(ma in unique(cw$ManagedAreaName)){
   fig_text <- tags$div(HTML(glue("{ma} - Coastal Wetlands - {ind} - {parameter} - Export Date: {exportDate}")),
                        style = "margin-bottom:10px;")
   
+  # set cw_df_ma as SF geo-object
+  cw_df_ma <- st_as_sf(cw_df_ma)
+  # subsetting for lines vs points (coordinate vs transect)
+  pts <- cw_df_ma %>% filter(!is.na(Longitude_))
+  lns <- cw_df_ma %>% filter(!is.na(RawLineStr))
+  
+  # Add modifier to reduce point size for programs with transect data
+  modifier <- ifelse(nrow(lns)>0, 0.6, 1)
+  # Function to set radius / circle size by # of samples (for legend)
+  calc_radius_cw <- function(n){log(n)*5*modifier}
+  
   # Create map (without pts or lines for now)
   map <- leaflet(cw_df_ma, options = leafletOptions(zoomControl = FALSE)) %>%
     addProviderTiles(providers$CartoDB.PositronNoLabels) %>%
@@ -122,12 +131,6 @@ for(ma in unique(cw$ManagedAreaName)){
       position = "bottomright",
       className = "map-title"
     )
-    
-  # set cw_df_ma as SF geo-object
-  cw_df_ma <- st_as_sf(cw_df_ma)
-  # subsetting for lines vs points (coordinate vs transect)
-  pts <- cw_df_ma %>% filter(!is.na(Longitude_))
-  lns <- cw_df_ma %>% filter(!is.na(RawLineStr))
   
   # add transects and points where available
   if(nrow(pts)>0){
@@ -140,14 +143,14 @@ for(ma in unique(cw$ManagedAreaName)){
                        fillOpacity=~alpha)
   }
   
-  if(nrow(lns)>0){
-    map <- map %>%
-      addPolylines(data = lns,
-                   weight = calc_radius_cw(lns$n_data)*3,
-                   fillColor = ~color, stroke = TRUE,
-                   smoothFactor = 0.5,
-                   fillOpacity = ~alpha)
-  }
+  # if(nrow(lns)>0){
+  #   map <- map %>%
+  #     addPolylines(data = lns,
+  #                  weight = calc_radius_cw(lns$n_data)*3,
+  #                  fillColor = ~color, stroke = TRUE,
+  #                  smoothFactor = 0.5,
+  #                  fillOpacity = ~alpha)
+  # }
   
   # map output filepath
   map_output <- "output/maps/"

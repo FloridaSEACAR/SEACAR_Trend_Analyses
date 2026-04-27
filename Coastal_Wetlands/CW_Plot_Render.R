@@ -285,11 +285,11 @@ if(n==0){
       # Set breaks to every 10 years if more than 30 years of data
       brk <- 10
     }else if(nyrs>=10){
-      # Set breaks to every 5 years if between 30 and 10 years of data
-      brk <- 5
-    }else if(nyrs>=5){
-      # Set breaks to every 2 years if between 10 and 5 years of data
+      # Set breaks to every 2 years if between 30 and 10 years of data
       brk <- 2
+    }else if(nyrs>=5){
+      # Set breaks to every 1 years if between 10 and 5 years of data
+      brk <- 1
     }else{
       # Ensure 5 years are included on axis
       total_ticks <- 5
@@ -334,7 +334,7 @@ if(n==0){
     # Data is plotted as symbols with connected lines.
     p1 <- ggplot(data=plot_data) +
       geom_line(aes(x=Year, y=Mean, color=as.factor(SpeciesGroup1)),
-                size=0.75, alpha=1) +
+                linewidth=0.75, alpha=1) +
       geom_point(aes(x=Year, y=Mean, fill=as.factor(SpeciesGroup1),
                      shape=as.factor(SpeciesGroup1)), size=2,
                  color="#333333", alpha=1) +
