@@ -2,6 +2,7 @@
 #import each one, extract the intercept, slope, and p values, then write them to a pipe-delimited file
 library(data.table)
 library(dplyr)
+library(stringr)
 
 #List all of the files in the "tables" directory that are LME results
 files <- list.files("output/tables/SAV", pattern="lmeresults", full.names=TRUE)
@@ -40,8 +41,8 @@ for (i in 1:length(files)) {
 }
 
 #Add statistical trend column to denote where p<=0.05 and whether LME_slope increase or decreasing
-output$StatisticalTrend <- ifelse(output$p <= 0.05 & output$LME_Slope > 0, "Significantly increasing trend",
-                                  ifelse(output$p <= 0.05 & output$LME_Slope <0, "Significantly decreasing trend", "No significant trend"))
+output$TrendText <- ifelse(output$p <= 0.05 & output$LME_Slope > 0, "Increasing trend",
+                                  ifelse(output$p <= 0.05 & output$LME_Slope < 0, "Decreasing trend", "No detectable trend"))
 
 #Change column names to better match other outputs
 setnames(output, c("managed_area", "species"), c("ManagedAreaName", "Species"))
@@ -65,9 +66,9 @@ stats <- stats %>% select(AreaID, everything())
 stats$EarliestYear[stats$EarliestYear=="Inf"] <- NA
 stats$LatestYear[stats$LatestYear=="-Inf"] <- NA
 
-#filling remaining values in StatisticalTrend column
-stats$StatisticalTrend[stats$SufficientData==FALSE] <- "Insufficient data to calculate trend"
-stats$StatisticalTrend[stats$SufficientData==TRUE & is.na(stats$LME_Slope)] <- "Model did not fit the available data"
+#filling remaining values in TrendText column
+stats$TrendText[stats$SufficientData==FALSE] <- "Insufficient data"
+stats$TrendText[stats$SufficientData==TRUE & is.na(stats$LME_Slope)] <- "Model did not fit the available data"
 
 #drop rows where ManagedArea does not contain data
 stats <- stats[!apply(stats[, -c(1, 2), drop = FALSE], 1, function(row) all(is.na(row))), ]
@@ -82,6 +83,15 @@ stats$Species[stats$Species=="Halophila decipiens"] <- "Paddle grass"
 
 # Change Unidentified Halophila to Halophila, unk.
 stats[Species=="Unidentified Halophila", Species := "Halophila, unk."]
+
+# Add TrendIcon column
+stats <- stats %>%
+  mutate(TrendIcon = case_when(
+    str_detect(TrendText, "Decreasing") ~ -1,
+    str_detect(TrendText, "Increasing") ~ 1,
+    str_detect(TrendText, "No detectable trend") ~ 0,
+    str_detect(TrendText, "Insufficient") ~ 2,
+    str_detect(TrendText, "Model did not fit") ~ 3)) %>% as.data.table()
 
 #Write output table to a pipe-delimited txt file
 fwrite(stats, "output/website/SAV_BBpct_LMEresults_All.txt", sep="|")
