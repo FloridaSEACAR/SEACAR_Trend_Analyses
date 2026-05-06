@@ -5,6 +5,33 @@ library(tidybayes)
 library(stringr)
 options(scipen = 999)
 
+# Function to apply TrendIcon and TrendText for display on the Atlas
+oyster_apply_trend_icon <- function(suffData, modelEstimate, lowConfidence, upConfidence, sizeClass, shellType){
+  increasing <- modelEstimate > 0
+  trendPresent <- (lowConfidence < 0 & upConfidence < 0) | (lowConfidence > 0 & upConfidence >0)
+  TrendIcon <- 0
+  TrendText <- "No detectable trend"
+  if(isTRUE(trendPresent)){
+    TrendIcon <- ifelse(increasing, 1, -1)
+    TrendText <- ifelse(increasing, "Increasing trend", "Decreasing trend")
+  }
+  if(!suffData){
+    TrendIcon <- 2
+    TrendText <- "Insufficient data"
+  } else if(suffData & is.na(modelEstimate) & sizeClass!=""){
+    TrendIcon <- 3
+    TrendText <- "Model did not fit the available data"
+    if(shellType=="Dead Oyster Shells"){
+      TrendIcon <- 4
+      TrendText <- "Model not run on dead oyster shell"
+    }
+  }
+  return(list(
+    "TrendIcon" = TrendIcon,
+    "TrendText" = TrendText
+  ))
+}
+
 # Perform results compilation for both MA and OIMMP results, where available
 for(analysis_column in c("ManagedAreaName", "OIMMP")){
 # for(analysis_column in c("ManagedAreaName")){
@@ -133,6 +160,15 @@ for(analysis_column in c("ManagedAreaName", "OIMMP")){
   if(analysis_column=="ManagedAreaName"){
     finalTable <- finalTable %>% select(AreaID, everything()) # Put AreaID first
   }
+  
+  #### Add icon-based trends + trend text columns
+  finalTable <- finalTable %>% rowwise() %>%
+    mutate(TrendIcon = oyster_apply_trend_icon(SufficientData, ModelEstimate, 
+                                               LowerConfidence, UpperConfidence, 
+                                               SizeClass, ShellType)$TrendIcon,
+           TrendText = oyster_apply_trend_icon(SufficientData, ModelEstimate, 
+                                               LowerConfidence, UpperConfidence, 
+                                               SizeClass, ShellType)$TrendText)
   
   #Write output table to a csv and pipe-delimited txt file
   fwrite(finalTable, paste0(out_path, "Oyster_All_GLMM_Stats.txt"), sep="|")
