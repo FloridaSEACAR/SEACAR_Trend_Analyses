@@ -148,10 +148,11 @@ for(file in cont_file_list){
   ##### TEMPORARY FIX
   # Awaiting implementation of SpCond thresholds for Continunous
   if(p=="Specific Conductivity"){
+    ### Perform transformation for ID_5061
+    data[ProgramID==5061 & ParameterName==p, ResultValue := ResultValue/1000]    
     data <- data[ResultValue < 200 & ResultValue > 0, ]
   }
   ##############
-  
   
   # Separate reference file to prevent having to de-concatenate ManagedAreaName on entire continuous dataset
   # This is a crosswalk of individual MonitoringID and ProgramLocationID associations by ManagedAreaName

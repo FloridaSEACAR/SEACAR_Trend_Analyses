@@ -260,7 +260,7 @@ all_skip <- c(
 for(j in 1:length(all_params)){
   param_name <- all_params[j]
   param_abrev <- all_params_short[j]
-  if(!param_abrev=="Sal") next
+  # if(!param_abrev=="Sal") next
   cat(paste("Starting parameter:", param_name, "\n"))
   #Gets the file with the filename containing the desired parameter
   disc_param_pattern <- paste0("NUT_", param_name, "-")
@@ -327,8 +327,7 @@ for(j in 1:length(all_params)){
           data$RelativeDepth=="Surface"])] <- "Bottom"
       }
       # Removes missing RelativeDepth data and data for RelativeDepth not of interest
-      # from all parameters except Secchi_Depth
-      if(parameter!="Secchi Depth" & depth!="All"){
+      if(depth!="All"){
         data <- data[!is.na(data$RelativeDepth),]
         data <- data[data$RelativeDepth==depth,]
       }

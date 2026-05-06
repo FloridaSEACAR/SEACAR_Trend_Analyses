@@ -6,6 +6,25 @@ library(data.table)
 library(dplyr)
 library(stringr)
 
+# Function to apply TrendIcon and TrendText for display on the Atlas
+apply_trend_icon <- function(suffData, trend){
+  trendPresent <- trend %in% c(-1, 1, 2, -2)
+  if(suffData){
+    if(trendPresent){
+      TrendIcon <- ifelse(trend>0, 1, -1)
+      TrendText <- ifelse(trend>0, "Increasing trend", "Decreasing trend")
+    } else {
+      TrendIcon <- 0
+      TrendText <- "No detectable trend"
+    }
+  } else {
+    TrendIcon <- 2
+    TrendText <- "Insufficient data"
+  }
+  return(list("TrendIcon" = TrendIcon, 
+              "TrendText" = TrendText))
+}
+
 # Find discrete KendallTau outputs
 discrete_files <- list.files("output/tables/disc", pattern = "\\KendallTau_Stats.rds$", full.names = TRUE)
 # Find continuous KendallTau outputs
@@ -43,23 +62,23 @@ for(file_type in c("Discrete", "Continuous")){
   }
   
   data <- merge.data.frame(data, website, by=columns, all=TRUE)
+  data <- data %>% filter(!is.na(AreaID))
   data$Website[is.na(data$Website)] <- 0
   
   if(file_type=="Discrete"){
     data <- data %>% 
-      select(-c("SamplingFrequency", "IndicatorName", "ParameterShort", "ParameterUnits", "IndicatorShort", "ParameterVisId")) %>%
-      select(AreaID, ManagedAreaName, everything())
-    
-    data <- as.data.table(data[order(data$ManagedAreaName, data$ParameterName,
-                                     data$RelativeDepth, data$ActivityType), ])
+      select(-c("SamplingFrequency", "IndicatorName", "ParameterShort", "ParameterUnits", "IndicatorShort", "ParameterVisId",
+                "HabitatName", "HabitatShort")) %>%
+      select(AreaID, ManagedAreaName, everything()) %>%
+      arrange(ManagedAreaName, ParameterName, RelativeDepth, ActivityType) %>%
+      as.data.table()
   } else if(file_type=="Continuous"){
     data <- data %>% 
-      select(-c("SamplingFrequency")) %>%
+      select(-c("SamplingFrequency", "MonitoringID")) %>%
       select(AreaID, ManagedAreaName, ProgramID, ProgramName, ProgramLocationID,
-             everything())
-    data <- as.data.table(data[order(data$ManagedAreaName, data$ProgramID,
-                                     data$ProgramName, data$ProgramLocationID,
-                                     data$ParameterName), ])
+             everything()) %>%
+      as.data.table()
+    data$RelativeDepth <- stringr::str_to_title(data$RelativeDepth)
   }
   
   # Remove leading spaces from NA P-values
@@ -72,10 +91,16 @@ for(file_type in c("Discrete", "Continuous")){
   
   # De-concatenate continuous results
   if(file_type=="Continuous"){
-    data <- setDT(SEACAR::clean_managed_areas(data, "ma"))
+    data <- setDT(SEACAR::clean_managed_areas(data, "ma")) %>% 
+      arrange(ManagedAreaName, ProgramID, ProgramName, ProgramLocationID, ParameterName)
+    data$ProgramLocationID <- as.character(data$ProgramLocationID)
   }
   
-  data$ProgramLocationID <- as.character(data$ProgramLocationID)
+  #### Add icon-based trends + trend text columns
+  data <- data %>% rowwise() %>%
+    mutate(TrendIcon = apply_trend_icon(SufficientData, Trend)$TrendIcon,
+           TrendText = apply_trend_icon(SufficientData, Trend)$TrendText) %>%
+    as.data.table()
   
   fwrite(data[!N_Data==0, ], paste0(output_path, ".txt"), sep="|")
   fwrite(data[!N_Data==0, ], paste0(output_path, ".csv"), sep=",")

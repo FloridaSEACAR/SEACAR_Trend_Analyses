@@ -89,6 +89,7 @@ websiteParams <- websiteParams %>%
                                            "Chlorophyll a, Corrected for Pheophytin", "Secchi Depth", "Colored Dissolved Organic Matter"))) %>%
   filter(Website==1, HabitatName=="Water Column", IndicatorName!="Nekton")
 setDT(websiteParams)
+setindex(websiteParams, NULL)
 
 # Load in Database_Thresholds output from IndicatorQuantiles
 # Quantiles are applied only to the viewing windows when final plots are displayed.
@@ -295,6 +296,7 @@ skt_stats_cont[!is.na(p), `:=` (p = round(as.numeric(p), 4))]
 # Combine all discrete data into a single output file
 data_output_disc <- setDT(do.call(rbind, lapply(str_subset(disc_files, "data"), readRDS)))
 saveRDS(data_output_disc, file = "output/tables/disc/data_output_disc.rds")
+# data_output_disc <- readRDS("output/tables/disc/data_output_disc.rds")
 
 # # Create subset of all available "overall data" files so data can be included 
 # # from ALL stations not just the stations with successful Trends
@@ -361,7 +363,7 @@ setDT(cont_plot_data)
 cont_plot_data[SufficientData==TRUE, `:=` (
   sig = ifelse(p<=0.05, "Significant trend", "Non-significant trend")
 )]
-cont_plot_data[ , `:=` (label = paste0(ProgramLocationID, " - ", RelativeDepth))]
+cont_plot_data[ , `:=` (label = paste0(ProgramLocationID, " - ", stringr::str_to_title(RelativeDepth)))]
 
 ## Setting plot theme for plots
 plot_theme <- SEACAR::SEACAR_plot_theme()
@@ -463,23 +465,21 @@ plot_trendlines <- function(p, a, d, activity_label, depth_label, y_labels, para
   
   ### SKT STATS ###
   # Gets x and y values for starting point for trendline
-  KT.Plot <- skt_stats %>%
+  kentau_plot <- skt_stats %>%
     group_by(ManagedAreaName) %>%
     summarize(start_x=decimal_date(EarliestSampleDate),
               start_y=(start_x-EarliestYear)*SenSlope+SenIntercept,
               end_x=decimal_date(LastSampleDate),
               end_y=(end_x-EarliestYear)*SenSlope+SenIntercept,
-              p = unique(p))
-  KT.Plot <- as.data.table(KT.Plot[order(KT.Plot$ManagedAreaName), ])
-  KT.Plot <- KT.Plot[!is.na(KT.Plot$end_y),]
-  KT.Plot <- KT.Plot[!is.na(KT.Plot$start_y),] 
-  setDT(KT.Plot)
+              p = unique(p)) %>%
+    arrange(ManagedAreaName) %>%
+    filter(!is.na(end_y) | is.na(start_y)) %>% as.data.table()
   
   if (nrow(data) == 0) {invisible()} else {
     cat(glue("## {parameter} - {type}"), "\n")
     
     # Gets data to be used in plot for managed area
-    plot_data <- merge(data, KT.Plot, by=c("ManagedAreaName"), all=TRUE)
+    plot_data <- merge(data, kentau_plot, by=c("ManagedAreaName"), all=TRUE)
     plot_data[, `:=` (sig = ifelse(p<=0.05, "Significant trend", "Non-significant trend"))]
     
     # Create plot object with data and trendline
