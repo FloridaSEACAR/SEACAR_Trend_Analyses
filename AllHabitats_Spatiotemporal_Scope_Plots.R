@@ -80,7 +80,7 @@ if(analyze_type=="oimmp"){
   file_dir <- paste0(file_dir, "OIMMP/")
 }
 file_dirs <- c(file_dir, paste0(file_dir, "rds/")) # rds subdirectory
-lapply(file_dirs, function(x){if(!file.exists(x)) dir.create(x)})
+lapply(file_dirs, function(x){if(!file.exists(x)) dir.create(x, recursive = T)})
 
 # set size of plot points
 pt_size <- 3
@@ -325,7 +325,12 @@ for(i in managed_areas){
   xadd <- 0
   startyear <- min(hab_data_subset$Year)
   
+  # Determine how to display habitat type (SAV / Oyster)
   hab_display <- ifelse(analyze_hab=="oyster", str_to_title(analyze_hab), toupper(analyze_hab))
+  # Add OIMMP to title when necessary
+  title_display <- ifelse(analyze_type=="oimmp", paste0(i, " OIMMP Region"), i)
+  # Determine subtitle
+  subtitle_display <- paste0(hab_display, " sample locations available in SEACAR by Program and Year")
   
   base <- ggplot() +
     geom_sf(data = rotate_sf(fl_i, ma = i, coast = corners[LONG_NAME == i, Coast[1]]), fill = "beige", color = "navajowhite3", lwd = 0.5, inherit.aes = FALSE) +
@@ -336,8 +341,8 @@ for(i in managed_areas){
     geom_sf_text(data = rotate_sf(narlab, ma = i, coast = corners[LONG_NAME == i, Coast[1]]), label = "N", hjust = 0.7, angle = 4, color = "grey50", size = 3.5, inherit.aes = FALSE) +
     scale_color_manual(values = color_pal, 
                        aesthetics = c("color", "fill")) +
-    labs(title = i,
-         subtitle = paste0("Sample Locations - ", hab_display),
+    labs(title = title_display,
+         subtitle = subtitle_display,
          fill = "Program name", color = "Program name") +
     theme(panel.grid.major = element_line(colour = NA),
           panel.grid.minor = element_line(colour = NA),
@@ -471,18 +476,35 @@ for(i in managed_areas){
   base <- base +
     theme(legend.position='bottom', 
           legend.justification='left',
-          legend.direction='vertical')
+          legend.direction='vertical',
+          plot.title = element_text(size = 18),
+          plot.subtitle = element_text(size = 14),
+          legend.title = element_text(size = 14),
+          legend.text = element_text(size = 12)) +
+    scale_color_manual(values = color_pal, 
+                       labels = function(x) stringr::str_wrap(x, width = 90),
+                       aesthetics = c("color", "fill"))
   
   a_stem <- ifelse(analyze_hab=="oyster", str_to_title(analyze_hab), str_to_upper(analyze_hab))
   file_stem <- paste0(a_stem, "_", ma_abrev, "_temporal_scope")
   
   saveRDS(base, paste0(file_dir, "rds/", file_stem, ".rds"))
   
+  # Determine whether to save as landscape or portrait (default) (for OIMMP)
+  landscape <- c("Big_Bend", "Northwest_Florida", "Southwest_Florida")
+  if(ma_abrev %in% landscape){
+    w = 11 #landscape
+    h = 8.5
+  } else {
+    w = 8.5 #portrait
+    h = 11
+  }
+  
   ggsave(filename = paste0(file_dir, file_stem, ".jpg"),
          plot = base,
          dpi = 300,
-         width = 15,
-         height = 18,
+         width = w,
+         height = h,
          units = "in",
          limitsize = FALSE)
   
