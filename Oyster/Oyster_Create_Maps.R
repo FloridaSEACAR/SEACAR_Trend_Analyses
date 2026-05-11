@@ -61,7 +61,7 @@ shorten_program_names <- function(program_names, cutoff=50){
 
 # Load in Oyster data file
 oyster <- fread(str_subset(list.files(seacar_data_location, full.names = TRUE), "OYSTER"), 
-                sep="|", na.strings=c("NULL"))
+                sep="|", na.strings=c("NULL")) %>% SEACAR::clean_managed_areas(type = "ma")
 
 # Export date
 exportDate <- max(format(unique(oyster$ExportVersion), "%m/%d/%Y"))
