@@ -78,7 +78,7 @@ SAV2 <- SAV2 %>% filter(PO >= 0 & PO <= 100 | is.na(PO))
 SAV2 <- SAV2 %>% filter(Month %in% c(4:10))
 setDT(SAV2)
 
-SAV2[!is.na(BB), BB_all := fcase(BB == 0, 0, 
+SAV2[!is.na(BB), BB_all := fcase(BB == 0, 0,
                                  BB > 0 & BB <= 1, 1,
                                  BB > 1, round(BB))]
 SAV2[!is.na(mBB), BB_all := fcase(mBB == 0, 0,
@@ -1075,7 +1075,7 @@ setwd(wd)
 
 #Gets list of all image files in output/Figures and creates zip directory
 fig_list <- list.files("output/website/images/", full = FALSE, recursive = TRUE)
-fig_list <- str_subset(fig_list, "multiplots/")
+fig_list <- str_subset(fig_list, "trendplots/")
 setwd("output/website/images/")
 zip(zipfile=paste0("../SAVFigures_",usenames),
     files=fig_list)
