@@ -257,7 +257,7 @@ color_palette <- SEACAR::seacar_palette1
 cw_groups <- sort(unique(MA_Y_Stats$SpeciesGroup1), decreasing = T)
 
 group_colors <- color_palette[seq(from = 1, to = length(color_palette), by = length(color_palette) / length(cw_groups))]
-group_shapes <- c(21,22,24,25)
+group_shapes <- c(21,22,24)
 names(group_colors) <- cw_groups
 names(group_shapes) <- cw_groups
 
@@ -323,21 +323,14 @@ if(n==0){
     # maximum value.
     y_max <- max(plot_data$Mean)+(0.1*y_range)
     
-    # Determines what combination of groups are present for managed area
-    # and subsets color and shape scheme to be used by plots.
-    # Used so only group combinations present for managed area appear in
-    # the legend.
-    group_colors_plot <- group_colors[unique(plot_data$SpeciesGroup1)]
-    group_shapes_plot <- group_shapes[unique(plot_data$SpeciesGroup1)]
-    
     # Creates plot object using plot_data.
     # Data is plotted as symbols with connected lines.
     p1 <- ggplot(data=plot_data) +
       geom_line(aes(x=Year, y=Mean, color=as.factor(SpeciesGroup1)),
-                linewidth=0.75, alpha=1) +
+                linewidth=0.75, alpha=1, show.legend = TRUE) +
       geom_point(aes(x=Year, y=Mean, fill=as.factor(SpeciesGroup1),
                      shape=as.factor(SpeciesGroup1)), size=2,
-                 color="#333333", alpha=1) +
+                 color="#333333", alpha=1, show.legend = TRUE) +
       labs(title="Coastal Wetlands Species Richness",
            subtitle=ma_i,
            x="Year", y="Annual average richness (# of species)",
@@ -347,9 +340,18 @@ if(n==0){
                          breaks=seq(minyr, maxyr, brk)) +
       scale_y_continuous(limits=c(y_min, y_max),
                          breaks=pretty_breaks(n=5)) +
-      scale_fill_manual(values=group_colors_plot) +
-      scale_color_manual(values=group_colors_plot) +
-      scale_shape_manual(values=group_shapes_plot) +
+      scale_fill_manual(limits = cw_groups,
+                        breaks = cw_groups,
+                        values = group_colors,
+                        drop = FALSE) +
+      scale_color_manual(limits = cw_groups,
+                         breaks = cw_groups,
+                         values = group_colors,
+                         drop = FALSE) +
+      scale_shape_manual(limits = cw_groups,
+                         breaks = cw_groups,
+                         values = group_shapes,
+                         drop = FALSE) +
       plot_theme
     # Sets file name of plot created
     outname <- paste0("CoastalWetlands_", param_file, "_", ma_abrev, ".png")
