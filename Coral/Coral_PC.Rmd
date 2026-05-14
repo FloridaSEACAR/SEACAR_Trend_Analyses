@@ -63,11 +63,9 @@ get_map <- function(ma){
 make_table <- function(ma, tableFormat){
   ResultTable <- coral_lme[ManagedAreaName==ma, ]
   ResultTable %<>% rowwise() %>%
-    mutate(`Statistical Trend` = checkTrends(p = LME_p, Slope = LME_Slope, 
-                                             SufficientData = SufficientData),
-           `Period of Record` = paste0(EarliestYear, " - ", LatestYear)) %>% 
+    mutate(`Period of Record` = paste0(EarliestYear, " - ", LatestYear)) %>% 
     ungroup() %>% rename(`LME Intercept` = LME_Intercept, `LME Slope` = LME_Slope, 
-                         `p` = LME_p) %>% 
+                         `p` = LME_p, `Statistical Trend` = TrendText) %>% 
     select(`Statistical Trend`, `Period of Record`, 
            `LME Intercept`, `LME Slope`, p) %>% as.data.table()
   # Convert for kable/latex format (no "_" allowed)
@@ -81,7 +79,7 @@ make_table <- function(ma, tableFormat){
   return(result_table)
 }
 
-for(ma in coral_pc_MA_Include){
+for(ma in sort(unique(coral_lme$ManagedAreaName))){
   fig_caption <- figureCaptions[HabitatName=="Coral/Coral Reef" & IndicatorName=="Percent Cover", FigureCaptions]
   desc <- descriptionTable[ManagedAreaName==ma & HabitatName=="Coral/Coral Reef" & ParameterName=="Percent Cover", get(descriptionColumn)]
   cat("  \n")
@@ -95,7 +93,7 @@ for(ma in coral_pc_MA_Include){
   cat(desc)
   cat("  \n")
   map_loc <- get_map(ma)
-  cat("![](", map_loc,")")
+  SEACAR::subchunkify(cat("![](", map_loc,")"))
   cat("  \n")
 }
 
