@@ -16,13 +16,13 @@ output <- data.table()
 for (i in 1:length(files)) {
    #Get filename from list
    filename <- files[i]
-   
+
    #Read in file
    table <- readRDS(filename)
-   
+
    #Keep only rows that are values with "fixed" in the effect column
    table <- table[table$effect=="fixed" & !is.na(table$effect),]
-   
+
    #For each managed area and species, get the LME intercept, slope, and p values
    table <- table %>%
       group_by(managed_area, species) %>%
@@ -30,7 +30,7 @@ for (i in 1:length(files)) {
                 LME_Slope = estimate[term == "relyear"],
                 p = p.value[term == "relyear"],
                 .groups = "keep")
-   
+
    #If this is the first file, the table from above is stored as the output table
    #If not the first file, the table is added to the end of the output table
    if(i==1) {
@@ -51,14 +51,13 @@ setnames(output, c("managed_area", "species"), c("ManagedAreaName", "Species"))
 MA_All <- SEACAR::ManagedAreas
 
 stats <- fread("output/SAV_BBpct_Stats.txt", sep = "|", header = TRUE, stringsAsFactors = FALSE,
-               na.strings = "")
+               na.strings = "")[!N_Data==0]
 setnames(stats, c("analysisunit"), c("Species"))
 
-stats <- merge.data.frame(MA_All[,c("AreaID", "ManagedAreaName")],
-                          stats, by="ManagedAreaName", all=TRUE)
+stats <- stats %>% left_join(MA_All[,c("AreaID", "ManagedAreaName")])
 
 stats <-  merge.data.frame(stats, output,
-                              by=c("ManagedAreaName", "Species"), all=TRUE)
+                           by=c("ManagedAreaName", "Species"), all=TRUE)
 
 stats <- as.data.table(stats[order(stats$ManagedAreaName, stats$Species), ])
 stats <- stats %>% select(AreaID, everything())
@@ -69,9 +68,6 @@ stats$LatestYear[stats$LatestYear=="-Inf"] <- NA
 #filling remaining values in TrendText column
 stats$TrendText[stats$SufficientData==FALSE] <- "Insufficient data"
 stats$TrendText[stats$SufficientData==TRUE & is.na(stats$LME_Slope)] <- "Model did not fit the available data"
-
-#drop rows where ManagedArea does not contain data
-stats <- stats[!apply(stats[, -c(1, 2), drop = FALSE], 1, function(row) all(is.na(row))), ]
 
 # Convert to common names
 stats$Species[stats$Species=="Thalassia testudinum"] <- "Turtle grass"
