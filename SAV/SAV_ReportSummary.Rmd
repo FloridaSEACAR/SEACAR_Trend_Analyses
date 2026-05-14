@@ -45,7 +45,7 @@ sav_results$`Period of Record` <- ifelse(is.na(sav_results$LME_Intercept), NA, p
 sav_results <- sav_results %>% dplyr::rename(
   "LME Intercept" = LME_Intercept,
   "LME Slope" = LME_Slope,
-  "Statistical Trend" = StatisticalTrend
+  "Statistical Trend" = TrendText
 )
 
 sav_plot_locs <- list.files("output/website/images/", recursive=T, full=T)
@@ -61,16 +61,16 @@ for(ma in unique(sav_results$ManagedAreaName)){
   cat("  \n")
   cat(glue("# {ma}"))
   cat("  \n")
+  if(nrow(sav_results[ManagedAreaName==ma & SufficientData==TRUE, ])==0){
+    cat("  \n")
+    cat(glue::glue("Not enough data to perform analyses in {ma}"))
+    cat("  \n")
+  }
   ma_abrev <- MA_All[ManagedAreaName==ma, Abbreviation]
   for(plot_type in plot_types){
-    if(plot_type=="multiplots"){
-      fig_caption <- figureCaptions[HabitatName=="Submerged Aquatic Vegetation" & IndicatorName=="Percent Cover", FigureCaptions]
-    } else if(plot_type=="barplots"){
-      fig_caption <- paste0("Frequency of occurrence for various seagrass species in ", ma)
-    } else if(plot_type=="trendplots"){
-      fig_caption <- paste0("Trends in median percent cover for various seagrass species in ", ma, " - simplified")
-    }
-    
+    fig_caption <- figureCaptions[HabitatName=="Submerged Aquatic Vegetation" & 
+                                    IndicatorName=="Percent Cover" & 
+                                    PlotType==plot_type, FigureCaptions]
     plot_loc <- locate_plots(sav_plot_locs, ma_abrev, plot_type)
     if(length(plot_loc)==0) next
     cat("  \n")

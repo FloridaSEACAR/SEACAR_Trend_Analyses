@@ -82,18 +82,18 @@ SAV2[!is.na(BB), BB_all := fcase(BB == 0, 0,
                                  BB > 0 & BB <= 1, 1,
                                  BB > 1, round(BB))]
 SAV2[!is.na(mBB), BB_all := fcase(mBB == 0, 0,
-                                  mBB > 0 & mBB <= 1, 1, 
+                                  mBB > 0 & mBB <= 1, 1,
                                   mBB > 1, round(mBB))]
 SAV2[!is.na(PC), BB_all := fcase(PC == 0, 0,
                                  PC > 0 & PC <= (2.5 + (15-2.5)/2), 1,
                                  PC <= (2.5 + (15-2.5) + (37.5-15)/2), 2,
                                  PC <= (2.5 + (15-2.5) + (37.5-15) + (62.5 - 37.5)/2), 3,
-                                 PC <= (2.5 + (15-2.5) + (37.5-15) + (62.5 - 37.5) + (87.5 - 62.5)/2), 4, 
+                                 PC <= (2.5 + (15-2.5) + (37.5-15) + (62.5 - 37.5) + (87.5 - 62.5)/2), 4,
                                  PC > (2.5 + (15-2.5) + (37.5-15) + (62.5 - 37.5) + (87.5 - 62.5)/2), 5)]
 
 
 #Replaces two blocks of code above by using the BB_all variable to create all estimates at once.
-SAV2[!is.na(BB_all), BB_pct := fcase(BB_all == 0, 0, 
+SAV2[!is.na(BB_all), BB_pct := fcase(BB_all == 0, 0,
                                      BB_all > 0 & BB_all <= 0.1, rescale(BB_all, from=c(0, 0.1), to=c(0,0.02)), #Added by SRD 8/31/2021
                                      BB_all > 0.1 & BB_all <= 0.5, rescale(BB_all, from=c(0.1, 0.5), to=c(0.02,0.1)),
                                      BB_all > 0.5 & BB_all <= 1, rescale(BB_all, from=c(0.5,1), to=c(0.1,2.5)),
@@ -121,11 +121,11 @@ species_reject <- c("All", "NA",
                     "Hydrilla verticillata", "Potamogeton pusillus",
                     "Zannichellia palustris")
 
-SAV3[, `:=` (analysisunit_halid = ifelse(CommonIdentifier %in% species_reject, NA, 
-                                         ifelse(str_detect(CommonIdentifier, "Halophila") & is.na(SpeciesName), "Unidentified Halophila", 
+SAV3[, `:=` (analysisunit_halid = ifelse(CommonIdentifier %in% species_reject, NA,
+                                         ifelse(str_detect(CommonIdentifier, "Halophila") & is.na(SpeciesName), "Unidentified Halophila",
                                                 ifelse(SpeciesGroup1 %in% c("Seagrass","Total SAV"), CommonIdentifier, Drift_Attached))),
-             analysisunit = ifelse(CommonIdentifier %in% species_reject, NA, 
-                                   ifelse(str_detect(CommonIdentifier, "Halophila"), "Halophila spp.", 
+             analysisunit = ifelse(CommonIdentifier %in% species_reject, NA,
+                                   ifelse(str_detect(CommonIdentifier, "Halophila"), "Halophila spp.",
                                           ifelse(SpeciesGroup1 %in% c("Seagrass","Total SAV"), CommonIdentifier, Drift_Attached))))]
 
 SAV3[str_detect(analysisunit, "Drift|Attached"), `:=` (analysisunit = paste0(analysisunit, " algae"))]
@@ -147,16 +147,16 @@ addfits_multiplots <- function(models, plot_i, param, aucol){
     model <- models[[model_name]]
     # Check if any NA values have been dropped by the model
     model_vars <- all.vars(formula(model))
-    
+
     sp <- unique(model$data[[aucol]])
-    
+
     species_data <- SAV4[ManagedAreaName == i & !is.na(eval(p)) & eval(as.name(aucol)) == sp, ]
     # species_data$predictions <- predict(model, level = 0)
 
     species_data$predictions <- NA
     valid_rows <- complete.cases(species_data[, ..model_vars])
     species_data$predictions[valid_rows] <- predict(model, newdata = species_data[valid_rows], level = 0)
-    
+
     plot_i <- plot_i +
       geom_line(data = species_data,
                 aes(x = relyear, y = predictions), color="#000099", linewidth=0.75, alpha=0.7, inherit.aes = FALSE)
@@ -246,7 +246,7 @@ addfits <- function(models, plot_i, param) {
       predicted_values <- predict(model, level = 0, newdata = species_data)
 
       # separate significant values
-      significant <- if (p_val <=0.05) TRUE else FALSE
+      significant <- if (p_val <=0.05) "Significant" else "Not significant"
 
       # Add predicted values to the regression_data dataframe, with species & relyear
       regression_data <- rbind(regression_data, data.frame(
@@ -260,18 +260,18 @@ addfits <- function(models, plot_i, param) {
       # regression_data <- regression_data %>%
       #   filter(!species %in% c("Total SAV", "Total seagrass"))
 
+      sig_options <- c("Significant", "Not significant")
+
       # Plot all other species
       plot_i <- plot_i +
         geom_line(data = regression_data,
                   aes(x = relyear, y = fit, color=species, linetype=factor(significance)),
-                  linewidth=size, alpha=alpha, inherit.aes = FALSE) +
-        # geom_bar(data = plot_dat, aes(x=relyear, y=npt), stat = "identity") +
+                  linewidth=size, alpha=alpha, show.legend = TRUE, inherit.aes = FALSE) +
         scale_linetype_manual(name="Trend significance (alpha = 0.05)",
-                              values=c("TRUE" = "solid", "FALSE" = "dotdash"),
-                              labels=c("TRUE" = "Significant", "FALSE" = "Not significant")) +
-        # setting order of the legends, color first
-        guides(color = guide_legend(order=1),
-               linetype = guide_legend(order=2))
+                              limits = sig_options,
+                              breaks = sig_options,
+                              values = c("Significant" = "solid", "Not significant" = "dotdash"),
+                              drop = FALSE)
     }
   }
 
@@ -291,9 +291,13 @@ addfits <- function(models, plot_i, param) {
   # determining if scientific or common names
   species_labels <- modify_species_labels(species_list, usenames)
 
-  plot_i <- plot_i + scale_color_manual(values = subset(spcols, names(spcols) %in% species_list),
-                                        breaks = species_list,
-                                        labels = species_labels)
+  plot_i <- plot_i +
+    scale_color_manual(values = subset(spcols, names(spcols) %in% species_list),
+                       breaks = species_list,
+                       labels = species_labels) +
+    # setting order of the legends, color first
+    guides(color = guide_legend(order=1),
+           linetype = guide_legend(order=2))
 
   return(plot_i)
 }
@@ -332,7 +336,7 @@ plot_eda <- function(plot_type, p, i){
   grouping <- str_split_1(plot_type, "_")[2]
   y_axis <- str_split_1(str_split_1(plot_type, "_")[1], "v")[1]
   x_axis <- str_split_1(str_split_1(plot_type, "_")[1], "v")[2]
-  
+
   # Color palette set-up (should match spatio-temporal scope plots) - for program plots
   progs <- SAV4[ManagedAreaName == i & !is.na(BB_pct), unique(ProgramName)]
   # Set palette for these programs
@@ -598,7 +602,7 @@ for(p in parameters$column){
   for(i in ma_include){
 
     ma_abrev <- MA_All %>% filter(ManagedAreaName==i) %>% pull(Abbreviation)
-    
+
     cat(paste0("\nStarting MA: ", i, "\n"))
 
     #create data exploration plots-----------------------------------------------------
@@ -836,7 +840,7 @@ for(p in parameters$column){
     ## Trend plots
     if(paste0(p) %in% c("BB_pct", "PC") & ("BB_pct" %in% Analyses | "PC" %in% Analyses)){
       #Summarize # points per category
-      
+
       if(i %in% ma_halspp){
         plotdat <- SAV4[ManagedAreaName == i & !is.na(eval(p)), ] %>% group_by(analysisunit, Year, relyear, eval(p)) %>% summarise(npt = n())
       } else{

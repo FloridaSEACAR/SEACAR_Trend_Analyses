@@ -60,7 +60,7 @@ descriptionTable <- data.table()
 # Loop through available managed areas
 for(ma in unique(sav_stats$ManagedAreaName)){
   # Save description in excel workbook
-  descriptionText <- generate_description(data = sav_stats[ManagedAreaName==ma, ], habitat = "SAV")
+  descriptionText <- SEACAR::generate_description(data = sav_stats[ManagedAreaName==ma, ], habitat = "SAV")
   descriptionTable <- bind_rows(descriptionTable, descriptionText)
 }
 
