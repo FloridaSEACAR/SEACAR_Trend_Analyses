@@ -60,24 +60,9 @@ library(kableExtra)
 options(knitr.kable.NA = '-')
 # Read in oyster results file
 oyster_stats <- fread("output/ManagedAreaName/Oyster_All_GLMM_Stats.txt", sep='|')
-# Function to add trend text
-trendText <- function(modelEstimate, lowConfidence, upConfidence){
-  increasing <- modelEstimate > 0
-  trendPresent <- (lowConfidence < 0 & upConfidence < 0) | 
-                  (lowConfidence > 0 & upConfidence > 0)
-  trendStatus <- "No significant change"
-  if(isTRUE(trendPresent)){
-    trendDirection <- ifelse(increasing, "increasing", "decreasing")
-    trendStatus <- paste0("Significantly ", trendDirection, " trend")
-  }
-  return(trendStatus)
-}
-# Apply function, add credible interval
+# Add credible interval
 oyster_stats <- oyster_stats %>% rowwise() %>%
-  mutate(
-    "Trend Status" = ifelse(!is.na(ModelEstimate), trendText(ModelEstimate, LowerConfidence, UpperConfidence), NA),
-    "Credible Interval" = ifelse(!is.na(LowerConfidence), paste0(round(LowerConfidence, 2), " to ", round(UpperConfidence, 2)), NA)
-  ) %>%
+  mutate("Credible Interval" = ifelse(!is.na(LowerConfidence), paste0(round(LowerConfidence, 2), " to ", round(UpperConfidence, 2)), NA)) %>%
   ungroup() %>% as.data.table()
 
 # Oyster plot locations
@@ -113,19 +98,21 @@ oyster_tables <- function(ma, p, type){
   if(p=="Shell Height"){
     ResultTable <- subset %>% 
       filter(!SizeClass=="") %>%
-      dplyr::select(ShellType, HabitatType, SizeClass, "Trend Status", ModelEstimate, StandardError,"Credible Interval") %>%
+      dplyr::select(ShellType, HabitatType, SizeClass, TrendText, ModelEstimate, StandardError,"Credible Interval") %>%
       dplyr::rename("Shell Type" = "ShellType",
                     "Habitat Type" = "HabitatType",
                     "Estimate" = "ModelEstimate",
                     "Standard Error" = "StandardError", 
-                    "Size Class" = "SizeClass")
+                    "Size Class" = "SizeClass",
+                    "Trend Status" = "TrendText")
   } else {
     ResultTable <- subset %>% 
-      dplyr::select(ShellType, HabitatType, "Trend Status", ModelEstimate, StandardError,"Credible Interval") %>%
+      dplyr::select(ShellType, HabitatType, TrendText, ModelEstimate, StandardError,"Credible Interval") %>%
       dplyr::rename("Shell Type" = "ShellType",
                     "Habitat Type" = "HabitatType",
                     "Estimate" = "ModelEstimate",
-                    "Standard Error" = "StandardError")
+                    "Standard Error" = "StandardError",
+                    "Trend Status" = "TrendText")
   }
 
   

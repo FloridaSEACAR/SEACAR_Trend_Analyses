@@ -2195,11 +2195,19 @@ pctlive_models_par <- function(loc, habitat_type, oysterraw_pct){
     }
     yrlist <- seq(minyr,maxyr,brk)
     
-    cols <- c("#00374f", "#00374f", "#0094b0")
-    shapes <- c(21, 21, 24)
-    
-    names(cols) <- c("Percent", "Estimated percent", "Point-intercept")
-    names(shapes) <- c("Percent", "Estimated percent", "Point-intercept")
+    # Setup shape and color legends as factor in data
+    method_levels <- c("Percent", "Point-intercept", "Estimated percent")
+    data <- data %>% mutate(PercentLiveMethod = factor(PercentLiveMethod, levels = method_levels))
+    cols <- c("Percent" = "#00374f",
+              "Point-intercept" = "#0094b0",
+              "Estimated percent" = "#4FC3D9")
+    shapes <- c("Percent" = 21,
+                "Point-intercept" = 24,
+                "Estimated percent" = 22)
+    # Dummy layer to show all legend values
+    legend_seed <- data.frame(LiveDate = min(data$LiveDate, na.rm = TRUE),
+                              PercentLive_pct = 0,
+                              PercentLiveMethod = factor(method_levels, levels = method_levels))
     
     set.seed(987)
     # Empty list to store necessary plot layers
@@ -2220,25 +2228,40 @@ pctlive_models_par <- function(loc, habitat_type, oysterraw_pct){
                   color = "#000099", lwd = 0.75, inherit.aes = FALSE))
     }
     
-    plot_layers <- c(plot_layers,
-                     scale_fill_manual(name = "Percent Live Method", 
-                                       breaks = names(cols),
-                                       values = cols,
-                                       labels = names(cols)),
-                     scale_color_manual(name = "Percent Live Method", 
-                                        breaks = names(cols),
-                                        values = cols,
-                                        labels = names(cols)),
-                     geom_point(data=data, aes(x=LiveDate,
-                                               y=PercentLive_pct,
-                                               fill = PercentLiveMethod,
-                                               shape = PercentLiveMethod), 
-                                position=plot_jitter, size=2, color="#333333",
-                                alpha=0.4, inherit.aes=FALSE),
-                     scale_shape_manual(name = "Percent Live Method", 
-                                        breaks = names(shapes),
-                                        values = shapes,
-                                        labels = names(shapes)))
+    plot_layers <- c(
+      plot_layers,
+      geom_point(data = legend_seed, 
+                 aes(x = LiveDate,
+                     y = PercentLive_pct,
+                     fill = PercentLiveMethod,
+                     shape = PercentLiveMethod),
+                 size = 2,
+                 color = "#333333",
+                 alpha = 0,
+                 inherit.aes = FALSE,
+                 show.legend = TRUE),
+      scale_fill_manual(name = "Percent Live Method", 
+                        limits = method_levels,
+                        breaks = method_levels,
+                        values = cols,
+                        drop = FALSE),
+      scale_color_manual(name = "Percent Live Method", 
+                         limits = method_levels,
+                         breaks = method_levels,
+                         values = cols,
+                         drop = FALSE),
+      geom_point(data=data, aes(x=LiveDate,
+                                y=PercentLive_pct,
+                                fill = PercentLiveMethod,
+                                shape = PercentLiveMethod), 
+                 position=plot_jitter, size=2, color="#333333",
+                 alpha=0.4, inherit.aes=FALSE),
+      scale_shape_manual(name = "Percent Live Method", 
+                         limits = method_levels,
+                         breaks = method_levels,
+                         values = shapes,
+                         drop = FALSE)
+    )
     
     location_subtitle <- ifelse(analysis=="oimmp", paste0(loc, " OIMMP Region"), loc)
     
@@ -2250,6 +2273,12 @@ pctlive_models_par <- function(loc, habitat_type, oysterraw_pct){
       plot_theme +
       theme(legend.text=element_text(size=10), 
             legend.title=element_text(size=10)) +
+      guides(fill = guide_legend(
+        override.aes = list(
+          shape = unname(shapes[method_levels]),
+          fill = unname(cols[method_levels]),
+          color = "#333333",
+          alpha = 0.4)), shape = "none") +
       {
         if(length(unique(ma_subset$PercentLiveMethod))>1){
           # More than 1 PercentLiveMethod
