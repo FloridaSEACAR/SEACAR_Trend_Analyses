@@ -33,8 +33,8 @@ oyster_apply_trend_icon <- function(suffData, modelEstimate, lowConfidence, upCo
 }
 
 # Perform results compilation for both MA and OIMMP results, where available
-for(analysis_column in c("ManagedAreaName", "OIMMP")){
-# for(analysis_column in c("ManagedAreaName")){
+# for(analysis_column in c("ManagedAreaName", "OIMMP")){
+for(analysis_column in c("ManagedAreaName")){
   out_path <- paste0("output/", analysis_column, "/")
   #List all of the files in the "tables" directory that are LME results
   file_list <- list.files(out_path, pattern="ModelResults", full.names=TRUE)
@@ -84,30 +84,23 @@ for(analysis_column in c("ManagedAreaName", "OIMMP")){
   ##### Model back-transformation procedures (previous model_backtransformation.R)
   # Function to perform percent change calculation
   get_percent_change <- function(mod, var = "full"){
-    multi <- ifelse("LiveSuccess" %in% names(mod$data), 100, 1)
     pctplots <- plot(conditional_effects(mod, re_formula=NULL), plot=FALSE)
     df <- setDT(pctplots$RelYear$data)
-    df$estimate_pct <- multi*df$estimate__
-    delta_x <- diff(df$RelYear)
-    delta_y <- diff(df$estimate_pct)
-    delta_upper <- diff(df$upper__*multi)
-    delta_lower <- diff(df$lower__*multi)
-    delta_se <- diff(df$se__*multi)
     
-    slopes <- delta_y / delta_x
-    avg_slope <- mean(slopes)
-    avg_upper <- mean(delta_upper / delta_x)
-    avg_lower <- mean(delta_lower / delta_x)
-    avg_se <- mean(delta_se / delta_x)
+    # linear model to extract change over time (estimate + confidence int.)
+    lm_fit <- lm(estimate__ ~ RelYear, data = df)
+    fit_estimate <- summary(lm_fit)$coefficients["RelYear", "Estimate"]
+    fit_se <- summary(lm_fit)$coefficients["RelYear", "Std. Error"]
+    fit_conf <- confint(lm_fit)["RelYear", ]
     
     out <- data.table("Abbreviation" = ma_abrev,
                       "ParameterName" = ind,
                       "HabitatType" = hab_type,
-                      "Estimate" = avg_slope,
-                      "StandardError" = mean(df$se__*multi),
-                      "LowerConfidence" = avg_lower,
-                      "UpperConfidence" = avg_upper,
-                      "Intercept" = df[RelYear==min(mod$data$RelYear)]$estimate__*multi)
+                      "Estimate" = fit_estimate,
+                      "StandardError" = fit_se,
+                      "LowerConfidence" = fit_conf[[1]],
+                      "UpperConfidence" = fit_conf[[2]],
+                      "Intercept" = df[RelYear==min(RelYear), estimate__])
     return(out)
   }
   
