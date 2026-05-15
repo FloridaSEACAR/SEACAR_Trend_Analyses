@@ -1103,6 +1103,9 @@ shell_height_models_par <- function(loc, habitat_type, oysterraw){
     size2 <- "o75"
     sizelab2 <- "\u2265 75mm"
   }
+  # Remove space from between >= and 75mm
+  sizelab1 <- gsub(" ", "", sizelab1)
+  sizelab2 <- gsub(" ", "", sizelab2)
   
   #Marginal effects plot including random effects
   ## Hist plot settings
@@ -1357,7 +1360,7 @@ shell_height_models_par <- function(loc, habitat_type, oysterraw){
   # Live oyster shell plot
   if("live" %in% available_plots){
     plot2 <- ggplot() +
-      geom_hline(yintercept=75, size=1, color="grey") +
+      geom_hline(yintercept=75, linewidth=1, color="grey") +
       {if(n_live1>0){
         geom_point(data=data1[!is.na(RelYear) & !is.na(LiveDate) &
                                 LiveDate_Qualifier=="Exact", ],
