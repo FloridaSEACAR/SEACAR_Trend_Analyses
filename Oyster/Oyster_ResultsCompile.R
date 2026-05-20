@@ -82,39 +82,45 @@ for(analysis_column in c("ManagedAreaName")){
     arrange(get(analysis_column), ParameterName, ShellType, SizeClass, HabitatType) %>% as.data.table()
   
   ##### Model back-transformation procedures (previous model_backtransformation.R)
-  # Function to perform percent change calculation
-  get_percent_change <- function(mod, var = "full"){
-    pctplots <- plot(conditional_effects(mod, re_formula=NULL), plot=FALSE)
-    df <- setDT(pctplots$RelYear$data)
-    
-    # linear model to extract change over time (estimate + confidence int.)
-    lm_fit <- lm(estimate__ ~ RelYear, data = df)
-    fit_estimate <- summary(lm_fit)$coefficients["RelYear", "Estimate"]
-    fit_se <- summary(lm_fit)$coefficients["RelYear", "Std. Error"]
-    fit_conf <- confint(lm_fit)["RelYear", ]
-    
-    out <- data.table("Abbreviation" = ma_abrev,
-                      "ParameterName" = ind,
-                      "HabitatType" = hab_type,
-                      "Estimate" = fit_estimate,
-                      "StandardError" = fit_se,
-                      "LowerConfidence" = fit_conf[[1]],
-                      "UpperConfidence" = fit_conf[[2]],
-                      "Intercept" = df[RelYear==min(RelYear), estimate__])
-    return(out)
-  }
-  
+  # Perform percent change calculation on density models
   all_oyster_results <- fread(paste0(out_path, "GLMM_AllDates_ModelResults.csv"))
-  model_list <- unique(all_oyster_results$filename)
-  model_list <- str_subset(model_list, "_sh", negate = T) # shell height already in response scale, exclude here
+  den_models <- all_oyster_results[indicator=="Density", unique(filename)]
+  # Density model results in response scale (exported during plot formation)
+  # den_models and den_model_results should be 1:1
+  den_model_results <- list.files(paste0(out_path, "model_results/den_mods/"), full=T)
   
   m_results <- data.table()
-  for(mod in model_list){
-    ma_abrev <- str_split_1(tail(str_split_1(mod, "/"),1),"_")[1]
-    ind <- str_split_1(tail(str_split_1(mod, "/"),1),"_")[2]
-    hab_type <- str_split_1(str_split_1(tail(str_split_1(mod, "/"),1),"_")[4], ".rds")[1]
-    mod_i <- readRDS(mod)
-    m_results <- bind_rows(m_results, get_percent_change(mod_i))
+  for(model in den_models){
+    ma_abrev <- str_split_1(tail(str_split_1(model, "/"),1),"_")[1]
+    hab_type <- str_split_1(str_split_1(tail(str_split_1(model, "/"),1),"_")[4], ".rds")[1]
+    den_results <- readRDS(str_subset(den_model_results, paste0(ma_abrev, "_", hab_type)))
+    # Extract trend draws from model outputs
+    trend_draws <- den_results$draws
+    rel_values <- den_results$rel_values
+    
+    ## Calculate overall average change per year
+    # Calculate the change separately for each posterior draw
+    rate_draws <- (trend_draws[, ncol(trend_draws)] - trend_draws[, 1]) / (max(rel_values) - min(rel_values))
+    rate_summary <- data.table(
+      Estimate = mean(rate_draws, na.rm = TRUE),
+      StandardError = sd(rate_draws, na.rm = TRUE),
+      LowerConfidence = unname(quantile(rate_draws, 0.025, na.rm = TRUE)),
+      UpperConfidence = unname(quantile(rate_draws, 0.975, na.rm = TRUE))
+    )
+    
+    # Gather intercept from model data
+    intercept <- den_results$summary[RelYear==min(RelYear), estimate__]
+    
+    out <- data.table("Abbreviation" = ma_abrev,
+                      "ParameterName" = "Density",
+                      "HabitatType" = hab_type,
+                      "Estimate" = rate_summary$Estimate,
+                      "StandardError" = rate_summary$StandardError,
+                      "LowerConfidence" = rate_summary$LowerConfidence,
+                      "UpperConfidence" = rate_summary$UpperConfidence,
+                      "Intercept" = intercept)
+    
+    m_results <- bind_rows(m_results, out)
   }
   
   if(analysis_column=="ManagedAreaName"){
@@ -122,8 +128,6 @@ for(analysis_column in c("ManagedAreaName")){
   } else {
     backtrans_results <- m_results[, `:=` (ManagedAreaName = Abbreviation)]
   }
-  backtrans_results$ParameterName <- case_when(backtrans_results$ParameterName=="den" ~ "Density",
-                                               backtrans_results$ParameterName=="pct" ~ "Percent Live")
   
   replace_vals <- function(ma, param, hab_type, ret){
     subset <- backtrans_results[ManagedAreaName==ma & ParameterName==param & 
@@ -136,7 +140,7 @@ for(analysis_column in c("ManagedAreaName")){
     return(get(ret))
   }
   
-  mod_subset <- finalTable[SufficientData==TRUE & ParameterName %in% c("Density", "Percent Live"), ]
+  mod_subset <- finalTable[SufficientData==TRUE & ParameterName %in% c("Density"), ]
   unmod_subset <- setdiff(finalTable, mod_subset)
   # Replace values where needed
   mod_subset <- mod_subset %>% rowwise() %>% mutate(

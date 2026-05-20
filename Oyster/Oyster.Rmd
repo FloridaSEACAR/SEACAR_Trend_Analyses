@@ -119,7 +119,8 @@ oyster_tables <- function(ma, p, type){
   result_table <- kable(ResultTable, format = tableFormat,
                         caption = paste0("Model results for Oyster ", p, " - ", type),
                         row.names = FALSE, digits = 2,
-                        booktabs = T, linesep = "", escape = F, longtable = F) %>%
+                        booktabs = T, linesep = "", escape = F, longtable = F,
+                        align = "l") %>%
     row_spec(row = 0, italic = TRUE) %>%
     kable_styling(latex_options = c("scale_down", "HOLD_position"))
   
@@ -173,7 +174,7 @@ for(p in unique(oyster_includes$ParameterName)){
     ma_subset <- p_subset[ManagedAreaName==ma, ]
     ma_abrev <- MA_All[ManagedAreaName==ma, Abbreviation]
     # Grab table description
-    desc <- tableDesc[ManagedAreaName==ma & HabitatName=="Oyster/Oyster Reef" & ParameterName==p, get(descriptionColumn)]
+    desc <- tableDesc[ManagedAreaName==ma & ParameterName==p, get(descriptionColumn)]
     cat(glue("## {ma}"))
     cat("  \n")
     cat(desc)

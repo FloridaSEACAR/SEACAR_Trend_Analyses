@@ -1571,6 +1571,84 @@ density_models_par <- function(loc, habitat_type, oysterraw_den){
   library(rstudioapi)
   library(ggpubr)
   
+  plot_density <- function(mod){
+    df <- as.data.table(mod$data)
+    response_col <- "Density_m2"
+    rel_year_col <- "RelYear"
+    rel_seq <- round(seq(from = min(df[[rel_year_col]], na.rm = TRUE),
+                         to = max(df[[rel_year_col]], na.rm = TRUE),
+                         by = 0.1), 1)
+    cols_to_group <- setdiff(names(df), c(response_col, rel_year_col))
+    
+    newdata_w <- df[, .(weight_n = .N), by = cols_to_group]
+    
+    newdata_w <- newdata_w[,.(RelYear = rel_seq,
+                              weight_n = rep(weight_n[1], length(rel_seq))),
+                           by = cols_to_group]
+    
+    setnames(newdata_w, "RelYear", rel_year_col)
+    
+    newdata <- as.data.frame(
+      newdata_w[, setdiff(names(newdata_w), "weight_n"), with = FALSE]
+    )
+    
+    weights <- newdata_w$weight_n
+    epred <- posterior_epred(
+      mod,
+      newdata = newdata,
+      re_formula = NULL,
+      ndraws = 2668
+    )
+    
+    summarise_epred_by_rel_year <- function(
+    epred,
+    newdata,
+    weights = NULL,
+    rel_year_col = "RelYear",
+    probs = c(0.025, 0.975)
+    ) {
+      
+      newdata <- as.data.table(newdata)
+      
+      if (is.null(weights)) {
+        weights <- rep(1, nrow(newdata))
+      }
+      
+      rel_values <- sort(unique(newdata[[rel_year_col]]))
+      
+      # Matrix: posterior draws × RelYear values
+      trend_draws <- sapply(rel_values, function(yr) {
+        
+        idx <- which(newdata[[rel_year_col]] == yr)
+        w <- weights[idx] / sum(weights[idx])
+        
+        as.numeric(epred[, idx, drop = FALSE] %*% w)
+      })
+      
+      trend_summary <- data.table(
+        RelYear = rel_values,
+        estimate__ = colMeans(trend_draws, na.rm = TRUE),
+        se__ = apply(trend_draws, 2, sd, na.rm = TRUE),
+        lower__ = apply(trend_draws, 2, quantile, probs = probs[1], na.rm = TRUE),
+        upper__ = apply(trend_draws, 2, quantile, probs = probs[2], na.rm = TRUE)
+      )
+      
+      list(
+        summary = trend_summary,
+        draws = trend_draws,
+        rel_values = rel_values
+      )
+    }
+    
+    overall_trend <- summarise_epred_by_rel_year(
+      epred = epred,
+      newdata = newdata,
+      weights = weights,
+      rel_year_col = "RelYear"
+    )
+    return(overall_trend)
+  }
+  
   if(analysis=="ma"){
     abrev <- MA_All[ManagedAreaName==loc, Abbreviation]
   } else {
@@ -1808,7 +1886,8 @@ density_models_par <- function(loc, habitat_type, oysterraw_den){
   yrlist <- seq(minyr,maxyr,brk)
   
   if(class(den_glmm)=="brmsfit"){
-    denplots <- plot(conditional_effects(models[[1]], re_formula=NULL), plot=FALSE)    
+    den_results <- plot_density(den_glmm)
+    saveRDS(den_results, paste0(output_path, "model_results/den_mods/Oyster_Dens_GLMM_", abrev, "_", habitat_type, ".rds"))
   }
   
   location_subtitle <- ifelse(analysis=="oimmp", paste0(loc, " OIMMP Region"), loc)
@@ -1826,11 +1905,11 @@ density_models_par <- function(loc, habitat_type, oysterraw_den){
                  alpha=0.8, inherit.aes=FALSE)
     }} +
     {if(class(den_glmm)=="brmsfit"){
-      list(geom_ribbon(data=denplots$RelYear$data,
-                       aes(x=RelYear+yrdiff, y=Density_m2,
+      list(geom_ribbon(data=den_results$summary,
+                       aes(x=RelYear+yrdiff,
                            ymin=lower__, ymax=upper__),
                        fill="#000099", alpha=0.1, inherit.aes=FALSE),
-           geom_line(data=denplots$RelYear$data,
+           geom_line(data=den_results$summary,
                      aes(x=RelYear+yrdiff,
                          y=estimate__),
                      color="#000099", lwd=0.75, inherit.aes=FALSE))   
