@@ -39,6 +39,95 @@ options(future.globals.maxSize = 2 * 1024 * 1024 * 1024)
 QAQCPlots <- FALSE
 #####
 
+##### Function to extract and plot model results
+extract_model_results <- function(mod, param){
+  if(param=="Density"){
+    response_col <- "Density_m2"
+  } else if(param=="Percent Live"){
+    response_col <- "PercentLive_pct"
+  } else if(param=="Shell Height"){
+    response_col <- "ShellHeight_mm"
+  }
+  df <- as.data.table(mod$data)
+  rel_year_col <- "RelYear"
+  rel_seq <- round(seq(from = min(df[[rel_year_col]], na.rm = TRUE),
+                       to = max(df[[rel_year_col]], na.rm = TRUE),
+                       by = 0.1), 1)
+  cols_to_group <- setdiff(names(df), c(response_col, rel_year_col))
+  
+  newdata_w <- df[, .(weight_n = .N), by = cols_to_group]
+  
+  newdata_w <- newdata_w[,.(RelYear = rel_seq,
+                            weight_n = rep(weight_n[1], length(rel_seq))),
+                         by = cols_to_group]
+  
+  setnames(newdata_w, "RelYear", rel_year_col)
+  
+  newdata <- as.data.frame(
+    newdata_w[, setdiff(names(newdata_w), "weight_n"), with = FALSE]
+  )
+  
+  weights <- newdata_w$weight_n
+  epred <- posterior_epred(
+    mod,
+    newdata = newdata,
+    re_formula = NULL,
+    ndraws = 2668
+  )
+  
+  summarise_epred_by_rel_year <- function(
+    epred,
+    newdata,
+    weights = NULL,
+    rel_year_col = "RelYear",
+    probs = c(0.025, 0.975)
+  ) {
+    
+    newdata <- as.data.table(newdata)
+    
+    if (is.null(weights)) {
+      weights <- rep(1, nrow(newdata))
+    }
+    
+    rel_values <- sort(unique(newdata[[rel_year_col]]))
+    
+    # Matrix: posterior draws × RelYear values
+    trend_draws <- sapply(rel_values, function(yr) {
+      
+      idx <- which(newdata[[rel_year_col]] == yr)
+      w <- weights[idx] / sum(weights[idx])
+      
+      as.numeric(epred[, idx, drop = FALSE] %*% w)
+    })
+    
+    finite_draws <- apply(trend_draws, 1, function(x) all(is.finite(x)))
+    trend_draws_clean <- trend_draws[finite_draws, , drop = FALSE]
+    
+    trend_summary <- data.table(
+      RelYear = rel_values,
+      estimate__ = colMeans(trend_draws_clean, na.rm = TRUE),
+      se__ = apply(trend_draws_clean, 2, sd, na.rm = TRUE),
+      lower__ = apply(trend_draws_clean, 2, quantile, probs = probs[1], na.rm = TRUE),
+      upper__ = apply(trend_draws_clean, 2, quantile, probs = probs[2], na.rm = TRUE)
+    )
+    
+    list(
+      summary = as.data.frame(trend_summary),
+      draws = trend_draws,
+      rel_values = rel_values
+    )
+  }
+  
+  overall_trend <- summarise_epred_by_rel_year(
+    epred = epred,
+    newdata = newdata,
+    weights = weights,
+    rel_year_col = "RelYear"
+  )
+  return(overall_trend)
+}
+#####
+
 # Set column name variable to differentiate between MA and OIMMP
 col_name <- ifelse(analysis=="ma", "ManagedAreaName", "OIMMP")
 
@@ -1196,16 +1285,18 @@ shell_height_models_par <- function(loc, habitat_type, oysterraw){
   
   set.seed(987)
   if(!is.null(models1[[1]]) & !QAQCPlots){
-    liveplot_1 <- plot(conditional_effects(models1[[1]], re_formula=NULL), plot=FALSE)
+    sh25to75_results <- extract_model_results(models1[[1]], param = "Shell Height")
+    saveRDS(sh25to75_results, paste0(output_path, "model_results/model_extracts/Oyster_SH_", abrev, "_", habitat_type, "_25to75.rds"))
   }
   
   if(!is.null(models2[[1]]) & !QAQCPlots){
-    liveplot_2 <- plot(conditional_effects(models2[[1]], re_formula=NULL), plot=FALSE)
+    sho75_results <- extract_model_results(models2[[1]], param = "Shell Height")
+    saveRDS(sho75_results, paste0(output_path, "model_results/model_extracts/Oyster_SH_", abrev, "_", habitat_type, "_o75.rds"))
   }
   
-  # Set boolean values for whether liveplot1&2 are available
-  liveplot1_avail <- class(try(liveplot_1, silent=TRUE)) != "try-error"
-  liveplot2_avail <- class(try(liveplot_2, silent=TRUE)) != "try-error"
+  # Set boolean values for whether sh25to75_results & sho75_results are available
+  liveplot1_avail <- class(try(sh25to75_results$summary, silent=TRUE)) != "try-error"
+  liveplot2_avail <- class(try(sho75_results$summary, silent=TRUE)) != "try-error"
   
   # Set ribbon transparency value
   a_ribb <- 0.2
@@ -1234,50 +1325,50 @@ shell_height_models_par <- function(loc, habitat_type, oysterraw){
   # Initial plots to set legends
   plot_leg <- ggplot() +
     {if(liveplot1_avail){
-      list(geom_ribbon(data=liveplot_1$RelYear$data,
-                       aes(x=RelYear+yrdiff1, y=ShellHeight_mm,
+      list(geom_ribbon(data=sh25to75_results$summary,
+                       aes(x=RelYear+yrdiff1,
                            ymin=lower__, ymax=upper__,
                            fill="size1"), 
                        alpha=a_ribb,
                        show.legend = TRUE),
-           geom_line(data=liveplot_1$RelYear$data,
+           geom_line(data=sh25to75_results$summary,
                      aes(x=RelYear+yrdiff1, y=estimate__, 
                          color="size1"),
                      lwd=0.75,
                      show.legend = TRUE),
            # Dummy values
-           geom_ribbon(data=liveplot_1$RelYear$data,
-                       aes(x=RelYear+yrdiff1, y=ShellHeight_mm,
+           geom_ribbon(data=sh25to75_results$summary,
+                       aes(x=RelYear+yrdiff1,
                            ymin=lower__, ymax=upper__,
                            fill="size2"), 
                        alpha=a_ribb,
                        show.legend = TRUE),
-           geom_line(data=liveplot_1$RelYear$data,
+           geom_line(data=sh25to75_results$summary,
                      aes(x=RelYear+yrdiff1, y=estimate__, 
                          color="size2"),
                      lwd=0.75,
                      show.legend = TRUE))
     }} +
     {if(liveplot2_avail){
-      list(geom_ribbon(data=liveplot_2$RelYear$data,
-                       aes(x=RelYear+yrdiff2, y=ShellHeight_mm,
+      list(geom_ribbon(data=sho75_results$summary,
+                       aes(x=RelYear+yrdiff2,
                            ymin=lower__, ymax=upper__, 
                            fill="size2"), 
                        alpha=a_ribb,
                        show.legend = TRUE),
-           geom_line(data=liveplot_2$RelYear$data,
+           geom_line(data=sho75_results$summary,
                      aes(x=RelYear+yrdiff2, y=estimate__, 
                          color="size2"),
                      lwd=0.75,
                      show.legend = TRUE),
            # Dummy values
-           geom_ribbon(data=liveplot_2$RelYear$data,
-                       aes(x=RelYear+yrdiff2, y=ShellHeight_mm,
+           geom_ribbon(data=sho75_results$summary,
+                       aes(x=RelYear+yrdiff2,
                            ymin=lower__, ymax=upper__, 
                            fill="size1"), 
                        alpha=a_ribb,
                        show.legend = TRUE),
-           geom_line(data=liveplot_2$RelYear$data,
+           geom_line(data=sho75_results$summary,
                      aes(x=RelYear+yrdiff2, y=estimate__, 
                          color="size1"),
                      lwd=0.75,
@@ -1376,20 +1467,20 @@ shell_height_models_par <- function(loc, habitat_type, oysterraw){
                    alpha=0.8, inherit.aes=FALSE)
       }} +
       {if(liveplot1_avail){
-        list(geom_ribbon(data=liveplot_1$RelYear$data,
-                         aes(x=RelYear+yrdiff1, y=ShellHeight_mm,
+        list(geom_ribbon(data=sh25to75_results$summary,
+                         aes(x=RelYear+yrdiff1,
                              ymin=lower__, ymax=upper__, fill="size1"),
                          alpha=a_ribb),
-             geom_line(data=liveplot_1$RelYear$data,
+             geom_line(data=sh25to75_results$summary,
                        aes(x=RelYear+yrdiff1, y=estimate__, color="size1"),
                        lwd=0.75))
       }} +
       {if(liveplot2_avail){
-        list(geom_ribbon(data=liveplot_2$RelYear$data,
-                         aes(x=RelYear+yrdiff2, y=ShellHeight_mm,
+        list(geom_ribbon(data=sho75_results$summary,
+                         aes(x=RelYear+yrdiff2,
                              ymin=lower__, ymax=upper__, fill="size2"),
                          alpha=a_ribb),
-             geom_line(data=liveplot_2$RelYear$data,
+             geom_line(data=sho75_results$summary,
                        aes(x=RelYear+yrdiff2, y=estimate__, color="size2"),
                        lwd=0.75))
       }} +
@@ -1570,84 +1661,6 @@ density_models_par <- function(loc, habitat_type, oysterraw_den){
   library(tictoc)
   library(rstudioapi)
   library(ggpubr)
-  
-  plot_density <- function(mod){
-    df <- as.data.table(mod$data)
-    response_col <- "Density_m2"
-    rel_year_col <- "RelYear"
-    rel_seq <- round(seq(from = min(df[[rel_year_col]], na.rm = TRUE),
-                         to = max(df[[rel_year_col]], na.rm = TRUE),
-                         by = 0.1), 1)
-    cols_to_group <- setdiff(names(df), c(response_col, rel_year_col))
-    
-    newdata_w <- df[, .(weight_n = .N), by = cols_to_group]
-    
-    newdata_w <- newdata_w[,.(RelYear = rel_seq,
-                              weight_n = rep(weight_n[1], length(rel_seq))),
-                           by = cols_to_group]
-    
-    setnames(newdata_w, "RelYear", rel_year_col)
-    
-    newdata <- as.data.frame(
-      newdata_w[, setdiff(names(newdata_w), "weight_n"), with = FALSE]
-    )
-    
-    weights <- newdata_w$weight_n
-    epred <- posterior_epred(
-      mod,
-      newdata = newdata,
-      re_formula = NULL,
-      ndraws = 2668
-    )
-    
-    summarise_epred_by_rel_year <- function(
-    epred,
-    newdata,
-    weights = NULL,
-    rel_year_col = "RelYear",
-    probs = c(0.025, 0.975)
-    ) {
-      
-      newdata <- as.data.table(newdata)
-      
-      if (is.null(weights)) {
-        weights <- rep(1, nrow(newdata))
-      }
-      
-      rel_values <- sort(unique(newdata[[rel_year_col]]))
-      
-      # Matrix: posterior draws × RelYear values
-      trend_draws <- sapply(rel_values, function(yr) {
-        
-        idx <- which(newdata[[rel_year_col]] == yr)
-        w <- weights[idx] / sum(weights[idx])
-        
-        as.numeric(epred[, idx, drop = FALSE] %*% w)
-      })
-      
-      trend_summary <- data.table(
-        RelYear = rel_values,
-        estimate__ = colMeans(trend_draws, na.rm = TRUE),
-        se__ = apply(trend_draws, 2, sd, na.rm = TRUE),
-        lower__ = apply(trend_draws, 2, quantile, probs = probs[1], na.rm = TRUE),
-        upper__ = apply(trend_draws, 2, quantile, probs = probs[2], na.rm = TRUE)
-      )
-      
-      list(
-        summary = trend_summary,
-        draws = trend_draws,
-        rel_values = rel_values
-      )
-    }
-    
-    overall_trend <- summarise_epred_by_rel_year(
-      epred = epred,
-      newdata = newdata,
-      weights = weights,
-      rel_year_col = "RelYear"
-    )
-    return(overall_trend)
-  }
   
   if(analysis=="ma"){
     abrev <- MA_All[ManagedAreaName==loc, Abbreviation]
@@ -1886,8 +1899,8 @@ density_models_par <- function(loc, habitat_type, oysterraw_den){
   yrlist <- seq(minyr,maxyr,brk)
   
   if(class(den_glmm)=="brmsfit"){
-    den_results <- plot_density(den_glmm)
-    saveRDS(den_results, paste0(output_path, "model_results/den_mods/Oyster_Dens_GLMM_", abrev, "_", habitat_type, ".rds"))
+    den_results <- extract_model_results(den_glmm, param = "Density")
+    saveRDS(den_results, paste0(output_path, "model_results/model_extracts/Oyster_Dens_", abrev, "_", habitat_type, ".rds"))
   }
   
   location_subtitle <- ifelse(analysis=="oimmp", paste0(loc, " OIMMP Region"), loc)
@@ -2295,16 +2308,17 @@ pctlive_models_par <- function(loc, habitat_type, oysterraw_pct){
     # Empty list to store necessary plot layers
     plot_layers <- list()
     if(class(pct_glmm)=="brmsfit"){
-      pctplots <- plot(conditional_effects(models[[1]], re_formula=NULL), plot=FALSE)
+      pct_results <- extract_model_results(pct_glmm, param = "Percent Live")
+      saveRDS(pct_results, paste0(output_path, "model_results/model_extracts/Oyster_PrcLive_", abrev, "_", habitat_type, ".rds"))
       
       plot_layers <- c(
-        geom_ribbon(data = pctplots$RelYear$data,
+        geom_ribbon(data = pct_results$summary,
                     aes(x = RelYear + yrdiff,
                         y = estimate__,
                         ymin = lower__,
                         ymax = upper__),
                     fill = "#000099", alpha = 0.1, inherit.aes = FALSE),
-        geom_line(data = pctplots$RelYear$data,
+        geom_line(data = pct_results$summary,
                   aes(x = RelYear + yrdiff,
                       y = estimate__),
                   color = "#000099", lwd = 0.75, inherit.aes = FALSE))
@@ -2488,7 +2502,7 @@ if(!QAQCPlots){
 if(!QAQCPlots){
   # Zip all figures
   out_dir <- paste0(output_path, "Figures")
-  fig_list <- list.files(paste0(output_path, "Figures"), recursive = T)
+  fig_list <- list.files(paste0(output_path, "Figures"), pattern = ".png", recursive = T)
   filename <- paste0("AllOysterFigures_", toupper(analysis))
   setwd(out_dir)
   zip(filename, files=fig_list)
