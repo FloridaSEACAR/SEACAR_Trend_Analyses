@@ -24,7 +24,7 @@ find_exact_matches <- function(pattern, filenames) {
 }
 
 MA_All <- SEACAR::ManagedAreas
-MA_All <- MA_All[!MA_All$AreaID==7] %>% arrange(ManagedAreaName) %>% as.data.table()
+setorder(MA_All, ManagedAreaName)
 end.rcode-->
 
 <div style="padding:20px; border-radius:15px; background:#F2F2F2;">
@@ -83,14 +83,10 @@ for(file in wq_discrete_files){
 cat("</ul>\n")
 
 cat("<h3>Continuous WQ</h3>\n<ul>\n")
-for (param in cont_params_long){
+for(param in cont_params_long){
   p <- stringr::str_replace_all(param, " ", "_")
-  par_reg <- paste0(p, "_", region)
-  
-  file_name <- stringr::str_subset(wq_cont_files_short, par_reg)
-  
-  
-  cat(paste0("<li><em>", str_remove(file_name, "_SE"), "</em></li>\n"))
+  file_name <- stringr::str_subset(wq_cont_files, p)
+  cat(paste0("<li><em>", file_name, "</em></li>\n"))
 }
 cat("</ul>\n")
 
