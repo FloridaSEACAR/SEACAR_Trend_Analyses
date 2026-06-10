@@ -27,29 +27,22 @@ plot_cw <- function(ma, ma_abrev, MA_Ov_Stats = "MA_Ov_Stats_cw", MA_Y_Stats = "
   format_type <- ifelse(report_type=="HTML", "simple", "latex")
   # Creates a data table object to be shown underneath plots in report
   ResultTable <- MA_Ov_Stats[ManagedAreaName==ma,]
-  # Removes location, species group, and parameter information because it is
-  # in plot labels
-  ResultTable <- ResultTable[,-c("AreaID", "ManagedAreaName",
-                                 "ProgramIDs", "Programs", "ParameterName")]
-  # Renames StandardDeviation to StDev to save horizontal space
-  ResultTable <- ResultTable %>%
-    rename("StDev"="StandardDeviation")
   # Converts all non-integer values to 2 decimal places for space
   ResultTable$Min <- round(ResultTable$Min, digits=2)
   ResultTable$Max <- round(ResultTable$Max, digits=2)
   ResultTable$Median <- round(ResultTable$Median, digits=2)
   ResultTable$Mean <- round(ResultTable$Mean, digits=2)
-  ResultTable$StDev <- round(ResultTable$StDev, digits=2)
+  ResultTable$StandardDeviation <- round(ResultTable$StandardDeviation, digits=2)
   
   ResultTable <- ResultTable %>%
     mutate("Period of Record" = paste0(EarliestYear, " - ", LatestYear)) %>%
     select(SpeciesGroup1, N_Data, N_Years, "Period of Record", Median, Mean) %>%
     rename(
       "Species Group" = SpeciesGroup1,
-      "Sample Count" = N_Data,
-      "Number of Years" = N_Years,
-      "Median N of Taxa" = Median,
-      "Mean N of Taxa" = Mean
+      "No. of Samples" = N_Data,
+      "No. Years with Data" = N_Years,
+      "Median No. of Taxa" = Median,
+      "Mean No. of Taxa" = Mean
     )
   
   # Grab relevant table description for a given plot
@@ -61,7 +54,7 @@ plot_cw <- function(ma, ma_abrev, MA_Ov_Stats = "MA_Ov_Stats_cw", MA_Y_Stats = "
   result_table <- kable(ResultTable, format=format_type,
                         caption=table_title,
                         row.names = FALSE, digits = 5,
-                        booktabs = T, linesep = "", escape = F, longtable = F) %>%
+                        booktabs = T, linesep = "", escape = F, longtable = F, align = "l") %>%
     row_spec(row = 0, italic = TRUE) %>%
     kable_styling(latex_options = c("scale_down", "HOLD_position"))
   # Locate plot

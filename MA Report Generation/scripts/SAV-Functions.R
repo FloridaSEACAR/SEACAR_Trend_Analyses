@@ -6,8 +6,6 @@ library(tidygam)
 library(data.table)
 library(dplyr)
 
-source("../SAV/load_shape_files.R")
-
 # SEACAR Figure standards
 plot_theme <- SEACAR::SEACAR_plot_theme()
 
@@ -17,8 +15,8 @@ sav_stats_table <- fread("../SAV/output/website/SAV_BBpct_LMEresults_All.txt", s
 #create Period of Record column (mirroring atlas)
 sav_stats_table$years <- paste0(sav_stats_table$EarliestYear," - ",sav_stats_table$LatestYear)
 sav_stats_table$years[sav_stats_table$SufficientData==FALSE] <- NA
-
-sav_managed_areas <- unique(sav_stats_table$ManagedAreaName)
+# Determine managed areas with enough data to display SAV results
+sav_managed_areas <- sav_stats_table[SufficientData==TRUE, unique(ManagedAreaName)]
 
 # Plot locations
 trendplots <- list.files("../SAV/output/website/images/trendplots", full.names = T)
@@ -45,8 +43,16 @@ for(pl in barplots){
 # For use in report generation
 sav_trend_table <- function(ma, report_format){
   format_type <- ifelse(report_type=="HTML", "simple", "latex")
-  table <- sav_stats_table[ManagedAreaName == ma, c("Species","StatisticalTrend","years","LME_Intercept","LME_Slope","p")] %>%
-    select(Species,StatisticalTrend,years,LME_Intercept,LME_Slope,p)
+  table <- sav_stats_table[ManagedAreaName == ma, ] %>%
+    filter(Species != "No grass in quadrat") %>%
+    select(Species, TrendText, years, LME_Intercept, LME_Slope, p) %>%
+    rename(
+      "Statistical Trend" = TrendText,
+      "LME Intercept" = LME_Intercept,
+      "LME Slope" = LME_Slope,
+      "Period of Record" = years,
+      "P" = p
+    )
   
   # Grab relevant table description for a given plot
   desc <- TableDescriptions[ManagedAreaName==ma & HabitatName=="Submerged Aquatic Vegetation", get(descriptionColumn)]
@@ -55,7 +61,7 @@ sav_trend_table <- function(ma, report_format){
   
   sav_kable <- table %>%
     kable(format=format_type,caption=table_title, booktabs = T, linesep = "",
-          col.names = c("CommonName","Trend Significance (0.05)","Period of Record","LME-Intercept","LME-Slope","p")) %>%
+          align = "l") %>%
     row_spec(0, italic=TRUE) %>%
     kable_styling(latex_options=c("scale_down","hold_position"))
   
@@ -69,12 +75,12 @@ sav_trend_table <- function(ma, report_format){
 sav_scope_plots <- function(ma, ma_abrev, sav_scope_locs){
   file_loc <- str_subset(sav_scope_locs, paste0("_",ma_abrev,"_map"))
   if(length(file_loc)==0) return()
-  caption <- paste0("Maps showing the temporal scope of SAV sampling sites within the boundaries of *", ma, "* by Program name.")
+  caption <- paste0("Maps showing the temporal scope of SAV sampling sites within the boundaries of *", ma, "* by program name.")
   cat("  \n")
   subchunkify(cat("![", caption, "](", file_loc,")"))
   # cat("![](", file_loc,")")
   cat("  \n")
-  cat("Click [here](https://github.com/FloridaSEACAR/SEACAR_Trend_Analyses/tree/main/MA%20Report%20Generation/output/SAV-Temporal-Scope-Plots) to view spatio-temporal plots on GitHub.")
+  cat("Click [here](https://github.com/FloridaSEACAR/SEACAR_Trend_Analyses/tree/main/SAV/output/SAV_temporal_scope_plots) to view spatio-temporal plots on GitHub.")
   cat("  \n")
 }
 
@@ -88,21 +94,14 @@ plot_sav_trendplot <- function(ma, ma_abrev, plot_type, plot_list, malist){
   if(ma_abrev %in% malist){
     # Plot
     plot_loc <- str_subset(plot_list, paste0("_", ma_abrev, "_"))
-    if(plot_type=="trendplots"){
-      fig_caption <- paste0("Trends in median percent cover for various seagrass species in ", ma, " - simplified")
-    } else if(plot_type=="multiplots"){
-      fig_caption <- FigureCaptions[HabitatName=="Submerged Aquatic Vegetation" & IndicatorName=="Percent Cover", FigureCaptions]
-    } else if(plot_type=="barplots"){
-      fig_caption <- paste0("Frequency of occurrence for various seagrass species in ", ma)
-    }
-    
+    fig_caption <- FigureCaptions[HabitatName=="Submerged Aquatic Vegetation" & 
+                                    IndicatorName=="Percent Cover" & PlotType==plot_type, FigureCaptions]
     cat("  \n")
     subchunkify(cat("![", fig_caption, "](", plot_loc,")"))
-    # cat("![](", plot_loc,")")
     cat("  \n")
     
     # Table
-    if(plot_type=="trendplots"){
+    if(plot_type=="trendplot"){
       sav_trend_table(ma, report_format = report_format)
       cat("  \n")
     }
@@ -214,7 +213,7 @@ ggplot_gam <- function(ma, hal = "all", pal = "Dark2") {
       cat("*Drift algae*, *Total seagrass*, *Attached algae*, *No grass in quadrat*, and *Total SAV* are excluded from the analyses.  \n")
       
       caption <- paste0("Amount of data for each species in ", ma)
-      kable(table_display, format="simple", caption=caption, col.names= c("*Species*", "*Years of Data*", "*Year Range*"))
+      kable(table_display, format="simple", caption=caption, col.names= c("*Species*", "*Years of Data*", "*Year Range*"), align = "l")
       cat("\n")
     }
   }
@@ -252,10 +251,11 @@ sav_maps <- function(ma, ma_abrev, map_locs, report_type){
   
   # Program name
   # SAV table prep for latex styling
-  ma_sav_kable <- kable(sav_table %>% select(-ProgramName), format=format_type,
+  ma_sav_kable <- kable(sav_table %>% select(-ProgramName) %>% colorize_tables("blue"), 
+                        format=format_type,
                         caption=table_caption,
                         row.names = FALSE, digits = 4,
-                        booktabs = T, linesep = "", escape = F, longtable = F) %>%
+                        booktabs = T, linesep = "", escape = F, longtable = F, align = "l") %>%
     row_spec(0, italic=TRUE) %>%
     kableExtra::kable_styling(latex_options = c("scale_down", "HOLD_position"))
   # Display table
@@ -264,8 +264,9 @@ sav_maps <- function(ma, ma_abrev, map_locs, report_type){
   # Display ProgramName below data table
   cat("\n **Program names:** \n \n")
   for(p_id in sort(unique(sav_table$ProgramID))){
-    p_name <- sav_table[ProgramID==p_id, ]$ProgramName
-    cat(paste0("*",p_id,"*", " - ",p_name, knitcitations::citep(bib[[paste0("SEACARID", p_id)]]), "  \n"))
+    p_name <- sav_table[ProgramID==p_id, unique(ProgramName)]
+    p_id_display <- ifelse(p_id %in% rcp_progs, colorize(p_id, "blue", report_type), p_id)
+    cat(paste0("*",p_id_display,"*", " - ",p_name, knitcitations::citep(bib[[paste0("SEACARID", p_id)]]), "  \n"))
   }
   cat("  \n")
 }
@@ -279,7 +280,7 @@ sav_wc_loc <- function(ma){
   avail <- str_subset(sav_wc, ma_abrev)
   if(length(avail)>0){
     # Extract parameter names
-    params <- sapply(avail, function(x) str_split_1(x, "_")[[2]])
+    params <- sapply(avail, function(x) str_split_1(str_split_1(x, "_")[[2]], "\\.")[[1]])
     # Rename parameters for cleaner display
     lookup <- c(CDOM = "Colored Disolved Organic Matter",
                 Chla = "Chlorophyll a",
@@ -300,7 +301,7 @@ sav_wc_loc <- function(ma){
       cat("  \n")
     }
     cat("  \n")
-    cat("Access the reports here: [DRAFT_SAV_WC_Report_2024-11-20.pdf](https://floridaseacar.github.io/SEACAR_Trend_Analyses/SAV_WC_Analysis/DRAFT_SAV_WC_Report_2024-11-20.pdf)")
+    cat("Access the reports here: [DRAFT_SAV_WC_Report.pdf](https://floridaseacar.github.io/SEACAR_Trend_Analyses/SAV_WC_Analysis/DRAFT_SAV_WC_Report.pdf)")
     cat("  \n")    
   }
 }

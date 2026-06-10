@@ -27,12 +27,28 @@ library(RColorBrewer)
 library(tictoc)
 library(SEACAR)
 
-## Render Atlas Reports? - provide overview in similar format to Atlas - helpful for review
-render_atlas_reports <- FALSE
-
 # Gets directory of this script and sets it as the working directory
 wd <- dirname(getActiveDocumentContext()$path)
 setwd(wd)
+
+#### CREATE TABLE DESCRIPTION OUTPUT ####
+# Combines all habitat-specific table descriptions into a final file for use in these reports and on SEACAR Atlas
+# Requires the Atlas-Tools repository be in the same root folder as SEACAR_Trend_Analyses repository
+# source("../../Atlas-Tools/tableDescriptions/run.R")
+#### RUN MODEL AGGREGATION PROCEDURES ####
+# source("../../Atlas-Tools/ModelAggregation/run.R")
+# The output from model aggregation procedures is loaded within ReportTemplate.Rmd
+
+# Load in the newly created table description output
+td_files <- list.files("../../Atlas-Tools/tableDescriptions/output/", full=T, pattern = ".xlsx")
+TableDescriptions <- setDT(openxlsx::read.xlsx(td_files[which.max(file.info(td_files)$mtime)]) %>%
+                             mutate(DescriptionLatex = gsub("&#8805;", ">=", Description)))
+cat(glue("Using file: {td_files[which.max(file.info(td_files)$mtime)]} \n"))
+rm(td_files)
+#########################################
+
+## Render AtlasReports? - provide overview in similar format to Atlas - helpful for review
+render_atlas_reports <- FALSE
 
 # Create folder paths if they don't yet exist
 folder_paths <- c("output", "output/Reports", "output/maps", "output/Reports/HTML", 
@@ -56,9 +72,33 @@ websiteParams <- websiteParams %>%
                                            "Chlorophyll a, Corrected for Pheophytin", "Secchi Depth", "Colored Dissolved Organic Matter"))) %>%
   filter(Website==1) %>% as.data.table()
 
+# Determine list of programs managed by RCP to highlight them in reports
+managingEntities <- openxlsx::read.xlsx("data/MonitoringPrograms_ManagingEntityUpdate_2025-12.xlsx") %>%
+  mutate(ManagingEntity = ifelse(is.na(ActionNeeded), Managing.Entity, Managing.Entity_proposed)) %>% 
+  select(Id, Name, ManagingEntity) %>% rename("ProgramID" = "Id", "ProgramName" = "Name") %>% 
+  rowwise() %>%
+  mutate(Entity = str_split_1(ManagingEntity, ";")[1])
+rcp_progs <- managingEntities %>% 
+  filter(stringr::str_detect(Entity, "Office of Resilience")) %>% pull(ProgramID)
+# Colorize function to enable color throughout report (LaTeX format)
+colorize <- function(x, color, reportType){
+  if(reportType=="HTML"){
+    sprintf("<span style='color: %s;'>%s</span>", color, x)
+  } else if(reportType=="PDF"){
+    sprintf("\\textcolor{%s}{%s}", color, x)
+  }
+}
+# Colorize table function to color program ID values (and others) within tables
+colorize_tables <- function(df, color){
+  f <- ifelse(report_type=="HTML", "html", "latex")
+  df %>% mutate(text_color = ifelse(ProgramID %in% rcp_progs, color, "black"),
+                ProgramID = cell_spec(ProgramID, color = text_color, format = f)) %>% 
+    select(-text_color)
+}
+
 #Gets the desired file locations
 #Imports SEACAR data file path information as variable "seacar_data_location"
-source("../SEACAR_data_location.R")
+source("../../SEACAR_Trend_Analyses/SEACAR_data_location.R")
 
 files <- list.files(seacar_data_location, full.names=TRUE)
 hab_files <- str_subset(files, "All_")
@@ -96,23 +136,16 @@ source("scripts/Oyster.R")
 SAV4 <- readRDS("../SAV/output/SAV_DataUsed.rds")
 ############################
 
-seacar_palette <- c("#005396", "#0088B1", "#00ADAE", "#65CCB3", "#AEE4C1", 
-                    "#FDEBA8", "#F8CD6D", "#F5A800", "#F17B00")
+seacar_palette <- SEACAR::seacar_palette1
 
 ################
 ## file names ##
 # Pulls file names from discrete and cont. file list .txt rendered during .RDS object creation
 wq_discrete_file <- fread("../WQ_Cont_Discrete/output/tables/disc/disc_file_list.txt", sep='|')
-wq_discrete_files <- wq_discrete_file %>% 
-  pivot_longer(cols=names(wq_discrete_file)) %>%
-  pull(unique(value))
+wq_discrete_files <- unique(wq_discrete_file$file_short)
 
 wq_cont_file <- fread("../WQ_Cont_Discrete/output/tables/cont/cont_file_list.txt", sep='|')
-wq_cont_files <- wq_cont_file %>%
-  pivot_longer(cols=names(wq_cont_file)) %>%
-  pull(unique(value))
-# Removes file path and isolates file names
-wq_cont_files_short <- lapply(wq_cont_files, function(x){tail(str_split(x, "/")[[1]],1)})
+wq_cont_files <- unique(wq_cont_file$file_short)
 
 #################
 #################
@@ -155,10 +188,10 @@ get_plot <- function(ma_abrev, parameter, type, pid){
 
 # Read each species-based habitat file in separately for more efficient parsing in species_available function
 species_data <- list()
-species_data[["SAV"]] <- fread(sav_file_in, sep='|', na.strings = "NULL") %>% SEACAR::clean_managed_areas(type = "ma") %>% as.data.table()
-species_data[["Coral"]] <- fread(coral_file_in, sep='|', na.strings = "NULL") %>% SEACAR::clean_managed_areas(type = "ma") %>% as.data.table()
-species_data[["CW"]] <- fread(cw_file_in, sep='|', na.strings = "NULL") %>% SEACAR::clean_managed_areas(type = "ma") %>% as.data.table()
-species_data[["Nekton"]] <- fread(nekton_file_in, sep='|', na.strings = "NULL") %>% SEACAR::clean_managed_areas(type = "ma") %>% as.data.table()
+species_data[["SAV"]] <- fread(sav_file_in, sep='|', na.strings = "NULL")
+species_data[["Coral"]] <- fread(coral_file_in, sep='|', na.strings = "NULL")
+species_data[["CW"]] <- fread(cw_file_in, sep='|', na.strings = "NULL")
+species_data[["Nekton"]] <- fread(nekton_file_in, sep='|', na.strings = "NULL")
 
 # Function to return species lists at end of report
 species_available <- function(ma){
@@ -168,7 +201,7 @@ species_available <- function(ma){
                       "Hydrilla verticillata", "Potamogeton pusillus",
                       "Zannichellia palustris")
   if(in_sav){
-    dataFile <- species_data[["SAV"]] %>% filter(ManagedAreaName==ma)
+    dataFile <- species_data[["SAV"]] %>% filter(str_detect(ManagedAreaName, ma))
     all_sp <- c(all_sp, unique(dataFile$CommonIdentifier))
     # Species list of species used in analysis
     sp <- unique(dataFile %>% 
@@ -179,7 +212,7 @@ species_available <- function(ma){
   }
   
   if(in_coral){
-    dataFile <- species_data[["Coral"]] %>% filter(ManagedAreaName==ma)
+    dataFile <- species_data[["Coral"]] %>% filter(str_detect(ManagedAreaName, ma))
     all_sp <- c(all_sp, unique(dataFile$CommonIdentifier))
     sp1 <- unique(dataFile %>% filter(SpeciesGroup1 %in% c("Grazers and reef dependent species", "Reef fish"),
                                       ParameterName=="Presence/Absence") %>% pull(CommonIdentifier))
@@ -190,7 +223,7 @@ species_available <- function(ma){
   }
   
   if(in_cw){
-    dataFile <- species_data[["CW"]] %>% filter(ManagedAreaName==ma)
+    dataFile <- species_data[["CW"]] %>% filter(str_detect(ManagedAreaName, ma))
     all_sp <- c(all_sp, unique(dataFile$CommonIdentifier))
     sp <- unique(dataFile %>% filter(SpeciesGroup1 %in% c("Marsh","Marsh succulents",
                                                           "Mangroves and associates")) %>% 
@@ -199,7 +232,7 @@ species_available <- function(ma){
   }
   
   if(in_nekton){
-    dataFile <- species_data[["Nekton"]] %>% filter(ManagedAreaName==ma)
+    dataFile <- species_data[["Nekton"]] %>% filter(str_detect(ManagedAreaName, ma))
     all_sp <- c(all_sp, unique(dataFile$CommonIdentifier))
     sp <- unique(dataFile %>% filter(!is.na(SpeciesGroup2)) %>% pull(CommonIdentifier))
     used_in_analysis[["Nekton"]] <- sp
@@ -235,20 +268,21 @@ species_available <- function(ma){
 ##### THE LATEST `SEACAR_Metadata.xlsx` is needed as an input!!!! -----
 # Download any file from the DDI to obtain latest `SEACAR_Metadata.xlsx`
 # Import thresholds
-thresholds <- openxlsx::read.xlsx("data/SEACAR_Metadata.xlsx", 
+ddi_metadata_file <- "https://data.florida-seacar.org/static/metadataexport/SEACAR_Metadata.xlsx"
+thresholds <- openxlsx::read.xlsx(ddi_metadata_file, 
                                   startRow = 6, sheet = "Ref_QAThresholds")
 # Import QAQC Flag descriptions
-qaqc_table <- openxlsx::read.xlsx("data/SEACAR_Metadata.xlsx", 
+qaqc_table <- openxlsx::read.xlsx(ddi_metadata_file, 
                                   sheet = "Ref_QAQCFlag", 
                                   rows = c(6:21),
                                   sep.names = " ")
-vq_desc_table <- openxlsx::read.xlsx("data/SEACAR_Metadata.xlsx", 
+vq_desc_table <- openxlsx::read.xlsx(ddi_metadata_file, 
                                      sheet = "Ref_Include", 
                                      rows = c(35:54),
                                      sep.names = " ")
 
 # Subset for MAs
-MA_All <- MA_All[!MA_All$ManagedAreaName=="Biscayne Bay-Cape Florida to Monroe County Line Aquatic Preserve"]
+# MA_All <- MA_All[!MA_All$ManagedAreaName=="Biscayne Bay-Cape Florida to Monroe County Line Aquatic Preserve"]
 
 # Load in Figure Captions
 FigureCaptions <- SEACAR::FigureCaptions %>% 
@@ -259,18 +293,6 @@ FigureCaptions <- SEACAR::FigureCaptions %>%
     vectorize = FALSE
   )) %>% as.data.table()
 
-# Load in TableDescriptions
-# Create separate columns for HTML and LaTeX formatted description statements
-TableDescriptions <- SEACAR::TableDescriptions %>%
-  mutate(DescriptionHTML = Description,
-         DescriptionLatex = stringi::stri_replace_all_regex(
-           Description,
-           pattern = c("<i>", "</i>", "&#8805;"),
-           replacement = c("*", "*", ">="),
-           vectorize = FALSE
-         )) %>%
-  as.data.table()
-
 # Choose which type of report to render, or render both
 report_types <- c("PDF", "HTML")
 
@@ -278,14 +300,9 @@ report_types <- c("PDF", "HTML")
 # apply checks for coral, sav, etc. within .Rmd doc
 tic()
 for(i in seq_len(nrow(MA_All))){
-  
   ma <- MA_All[i, ]$ManagedAreaName
   ma_short <- MA_All[i, ]$ShortName
-  
-  # MA abbreviation
   ma_abrev <- MA_All[i, ]$Abbreviation
-  # if(!ma_abrev=="BBCFMCAP") next
-      
   # perform checks for habitats in each MA
   # Check which habitats to include in each MA
   in_sav <- ma %in% sav_managed_areas
@@ -293,7 +310,8 @@ for(i in seq_len(nrow(MA_All))){
   in_coral <- ma %in% coral_managed_areas
   in_cw <- ma %in% cw_managed_areas
   in_discrete <- ma %in% disc_managed_areas
-  in_continuous <- ma %in% cont_managed_areas
+  # in_continuous <- ma %in% cont_managed_areas
+  in_continuous <- any(str_detect(cont_managed_areas, ma))
   in_oyster <- ma %in% oyster_managed_areas
   
   #####################
@@ -307,7 +325,8 @@ for(i in seq_len(nrow(MA_All))){
 
     for(report_type in report_types){
       # Determine which description format to render
-      descriptionColumn <- ifelse(report_type=="HTML", "DescriptionHTML", "DescriptionLatex")
+      descriptionColumn <- ifelse(report_type=="HTML", "Description", "DescriptionLatex")
+      # descriptionColumn <- "Description"
       ma_report_out_dir <- paste0(report_out_dir,"/",report_type)
 
       file_out <-  paste0(ma_abrev, "_Report")
@@ -336,7 +355,7 @@ knitr::knit("index.Rhtml")
 if(render_atlas_reports){
   # Renders an individual report for each MA
   for(i in seq_len(nrow(MA_All))){
-    
+    # if(i!=7) next
     ma <- MA_All[i, ]$ManagedAreaName
     ma_short <- MA_All[i, ]$ShortName
     
@@ -380,173 +399,17 @@ if(render_atlas_reports){
       unlink(paste0(file_out, ".log"))
     }
   }
-  # Render a final, combined Atlas report
-  # Contains all potential habitats/indicators
-  rmarkdown::render(input = "AtlasReportTemplate_Combined.Rmd",
-                    output_format = "html_document",
-                    output_file = "AtlasReport_combined.html",
-                    output_dir = paste0(report_out_dir, "/AtlasReports"),
-                    clean=TRUE)
-  rmarkdown::render(input = "AtlasReportTemplate_Combined.Rmd",
-                    output_format = "word_document",
-                    output_file = "AtlasReport_combined.docx",
-                    output_dir = paste0(report_out_dir, "/AtlasReports"),
-                    clean=TRUE)
-  unlink(paste0(report_out_dir, "/AtlasReports/AtlasReport_combined.md"))
+  # # Render a final, combined Atlas report
+  # # Contains all potential habitats/indicators
+  # rmarkdown::render(input = "AtlasReportTemplate_Combined.Rmd",
+  #                   output_format = "html_document",
+  #                   output_file = "AtlasReport_combined.html",
+  #                   output_dir = paste0(report_out_dir, "/AtlasReports"),
+  #                   clean=TRUE)
+  # rmarkdown::render(input = "AtlasReportTemplate_Combined.Rmd",
+  #                   output_format = "word_document",
+  #                   output_file = "AtlasReport_combined.docx",
+  #                   output_dir = paste0(report_out_dir, "/AtlasReports"),
+  #                   clean=TRUE)
+  # unlink(paste0(report_out_dir, "/AtlasReports/AtlasReport_combined.md"))
 }
-
-# Create parallel-ready function to render reports
-# library(parallel)
-# # Render report function
-# render_ma_report <- function(i, MA_All, report_out_dir, report_types,
-#                              sav_managed_areas, nekton_managed_areas, coral_managed_areas,
-#                              cw_managed_areas, disc_managed_areas, cont_managed_areas,
-#                              managed_area_df, wq_discrete_files, nekton_file_in,
-#                              cw_file_in, coral_file_in, sav_file_in, oyster_file_in,
-#                              locs_pts_rcp, find_shape, get_shape_coordinates, rcp, station_coordinates,
-#                              coordinates_df) {
-#   library(knitr)
-#   library(readr)
-#   library(tidyverse)
-#   library(data.table)
-#   library(purrr)
-#   library(rstudioapi)
-#   library(stringr)
-#   library(utils)
-#   library(geosphere)
-#   library(leaflet)
-#   library(leaflegend)
-#   library(mapview)
-#   library(magick)
-#   library(mgcv)
-#   library(cowplot)
-#   library(webshot)
-#   library(sf)
-#   library(fontawesome)
-#   library(gridExtra)
-#   library(ggpubr)
-#   library(glue)
-#   library(kableExtra)
-#   library(distill)
-#   library(dplyr)
-#   library(RColorBrewer)
-#   library(tictoc)
-#   
-#   source("scripts/WQ_Continuous.R")
-#   source("scripts/WQ_Discrete.R")
-#   source("scripts/Nekton.R")
-#   source("scripts/CoastalWetlands.R")
-#   source("scripts/SAV-Functions.R")
-#   source("scripts/Coral.R")
-#   source("scripts/Oyster.R")
-#   
-#   tryCatch({
-# 
-#     message(paste("Processing index:", i))
-# 
-#     # Check if the required columns exist in the data
-#     if (!"ManagedAreaName" %in% colnames(MA_All)) {
-#       stop("Column 'ManagedAreaName' not found in MA_All")
-#     }
-#     if (!"ManagedAreaName" %in% colnames(managed_area_df)) {
-#       stop("Column 'ManagedAreaName' not found in managed_area_df")
-#     }
-# 
-#     ma <- MA_All[i, "ManagedAreaName"]
-#     ma_short <- MA_All[i, "ShortName"]
-#     ma_abrev <- MA_All[i, "Abbreviation"]
-# 
-#     # Log the Managed Area being processed
-#     message(paste("Managed Area:", ma, "| ShortName:", ma_short, "| Abbreviation:", ma_abrev))
-# 
-#     # Perform checks for habitats in each MA
-#     in_sav <- ma %in% sav_managed_areas
-#     in_nekton <- ma %in% nekton_managed_areas
-#     in_coral <- ma %in% coral_managed_areas
-#     in_cw <- ma %in% cw_managed_areas
-#     in_discrete <- ma %in% disc_managed_areas
-#     in_continuous <- ma %in% cont_managed_areas
-# 
-#     # Log which habitat checks passed
-#     message(paste("Habitat checks - SAV:", in_sav, "| Nekton:", in_nekton,
-#                   "| Coral:", in_coral, "| CW:", in_cw, "| Discrete:", in_discrete,
-#                   "| Continuous:", in_continuous))
-# 
-#     # Render report if the area is in any habitat group
-#     if (in_sav | in_nekton | in_coral | in_cw | in_discrete | in_continuous) {
-#       for (report_type in report_types) {
-#         ma_report_out_dir <- paste0(report_out_dir, "/", report_type)
-#         file_out <- paste0(ma_abrev, "_Report")
-#         format_string <- paste0(tolower(report_type), "_document")
-# 
-#         message(paste("Rendering report for:", ma_abrev, "as", format_string))
-# 
-#         rmarkdown::render(input = "ReportTemplate.Rmd",
-#                           output_format = format_string,
-#                           output_file = paste0(file_out, ".", tolower(report_type)),
-#                           output_dir = ma_report_out_dir,
-#                           params = list(
-#                             ma = ma,
-#                             managed_area_df = managed_area_df,
-#                             ma_abrev = ma_abrev,
-#                             in_sav = in_sav,
-#                             in_nekton = in_nekton,
-#                             in_coral = in_coral,
-#                             in_cw = in_cw,
-#                             in_discrete = in_discrete,
-#                             in_continuous = in_continuous
-#                           ),
-#                           clean = TRUE)
-# 
-#         # Remove unwanted files created in the rendering process
-#         unlink(paste0(ma_report_out_dir, "/", file_out, ".md"))
-#         unlink(paste0(ma_report_out_dir, "/", file_out, ".tex"))
-#         unlink(paste0(ma_report_out_dir, "/", file_out, "_files"), recursive = TRUE)
-#       }
-#     }
-#   }, error = function(e) {
-#     message(paste("Error in iteration", i, ":", e))
-#     return(e)
-#   })
-# }
-# 
-# # Create a cluster
-# cl <- makeCluster(detectCores() - 8)
-# 
-# # Export necessary variables and functions to the cluster
-# clusterExport(cl, varlist = c("MA_All", "render_ma_report", "report_out_dir", "report_types",
-#                               "sav_managed_areas", "nekton_managed_areas", "coral_managed_areas",
-#                               "cw_managed_areas", "disc_managed_areas", "cont_managed_areas",
-#                               "managed_area_df", "wq_discrete_files", "nekton_file_in",
-#                               "cw_file_in", "coral_file_in", "sav_file_in", "oyster_file_in",
-#                               "locs_pts_rcp", "find_shape", "get_shape_coordinates", "rcp",
-#                               "station_coordinates", "coordinates_df", "thresholds", 
-#                               "qaqc_table", "vq_desc_table", "SAV4"))
-# 
-# tic()
-# # Use parLapply to parallelize the rendering
-# parLapply(cl, seq_len(nrow(MA_All[1])), render_ma_report, MA_All = MA_All,
-#           report_out_dir = report_out_dir, report_types = report_types,
-#           sav_managed_areas = sav_managed_areas,
-#           nekton_managed_areas = nekton_managed_areas,
-#           coral_managed_areas = coral_managed_areas,
-#           cw_managed_areas = cw_managed_areas,
-#           disc_managed_areas = disc_managed_areas,
-#           cont_managed_areas = cont_managed_areas,
-#           managed_area_df = managed_area_df,
-#           wq_discrete_files = wq_discrete_files,
-#           nekton_file_in = nekton_file_in,
-#           cw_file_in = cw_file_in,
-#           coral_file_in = coral_file_in,
-#           sav_file_in = sav_file_in,
-#           oyster_file_in = oyster_file_in,
-#           locs_pts_rcp = locs_pts_rcp,
-#           find_shape = find_shape,
-#           get_shape_coordinates = get_shape_coordinates,
-#           rcp = rcp,
-#           station_coordinates = station_coordinates,
-#           coordinates_df = coordinates_df)
-# toc()
-# 
-# # Stop the cluster
-# stopCluster(cl)

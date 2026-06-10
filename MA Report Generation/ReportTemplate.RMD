@@ -64,24 +64,6 @@ options("citation_format" = "pandoc",
 # Load in bibliography
 bib <- read.bibtex("seacar_bibs_2024-12-17.bib")
 
-# Function to allow dynamic plot sizes
-subchunkify <- function(g, fig_height=9, fig_width=10, fig_cap) {
-  g_deparsed <- paste0(deparse(
-    function() {g}
-  ), collapse = '')
-
-  sub_chunk <- paste0("
-  \n`","``{r sub_chunk_", floor(runif(1) * 10000), ", fig.height=",
-   fig_height, ", fig.width=", fig_width, ", echo=FALSE, results='asis'}",
-  "\n(", 
-    g_deparsed
-    , ")()",
-  "\n`","``
-  ")
-
-  cat(knitr::knit(text = knitr::knit_expand(text = sub_chunk), quiet = TRUE))
-}
-
 ```
 
 ```{r descriptive snippet, results='asis'}
@@ -90,6 +72,46 @@ cat(knitr::knit_child('snippets/funding.Rmd', quiet=TRUE))
 cat("  \n")
 # Descriptive snippet to provide VQ & threshold filtering info
 cat(knitr::knit_child('snippets/snippet.Rmd', quiet=TRUE))
+cat("  \n")
+```
+
+```{r status_and_trends, results='asis', eval=FALSE}
+cat("\\newpage")
+cat("# Status and Trends")
+# Read in final trend statements excel file
+trends <- openxlsx::read.xlsx("../../Atlas-Tools/ModelAggregation/output/TrendStatusText_Final.xlsx") %>% 
+  filter(Website==1)
+# Function to assign icons for each trend type (1, 0, -1, NA)
+apply_icons <- function(trend){
+  if(trend==2){
+    "data/icons/insuff-data.png"
+  } else if(trend==3){
+    "data/icons/no-analysis-medium-icon.png"
+  } else if(trend==1){
+    "data/icons/increase-medium-icon.png"
+  } else if(trend==-1){
+    "data/icons/decrease-medium-icon.png"
+  } else if(trend==0){
+    "data/icons/no-trend-medium-icon.png"
+  }
+}
+# Apply function
+trends <- trends %>% rowwise() %>% mutate(icon = apply_icons(Trend))
+# Determine format type for proper display
+format_type <- ifelse(report_type=="HTML", "simple", "latex")
+# Select relevant status and trends info for each MA
+status_and_trends_table <- trends %>% filter(ManagedAreaName==ma) %>%
+  select(-c("ManagedAreaName","AreaID","SufficientData", "Trend", "Website", "Region"))
+status_and_trends_table$Trend <- ""
+status_and_trends_table$Text <- gsub("%", "\\\\%", status_and_trends_table$Text)
+# Create kable object with trend icons
+kable <- status_and_trends_table %>% 
+  select(-c(icon)) %>%
+  kable(format = format_type, escape = F) %>%
+  kableExtra::kable_styling(latex_options = c("scale_down", "HOLD_position")) %>%
+  column_spec(4, image = spec_image(status_and_trends_table$icon, 100, 100))
+cat("  \n")
+cat(SEACAR::subchunkify(kable))
 cat("  \n")
 ```
 
@@ -118,9 +140,6 @@ if(in_discrete){
   for(param in p_inc){
     # load overall discrete data
     data <- as.data.frame(load_data_table(param, table="data"))
-    
-    data$ManagedAreaName[data$ManagedAreaName=="St. Andrews State Park Aquatic Preserve"] <- "St. Andrews Aquatic Preserve"
-    data$ManagedAreaName[data$ManagedAreaName=="Southeast Florida Coral Reef Ecosystem Conservation Area"] <- "Kristin Jacobs Coral Aquatic Preserve"
     
     # getting full parameter & unit names
     parameter <- unique(data$ParameterName)
@@ -159,28 +178,19 @@ if(in_discrete){
 
 ```{r plottingWQContinuous, warning=FALSE, fig.height=9, fig.width=10, results="asis", eval=TRUE}
 
-# extract region for each MA to determine which cont. file to load
-region <- MA_All[ManagedAreaName == ma, unique(Region)]
-
 if(in_continuous){
-  
   cat("\\newpage")
   cat("# Water Quality - Continuous  \n")
   
   cat("The following files were used in the continuous analysis:  \n\n")
   
-  for (param in cont_params_long){
-    p <- str_replace_all(param, " ", "_")
-    par_reg <- paste0(p, "_", region)
-    
-    file_name <- str_subset(wq_cont_files_short, par_reg)
-    
-    cat(paste0("* *", file_name, "*\n"))
+  for(file_name in wq_cont_files){
+    cat(paste0("* *", file_name), "*\n")
     cat("  \n")
   }
   
-  for (i in 1:length(cont_params_short)){
-    param <- cont_params_short[i]
+  for(i in 1:length(unique(cont_param_df$ParameterShort))){
+    param <- unique(cont_param_df$ParameterShort)[i]
     
     # run first time only to display stations
     if (i==1) {
@@ -189,7 +199,7 @@ if(in_continuous){
     }
     
     # getting full parameter & unit names
-    parameter <- cont_param_df[param_short == param, unique(parameter)]
+    parameter <- cont_param_df[ParameterShort == param, unique(ParameterName)]
     
     ###########################
     ### Begin Plotting Cont ###
@@ -199,7 +209,6 @@ if(in_continuous){
     
     plot_cont_combined(param = param,
                        parameter = parameter,
-                       region = region,
                        ma = ma,
                        ma_abrev = ma_abrev,
                        report_type = report_type)
@@ -245,14 +254,14 @@ if(in_sav){
 
 if(in_sav){
   cat("  \n")
-  plot_sav_trendplot(ma = ma, ma_abrev = ma_abrev, plot_type = "multiplots", 
+  plot_sav_trendplot(ma = ma, ma_abrev = ma_abrev, plot_type = "multiplot", 
                      plot_list = multiplots, malist = multiplot_malist)
   cat("  \n")
   
-  plot_sav_trendplot(ma = ma, ma_abrev = ma_abrev, plot_type = "trendplots",
+  plot_sav_trendplot(ma = ma, ma_abrev = ma_abrev, plot_type = "trendplot",
                      plot_list = trendplots, malist = trendplot_malist)
   cat("  \n")
-  plot_sav_trendplot(ma = ma, ma_abrev = ma_abrev, plot_type = "barplots", 
+  plot_sav_trendplot(ma = ma, ma_abrev = ma_abrev, plot_type = "barplot", 
                      plot_list = barplots, malist = barplot_malist)
   cat("  \n")
   # ggplot_gam(ma)
@@ -327,13 +336,27 @@ if(in_cw){
 
 ```
 
+
 ```{r plottingOyster, warning=FALSE, fig.height=8, fig.width=11, results="asis", eval=TRUE}
 if(in_oyster){
-  cat("\\newpage")
   cat("  \n")
   cat("# Oyster  \n")
   cat(paste0("The data file used is: **", oyster_file_short,"**"))
   cat("  \n")
+  
+  # Oyster scope plots
+  oy_scope_plots <- list.files("../Oyster/output/Oyster_temporal_scope_plots/", 
+                               pattern = ".jpg", full.names = TRUE)
+  file_loc <- str_subset(oy_scope_plots, paste0("_",ma_abrev,"_"))
+  if(length(file_loc)>0){
+    caption <- paste0("Maps showing the temporal scope of oyster sampling sites within the boundaries of *", ma, "* by program name.")
+    cat("  \n")
+    subchunkify(cat("![", caption, "](", file_loc,")"))
+    cat("  \n")
+    cat("Click [here](https://github.com/FloridaSEACAR/SEACAR_Trend_Analyses/tree/main/Oyster/output/Oyster_temporal_scope_plots) 
+        to view spatio-temporal plots on GitHub.")
+    cat("  \n")    
+  }
   
   plot_oyster(
     ma = ma,

@@ -1,16 +1,7 @@
 cont_rds_loc <- "../WQ_Cont_Discrete/output/tables/cont/"
 
-# Cont. Data exports do not contain full parameter names or units
-# Create dataframe containing that info
-cont_params_long <- c("Dissolved Oxygen","Dissolved Oxygen Saturation","pH",
-                      "Salinity","Turbidity","Water Temperature")
-cont_params_short <- c("DO","DOS","pH","Sal","Turb","TempW")
-cont_param_units <- c("mg/L","%","pH","ppt","NTU","Degrees C")
-cont_regions <- c("NE","NW","SE","SW")
-
-cont_param_df <- data.table(param_short = cont_params_short,
-                            parameter = cont_params_long,
-                            unit = cont_param_units)
+cont_param_df <- SEACAR::WebsiteParameters[SamplingFrequency=="Continuous" & Website==1, 
+                                           c("ParameterName", "ParameterShort", "ParameterUnits")]
 
 #################
 ### FUNCTIONS ###
@@ -18,44 +9,33 @@ cont_param_df <- data.table(param_short = cont_params_short,
 
 # For loading continuous data
 # Load Data Table Function
-load_cont_data_table <- function(param, region, table) {
-  
+load_cont_data_table <- function(param, table) {
   # Declaring RDS file list of respective tables
   files <- list.files(cont_rds_loc,pattern = "\\.rds$", full.names=T)
-  file_path <- paste0("_",param,"_", region,"_", table) 
-  
+  file_path <- paste0("_", param, "_", table)
   # subset file list to select desired table RDS file
   table_file <- paste0(str_subset(files, file_path))
-  
   # importing RDS files
   df <- readRDS(table_file)
-  
   return(df)
 }
 
 # Station coordinates
 coordinates_df <- list()
 
-for (p in cont_params_short){
-  for (region in cont_regions){
-    # coordinates table
-    df <- load_cont_data_table(p, region, "Station_Coordinates")
-    coordinates_df <- bind_rows(coordinates_df, df)
-  }
+for(p in unique(cont_param_df$ParameterShort)){
+  # coordinates table
+  df <- load_cont_data_table(p, "Station_Coordinates")
+  coordinates_df <- bind_rows(coordinates_df, df)
 }
 rm(df)
-
+coordinates_df <- coordinates_df %>% SEACAR::clean_managed_areas(type = "ma")
 # add 1 to years_of_data (result of subtracting years)
 coordinates_df$years_of_data <- coordinates_df$years_of_data + 1
 
 station_coordinates <- setDT(coordinates_df %>% group_by(ManagedAreaName, lat, lon) %>%
   distinct(ProgramLocationID))
-
-coordinates_df$ManagedAreaName[coordinates_df$ManagedAreaName=="St. Andrews State Park Aquatic Preserve"] <- "St. Andrews Aquatic Preserve"
-coordinates_df$ManagedAreaName[coordinates_df$ManagedAreaName=="Southeast Florida Coral Reef Ecosystem Conservation Area"] <- "Kristin Jacobs Coral Aquatic Preserve"
-station_coordinates$ManagedAreaName[station_coordinates$ManagedAreaName=="St. Andrews State Park Aquatic Preserve"] <- "St. Andrews Aquatic Preserve"
-station_coordinates$ManagedAreaName[station_coordinates$ManagedAreaName=="Southeast Florida Coral Reef Ecosystem Conservation Area"] <- "Kristin Jacobs Coral Aquatic Preserve"
-
+# List of available managed areas to determine which MAs to include
 cont_managed_areas <- unique(station_coordinates$ManagedAreaName)
 
 # Provides a table for stations with Cont. Data
@@ -66,22 +46,27 @@ station_count_table <- function(coordinates_df, station_coordinates, ma, ma_abre
   cat("  \n")
   cat(paste0("**Continuous monitoring locations in ", ma, "**"))
   
-  stations <- coordinates_df[ManagedAreaName == ma, .(ProgramLocationID, ProgramID, ProgramName, Use_In_Analysis)]
+  stations <- coordinates_df[str_detect(ManagedAreaName, ma), .(ProgramLocationID, ProgramID, ProgramName, Use_In_Analysis)]
   
   programs_by_ma <- unique(stations$ProgramID)
   
   n_years <- coordinates_df %>% 
     filter(ManagedAreaName==ma) %>%
     group_by(ProgramID, ProgramName, ProgramLocationID, years_of_data, Use_In_Analysis) %>%
-    summarise(Parameters = list(Parameter)) %>%
+    summarise(Parameters = list(ParameterName)) %>%
     arrange(ProgramID, ProgramLocationID) %>%
     rename("Years of Data" = "years_of_data","Use in Analysis" = "Use_In_Analysis") %>%
     ungroup()
   
   caption <- "Station overview for Continuous parameters by Program"
   
-  station_kable <- kable(n_years %>% select(-ProgramName), 
-                         format=format_type,caption=caption, booktabs = T, linesep = "") %>%
+  # Apply escape characters for some stations which will throw errors in LaTeX
+  n_years$ProgramLocationID <- gsub("_", "-", n_years$ProgramLocationID)
+  n_years$ProgramLocationID <- gsub("&", "-and-", n_years$ProgramLocationID)
+  
+  station_kable <- kable(n_years %>% select(-ProgramName) %>% colorize_tables("blue"), 
+                         format=format_type, caption=caption, booktabs = T, linesep = "",
+                         align = "l", escape = F) %>%
     row_spec(0, italic=TRUE) %>%
     kable_styling(latex_options=c("scale_down","HOLD_position"))
   
@@ -91,7 +76,8 @@ station_count_table <- function(coordinates_df, station_coordinates, ma, ma_abre
   cat("\n **Program names:** \n \n")
   for(p_id in sort(unique(n_years$ProgramID))){
     p_name <- unique(n_years[n_years$ProgramID==p_id, ]$ProgramName)
-    cat(paste0("*",p_id,"*", " - ",p_name, knitcitations::citep(bib[[paste0("SEACARID", p_id)]]), "  \n"))
+    p_id_display <- ifelse(p_id %in% rcp_progs, colorize(p_id, "blue", report_type), p_id)
+    cat(paste0("*",p_id_display,"*", " - ",p_name, knitcitations::citep(bib[[paste0("SEACARID", p_id)]]), "  \n"))
   }
   
   ############
@@ -254,19 +240,15 @@ station_count_table <- function(coordinates_df, station_coordinates, ma, ma_abre
   cat("  \n\n")
 }
 
-plot_cont_combined <- function(param, parameter, region, ma, ma_abrev, report_type){
+plot_cont_combined <- function(param, parameter, ma, ma_abrev, report_type){
   format_type <- ifelse(report_type=="HTML", "simple", "latex")
-  Mon_YM_Stats <- as.data.table(load_cont_data_table(param, region, "Mon_YM_Stats"))
-  Mon_YM_Stats$ManagedAreaName[Mon_YM_Stats$ManagedAreaName=="St. Andrews State Park Aquatic Preserve"] <- "St. Andrews Aquatic Preserve"
-  Mon_YM_Stats$ManagedAreaName[Mon_YM_Stats$ManagedAreaName=="Southeast Florida Coral Reef Ecosystem Conservation Area"] <- "Kristin Jacobs Coral Aquatic Preserve"
-  Mon_YM_Stats <- Mon_YM_Stats[ManagedAreaName == ma & ParameterName == parameter, ]
+  Mon_YM_Stats <- as.data.table(load_cont_data_table(param, "Mon_YM_Stats"))
+  Mon_YM_Stats <- Mon_YM_Stats[stringr::str_detect(ManagedAreaName, ma) & ParameterName == parameter, ]
   
-  skt_stats <- as.data.table(load_cont_data_table(param, region, "skt_stats"))
-  skt_stats$ManagedAreaName[skt_stats$ManagedAreaName=="St. Andrews State Park Aquatic Preserve"] <- "St. Andrews Aquatic Preserve"
-  skt_stats$ManagedAreaName[skt_stats$ManagedAreaName=="Southeast Florida Coral Reef Ecosystem Conservation Area"] <- "Kristin Jacobs Coral Aquatic Preserve"
-  skt_stats <- skt_stats[ManagedAreaName==ma, ]
+  skt_stats <- as.data.table(load_cont_data_table(param, "skt_stats"))
+  skt_stats <- skt_stats[stringr::str_detect(ManagedAreaName, ma), ]
   # Remove text-based "NA" values in p column
-  if (nrow(skt_stats[skt_stats$p=="    NA", ]) > 0){
+  if(nrow(skt_stats[skt_stats$p=="    NA", ]) > 0){
     skt_stats[skt_stats$p=="    NA", ]$p <- NA
   }
   skt_stats$p <- round(as.numeric(skt_stats$p), 4)
@@ -282,13 +264,14 @@ plot_cont_combined <- function(param, parameter, region, ma, ma_abrev, report_ty
         plot_loc <- get_plot(ma_abrev = ma_abrev, parameter = parameter, type = "Continuous", pid = prog_n)
         
         ResultTable <- skt_stats %>% filter(ProgramID==pid) %>% rowwise() %>% mutate(
-            `Statistical Trend` = checkTrends(`p` = p, Slope = SennSlope, SufficientData = SufficientData),
+            `Statistical Trend` = checkTrends(`p` = p, Slope = SenSlope, SufficientData = SufficientData),
             `Period of Record` = paste0(EarliestYear, " - ", LatestYear)) %>%
           select(ProgramLocationID, `Statistical Trend`, N_Data, N_Years, `Period of Record`, Median, tau,
-                 SennIntercept, SennSlope, p) %>%
-          rename("Station" = ProgramLocationID, "Sample Count" = N_Data, 
-                 "Years with Data" = N_Years, "Sen Intercept" = SennIntercept, 
-                 "Sen Slope" = SennSlope) %>%
+                 SenIntercept, SenSlope, p) %>%
+          rename("Program Location" = ProgramLocationID, "No. of Samples" = N_Data, 
+                 "No. Years with Data" = N_Years, "Median Result Value" = Median,
+                 "Sen Intercept" = SenIntercept, "Sen Slope" = SenSlope,
+                 "P" = p, "Tau" = tau) %>%
           mutate_if(is.numeric, ~round(., 2))
         setDT(ResultTable)
         ResultTable[is.na(ResultTable)] <- "-"
@@ -311,13 +294,14 @@ plot_cont_combined <- function(param, parameter, region, ma, ma_abrev, report_ty
         table_title <- paste0("Seasonal Kendall-Tau Results for ", parameter, " - Program ", pid)
         
         # Apply escape characters for some stations which will throw errors in LaTeX
-        ResultTable$Station <- gsub("_", "-", ResultTable$Station)
-        ResultTable$Station <- gsub("&", "-and-", ResultTable$Station)
+        ResultTable$`Program Location` <- gsub("_", "-", ResultTable$`Program Location`)
+        ResultTable$`Program Location` <- gsub("&", "-and-", ResultTable$`Program Location`)
         
         # Create and display final result table
         result_table <- kable(ResultTable, format=format_type,
                               caption = table_title,
-                              row.names = FALSE, digits = 5, booktabs = T, linesep = "", escape = F, longtable = F) %>%
+                              row.names = FALSE, digits = 5, booktabs = T, linesep = "", escape = F, longtable = F,
+                              align = "l") %>%
           kableExtra::kable_styling(latex_options = c("scale_down", "HOLD_position"))
         cat("  \n")
         print(result_table)
@@ -343,13 +327,14 @@ plot_cont_combined <- function(param, parameter, region, ma, ma_abrev, report_ty
       plot_loc <- get_plot(ma_abrev = ma_abrev, parameter = parameter, type = "Continuous", pid = "none")
       
       ResultTable <- skt_stats %>% rowwise() %>% mutate(
-          `Statistical Trend` = checkTrends(`p` = p, Slope = SennSlope, SufficientData = SufficientData),
+          `Statistical Trend` = checkTrends(`p` = p, Slope = SenSlope, SufficientData = SufficientData),
           `Period of Record` = paste0(EarliestYear, " - ", LatestYear)) %>%
         select(ProgramLocationID, `Statistical Trend`, N_Data, N_Years, `Period of Record`, Median, tau,
-               SennIntercept, SennSlope, p) %>%
-        rename("Station" = ProgramLocationID, "Sample Count" = N_Data, 
-               "Years with Data" = N_Years, "Sen Intercept" = SennIntercept, 
-               "Sen Slope" = SennSlope) %>%
+               SenIntercept, SenSlope, p) %>%
+        rename("Program Location" = ProgramLocationID, "No. of Samples" = N_Data, 
+               "No. Years with Data" = N_Years, "Median Result Value" = Median,
+               "Sen Intercept" = SenIntercept, "Sen Slope" = SenSlope,
+               "P" = p, "Tau" = tau) %>%
         mutate_if(is.numeric, ~round(., 2))
       setDT(ResultTable)
       ResultTable[is.na(ResultTable)] <- "-"
@@ -372,13 +357,14 @@ plot_cont_combined <- function(param, parameter, region, ma, ma_abrev, report_ty
       table_title <- paste0("Seasonal Kendall-Tau Results for ", parameter, " - All Stations")
       
       # Apply escape characters for some stations which will throw errors in LaTeX
-      ResultTable$Station <- gsub("_", "-", ResultTable$Station)
-      ResultTable$Station <- gsub("&", "-and-", ResultTable$Station)
+      ResultTable$`Program Location` <- gsub("_", "-", ResultTable$`Program Location`)
+      ResultTable$`Program Location` <- gsub("&", "-and-", ResultTable$`Program Location`)
       
       # Create and display final result table
       result_table <- kable(ResultTable, format=format_type,
                             caption = table_title,
-                            row.names = FALSE, digits = 5, booktabs = T, linesep = "", escape = F, longtable = F) %>%
+                            row.names = FALSE, digits = 5, booktabs = T, linesep = "", escape = F, longtable = F,
+                            align = "l") %>%
         kableExtra::kable_styling(latex_options = c("scale_down", "HOLD_position"))
       
       print(result_table)
@@ -386,16 +372,16 @@ plot_cont_combined <- function(param, parameter, region, ma, ma_abrev, report_ty
       cat(desc)
       ### Continuous sample location maps
       # Locate map
-      map_loc <- str_subset(cont_map_locs, paste0("_", param, "_", ma_abrev, "_map"))
-      # captions / label
-      cat("  \n")
-      cat("\\newpage")
-      caption <- paste0("Map showing location of ", tolower(parameter), " continuous water quality sampling locations within the boundaries of *", ma, 
-                        "*. The bubble size on the maps above reflect the amount of data available at each sampling site.  \n")
-      cat("  \n")
-      # Print map
-      subchunkify(cat("![", caption, "](", map_loc,")"))
-      cat("  \n")
+      # map_loc <- str_subset(cont_map_locs, paste0("_", param, "_", ma_abrev, "_map"))
+      # # captions / label
+      # cat("  \n")
+      # cat("\\newpage")
+      # caption <- paste0("Map showing location of ", tolower(parameter), " continuous water quality sampling locations within the boundaries of *", ma, 
+      #                   "*. The bubble size on the maps above reflect the amount of data available at each sampling site.  \n")
+      # cat("  \n")
+      # # Print map
+      # subchunkify(cat("![", caption, "](", map_loc,")"))
+      # cat("  \n")
       cat("\n \n \n")    
     }
   }

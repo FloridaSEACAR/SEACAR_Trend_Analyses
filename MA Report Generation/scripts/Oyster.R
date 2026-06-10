@@ -1,28 +1,17 @@
 # Read in oyster results file
 oyster_stats <- fread("../Oyster/output/ManagedAreaName/Oyster_All_GLMM_Stats.txt", sep='|')
 
-# Function to add trend text
-trendText <- function(modelEstimate, lowConfidence, upConfidence){
-  increasing <- modelEstimate > 0
-  trendPresent <- (lowConfidence < 0 & upConfidence < 0) | 
-                  (lowConfidence > 0 & upConfidence > 0)
-  trendStatus <- "No significant change"
-  if(isTRUE(trendPresent)){
-    trendDirection <- ifelse(increasing, "increasing", "decreasing")
-    trendStatus <- paste0("Significantly ", trendDirection, " trend")
-  }
-  return(trendStatus)
-}
 # Apply function, add credible interval
 oyster_stats <- oyster_stats %>% rowwise() %>%
   mutate(
-    "Trend Status" = ifelse(!is.na(ModelEstimate), trendText(ModelEstimate, LowerConfidence, UpperConfidence), NA),
-    "Credible Interval" = ifelse(!is.na(LowerConfidence), paste0(round(LowerConfidence, 2), " to ", round(UpperConfidence, 2)), NA)
+    "Trend Status" = TrendText,
+    "Credible Interval" = ifelse(!is.na(LowerConfidence), paste0(round(LowerConfidence, 2), " to ", round(UpperConfidence, 2)), NA),
+    "Period of Record" = paste0(EarliestLiveDate, " - ", LatestLiveDate)
   ) %>%
   ungroup() %>% as.data.table()
 
 # List of managed areas with oyster plots
-oyster_managed_areas <- oyster_stats[!is.na(Intercept), unique(ManagedAreaName)]
+oyster_managed_areas <- unique(oyster_stats$ManagedAreaName)
 
 # Oyster plot locations
 oy_figs <- list(
@@ -34,7 +23,7 @@ oy_figs <- list(
 # Dataframe to determine which figures are included
 oyster_includes <- oyster_stats %>% 
   group_by(ManagedAreaName, ParameterName, SufficientData, HabitatType, Intercept) %>%
-  filter(SufficientData, !is.na(Intercept)) %>%
+  #filter(SufficientData, !is.na(Intercept)) %>%
   summarise(.groups = "keep") %>% as.data.table()
 
 oy_file_loc <- function(ma_abrev, p, type){
@@ -51,35 +40,37 @@ oy_file_loc <- function(ma_abrev, p, type){
 oyster_tables <- function(ma, p, type, format_type){
   subset <- oyster_stats[ManagedAreaName==ma & ParameterName==p & HabitatType==type,]
   if(p == "Shell Height"){
-    select_cols <- c("ShellType", "SizeClass", "HabitatType", "Trend Status", "ModelEstimate", "StandardError", 
-                     "Credible Interval")
+    select_cols <- c("HabitatType", "ShellType", "SizeClass", 
+                     "Trend Status", "Period of Record", "No. of Samples", 
+                     "ModelEstimate", "StandardError", "Credible Interval")
+    subset <- subset[SizeClass!="", ]
+    subset$`No. of Samples` = subset$N_Data
   } else {
-    select_cols <- c("ShellType", "HabitatType", "Trend Status", "ModelEstimate", "StandardError", 
-                     "Credible Interval")
+    select_cols <- c("HabitatType", "ShellType", 
+                     "Trend Status", "Period of Record", 
+                     "ModelEstimate", "StandardError", "Credible Interval")
   }
   ResultTable <- subset %>% 
     select(select_cols) %>%
     rename("Shell Type" = "ShellType",
            "Habitat Type" = "HabitatType",
+           "Statistical Trend" = "Trend Status",
            "Estimate" = "ModelEstimate",
            "Standard Error" = "StandardError")
   
-  # Grab relevant table description for a given plot
-  desc <- TableDescriptions[ManagedAreaName==ma & HabitatName=="Oyster/Oyster Reef" & ParameterName==p, get(descriptionColumn)]
   # Table title
   table_title <- paste0("Model results for Oyster ", p, " - ", type)
   
   result_table <- kable(ResultTable, format = format_type,
                         caption = table_title,
                         row.names = FALSE, digits = 2,
-                        booktabs = T, linesep = "", escape = F, longtable = F) %>%
+                        booktabs = T, linesep = "", escape = F, longtable = F,
+                        align = "l") %>%
     row_spec(row = 0, italic = TRUE) %>%
     kable_styling(latex_options = c("scale_down", "HOLD_position"))
   
   cat("  \n")  
   print(result_table)
-  cat("  \n")
-  cat(desc)
   cat("  \n")
 }
 
@@ -94,7 +85,12 @@ plot_oyster <- function(ma, ma_abrev, oyster_includes, oy_figs, report_type){
     cat("  \n")
     cat(glue("## {p}"))
     cat("  \n")
-    fig_caption <- FigureCaptions[HabitatName=="Oyster/Oyster Reef" & IndicatorName==p, FigureCaptions]
+    # Grab relevant table description for a given plot
+    desc <- TableDescriptions[ManagedAreaName==ma & HabitatName=="Oyster Reef" & ParameterName==p, get(descriptionColumn)]
+    cat(desc)
+    cat("  \n")
+    # Grab figure caption
+    fig_caption <- FigureCaptions[HabitatName=="Oyster Reef" & IndicatorName==p, FigureCaptions]
     
     hab_types <- unique(p_subset$HabitatType)
     for(type in hab_types){

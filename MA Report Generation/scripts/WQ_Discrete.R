@@ -6,31 +6,9 @@ library(grid)
 library(kableExtra)
 library(cowplot)
 
-# Function to generate trend text for model results
-checkTrends <- function(p, Slope, SufficientData){
-  if(SufficientData){
-    if(is.na(Slope)){
-      return("Model did not fit the available data")
-    } else {
-      increasing <- Slope > 0
-      trendPresent <- p <= 0.05
-      trendStatus <- "No significant trend"
-      if(trendPresent){
-        trendStatus <- ifelse(increasing, "Significantly increasing trend", 
-                              "Significantly decreasing trend")
-      }          
-    }
-  } else {
-    trendStatus <- "Insufficient data to calculate trend"
-  }
-  return(trendStatus)
-}
-
 skt_stats_disc <- fread("../WQ_Cont_Discrete/output/WQ_Discrete_All_KendallTau_Stats.txt", sep='|')
 skt_stats_disc$`Period of Record` <- paste0(skt_stats_disc$EarliestYear, " - ", skt_stats_disc$LatestYear)
-skt_stats_disc <- skt_stats_disc %>% rowwise() %>% mutate(
-  `Statistical Trend` = checkTrends(`p` = p, Slope = SennSlope, SufficientData = SufficientData)
-) %>% as.data.table()
+skt_stats_disc <- skt_stats_disc %>% mutate(`Statistical Trend` = TrendText) %>% as.data.table()
 
 all_depths <- c("Surface","Bottom","All")
 all_activities <- c("Field","Lab","All")
@@ -51,8 +29,8 @@ all_params_short <- c(
 )
 
 # Load in discrete snippets where possible
-discSnippets <- setDT(openxlsx::read.xlsx("data/discreteSnippets.xlsx"))
-snippetParams <- discSnippets[!is.na(Snippet), ParameterShort]
+# discSnippets <- setDT(openxlsx::read.xlsx("data/discreteSnippets.xlsx"))
+# snippetParams <- discSnippets[!is.na(Snippet), ParameterShort]
 
 ############################
 ######## FUNCTIONS #########
@@ -160,9 +138,6 @@ for (param in all_params_short) {
 
 # Bind the list of data frames using bind_rows()
 managed_area_df <- bind_rows(results_list)
-managed_area_df$ManagedAreaName[managed_area_df$ManagedAreaName=="St. Andrews State Park Aquatic Preserve"] <- "St. Andrews Aquatic Preserve"
-managed_area_df$ManagedAreaName[managed_area_df$ManagedAreaName=="Southeast Florida Coral Reef Ecosystem Conservation Area"] <- "Kristin Jacobs Coral Aquatic Preserve"
-
 disc_managed_areas <- unique(managed_area_df$ManagedAreaName)
 
 ## Load Data Table Function
@@ -247,16 +222,18 @@ plot_trendlines <- function(param, ma, ma_abrev, report_type){
     # Creates ResultTable to display statistics below plot
     ResultTable <- skt_stats %>%
       select(ActivityType, `Statistical Trend`, N_Data, N_Years, 
-             `Period of Record`, Median, tau, SennIntercept, SennSlope, p) %>%
-      rename("Activity Type" = ActivityType, "Sample Count" = N_Data, 
-             "Years with Data" = N_Years, "Sen Intercept" = SennIntercept, 
-             "Sen Slope" = SennSlope)
+             `Period of Record`, Median, tau, SenIntercept, SenSlope, p) %>%
+      rename("Activity Type" = ActivityType, "No. of Samples" = N_Data, 
+             "No. Years with Data" = N_Years, "Median Result Value" = Median,
+             "Sen Intercept" = SenIntercept, "Sen Slope" = SenSlope,
+             "P" = p, "Tau" = tau)
     # Prep for latex-format
     names(ResultTable) <- gsub("_", "-", names(ResultTable))
     result_table <- kable(ResultTable, format = format_type,
                           caption = table_title,
                           row.names = FALSE, digits = 4,
-                          booktabs = T, linesep = "", escape = F, longtable = F) %>%
+                          booktabs = T, linesep = "", escape = F, longtable = F,
+                          align = "l") %>%
       kableExtra::kable_styling(latex_options = c("scale_down", "HOLD_position"))
     cat("  \n")
     print(result_table)
@@ -278,23 +255,24 @@ disc_program_tables <- function(ma, data){
     select(ProgramID, ProgramName, N_Data, YearMin, YearMax) %>%
     arrange(desc(N_Data))
   
-  program_kable <- kable(program_table %>% select(-ProgramName),
+  program_kable <- kable(program_table %>% select(-ProgramName) %>% colorize_tables("blue"), # add color to programID
                          format="simple",
                          caption=paste0("Programs contributing data for ", parameter),
-                         col.names = c("*ProgramID*","*N_Data*","*YearMin*","*YearMax*"))
-  
+                         align = "l") %>%
+    row_spec(0, italic=TRUE) %>%
+    kable_styling(latex_options=c("scale_down","HOLD_position"))
   print(program_kable)
   cat("  \n")
   
-  # program names listed below (accounting for long names)
-  program_ids <- sort(unique(program_table$ProgramID))
+  # Grab list of available programIDs
+  program_ids <- unique(program_table$ProgramID)
   
   cat("\n **Program names:** \n \n")
-  
   # Display ProgramName below data table
   for (p_id in program_ids) {
     p_name <- program_table %>% filter(ProgramID == p_id) %>% pull(ProgramName)
-    cat(paste0("*",p_id,"*", " - ",p_name, knitcitations::citep(bib[[paste0("SEACARID", p_id)]]), "  \n"))
+    p_id_display <- ifelse(p_id %in% rcp_progs, colorize(p_id, "blue", report_type), p_id)
+    cat(paste0("*",p_id_display,"*", " - ",p_name, knitcitations::citep(bib[[paste0("SEACARID", p_id)]]), "  \n"))
   }
   cat("  \n")
 }
@@ -521,7 +499,8 @@ plot_vq_barplot <- function(p, a, d, activity_label, depth_label, y_labels, para
                       digits = 1,
                       caption=paste0("Value Qualifiers for ", parameter),
                       col.names = col_names,
-                      row.names = FALSE) %>%
+                      row.names = FALSE,
+                      align = "l") %>%
       kable_styling(latex_options="scale_down",
                     position = "center")
     
