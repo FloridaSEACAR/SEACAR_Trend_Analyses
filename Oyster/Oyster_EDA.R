@@ -34,12 +34,22 @@ oyster$in_MA <- ifelse(is.na(oyster$ManagedAreaName), "Outside MA", "Inside MA")
 oyster <- merge(oyster, MA_All[, c("AreaID", "Abbreviation")], all.x=T)
 oyster$ManagedAreaName[is.na(oyster$ManagedAreaName)] <- "NA"
 
+# Create dated folder to store results previous plots to allow for comparison
+for(folder in c("output/EDA/hist/", "output/EDA/ma/", "output/EDA/oimmp/")){
+  new_filepath <- paste0(folder, Sys.Date())
+  if(!dir.exists(new_filepath)) dir.create(new_filepath, recursive = T)
+}
+
 ##### Histogram plots for each parameter
+hist_output <- paste0("output/EDA/hist/", Sys.Date(), "/")
+# List previous plots to create side-by-side comparison
+prev_folders <- as.Date(list.files("output/EDA/hist/"))
+prev_folder <- prev_folders[which(!prev_folders==Sys.Date())]
+prev_imgs <- list.files(paste0("output/EDA/hist/", prev_folder, "/"), full=T)
+
 for(param in c("Shell Height", "Density", "Percent Live")){
   for(pid in oyster[ParameterName==param, unique(ProgramID)]){
     subset <- oyster[ParameterName==param & ProgramID==pid, ]
-    
-    # dataTable <- Rmisc::summarySE(subset, measurevar = "ResultValue", groupvars = "ManagedAreaName")
     dataTable <- subset %>% group_by(Abbreviation, QuadSize_m2) %>% 
       reframe(N = n(),
                 Mean = round(mean(ResultValue),2),
@@ -60,8 +70,21 @@ for(param in c("Shell Height", "Density", "Percent Live")){
       )
     
     allPlot <- (plot / wrap_table(dataTable))
-    ggsave(plot = allPlot, filename = paste0("output/EDA/hist/", pid, "_", gsub(" ", "_", param), ".png"),
+    ggsave(plot = allPlot, filename = paste0(hist_output, pid, "_", gsub(" ", "_", param), ".png"),
            height = 6, width = 8)
+    
+    # Locate old plot
+    old_plot_img <- magick::image_read(str_subset(prev_imgs, paste0(pid, "_", gsub(" ", "_", param))))
+    old_plot <- cowplot::ggdraw() + cowplot::draw_image(old_plot_img) + cowplot::draw_label(as.character(prev_folder), x = 0.5, y = 1)
+    # Read in new plot
+    new_plot_img <- magick::image_read(paste0(hist_output, pid, "_", gsub(" ", "_", param), ".png"))
+    new_plot <- cowplot::ggdraw() + cowplot::draw_image(new_plot_img) + cowplot::draw_label(as.character(Sys.Date()), x = 0.5, y = 1)
+    
+    # Combine & save
+    combined_plot <- (new_plot + old_plot)
+    ggsave(plot = combined_plot, filename = paste0("output/EDA/hist/", pid, "_", gsub(" ", "_", param), ".png"),
+           height = 6, width = 12)
+    
     print(paste0("Plot created for ID_", pid, ": ", param))
   }
 }
@@ -70,10 +93,16 @@ for(param in c("Shell Height", "Density", "Percent Live")){
 plot_jitter <- position_jitter(width = 0.5, height = 0.5, seed=42)
 # Generate plots by MA and by OIMMP region
 plot_types <- c("ma", "oimmp")
-
 for(plot_type in plot_types){
   col_name <- ifelse(plot_type=="ma", "ManagedAreaName", "OIMMP")
   subtitle <- ifelse(plot_type=="ma", "ManagedAreaName", "OIMMP Region")
+  jitter_output <- paste0("output/EDA/", plot_type, "/", Sys.Date(), "/")
+  
+  # List previous plots to create side-by-side comparison
+  prev_folders2 <- as.Date(list.files(paste0("output/EDA/", plot_type)))
+  prev_folder2 <- prev_folders2[which(!prev_folders2==Sys.Date())]
+  prev_imgs2 <- list.files(paste0("output/EDA/", plot_type, "/", prev_folder2, "/"), full=T)
+  
   for(group in oyster[,unique(get(col_name))]){
     subset <- oyster[get(col_name)==group, ]
     
@@ -92,15 +121,39 @@ for(plot_type in plot_types){
       scale_x_discrete(breaks = pretty_breaks()) +
       facet_wrap(~ParameterName, scales = "free_y")
     
-    file_name <- paste0("output/EDA/", plot_type, "/Oyster_EDA_", group, ".png")
+    file_name <- paste0(jitter_output, "Oyster_EDA_", group, ".png")
     ggsave(filename = file_name, plot = plot, height = 10, width = 10)
+    
+    # Locate old plot
+    old_plot_img <- magick::image_read(str_subset(prev_imgs2, paste0(group)))
+    old_plot <- try(cowplot::ggdraw() + cowplot::draw_image(old_plot_img) + cowplot::draw_label(as.character(prev_folder2), x = 0.5, y = 1))
+    
+    if("try-error" %in% class(old_plot)){
+      "No previous image available"
+      ggsave(plot = plot, filename = paste0("output/EDA/", plot_type, "/", "Oyster_EDA_", group, ".png"),
+             height = 6, width = 12)
+    } else {
+      # Read in new plot
+      new_plot_img <- magick::image_read(file_name)
+      new_plot <- cowplot::ggdraw() + cowplot::draw_image(new_plot_img) + cowplot::draw_label(as.character(Sys.Date()), x = 0.5, y = 1)
+      
+      # Combine & save
+      combined_plot <- (new_plot + old_plot)
+      ggsave(plot = combined_plot, filename = paste0("output/EDA/", plot_type, "/", "Oyster_EDA_", group, ".png"),
+             height = 6, width = 12)      
+    }
+    
     print(paste0("Plot created for ", subtitle, ": ", group))
   }
 }
 
 # Zip all figures
 out_dir <- paste0("output/EDA/")
-fig_list <- list.files(out_dir, recursive = T)
+hist_files <- paste0("hist/", list.files(paste0(out_dir, "hist"), recursive = F, pattern = ".png"))
+ma_files <- paste0("ma/", list.files(paste0(out_dir, "ma"), recursive = F, pattern = ".png"))
+oimmp_files <- paste0("oimmp/", list.files(paste0(out_dir, "oimmp"), recursive = F, pattern = ".png"))
+
+fig_list <- c(hist_files, ma_files, oimmp_files)
 filename <- paste0("OysterEDA_", Sys.Date())
 setwd(out_dir)
 zip(filename, files=fig_list)
