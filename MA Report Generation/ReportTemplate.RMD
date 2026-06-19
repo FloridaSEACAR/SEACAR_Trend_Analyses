@@ -128,14 +128,9 @@ if(in_discrete){
   cat("  \n\n")
   
   cat("# Water Quality - Discrete  \n")
-  
-  cat("The following files were used in the discrete analysis:  \n\n")
-  for(file in wq_discrete_files){
-    cat(paste0("* *", file, "*\n"))
-    cat("  \n")
-  }
-  
-  cat("\\newpage")
+  cat("  \n")
+  show_disc_programs(ma, data)
+  cat("  \n")
   
   for(param in p_inc){
     # load overall discrete data
@@ -182,13 +177,6 @@ if(in_continuous){
   cat("\\newpage")
   cat("# Water Quality - Continuous  \n")
   
-  cat("The following files were used in the continuous analysis:  \n\n")
-  
-  for(file_name in wq_cont_files){
-    cat(paste0("* *", file_name), "*\n")
-    cat("  \n")
-  }
-  
   for(i in 1:length(unique(cont_param_df$ParameterShort))){
     param <- unique(cont_param_df$ParameterShort)[i]
     
@@ -224,10 +212,7 @@ sav_scope_locs <- list.files("../SAV/output/SAV_temporal_scope_plots",
 if(in_sav){
   cat("\\newpage")
   cat("# Submerged Aquatic Vegetation  \n")
-  cat(paste0("The data file used is: **", sav_file_short,"**"))
-  
   cat("  \n")
-  
   # Paste in descriptive snippet about water column
   cat(knitr::knit_child('snippets/sav_snippet.Rmd', quiet=TRUE))
   cat("  \n")
@@ -281,7 +266,6 @@ if(in_nekton){
   cat("\\newpage")
   cat("  \n")
   cat("# Nekton  \n")
-  cat(paste0("The data file used is: **", nekton_file_short,"**"))
   cat("  \n")
   plot_nekton(ma, ma_abrev, MA_Y_Stats_nek, MA_Ov_Stats_nek, nekton_plots, report_type = report_type)
   cat("  \n")
@@ -301,16 +285,12 @@ if(ma %in% coral_pc_MA_Include | ma %in% coral_sr_MA_Include){
   cat("  \n")
   cat("# Coral Reef \n")
   cat("  \n")
-  cat(paste0("The data file used is: **", coral_file_short,"**"))
-  cat("  \n")
-  
   if(ma %in% coral_pc_MA_Include){
     cat("  \n")
     cat("**Percent Cover**")
     plot_coral_pc(ma, ma_abrev, lme_plot_pc, coral_pc_plots, report_type = report_type)
     cat("  \n")
   }
-  
   if(ma %in% coral_sr_MA_Include){
     cat("**Species Richness**")
     plot_coral_sr(ma, ma_abrev, MA_Ov_Stats_sr, coral_sr_plots, report_type = report_type)
@@ -328,8 +308,6 @@ if(in_cw){
   cat("\\newpage")
   cat("  \n")
   cat("# Coastal Wetlands  \n")
-  cat(paste0("The data file used is: **", cw_file_short,"**"))
-  cat("  \n")
   plot_cw(ma, ma_abrev, MA_Ov_Stats_cw, MA_Y_Stats_cw, cw_plots, report_type = report_type)
   cat("  \n")
 }
@@ -341,8 +319,6 @@ if(in_cw){
 if(in_oyster){
   cat("  \n")
   cat("# Oyster  \n")
-  cat(paste0("The data file used is: **", oyster_file_short,"**"))
-  cat("  \n")
   
   # Oyster scope plots
   oy_scope_plots <- list.files("../Oyster/output/Oyster_temporal_scope_plots/", 

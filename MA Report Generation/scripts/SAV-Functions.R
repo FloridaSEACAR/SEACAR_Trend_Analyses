@@ -246,27 +246,28 @@ sav_maps <- function(ma, ma_abrev, map_locs, report_type){
               "Sample Locations" = length(unique(ProgramLocationID))) %>%
     select(ProgramID, ProgramName, N_Data, YearMin, YearMax, method, 
            "Sample Locations") %>% 
+    rename("Sampling Method" = "method") %>%
     as.data.table()
   names(sav_table) <- gsub("_","-",names(sav_table))
   
   # Program name
   # SAV table prep for latex styling
-  ma_sav_kable <- kable(sav_table %>% select(-ProgramName) %>% colorize_tables("blue"), 
+  ma_sav_kable <- kable(sav_table, 
                         format=format_type,
                         caption=table_caption,
                         row.names = FALSE, digits = 4,
-                        booktabs = T, linesep = "", escape = F, longtable = F, align = "l") %>%
+                        booktabs = T, linesep = "\\hline", escape = F, longtable = F, align = "l") %>%
     row_spec(0, italic=TRUE) %>%
+    column_spec(column = 2, width = "6cm") %>%
     kableExtra::kable_styling(latex_options = c("scale_down", "HOLD_position"))
   # Display table
   print(ma_sav_kable)
   cat("  \n")
   # Display ProgramName below data table
-  cat("\n **Program names:** \n \n")
+  cat("\n **Programs contributing data:** \n \n")
   for(p_id in sort(unique(sav_table$ProgramID))){
     p_name <- sav_table[ProgramID==p_id, unique(ProgramName)]
-    p_id_display <- ifelse(p_id %in% rcp_progs, colorize(p_id, "blue", report_type), p_id)
-    cat(paste0("*",p_id_display,"*", " - ",p_name, knitcitations::citep(bib[[paste0("SEACARID", p_id)]]), "  \n"))
+    cat(paste0("*",p_id,"*", " - ",p_name, knitcitations::citep(bib[[paste0("SEACARID", p_id)]]), "  \n"))
   }
   cat("  \n")
 }

@@ -38,6 +38,15 @@ station_coordinates <- setDT(coordinates_df %>% group_by(ManagedAreaName, lat, l
 # List of available managed areas to determine which MAs to include
 cont_managed_areas <- unique(station_coordinates$ManagedAreaName)
 
+# Function to handle citations differently between html and pdf
+table_citep <- function(key){
+  if(knitr::is_latex_output()){
+    paste0("\\citep{", key, "}")
+  } else {
+    as.character()
+  }
+}
+
 # Provides a table for stations with Cont. Data
 # and which stations passed the tests
 station_count_table <- function(coordinates_df, station_coordinates, ma, ma_abrev, report_type){
@@ -50,35 +59,32 @@ station_count_table <- function(coordinates_df, station_coordinates, ma, ma_abre
   
   programs_by_ma <- unique(stations$ProgramID)
   
-  n_years <- coordinates_df %>% 
+  n_years <- coordinates_df %>%
     filter(ManagedAreaName==ma) %>%
-    group_by(ProgramID, ProgramName, ProgramLocationID, years_of_data, Use_In_Analysis) %>%
-    summarise(Parameters = list(ParameterName)) %>%
-    arrange(ProgramID, ProgramLocationID) %>%
-    rename("Years of Data" = "years_of_data","Use in Analysis" = "Use_In_Analysis") %>%
-    ungroup()
-  
-  caption <- "Station overview for Continuous parameters by Program"
+    select(ProgramID, ProgramName, ProgramLocationID, ParameterName, years_of_data, Use_In_Analysis) %>%
+    # mutate(years_of_data = as.character(ifelse(Use_In_Analysis, paste0("**",years_of_data,"**"), years_of_data))) %>%
+    tidyr::pivot_wider(names_from = ParameterName,
+                       values_from = years_of_data) %>% 
+    ungroup() %>% select(-Use_In_Analysis)
   
   # Apply escape characters for some stations which will throw errors in LaTeX
-  n_years$ProgramLocationID <- gsub("_", "-", n_years$ProgramLocationID)
-  n_years$ProgramLocationID <- gsub("&", "-and-", n_years$ProgramLocationID)
-  
-  station_kable <- kable(n_years %>% select(-ProgramName) %>% colorize_tables("blue"), 
-                         format=format_type, caption=caption, booktabs = T, linesep = "",
-                         align = "l", escape = F) %>%
-    row_spec(0, italic=TRUE) %>%
-    kable_styling(latex_options=c("scale_down","HOLD_position"))
-  
-  print(station_kable)
-  cat("\n")
-  # Display ProgramName below data table
-  cat("\n **Program names:** \n \n")
-  for(p_id in sort(unique(n_years$ProgramID))){
-    p_name <- unique(n_years[n_years$ProgramID==p_id, ]$ProgramName)
-    p_id_display <- ifelse(p_id %in% rcp_progs, colorize(p_id, "blue", report_type), p_id)
-    cat(paste0("*",p_id_display,"*", " - ",p_name, knitcitations::citep(bib[[paste0("SEACARID", p_id)]]), "  \n"))
+  if(knitr::is_latex_output()){
+    n_years <- n_years %>% mutate(ProgramLocationID = knitr:::escape_latex(ProgramLocationID),
+                                  ProgramName = knitr:::escape_latex(ProgramName))
   }
+  
+  caption <- "Station overview for continuous parameters, number of years of data by program and parameter"
+  
+  # n_years$ProgramLocationID <- gsub("_", "-", n_years$ProgramLocationID)
+  # n_years$ProgramLocationID <- gsub("&", "-and-", n_years$ProgramLocationID)
+  
+  station_kable <- kable(
+    n_years, 
+    format=format_type, caption=caption, booktabs = T, linesep = "",
+    align = "l", escape = F) %>%
+    row_spec(0, italic=TRUE) %>%
+    column_spec(column = 2, width = "6cm") %>%
+    kable_styling(latex_options=c("scale_down","HOLD_position"))
   
   ############
   ### maps ###
@@ -121,7 +127,7 @@ station_count_table <- function(coordinates_df, station_coordinates, ma, ma_abre
     arrange(stationID)
   
   iconSet <- awesomeIconList(
-    `Use In Analysis` = makeAwesomeIcon(
+    `Sufficient Data` = makeAwesomeIcon(
       icon = "glyphicon glyphicon-stats", library = "glyphicon", iconColor = "black", markerColor = "green"
     )
   )
@@ -230,27 +236,30 @@ station_count_table <- function(coordinates_df, station_coordinates, ma, ma_abre
   p1 <- ggdraw() + draw_image(map_out, scale = 1)
   
   caption <- paste0("Map showing continuous water quality sampling locations within the boundaries of *", ma, "*. 
-                    Sites marked as *Use In Analysis* (green) are featured in this report.  \n")
+                    Sites marked as *Sufficient Data* (green) are featured in this report.  \n")
   
   subchunkify(cat("![", caption, "](", map_out,")"))
-  
-  # print(p1)
   cat("  \n")
-  # cat(caption)
+  cat(station_kable)
+  cat("\n")
+  # Display ProgramName below data table
+  cat("\n **Program names:** \n \n")
+  for(p_id in sort(unique(n_years$ProgramID))){
+    p_name <- unique(n_years[n_years$ProgramID==p_id, ]$ProgramName)
+    cat(paste0("*",p_id,"*", " - ",p_name, knitcitations::citep(bib[[paste0("SEACARID", p_id)]]), "  \n"))
+  }
   cat("  \n\n")
 }
+
+# Load in skt stats file
+cont_skt_stats <- fread("../WQ_Cont_Discrete/output/WQ_Continuous_All_KendallTau_Stats.txt")
 
 plot_cont_combined <- function(param, parameter, ma, ma_abrev, report_type){
   format_type <- ifelse(report_type=="HTML", "simple", "latex")
   Mon_YM_Stats <- as.data.table(load_cont_data_table(param, "Mon_YM_Stats"))
   Mon_YM_Stats <- Mon_YM_Stats[stringr::str_detect(ManagedAreaName, ma) & ParameterName == parameter, ]
   
-  skt_stats <- as.data.table(load_cont_data_table(param, "skt_stats"))
-  skt_stats <- skt_stats[stringr::str_detect(ManagedAreaName, ma), ]
-  # Remove text-based "NA" values in p column
-  if(nrow(skt_stats[skt_stats$p=="    NA", ]) > 0){
-    skt_stats[skt_stats$p=="    NA", ]$p <- NA
-  }
+  skt_stats <- cont_skt_stats[stringr::str_detect(ManagedAreaName, ma) & ParameterName==parameter, ]
   skt_stats$p <- round(as.numeric(skt_stats$p), 4)
   
   if(length(unique(skt_stats[!is.na(ProgramID),ProgramLocationID]))>0){
@@ -264,7 +273,7 @@ plot_cont_combined <- function(param, parameter, ma, ma_abrev, report_type){
         plot_loc <- get_plot(ma_abrev = ma_abrev, parameter = parameter, type = "Continuous", pid = prog_n)
         
         ResultTable <- skt_stats %>% filter(ProgramID==pid) %>% rowwise() %>% mutate(
-            `Statistical Trend` = checkTrends(`p` = p, Slope = SenSlope, SufficientData = SufficientData),
+            `Statistical Trend` = TrendText,
             `Period of Record` = paste0(EarliestYear, " - ", LatestYear)) %>%
           select(ProgramLocationID, `Statistical Trend`, N_Data, N_Years, `Period of Record`, Median, tau,
                  SenIntercept, SenSlope, p) %>%
@@ -327,7 +336,7 @@ plot_cont_combined <- function(param, parameter, ma, ma_abrev, report_type){
       plot_loc <- get_plot(ma_abrev = ma_abrev, parameter = parameter, type = "Continuous", pid = "none")
       
       ResultTable <- skt_stats %>% rowwise() %>% mutate(
-          `Statistical Trend` = checkTrends(`p` = p, Slope = SenSlope, SufficientData = SufficientData),
+          `Statistical Trend` = TrendText,
           `Period of Record` = paste0(EarliestYear, " - ", LatestYear)) %>%
         select(ProgramLocationID, `Statistical Trend`, N_Data, N_Years, `Period of Record`, Median, tau,
                SenIntercept, SenSlope, p) %>%

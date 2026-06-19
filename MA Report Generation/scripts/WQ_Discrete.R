@@ -143,22 +143,17 @@ disc_managed_areas <- unique(managed_area_df$ManagedAreaName)
 ## Load Data Table Function
 ## For loading discrete data
 load_data_table <- function(p, a="All", d="All", table) {
-  
   # Declaring RDS file list of respective tables
   files <- list.files(disc_file_loc, pattern = "\\.rds$")
-  
   if (table == "data") {
     filename_string <- paste0(p,"_",table)
   } else {
     filename_string <- paste0(p,"_",a,"_",d,"_",table)
   }
-  
   # subset file list to select desired table RDS file
   table_file <- paste0(disc_file_loc, str_subset(files, filename_string))
-  
   # importing RDS files
   df <- lapply(table_file, readRDS)
-  
   return(df)
 }
 
@@ -188,6 +183,18 @@ plot_discrete_maps <- function(ma_abrev, param_short, param_label, map_files){
   # Print map
   subchunkify(cat("![", caption, "](", map_loc,")"))
   cat("  \n")
+}
+
+# Show all discrete programs at beginning of discrete section
+show_disc_programs <- function(ma, data){
+  progs <- disc_programs[ManagedAreaName==ma, ]
+  cat("\n **The following programs have contributed data to this section:** \n \n")
+  # Display ProgramName below data table
+  for(i in 1:nrow(progs)){
+    p_name <- progs[i, ProgramName]
+    p_id <- progs[i, ProgramID]
+    cat(paste0("*",p_id,"*", " - ",p_name, knitcitations::citep(bib[[paste0("SEACARID", p_id)]]), "  \n"))
+  }
 }
 
 ## Kendall-Tau Trendlines Plot function ##
@@ -255,25 +262,17 @@ disc_program_tables <- function(ma, data){
     select(ProgramID, ProgramName, N_Data, YearMin, YearMax) %>%
     arrange(desc(N_Data))
   
-  program_kable <- kable(program_table %>% select(-ProgramName) %>% colorize_tables("blue"), # add color to programID
-                         format="simple",
-                         caption=paste0("Programs contributing data for ", parameter),
-                         align = "l") %>%
+  program_kable <- kable(
+    program_table,
+    format=ifelse(report_type=="HTML", "simple", "latex"),
+    caption=paste0("Programs contributing data for ", parameter),
+    align = "l", booktabs = T, linesep = "\\hline"
+  ) %>%
     row_spec(0, italic=TRUE) %>%
+    column_spec(column = 2, width = "6cm") %>%
     kable_styling(latex_options=c("scale_down","HOLD_position"))
+  
   print(program_kable)
-  cat("  \n")
-  
-  # Grab list of available programIDs
-  program_ids <- unique(program_table$ProgramID)
-  
-  cat("\n **Program names:** \n \n")
-  # Display ProgramName below data table
-  for (p_id in program_ids) {
-    p_name <- program_table %>% filter(ProgramID == p_id) %>% pull(ProgramName)
-    p_id_display <- ifelse(p_id %in% rcp_progs, colorize(p_id, "blue", report_type), p_id)
-    cat(paste0("*",p_id_display,"*", " - ",p_name, knitcitations::citep(bib[[paste0("SEACARID", p_id)]]), "  \n"))
-  }
   cat("  \n")
 }
 

@@ -281,6 +281,11 @@ vq_desc_table <- openxlsx::read.xlsx(ddi_metadata_file,
                                      rows = c(35:54),
                                      sep.names = " ")
 
+# Read in discrete data overview to provide program overview
+disc_programs <- readRDS("../WQ_Cont_Discrete/output/tables/disc/data_output_disc.rds") %>% 
+  group_by(ProgramID, ProgramName, ManagedAreaName) %>% reframe() %>% 
+  arrange(ManagedAreaName) %>% as.data.table()
+
 # Subset for MAs
 # MA_All <- MA_All[!MA_All$ManagedAreaName=="Biscayne Bay-Cape Florida to Monroe County Line Aquatic Preserve"]
 
@@ -328,7 +333,7 @@ for(i in seq_len(nrow(MA_All))){
       descriptionColumn <- ifelse(report_type=="HTML", "Description", "DescriptionLatex")
       # descriptionColumn <- "Description"
       ma_report_out_dir <- paste0(report_out_dir,"/",report_type)
-
+      
       file_out <-  paste0(ma_abrev, "_Report")
       format_string <- paste0(tolower(report_type),"_document")
       
