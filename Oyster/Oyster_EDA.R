@@ -24,8 +24,8 @@ for(file_path in c("output/EDA/", "output/EDA/hist", "output/EDA/ma", "output/ED
 
 # seacar color palette
 seacar_palette <- SEACAR::seacar_palette2
-
-oyster <- fread(str_subset(list.files(seacar_data_location, full=T), "OYSTER"), sep='|', na.strings = "NULL")
+oy_file_loc <- str_subset(list.files(seacar_data_location, full=T), "OYSTER")
+oyster <- fread(oy_file_loc, sep='|', na.strings = "NULL")
 # Apply Managed Area transformation - de-concatenate MA names
 oyster <- setDT(SEACAR::clean_managed_areas(oyster, "ma"))
 # Determine whether a data point is Inside or Outside of Managed Area Boundaries
@@ -33,6 +33,12 @@ oyster$in_MA <- ifelse(is.na(oyster$ManagedAreaName), "Outside MA", "Inside MA")
 # Add abbreviated MA names for easier display in table
 oyster <- merge(oyster, MA_All[, c("AreaID", "Abbreviation")], all.x=T)
 oyster$ManagedAreaName[is.na(oyster$ManagedAreaName)] <- "NA"
+# Record current export information & write to tracking file
+export_info <- fread("output/EDA/ExportTracking.csv") %>%
+  rbind(data.frame("Date" = as.IDate(Sys.Date()), 
+                   "FileName" = tail(str_split_1(oy_file_loc, "/"), 1))) %>%
+  distinct()
+fwrite(export_info, "output/EDA/ExportTracking.csv")
 
 # Create dated folder to store results previous plots to allow for comparison
 for(folder in c("output/EDA/hist/", "output/EDA/ma/", "output/EDA/oimmp/")){
@@ -42,10 +48,12 @@ for(folder in c("output/EDA/hist/", "output/EDA/ma/", "output/EDA/oimmp/")){
 
 ##### Histogram plots for each parameter
 hist_output <- paste0("output/EDA/hist/", Sys.Date(), "/")
-# List previous plots to create side-by-side comparison
-prev_folders <- as.Date(list.files("output/EDA/hist/"))
-prev_folder <- prev_folders[which(!prev_folders==Sys.Date())]
+# Locate previous export and list previous plots to create side-by-side comparison
+prev_folder <- export_info[which(export_info$Date==Sys.Date()) - 1, Date]
 prev_imgs <- list.files(paste0("output/EDA/hist/", prev_folder, "/"), full=T)
+# Create title variables from file names
+old_file_name <- export_info[Date==prev_folder, FileName]
+new_file_name <- export_info[Date==Sys.Date(), FileName]
 
 for(param in c("Shell Height", "Density", "Percent Live")){
   for(pid in oyster[ParameterName==param, unique(ProgramID)]){
@@ -75,10 +83,12 @@ for(param in c("Shell Height", "Density", "Percent Live")){
     
     # Locate old plot
     old_plot_img <- magick::image_read(str_subset(prev_imgs, paste0(pid, "_", gsub(" ", "_", param))))
-    old_plot <- cowplot::ggdraw() + cowplot::draw_image(old_plot_img) + cowplot::draw_label(as.character(prev_folder), x = 0.5, y = 1)
+    old_plot <- cowplot::ggdraw() + cowplot::draw_image(old_plot_img) + 
+      cowplot::draw_label(as.character(old_file_name), x = 0.5, y = 1, color = "cornflowerblue")
     # Read in new plot
     new_plot_img <- magick::image_read(paste0(hist_output, pid, "_", gsub(" ", "_", param), ".png"))
-    new_plot <- cowplot::ggdraw() + cowplot::draw_image(new_plot_img) + cowplot::draw_label(as.character(Sys.Date()), x = 0.5, y = 1)
+    new_plot <- cowplot::ggdraw() + cowplot::draw_image(new_plot_img) + 
+      cowplot::draw_label(as.character(new_file_name), x = 0.5, y = 1, color = "cornflowerblue")
     
     # Combine & save
     combined_plot <- (new_plot + old_plot)
@@ -99,9 +109,7 @@ for(plot_type in plot_types){
   jitter_output <- paste0("output/EDA/", plot_type, "/", Sys.Date(), "/")
   
   # List previous plots to create side-by-side comparison
-  prev_folders2 <- as.Date(list.files(paste0("output/EDA/", plot_type)))
-  prev_folder2 <- prev_folders2[which(!prev_folders2==Sys.Date())]
-  prev_imgs2 <- list.files(paste0("output/EDA/", plot_type, "/", prev_folder2, "/"), full=T)
+  prev_imgs2 <- list.files(paste0("output/EDA/", plot_type, "/", prev_folder, "/"), full=T)
   
   for(group in oyster[,unique(get(col_name))]){
     subset <- oyster[get(col_name)==group, ]
@@ -126,7 +134,7 @@ for(plot_type in plot_types){
     
     # Locate old plot
     old_plot_img <- magick::image_read(str_subset(prev_imgs2, paste0(group)))
-    old_plot <- try(cowplot::ggdraw() + cowplot::draw_image(old_plot_img) + cowplot::draw_label(as.character(prev_folder2), x = 0.5, y = 1))
+    old_plot <- try(cowplot::ggdraw() + cowplot::draw_image(old_plot_img) + cowplot::draw_label(as.character(old_file_name), x = 0.5, y = 1))
     
     if("try-error" %in% class(old_plot)){
       "No previous image available"
@@ -135,7 +143,7 @@ for(plot_type in plot_types){
     } else {
       # Read in new plot
       new_plot_img <- magick::image_read(file_name)
-      new_plot <- cowplot::ggdraw() + cowplot::draw_image(new_plot_img) + cowplot::draw_label(as.character(Sys.Date()), x = 0.5, y = 1)
+      new_plot <- cowplot::ggdraw() + cowplot::draw_image(new_plot_img) + cowplot::draw_label(as.character(new_file_name), x = 0.5, y = 1)
       
       # Combine & save
       combined_plot <- (new_plot + old_plot)
