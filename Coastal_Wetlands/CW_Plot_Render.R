@@ -261,6 +261,10 @@ group_shapes <- c(21,22,24)
 names(group_colors) <- cw_groups
 names(group_shapes) <- cw_groups
 
+# Remove previous plots before rendering new plots
+plot_files <- list.files("output/Figures", full=T)
+file.remove(plot_files)
+
 # Loop that cycles through each managed area with data
 if(n==0){
   # Prints a statement if there are no managed areas with appropriate data
@@ -371,7 +375,9 @@ zip("CoastalWetlandsFigures", files=fig_list)
 setwd(wd)
 
 if(create_maps){
-  source("CW_Create_Maps.R")
+  analysis <- "ma"
+  hab <- "Coastal Wetlands"
+  source("../AllHabitats_Maps.R", echo = T, chdir = T)
 }
 
 ##### Generate Table Descriptions

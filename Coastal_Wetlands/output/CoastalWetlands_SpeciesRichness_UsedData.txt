@@ -33,6 +33,7 @@ AreaID|ManagedAreaName|ProgramID|ProgramName|ProgramLocationID|SampleDate|Specie
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM2-2|2021-03-29T00:00:00Z|Marsh|Species Richness|2021|3|2
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM2-2|2022-04-26T00:00:00Z|Marsh|Species Richness|2022|4|1
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM2-2|2023-04-19T00:00:00Z|Marsh|Species Richness|2023|4|2
+2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM3-2|2024-06-05T00:00:00Z|Marsh|Species Richness|2024|6|1
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM3-3|2014-11-03T00:00:00Z|Marsh|Species Richness|2014|11|1
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM3-3|2015-04-06T00:00:00Z|Marsh|Species Richness|2015|4|1
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM3-3|2015-10-12T00:00:00Z|Marsh|Species Richness|2015|10|1
@@ -46,6 +47,7 @@ AreaID|ManagedAreaName|ProgramID|ProgramName|ProgramLocationID|SampleDate|Specie
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM3-3|2021-03-29T00:00:00Z|Marsh|Species Richness|2021|3|1
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM3-3|2022-04-26T00:00:00Z|Marsh|Species Richness|2022|4|2
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM3-3|2023-04-19T00:00:00Z|Marsh|Species Richness|2023|4|1
+2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM3-3|2024-06-05T00:00:00Z|Marsh|Species Richness|2024|6|1
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-1|2014-11-04T00:00:00Z|Marsh|Species Richness|2014|11|5
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-1|2014-11-04T00:00:00Z|Marsh succulents|Species Richness|2014|11|1
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-1|2015-04-07T00:00:00Z|Marsh|Species Richness|2015|4|3
@@ -76,7 +78,16 @@ AreaID|ManagedAreaName|ProgramID|ProgramName|ProgramLocationID|SampleDate|Specie
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-1|2021-03-29T00:00:00Z|Marsh succulents|Species Richness|2021|3|1
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-1|2022-04-25T00:00:00Z|Marsh|Species Richness|2022|4|3
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-1|2023-04-19T00:00:00Z|Marsh|Species Richness|2023|4|3
+2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-2|2024-06-04T00:00:00Z|Marsh|Species Richness|2024|6|1
+2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-3|2024-06-04T00:00:00Z|Marsh|Species Richness|2024|6|1
+2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-4|2024-06-04T00:00:00Z|Marsh|Species Richness|2024|6|1
+2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-5|2024-06-04T00:00:00Z|Marsh|Species Richness|2024|6|2
+2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-6|2024-06-04T00:00:00Z|Marsh|Species Richness|2024|6|1
+2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-7|2024-06-04T00:00:00Z|Marsh|Species Richness|2024|6|2
+2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-8|2024-06-04T00:00:00Z|Marsh|Species Richness|2024|6|2
+2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-9|2024-06-04T00:00:00Z|Marsh|Species Richness|2024|6|1
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-1|2017-10-30T00:00:00Z|Marsh|Species Richness|2017|10|1
+2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-1|2024-06-04T00:00:00Z|Marsh succulents|Species Richness|2024|6|1
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-2|2014-11-04T00:00:00Z|Marsh|Species Richness|2014|11|4
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-2|2014-11-04T00:00:00Z|Marsh succulents|Species Richness|2014|11|2
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-2|2015-04-07T00:00:00Z|Marsh|Species Richness|2015|4|4
@@ -109,9 +120,22 @@ AreaID|ManagedAreaName|ProgramID|ProgramName|ProgramLocationID|SampleDate|Specie
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-2|2022-04-25T00:00:00Z|Marsh succulents|Species Richness|2022|4|3
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-2|2023-04-19T00:00:00Z|Marsh|Species Richness|2023|4|3
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-2|2023-04-19T00:00:00Z|Marsh succulents|Species Richness|2023|4|3
+2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-2|2024-06-04T00:00:00Z|Marsh|Species Richness|2024|6|1
+2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-4|2024-06-04T00:00:00Z|Marsh|Species Richness|2024|6|1
+2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-5|2024-06-04T00:00:00Z|Marsh|Species Richness|2024|6|1
+2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-6|2024-06-04T00:00:00Z|Marsh|Species Richness|2024|6|2
+2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-6|2024-06-04T00:00:00Z|Marsh succulents|Species Richness|2024|6|2
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-7|2017-10-30T00:00:00Z|Marsh|Species Richness|2017|10|1
+2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-7|2024-06-04T00:00:00Z|Marsh|Species Richness|2024|6|1
+2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-7|2024-06-04T00:00:00Z|Marsh succulents|Species Richness|2024|6|1
+2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-8|2024-06-04T00:00:00Z|Marsh|Species Richness|2024|6|1
+2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-8|2024-06-04T00:00:00Z|Marsh succulents|Species Richness|2024|6|1
+2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-9|2024-06-04T00:00:00Z|Marsh|Species Richness|2024|6|1
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-1|2017-10-30T00:00:00Z|Marsh|Species Richness|2017|10|1
+2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-1|2024-06-04T00:00:00Z|Marsh succulents|Species Richness|2024|6|1
+2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-10|2024-06-04T00:00:00Z|Marsh|Species Richness|2024|6|1
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-2|2017-10-30T00:00:00Z|Marsh|Species Richness|2017|10|1
+2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-2|2024-06-04T00:00:00Z|Marsh|Species Richness|2024|6|1
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-3|2014-11-04T00:00:00Z|Marsh|Species Richness|2014|11|4
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-3|2014-11-04T00:00:00Z|Marsh succulents|Species Richness|2014|11|3
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-3|2015-04-07T00:00:00Z|Marsh|Species Richness|2015|4|3
@@ -144,65 +168,108 @@ AreaID|ManagedAreaName|ProgramID|ProgramName|ProgramLocationID|SampleDate|Specie
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-3|2022-04-25T00:00:00Z|Marsh succulents|Species Richness|2022|4|3
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-3|2023-04-19T00:00:00Z|Marsh|Species Richness|2023|4|4
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-3|2023-04-19T00:00:00Z|Marsh succulents|Species Richness|2023|4|3
+2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-3|2024-06-04T00:00:00Z|Marsh|Species Richness|2024|6|2
+2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-3|2024-06-04T00:00:00Z|Marsh succulents|Species Richness|2024|6|2
+2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-4|2024-06-04T00:00:00Z|Marsh|Species Richness|2024|6|1
+2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-4|2024-06-04T00:00:00Z|Marsh succulents|Species Richness|2024|6|1
+2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-5|2024-06-04T00:00:00Z|Marsh|Species Richness|2024|6|1
+2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-5|2024-06-04T00:00:00Z|Marsh succulents|Species Richness|2024|6|2
+2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-6|2024-06-04T00:00:00Z|Marsh|Species Richness|2024|6|1
+2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-6|2024-06-04T00:00:00Z|Marsh succulents|Species Richness|2024|6|1
+2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-7|2024-06-04T00:00:00Z|Marsh|Species Richness|2024|6|1
+2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-7|2024-06-04T00:00:00Z|Marsh succulents|Species Richness|2024|6|1
+2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-8|2024-06-04T00:00:00Z|Marsh|Species Richness|2024|6|1
+2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-9|2024-06-04T00:00:00Z|Marsh|Species Richness|2024|6|1
+2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-9|2024-06-04T00:00:00Z|Marsh succulents|Species Richness|2024|6|1
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U41-1|2022-04-26T00:00:00Z|Marsh|Species Richness|2022|4|2
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U41-1|2023-04-20T00:00:00Z|Marsh|Species Richness|2023|4|2
+2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U41-1|2024-06-06T00:00:00Z|Marsh|Species Richness|2024|6|2
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U41-2|2022-04-26T00:00:00Z|Marsh|Species Richness|2022|4|1
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U41-2|2022-04-26T00:00:00Z|Marsh succulents|Species Richness|2022|4|1
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U41-2|2023-04-20T00:00:00Z|Marsh|Species Richness|2023|4|1
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U41-2|2023-04-20T00:00:00Z|Marsh succulents|Species Richness|2023|4|1
+2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U41-2|2024-06-06T00:00:00Z|Marsh|Species Richness|2024|6|1
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U41-3|2022-04-26T00:00:00Z|Marsh|Species Richness|2022|4|1
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U41-3|2023-04-20T00:00:00Z|Marsh|Species Richness|2023|4|1
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U41-3|2023-04-20T00:00:00Z|Marsh succulents|Species Richness|2023|4|1
+2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U41-3|2024-06-06T00:00:00Z|Marsh|Species Richness|2024|6|1
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U41-4|2022-04-26T00:00:00Z|Marsh|Species Richness|2022|4|1
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U41-4|2023-04-20T00:00:00Z|Marsh|Species Richness|2023|4|1
+2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U41-4|2024-06-06T00:00:00Z|Marsh|Species Richness|2024|6|1
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U41-5|2022-04-26T00:00:00Z|Marsh|Species Richness|2022|4|1
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U41-5|2023-04-20T00:00:00Z|Marsh|Species Richness|2023|4|1
+2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U41-5|2024-06-06T00:00:00Z|Marsh|Species Richness|2024|6|1
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U41-6|2022-04-26T00:00:00Z|Marsh|Species Richness|2022|4|1
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U41-6|2023-04-20T00:00:00Z|Marsh|Species Richness|2023|4|1
+2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U41-6|2024-06-06T00:00:00Z|Marsh|Species Richness|2024|6|1
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U42-1|2022-04-26T00:00:00Z|Marsh|Species Richness|2022|4|3
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U42-1|2022-04-26T00:00:00Z|Marsh succulents|Species Richness|2022|4|1
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U42-1|2023-04-20T00:00:00Z|Marsh|Species Richness|2023|4|3
+2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U42-1|2024-06-06T00:00:00Z|Marsh|Species Richness|2024|6|3
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U42-2|2022-04-26T00:00:00Z|Marsh|Species Richness|2022|4|2
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U42-2|2023-04-20T00:00:00Z|Marsh|Species Richness|2023|4|3
+2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U42-2|2024-06-06T00:00:00Z|Marsh|Species Richness|2024|6|1
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U42-3|2022-04-26T00:00:00Z|Marsh|Species Richness|2022|4|3
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U42-3|2023-04-20T00:00:00Z|Marsh|Species Richness|2023|4|3
+2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U42-3|2024-06-06T00:00:00Z|Marsh|Species Richness|2024|6|2
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U42-4|2022-04-26T00:00:00Z|Marsh|Species Richness|2022|4|2
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U42-4|2023-04-20T00:00:00Z|Marsh|Species Richness|2023|4|3
+2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U42-4|2024-06-06T00:00:00Z|Marsh|Species Richness|2024|6|1
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U42-5|2022-04-26T00:00:00Z|Marsh|Species Richness|2022|4|3
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U42-5|2022-04-26T00:00:00Z|Marsh succulents|Species Richness|2022|4|1
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U42-5|2023-04-20T00:00:00Z|Marsh|Species Richness|2023|4|1
+2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U42-5|2024-06-06T00:00:00Z|Marsh|Species Richness|2024|6|1
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U42-6|2022-04-26T00:00:00Z|Marsh|Species Richness|2022|4|1
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U42-6|2023-04-20T00:00:00Z|Marsh|Species Richness|2023|4|1
+2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U42-6|2024-06-06T00:00:00Z|Marsh|Species Richness|2024|6|1
+2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U42-6|2024-06-06T00:00:00Z|Marsh succulents|Species Richness|2024|6|1
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U42-7|2022-04-26T00:00:00Z|Marsh|Species Richness|2022|4|1
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U42-7|2023-04-20T00:00:00Z|Marsh|Species Richness|2023|4|1
+2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U42-7|2024-06-06T00:00:00Z|Marsh|Species Richness|2024|6|1
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U42-8|2022-04-26T00:00:00Z|Marsh|Species Richness|2022|4|2
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U42-8|2023-04-20T00:00:00Z|Marsh|Species Richness|2023|4|2
+2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U42-8|2024-06-06T00:00:00Z|Marsh|Species Richness|2024|6|2
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U42-9|2022-04-26T00:00:00Z|Marsh|Species Richness|2022|4|1
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U42-9|2023-04-20T00:00:00Z|Marsh|Species Richness|2023|4|1
+2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U42-9|2024-06-06T00:00:00Z|Marsh|Species Richness|2024|6|1
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-1|2022-04-26T00:00:00Z|Marsh|Species Richness|2022|4|2
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-1|2023-04-20T00:00:00Z|Marsh|Species Richness|2023|4|3
+2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-1|2024-06-06T00:00:00Z|Marsh|Species Richness|2024|6|2
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-10|2022-04-26T00:00:00Z|Marsh|Species Richness|2022|4|1
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-10|2023-04-20T00:00:00Z|Marsh|Species Richness|2023|4|1
+2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-10|2024-06-06T00:00:00Z|Marsh|Species Richness|2024|6|2
+2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-2|2024-06-06T00:00:00Z|Marsh|Species Richness|2024|6|1
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-3|2022-04-26T00:00:00Z|Marsh|Species Richness|2022|4|1
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-3|2023-04-20T00:00:00Z|Marsh|Species Richness|2023|4|1
+2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-3|2024-06-06T00:00:00Z|Mangroves and associates|Species Richness|2024|6|1
+2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-3|2024-06-06T00:00:00Z|Marsh|Species Richness|2024|6|1
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-4|2022-04-26T00:00:00Z|Mangroves and associates|Species Richness|2022|4|1
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-4|2022-04-26T00:00:00Z|Marsh|Species Richness|2022|4|1
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-4|2023-04-20T00:00:00Z|Mangroves and associates|Species Richness|2023|4|1
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-4|2023-04-20T00:00:00Z|Marsh|Species Richness|2023|4|1
+2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-4|2024-06-06T00:00:00Z|Mangroves and associates|Species Richness|2024|6|1
+2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-4|2024-06-06T00:00:00Z|Marsh|Species Richness|2024|6|2
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-5|2022-04-26T00:00:00Z|Mangroves and associates|Species Richness|2022|4|1
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-5|2022-04-26T00:00:00Z|Marsh|Species Richness|2022|4|1
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-5|2022-04-26T00:00:00Z|Marsh succulents|Species Richness|2022|4|1
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-5|2023-04-20T00:00:00Z|Mangroves and associates|Species Richness|2023|4|1
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-5|2023-04-20T00:00:00Z|Marsh|Species Richness|2023|4|1
+2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-5|2024-06-06T00:00:00Z|Mangroves and associates|Species Richness|2024|6|1
+2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-5|2024-06-06T00:00:00Z|Marsh|Species Richness|2024|6|2
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-6|2022-04-26T00:00:00Z|Marsh|Species Richness|2022|4|1
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-6|2022-04-26T00:00:00Z|Marsh succulents|Species Richness|2022|4|1
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-6|2023-04-20T00:00:00Z|Marsh|Species Richness|2023|4|1
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-6|2023-04-20T00:00:00Z|Marsh succulents|Species Richness|2023|4|1
+2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-6|2024-06-06T00:00:00Z|Mangroves and associates|Species Richness|2024|6|1
+2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-6|2024-06-06T00:00:00Z|Marsh|Species Richness|2024|6|2
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-7|2022-04-26T00:00:00Z|Marsh|Species Richness|2022|4|2
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-7|2023-04-20T00:00:00Z|Marsh|Species Richness|2023|4|3
+2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-7|2024-06-06T00:00:00Z|Marsh|Species Richness|2024|6|1
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-8|2022-04-26T00:00:00Z|Marsh|Species Richness|2022|4|3
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-8|2023-04-20T00:00:00Z|Marsh|Species Richness|2023|4|3
+2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-8|2024-06-06T00:00:00Z|Marsh|Species Richness|2024|6|1
 2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-9|2023-04-20T00:00:00Z|Marsh|Species Richness|2023|4|2
+2|Apalachicola Bay Aquatic Preserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-9|2024-06-06T00:00:00Z|Marsh|Species Richness|2024|6|1
 3|Apalachicola National Estuarine Research Reserve|651|Coastal Habitat Integrated Mapping and Monitoring Program (CHIMMP) Pilot Monitoring Data|Apalachicola-A|2020-02-23T00:00:00Z|Marsh|Species Richness|2020|2|1
 3|Apalachicola National Estuarine Research Reserve|651|Coastal Habitat Integrated Mapping and Monitoring Program (CHIMMP) Pilot Monitoring Data|Apalachicola-A1|2020-02-23T00:00:00Z|Marsh|Species Richness|2020|2|1
 3|Apalachicola National Estuarine Research Reserve|651|Coastal Habitat Integrated Mapping and Monitoring Program (CHIMMP) Pilot Monitoring Data|Apalachicola-B|2020-02-23T00:00:00Z|Marsh|Species Richness|2020|2|1
@@ -237,6 +304,7 @@ AreaID|ManagedAreaName|ProgramID|ProgramName|ProgramLocationID|SampleDate|Specie
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM2-2|2021-03-29T00:00:00Z|Marsh|Species Richness|2021|3|2
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM2-2|2022-04-26T00:00:00Z|Marsh|Species Richness|2022|4|1
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM2-2|2023-04-19T00:00:00Z|Marsh|Species Richness|2023|4|2
+3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM3-2|2024-06-05T00:00:00Z|Marsh|Species Richness|2024|6|1
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM3-3|2014-11-03T00:00:00Z|Marsh|Species Richness|2014|11|1
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM3-3|2015-04-06T00:00:00Z|Marsh|Species Richness|2015|4|1
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM3-3|2015-10-12T00:00:00Z|Marsh|Species Richness|2015|10|1
@@ -250,6 +318,7 @@ AreaID|ManagedAreaName|ProgramID|ProgramName|ProgramLocationID|SampleDate|Specie
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM3-3|2021-03-29T00:00:00Z|Marsh|Species Richness|2021|3|1
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM3-3|2022-04-26T00:00:00Z|Marsh|Species Richness|2022|4|2
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM3-3|2023-04-19T00:00:00Z|Marsh|Species Richness|2023|4|1
+3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|LSM3-3|2024-06-05T00:00:00Z|Marsh|Species Richness|2024|6|1
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-1|2014-11-04T00:00:00Z|Marsh|Species Richness|2014|11|5
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-1|2014-11-04T00:00:00Z|Marsh succulents|Species Richness|2014|11|1
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-1|2015-04-07T00:00:00Z|Marsh|Species Richness|2015|4|3
@@ -280,7 +349,16 @@ AreaID|ManagedAreaName|ProgramID|ProgramName|ProgramLocationID|SampleDate|Specie
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-1|2021-03-29T00:00:00Z|Marsh succulents|Species Richness|2021|3|1
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-1|2022-04-25T00:00:00Z|Marsh|Species Richness|2022|4|3
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-1|2023-04-19T00:00:00Z|Marsh|Species Richness|2023|4|3
+3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-2|2024-06-04T00:00:00Z|Marsh|Species Richness|2024|6|1
+3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-3|2024-06-04T00:00:00Z|Marsh|Species Richness|2024|6|1
+3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-4|2024-06-04T00:00:00Z|Marsh|Species Richness|2024|6|1
+3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-5|2024-06-04T00:00:00Z|Marsh|Species Richness|2024|6|2
+3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-6|2024-06-04T00:00:00Z|Marsh|Species Richness|2024|6|1
+3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-7|2024-06-04T00:00:00Z|Marsh|Species Richness|2024|6|2
+3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-8|2024-06-04T00:00:00Z|Marsh|Species Richness|2024|6|2
+3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC1-9|2024-06-04T00:00:00Z|Marsh|Species Richness|2024|6|1
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-1|2017-10-30T00:00:00Z|Marsh|Species Richness|2017|10|1
+3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-1|2024-06-04T00:00:00Z|Marsh succulents|Species Richness|2024|6|1
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-2|2014-11-04T00:00:00Z|Marsh|Species Richness|2014|11|4
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-2|2014-11-04T00:00:00Z|Marsh succulents|Species Richness|2014|11|2
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-2|2015-04-07T00:00:00Z|Marsh|Species Richness|2015|4|4
@@ -313,9 +391,22 @@ AreaID|ManagedAreaName|ProgramID|ProgramName|ProgramLocationID|SampleDate|Specie
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-2|2022-04-25T00:00:00Z|Marsh succulents|Species Richness|2022|4|3
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-2|2023-04-19T00:00:00Z|Marsh|Species Richness|2023|4|3
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-2|2023-04-19T00:00:00Z|Marsh succulents|Species Richness|2023|4|3
+3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-2|2024-06-04T00:00:00Z|Marsh|Species Richness|2024|6|1
+3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-4|2024-06-04T00:00:00Z|Marsh|Species Richness|2024|6|1
+3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-5|2024-06-04T00:00:00Z|Marsh|Species Richness|2024|6|1
+3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-6|2024-06-04T00:00:00Z|Marsh|Species Richness|2024|6|2
+3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-6|2024-06-04T00:00:00Z|Marsh succulents|Species Richness|2024|6|2
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-7|2017-10-30T00:00:00Z|Marsh|Species Richness|2017|10|1
+3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-7|2024-06-04T00:00:00Z|Marsh|Species Richness|2024|6|1
+3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-7|2024-06-04T00:00:00Z|Marsh succulents|Species Richness|2024|6|1
+3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-8|2024-06-04T00:00:00Z|Marsh|Species Richness|2024|6|1
+3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-8|2024-06-04T00:00:00Z|Marsh succulents|Species Richness|2024|6|1
+3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC2-9|2024-06-04T00:00:00Z|Marsh|Species Richness|2024|6|1
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-1|2017-10-30T00:00:00Z|Marsh|Species Richness|2017|10|1
+3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-1|2024-06-04T00:00:00Z|Marsh succulents|Species Richness|2024|6|1
+3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-10|2024-06-04T00:00:00Z|Marsh|Species Richness|2024|6|1
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-2|2017-10-30T00:00:00Z|Marsh|Species Richness|2017|10|1
+3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-2|2024-06-04T00:00:00Z|Marsh|Species Richness|2024|6|1
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-3|2014-11-04T00:00:00Z|Marsh|Species Richness|2014|11|4
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-3|2014-11-04T00:00:00Z|Marsh succulents|Species Richness|2014|11|3
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-3|2015-04-07T00:00:00Z|Marsh|Species Richness|2015|4|3
@@ -348,65 +439,108 @@ AreaID|ManagedAreaName|ProgramID|ProgramName|ProgramLocationID|SampleDate|Specie
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-3|2022-04-25T00:00:00Z|Marsh succulents|Species Richness|2022|4|3
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-3|2023-04-19T00:00:00Z|Marsh|Species Richness|2023|4|4
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-3|2023-04-19T00:00:00Z|Marsh succulents|Species Richness|2023|4|3
+3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-3|2024-06-04T00:00:00Z|Marsh|Species Richness|2024|6|2
+3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-3|2024-06-04T00:00:00Z|Marsh succulents|Species Richness|2024|6|2
+3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-4|2024-06-04T00:00:00Z|Marsh|Species Richness|2024|6|1
+3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-4|2024-06-04T00:00:00Z|Marsh succulents|Species Richness|2024|6|1
+3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-5|2024-06-04T00:00:00Z|Marsh|Species Richness|2024|6|1
+3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-5|2024-06-04T00:00:00Z|Marsh succulents|Species Richness|2024|6|2
+3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-6|2024-06-04T00:00:00Z|Marsh|Species Richness|2024|6|1
+3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-6|2024-06-04T00:00:00Z|Marsh succulents|Species Richness|2024|6|1
+3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-7|2024-06-04T00:00:00Z|Marsh|Species Richness|2024|6|1
+3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-7|2024-06-04T00:00:00Z|Marsh succulents|Species Richness|2024|6|1
+3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-8|2024-06-04T00:00:00Z|Marsh|Species Richness|2024|6|1
+3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-9|2024-06-04T00:00:00Z|Marsh|Species Richness|2024|6|1
+3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|PC3-9|2024-06-04T00:00:00Z|Marsh succulents|Species Richness|2024|6|1
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U41-1|2022-04-26T00:00:00Z|Marsh|Species Richness|2022|4|2
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U41-1|2023-04-20T00:00:00Z|Marsh|Species Richness|2023|4|2
+3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U41-1|2024-06-06T00:00:00Z|Marsh|Species Richness|2024|6|2
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U41-2|2022-04-26T00:00:00Z|Marsh|Species Richness|2022|4|1
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U41-2|2022-04-26T00:00:00Z|Marsh succulents|Species Richness|2022|4|1
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U41-2|2023-04-20T00:00:00Z|Marsh|Species Richness|2023|4|1
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U41-2|2023-04-20T00:00:00Z|Marsh succulents|Species Richness|2023|4|1
+3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U41-2|2024-06-06T00:00:00Z|Marsh|Species Richness|2024|6|1
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U41-3|2022-04-26T00:00:00Z|Marsh|Species Richness|2022|4|1
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U41-3|2023-04-20T00:00:00Z|Marsh|Species Richness|2023|4|1
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U41-3|2023-04-20T00:00:00Z|Marsh succulents|Species Richness|2023|4|1
+3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U41-3|2024-06-06T00:00:00Z|Marsh|Species Richness|2024|6|1
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U41-4|2022-04-26T00:00:00Z|Marsh|Species Richness|2022|4|1
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U41-4|2023-04-20T00:00:00Z|Marsh|Species Richness|2023|4|1
+3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U41-4|2024-06-06T00:00:00Z|Marsh|Species Richness|2024|6|1
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U41-5|2022-04-26T00:00:00Z|Marsh|Species Richness|2022|4|1
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U41-5|2023-04-20T00:00:00Z|Marsh|Species Richness|2023|4|1
+3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U41-5|2024-06-06T00:00:00Z|Marsh|Species Richness|2024|6|1
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U41-6|2022-04-26T00:00:00Z|Marsh|Species Richness|2022|4|1
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U41-6|2023-04-20T00:00:00Z|Marsh|Species Richness|2023|4|1
+3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U41-6|2024-06-06T00:00:00Z|Marsh|Species Richness|2024|6|1
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U42-1|2022-04-26T00:00:00Z|Marsh|Species Richness|2022|4|3
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U42-1|2022-04-26T00:00:00Z|Marsh succulents|Species Richness|2022|4|1
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U42-1|2023-04-20T00:00:00Z|Marsh|Species Richness|2023|4|3
+3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U42-1|2024-06-06T00:00:00Z|Marsh|Species Richness|2024|6|3
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U42-2|2022-04-26T00:00:00Z|Marsh|Species Richness|2022|4|2
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U42-2|2023-04-20T00:00:00Z|Marsh|Species Richness|2023|4|3
+3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U42-2|2024-06-06T00:00:00Z|Marsh|Species Richness|2024|6|1
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U42-3|2022-04-26T00:00:00Z|Marsh|Species Richness|2022|4|3
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U42-3|2023-04-20T00:00:00Z|Marsh|Species Richness|2023|4|3
+3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U42-3|2024-06-06T00:00:00Z|Marsh|Species Richness|2024|6|2
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U42-4|2022-04-26T00:00:00Z|Marsh|Species Richness|2022|4|2
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U42-4|2023-04-20T00:00:00Z|Marsh|Species Richness|2023|4|3
+3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U42-4|2024-06-06T00:00:00Z|Marsh|Species Richness|2024|6|1
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U42-5|2022-04-26T00:00:00Z|Marsh|Species Richness|2022|4|3
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U42-5|2022-04-26T00:00:00Z|Marsh succulents|Species Richness|2022|4|1
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U42-5|2023-04-20T00:00:00Z|Marsh|Species Richness|2023|4|1
+3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U42-5|2024-06-06T00:00:00Z|Marsh|Species Richness|2024|6|1
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U42-6|2022-04-26T00:00:00Z|Marsh|Species Richness|2022|4|1
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U42-6|2023-04-20T00:00:00Z|Marsh|Species Richness|2023|4|1
+3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U42-6|2024-06-06T00:00:00Z|Marsh|Species Richness|2024|6|1
+3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U42-6|2024-06-06T00:00:00Z|Marsh succulents|Species Richness|2024|6|1
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U42-7|2022-04-26T00:00:00Z|Marsh|Species Richness|2022|4|1
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U42-7|2023-04-20T00:00:00Z|Marsh|Species Richness|2023|4|1
+3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U42-7|2024-06-06T00:00:00Z|Marsh|Species Richness|2024|6|1
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U42-8|2022-04-26T00:00:00Z|Marsh|Species Richness|2022|4|2
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U42-8|2023-04-20T00:00:00Z|Marsh|Species Richness|2023|4|2
+3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U42-8|2024-06-06T00:00:00Z|Marsh|Species Richness|2024|6|2
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U42-9|2022-04-26T00:00:00Z|Marsh|Species Richness|2022|4|1
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U42-9|2023-04-20T00:00:00Z|Marsh|Species Richness|2023|4|1
+3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U42-9|2024-06-06T00:00:00Z|Marsh|Species Richness|2024|6|1
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-1|2022-04-26T00:00:00Z|Marsh|Species Richness|2022|4|2
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-1|2023-04-20T00:00:00Z|Marsh|Species Richness|2023|4|3
+3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-1|2024-06-06T00:00:00Z|Marsh|Species Richness|2024|6|2
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-10|2022-04-26T00:00:00Z|Marsh|Species Richness|2022|4|1
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-10|2023-04-20T00:00:00Z|Marsh|Species Richness|2023|4|1
+3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-10|2024-06-06T00:00:00Z|Marsh|Species Richness|2024|6|2
+3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-2|2024-06-06T00:00:00Z|Marsh|Species Richness|2024|6|1
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-3|2022-04-26T00:00:00Z|Marsh|Species Richness|2022|4|1
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-3|2023-04-20T00:00:00Z|Marsh|Species Richness|2023|4|1
+3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-3|2024-06-06T00:00:00Z|Mangroves and associates|Species Richness|2024|6|1
+3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-3|2024-06-06T00:00:00Z|Marsh|Species Richness|2024|6|1
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-4|2022-04-26T00:00:00Z|Mangroves and associates|Species Richness|2022|4|1
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-4|2022-04-26T00:00:00Z|Marsh|Species Richness|2022|4|1
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-4|2023-04-20T00:00:00Z|Mangroves and associates|Species Richness|2023|4|1
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-4|2023-04-20T00:00:00Z|Marsh|Species Richness|2023|4|1
+3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-4|2024-06-06T00:00:00Z|Mangroves and associates|Species Richness|2024|6|1
+3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-4|2024-06-06T00:00:00Z|Marsh|Species Richness|2024|6|2
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-5|2022-04-26T00:00:00Z|Mangroves and associates|Species Richness|2022|4|1
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-5|2022-04-26T00:00:00Z|Marsh|Species Richness|2022|4|1
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-5|2022-04-26T00:00:00Z|Marsh succulents|Species Richness|2022|4|1
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-5|2023-04-20T00:00:00Z|Mangroves and associates|Species Richness|2023|4|1
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-5|2023-04-20T00:00:00Z|Marsh|Species Richness|2023|4|1
+3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-5|2024-06-06T00:00:00Z|Mangroves and associates|Species Richness|2024|6|1
+3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-5|2024-06-06T00:00:00Z|Marsh|Species Richness|2024|6|2
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-6|2022-04-26T00:00:00Z|Marsh|Species Richness|2022|4|1
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-6|2022-04-26T00:00:00Z|Marsh succulents|Species Richness|2022|4|1
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-6|2023-04-20T00:00:00Z|Marsh|Species Richness|2023|4|1
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-6|2023-04-20T00:00:00Z|Marsh succulents|Species Richness|2023|4|1
+3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-6|2024-06-06T00:00:00Z|Mangroves and associates|Species Richness|2024|6|1
+3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-6|2024-06-06T00:00:00Z|Marsh|Species Richness|2024|6|2
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-7|2022-04-26T00:00:00Z|Marsh|Species Richness|2022|4|2
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-7|2023-04-20T00:00:00Z|Marsh|Species Richness|2023|4|3
+3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-7|2024-06-06T00:00:00Z|Marsh|Species Richness|2024|6|1
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-8|2022-04-26T00:00:00Z|Marsh|Species Richness|2022|4|3
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-8|2023-04-20T00:00:00Z|Marsh|Species Richness|2023|4|3
+3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-8|2024-06-06T00:00:00Z|Marsh|Species Richness|2024|6|1
 3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-9|2023-04-20T00:00:00Z|Marsh|Species Richness|2023|4|2
+3|Apalachicola National Estuarine Research Reserve|5009|Apalachicola Emergent Marsh Vegetation Monitoring|U43-9|2024-06-06T00:00:00Z|Marsh|Species Richness|2024|6|1
 5|Big Bend Seagrasses Aquatic Preserve|620|Inventory and Monitoring Network Status and Trends|137-08-0010|2013-12-31T00:00:00Z|Marsh|Species Richness|2013|12|2
 5|Big Bend Seagrasses Aquatic Preserve|620|Inventory and Monitoring Network Status and Trends|137-08-0011|2013-12-31T00:00:00Z|Marsh|Species Richness|2013|12|1
 5|Big Bend Seagrasses Aquatic Preserve|620|Inventory and Monitoring Network Status and Trends|137-08-0012|2013-12-31T00:00:00Z|Marsh|Species Richness|2013|12|2
