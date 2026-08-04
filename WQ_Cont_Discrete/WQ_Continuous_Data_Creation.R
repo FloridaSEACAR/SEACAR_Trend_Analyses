@@ -66,60 +66,49 @@ cont_file_list <- str_subset(file_list, "_cont_")
 
 # Creates function to check monitoring location for at least 2 years of
 # continuous consecutive data
-ContinuousConsecutiveCheck <- function(con_data){
-  # Remove consecutive variable if it exists (start fresh)
-  if(exists("consecutive")) rm(consecutive)
-  # Gets MonitoringIDs
-  IDs <- unique(con_data$MonitoringID[con_data$Include==TRUE &
-                                        !is.na(con_data$Include)])
-  # Loops through each MonitoringID
-  for(i in 1:length(IDs)) {
-    # Gets list of Years for MonitoringID
-    Years <- unique(con_data$Year[con_data$MonitoringID==IDs[i] &
-                                    con_data$Include==TRUE &
-                                    !is.na(con_data$Include)])
-    # Puts Years in order
-    Years <- Years[order(Years)]
-    # If there are fewer than 2 years, skip to next MonitoringID
-    if(length(Years)<2) {
-      next
-    }
-    # Starts loop to make sure there are at least 2 consecutive years with
-    # consecutive months of data
-    for(j in 2:length(Years)) {
-      # If adjacent year entries are not 1 year apart, skip to the next set
-      # of year entries
-      if(Years[j]-Years[j-1]!=1) {
-        next
-      }
-      # Gets the list of months from the first year
-      Months1 <- unique(con_data$Month[con_data$MonitoringID==IDs[i] &
-                                         con_data$Year==Years[j-1] &
-                                         con_data$Include==TRUE &
-                                         !is.na(con_data$Include)])
-      # Gets list of months for the second year
-      Months2 <- unique(con_data$Month[con_data$MonitoringID==IDs[i] &
-                                         con_data$Year==Years[j] &
-                                         con_data$Include==TRUE &
-                                         !is.na(con_data$Include)])
-      # If there are more than 2 months shared between the two years, the
-      # MonitoringID passes the check and is stored
-      if(length(intersect(Months1, Months2))>=2) {
-        # Creates variable for stored MonitoringID if it doesn't exist
-        if(exists("consecutive")==FALSE){
-          consecutive <- IDs[i]
-          break
-        } else{
-          # Adds to variable for storing MonitoringID if does exist
-          consecutive <- append(consecutive, IDs[i])
-          break
-        }
-      }
-    }
+ContinuousConsecutiveCheck_polars <- function(con_data){
+  empty_ids <- con_data$MonitoringID[0]
+  
+  base <- as_polars_lf(con_data)$
+    filter(pl$col("Include") == TRUE)$
+    select("MonitoringID", "Year", "Month")$
+    unique()
+  
+  y1 <- base$
+    select(
+      "MonitoringID",
+      "Month",
+      pl$col("Year")$alias("Year1")
+    )
+  
+  y2 <- base$
+    select(
+      "MonitoringID",
+      "Month",
+      pl$col("Year")$alias("Year2")
+    )
+  
+  result <- y1$
+    join(
+      y2,
+      on = c("MonitoringID", "Month"),
+      how = "inner"
+    )$
+    filter(pl$col("Year2") == pl$col("Year1") + 1)$
+    group_by("MonitoringID", "Year1", "Year2")$
+    agg(
+      pl$col("Month")$count()$alias("n_shared_months")
+    )$
+    filter(pl$col("n_shared_months") >= 2)$
+    select("MonitoringID")$
+    unique()$
+    collect() |>
+    as.data.frame()
+  
+  if(nrow(result) == 0){
+    return(empty_ids)
   }
-  # After going through all MonitoringID, return variable with list of all
-  # that pass
-  return(consecutive)
+  result$MonitoringID
 }
 
 # Loop through all available continuous files
@@ -128,6 +117,13 @@ for(file in cont_file_list){
   data <- fread(file, sep = "|", na.strings = "NULL")
   # Gather full parameter name
   p <- unique(data$ParameterName)
+  
+  ##### Temporary fix for Chla continuous
+  if(p=="Chlorophyll a, Uncorrected for Pheophytin"){
+    data <- data[!(Year==2026 & ProgramID==4054), ]
+  }
+  #####
+  
   # Gather units
   unit <- unique(data$ParameterUnits)
   # Gather abbreviated parameter name (for file outputs)
@@ -143,39 +139,30 @@ for(file in cont_file_list){
   ### FILTERING & CLEANING ###
   ############################
   
-  
-  
-  ##### TEMPORARY FIX
-  # Awaiting implementation of SpCond thresholds for Continunous
-  if(p=="Specific Conductivity"){
-    ### Perform transformation for ID_5061
-    data[ProgramID==5061 & ParameterName==p, ResultValue := ResultValue/1000]    
-    data <- data[ResultValue < 200 & ResultValue > 0, ]
-  }
-  ##############
-  
   # Separate reference file to prevent having to de-concatenate ManagedAreaName on entire continuous dataset
   # This is a crosswalk of individual MonitoringID and ProgramLocationID associations by ManagedAreaName
   ma_ref <- data %>% group_by(AreaID, ManagedAreaName, ProgramID, ProgramName, ProgramLocationID) %>%
     reframe(MonitoringID = cur_group_id())
-  # De-concatenate to make ManagedAreaName associations
-  ma_ref <- SEACAR::clean_managed_areas(ma_ref, "ma")
+  # Subset for stations with NA ManagedAreaName to keep them in analysis (clean_managed_areas removes them)
+  ma_ref_subset <- ma_ref %>% filter(is.na(ManagedAreaName))
+  # De-concatenate to make ManagedAreaName associations & recombine
+  ma_ref <- rbind(ma_ref_subset, SEACAR::clean_managed_areas(ma_ref, "ma")) %>% as.data.table()
+  rm(ma_ref_subset)
+  # Rename NA managed areas to character-based NA
+  ma_ref[is.na(ManagedAreaName), `:=` (ManagedAreaName = "NA")]
+  ma_ref[is.na(AreaID), `:=` (AreaID = "NA")]
   # Merge MonitoringID values back into dataset
   data <- data %>% merge(ma_ref %>% group_by(ProgramLocationID, MonitoringID) %>% reframe())
   
-  # Remove all non-MA data, analyze only MA values
-  data <- data[!is.na(AreaID)]
-  # Removes any data rows that do not have Include==1
-  data <- data[data$Include==1,]
   # Removes rows that have missing ResultValues
   data <- data[!is.na(data$ResultValue),]
   # Removes rows that have missing RelativeDepth
   data <- data[!is.na(data$RelativeDepth),]
-  # Rremoves rows that have an ActivityType with Blank
+  # Removes rows that have an ActivityType with Blank
   data <- data[!grep("Blank", data$ActivityType),]
   
   # Stores the MonitoringID that pass the consecutive year check
-  consMonthIDs <- ContinuousConsecutiveCheck(data)
+  consMonthIDs <- ContinuousConsecutiveCheck_polars(data)
   # Creates data frame with summary for each monitoring location.
   median_na_rm <- function(x) ifelse(length(x) > 0, median(x, na.rm = TRUE), NA_real_)
   Mon_Summ <- data[, .(RelativeDepth = unique(RelativeDepth),
@@ -214,7 +201,6 @@ for(file in cont_file_list){
   ###################
   ### Coordinates ###
   ###################
-  
   setDT(data)
   coordinates <- data[, .(n_data = .N,
                           year_min = min(Year),

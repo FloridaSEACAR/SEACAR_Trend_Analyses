@@ -26,9 +26,9 @@ apply_trend_icon <- function(suffData, trend){
 }
 
 # Find discrete KendallTau outputs
-discrete_files <- list.files("output/tables/disc", pattern = "\\KendallTau_Stats.rds$", full.names = TRUE)
+discrete_files <- list.files("output/tables/disc", pattern = "skt_stats.rds$", full.names = TRUE)
 # Find continuous KendallTau outputs
-continuous_files <- list.files("output/tables/cont", pattern = "\\KendallTau_Stats.rds$", full.names = TRUE)
+continuous_files <- list.files("output/tables/cont", pattern = "skt_stats.rds$", full.names = TRUE)
 
 for(file_type in c("Discrete", "Continuous")){
   if(file_type=="Discrete"){
@@ -112,23 +112,6 @@ for(file_type in c("Discrete", "Continuous")){
 ## Combines them into individual files to allow for quicker loading with .RDS
 cont_rds_loc <- "output/tables/cont/"
 
-# For loading continuous data
-# Load Data Table Function
-load_cont_data_table <- function(param, region, table) {
-  
-  # Declaring RDS file list of respective tables
-  files <- list.files(cont_rds_loc,pattern = "\\.rds$")
-  file_path <- paste0("_",param,"_", region,"_", table) 
-  
-  # subset file list to select desired table RDS file
-  table_file <- paste0(cont_rds_loc,str_subset(files, file_path))
-  
-  # importing RDS files
-  df <- readRDS(table_file)
-  
-  return(df)
-}
-
 files <- list.files(cont_rds_loc,pattern = "\\.rds$", full=T)
 skt_files <- str_subset(files, "skt_stats")
 ym_files <- str_subset(files, "Mon_YM_Stats")
@@ -136,11 +119,19 @@ ym_files <- str_subset(files, "Mon_YM_Stats")
 read_combine <- function(x){
   df <- readRDS(x)
   df$AreaID <- as.character(df$AreaID)
-  SEACAR::clean_managed_areas(df, "ma")
+  df
+  # SEACAR::clean_managed_areas(df, "ma", keep_na = TRUE)
 }
 
 YM_combined <- lapply(ym_files, read_combine) %>% bind_rows()
-skt_combined <- lapply(skt_files, read_combine) %>% bind_rows()
+skt_combined <- lapply(skt_files, read_combine) %>% bind_rows() %>%
+  rowwise() %>%
+  mutate(
+    TrendIcon = apply_trend_icon(SufficientData, Trend)$TrendIcon,
+    TrendText = apply_trend_icon(SufficientData, Trend)$TrendText,
+    p = as.numeric(p)
+  ) %>%
+  mutate_if(is.numeric, round, 5)
 
 # output path should be location of wq_continuous dashboard /data/ folder
 out_path <- "../../SEACAR-Dashboards/Continuous WQ/data/"

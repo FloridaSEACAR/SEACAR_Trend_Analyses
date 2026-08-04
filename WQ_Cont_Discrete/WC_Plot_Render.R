@@ -199,14 +199,7 @@ results_list <- list()
 disc_file_list <- c()
 
 for(param in all_params_short) {
-  if(param == "Secchi"){
-    depth <- "Surface"
-  } else {
-    depth <- "All"
-  }
-  
-  # Choosing which analyses to plot, when to combine 
-  if(param == "Secchi"){depth <- "Surface"} else {depth <- "All"}
+  depth <- "All"
   if(param %in% c("ChlaC", "Chla", "CDOM", "TN", "TP")){activity = "Lab"} 
   else if(param %in% c("DO","DOS","pH","Secchi","TempW")){activity = "Field"} 
   else if (param %in% c("Sal","TSS","Turb")){activity = "All"}
@@ -247,10 +240,10 @@ managed_area_df <- setDT(bind_rows(results_list))
 for(type in c("disc", "cont")){
   # Specify table names and file lists for disc and cont
   if(type=="disc"){
-    tables <- c("MA_MMYY_Stats", "skt_stats")
+    tables <- c("MA_MMYY_Stats")
     files <- disc_files
   } else {
-    tables <- c("Mon_YM_Stats", "skt_stats")
+    tables <- c("Mon_YM_Stats")
     files <- cont_files
   }
   for(table in tables){
@@ -267,30 +260,14 @@ for(type in c("disc", "cont")){
   }
 }
 
-# Apply preliminary trend-text logic
-skt_stats_disc <- skt_stats_disc %>% 
-  mutate("Period of Record" = paste0(EarliestYear, " - ", LatestYear),
-         "Statistical Trend" = ifelse(p <= 0.05 & SenSlope > 0, "Significantly increasing trend",
-                                      ifelse(p <= 0.05 & SenSlope < 0, "Significantly decreasing trend", 
-                                             ifelse(SufficientData==FALSE, "Insufficient data to calculate trend",
-                                                    ifelse(SufficientData==TRUE & is.na(SenSlope), "Model did not fit the available data", 
-                                                           ifelse(is.na(Trend), "Insufficient data to calculate trend","No significant trend")))))) %>%
-  as.data.table()
-skt_stats_disc[is.na(Trend), `:=` ("Statistical Trend" = "Insufficient data to calculate trend")]
-skt_stats_disc[str_detect(p, "NA"), `:=` (p = NA)]
+# Read in stats output files (outputs from WQ_KendallTau_Stats_Combine.R)
+skt_stats_disc <- fread("output/WQ_Discrete_All_KendallTau_Stats.txt") %>%
+  mutate(`Period of Record` = paste0(EarliestYear, " - ", LatestYear)) %>% as.data.table()
 skt_stats_disc[!is.na(p), `:=` (p = round(as.numeric(p), 4))]
 saveRDS(skt_stats_disc, file = "output/tables/disc/skt_stats_disc.rds")
 
-skt_stats_cont <- skt_stats_cont %>% 
-  mutate("Period of Record" = paste0(EarliestYear, " - ", LatestYear),
-         "Statistical Trend" = ifelse(p <= 0.05 & SenSlope > 0, "Significantly increasing trend",
-                                      ifelse(p <= 0.05 & SenSlope < 0, "Significantly decreasing trend", 
-                                             ifelse(SufficientData==FALSE, "Insufficient data to calculate trend",
-                                                    ifelse(SufficientData==TRUE & is.na(SenSlope), "Model did not fit the available data", 
-                                                           ifelse(is.na(Trend), "Insufficient data to calculate trend","No significant trend")))))) %>%
-  as.data.table()
-skt_stats_cont[is.na(Trend), `:=` ("Statistical Trend" = "Insufficient data to calculate trend")]
-skt_stats_cont[str_detect(p, "NA"), `:=` (p = NA)]
+skt_stats_cont <- fread("output/WQ_Continuous_All_KendallTau_Stats.txt") %>%
+  mutate(`Period of Record` = paste0(EarliestYear, " - ", LatestYear)) %>% as.data.table()
 skt_stats_cont[!is.na(p), `:=` (p = round(as.numeric(p), 4))]
 
 # Combine all discrete data into a single output file
@@ -375,7 +352,7 @@ breaks <- function(plot_data, type="Discrete", ret="break"){
     t_min <- min(plot_data$Year)
     t_max <- max(plot_data$YearMonthDec)
     t_max_brk <- as.integer(ceiling(t_max))
-    t <- t_max-t_min
+    t <- t_max_brk-t_min
     
     # Sets break intervals based on the number of years spanned by data
     if(t>=30){
@@ -395,8 +372,8 @@ breaks <- function(plot_data, type="Discrete", ret="break"){
         t_min <- t_min - years_before
         t_max <- min(t_max + years_after, as.integer(format(Sys.Date(), "%Y")))
         # Re-check if we have enough years (in case t_max hit current year)
-        t_min <- max(t_min, t_max - (total_ticks - 1))
-        t_max_brk <- t_max
+        t_min <- floor(max(t_min, t_max - (total_ticks - 1)))
+        t_max_brk <- ceiling(t_max)
       }
     }
   }
@@ -406,7 +383,7 @@ breaks <- function(plot_data, type="Discrete", ret="break"){
     t_min <- min(plot_data$Year)
     t_max <- max(plot_data$YearMonthDec)
     t_max_brk <- as.integer(ceiling(t_max))
-    t <- t_max-t_min
+    t <- t_max_brk-t_min
     min_RV <- min(plot_data$Mean)
     
     # Creates break intervals for plots based on number of years of data
@@ -456,12 +433,15 @@ plot_trendlines <- function(p, a, d, activity_label, depth_label, y_labels, para
     data[grep("Lab", data$ActivityType), `:=` (ActivityType = "Lab")]
     data[grep("Field", data$ActivityType), `:=` (ActivityType = "Field")]
   }
-  # Select surface values only when depth=="Surface" (Secchi depth only)
-  if(d=="Surface"){
-    data <- data[grep(d, data$RelativeDepth),]
-  }
+  # # Select surface values only when depth=="Surface" (Secchi depth only)
+  # if(d=="Surface"){
+  #   data <- data[grep(d, data$RelativeDepth),]
+  # }
+  
   # Generate mean Result Values by Year / Month (monthly means creation)
-  data[, Mean := mean(ResultValue, na.rm = TRUE), by = .(Year, Month, ActivityType)]
+  data <- data %>% 
+    group_by(ManagedAreaName, ParameterName, Year, Month, YearMonthDec, ActivityType, SufficientData) %>%
+    reframe(Mean = mean(ResultValue, na.rm = TRUE))
   
   ### SKT STATS ###
   # Gets x and y values for starting point for trendline
@@ -479,7 +459,7 @@ plot_trendlines <- function(p, a, d, activity_label, depth_label, y_labels, para
     cat(glue("## {parameter} - {type}"), "\n")
     
     # Gets data to be used in plot for managed area
-    plot_data <- merge(data, kentau_plot, by=c("ManagedAreaName"), all=TRUE)
+    plot_data <- setDT(merge(data, kentau_plot, by=c("ManagedAreaName"), all=TRUE))
     plot_data[, `:=` (sig = ifelse(p<=0.05, "Significant trend", "Non-significant trend"))]
     
     # Create plot object with data and trendline
@@ -527,13 +507,12 @@ plot_trendlines <- function(p, a, d, activity_label, depth_label, y_labels, para
 # Number of stations above which plots are separated into individual programs
 n_cutoff <- 10
 
-# empty dataframe to store whether a continuous MA / PID gets multiple plots
-continuous_overview <- data.table()
-
 # function to plot continuous trendlines onto combined plot
 plot_trendlines_cont_combined <- function(ma, cont_plot_data, param, y_labels, parameter){
+  legend_lab <- "Program location - depth"
   # Continuous data, including skt results (pre-processed above)
   data <- cont_plot_data[ManagedAreaName==ma & ParameterName==parameter, ]
+  
   # Only perform operations when there are stations to plot
   if(length(unique(data$ProgramLocationID))>0){
     cat(glue("## {parameter} - {type}"), "\n")
@@ -544,6 +523,9 @@ plot_trendlines_cont_combined <- function(ma, cont_plot_data, param, y_labels, p
                             ParameterName==parameter, ParameterVisId]
     
     filePath <- "output/WQ_Continuous/"
+    
+    # empty dataframe to store whether a continuous MA / PID gets multiple plots
+    continuous_overview <- data.table()
     
     # Account for managed areas with large number of continuous sites
     # Too many to plot together, plot combined by Program
@@ -556,12 +538,13 @@ plot_trendlines_cont_combined <- function(ma, cont_plot_data, param, y_labels, p
           "ManagedAreaName" = ma,
           "ProgramID" = pid,
           "areaID" = areaID,
+          "ParameterName" = unique(data$ParameterName),
           "pvID" = pvID,
           "ProgramNumber" = prog_n,
           "fileName" = paste0("ma-", areaID, "-pv-", pvID, ".", prog_n),
           "multiple" = TRUE
         )
-        continuous_overview <- bind_rows(continuous_overview, temp_overview)
+        continuous_overview <- rbind(continuous_overview, temp_overview)
         rm(temp_overview)
         
         # all plots together for a given ProgramID
@@ -576,7 +559,7 @@ plot_trendlines_cont_combined <- function(ma, cont_plot_data, param, y_labels, p
         # Create plot
         p1 <- ggplot(data = plot_data, aes(x = YearMonthDec, y = Mean, group = factor(ProgramLocationID))) +
           geom_point(aes(shape = label), color = "#444444", fill = "#cccccc", size = 3, alpha = 0.9, show.legend = TRUE) +
-          geom_segment(aes(x = start_x, y = start_y, xend = end_x, yend = end_y, 
+          geom_segment(aes(x = start_x, y = start_y, xend = end_x, yend = end_y,
                            linetype = label, color = label),
                        linewidth = 1.2, alpha = 0.7, show.legend = TRUE) +
           labs(title = paste0(parameter, " - Continuous"),
@@ -586,12 +569,12 @@ plot_trendlines_cont_combined <- function(ma, cont_plot_data, param, y_labels, p
                              breaks = breaks(plot_data, type = "Continuous", ret = "break")) +
           scale_shape_manual(values = shapes) +
           scale_linetype_manual(values = 1:n) +
-          scale_color_manual(values = 1:n) + 
-          labs(shape = "Program location", linetype = "Program location", color = "Program location") + 
+          scale_color_manual(values = 1:n) +
+          labs(shape = legend_lab, linetype = legend_lab, color = legend_lab) +
           plot_theme +
           theme(legend.text = element_text(size = 7)) +
           coord_cartesian(ylim = set_view_window(plot_data, "Continuous WQ"))
-        
+
         # save fig
         fileName <- paste0(filePath, "ma-", areaID, "-pv-", pvID, ".", prog_n, ".png")
         ggsave(filename = fileName,
@@ -607,12 +590,13 @@ plot_trendlines_cont_combined <- function(ma, cont_plot_data, param, y_labels, p
         "ManagedAreaName" = ma,
         "ProgramID" = NA,
         "areaID" = areaID,
+        "ParameterName" = unique(data$ParameterName),
         "pvID" = pvID,
         "ProgramNumber" = NA,
         "fileName" = paste0("ma-", areaID, "-pv-", pvID),
         "multiple" = FALSE
       )
-      continuous_overview <- bind_rows(continuous_overview, temp_overview)
+      continuous_overview <- rbind(continuous_overview, temp_overview)
       rm(temp_overview)
       
       # number of stations for shape-palette
@@ -621,7 +605,7 @@ plot_trendlines_cont_combined <- function(ma, cont_plot_data, param, y_labels, p
       # Create plot
       p1 <- ggplot(data=plot_data, aes(x=YearMonthDec, y=Mean, group=factor(ProgramLocationID))) +
         geom_point(aes(shape=label), color="#444444" ,fill="#cccccc", size=3,alpha=0.9, show.legend = TRUE) +
-        geom_segment(aes(x = start_x, y = start_y, xend = end_x, yend = end_y, 
+        geom_segment(aes(x = start_x, y = start_y, xend = end_x, yend = end_y,
                          color = sig, linetype=label),
                      linewidth = 1.2, alpha = 0.7, show.legend = TRUE) +
         labs(title = paste0(parameter, " - Continuous"),
@@ -629,23 +613,23 @@ plot_trendlines_cont_combined <- function(ma, cont_plot_data, param, y_labels, p
              x="Year", y=y_labels) +
         scale_x_continuous(limits=breaks(plot_data, type="Continuous", ret="lims"),
                            breaks=breaks(plot_data, type="Continuous", ret="break")) +
-        plot_theme + 
-        scale_shape_manual(values=shapes, name = "Program location") +
+        plot_theme +
+        scale_shape_manual(values=shapes, name = legend_lab) +
         scale_color_manual(name = "Trend type",
                            values = c("Significant trend" = sig_color,
                                       "Non-significant trend" = nonsig_color),
                            limits = c("Significant trend", "Non-significant trend"),
                            na.translate = TRUE,
                            drop = FALSE) +
-        labs(shape  = "Program location", linetype = "Program location", colour = "Trend type") +
+        labs(shape = legend_lab, linetype = legend_lab, colour = "Trend type") +
         guides(
           col = guide_legend("Trend type", order = 2,
                              override.aes = list(shape = NA, colour = c(sig_color, nonsig_color))),
-          shape = guide_legend("Program location", order = 1),
-          linetype = guide_legend("Program location", order = 1)
+          shape = guide_legend(legend_lab, order = 1),
+          linetype = guide_legend(legend_lab, order = 1)
         ) +
         coord_cartesian(ylim = set_view_window(plot_data, "Continuous WQ"))
-      
+
       # save fig
       fileName <- paste0(filePath, "ma-", areaID, "-pv-", pvID, ".png")
       ggsave(filename = fileName,
@@ -653,16 +637,30 @@ plot_trendlines_cont_combined <- function(ma, cont_plot_data, param, y_labels, p
              scale = 2)
     }
   }
+  return(continuous_overview)
 }
-
+# Cont overview
+cont_overview <- data.table()
 # Get list of managed areas to create plots for
 all_managed_areas <- unique(managed_area_df$ManagedAreaName)
 # Get list of managed areas with continuous data
 cont_managed_areas <- skt_stats_cont[!is.na(ProgramID), unique(ManagedAreaName)]
+
+# Remove all old plots
+plot_files <- c(
+  list.files("output/WQ_Continuous/", full=T),
+  list.files("output/WQ_Discrete/", full=T),
+  "output/WQ_Continuous.zip",
+  "output/WQ_Discrete.zip"
+)
+file.remove(plot_files)
+
 # Save plots as .pngs
 if(save_plots){
   # Loop through list of managed areas
-  for(ma in all_managed_areas){
+  for(ma in unique(c(all_managed_areas, cont_managed_areas))){
+    ma_in_continuous <- ma %in% cont_managed_areas
+    ma_in_discrete <- ma %in% all_managed_areas
     print(ma)
     # determine which analyses to run for each MA
     # variables will be input into RMD file
@@ -706,13 +704,16 @@ if(save_plots){
         activity_label <- ifelse(activity=="All", "Lab and Field Combined", activity)
         depth_label <- ifelse(depth=="All", "All Depths", "Surface")
         
-        if(type=="Continuous"){
-          plot_trendlines_cont_combined(ma = ma, cont_plot_data = cont_plot_data,
-                                        param = param_short, y_labels = y_labels,
-                                        parameter = parameter)
+        if(type=="Continuous" & ma_in_continuous){
+          continuous_overview_all <- plot_trendlines_cont_combined(
+            ma = ma, cont_plot_data = cont_plot_data,
+            param = param_short, y_labels = y_labels,
+            parameter = parameter
+          )
+          cont_overview <- rbind(cont_overview, continuous_overview_all)
         }
         
-        if(type=="Discrete"){
+        if(type=="Discrete" & ma_in_discrete){
           plot_trendlines(param_short, activity, depth, activity_label,
                           depth_label, y_labels, parameter, skt_data,
                           discrete_data)
@@ -721,6 +722,9 @@ if(save_plots){
     }
   }  
 }
+
+# Save continuous_overview
+fwrite(cont_overview %>% arrange(areaID), "output/continuous_overview.csv")
 
 # Get list of available plot files created by WC_Plot_Render.R
 cont_plots <- list.files("output/WQ_Continuous/", full.names = T)
@@ -732,35 +736,20 @@ if(save_maps){
 }
 
 ##### Generate Table Descriptions
-# Apply text trend designations, convert from numeric
-checkWCTrends <- function(p, SenSlope){
-  increasing <- SenSlope > 0
-  trendPresent <- p < 0.05
-  trendStatus <- "No significant trend"
-  if(trendPresent){
-    trendStatus <- ifelse(increasing, "Significantly increasing trend", "Significantly decreasing trend")
-  }          
-  return(trendStatus)
-}
-
 # Read in stats files (output from WQ_KendallTau_Stats_Combine.R)
 wq_stats_disc <- fread("output/WQ_Discrete_All_KendallTau_Stats.txt") %>% distinct()
 # Create Period of Record column
 wq_stats_disc[, `:=` (Period = paste0(EarliestYear, " - ", LatestYear))]
 
-wq_stats_disc <- wq_stats_disc[Website==1, ] %>% rowwise() %>%
-  mutate(
-    StatisticalTrend = ifelse(!is.na(Trend), checkWCTrends(p, SenSlope), "Insufficient data")
-  ) %>%
-  group_by(ManagedAreaName, ParameterName, StatisticalTrend, SenSlope, 
+wq_stats_disc <- wq_stats_disc[Website==1, ] %>%
+  group_by(ManagedAreaName, ParameterName, TrendText, SenSlope, 
            EarliestYear, LatestYear) %>%
   mutate(SenSlope = abs(
     ifelse(ParameterName %in% c("Total Nitrogen", "Total Phosphorus"), 
            round(SenSlope, 3), round(SenSlope, 2)))) %>%
   reframe() %>% as.data.table()
 wq_stats_cont <- fread("output/WQ_Continuous_All_KendallTau_Stats.txt") %>% distinct() %>%
-  mutate(Period = paste0(EarliestYear, " - ", LatestYear)) %>% filter(Website==1) %>% rowwise() %>% 
-  mutate(StatisticalTrend = ifelse(!is.na(Trend), checkWCTrends(p, SenSlope), "Insufficient data")) %>% 
+  mutate(Period = paste0(EarliestYear, " - ", LatestYear)) %>% filter(Website==1) %>%
   as.data.table()
 
 # Empty table to store results

@@ -268,7 +268,8 @@ names(manual_colors) <- freq_programs
 ## Discrete map generation; ----------
 # Loop through available MAs
 tic()
-for(ma in unique(MA_All$ManagedAreaName)[30:44]){
+for(ma in unique(MA_All$ManagedAreaName)){
+  if(ma=="St. Joseph Bay State Buffer Preserve") next
   # Abbreviated MA name for filenames
   ma_abrev <- MA_All[ManagedAreaName==ma, Abbreviation]
   # if(!ma_abrev %in% c("SAAP", "KJCAP")) next

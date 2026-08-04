@@ -271,8 +271,8 @@ for(j in 1:length(all_params)){
   
   #Starts for loop that cycles through each depth
   for(depth in c("Surface", "Bottom", "All")){
-    #Because secchi depth is does not have a bottom measurement, this statement skips Secchi depth for bottom
-    if(param_name=="Secchi_Depth" & (depth=="Bottom" | depth=="All")) next
+    # #Because secchi depth is does not have a bottom measurement, this statement skips Secchi depth for bottom
+    if(param_name=="Secchi_Depth" & (depth=="Bottom" | depth=="Surface")) next
     #Starts for loop that cycles through activity types.
     for(activity in c("Field", "Lab", "All")){
       #Skips Field for parameters that only have Lab measurements
@@ -318,6 +318,8 @@ for(j in 1:length(all_params)){
       # Gets data for the specific activity type if it is not All
       if(activity!="All"){
         data <- data[grep(activity, data$ActivityType),]
+      } else {
+        data <- data[!is.na(ActivityType), ] # Remove any NA ActivityType values from results
       }
       
       # Changes RelativeDepth to Bottom for the QAQC flag 12Q that indicates
@@ -327,6 +329,7 @@ for(j in 1:length(all_params)){
           data$RelativeDepth=="Surface"])] <- "Bottom"
       }
       # Removes missing RelativeDepth data and data for RelativeDepth not of interest
+      # from all parameters except Secchi Depth
       if(depth!="All"){
         data <- data[!is.na(data$RelativeDepth),]
         data <- data[data$RelativeDepth==depth,]

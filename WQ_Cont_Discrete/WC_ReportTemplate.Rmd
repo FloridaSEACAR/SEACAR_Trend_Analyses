@@ -7,13 +7,14 @@ output:
     dev: png
     keep_md: yes
     keep_tex: true
+    extra_dependencies: ["longtable", "float"]
   word_document:
     toc: TRUE
     toc_depth: 2
   html_document:
     toc: TRUE
     toc_float: TRUE
-    toc_depth: 2
+    toc_depth: 3
     dev: png
     keep_md: yes
 urlcolor: blue
@@ -34,6 +35,16 @@ knitr::opts_chunk$set(
    echo=FALSE
 )
 options(knitr.kable.NA = '-')
+
+if(file_type=="PDF"){
+  descriptionTable <- descriptionTable %>% 
+    mutate(DescriptionLatex = stringi::stri_replace_all_regex(
+      DescriptionLatex,
+      pattern = c("<p>", "</p>", "&deg;C", "&micro;"),
+      replacement = c("", "", "Deg C", "ug"),
+      vectorize = FALSE
+    )) %>% as.data.table()
+}
 
 ```
 
@@ -60,6 +71,19 @@ w <- 1600
 # Set color palette for sig and non-sig trendlines
 sig_color <- "#000099"
 nonsig_color <- "#900667"
+
+# Load websiteParams to determine which plots to show
+websiteParams <- SEACAR::WebsiteParameters
+# Correct order of websiteParams to match format from the Atlas
+websiteParams <- websiteParams %>% 
+  arrange(factor(IndicatorName, levels = c("Nutrients","Water Quality","Water Clarity")),
+          factor(ParameterName, levels = c("Total Nitrogen","Total Phosphorus",
+                                           "Dissolved Oxygen", "Dissolved Oxygen Saturation", "Salinity", "Water Temperature", "pH",
+                                           "Turbidity", "Total Suspended Solids", "Chlorophyll a, Uncorrected for Pheophytin",
+                                           "Chlorophyll a, Corrected for Pheophytin", "Secchi Depth", "Colored Dissolved Organic Matter"))) %>%
+  filter(Website==1, HabitatName=="Water Column", IndicatorName!="Nekton")
+setDT(websiteParams)
+setindex(websiteParams, NULL)
 
 ```
 
@@ -134,23 +158,28 @@ plot_discrete <- function(p, a, d, parameter, skt_data, discrete_data, ma, ma_sh
     cat(glue("### {parameter} - {type}"))
     cat("  \n")
     
+    # Get table description text for table caption
+    desc <- descriptionTable[ManagedAreaName==ma & ParameterName==parameter & SamplingFrequency=="Discrete", get(descriptionColumn)]
+    
     # Creates ResultTable to display statistics below plot
     ResultTable <- skt_stats %>%
-      select(ActivityType, "Statistical Trend", N_Data, N_Years, "Period of Record", 
+      select(ActivityType, TrendText, N_Data, N_Years, "Period of Record", 
              Median, tau, SenIntercept, SenSlope, p) %>%
       rename("Activity Type" = ActivityType,
              "Sample Count" = N_Data,
              "Years with Data" = N_Years,
              "Median Result Value" = Median,
-             "Tau" = tau, "Sen Intercept" = SenIntercept, "Sen Slope" = SenSlope, "P" = p)
+             "Tau" = tau, "Sen Intercept" = SenIntercept, "Sen Slope" = SenSlope, "P" = p,
+             "Statistical Trend" = TrendText)
     # names(ResultTable) <- gsub("_", "-", names(ResultTable))
     # Convert results table into kable format
     result_table <- kable(ResultTable, format=tableFormat,
-                          caption=paste0("Seasonal Kendall-Tau Results for - ", parameter),
+                          # caption=paste0("Seasonal Kendall-Tau Results for - ", parameter),
+                          caption = desc,
                           row.names = FALSE, digits = 5,
-                          booktabs = T, linesep = "", escape = F, longtable = F) %>%
-      kable_styling(latex_options = c("scale_down", "HOLD_position"), 
-                    position = "center")
+                          booktabs = T, linesep = "", escape = F, longtable = F,
+                          align = "l") %>%
+      kable_styling(latex_options = c("scale_down", "HOLD_position"))
     
     cat("  \n")
     # Display plot
@@ -163,8 +192,6 @@ plot_discrete <- function(p, a, d, parameter, skt_data, discrete_data, ma, ma_sh
     # Display table in report
     SEACAR::subchunkify(result_table)
     cat("  \n")
-    desc <- descriptionTable[ManagedAreaName==ma & ParameterName==parameter & SamplingFrequency=="Discrete", get(descriptionColumn)]
-    cat(desc)
     cat("\n \n \n")
     
     map_loc <- get_map(ma_short = ma_short, indicator_short = indicator_short, param_short = p, type = type)
@@ -186,7 +213,6 @@ plot_continuous <- function(ma, ma_short, cont_plot_data, param, parameter, indi
   
   data <- cont_plot_data[ManagedAreaName==ma & ParameterName==parameter, ]
   skt_stats <- skt_stats_cont[ManagedAreaName==ma & ParameterName==parameter, ]
-  suff_data <- skt_stats[, SufficientData]
   
   if(length(unique(data$ProgramLocationID))>0){
     cat("  \n")
@@ -204,12 +230,13 @@ plot_continuous <- function(ma, ma_short, cont_plot_data, param, parameter, indi
         
         ResultTable <- skt_stats %>%
           filter(ProgramID==pid) %>%
-          select(ProgramLocationID, "Statistical Trend", N_Data, N_Years, "Period of Record", Median, tau,
+          select(ProgramLocationID, TrendText, N_Data, N_Years, "Period of Record", Median, tau,
                  SenIntercept, SenSlope, p) %>%
           mutate_if(is.numeric, ~round(., 2)) %>%
         rename("Program Location" = ProgramLocationID, "Sample Count" = N_Data,
                "Years with Data" = N_Years, "Median Result Value" = Median,
-               "Tau" = tau, "Sen Intercept" = SenIntercept, "Sen Slope" = SenSlope, "P" = p)
+               "Tau" = tau, "Sen Intercept" = SenIntercept, "Sen Slope" = SenSlope, "P" = p,
+               "Statistical Trend" = TrendText)
         
         # Remove text-based "NA" values in p column
         if (nrow(ResultTable[ResultTable$p=="    NA", ]) > 0){
@@ -221,12 +248,15 @@ plot_continuous <- function(ma, ma_short, cont_plot_data, param, parameter, indi
         ResultTable$`Program Location` <- gsub("_", "-", ResultTable$`Program Location`)
         ResultTable$`Program Location` <- gsub("&", "-and-", ResultTable$`Program Location`)
         
+        # Get table description text for table caption
         desc <- descriptionTable[ManagedAreaName==ma & ParameterName==parameter & SamplingFrequency=="Continuous", get(descriptionColumn)]
         
         result_table <- kable(ResultTable, format=tableFormat,
-                              caption=paste0("Seasonal Kendall-Tau Results for All Stations - ", parameter),
+                              # caption=paste0("Seasonal Kendall-Tau Results for All Stations - ", parameter),
+                              caption = desc,
                               row.names = FALSE, digits = 5,
-                              booktabs = T, linesep = "", escape = F, longtable = F) %>%
+                              booktabs = T, linesep = "", escape = F, longtable = F,
+                              align = "l") %>%
           kable_styling(latex_options = c("scale_down", "HOLD_position"), position = "center")
         cat("  \n")
         # Display plot
@@ -235,8 +265,8 @@ plot_continuous <- function(ma, ma_short, cont_plot_data, param, parameter, indi
         SEACAR::subchunkify(cat("![", fig_caption, "](", plot_loc,")"))
         cat("  \n")
         SEACAR::subchunkify(result_table)
-        cat("  \n")
-        cat(desc)
+        # cat("  \n")
+        # cat(desc)
         cat("  \n")
         map_loc <- get_map(ma_short = ma_short, indicator_short = indicator_short, param_short = param, type = type)
         caption <- paste0("Map showing location of ", tolower(parameter), " continuous water quality sampling locations within the boundaries of *", ma, 
@@ -245,16 +275,17 @@ plot_continuous <- function(ma, ma_short, cont_plot_data, param, parameter, indi
         cat("\n \n \n")
       }
     } else {
-      
+      # Get table description text for table caption
       desc <- descriptionTable[ManagedAreaName==ma & ParameterName==parameter & SamplingFrequency=="Continuous", get(descriptionColumn)]
       
       ResultTable <- skt_stats %>%
-        select(ProgramLocationID, "Statistical Trend", N_Data, N_Years, "Period of Record", Median, tau,
+        select(ProgramLocationID, TrendText, N_Data, N_Years, "Period of Record", Median, tau,
                SenIntercept, SenSlope, p) %>%
         mutate_if(is.numeric, ~round(., 2)) %>%
       rename("Program Location" = ProgramLocationID, "Sample Count" = N_Data,
              "Years with Data" = N_Years, "Median Result Value" = Median,
-             "Tau" = tau, "Sen Intercept" = SenIntercept, "Sen Slope" = SenSlope, "P" = p)
+             "Tau" = tau, "Sen Intercept" = SenIntercept, "Sen Slope" = SenSlope, "P" = p,
+             "Statistical Trend" = TrendText)
       
       # Remove text-based "NA" values in p column
       if (nrow(ResultTable[ResultTable$p=="    NA", ]) > 0){
@@ -264,9 +295,11 @@ plot_continuous <- function(ma, ma_short, cont_plot_data, param, parameter, indi
       names(ResultTable) <- gsub("_", "-", names(ResultTable))
       
       result_table <- kable(ResultTable, format=tableFormat,
-                            caption=paste0("Seasonal Kendall-Tau Results - ", parameter),
+                            # caption=paste0("Seasonal Kendall-Tau Results - ", parameter),
+                            caption = desc,
                             row.names = FALSE, digits = 5,
-                            booktabs = T, linesep = "", escape = F, longtable = F) %>%
+                            booktabs = T, linesep = "", escape = F, longtable = F,
+                            align = "l") %>%
         kable_styling(latex_options = c("scale_down", "HOLD_position"), position = "center")
       
       cat("  \n")
@@ -276,8 +309,8 @@ plot_continuous <- function(ma, ma_short, cont_plot_data, param, parameter, indi
       SEACAR::subchunkify(cat("![", fig_caption, "](", plot_loc,")"))
       cat("  \n")
       SEACAR::subchunkify(result_table)
-      cat("  \n")
-      cat(desc)
+      # cat("  \n")
+      # cat(desc)
       cat("  \n")
       map_loc <- get_map(ma_short = ma_short, indicator_short = indicator_short, param_short = param, type = type)
       caption <- paste0("Map showing location of ", tolower(parameter), " continuous water quality sampling locations within the boundaries of *", ma, 
