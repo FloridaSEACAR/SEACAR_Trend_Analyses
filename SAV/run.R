@@ -11,6 +11,8 @@ create_maps <- TRUE
 render_reports <- TRUE
 # Choose whether to generate spatio-temporal scope plots for SAV locations
 create_scope_plots <- TRUE
+# If true, create EDA plots
+EDA <- TRUE
 #######
 
 # Set working directory
@@ -28,7 +30,9 @@ source("SAV_BB_script_website.R")
 ## SAV Map generation
 # Maps are used within ManagedArea Reports
 if(create_maps){
-  source("SAV_Create_Maps.R", echo=TRUE)
+  analysis <- "ma"
+  hab <- "Submerged Aquatic Vegetation"
+  source("../AllHabitats_Maps.R", echo = T, chdir = T)
 }
 
 ## SAV temporal scope plot generation
@@ -36,7 +40,7 @@ if(create_maps){
 if(create_scope_plots){
   analyze_type <- "ma"
   analyze_hab <- "sav"
-  source("../AllHabitats_Spatiotemporal_Scope_Plots.R")
+  source("../AllHabitats_Spatiotemporal_Scope_Plots.R", echo = T, chdir = T)
 }
 
 ##### Generate Table Descriptions

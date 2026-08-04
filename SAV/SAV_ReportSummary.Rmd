@@ -41,7 +41,7 @@ options(knitr.kable.NA = '-')
 library(glue)
 # SAV Results
 sav_results <- fread("output/website/SAV_BBpct_LMEresults_All.txt")
-sav_results$`Period of Record` <- ifelse(is.na(sav_results$LME_Intercept), NA, paste0(sav_results$EarliestYear, " - ", sav_results$LatestYear))
+sav_results$`Period of Record` <- paste0(sav_results$EarliestYear, " - ", sav_results$LatestYear)
 sav_results <- sav_results %>% dplyr::rename(
   "LME Intercept" = LME_Intercept,
   "LME Slope" = LME_Slope,

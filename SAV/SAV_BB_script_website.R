@@ -22,8 +22,6 @@ library(rstudioapi)
 # loadfonts()
 
 # Specify what to produce --------------
-EDA <- "plots" #Create and export Exploratory Data Analysis plots ("plots" = create data exploration plots only, "no" (or anything else) = skip all EDA output)
-
 Analyses <- c("BB_pct", "PC", "PA") #Which analyses to run? c("BB_all," "BB_pct", "PC", and/or "PA") or c("none") for just EDA plotting
 
 wd <- dirname(getActiveDocumentContext()$path)
@@ -320,87 +318,6 @@ modify_species_labels <- function(species_list, usenames) {
   return(lab)
 }
 
-# Functions and set up for streamlined EDA plots
-eda_output_path <- "output/Figures/EDA/"
-plot_names <- c("parvYear_bysp", "parvYear_bypr", "spvYear_bypr", "qsvYear_bysp",
-                "qsvYear_bypr", "metvYear_bysp", "metvYear_bypr", "metvqs_bysp",
-                "metvqs_bypr", "grvYear_bysp", "grvYear_bypr", "dpvYear_bysp", "dpvYear_bypr")
-# Create EDA folder
-if(!file.exists(eda_output_path)) dir.create(eda_output_path)
-
-plot_eda <- function(plot_type, p, i){
-  # plot_type is EDA plot type (plot_names above)
-  # p is parameter name as.name()
-  # i is managed area name
-  ma_abrev <- MA_All[ManagedAreaName==i, Abbreviation]
-  grouping <- str_split_1(plot_type, "_")[2]
-  y_axis <- str_split_1(str_split_1(plot_type, "_")[1], "v")[1]
-  x_axis <- str_split_1(str_split_1(plot_type, "_")[1], "v")[2]
-
-  # Color palette set-up (should match spatio-temporal scope plots) - for program plots
-  progs <- SAV4[ManagedAreaName == i & !is.na(BB_pct), unique(ProgramName)]
-  # Set palette for these programs
-  color_pal <- prcollist[round(seq(1, length(prcollist), length.out = length(progs)))]
-  names(color_pal) <- progs
-
-  if(x_axis=="Year"){x_par <- "Year"} else if(x_axis=="qs"){x_par <- "QuadSize_m2"}
-
-  au <- ifelse(i %in% ma_halspp, "analysisunit", "analysisunit_halid")
-
-  if(y_axis=="met"){
-    dat <- SAV4[ManagedAreaName == i & get(au)!="No grass in quadrat", ]
-  } else {
-    dat <- SAV4[ManagedAreaName==i & !is.na(eval(p)) & get(au)!="No grass in quadrat", ]
-  }
-
-  if(grouping=="bysp"){
-    legend_lab <- "Species"
-    color_group <- au
-    color_vals <- subset(spcols, names(spcols) %in% dat[, unique(get(au))])
-  } else if(grouping=="bypr"){
-    legend_lab <- "Program Name"
-    color_group <- "ProgramName"
-    color_vals <- color_pal
-  }
-
-  if(y_axis=="par"){
-    y_lab <- parameters[column == p, name]
-    y_par <- p
-  } else if(y_axis=="sp"){
-    y_lab <- "Species"
-    y_par <- au
-  } else if(y_axis=="qs"){
-    y_lab <- "Quadrat size (m^2)"
-    y_par <- "QuadSize_m2"
-  } else if(y_axis=="met"){
-    y_lab <- "Method"
-    y_par <- "method"
-  } else if(y_axis=="gr"){
-    y_lab <- "Grid number"
-    y_par <- "Grid_n"
-  } else if(y_axis=="dp"){
-    y_lab <- "Depth (m)"
-    y_par <- "Depth_M"
-  }
-
-  if(y_axis=="qs"){
-    subtitle <- paste0("Unique QuadSize values: ", paste(unique(dat$QuadSize_m2), " m^2", collapse = ","))
-  } else {
-    subtitle <- ""
-  }
-
-  plot <- ggplot(data = dat,
-                 aes(x = get(x_par), y = get(y_par), color = as.factor(get(color_group)))) +
-    geom_jitter(alpha=0.5) +
-    theme_bw() +
-    labs(title = i, y = y_lab, color = legend_lab, x = x_par,
-         subtitle = subtitle) +
-    scale_color_manual(values = color_vals,
-                       aesthetics = c("color", "fill"))
-  file_path <- paste0(eda_output_path, ma_abrev, "_", parameters[column == p, type], "_", plot_type, ".png")
-  ggsave(plot, filename = file_path, height = 6, width = 8)
-}
-
 #Empty data.table to house names of any failed models generated below.
 failedmods <- data.table(model = character(),
                          error = character())
@@ -577,6 +494,11 @@ openxlsx::write.xlsx(statpardat, paste0("output/SAV_BBpct_PA_Stats_", Sys.Date()
 # session <- sessionInfo()
 # saveRDS(session, paste0("output/SessionInfo_", Sys.Date(), ".rds"))
 
+# Perform EDA analysis if necessary
+if(EDA){
+  source("SAV_EDA.R")
+}
+
 #start script----------------------------------------------------------------------
 tic()
 n <- 0
@@ -604,85 +526,6 @@ for(p in parameters$column){
     ma_abrev <- MA_All %>% filter(ManagedAreaName==i) %>% pull(Abbreviation)
 
     cat(paste0("\nStarting MA: ", i, "\n"))
-
-    #create data exploration plots-----------------------------------------------------
-    if(str_detect(EDA, "plots")){
-      for(plot_type in plot_names){
-        # Only create Grid_n plots if there are >0 unique Grid_n values
-        if(plot_type %in% c("grvYear_bysp", "grvYear_bypr") & !length(SAV4[ManagedAreaName == i & !is.na(eval(p)) & !is.na(Grid_n), Grid_n]) > 0) next
-        # Only create Depth_m plots if there are >0 unique Depth_m values
-        if(plot_type %in% c("dpvYear_bysp", "dpvYear_bypr") & !length(SAV4[ManagedAreaName == i & !is.na(eval(p)) & !is.na(Depth_M), Depth_M]) > 0) next
-        # Run EDA plot function (exports .png into EDA output folder)
-        plot_eda(plot_type, p, i)
-      }
-
-      #Create and save the hist objects---------------------------------------------------
-      # for(a in setdiff(unique(SAV4[ManagedAreaName == i & !is.na(eval(p)), analysisunit]), c("Total seagrass", "Attached algae", "Drift algae"))){
-      #   dat <- SAV4[ManagedAreaName == i & !is.na(eval(p)) & analysisunit == a, ]
-      #
-      #   plot <- ggplot(data = dat, aes(x = Year, fill = analysisunit)) +
-      #     geom_bar() +
-      #     scale_color_manual(values = subset(spcols, names(spcols) %in% unique(SAV4[ManagedAreaName == i & !is.na(eval(p)), analysisunit])),
-      #                        aesthetics = c("color", "fill")) +
-      #     scale_x_continuous(limits = c(min(dat$Year - 1), max(dat$Year + 1))) +
-      #     labs(y="Frequency of data", x="Year") +
-      #     theme(axis.text.x = element_text(angle = 45, hjust = 1),
-      #           axis.title = element_blank(),
-      #           axis.text = element_text(size = 7),
-      #           legend.position = "none")
-      #
-      #   ggsave(plot, filename = paste0(eda_output_path, "SAV_", parameters[column == p, type],
-      #                                  "_", ma_abrev, "_hist_", gsub(" ", "", a), ".png"))
-      # }
-      #
-      # dat <- filter(SAV4[ManagedAreaName == i & !is.na(eval(p)), ], analysisunit %in% c("Total seagrass", "Attached algae", "Drift algae"))
-      #
-      # plot <- ggplot(data = dat, aes(x = Year, fill = analysisunit)) +
-      #   geom_bar() +
-      #   scale_color_manual(values = subset(spcols, names(spcols) %in% unique(dat$analysisunit)),
-      #                      aesthetics = c("color", "fill")) +
-      #   scale_x_continuous(limits = c(min(dat$Year - 1), max(dat$Year + 1))) +
-      #   labs(y="Frequency of data", x="Year") +
-      #   theme(axis.text.x = element_text(angle = 45, hjust = 1),
-      #         axis.text = element_text(size = 7),
-      #         legend.position = "none",
-      #         legend.title = element_blank())
-      #
-      # ggsave(plot, filename = paste0(eda_output_path, "SAV_", parameters[column == p, type],
-      #                                "_", ma_abrev, "_hist_SGvMA.png"))
-      #Create and save the boxplot objects--------------------------------------------------
-      # for(b in setdiff(unique(SAV4[ManagedAreaName == i & !is.na(eval(p)), analysisunit]), c("Total seagrass", "Attached algae", "Drift algae"))){
-      #   dat <- filter(SAV4[ManagedAreaName == i & !is.na(eval(p)), ], analysisunit == b)
-      #
-      #   plot <- ggplot(data = dat, aes(group=Year, x = Year, y = eval(p), color = analysisunit)) +
-      #     geom_boxplot() +
-      #     scale_color_manual(values = subset(spcols, names(spcols) %in% unique(SAV4[ManagedAreaName == i & !is.na(eval(p)), analysisunit])),
-      #                        aesthetics = c("color", "fill")) +
-      #     scale_x_continuous(limits = c(min(dat$Year - 1), max(dat$Year + 1))) +
-      #     labs(y = parameters[column == p, name], x = "Year") +
-      #     theme(axis.text.x = element_text(angle = 45, hjust = 1),
-      #           axis.title = element_blank(),
-      #           axis.text = element_text(size = 7),
-      #           legend.position = "none")
-      #
-      #   ggsave(plot, filename = paste0(eda_output_path, "SAV_", parameters[column == p, type],
-      #                                  "_", ma_abrev, "_boxplot_", gsub(" ", "", b), ".png"))
-      # }
-      # dat <- filter(SAV4[ManagedAreaName == i & !is.na(eval(p)), ], analysisunit %in% c("Total seagrass", "Attached algae", "Drift algae"))
-      #
-      # plot <- ggplot(data = dat, aes(x = as.factor(Year), y = eval(p), color = analysisunit)) +
-      #   geom_boxplot() +
-      #   scale_color_manual(values = subset(spcols, names(spcols) %in% unique(dat$analysisunit)),
-      #                      aesthetics = c("color", "fill")) +
-      #   labs(y = parameters[column == p, name], x = "Year") +
-      #   theme(axis.text.x = element_text(angle = 45, hjust = 1),
-      #         axis.text = element_text(size = 7),
-      #         legend.position = "none",
-      #         legend.title = element_blank())
-      #
-      # ggsave(plot, filename = paste0(eda_output_path, "SAV_", parameters[column == p, type],
-      #                                "_", ma_abrev, "_boxplot_SGvMA.png"))
-    }
 
     if("none" %in% Analyses){
       if(p == parameters$column[length(parameters$column)] & i == ma_include[length(ma_include)]){
@@ -998,6 +841,10 @@ for(p in parameters$column){
                  short_model_name))
   }
 }
+
+# Remove old plots
+plot_files <- list.files("output/website/images/", full = TRUE, recursive = TRUE)
+file.remove(plot_files)
 
 #Save failedmodslist-----------------------------------------------------
 saveRDS(failedmods, "output/models/failedmodslist.rds")
