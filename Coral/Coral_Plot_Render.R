@@ -253,12 +253,14 @@ fwrite(MA_Ov_Stats, paste0(out_dir,"/Coral_", param_file,
 # Based on presence or absence of EarliestYear
 MA_Ov_Stats <- MA_Ov_Stats[!is.na(MA_Ov_Stats$EarliestYear), ]
 
-# Save Coral PC stats for description generation
-coral_sr_stats <- copy(MA_Ov_Stats)
-
 ## Plot Species Richness ----
 # Color palette for SEACAR
 color_palette <- SEACAR::seacar_palette1
+
+# Remove previous plots before rendering new plots
+plot_files <- c(list.files("output/PercentCover/Figures", full=T),
+                list.files("output/SpeciesRichness/Figures", full=T))
+file.remove(plot_files)
 
 # Loop that cycles through each managed area with data
 if(n==0){
@@ -313,7 +315,7 @@ if(n==0){
     # Data is plotted as symbols with connected lines.
     p1 <- ggplot(data=plot_data) +
       geom_line(aes(x=Year, y=Mean), color=color_palette[1],
-                size=0.75, alpha=1) +
+                linewidth=0.75, alpha=1) +
       geom_point(aes(x=Year, y=Mean), fill=color_palette[1],
                  shape=21, size=2, color="#333333", alpha=1) +
       labs(title="Grazers and Reef-Dependent Species Richness",
@@ -580,9 +582,6 @@ lme_stats[SufficientData==TRUE & is.na(LME_Slope), TrendIcon := 3]
 fwrite(lme_stats, paste0(out_dir,"/Coral_", param_file,
                          "_LME_Stats.txt"), sep="|")
 
-# Save a copy of lme_stats for description generation
-coral_pc_stats <- copy(lme_stats)
-
 # Gets lower x and y values based on LME fit to use in plot
 lme_plot <- lme_stats %>%
   group_by(AreaID, ManagedAreaName) %>%
@@ -682,7 +681,7 @@ if(n==0){
                  color="#333333", fill="#cccccc", alpha=1) +
       {if(ma_i %in% coral_pc_MA_Include){
         geom_line(data=lme_plot_data, aes(x=x, y=y),
-                  color="#000099", size=1.2, alpha=0.7)
+                  color="#000099", linewidth=1.2, alpha=0.7)
       }} +
       labs(title="Coral Percent Cover",
            subtitle=ma_i,
@@ -728,10 +727,16 @@ zip("CoralPCFigures", files=fig_list)
 setwd(wd)
 
 if(create_maps){
-  source("Coral_Create_Maps.R")
+  analysis <- "ma"
+  hab <- "Coral Reef"
+  source("../AllHabitats_Maps.R", echo = T, chdir = T)
 }
 
 ##### Generate Table Descriptions
+# Read in Coral SR stats
+coral_sr_stats <- fread(paste0("output/SpeciesRichness/Coral_SpeciesRichness_MA_Overall_Stats.txt"))
+# Read in Coral PC stats
+coral_pc_stats <- fread(paste0("output/PercentCover/Coral_PC_LME_Stats.txt"))
 # Empty table to store results
 descriptionTable <- data.table()
 # Loop through MAs and apply necessary functions
