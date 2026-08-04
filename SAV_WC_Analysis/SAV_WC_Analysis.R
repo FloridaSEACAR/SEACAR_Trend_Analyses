@@ -70,8 +70,11 @@ for(file in watdat_files){
   disc <- bind_rows(disc, df)
 }
 
-disc_sf <- st_as_sf(disc[!is.na(OriginalLongitude) & !is.na(OriginalLatitude), ], coords = c("OriginalLongitude", "OriginalLatitude"), crs = 4326)
-disc_sav <- st_join(disc_sf, sampbuffs[, c("LocationID", "geometry")], join = st_intersects, left = T)
+disc_sf <- st_as_sf(disc[!is.na(OriginalLongitude) & !is.na(OriginalLatitude), ], 
+                    coords = c("OriginalLongitude", "OriginalLatitude"), 
+                    crs = 4326)
+disc_sav <- st_join(disc_sf, sampbuffs[, c("LocationID", "geometry")], 
+                    join = st_intersects, left = T)
 st_geometry(disc_sav) <- NULL
 setDT(disc_sav)
 disc_sav <- unique(disc_sav)
@@ -144,7 +147,6 @@ p2MeanCol <- "grey50" #8FD0EC
 data_directory <- list()
 
 for(m in unique(SAV4$MA)){
-# for(m in "Estero Bay Aquatic Preserve"){
   ma_abrev <- MA_All[ManagedAreaName==m, Abbreviation]
   savdat_m <- savdat[ManagedAreaName == m, ]
   if(nrow(savdat_m) == 0) next # skip if no data
