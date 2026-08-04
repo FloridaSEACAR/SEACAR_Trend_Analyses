@@ -179,8 +179,59 @@ for(subfolder in c("model_results", "QAQC", "tmp", "model_results/data", "model_
   if(!file.exists(paste0(output_path, subfolder, "/"))) dir.create(paste0(output_path, subfolder, "/"))
 }
 
+## Import latest Oyster data
 file_in <- str_subset(list.files(seacar_data_location, full.names = TRUE),"OYSTER")
 oysterraw <- fread(file_in, sep="|", na.strings=c("NULL"))
+
+## IMPORTANT: Check to see if current data has any unassigned UniversalReefIDs
+## If so, UpdateOysterURID.R needs to be run, and the results imported here
+if(nrow(oysterraw[is.na(UniversalReefID)])>0){
+  stop("There are UniversalReefID values missing from ",
+       length(oysterraw[is.na(UniversalReefID), unique(LocationID)]), 
+       " sampling locations! ", 
+       "Run UpdateOysterURID.R and import the results below.")
+}
+
+if(nrow(oysterraw[is.na(UniversalReefID)])>0){
+  ### Import results from latest UpdateOysterURID.R outputs
+  new_urids <- openxlsx::read.xlsx(
+    "../../QAQC-Tools/OysterReefID/output/FullWorkbooks/oyster_results_2026-07-29.xlsx",
+    sheet = 1) %>%
+    select(LocationID, UniversalReefID)
+  # Join new URID values into oyster data
+  oysterraw <- oysterraw %>%
+    select(-UniversalReefID) %>%
+    left_join(new_urids)
+}
+
+### Ensure that all new UID values have been imported successfully
+if(nrow(oysterraw[is.na(UniversalReefID)])>0){
+  stop("Import of new UniversalReefIDs is incomplete: ",
+       length(oysterraw[is.na(UniversalReefID), unique(LocationID)]), 
+       " sampling locations remain without IDs!")
+}
+
+### Check to make sure there aren't any "future" dates
+if(nrow(oysterraw[SampleDate > Sys.Date()])>0){
+  warning("Future dates detected in program(s): ", 
+          paste(oysterraw[SampleDate > Sys.Date(), unique(ProgramID)], collapse = ", "),
+          ".\n", nrow(oysterraw[SampleDate > Sys.Date()]), " rows of data ", 
+          "have been removed prior to processing.")
+  # # Remove the future dates
+  # oysterraw <- oysterraw[!(SampleDate > Sys.Date())]
+  
+  ### TEMOPORARY ### FIX GTM DATES FROM 2026 to 2025
+  oysterraw[SampleDate > Sys.Date(), `:=` (
+    SampleDate = {
+      year(SampleDate) <- 2025
+      SampleDate
+    }, 
+    Year = ifelse(Year==2026, 2025, Year),
+    LiveDate = SampleDate
+  )]
+  ####
+}
+
 # Apply Managed Area transformation - de-concatenate MA names
 oysterraw <- setDT(SEACAR::clean_managed_areas(oysterraw, "ma"))
 # New OIMMP updates include samples without MA associations, exclude for these analyses currently
@@ -795,6 +846,9 @@ ma_stats[[analysis]][["Percent Live"]][["MA_Ov_Stats"]] <- MA_Ov_Stats
 rm(MA_Ov_Stats)
 
 #Plotting ----
+# Remove plots from previous iterations
+all_plots <- list.files(paste0("output/", analysis_col, "/Figures/"), full=T, recursive = T)
+file.remove(all_plots)
 # LiveDate Threshold -----------------------------------------------------
 oysterraw <- oysterraw[oysterraw$LiveDate>=1960,]
 for(i in unique(oysterraw[[col_name]])){

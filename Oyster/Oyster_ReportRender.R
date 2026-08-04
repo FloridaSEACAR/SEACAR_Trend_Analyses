@@ -30,7 +30,7 @@ wd <- dirname(getActiveDocumentContext()$path)
 setwd(wd)
 
 # Determine whether to run Oyster EDA plots (T or F)
-EDA <- TRUE
+EDA <- FALSE
 
 # Determine whether to generate Oyster sampling maps (for SEACAR Atlas)
 create_maps <- TRUE
@@ -60,7 +60,9 @@ if(analysis=="oimmp"){
 }
 
 if(create_maps){
-  source("Oyster_Create_Maps.R")
+  analysis <- "ma"
+  hab <- "Oyster Reef"
+  source("../AllHabitats_Maps.R", echo = T, chdir = T)
 }
 
 #Set output directory
@@ -97,7 +99,7 @@ for(ma in unique(oyster_stats[[analysis_col]])){
     dataFile <- oyster_stats[OIMMP==ma, ]
   }
   # Save description in excel workbook
-  descriptionText <- SEACAR::generate_description(data = dataFile, habitat = "Oyster")
+  descriptionText <- SEACAR::generate_description(data = dataFile, habitat = "Oyster", include_dead_shells = TRUE)
   descriptionTable <- bind_rows(descriptionTable, descriptionText)
 }
 
