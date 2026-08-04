@@ -297,6 +297,10 @@ sg_common <- c("Cephalopods", "Cartilaginous fishes", "Decapod crustaceans",
                "Bony fishes", "Other Chordata", "Marine turtles")
 names(sg_common) <- sg2
 
+# Remove previous plots before rendering new plots
+plot_files <- list.files("output/Figures", full=T)
+file.remove(plot_files)
+
 # remove_groups_df <- data.frame()
 # Loop that cycles through each managed area with data
 if(n==0){
@@ -433,7 +437,9 @@ zip("NektonFigures", files=fig_list)
 setwd(wd)
 
 if(create_maps){
-  source("Nekton_Create_Maps.R")
+  analysis <- "ma"
+  hab <- "Nekton"
+  source("../AllHabitats_Maps.R", echo = T, chdir = T)
 }
 
 ##### Generate Table Descriptions
