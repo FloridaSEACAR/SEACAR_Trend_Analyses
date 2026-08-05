@@ -1,5 +1,5 @@
 AreaID|ManagedAreaName|ParameterName|N_Years|SufficientData|EarliestYear|LatestYear|N_Data|Min|Max|Median|Mean|StandardDeviation|LME_Intercept|LME_Slope|LME_p|TrendText|TrendIcon
 7|Biscayne Bay-Cape Florida to Monroe County Line Aquatic Preserve|Species Richness|12|TRUE|2013|2024|984|0|2|0|0.0254065040650407|0.169868710593301|6.10144242526627|-0.00301230317737909|0.137958876239168|No detectable trend|0
-13|Coupon Bight Aquatic Preserve|Species Richness|5|TRUE|2009|2024|204|0|20|0|0.32843137254902|1.68592419296647|-383.849376606113|0.191132018749339|0.17447680471121|No detectable trend|0
-15|Florida Keys National Marine Sanctuary|Species Richness|29|TRUE|1996|2024|194886|0|47|0|0.215059060168509|1.25976585293011||||Model did not fit the available data|3
-12|Kristin Jacobs Coral Aquatic Preserve|Species Richness|28|TRUE|1997|2024|33120|0|70|0|0.121890096618358|1.26236066378948|18.0183614723228|-0.00812803163694836|0.000000000438971303751146|Decreasing trend|-1
+13|Coupon Bight Aquatic Preserve|Species Richness|5|TRUE|2009|2024|204|0|20|0|0.32843137254902|1.68592419296647|-383.84937660612|0.191132018749343|0.174476804711221|No detectable trend|0
+15|Florida Keys National Marine Sanctuary|Species Richness|29|TRUE|1996|2024|194886|0|47|0|0.215059060168509|1.25976585293011|11.0201397653655|-0.00478832540931952|0|Decreasing trend|-1
+12|Kristin Jacobs Coral Aquatic Preserve|Species Richness|28|TRUE|1997|2024|33120|0|70|0|0.121890096618358|1.26236066378948|18.1257923188169|-0.00818613211639309|0.000000000384774212491834|Decreasing trend|-1

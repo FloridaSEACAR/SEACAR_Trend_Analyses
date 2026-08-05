@@ -528,12 +528,23 @@ for(i in 1:n){
   ma_i <- coral_pc_MA_Include[i]
   # Gets data for current managegd area
   lme_data <- data[ManagedAreaName==ma_i,]
+  # params
+  pars <- lmeControl(
+    maxIter = 200,
+    msMaxIter = 500,
+    msMaxEval = 1000,
+    tolerance = 1e-6,
+    msTol = 1e-7
+  )
   # Perform LME for relation between ResultValue and Year for current managed area
   fit <- try(
-    nlme::lme(ResultValue ~ Year,
-              random =~1|ProgramLocationID,
-              na.action = na.omit,
-              data = lme_data),
+    nlme::lme(
+      ResultValue ~ Year,
+      random = ~1 | LocationID,
+      na.action = na.omit,
+      data = lme_data,
+      control = pars
+    ),
     silent = TRUE
   )
   
