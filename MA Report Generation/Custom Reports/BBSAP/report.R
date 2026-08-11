@@ -57,7 +57,7 @@ for(file in wq_files){
   file_short <- tail(str_split(file, "/")[[1]],1)
   print(glue("Reading in {file_short}"))
   data <- fread(file, sep='|', na.strings = "NULL")
-  data <- data[Include==1 & MADup==1 & ManagedAreaName==ma, ] %>% select(-ExportVersion)
+  data <- data[Include==1 & str_detect(ManagedAreaName, ma), ] %>% select(-ExportVersion)
   
   # If there is data for BBSAP, append to directory
   if(nrow(data)>0){
@@ -83,9 +83,9 @@ wq_ploc <- unique(wq_ids$ProgramLocationID)
 wq_pid <- unique(wq_ids$ProgramID)
 
 # Combine unique ProgramIDs from WQ and SAV
-bb_pid <- c(wq_pid, unique(sav[ManagedAreaName==ma, ]$ProgramID))
+bb_pid <- c(wq_pid, unique(sav[str_detect(ManagedAreaName, ma), ]$ProgramID))
 # Combine unique ProgramLocationIDs from WQ and SAV
-bb_ploc <- c(wq_ploc, unique(sav[ManagedAreaName==ma, ]$ProgramLocationID))
+bb_ploc <- c(wq_ploc, unique(sav[str_detect(ManagedAreaName, ma), ]$ProgramLocationID))
 
 # Combine all WQ parameters into a single data frame
 wq_data_combined <- bind_rows(data_directory[["data"]])
@@ -103,7 +103,7 @@ wq_data_combined_sf <- wq_data_combined %>%
 wq_data <- copy(wq_data_combined_sf)
 
 # Merge SAV data with System and Type designations
-sav_data <- sav[ManagedAreaName==ma, ] %>% 
+sav_data <- sav[str_detect(ManagedAreaName, ma), ] %>% 
   st_as_sf(coords = c("OriginalLongitude","OriginalLatitude"), crs = 4326) %>%
   st_join(bbsap_polygon) %>% 
   filter(!is.na(System))

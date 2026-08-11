@@ -61,7 +61,7 @@ for(i in 1:length(all_params)){
       ### Begin Data Creation ###
       # Subset data for each parameter
       data <- wq_data %>% filter(ParameterName==param)
-      data <- data %>% filter(Include==1 & MADup==1)
+      data <- data %>% filter(Include==1)
       # grab unit of measurement
       unit <- unique(data$ParameterUnits)
       
@@ -258,7 +258,7 @@ for(i in 1:length(all_params)){
                    "Program 476 H Codes: ", count_H, " (", round(perc_H, 6), "%)\n",
                    "I Codes: ", count_I, " (", round(perc_I, 6), "%)\n",
                    "Q Codes: ", count_Q, " (", round(perc_Q, 6), "%)\n",
-                   "U Codes: ", count_U, " (", round(perc_U, 6), "%)"))
+                   "U Codes: ", count_U, " (", round(perc_U, 6), "%)\n"))
         # If Parameter is Secchi_Depth
       } else if (param=="Secchi Depth") {
         # Count the number of S ValueQualifier
@@ -277,7 +277,7 @@ for(i in 1:length(all_params)){
                    "I Codes: ", count_I, " (", round(perc_I, 6), "%)\n",
                    "Q Codes: ", count_Q, " (", round(perc_Q, 6), "%)\n",
                    "S Codes: ", count_S, " (", round(perc_S, 6), "%)\n",
-                   "U Codes: ", count_U, " (", round(perc_U, 6), "%)"))
+                   "U Codes: ", count_U, " (", round(perc_U, 6), "%)\n"))
         # For all other scenarios
       } else{
         # Remove all ValueQualifier except U
@@ -289,7 +289,7 @@ for(i in 1:length(all_params)){
                    ", Number Passed Filter: ", pass_filter, "\n",
                    "I Codes: ", count_I, " (", round(perc_I, 6), "%)\n",
                    "Q Codes: ", count_Q, " (", round(perc_Q, 6), "%)\n",
-                   "U Codes: ", count_U, " (", round(perc_U, 6), "%)"))
+                   "U Codes: ", count_U, " (", round(perc_U, 6), "%)\n"))
       }
       
       # Creates a data table that summarizes the number and percentage of

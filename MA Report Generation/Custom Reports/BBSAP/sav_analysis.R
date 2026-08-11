@@ -852,7 +852,7 @@ make_map <- function(type="SAV", output="all", sys){
 # Store results in sav_maps_list to call within report
 sav_maps_list <- list()
 # Define palette
-pal <- colorFactor("plasma", SAV4$ProgramID)
+pal <- colorFactor("plasma", unique(SAV4$ProgramID))
 # Function to set radius / circle size by # of samples
 calc_radius <- function(n){sqrt(n)}
 
@@ -865,13 +865,11 @@ for(sys in sys_include){
   # Grab number of samples at each site for each ProgramLocationID
   # Prog ID_559 contains Year within ProgramLocationID, extract from string
   data <- SAV4[System==sys, ] %>% rowwise() %>%
-    mutate(ProgramLocationID = ifelse(ProgramID==559, str_split_1(ProgramLocationID, "-")[1], ProgramLocationID)) %>%
     group_by(ProgramLocationID) %>%
     reframe(n_data = n(),
             ProgramID = unique(ProgramID))
   # Create reference of Lat and Lon values for each ProgramLocationID
   locs <- sav_map_df %>% filter(System==sys) %>% rowwise() %>%
-    mutate(ProgramLocationID = ifelse(ProgramID==559, str_split_1(ProgramLocationID, "-")[1], ProgramLocationID)) %>%
     group_by(ProgramLocationID) %>% reframe(
       OriginalLatitude = mean(OriginalLatitude),
       OriginalLongitude = mean(OriginalLongitude),
@@ -900,7 +898,7 @@ for(sys in sys_include){
                 options = scaleBarOptions(metric=TRUE)) %>%
     SEACAR::addCircleLegend(title = "Number of samples",
                             range = data$n_data,
-                            scaling_fun = calc_radius,fillColor = "#b3b3b3",
+                            scaling_fun = calc_radius, fillColor = "#b3b3b3",
                             fillOpacity = 0.8,weight = 1,color = "#000000",
                             position = "topright")
   
