@@ -9,6 +9,7 @@ library(data.table)
 library(colorspace)
 library(here)
 library(patchwork)
+#library(future)
 library(extrafont)
 library(magick)
 library(sf)
@@ -40,10 +41,10 @@ SAV4[, monthdate := floor_date(SampleDate, unit = "months")]
 
 SAV4_sum <- distinct(SAV4[, .(BB_allmn = mean(BB_all), BB_allsd = sd(BB_all)), by = list(ManagedAreaName, SiteIdentifier, monthdate, analysisunit)])
 
-samplocs <- SEACAR::GeoData$pointLocations
+samplocs <- SEACAR::GeoData$pointLocations %>% st_make_valid %>% st_transform(crs = 4326)
 samplocs_sav <- subset(samplocs, samplocs$LocationID %in% unique(SAV4$LocationID))
 
-linelocs <- SEACAR::GeoData$lineLocations
+linelocs <- SEACAR::GeoData$lineLocations %>% st_make_valid %>% st_transform(crs = 4326)
 linelocs_sav <- subset(linelocs, linelocs$LocationID %in% unique(SAV4$LocationID))
 
 linelocs_sav$RawLineStr <- NULL
@@ -54,8 +55,8 @@ minbuff <- 500
 units(minbuff) <- "m"
 sampbuffs <- st_buffer(samplocs3, ifelse(samplocs3$len > minbuff, samplocs3$len, minbuff))
 
-mapview(linelocs_sav, col.regions = "dodgerblue") +
-  mapview(sampbuffs, col.regions = "firebrick")
+# mapview(linelocs_sav, col.regions = "dodgerblue") +
+#   mapview(sampbuffs, col.regions = "firebrick")
 
 # Load DDI exports of water quality/clarity data
 watdat_files <- list.files("C:/SEACAR Data/SEACARdata", full.names = TRUE, pattern = "Combined_WQ_WC_NUT_")
@@ -67,14 +68,27 @@ for(file in watdat_files){
   if(nrow(df)==0) next
   df$OriginalLatitude <- as.double(df$OriginalLatitude)
   df$OriginalLongitude <- as.double(df$OriginalLongitude)
+  df$ProgramName <- as.double(df$ProgramName)
   disc <- bind_rows(disc, df)
 }
 
-disc_sf <- st_as_sf(disc[!is.na(OriginalLongitude) & !is.na(OriginalLatitude), ], 
-                    coords = c("OriginalLongitude", "OriginalLatitude"), 
-                    crs = 4326)
-disc_sav <- st_join(disc_sf, sampbuffs[, c("LocationID", "geometry")], 
-                    join = st_intersects, left = T)
+# Create overview for all discrete parameters
+grouped_results <- disc %>% 
+  SEACAR::clean_managed_areas(type="ma", keep_na=FALSE) %>%
+  group_by(ManagedAreaName, IndicatorName, ParameterName, Year) %>%
+  reframe(
+    mean = mean(ResultValue),
+    median = median(ResultValue),
+    min = min(ResultValue),
+    sd = sd(ResultValue),
+    n = n()
+  )
+# Save overview and remove file
+openxlsx::write.xlsx(grouped_results, file = "output/DiscreteWQ_MA_SummaryStatistics.xlsx", asTable = T)
+rm(grouped_results)
+
+disc_sf <- st_as_sf(disc[!is.na(OriginalLongitude) & !is.na(OriginalLatitude), ], coords = c("OriginalLongitude", "OriginalLatitude"), crs = 4326)
+disc_sav <- st_join(disc_sf, sampbuffs[, c("LocationID", "geometry")], join = st_intersects, left = T)
 st_geometry(disc_sav) <- NULL
 setDT(disc_sav)
 disc_sav <- unique(disc_sav)
@@ -147,6 +161,7 @@ p2MeanCol <- "grey50" #8FD0EC
 data_directory <- list()
 
 for(m in unique(SAV4$MA)){
+# for(m in "Estero Bay Aquatic Preserve"){
   ma_abrev <- MA_All[ManagedAreaName==m, Abbreviation]
   savdat_m <- savdat[ManagedAreaName == m, ]
   if(nrow(savdat_m) == 0) next # skip if no data
@@ -164,12 +179,12 @@ for(m in unique(SAV4$MA)){
     if(p %in% c("Chl a","Total Nitrogen")){
       if(p=="Chl a"){
         params <- c("Chl a corr", "Chl a uncorr")
-        axis2units <- disc_sav[str_detect(ManagedAreaName, m) & ParameterName == "Chl a corr", unique(ParameterUnits)]
+        axis2units <- disc_sav[ManagedAreaName == m & ParameterName == "Chl a corr", unique(ParameterUnits)]
         title <- "Chl a Corrected and Uncorrected"
         filename_param <- "Chla"
       } else if(p=="Total Nitrogen"){
         params <- c("Total Nitrogen", "Total Phosphorus")
-        axis2units <- disc_sav[str_detect(ManagedAreaName, m) & ParameterName == "Total Nitrogen", unique(ParameterUnits)]
+        axis2units <- disc_sav[ManagedAreaName == m & ParameterName == "Total Nitrogen", unique(ParameterUnits)]
         title <- "Total Nitrogen and Total Phosphorus"
         filename_param <- "TN_TP"
       }
@@ -179,7 +194,7 @@ for(m in unique(SAV4$MA)){
       names(vals) <- params
       
       watdat_mw <- disc_sav_trimmed[
-        str_detect(ManagedAreaName, m) & ParameterName %in% params, .(
+        ManagedAreaName == m & ParameterName %in% params, .(
           mean = mean(ResultValue),
           median = median(ResultValue),
           sd = sd(ResultValue),
@@ -230,17 +245,17 @@ for(m in unique(SAV4$MA)){
         facet_wrap(~analysisunit)
       
       # Save plot
-      ggsave(filename = paste0("output/", ma_abrev, "_", filename_param, ".png"),
+      ggsave(filename = paste0("output/", ma_abrev, "_", filename_param, "_", Sys.Date(), ".png"),
              plot = plot_miw,
              height = h,
              width = 10,
              units = "in",
              dpi = 200)
-      print(paste0("Saving plot: ", paste0("output/", ma_abrev, "_", filename_param, ".png")))
+      print(paste0("Saving plot: ", paste0("output/", ma_abrev, "_", filename_param, "_", Sys.Date(), ".png")))
     } else {
       
       watdat_mw <- disc_sav_trimmed[
-        str_detect(ManagedAreaName, m) & ParameterName == p, .(
+        ManagedAreaName == m & ParameterName == p, .(
           mean = mean(ResultValue),
           median = median(ResultValue),
           sd = sd(ResultValue),
@@ -251,7 +266,7 @@ for(m in unique(SAV4$MA)){
       if(length(unique(watdat_mw$Year))<10) next
       
       axis2scale <- max(watdat_mw$mean) / 5
-      axis2units <- disc_sav_trimmed[str_detect(ManagedAreaName, m) & ParameterName == p, unique(ParameterUnits)]
+      axis2units <- disc_sav_trimmed[ManagedAreaName == m & ParameterName == p, unique(ParameterUnits)]
       
       min_year <- min(savdat_m$Year)
       max_year <- max(savdat_m$Year)
@@ -316,13 +331,13 @@ for(m in unique(SAV4$MA)){
           facet_wrap(~analysisunit)        
       }
       # Save plot
-      ggsave(filename = paste0("output/", ma_abrev, "_", str_replace_all(p, " ", ""), ".png"),
+      ggsave(filename = paste0("output/", ma_abrev, "_", str_replace_all(p, " ", ""), "_", Sys.Date(), ".png"),
              plot = plot_miw,
              height = h,
              width = 10,
              units = "in",
              dpi = 200)
-      print(paste0("Saving plot: ", paste0("output/", ma_abrev, "_", str_replace_all(p, " ", ""), ".png")))
+      print(paste0("Saving plot: ", paste0("output/", ma_abrev, "_", str_replace_all(p, " ", ""), "_", Sys.Date(), ".png")))
     }
   }
 }
