@@ -11,6 +11,9 @@ library(rstudioapi)
 library(SEACAR)
 library(stringr)
 
+# Bring in CartoDB API key (variable carto_key) from source file [DO NOT UPLOAD TO GITHUB]
+source("../../carto_key.R")
+
 # analysis <- "ma"
 
 # hab <- "Coastal Wetlands"
@@ -526,7 +529,10 @@ for(ma in unique(data$ManagedAreaName)){
     
     # Create map (without pts or lines for now)
     map <- leaflet(df_ma, options = leafletOptions(zoomControl = FALSE)) %>%
-      addProviderTiles(providers$Esri.WorldGrayCanvas) %>%
+      addTiles(
+        urlTemplate = paste0("https://basemaps.cartocdn.com/rastertiles/light_nolabels/{z}/{x}/{y}.png?key=", carto_key),
+        attribution = '&copy; <a href="https://openstreetmap.org">OpenStreetMap</a> contributors &copy; <a href="https://carto.com">CARTO</a>'
+      ) %>%
       addLegend(title = "Program", 
                 colors = pal(unique(df_ma$ProgramName)), 
                 labels = labs, 
@@ -560,7 +566,7 @@ for(ma in unique(data$ManagedAreaName)){
         addMiniMap(centerFixed = c(mean(df_ma$OriginalLatitude),mean(df_ma$OriginalLongitude)), 
                    zoomLevelOffset = -5, 
                    position = 'topleft', 
-                   tiles = providers$Esri.WorldGrayCanvas)
+                   tiles = paste0("https://basemaps.cartocdn.com/rastertiles/light_nolabels/{z}/{x}/{y}.png?key=", carto_key))
     }
     
     # add transects and points where available
