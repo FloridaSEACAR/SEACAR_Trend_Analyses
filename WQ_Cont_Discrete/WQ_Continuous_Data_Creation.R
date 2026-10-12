@@ -53,7 +53,7 @@ MA_All <- SEACAR::ManagedAreas
 
 # Creates folders for outputs
 folder_paths <- c("output/tables","output/tables/cont", "output/models/cont")
-for(path in folder_paths) {if(!dir.exists(path)){dir.create(path)}}
+for(path in folder_paths) {if(!dir.exists(path)){dir.create(path, recursive = T)}}
 
 cont_files_short <- data.frame()
 cont_stations <- data.frame()
@@ -112,17 +112,11 @@ ContinuousConsecutiveCheck_polars <- function(con_data){
 }
 
 # Loop through all available continuous files
-for(file in cont_file_list){
+for(file in cont_file_list[1:8]){
   # Read in data
   data <- fread(file, sep = "|", na.strings = "NULL")
   # Gather full parameter name
   p <- unique(data$ParameterName)
-  
-  ##### Temporary fix for Chla continuous
-  if(p=="Chlorophyll a, Uncorrected for Pheophytin"){
-    data <- data[!(Year==2026 & ProgramID==4054), ]
-  }
-  #####
   
   # Gather units
   unit <- unique(data$ParameterUnits)
@@ -143,7 +137,7 @@ for(file in cont_file_list){
   # This is a crosswalk of individual MonitoringID and ProgramLocationID associations by ManagedAreaName
   ma_ref <- data %>% group_by(AreaID, ManagedAreaName, ProgramID, ProgramName, ProgramLocationID) %>%
     reframe(MonitoringID = cur_group_id())
-  # Subset for stations with NA ManagedAreaName to keep them in analysis (clean_managed_areas removes them)
+  # Subset for stations with NA ManagedAreaName to keep them in analysis
   ma_ref_subset <- ma_ref %>% filter(is.na(ManagedAreaName))
   # De-concatenate to make ManagedAreaName associations & recombine
   ma_ref <- rbind(ma_ref_subset, SEACAR::clean_managed_areas(ma_ref, "ma")) %>% as.data.table()
@@ -151,33 +145,44 @@ for(file in cont_file_list){
   # Rename NA managed areas to character-based NA
   ma_ref[is.na(ManagedAreaName), `:=` (ManagedAreaName = "NA")]
   ma_ref[is.na(AreaID), `:=` (AreaID = "NA")]
-  # Merge MonitoringID values back into dataset
-  data <- data %>% merge(ma_ref %>% group_by(ProgramLocationID, MonitoringID) %>% reframe())
+  # Ensure ma_ref only has unique keys to prevent row duplication
+  ma_unique <- unique(ma_ref[, .(ProgramLocationID, MonitoringID)])
+  # Merge MonitoringID values back into dataset (uses update-on-join syntax for better memory efficiency)
+  data[
+    ma_unique,
+    on = .(ProgramLocationID),
+    MonitoringID := i.MonitoringID
+  ]
+  
+  # Converts Include to be a logical either TRUE or FALSE
+  data[, Include := as.logical(Include)]
+  # Removes any data rows that do not have Include set to TRUE
+  data <- data[Include == TRUE]
   
   # Removes rows that have missing ResultValues
-  data <- data[!is.na(data$ResultValue),]
   # Removes rows that have missing RelativeDepth
-  data <- data[!is.na(data$RelativeDepth),]
   # Removes rows that have an ActivityType with Blank
-  data <- data[!grep("Blank", data$ActivityType),]
+  data <- data[!is.na(ResultValue) & !is.na(RelativeDepth) & !grepl("Blank", ActivityType)]
   
   # Stores the MonitoringID that pass the consecutive year check
   consMonthIDs <- ContinuousConsecutiveCheck_polars(data)
   # Creates data frame with summary for each monitoring location.
   median_na_rm <- function(x) ifelse(length(x) > 0, median(x, na.rm = TRUE), NA_real_)
-  Mon_Summ <- data[, .(RelativeDepth = unique(RelativeDepth),
-                       N_Data = sum(Include == TRUE & !is.na(ResultValue)),
-                       N_Years = uniqueN(Year[Include == TRUE & !is.na(Year)]),
-                       EarliestYear = min(Year[Include == TRUE]),
-                       LatestYear = max(Year[Include == TRUE]),
-                       EarliestSampleDate = min(SampleDate[Include == TRUE]),
-                       LastSampleDate = max(SampleDate[Include == TRUE]),
-                       Median = median_na_rm(ResultValue)), 
-                   by = .(MonitoringID, AreaID, ManagedAreaName, ProgramID, ProgramName, ProgramLocationID, ParameterName)]
   
-  Mon_Summ[, ConsecutiveMonths := ifelse(MonitoringID %in% consMonthIDs==TRUE, TRUE, FALSE)]
-  Mon_Summ[, SufficientData := ifelse(N_Data>0 & N_Years>=suff_years & ConsecutiveMonths==TRUE, TRUE, FALSE)]
-  Mon_Summ$ConsecutiveMonths <- NULL
+  Mon_Summ <- data[, .(
+    RelativeDepth = unique(RelativeDepth),
+    N_Data = sum(Include == TRUE & !is.na(ResultValue)),
+    N_Years = uniqueN(Year[Include == TRUE & !is.na(Year)]),
+    EarliestYear = min(Year[Include == TRUE]),
+    LatestYear = max(Year[Include == TRUE]),
+    EarliestSampleDate = min(SampleDate[Include == TRUE]),
+    LastSampleDate = max(SampleDate[Include == TRUE]),
+    Median = median_na_rm(ResultValue)
+  ), by = .(MonitoringID, AreaID, ManagedAreaName, ProgramID, ProgramName, ProgramLocationID, ParameterName)]
+  
+  Mon_Summ[, ConsecutiveMonths := MonitoringID %in% consMonthIDs]
+  Mon_Summ[, SufficientData := N_Data > 0 & N_Years >= suff_years & ConsecutiveMonths]
+  Mon_Summ[, ConsecutiveMonths := NULL]
   
   # Puts summary data in order based on MonitoringID
   Mon_Summ <- as.data.table(Mon_Summ[order(Mon_Summ$MonitoringID), ])
@@ -186,12 +191,15 @@ for(file in cont_file_list){
   # Monitoring location
   data[, YearFromStart := Year - min(Year), by = MonitoringID]
   # Adds SufficientData column to data table based on MonitoringID
-  data <- merge.data.frame(data, Mon_Summ[,c("MonitoringID", "SufficientData")],
-                           by="MonitoringID")
+  data[
+    unique(Mon_Summ[, .(MonitoringID, SufficientData)]),
+    on = .(MonitoringID),
+    SufficientData := i.SufficientData
+  ]
+  
   # Creates Use_In_Analysis column for data that is determined if the row has
   # Include value of TRUE and SufficientData value of TRUE
-  data$Use_In_Analysis <- ifelse(data$Include==TRUE & data$SufficientData==TRUE,
-                                 TRUE, FALSE)
+  data[, Use_In_Analysis := Include & SufficientData]
   # Get list of and number of MonitoringID that are to be used in analysis
   Mon_IDs <- sort(unique(data$MonitoringID[data$Use_In_Analysis==TRUE]))
   n <- length(Mon_IDs)
@@ -220,7 +228,6 @@ for(file in cont_file_list){
   ############################
   #### MANAGED AREA STATS ####
   ############################
-  
   # Create summary statistics for each monitoring location based on Year and Month
   # intervals.
   Mon_YM_Stats <- data[Use_In_Analysis == TRUE, .(RelativeDepth = unique(RelativeDepth),
@@ -236,17 +243,11 @@ for(file in cont_file_list){
                               ProgramID, ProgramName, ProgramLocationID, Year, Month)]
   # Puts the data in order based on ManagedAreaName, ProgramID, ProgramName,
   # ProgramLocationID, Year, then Month
-  Mon_YM_Stats <- as.data.table(Mon_YM_Stats[order(Mon_YM_Stats$ManagedAreaName,
-                                                   Mon_YM_Stats$ProgramID,
-                                                   Mon_YM_Stats$ProgramName,
-                                                   Mon_YM_Stats$ProgramLocationID,
-                                                   Mon_YM_Stats$Year,
-                                                   Mon_YM_Stats$Month), ])
-  
+  setorder(Mon_YM_Stats, ManagedAreaName, ProgramID, ProgramName, ProgramLocationID, Year, Month)
   # Get year from start for each monitoring location
-  Mon_YM_Stats[, YearFromStart := Year - min(Year), by = MonitoringID]
+  Mon_YM_Stats[, YearFromStart := Year - min(Year), by = .(MonitoringID)]
   # Create decimal value of year and month values
-  Mon_YM_Stats$YearMonthDec <- Mon_YM_Stats$Year + ((Mon_YM_Stats$Month-0.5) / 12)
+  Mon_YM_Stats[, YearMonthDec := Year + ((Month - 0.5) / 12)]
   
   # Saving RDS object to file
   cat("Saving Mon_YM_Stats", "\n")
@@ -267,11 +268,7 @@ for(file in cont_file_list){
                              ProgramID, ProgramName, ProgramLocationID, Year)]
   # Puts the data in order based on ManagedAreaName, ProgramID, ProgramName,
   # ProgramLocationID, then Year
-  Mon_Y_Stats <- as.data.table(Mon_Y_Stats[order(Mon_Y_Stats$ManagedAreaName,
-                                                 Mon_Y_Stats$ProgramID,
-                                                 Mon_Y_Stats$ProgramName,
-                                                 Mon_Y_Stats$ProgramLocationID,
-                                                 Mon_Y_Stats$Year), ])
+  setorder(Mon_Y_Stats, ManagedAreaName, ProgramID, ProgramName, ProgramLocationID, Year)
   
   # Saving RDS object
   cat("Saving Mon_Y_Stats", "\n")
@@ -293,22 +290,25 @@ for(file in cont_file_list){
                              ProgramID, ProgramName, ProgramLocationID, Month)]
   # Puts the data in order based on ManagedAreaName, ProgramID, ProgramName,
   # ProgramLocationID, then Month
-  Mon_M_Stats <- as.data.table(Mon_M_Stats[order(Mon_M_Stats$ManagedAreaName,
-                                                 Mon_M_Stats$ProgramID,
-                                                 Mon_M_Stats$ProgramName,
-                                                 Mon_M_Stats$ProgramLocationID,
-                                                 Mon_M_Stats$Month), ])
+  setorder(Mon_M_Stats, ManagedAreaName, ProgramID, ProgramName, ProgramLocationID, Month)
   
   # Saving RDS object
   cat("Saving Mon_M_Stats", "\n")
   saveRDS(Mon_M_Stats, file = paste0(out_dir_tables,"/WC_Continuous_", param_abrev, "_Mon_M_Stats.rds"))
   rm(Mon_M_Stats)
   
+  # Write full dataset to temporary file to help with memory overload in data aggregation step below
+  temp_file <- tempfile(fileext = ".parquet")
+  arrow::write_parquet(data, sink = temp_file)
+  
+  # Force clear memory before execution
+  rm(data)
+  gc()
+  
   # Reduces size of data by getting a monthly average (this is the efficiency bottleneck)
   # New method uses polars package to more efficiently group & summarise
   tic()
-  data <- as_polars_df(data)$
-    lazy()$
+  data <- pl$scan_parquet(temp_file)$
     group_by(
       "MonitoringID",
       "AreaID",
@@ -326,16 +326,20 @@ for(file in cont_file_list){
       pl$col("Include")$first()$alias("Include"),
       pl$col("Use_In_Analysis")$first()$alias("Use_In_Analysis")
     )$
-    collect() |>
-    as.data.frame()
+    collect(engine = "streaming") |>
+    as.data.table()
   toc()
   
-  # Sets column formats to appropriate types
-  data$SampleDate <- as.Date(data$SampleDate)
-  data$YearMonth <- format(data$SampleDate, format = "%m-%Y")
-  data$YearMonthDec <- data$Year + ((data$Month-0.5) / 12)
-  data$DecDate <- decimal_date(data$SampleDate)
+  # Remove temporary file
+  unlink(temp_file)
   
+  # Sets column formats to appropriate types
+  data[, `:=` (
+    SampleDate = as.Date(SampleDate),
+    YearMonth = paste0(sprintf("%02d", Month), "-", Year),
+    YearMonhtDec = Year + ((Month - 0.5) / 12),
+    DecDate = decimal_date(as.Date(SampleDate))
+  )]
   #######################################
   #### SEASONAL KENDALL TAU ANALYSIS ####
   #######################################
@@ -345,6 +349,10 @@ for(file in cont_file_list){
   # Determines if there are any monitoring locations to analyze
   if(n==0){
     print("There are no monitoring locations that qualify.")
+    # # Create empty data table 
+    # col_names <- c("MonitoringID","Independent","tau","p","SenSlope","SenIntercept","ChiSquared","pChiSquared","ub","lb")
+    # skt_stats_df <- data.table(matrix(NA_real_, nrow = nrow(Mon_Summ), ncol = length(col_names)))
+    # setnames(skt_stats_df, col_names)
   } else {
     # Starts cycling through Monitoring locations to determine Seasonal Kendall Tau
     for(i in 1:n){
@@ -414,7 +422,15 @@ for(file in cont_file_list){
   rm(SKT, data_SKT, SKT.med, SKT.minYr, SKT.maxYr, SKT.ind, skt_stats)
   
   # Combines the skt_stats_df with Mon_Summ
-  skt_stats <- merge.data.frame(Mon_Summ, skt_stats_df, by=c("MonitoringID"), all=TRUE)
+  if(n==0){
+    skt_stats <- Mon_Summ %>% 
+      mutate(Independent = NA, tau = NA, p = NA,
+             SenSlope = NA, SenIntercept = NA,
+             ChiSquared = NA, pChiSquared = NA, ub = NA, lb = NA, Trend = NA)
+  } else {
+    skt_stats <- merge.data.frame(Mon_Summ, skt_stats_df, by=c("MonitoringID"), all=TRUE)
+  }
+  
   skt_stats <- as.data.table(skt_stats[order(skt_stats$MonitoringID), ])
   
   cat("Saving SKT_stats", "\n")
@@ -422,7 +438,7 @@ for(file in cont_file_list){
   saveRDS(select(skt_stats, -c(EarliestSampleDate)), file = paste0(out_dir_tables,"/WC_Continuous_", param_abrev, "_KendallTau_Stats.rds"))
   
   # Removes data rows with no ResultValue (created by merging with MA_All)
-  data <- data[!is.na(data$ResultValue),]
+  data <- data[!is.na(ResultValue)]
   
   # Saving overall data object
   saveRDS(data, file = paste0(out_dir_tables,"/WC_Continuous_", param_abrev, "_data.rds"))
@@ -431,8 +447,6 @@ for(file in cont_file_list){
   stations <- data %>% group_by(ManagedAreaName) %>% reframe(Stations = unique(ProgramLocationID), ParameterName = p)
   # append stations to list
   cont_stations <- bind_rows(cont_stations, stations)
-  # Remove existing data objects
-  rm(coordinates, n, Mon_IDs, stations, data)
 }
 
 # Save Coordinates data frame

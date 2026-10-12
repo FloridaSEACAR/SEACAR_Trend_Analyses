@@ -44,6 +44,11 @@ render_reports <- TRUE
 # save_maps variable == TRUE will render maps (for MA Report Gen)
 save_maps <- TRUE
 
+# Create necessary directories, if necessary
+folders <- c("output/WQ_Discrete", "output/WQ_Continuous",
+             "output/figuredata")
+for(f in folders){if(!dir.exists(f)) dir.create(f, recursive = T)}
+
 # Set height and width for plot outputs (.png outputs only)
 h <- 891
 w <- 1600
@@ -280,35 +285,42 @@ saveRDS(data_output_disc, file = "output/tables/disc/data_output_disc.rds")
 cont_data_files <- str_subset(cont_files, "_data.rds")
 
 # # Append to directory-style archive for more efficient access within reports
-data_output_cont <- list()
-for(param in cont_params_short){
+library(future.apply)
+plan(multisession, workers = max(1, future::availableCores() -1))
+
+data_output_cont <- future_lapply(cont_params_short, function(param){
   file <- str_subset(cont_data_files, paste0("_", param, "_"))
   # Full ParameterName
   parameter <- websiteParams[ParameterShort==param, unique(ParameterName)]
   # Read in data file
   data <- setDT(readRDS(file))
   # Included data only. Group and determine summary stats
-  data <- data[Include==1, ]
-  data <- data[, .(ParameterName = parameter,
-                   RelativeDepth = unique(RelativeDepth),
-                   EarliestSampleDate = min(SampleDate),
-                   LastSampleDate = max(SampleDate),
-                   N_Data = .N,
-                   Min = min(ResultValue),
-                   Max = max(ResultValue),
-                   Median = median(ResultValue),
-                   Mean = mean(ResultValue),
-                   StandardDeviation = sd(ResultValue)),
-               by = .(MonitoringID, AreaID, ManagedAreaName, ProgramID,
-                      ProgramName, ProgramLocationID, Year, Month)]
+  data_summary <- data[
+    Include==1, 
+    .(
+      ParameterName = parameter,
+      RelativeDepth = unique(RelativeDepth),EarliestSampleDate = min(SampleDate),
+      LastSampleDate = max(SampleDate),
+      N_Data = .N,
+      Min = min(ResultValue),
+      Max = max(ResultValue),
+      Median = median(ResultValue),
+      Mean = mean(ResultValue),
+      StandardDeviation = sd(ResultValue)),
+    by = .(MonitoringID, AreaID, ManagedAreaName, ProgramID,
+           ProgramName, ProgramLocationID, Year, Month)]
   # Add decimal YearMonth
-  data$YearMonthDec <- data$Year + ((data$Month-0.5) / 12)
-  # Save into data_output_cont directory
-  data_output_cont[[param]] <- data
-  print(paste0(param," processing complete"))
-}
+  data_summary[, YearMonthDec := Year + ((Month - 0.5) / 12)]
+  
+  message(paste0(param," processing complete"))
+  return(data_summary)
+}, future.seed = TRUE)
+
+names(data_output_cont) <- cont_params_short
+plan(sequential)
+
 # Combine all continuous results together
-cont_data_combined <- bind_rows(data_output_cont)
+cont_data_combined <- rbindlist(data_output_cont, use.names = TRUE, fill = TRUE)
 cont_data_combined <- SEACAR::clean_managed_areas(cont_data_combined, "ma")
 # Grab skt results (start and end of x and y to plot trendlines)
 KT.Plot <- skt_stats_cont %>%
@@ -513,14 +525,14 @@ plot_trendlines_cont_combined <- function(ma, cont_plot_data, param, y_labels, p
   # Continuous data, including skt results (pre-processed above)
   data <- cont_plot_data[ManagedAreaName==ma & ParameterName==parameter, ]
   
+  # Set variables for fileName convention
+  areaID <- MA_All[ManagedAreaName==ma, AreaID]
+  pvID <- websiteParams[SamplingFrequency=="Continuous" & 
+                          ParameterName==parameter, ParameterVisId]
+  
   # Only perform operations when there are stations to plot
   if(length(unique(data$ProgramLocationID))>0){
     cat(glue("## {parameter} - {type}"), "\n")
-    
-    # Set variables for fileName convention
-    areaID <- MA_All[ManagedAreaName==ma, AreaID]
-    pvID <- websiteParams[SamplingFrequency=="Continuous" & 
-                            ParameterName==parameter, ParameterVisId]
     
     filePath <- "output/WQ_Continuous/"
     
@@ -637,7 +649,22 @@ plot_trendlines_cont_combined <- function(ma, cont_plot_data, param, y_labels, p
              scale = 2)
     }
   }
-  return(continuous_overview)
+  if(exists("continuous_overview")){
+    return(continuous_overview)
+  } else {
+    return(
+      data.table(
+        "ManagedAreaName" = ma,
+        "ProgramID" = NA,
+        "areaID" = areaID,
+        "ParameterName" = parameter,
+        "pvID" = pvID,
+        "ProgramNumber" = NA,
+        "fileName" = NA,
+        "multiple" = NA
+      )
+    )
+  }
 }
 # Cont overview
 cont_overview <- data.table()
@@ -775,7 +802,7 @@ fwrite(descriptionTable, file = "output/WQ_tableDescriptions.csv")
 if(render_reports){
   # Loop through list of managed areas
   for(ma in all_managed_areas){
-    print(ma)
+    cat("----------", ma, "----------")
     # determine which analyses to run for each MA
     # variables will be input into RMD file
     ma_df <- managed_area_df %>% filter(ManagedAreaName == ma)

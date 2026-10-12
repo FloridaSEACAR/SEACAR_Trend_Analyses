@@ -80,8 +80,8 @@ websiteParams <- SEACAR::WebsiteParameters[Website==1 & SamplingFrequency=="Disc
 MA_All <- SEACAR::ManagedAreas
 
 # Creates folders for outputs
-folder_paths <- c("output/tables/", "output/tables/disc", "output/models/disc")
-for(path in folder_paths){if(!dir.exists(path)){dir.create(path)}}
+folder_paths <- c("output/tables/", "output/tables/disc", "output/models/disc", "output/models")
+for(path in folder_paths){if(!dir.exists(path)){dir.create(path, recursive = T)}}
 
 # Use the below line for most recent exports
 file_list <- list.files(seacar_data_location, full.names = T)
@@ -351,8 +351,8 @@ for(j in 1:length(all_params)){
       
       # Creates data frame with summary for each managed area
       MA_Summ <- data %>%
-        group_by(AreaID, ManagedAreaName, ParameterName) %>%
-        summarize(RelativeDepth=depth,
+        dplyr::group_by(AreaID, ManagedAreaName, ParameterName) %>%
+        dplyr::summarize(RelativeDepth=depth,
                   ActivityType=activity,
                   N_Data=length(ResultValue[Include==TRUE & !is.na(ResultValue)]),
                   N_Years=length(unique(Year[Include==TRUE & !is.na(Year)])),
@@ -487,22 +487,23 @@ for(j in 1:length(all_params)){
       # Creates a data table that summarizes the number and percentage of
       # ValueQualifier H, I, Q, S, and U for each managed area each year
       data_summ <- data %>%
-        group_by(AreaID, ManagedAreaName, ParameterName, Year) %>%
-        summarize(RelativeDepth=depth,
-                  ActivityType=activity,
-                  N_Total=length(ResultValue),
-                  N_AnalysisUse=length(ResultValue[Use_In_Analysis==TRUE]),
-                  N_H=length(grep("H", ValueQualifier[ProgramID==476])),
-                  perc_H=100*N_H/length(ValueQualifier),
-                  N_I=length(grep("I", ValueQualifier)),
-                  perc_I=100*N_I/length(ValueQualifier),
-                  N_Q=length(grep("Q", ValueQualifier)),
-                  perc_Q=100*N_Q/length(ValueQualifier),
-                  N_S=length(grep("S", ValueQualifier)),
-                  perc_S=100*N_S/length(ValueQualifier),
-                  N_U=length(grep("U", ValueQualifier)),
-                  perc_U=100*N_U/length(ValueQualifier), .groups = "keep") %>%
-        arrange(ManagedAreaName, Year)
+        dplyr::group_by(AreaID, ManagedAreaName, ParameterName, Year) %>%
+        dplyr::summarize(RelativeDepth=depth,
+                         ActivityType=activity,
+                         N_Total=length(ResultValue),
+                         N_AnalysisUse=length(ResultValue[Use_In_Analysis==TRUE]),
+                         N_H=length(grep("H", ValueQualifier[ProgramID==476])),
+                         perc_H=100*N_H/length(ValueQualifier),
+                         N_I=length(grep("I", ValueQualifier)),
+                         perc_I=100*N_I/length(ValueQualifier),
+                         N_Q=length(grep("Q", ValueQualifier)),
+                         perc_Q=100*N_Q/length(ValueQualifier),
+                         N_S=length(grep("S", ValueQualifier)),
+                         perc_S=100*N_S/length(ValueQualifier),
+                         N_U=length(grep("U", ValueQualifier)),
+                         perc_U=100*N_U/length(ValueQualifier), 
+                         .groups = "keep") %>%
+        dplyr::arrange(ManagedAreaName, Year)
       # Writes the ValueQualifier summary to a RDS file
       cat("Saving data_summ.rds \n")
       saveRDS(data_summ, file = paste0(out_dir_tables,"/WC_Discrete_", param_abrev, "_", activity, "_", depth, "_VQSummary.rds"))
@@ -524,22 +525,22 @@ for(j in 1:length(all_params)){
         cols <- str_split_1(stats_scenarios[i]$columns, "\\|")
         all_cols <- c("AreaID", "ParameterName", cols)
         stats <- data %>% 
-          filter(Use_In_Analysis) %>%
-          group_by(across(all_of(all_cols))) %>%
-          summarize(RelativeDepth=depth,
-                    ActivityType=activity,
-                    N_Data=length(ResultValue),
-                    Min=min(ResultValue),
-                    Max=max(ResultValue),
-                    Median=median(ResultValue),
-                    Mean=mean(ResultValue),
-                    StandardDeviation=sd(ResultValue),
-                    Programs=paste(sort(unique(ProgramName), decreasing=FALSE),
-                                   collapse=', '),
-                    ProgramIDs=paste(sort(unique(ProgramID), decreasing=FALSE),
-                                     collapse=', '),
-                    .groups = "keep") %>%
-          arrange(across(all_of(cols)))
+          dplyr::filter(Use_In_Analysis) %>%
+          dplyr::group_by(across(all_of(all_cols))) %>%
+          dplyr::summarize(RelativeDepth=depth,
+                           ActivityType=activity,
+                           N_Data=length(ResultValue),
+                           Min=min(ResultValue),
+                           Max=max(ResultValue),
+                           Median=median(ResultValue),
+                           Mean=mean(ResultValue),
+                           StandardDeviation=sd(ResultValue),
+                           Programs=paste(sort(unique(ProgramName), decreasing=FALSE),
+                                          collapse=', '),
+                           ProgramIDs=paste(sort(unique(ProgramID), decreasing=FALSE),
+                                            collapse=', '),
+                           .groups = "keep") %>%
+          dplyr::arrange(across(all_of(cols)))
         
         if(scenario=="MA_YM_Stats"){
           stats <- stats %>%
@@ -559,19 +560,19 @@ for(j in 1:length(all_params)){
       # Gets summary statistics for monitoring locations, which are defined as unique
       # combinations of ManagedAreaName, ProgramID, And ProgramLocationID
       Mon_Stats <- data[data$Use_In_Analysis==TRUE, ] %>%
-        group_by(AreaID, ManagedAreaName, ParameterName, ProgramID, ProgramName,
+        dplyr::group_by(AreaID, ManagedAreaName, ParameterName, ProgramID, ProgramName,
                  ProgramLocationID) %>%
-        summarize(RelativeDepth=depth,
-                  ActivityType=activity,
-                  EarliestSampleDate=min(SampleDate),
-                  LastSampleDate=max(SampleDate),
-                  N_Data=length(ResultValue),
-                  Min=min(ResultValue),
-                  Max=max(ResultValue),
-                  Median=median(ResultValue),
-                  Mean=mean(ResultValue),
-                  StandardDeviation=sd(ResultValue), .groups = "keep") %>%
-        arrange(ManagedAreaName, ProgramName, ProgramID, ProgramLocationID)
+        dplyr::summarize(RelativeDepth=depth,
+                         ActivityType=activity,
+                         EarliestSampleDate=min(SampleDate),
+                         LastSampleDate=max(SampleDate),
+                         N_Data=length(ResultValue),
+                         Min=min(ResultValue),
+                         Max=max(ResultValue),
+                         Median=median(ResultValue),
+                         Mean=mean(ResultValue),
+                         StandardDeviation=sd(ResultValue), .groups = "keep") %>%
+        dplyr::arrange(ManagedAreaName, ProgramName, ProgramID, ProgramLocationID)
       # Write summary statistics to file
       cat("Saving Mon_Stats.rds \n")
       saveRDS(Mon_Stats, file = paste0(out_dir_tables,"/WC_Discrete_", param_abrev, "_", activity, "_", depth, "_MonLoc_Stats.rds"))

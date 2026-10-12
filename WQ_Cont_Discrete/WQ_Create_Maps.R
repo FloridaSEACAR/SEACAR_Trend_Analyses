@@ -11,6 +11,10 @@ library(mapview)
 library(stringr)
 library(dplyr)
 
+# Bring in CartoDB API key (variable carto_key) from source file or input below
+source("../../carto_key.R")
+# carto_key <- ""
+
 library(sf)
 # Load in necessary shapefiles: MA boundaries, point and line/transect data
 locs_pts <- SEACAR::GeoData$pointLocations
@@ -85,7 +89,11 @@ plot_discrete_maps <- function(parameter, ma, discrete_df, ma_abrev, ma_shape, s
     
     # leaflet map
     map <- leaflet(subset_df, options = leafletOptions(zoomControl = FALSE)) %>%
-      addProviderTiles(providers$CartoDB.PositronNoLabels) %>%
+      # addProviderTiles(providers$CartoDB.PositronNoLabels) %>%
+      addTiles(
+        urlTemplate = paste0("https://basemaps.cartocdn.com/rastertiles/light_nolabels/{z}/{x}/{y}.png?key=", carto_key),
+        attribution = '&copy; <a href="https://openstreetmap.org">OpenStreetMap</a> contributors &copy; <a href="https://carto.com">CARTO</a>'
+      ) %>%
       addPolygons(data=ma_shape, color="black", weight = 1, smoothFactor = 0.5, opacity = 0.8, fillOpacity = 0.1) %>%
       addCircleMarkers(lat=~Latitude_D, lng=~Longitude_, 
                        weight=1, color = "#000000", stroke = TRUE,
@@ -160,7 +168,11 @@ plot_continuous_maps <- function(param_short, ma, cont_coordinates, ma_abrev, ma
   
   map <- leaflet(ma_stations, 
                  options = leafletOptions(zoomControl = FALSE)) %>%
-    addProviderTiles(providers$CartoDB.PositronNoLabels) %>%
+    # addProviderTiles(providers$CartoDB.PositronNoLabels) %>%
+    addTiles(
+      urlTemplate = paste0("https://basemaps.cartocdn.com/rastertiles/light_nolabels/{z}/{x}/{y}.png?key=", carto_key),
+      attribution = '&copy; <a href="https://openstreetmap.org">OpenStreetMap</a> contributors &copy; <a href="https://carto.com">CARTO</a>'
+    ) %>%
     addPolygons(data=ma_shape, color="black", weight = 1, smoothFactor = 0.5, 
                 opacity = 0.8, fillOpacity = 0.1) %>%
     addCircleMarkers(lng = ~lon, lat = ~lat, radius = ~rad, 
