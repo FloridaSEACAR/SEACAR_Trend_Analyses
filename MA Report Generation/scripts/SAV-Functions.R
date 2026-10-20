@@ -72,18 +72,6 @@ sav_trend_table <- function(ma, report_format){
   cat("  \n")
 }
 
-sav_scope_plots <- function(ma, ma_abrev, sav_scope_locs){
-  file_loc <- str_subset(sav_scope_locs, paste0("_",ma_abrev,"_map"))
-  if(length(file_loc)==0) return()
-  caption <- paste0("Maps showing the temporal scope of SAV sampling sites within the boundaries of *", ma, "* by program name.")
-  cat("  \n")
-  subchunkify(cat("![", caption, "](", file_loc,")"))
-  # cat("![](", file_loc,")")
-  cat("  \n")
-  cat("Click [here](https://github.com/FloridaSEACAR/SEACAR_Trend_Analyses/tree/main/SAV/output/SAV_temporal_scope_plots) to view spatio-temporal plots on GitHub.")
-  cat("  \n")
-}
-
 #Managed areas that should have Halophila species combined:
 ma_halspp <- c("Banana River Aquatic Preserve", "Indian River-Malabar to Vero Beach Aquatic Preserve", 
                "Indian River-Vero Beach to Ft. Pierce Aquatic Preserve", "Jensen Beach to Jupiter Inlet Aquatic Preserve",
@@ -247,6 +235,7 @@ sav_maps <- function(ma, ma_abrev, map_locs, report_type){
     select(ProgramID, ProgramName, N_Data, YearMin, YearMax, method, 
            "Sample Locations") %>% 
     rename("Sampling Method" = "method") %>%
+    mutate(ProgramName = gsub("&", " and ", ProgramName)) %>%
     as.data.table()
   names(sav_table) <- gsub("_","-",names(sav_table))
   
@@ -278,7 +267,7 @@ sav_wc <- list.files("../../SEACAR_Trend_Analyses/SAV_WC_Analysis/output/", ".pn
 sav_wc_loc <- function(ma){
   ma_abrev <- MA_All[ManagedAreaName==ma, Abbreviation]
   # Find available plots
-  avail <- str_subset(sav_wc, ma_abrev)
+  avail <- str_subset(sav_wc, paste0("^", ma_abrev))
   if(length(avail)>0){
     # Extract parameter names
     params <- sapply(avail, function(x) str_split_1(str_split_1(x, "_")[[2]], "\\.")[[1]])

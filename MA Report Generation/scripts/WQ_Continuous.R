@@ -50,7 +50,7 @@ table_citep <- function(key){
 # Provides a table for stations with Cont. Data
 # and which stations passed the tests
 station_count_table <- function(coordinates_df, station_coordinates, ma, ma_abrev, report_type){
-  format_type <- ifelse(report_type=="HTML", "simple", "latex")
+  format_type <- ifelse(report_type=="HTML", "html", "latex")
   cat("  \n")
   cat("  \n")
   cat(paste0("**Continuous monitoring locations in ", ma, "**"))
@@ -62,7 +62,16 @@ station_count_table <- function(coordinates_df, station_coordinates, ma, ma_abre
   n_years <- coordinates_df %>%
     filter(ManagedAreaName==ma) %>%
     select(ProgramID, ProgramName, ProgramLocationID, ParameterName, years_of_data, Use_In_Analysis) %>%
-    # mutate(years_of_data = as.character(ifelse(Use_In_Analysis, paste0("**",years_of_data,"**"), years_of_data))) %>%
+    rowwise() %>%
+    mutate(
+      years_of_data = as.character(
+        ifelse(Use_In_Analysis,
+               ifelse(knitr::is_html_output(),
+                      paste0("<b>", years_of_data, "</b>"),
+                      paste0("\\textbf{", years_of_data, "}")), 
+               years_of_data)
+      )
+    ) %>%
     tidyr::pivot_wider(names_from = ParameterName,
                        values_from = years_of_data) %>% 
     ungroup() %>% select(-Use_In_Analysis)
@@ -73,17 +82,18 @@ station_count_table <- function(coordinates_df, station_coordinates, ma, ma_abre
                                   ProgramName = knitr:::escape_latex(ProgramName))
   }
   
-  caption <- "Station overview for continuous parameters, number of years of data by program and parameter"
+  caption <- "Number of years of data by program, station, and parameter. Bold numbers indicate sufficient data to perform analysis."
   
   # n_years$ProgramLocationID <- gsub("_", "-", n_years$ProgramLocationID)
   # n_years$ProgramLocationID <- gsub("&", "-and-", n_years$ProgramLocationID)
   
   station_kable <- kable(
-    n_years, 
+    n_years %>% select(-ProgramName), 
     format=format_type, caption=caption, booktabs = T, linesep = "",
-    align = "l", escape = F) %>%
+    align = "l", escape = F, longtable = F
+  ) %>%
     row_spec(0, italic=TRUE) %>%
-    column_spec(column = 2, width = "6cm") %>%
+    # column_spec(column = 2, width = "6cm") %>%
     kable_styling(latex_options=c("scale_down","HOLD_position"))
   
   ############
@@ -271,6 +281,8 @@ plot_cont_combined <- function(param, parameter, ma, ma_abrev, report_type){
         pid <- sort(unique(skt_stats$ProgramID))[prog_n]
         #Locate plot file, including prog_n
         plot_loc <- get_plot(ma_abrev = ma_abrev, parameter = parameter, type = "Continuous", pid = prog_n)
+        # Program name for display in report
+        p_name <- skt_stats[ProgramID==pid, unique(ProgramName)]
         
         ResultTable <- skt_stats %>% filter(ProgramID==pid) %>% rowwise() %>% mutate(
             `Statistical Trend` = TrendText,
@@ -285,9 +297,10 @@ plot_cont_combined <- function(param, parameter, ma, ma_abrev, report_type){
         setDT(ResultTable)
         ResultTable[is.na(ResultTable)] <- "-"
         
-        title <- glue("### {parameter} - Continuous - Program {pid}")
         cat("  \n")
-        cat(title)
+        cat(glue("#### {parameter} - Continuous - Program ID_{pid}"))
+        cat("  \n")
+        cat(glue("*Program Name*: {p_name}"))
         cat("  \n")
         
         # fig_caption <- paste0("Figure for ", parameter, " - Continuous - Program ", pid)
@@ -348,7 +361,7 @@ plot_cont_combined <- function(param, parameter, ma, ma_abrev, report_type){
       setDT(ResultTable)
       ResultTable[is.na(ResultTable)] <- "-"
       
-      title <- glue("### {parameter} - Continuous")
+      title <- glue("#### {parameter} - Continuous")
       cat("  \n")
       cat(title)
       cat("  \n")
@@ -379,18 +392,6 @@ plot_cont_combined <- function(param, parameter, ma, ma_abrev, report_type){
       print(result_table)
       cat("  \n")
       cat(desc)
-      ### Continuous sample location maps
-      # Locate map
-      # map_loc <- str_subset(cont_map_locs, paste0("_", param, "_", ma_abrev, "_map"))
-      # # captions / label
-      # cat("  \n")
-      # cat("\\newpage")
-      # caption <- paste0("Map showing location of ", tolower(parameter), " continuous water quality sampling locations within the boundaries of *", ma, 
-      #                   "*. The bubble size on the maps above reflect the amount of data available at each sampling site.  \n")
-      # cat("  \n")
-      # # Print map
-      # subchunkify(cat("![", caption, "](", map_loc,")"))
-      # cat("  \n")
       cat("\n \n \n")    
     }
   }

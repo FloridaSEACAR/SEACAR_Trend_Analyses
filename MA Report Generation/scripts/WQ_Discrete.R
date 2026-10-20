@@ -201,7 +201,6 @@ show_disc_programs <- function(ma, data){
 plot_trendlines <- function(param, ma, ma_abrev, report_type){
   format_type <- ifelse(report_type=="HTML", "simple", "latex")
   cat("  \n")
-  cat(glue("**Seasonal Kendall-Tau Trend Analysis**"), "  \n")
   
   skt_stats <- skt_stats_disc[ParameterName==param & ManagedAreaName==ma & Website==1, ]
   
