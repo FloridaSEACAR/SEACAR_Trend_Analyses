@@ -56,24 +56,6 @@ knitr::opts_chunk$set(
 options(kableExtra.auto_format = FALSE)
 options(knitr.kable.NA = '-')
 
-# Function to allow dynamic plot sizes
-subchunkify <- function(g, fig_height=9, fig_width=10, fig_cap) {
-  g_deparsed <- paste0(deparse(
-    function() {g}
-  ), collapse = '')
-
-  sub_chunk <- paste0("
-  \n`","``{r sub_chunk_", floor(runif(1) * 10000), ", fig.height=",
-   fig_height, ", fig.width=", fig_width, ", echo=FALSE, results='asis'}",
-  "\n(", 
-    g_deparsed
-    , ")()",
-  "\n`","``
-  ")
-
-  cat(knitr::knit(text = knitr::knit_expand(text = sub_chunk), quiet = TRUE))
-}
-
 ```
 
 ```{r modified functions for Atlas Reports}
@@ -117,7 +99,7 @@ plot_trendlines_atlas <- function(param, ma, ma_abrev){
     
     # fig_caption <- paste0("Seasonal Kendall-Tau Results for ", param, " - Discrete")
     fig_caption <- FigureCaptions[Parameter==param & SamplingFrequency=="Discrete", FigureCaption]
-    subchunkify(cat("![", fig_caption, "](", plot_loc,")"))
+    SEACAR::subchunkify(cat("![", fig_caption, "](", plot_loc,")"))
     
     # Table descriptions
     tableDesc <- TableDescriptions[Type=="Discrete" & ParameterName==param & ManagedAreaName==ma, Description]
@@ -125,11 +107,11 @@ plot_trendlines_atlas <- function(param, ma, ma_abrev){
     # cat("![](", plot_loc,")")
     cat("  \n")
     # Kendall tau results table
-    ResultTable <- skt_stats[, c("ActivityType", "Trend", "N_Data", "N_Years", "Period of Record", "Median", "tau", "SennIntercept", "SennSlope", "p")] %>%
+    ResultTable <- skt_stats[, c("ActivityType", "Trend", "N_Data", "N_Years", "Period of Record", "Median", "tau", "SenIntercept", "SenSlope", "p")] %>%
       rename("Activity Type" = "ActivityType", "Statistical Trend" = "Trend", 
              "Sample Count" = "N_Data", "Years with Data" = "N_Years", 
-             "Median Result Value" = "Median", "Tau" = "tau", "Sen Intercept" = "SennIntercept",
-             "Sen Slope" = "SennSlope")
+             "Median Result Value" = "Median", "Tau" = "tau", "Sen Intercept" = "SenIntercept",
+             "Sen Slope" = "SenSlope")
     # Prep for latex-format
     names(ResultTable) <- gsub("_", "-", names(ResultTable))
     result_table <- kable(ResultTable, format="pandoc",
@@ -166,12 +148,12 @@ plot_cont_combined_atlas <- function(param, parameter, region, ma, ma_abrev){
           filter(ProgramID==pid) %>%
           mutate("Period of Record" = paste0(EarliestYear, " - ", LatestYear)) %>%
           select(ProgramLocationID, Trend, N_Data, N_Years, "Period of Record", Median, tau,
-                 SennIntercept, SennSlope, p) %>%
+                 SenIntercept, SenSlope, p) %>%
           rename("Station" = "ProgramLocationID",
                  "Statistical Trend" = "Trend", "Sample Count" = "N_Data", 
                  "Years with Data" = "N_Years", "Median Result Value" = "Median",
-                 "Tau" = "tau", "Sen Intercept" = "SennIntercept", 
-                 "Sen Slope" = "SennSlope") %>%
+                 "Tau" = "tau", "Sen Intercept" = "SenIntercept", 
+                 "Sen Slope" = "SenSlope") %>%
           mutate_if(is.numeric, ~round(., 2))
         setDT(ResultTable)
         # Remove text-based "NA" values in p column
@@ -186,7 +168,7 @@ plot_cont_combined_atlas <- function(param, parameter, region, ma, ma_abrev){
         cat("  \n")
         
         fig_caption <- FigureCaptions[Parameter==parameter & SamplingFrequency=="Continuous", FigureCaption]
-        subchunkify(cat("![", fig_caption, "](", plot_loc,")"))
+        SEACAR::subchunkify(cat("![", fig_caption, "](", plot_loc,")"))
 
         # cat("![](", plot_loc,")")
         cat("  \n")
@@ -213,11 +195,11 @@ plot_cont_combined_atlas <- function(param, parameter, region, ma, ma_abrev){
       ResultTable <- skt_stats %>%
         mutate("Period of Record" = paste0(EarliestYear, " - ", LatestYear)) %>%
         select(ProgramLocationID, N_Data, N_Years, "Period of Record", Median, tau,
-               SennIntercept, SennSlope, p, Trend) %>%
+               SenIntercept, SenSlope, p, Trend) %>%
         rename("Station" = "ProgramLocationID","Statistical Trend" = "Trend", 
                "Sample Count" = "N_Data", "Years with Data" = "N_Years", 
                "Median Result Value" = "Median","Tau" = "tau", 
-               "Sen Intercept" = "SennIntercept", "Sen Slope" = "SennSlope") %>%
+               "Sen Intercept" = "SenIntercept", "Sen Slope" = "SenSlope") %>%
         mutate_if(is.numeric, ~round(., 2))
       setDT(ResultTable)
       
@@ -233,7 +215,7 @@ plot_cont_combined_atlas <- function(param, parameter, region, ma, ma_abrev){
       cat("  \n")
       
       fig_caption <- FigureCaptions[Parameter==parameter & SamplingFrequency=="Continuous", FigureCaption]
-      subchunkify(cat("![", fig_caption, "](", plot_loc,")"))
+      SEACAR::subchunkify(cat("![", fig_caption, "](", plot_loc,")"))
       # cat("![](", plot_loc,")")
       
       cat("  \n")
@@ -264,7 +246,7 @@ plot_sav_trendplot_atlas <- function(ma, ma_abrev, plot_type, plot_list, malist)
     fig_caption <- FigureCaptions[Habitat=="Submerged Aquatic Vegetation" & Indicator=="Percent Cover", FigureCaption]
     
     cat("  \n")
-    subchunkify(cat("![", fig_caption, "](", plot_loc,")"))
+    SEACAR::subchunkify(cat("![", fig_caption, "](", plot_loc,")"))
     # cat("![](", plot_loc,")")
     cat("  \n")
     
@@ -337,7 +319,7 @@ plot_nekton_atlas <- function(ma, ma_abrev, MA_Y_Stats = "MA_Y_Stats_nek", MA_Ov
   # Print plots
   cat("  \n")
   fig_caption <- FigureCaptions[Habitat=="Water Column" & Indicator=="Nekton", FigureCaption]
-  subchunkify(cat("![", fig_caption, "](", plot_loc,")"))
+  SEACAR::subchunkify(cat("![", fig_caption, "](", plot_loc,")"))
   # cat("![](", plot_loc,")")
   cat("  \n")
   print(result_table)
@@ -394,7 +376,7 @@ plot_coral_pc_atlas <- function(ma, ma_abrev, lme_plot = lme_plot_pc, coral_pc_p
   # Print plots
   cat("  \n")
   fig_caption <- FigureCaptions[Habitat=="Coral/Coral Reef" & Indicator=="Percent Cover", FigureCaption]
-  subchunkify(cat("![", fig_caption, "](", plot_loc,")"))
+  SEACAR::subchunkify(cat("![", fig_caption, "](", plot_loc,")"))
   # cat("![](", plot_loc,")")
   cat("  \n")
   print(result_table)
@@ -435,7 +417,7 @@ plot_coral_sr_atlas <- function(ma, ma_abrev, MA_Ov_Stats = MA_Ov_Stats_sr, cora
   # Print plots
   cat("  \n")
   fig_caption <- FigureCaptions[Habitat=="Coral/Coral Reef" & Indicator=="Grazers and Reef Dependent Species", FigureCaption]
-  subchunkify(cat("![", fig_caption, "](", plot_loc,")"))
+  SEACAR::subchunkify(cat("![", fig_caption, "](", plot_loc,")"))
   # cat("![](", plot_loc,")")
   cat("  \n")
   print(result_table)
@@ -492,7 +474,7 @@ plot_cw_atlas <- function(ma, ma_abrev, MA_Ov_Stats = "MA_Ov_Stats_cw", MA_Y_Sta
   # Print plots
   cat("  \n")
   fig_caption <- FigureCaptions[Habitat=="Coastal Wetlands" & Indicator=="Species Composition", FigureCaption]
-  subchunkify(cat("![", fig_caption, "](", plot_loc,")"))
+  SEACAR::subchunkify(cat("![", fig_caption, "](", plot_loc,")"))
   cat("  \n")
   print(result_table)
   cat("  \n")
@@ -521,7 +503,7 @@ plot_oyster_atlas <- function(ma, ma_abrev, oyster_includes, oy_figs){
       cat(glue("### {type}"))
       cat("  \n")
       plot_loc <- oy_file_loc(ma_abrev, p, type)
-      subchunkify(cat("![", fig_caption, "](", plot_loc,")"))
+      SEACAR::subchunkify(cat("![", fig_caption, "](", plot_loc,")"))
       # cat("![](", plot_loc,")")
       cat("  \n")
       # Oyster tables
