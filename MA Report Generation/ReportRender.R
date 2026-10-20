@@ -31,13 +31,27 @@ library(SEACAR)
 wd <- dirname(getActiveDocumentContext()$path)
 setwd(wd)
 
+# Determine whether to provide sample location maps
+show_sample_location_maps <- FALSE
+
+# Determine whether to display status and trends tables in reports
+show_status_and_trends_tables <- TRUE
+
+# Determine whether to display descriptive snippets for each habitat
+show_descriptive_snippets <- TRUE
+
+# Determine whether to display indicator-level descriptive snippets (nutrients, water clarity, etc.)
+show_descriptive_indicator_snippets <- TRUE
+
 #### CREATE TABLE DESCRIPTION OUTPUT ####
 # Combines all habitat-specific table descriptions into a final file for use in these reports and on SEACAR Atlas
 # Requires the Atlas-Tools repository be in the same root folder as SEACAR_Trend_Analyses repository
-# source("../../Atlas-Tools/tableDescriptions/run.R")
+source("../../Atlas-Tools/tableDescriptions/run.R", echo = T, chdir = T)
 #### RUN MODEL AGGREGATION PROCEDURES ####
-# source("../../Atlas-Tools/ModelAggregation/run.R")
-# The output from model aggregation procedures is loaded within ReportTemplate.Rmd
+if(show_status_and_trends_tables){
+  source("../../Atlas-Tools/ModelAggregation/run.R", echo = T, chdir = T)
+}
+# The output from model aggregation procedures is loaded within ReportTemplate.Rmd in Status and Trends tables
 
 # Load in the newly created table description output
 td_files <- list.files("../../Atlas-Tools/tableDescriptions/output/", full=T, pattern = ".xlsx")
@@ -49,6 +63,9 @@ rm(td_files)
 
 ## Render AtlasReports? - provide overview in similar format to Atlas - helpful for review
 render_atlas_reports <- FALSE
+
+## Display banners? - choose whether to display banner images in introduction
+display_banners <- TRUE
 
 # Create folder paths if they don't yet exist
 folder_paths <- c("output", "output/Reports", "output/maps", "output/Reports/HTML", 
@@ -168,7 +185,6 @@ get_plot <- function(ma_abrev, parameter, type, pid){
   areaID <- MA_All[Abbreviation==ma_abrev, AreaID]
   pvID <- websiteParams[SamplingFrequency==type & Website==1 & 
                           ParameterName==parameter, ParameterVisId]
-  
   # Determine which file lsit to search through
   if(type=="Discrete"){
     pattern <- paste0("output/WQ_Discrete/ma-", areaID, "-pv-", pvID, ".png")
@@ -195,74 +211,255 @@ species_data[["Nekton"]] <- fread(nekton_file_in, sep='|', na.strings = "NULL")
 
 # Function to return species lists at end of report
 species_available <- function(ma){
-  all_sp <- c() # Collect all available species for each ma
-  used_in_analysis <- list() # Collect which species are included in analysis
+  species_by_habitat <- list() # Collect species by habitat, separating into used in analysis or not
   species_reject <- c("Vallisneria americana", "Najas guadalupensis",
                       "Hydrilla verticillata", "Potamogeton pusillus",
                       "Zannichellia palustris")
+  cols_to_group <- c("SpeciesID", "CommonIdentifier", "SpeciesName", "GenusName", 
+                     "Group1ID", "SpeciesGroup1", "Group2ID", "SpeciesGroup2")
+  
   if(in_sav){
     dataFile <- species_data[["SAV"]] %>% filter(str_detect(ManagedAreaName, ma))
-    all_sp <- c(all_sp, unique(dataFile$CommonIdentifier))
-    # Species list of species used in analysis
-    sp <- unique(dataFile %>% 
-                   filter(SpeciesGroup1 %in% c("Seagrass", "Macroalgae", "Total SAV"),
-                          !CommonIdentifier %in% species_reject) %>% 
-                   pull(CommonIdentifier))
-    used_in_analysis[["Submerged Aquatic Vegetation"]] <- sp
+    # List of species used in analysis
+    sp_used_in_analysis <- dataFile %>% 
+      filter(str_detect(ManagedAreaName, ma),
+             SpeciesGroup1 %in% c("Seagrass", "Macroalgae", "Total SAV"),
+             !CommonIdentifier %in% species_reject) %>% 
+      pull(CommonIdentifier) %>% 
+      unique()
+    # Create grouping of all species and their respective groups
+    species_grouped <- dataFile %>%
+      group_by(across(all_of(cols_to_group))) %>%
+      reframe(analysis = NA_character_) %>% 
+      mutate(used_in_analysis = CommonIdentifier %in% sp_used_in_analysis,
+             SpeciesGroup2 = as.character(SpeciesGroup2))
+    # Return data table
+    species_by_habitat[["Submerged Aquatic Vegetation"]] <- species_grouped
   }
   
   if(in_coral){
     dataFile <- species_data[["Coral"]] %>% filter(str_detect(ManagedAreaName, ma))
-    all_sp <- c(all_sp, unique(dataFile$CommonIdentifier))
-    sp1 <- unique(dataFile %>% filter(SpeciesGroup1 %in% c("Grazers and reef dependent species", "Reef fish"),
-                                      ParameterName=="Presence/Absence") %>% pull(CommonIdentifier))
-    sp2 <- unique(dataFile %>% filter(SpeciesGroup1 %in% c("Octocorals","Milleporans","Scleractinians"),
-                                      ParameterName=="Percent Cover") %>% pull(CommonIdentifier))
-    used_in_analysis[["Coral Reef - Species Richness"]] <- sp1
-    used_in_analysis[["Coral Reef - Percent Cover"]] <- sp2
+    # List of species used in analysis (species richness)
+    sp_used_in_analysis_sr <- dataFile %>% 
+      filter(str_detect(ManagedAreaName, ma),
+             SpeciesGroup1 %in% c("Grazers and reef dependent species", "Reef fish"),
+             ParameterName=="Presence/Absence") %>% 
+      pull(CommonIdentifier) %>% 
+      unique()
+    # List of species used in analysis (percent cover)
+    sp_used_in_analysis_pc <- dataFile %>% 
+      filter(str_detect(ManagedAreaName, ma),
+             SpeciesGroup1 %in% c("Octocorals","Milleporans","Scleractinians"),
+             ParameterName=="Percent Cover") %>% 
+      pull(CommonIdentifier) %>%
+      unique()
+    # Create grouping of all species and their respective groups
+    species_grouped <- dataFile %>%
+      group_by(across(all_of(cols_to_group))) %>%
+      reframe() %>% 
+      mutate(
+        used_in_analysis = CommonIdentifier %in% c(sp_used_in_analysis_sr, 
+                                                   sp_used_in_analysis_pc),
+        analysis = case_when(
+          CommonIdentifier %in% sp_used_in_analysis_sr ~ "Species Richness",
+          CommonIdentifier %in% sp_used_in_analysis_pc ~ "Percent Cover",
+          TRUE ~ NA_character_
+        ),
+        SpeciesGroup2 = as.character(SpeciesGroup2)
+      )
+    # Return data table
+    species_by_habitat[["Coral Reef"]] <- species_grouped
   }
   
   if(in_cw){
     dataFile <- species_data[["CW"]] %>% filter(str_detect(ManagedAreaName, ma))
-    all_sp <- c(all_sp, unique(dataFile$CommonIdentifier))
-    sp <- unique(dataFile %>% filter(SpeciesGroup1 %in% c("Marsh","Marsh succulents",
-                                                          "Mangroves and associates")) %>% 
-                   pull(CommonIdentifier))
-    used_in_analysis[["Coastal Wetlands"]] <- sp
+    # List of species used in analysis
+    sp_used_in_analysis <- dataFile %>% 
+      filter(str_detect(ManagedAreaName, ma),
+             SpeciesGroup1 %in% c("Marsh", "Marsh succulents", "Mangroves and associates")) %>% 
+      pull(CommonIdentifier) %>% 
+      unique()
+    # Create grouping of all species and their respective groups
+    species_grouped <- dataFile %>%
+      group_by(across(all_of(cols_to_group))) %>%
+      reframe(analysis = NA_character_) %>% 
+      mutate(used_in_analysis = CommonIdentifier %in% sp_used_in_analysis,
+             SpeciesGroup2 = as.character(SpeciesGroup2))
+    # Save dataframe with all species
+    species_by_habitat[["Coastal Wetlands"]] <- species_grouped
   }
   
   if(in_nekton){
     dataFile <- species_data[["Nekton"]] %>% filter(str_detect(ManagedAreaName, ma))
-    all_sp <- c(all_sp, unique(dataFile$CommonIdentifier))
-    sp <- unique(dataFile %>% filter(!is.na(SpeciesGroup2)) %>% pull(CommonIdentifier))
-    used_in_analysis[["Nekton"]] <- sp
+    # List of species used in analysis
+    sp_used_in_analysis <- dataFile %>% 
+      filter(str_detect(ManagedAreaName, ma) & !is.na(SpeciesGroup2)) %>% 
+      pull(CommonIdentifier) %>% 
+      unique()
+    
+    # Create grouping of all species and their respective groups
+    species_grouped <- dataFile %>%
+      group_by(across(all_of(cols_to_group))) %>%
+      reframe(analysis = NA_character_) %>% 
+      mutate(used_in_analysis = CommonIdentifier %in% sp_used_in_analysis,
+             SpeciesGroup2 = as.character(SpeciesGroup2))
+    
+    # Save dataframe with all species
+    species_by_habitat[["Nekton"]] <- species_grouped
   }
   
-  all_sp <- sort(unique(all_sp))
-  
-  all_species <- all_sp
   legend_key <- c()
-  for(i in 1:length(names(used_in_analysis))){
-    hab <- names(used_in_analysis)[i]
+  display_species <- list()
+  
+  habs <- names(species_by_habitat)
+  # Analysis-specific symbols
+  analysis_symbols <- data.table(
+    "PDF" = c("\\alpha", "\\beta", "\\gamma", "\\delta", "\\epsilon",
+              "\\zeta", "\\eta", "\\theta", "\\iota", "\\kappa", "\\lambda",
+              "\\mu", "\\nu", "\\xi"),
+    "HTML" = c("&alpha;", "&beta;", "&gamma;", "&delta;", "&epsilon;",
+               "&zeta;", "&eta;", "&theta;", "&iota;", "&kappa;", "&lambda;",
+               "&mu;", "&nu;", "&xi;")
+  )
+  
+  superscript_wrapper <- function(text, report_type){
     if(report_type=="PDF"){
-      all_species <- ifelse(all_species %in% used_in_analysis[[i]], paste0(all_species, "\\textsuperscript{", i, "}"), all_species)
+      paste0("\\textsuperscript{", text, "}")
     } else {
-      all_species <- ifelse(all_species %in% used_in_analysis[[i]], paste0(all_species, "^", i, "^"), all_species)
+      paste0("<sup>", text, "</sup>")
     }
-    legend_key <- c(legend_key, paste0(i, " - ", hab))
   }
   
-  all_species_m <- matrix(all_species, ncol = 3, byrow=FALSE)
+  for(i in seq_along(habs)){
+    hab <- habs[[i]]
+    
+    all_species <- species_by_habitat[[hab]] %>%
+      ungroup() %>%
+      filter(!is.na(CommonIdentifier), nzchar(CommonIdentifier)) %>%
+      group_by(across(any_of(cols_to_group))) %>%
+      summarise(
+        used_in_analysis = any(used_in_analysis),
+        analyses = list(sort(unique(analysis[!is.na(analysis)]))),
+        .groups = "drop"
+      ) %>%
+      mutate(SpeciesGroup1 = if_else(is.na(SpeciesGroup1), "NA", SpeciesGroup1)) %>%
+      arrange(CommonIdentifier)
+    
+    legend_key <- c(
+      legend_key,
+      paste0(i, " - ", hab)
+    )
+    
+    num_sp_groups_in_habitat <- sort(unique(unlist(all_species$SpeciesGroup1)))
+    num_sp_groups_in_habitat <- num_sp_groups_in_habitat[num_sp_groups_in_habitat!="NA"]
+    
+    if(length(num_sp_groups_in_habitat) > 0){
+      if(length(num_sp_groups_in_habitat) > length(analysis_symbols[[report_type]])){
+        stop(
+          "Only ", length(analysis_symbols[[report_type]]),
+          " analysis symbols are defined, but ", hab, " contains ",
+          length(num_sp_groups_in_habitat), " species groups"
+        )
+      }
+      
+      # Assign one symbol to each named analysis.
+      symbol_lookup <- setNames(
+        analysis_symbols[[report_type]][seq_along(num_sp_groups_in_habitat)],
+        num_sp_groups_in_habitat
+      )
+      
+      if(report_type=="PDF"){
+        symbol_lookup[] <- paste0("$", symbol_lookup, "$") #[] syntax keeps vector names
+      }
+      
+      all_species <- all_species %>%
+        rowwise() %>%
+        mutate(
+          analysis_tag = if_else(SpeciesGroup1=="NA", "", paste0(unname(symbol_lookup[SpeciesGroup1]), collapse = "")),
+          species_tag = superscript_wrapper(paste0(i, analysis_tag), report_type),
+          species_with_tag = paste0(CommonIdentifier, species_tag)
+        ) %>%
+        ungroup()
+      
+      # Add one legend entry per named analysis.
+      legend_key <- c(
+        legend_key,
+        vapply(
+          num_sp_groups_in_habitat,
+          FUN.VALUE = character(1),
+          FUN = function(analysis_name){
+            analysis_symbol <- symbol_lookup[[analysis_name]]
+            paste0(i, superscript_wrapper(analysis_symbol, report_type),
+                   " - ", hab, " - ", analysis_name)
+          }
+        )
+      )
+    } else {
+      # Use alpha consistently for the single analysis
+      symbol <- analysis_symbols[[report_type]][[1]]
+      # Account for LaTeX format and add math operator $
+      symbol_tag <- if(report_type == "PDF"){
+        paste0("$", symbol, "$")
+      } else {
+        symbol
+      }
+      
+      # Apply correct species tags to each species name
+      all_species <- all_species %>%
+        mutate(
+          species_tag = if_else(used_in_analysis, 
+                                superscript_wrapper(paste0(i, symbol_tag), report_type),
+                                superscript_wrapper(as.character(i), report_type)),
+          species_with_tag = paste0(CommonIdentifier, species_tag)
+        )
+      
+      legend_key <- c(
+        legend_key,
+        paste0(i, superscript_wrapper(symbol_tag, report_type),
+               " - ", hab, " - Used in analysis"
+        )
+      )
+    }
+    display_species[[hab]] <- all_species
+  }
   
+  # Unbind all individual habitats into 1 file, allow NA values to be reported
+  display_species_all <- bind_rows(display_species) %>%
+    mutate(SpeciesGroup1 = if_else(is.na(SpeciesGroup1), "NA", SpeciesGroup1))
+  
+  # Show legend key above species list table
   cat("  \n")
-  print(
-    kable(all_species_m, format = ifelse(report_type=="PDF", "latex", "simple"), 
-          escape=F, longtable=T, booktabs=T, linesep="") %>% 
-      kable_styling(latex_options=c("scale_down", "HOLD_position"))
+  cat(paste(unique(legend_key), collapse = "; "))
+  cat("  \n")
+  cat("  \n")
+    
+  display_species_vector <- sort(unlist(display_species_all$species_with_tag, use.names=FALSE))
+  
+  # Pad the vector so matrix() does not recycle species
+  n_cols <- 3
+  n_missing <- (-length(display_species_vector)) %% n_cols
+  
+  if(n_missing > 0){
+    display_species_vector <- c(display_species_vector, rep("", n_missing))
+  }
+  
+  all_species_m <- matrix(
+    display_species_vector,
+    ncol = n_cols,
+    byrow = FALSE
   )
-  cat("  \n")
-  cat(paste(legend_key, collapse = ", "))
-  cat("  \n")
+  
+  if(report_type=="PDF"){
+    print(
+      knitr::kable(all_species_m, format = "latex", escape = F, longtable = T, 
+                   booktabs = T,linesep = "", col.names = rep("", n_cols)) %>%
+        kableExtra::kable_styling(latex_options = "repeat_header")
+    )
+  } else {
+    print(
+      knitr::kable(all_species_m, format = "html", escape = F, col.names = rep("", n_cols))
+    )
+  }
 }
 
 ##### THE LATEST `SEACAR_Metadata.xlsx` is needed as an input!!!! -----
@@ -298,8 +495,15 @@ FigureCaptions <- SEACAR::FigureCaptions %>%
     vectorize = FALSE
   )) %>% as.data.table()
 
+# Load in ManagedAreaName introductory text
+# Save from here: https://floridadep.sharepoint.com/:x:/g/fco/seacar/IQBti7CxRiMiS5ATQoRWaV8VAcvBjKAh3NDD2eVLnpXrFyY?e=9wBzKM
+# into /data/ subfolder
+ma_intros <- openxlsx::read.xlsx("data/Atlas_ManagedArea_IntroductionText.xlsx")
+
 # Choose which type of report to render, or render both
 report_types <- c("PDF", "HTML")
+# report_types <- c("HTML")
+# report_types <- c("PDF")
 
 # iterate through every possible MA
 # apply checks for coral, sav, etc. within .Rmd doc
@@ -308,6 +512,7 @@ for(i in seq_len(nrow(MA_All))){
   ma <- MA_All[i, ]$ManagedAreaName
   ma_short <- MA_All[i, ]$ShortName
   ma_abrev <- MA_All[i, ]$Abbreviation
+  if(ma_abrev != "KJCAP") next
   # perform checks for habitats in each MA
   # Check which habitats to include in each MA
   in_sav <- ma %in% sav_managed_areas

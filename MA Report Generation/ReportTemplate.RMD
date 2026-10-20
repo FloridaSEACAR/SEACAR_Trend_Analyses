@@ -3,16 +3,16 @@ date: "Last compiled on `r format(Sys.time(), '%d %B, %Y')`"
 output:
   word_document:
     toc: TRUE
-    toc_depth: 3
+    toc_depth: 4
   html_document:
     toc: TRUE
     toc_float: TRUE
-    toc_depth: 3
+    toc_depth: 4
     dev: png
     keep_md: yes
   pdf_document:
     toc: TRUE
-    toc_depth: 3
+    toc_depth: 4
     dev: png
     extra_dependencies: ["longtable", "float"]
     keep_md: yes
@@ -41,6 +41,9 @@ csl: "nature.csl"
 header-includes:
   \usepackage{float}
   \floatplacement{figure}{H}
+  \usepackage[utf8]{inputenc}
+  \DeclareUnicodeCharacter{2264}{\ensuremath{\le}}
+  \DeclareUnicodeCharacter{2265}{\ensuremath{\ge}}
 ---
 
 ```{r libraries, message=FALSE, warning=FALSE, echo=FALSE}
@@ -66,18 +69,102 @@ bib <- read.bibtex("seacar_bibs_2024-12-17.bib")
 
 ```
 
-```{r descriptive snippet, results='asis'}
-# Intro snippet containing funding statement
-cat(knitr::knit_child('snippets/funding.Rmd', quiet=TRUE))
+```{r introduction, warning=FALSE, results='asis', eval=TRUE}
+# Determine format type for proper display of tables
+format_type <- ifelse(report_type=="HTML", "html", "latex")
+
+# Locate correct banner file
+ma_banner <- paste0(
+  "https://dev.florida-seacar.org/images/bgs/ma-", 
+  as.character(MA_All[ManagedAreaName==ma, AreaID]), 
+  ".jpg")
+
+# BADGES
+# Set badge size for display at top of report (all of them together)
+badge_size_percentage <- 50
+# Create data frame which will be used to construct PDF/HTML versions of tables to display badges
+badge_info <- data.table(
+  "HabitatShortName" = c("sav", "wc", "coral", "oyster", "cw"),
+  "HabitatName" = c("Submerged Aquatic Vegetation", "Water Column", "Coral Reef", "Oyster Reef", "Coastal Wetlands"),
+  "image_loc" = c(
+    "data/icons/sav_badge.png", "data/icons/wc_badge.png", 
+    "data/icons/coral_badge.png", "data/icons/oyster_badge.png", "data/icons/cw_badge.png")
+)
+# Function to create badge table with PDF or HTML capability
+make_badge_table <- function(report_type, caption = TRUE, badge_size_percentage = 50){
+  badge_info %>% 
+    mutate(
+      image_loc = case_when(
+        report_type=="HTML" & caption ~ paste0("![", HabitatName, "](", image_loc, "){width=", badge_size_percentage, "%}"),
+        report_type=="HTML" & !caption ~ paste0("![](", image_loc, "){width=", badge_size_percentage, "%}"),
+        report_type=="PDF" & caption ~ paste0(
+          "
+          \\begin{minipage}[t]{0.18\\textwidth}
+          \\centering
+          \\includegraphics[width=\\textwidth]{", image_loc, "}\\\\
+          \\vspace{2mm}
+          \\small ", HabitatName, 
+          "\\end{minipage}"
+        ),
+        report_type=="PDF" & !caption ~ paste0("\\includegraphics[width=0.18\\textwidth]{", image_loc, "}")
+      )
+    ) %>% 
+    select(HabitatShortName, image_loc) %>% 
+    pivot_wider(names_from = HabitatShortName, values_from = image_loc)
+}
+
+# Function to center badges
+center_badge <- function(text, report_type){
+  if(report_type=="HTML"){
+    cat(glue('<center>\n\n{text}\n\n</center>'))
+  } else if(report_type=="PDF"){
+    cat(paste0("\\begin{center}", text, "\\end{center}"))
+  }
+}
+
+# BEGIN REPORT
+cat("\\newpage")
+cat("# Introduction")
+
+if(display_banners & length(ma_banner)>0){
+  cat("  \n")
+  subchunkify(cat("![](", ma_banner,")"))
+  cat("  \n")
+}
+
 cat("  \n")
-# Descriptive snippet to provide VQ & threshold filtering info
-cat(knitr::knit_child('snippets/snippet.Rmd', quiet=TRUE))
+cat(glue("<p>SEACAR is a collaborative, stakeholder-driven project which brings together data from inventory and monitoring programs and research studies and provides this data to the public in a standardized and easily accessible format. The following habitats are available within SEACAR: </p>"))
+
+# Display badges in introduction (PDF and HTML)
+cat(
+  SEACAR::subchunkify(
+    knitr::kable(
+      make_badge_table(report_type, caption = TRUE, badge_size_percentage), 
+      format = format_type, 
+      col.names = NULL,
+      escape = FALSE,
+      align = "c",
+      booktabs = TRUE
+    ) %>% 
+    kable_styling(bootstrap_options = "condensed", 
+                  latex_options = "HOLD_position")
+  )
+)
+cat("  \n")
+
+cat(glue("<p>The purpose of this report is to provide an overview of the status and trends within *{ma}*, based on data available through SEACAR.</p>"))
+intro_snippet <- ma_intros %>% filter(ManagedAreaName==ma) %>% pull(IntroText)
+cat(intro_snippet)
 cat("  \n")
 ```
 
-```{r status_and_trends, results='asis', eval=FALSE}
+```{r status_and_trends, results = 'asis', eval = show_status_and_trends_tables}
+# Currently only compatible with HTML format
 cat("\\newpage")
 cat("# Status and Trends")
+cat("  \n")
+cat("The summary table provides an overview of the status and trends analyses results for the habitats and indicators within this managed area. The indicators selected were identified by stakeholders as meaningful measures to assess the status of our estuarine managed areas.")
+cat("  \n")
 # Read in final trend statements excel file
 trends <- openxlsx::read.xlsx("../../Atlas-Tools/ModelAggregation/output/TrendStatusText_Final.xlsx") %>% 
   filter(Website==1)
@@ -97,22 +184,43 @@ apply_icons <- function(trend){
 }
 # Apply function
 trends <- trends %>% rowwise() %>% mutate(icon = apply_icons(Trend))
-# Determine format type for proper display
-format_type <- ifelse(report_type=="HTML", "simple", "latex")
 # Select relevant status and trends info for each MA
 status_and_trends_table <- trends %>% filter(ManagedAreaName==ma) %>%
   select(-c("ManagedAreaName","AreaID","SufficientData", "Trend", "Website", "Region"))
 status_and_trends_table$Trend <- ""
 status_and_trends_table$Text <- gsub("%", "\\\\%", status_and_trends_table$Text)
+
+if(report_type=="PDF"){
+  status_and_trends_table <- status_and_trends_table %>%
+    mutate(Text = gsub(
+      "<p>|</p>", 
+      "", 
+      stringr::str_wrap(Text, 60) %>% linebreak(align = "l")
+    ))
+}
+
+status_and_trends_table <- status_and_trends_table %>%
+  rename(`State of the Indicator` = Text)
+
 # Create kable object with trend icons
 kable <- status_and_trends_table %>% 
   select(-c(icon)) %>%
-  kable(format = format_type, escape = F) %>%
+  kable(format = format_type, escape = F, booktabs = T, linesep = "\\hline") %>%
   kableExtra::kable_styling(latex_options = c("scale_down", "HOLD_position")) %>%
   column_spec(4, image = spec_image(status_and_trends_table$icon, 100, 100))
+
+if(report_type=="PDF"){
+  kable <- kable %>%
+    column_spec(4, width = "3cm", latex_valign = "m")
+  # kable <- kable %>%
+  #   column_spec(4, width = "3cm") %>%
+  #   row_spec(1:nrow(status_and_trends_table), hline_after = TRUE)
+}
+
 cat("  \n")
 cat(SEACAR::subchunkify(kable))
-cat("  \n")
+cat("  \n")  
+
 ```
 
 ```{r plottingWQDiscrete, warning=FALSE, fig.height=9, fig.width=10, results="asis", eval=TRUE}
@@ -121,51 +229,86 @@ if(in_discrete){
   p_inc <- unique(ma_df$Parameter)
   d_inc <- unique(ma_df$Depth)
   a_inc <- unique(ma_df$Activity)
+  # Determine order of indicator/parameter display
+  param_order <- websiteParams[SamplingFrequency=="Discrete" & ParameterShort %in% p_inc, ]
   
   cat("\\newpage")
-  # Paste in descriptive snippet about water column
-  cat(knitr::knit_child('snippets/water_column_snippet.Rmd', quiet=TRUE))
-  cat("  \n\n")
+  cat("  \n")
+  cat("# Water Column")
+  cat("  \n")
   
-  cat("# Water Quality - Discrete  \n")
+  # Add water column badge
+  center_badge(
+    paste(
+      make_badge_table(
+        report_type, 
+        caption = FALSE, 
+        badge_size_percentage = if(knitr::is_html_output()) 20 else badge_size_percentage
+      )[["wc"]]),
+    report_type
+  )
+  
+  # Paste in descriptive snippet about water column
+  if(show_descriptive_snippets){
+    cat(knitr::knit_child('snippets/WC_Descriptive_Snippet.Rmd', quiet=TRUE))
+    cat("  \n")    
+  }
+  
+  cat("  \n")
+  cat("For more information on water column analysis methods, see the [Analysis Methods](#am_wc) section.")
+  cat("  \n")
+  cat("  \n")
+  
+  cat("## Water Quality - Discrete  \n")
   cat("  \n")
   show_disc_programs(ma, data)
   cat("  \n")
   
-  for(param in p_inc){
-    # load overall discrete data
-    data <- as.data.frame(load_data_table(param, table="data"))
-    
-    # getting full parameter & unit names
-    parameter <- unique(data$ParameterName)
-    unit <- unique(data$ParameterUnits)
-    
+  for(ind_short in unique(param_order$IndicatorShort)){
+    indicator <- param_order[IndicatorShort==ind_short, unique(IndicatorName)]
+    cat(glue("### {indicator}"))
     cat("  \n")
-    subtitle <- glue("## {parameter} - Discrete")
-    cat(subtitle, "\n\n")
-    
-    # Discrete parameter descriptions
-    # Exception to include TN calculation logic
-    # Loads external .Rmd for ease of formatting
-    if(param %in% snippetParams){
+    # Show indicator level descriptive snippets
+    if(show_descriptive_snippets && show_descriptive_indicator_snippets){
+      SEACAR::subchunkify(cat(knitr::knit_child(glue('snippets/WC_{ind_short}_Descriptive_Snippet.Rmd'), quiet=TRUE)))
       cat("  \n")
-      # cat(discSnippets[ParameterShort==param, Snippet])
-      # cat("  \n")
-      if(param=="TN"){
-        cat(knitr::knit_child('snippets/TN_Calculation_Description.Rmd', quiet=TRUE))
-        cat("  \n")
-        cat("\\newpage")
-        cat("  \n")
-      }
     }
-    
-    ## Show Discrete plots ##
-    # Plot
-    plot_trendlines(param = parameter, ma = ma, ma_abrev = ma_abrev, report_type = report_type)
-    # Map
-    plot_discrete_maps(ma_abrev = ma_abrev, param_short = param, param_label = parameter, map_files = discrete_map_locs)
-    # Program Table
-    disc_program_tables(ma = ma, data = data)
+    # Loop through available parameters
+    for(param in param_order[IndicatorShort==ind_short, unique(ParameterShort)]){
+      # load overall discrete data
+      data <- as.data.frame(load_data_table(param, table="data"))
+      
+      # getting full parameter & unit names
+      parameter <- unique(data$ParameterName)
+      unit <- unique(data$ParameterUnits)
+      
+      cat("  \n")
+      subtitle <- glue("#### {parameter} - Discrete")
+      cat(subtitle, "\n\n")
+      
+      # Discrete parameter descriptions
+      # Exception to include TN calculation logic
+      # Loads external .Rmd for ease of formatting
+      if(param %in% snippetParams){
+        cat("  \n")
+        if(param=="TN"){
+          cat(knitr::knit_child('snippets/TN_Calculation_Description.Rmd', quiet=TRUE))
+          cat("  \n")
+          cat("\\newpage")
+          cat("  \n")
+        }
+      }
+      
+      ## Show Discrete plots ##
+      # Plot
+      plot_trendlines(param = parameter, ma = ma, ma_abrev = ma_abrev, report_type = report_type)
+      # Map
+      if(show_sample_location_maps){
+        plot_discrete_maps(ma_abrev = ma_abrev, param_short = param, param_label = parameter, map_files = discrete_map_locs)
+      }
+      # Program Table
+      disc_program_tables(ma = ma, data = data)
+    }
   }
 }
 
@@ -174,34 +317,80 @@ if(in_discrete){
 ```{r plottingWQContinuous, warning=FALSE, fig.height=9, fig.width=10, results="asis", eval=TRUE}
 
 if(in_continuous){
-  cat("\\newpage")
-  cat("# Water Quality - Continuous  \n")
   
-  for(i in 1:length(unique(cont_param_df$ParameterShort))){
-    param <- unique(cont_param_df$ParameterShort)[i]
+  cat("\\newpage")
+  cat("## Water Quality - Continuous  \n")
+  
+  # Determine order of indicator/parameter display
+  param_order <- websiteParams[SamplingFrequency=="Continuous" & 
+                                 ParameterShort %in% unique(cont_param_df$ParameterShort), ]
+  
+  cat("  \n")
+  station_count_table(coordinates_df, station_coordinates, ma, ma_abrev, report_type = report_type)
+  cat("  \n")
+  
+  for(ind_short in unique(param_order$IndicatorShort)){
+    indicator <- param_order[IndicatorShort==ind_short, unique(IndicatorName)]
+    cat(glue("### {indicator}"))
+    cat("  \n")
     
-    # run first time only to display stations
-    if (i==1) {
-      station_count_table(coordinates_df, station_coordinates, ma, ma_abrev, report_type = report_type)
+    if(show_descriptive_snippets && show_descriptive_indicator_snippets){
+      SEACAR::subchunkify(cat(knitr::knit_child(glue('snippets/WC_{ind_short}_Descriptive_Snippet.Rmd'), quiet=TRUE)))
       cat("  \n")
     }
     
-    # getting full parameter & unit names
-    parameter <- cont_param_df[ParameterShort == param, unique(ParameterName)]
-    
-    ###########################
-    ### Begin Plotting Cont ###
-    ###########################
-    
-    cat("\\newpage")
-    
-    plot_cont_combined(param = param,
-                       parameter = parameter,
-                       ma = ma,
-                       ma_abrev = ma_abrev,
-                       report_type = report_type)
+    # Loop through available parameters
+    for(param in param_order[IndicatorShort==ind_short, unique(ParameterShort)]){
+      # getting full parameter & unit names
+      parameter <- param_order[ParameterShort == param, unique(ParameterName)]
+      
+      ###########################
+      ### Begin Plotting Cont ###
+      ###########################
+      
+      cat("\\newpage")
+      
+      plot_cont_combined(param = param,
+                         parameter = parameter,
+                         ma = ma,
+                         ma_abrev = ma_abrev,
+                         report_type = report_type)
+    }
   }
 }
+
+```
+
+```{r plottingNekton, warning=FALSE, fig.height=8, fig.width=11, results="asis", eval=TRUE}
+# Get list of available Nekton plots
+nekton_plots <- list.files("../Nekton/output/Figures", pattern = ".png", full=T)
+nekton_scope_plots <- list.files("../Nekton/output/Nekton_temporal_scope_plots/", pattern = ".jpg", full=T)
+
+if(in_nekton){
+  cat("\\newpage")
+  cat("  \n")
+  cat("## Nekton  \n")
+  cat("  \n")
+  cat("For more information on nekton analysis methods, see the [Analysis Methods](#am_nekton) section.")
+  cat("  \n")
+  
+  # Nekton Scope Plots
+  file_loc <- str_subset(nekton_scope_plots, paste0("_",ma_abrev,"_"))
+  if(length(file_loc)==0) return()
+  caption <- paste0("Maps showing the temporal scope of nekton sampling sites within the boundaries of *", ma, "* by program name.")
+  cat("  \n")
+  subchunkify(cat("![", caption, "](", file_loc,")"))
+  cat("  \n")
+  cat("Click [here](https://github.com/FloridaSEACAR/SEACAR_Trend_Analyses/tree/main/Nekton/output/Nekton_temporal_scope_plots) to view 
+      spatio-temporal plots on GitHub.")
+  cat("  \n")
+  
+  # Nekton plots
+  cat("  \n")
+  plot_nekton(ma, ma_abrev, MA_Y_Stats_nek, MA_Ov_Stats_nek, nekton_plots, report_type = report_type)
+  cat("  \n")
+}
+
 
 ```
 
@@ -213,10 +402,40 @@ if(in_sav){
   cat("\\newpage")
   cat("# Submerged Aquatic Vegetation  \n")
   cat("  \n")
-  # Paste in descriptive snippet about water column
-  cat(knitr::knit_child('snippets/sav_snippet.Rmd', quiet=TRUE))
+  
+  # Add sav badge
+  center_badge(
+    paste(
+      make_badge_table(
+        report_type, 
+        caption = FALSE, 
+        badge_size_percentage = if(knitr::is_html_output()) 20 else badge_size_percentage
+      )[["sav"]]),
+    report_type
+  )
   cat("  \n")
-  sav_scope_plots(ma, ma_abrev, sav_scope_locs)
+  
+  # Paste in descriptive snippet about SAV
+  if(show_descriptive_snippets){
+    cat("  \n")
+    cat(knitr::knit_child('snippets/SAV_Descriptive_Snippet.Rmd', quiet=TRUE))
+    cat("  \n")
+  }
+  
+  cat("  \n")
+  cat("For more information on submerged aquatic vegetation analysis methods, see the [Analysis Methods](#am_sav) section.")
+  cat("  \n")
+  
+  # SAV Scope Plots
+  file_loc <- str_subset(sav_scope_locs, paste0("_",ma_abrev,"_"))
+  if(length(file_loc)==0) return()
+  caption <- paste0("Maps showing the temporal scope of submerged aquatic vegetation sampling sites within the boundaries of *", ma, "* by program name.")
+  cat("  \n")
+  subchunkify(cat("![", caption, "](", file_loc,")"))
+  cat("  \n")
+  cat("Click [here](https://github.com/FloridaSEACAR/SEACAR_Trend_Analyses/tree/main/SAV/output/SAV_temporal_scope_plots) to view 
+      spatio-temporal plots on GitHub.")
+  cat("  \n")
   cat("  \n")
 }
 
@@ -258,39 +477,60 @@ if(in_sav){
 
 ```
 
-```{r plottingNekton, warning=FALSE, fig.height=8, fig.width=11, results="asis", eval=TRUE}
-# Get list of available Nekton plots
-nekton_plots <- list.files("../Nekton/output/Figures", pattern = ".png", full.names=TRUE)
-
-if(in_nekton){
-  cat("\\newpage")
-  cat("  \n")
-  cat("# Nekton  \n")
-  cat("  \n")
-  plot_nekton(ma, ma_abrev, MA_Y_Stats_nek, MA_Ov_Stats_nek, nekton_plots, report_type = report_type)
-  cat("  \n")
-  
-}
-
-
-```
-
 ```{r plottingCoral, warning=FALSE, fig.height=6, fig.width=8, results="asis", eval=TRUE}
 # Get list of available Coral plots (spec. richness & PC)
 coral_pc_plots <- list.files("../Coral/output/PercentCover/Figures", pattern = ".png", full.names=TRUE)
 coral_sr_plots <- list.files("../Coral/output/SpeciesRichness/Figures", pattern = ".png", full.names=TRUE)
+coral_scope_plots <- list.files("../Coral/output/Coral_temporal_scope_plots/", pattern = ".jpg", full=T)
 
 if(ma %in% coral_pc_MA_Include | ma %in% coral_sr_MA_Include){
   cat("\\newpage")
   cat("  \n")
   cat("# Coral Reef \n")
+  
+  # Add coral badge
+  center_badge(
+    paste(
+      make_badge_table(
+        report_type, 
+        caption = FALSE, 
+        badge_size_percentage = if(knitr::is_html_output()) 20 else badge_size_percentage
+      )[["coral"]]),
+    report_type
+  )
   cat("  \n")
+  
+  # Paste in descriptive snippet about coral reef
+  if(show_descriptive_snippets){
+    cat("  \n")
+    cat(knitr::knit_child('snippets/Coral_Descriptive_Snippet.Rmd', quiet=TRUE))
+    cat("  \n")    
+  }
+  
+  cat("  \n")
+  cat("For more information on coral reef analysis methods, see the [Analysis Methods](#am_coral) section.")
+  cat("  \n")
+  
+  # Coral Scope Plots
+  file_loc <- str_subset(coral_scope_plots, paste0("_",ma_abrev,"_"))
+  if(length(file_loc)==0) return()
+  caption <- paste0("Maps showing the temporal scope of coral sampling sites within the boundaries of *", ma, "* by program name.")
+  cat("  \n")
+  subchunkify(cat("![", caption, "](", file_loc,")"))
+  cat("  \n")
+  cat("Click [here](https://github.com/FloridaSEACAR/SEACAR_Trend_Analyses/tree/main/Coral/output/Coral_temporal_scope_plots) to view 
+      spatio-temporal plots on GitHub.")
+  cat("  \n")
+  
+  # Coral plots (percent cover)
   if(ma %in% coral_pc_MA_Include){
     cat("  \n")
     cat("**Percent Cover**")
     plot_coral_pc(ma, ma_abrev, lme_plot_pc, coral_pc_plots, report_type = report_type)
     cat("  \n")
   }
+  
+  # Coral plots (species richness)
   if(ma %in% coral_sr_MA_Include){
     cat("**Species Richness**")
     plot_coral_sr(ma, ma_abrev, MA_Ov_Stats_sr, coral_sr_plots, report_type = report_type)
@@ -303,22 +543,79 @@ if(ma %in% coral_pc_MA_Include | ma %in% coral_sr_MA_Include){
 ```{r plottingcoastalwetlands, warning=FALSE, fig.height=6, fig.width=8, results="asis", eval=TRUE}
 # Get list of available CW plots
 cw_plots <- list.files("../Coastal_Wetlands/output/Figures", pattern = ".png", full.names=TRUE)
+cw_scope_plots <- list.files("../Coastal_Wetlands/output/CW_temporal_scope_plots/", pattern = ".jpg", full=T)
 
 if(in_cw){
   cat("\\newpage")
   cat("  \n")
   cat("# Coastal Wetlands  \n")
+  
+  # Add cw badge
+  center_badge(
+    paste(
+      make_badge_table(
+        report_type, 
+        caption = FALSE, 
+        badge_size_percentage = if(knitr::is_html_output()) 20 else badge_size_percentage
+      )[["cw"]]),
+    report_type
+  )
+  
+  # Paste in coastal wetlands descriptive snippet
+  if(show_descriptive_snippets){
+    cat("  \n")
+    cat(knitr::knit_child('snippets/CW_Descriptive_Snippet.Rmd', quiet=TRUE))
+    cat("  \n")
+  }
+  
+  cat("  \n")
+  cat("For more information on coastal wetlands analysis methods, see the [Analysis Methods](#am_cw) section.")
+  cat("  \n")
+  
+  # CW Scope Plots
+  file_loc <- str_subset(cw_scope_plots, paste0("_",ma_abrev,"_"))
+  if(length(file_loc)==0) return()
+  caption <- paste0("Maps showing the temporal scope of coastal wetlands sampling sites within the boundaries of *", ma, "* by program name.")
+  cat("  \n")
+  subchunkify(cat("![", caption, "](", file_loc,")"))
+  cat("  \n")
+  cat("Click [here](https://github.com/FloridaSEACAR/SEACAR_Trend_Analyses/tree/main/Coastal_Wetlands/output/CW_temporal_scope_plots) to view 
+      spatio-temporal plots on GitHub.")
+  cat("  \n")
+  
   plot_cw(ma, ma_abrev, MA_Ov_Stats_cw, MA_Y_Stats_cw, cw_plots, report_type = report_type)
+  cat("  \n")
   cat("  \n")
 }
 
 ```
 
-
 ```{r plottingOyster, warning=FALSE, fig.height=8, fig.width=11, results="asis", eval=TRUE}
 if(in_oyster){
   cat("  \n")
-  cat("# Oyster  \n")
+  cat("# Oyster Reef  \n")
+  
+  # Add oyster badge
+  center_badge(
+    paste(
+      make_badge_table(
+        report_type, 
+        caption = FALSE, 
+        badge_size_percentage = if(knitr::is_html_output()) 20 else badge_size_percentage
+      )[["oyster"]]),
+    report_type
+  )
+  
+  # Paste in oyster reef descriptive snippet
+  if(show_descriptive_snippets){
+    cat("  \n")
+    cat(knitr::knit_child('snippets/Oyster_Descriptive_Snippet.Rmd', quiet=TRUE))
+    cat("  \n")
+  }
+  
+  cat("  \n")
+  cat("For more information on oyster reef analysis methods, see the [Analysis Methods](#am_oyster) section.")
+  cat("  \n")
   
   # Oyster scope plots
   oy_scope_plots <- list.files("../Oyster/output/Oyster_temporal_scope_plots/", 
@@ -359,13 +656,53 @@ if(in_sav | in_coral | in_cw | in_nekton){
 }
 ```
 
+```{r descriptive snippet, results='asis'}
+# Descriptive snippet to provide VQ & threshold filtering info
+cat(knitr::knit_child('snippets/Threshold_VQ_Snippet.rmd', quiet=TRUE))
+cat("  \n")
+```
+
+```{r analysis methods, results = 'asis'}
+# Add coral when new text is available
+cat(glue("# Analysis Methods"))
+
+if(in_discrete | in_continuous | in_nekton){
+  cat(knitr::knit_child('snippets/WC_AnalysisMethods.Rmd', quiet=TRUE))
+  cat("  \n")
+}
+
+if(in_sav){
+  cat(knitr::knit_child('snippets/SAV_AnalysisMethods.Rmd', quiet=TRUE))
+  cat("  \n")
+}
+
+if(in_cw){
+  cat(knitr::knit_child('snippets/CW_AnalysisMethods.Rmd', quiet=TRUE))
+  cat("  \n")
+}
+
+if(in_oyster){
+  cat(knitr::knit_child('snippets/Oyster_AnalysisMethods.Rmd', quiet=TRUE))
+  cat("  \n")
+}
+
+if(in_coral){
+  cat(knitr::knit_child('snippets/Coral_AnalysisMethods.Rmd', quiet=TRUE))
+  cat("  \n")
+}
+
+```
+
+```{r funding, echo=FALSE, message=FALSE, results='asis'}
+# Intro snippet containing funding statement
+cat(knitr::knit_child('snippets/funding.Rmd', quiet=TRUE))
+cat("  \n")
+```
+
 ```{r bibliography, echo=FALSE, message=FALSE, results='asis'}
 cat("\\newpage")
 cat("# References")
 cat("  \n")
-
 write.bibtex(file = "seacar_bibs_2024-12-17_copy.bib", append=FALSE, biblatex=TRUE)
-
 cat("  \n")
-
 ```
