@@ -1,0 +1,24 @@
+---
+title: "Oyster_Descriptive_Snippet"
+output: html_document
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+Oyster reefs are living, growing scaffolds of biodiversity that take
+shape over many years as generations of oysters settle in the same
+location, growing upward and outward with the accumulation of oyster
+shells and sediments. Many oyster reefs have survived for [centuries or
+longer](https://doi.org/10.1130/G50778.1) while sheltering and
+nourishing over 100 different species that offer benefits to the
+ecosystem as well as local economies. The reef’s structure protects
+shorelines from erosion caused by onshore wave action and alters estuary
+salinity by impounding freshwater flowing down rivers. In some regions
+of Florida, mangrove forests emerge on oyster reefs, further
+diversifying the ecosystem. As filter feeders, oysters process enormous
+volumes of water and thereby reduce sediment load, improve water clarity
+and remove potentially dangerous microorganisms and chemical toxins. The
+oyster reef habitat is an irreplaceable coastal aquatic resource.
+
+------------------------------------------------------------------------

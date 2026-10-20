@@ -1,0 +1,25 @@
+---
+title: "Coral_Descriptive_Snippet"
+output: html_document
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+Coral reefs are formed by colonies of small invertebrate animals that
+make rigid skeletons of calcium carbonate. Although relatively
+slow-growing, coral reefs can grow quite large and form [dynamic and
+diverse habitat
+structures](https://floridadep.gov/rcp/rcp/content/floridas-coral-reefs)
+for other organisms. Most corals thrive in relatively warm, clear waters
+with low nutrient concentrations, moderate wave action, and currents
+that bring oxygen as well as plankton to the reef. Reef-building, or
+stony, corals depend for their livelihood on a [fragile
+relationship](https://oceanservice.noaa.gov/education/tutorial_corals/coral02_zooxanthellae.html)
+with an alga called zooxanthelle that trades photosynthetic nutrients
+and amino acids for coral-produced carbon dioxide and water. The
+critical symbiosis between corals and algae is easily upset by changes
+in water chemistry and clarity, as well as the characteristics of other
+coral species on the reef.
+
+------------------------------------------------------------------------

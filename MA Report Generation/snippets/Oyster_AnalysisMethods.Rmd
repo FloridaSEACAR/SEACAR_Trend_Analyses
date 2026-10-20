@@ -1,0 +1,43 @@
+---
+title: "Oyster_AnalysisMethods"
+output: html_document
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+## Oyster Reef {#am_oyster}
+
+All of the oyster habitat mixed models treated the reefs sampled as a
+random effect to account for the fact that they usually represented only
+a small subset of the many reefs that could have been chosen within a
+managed area in any given year. These time series analyses were also
+only conducted for managed areas that had five or more years of data for
+a given oyster habitat indicator.
+
+------------------------------------------------------------------------
+
+***Percent Live Analysis***
+
+Trends in oyster percent live were analyzed using a logistic regression
+model to test for changes across the time series. The logistic
+regression slopes were exponentiated to convert them into estimates of
+the yearly change in proportion of live oysters.
+
+***Density Analysis***
+
+Change in oyster density over time was analyzed with a negative binomial
+regression model of oyster density over the years in the time series.
+The regression slopes were transformed using the exponential function to
+provide annual estimates of changes in density in the original units.
+
+***Shell Height Analysis***
+
+Change in oyster size over time was analyzed for two different classes
+of shell heights: 25-75mm and ≥75mm. Each size class time series was
+tested for trends using generalized LME models of shell height by year.
+For several managed areas additional historical information on oyster
+size for a small number of reefs was available from radiocarbon-dated
+samples of dead shells. When available, those data are reported, but
+they were analyzed separately from the live oyster shell measurements
+because of differences in the geographic scope and temporal resolution.

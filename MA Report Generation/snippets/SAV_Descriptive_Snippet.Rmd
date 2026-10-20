@@ -1,0 +1,117 @@
+---
+title: "SAV_Descriptive_Snippet"
+output: html_document
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+**Submerged aquatic vegetation** (*SAV*) refers to plants and plant-like
+macroalgae species that live entirely underwater. The most species-rich
+categories of SAV inhabiting Florida estuaries are benthic macroalgae
+and seagrasses which often grow together in dense beds or meadows that
+carpet the seafloor. Macroalgae include multicellular species of green,
+red and brown algae that typically live attached to the substrate by a
+root-like structure called a holdfast. They grow quickly and tolerate
+relatively high nutrient levels, making them a threat to seagrasses and
+other benthic habitats in areas with poor water quality. One of the most
+common types of macroalgae in Florida SAV communities are species of the
+genus *Caulerpa*.
+
+In contrast, *seagrasses* are grass-like, vascular, flowering plants
+that are attached to the seafloor by extensive root systems.
+*Seagrasses* occur throughout the coastal areas of Florida, including
+protected bays and lagoons as well as deeper offshore waters on the
+continental shelf. Seagrasses thrive on the broad, shallow shelf and
+clear water to produce [two of the most extensive seagrass
+beds](https://floridadep.gov/rcp/seagrass) in continental North America.
+However, [boat propeller
+scarring](https://myfwc.com/media/28953/protect-seagrass-sign.pdf) of
+seagrasses and the underlying seafloor remains a persistent threat to
+the health and stability of submerged aquatic vegetation.
+
+There are seven species of seagrasses found in Florida’s waters: turtle
+grass (*Thalassia testudinum*), shoal grass (*Halodule wrightii*),
+manatee grass (*Syringodium filiforme*), widgeon grass (*Ruppia
+maritima*), stargrass (*Halophila engelmannii*), paddle-grass
+(*Halophila decipiens*), and Johnson’s seagrass *(Halophila ovalis*,
+[formerly *Halophila
+johnsonii*](https://www.fisheries.noaa.gov/southeast/endangered-species-conservation/frequently-asked-questions-removal-johnsons-seagrass)).
+
+**Parameters:**
+
+------------------------------------------------------------------------
+
+**Percent Cover** measures the fraction of an area of seafloor that is
+covered by SAV, usually estimated by surveying multiple small areas of
+seafloor. Percent cover is often estimated for total SAV, individual
+types of vegetation (seagrass, attached algae, drift algae) and
+individual species.
+
+**Frequency of Occurrence** was calculated as the number of times a
+taxon was observed in a year divided by the number of sampling events,
+multiplied by 100. Analysis is conducted at the quadrat level and is
+inclusive of all quadrats (i.e., quadrats evaluated using
+Braun-Blanquet, modified Braun-Blanquet, and percent cover."
+
+**Species:**
+
+------------------------------------------------------------------------
+
+**Turtle grass** (*Thalassia testudinum*) is the largest of the Florida
+seagrasses, with longer, thicker blades and deeper root structures than
+any of the other seagrasses. It is considered an indicator of mature
+seagrass beds.
+
+**Shoal grass** (*Halodule wrightii*) is an early colonizer of vegetated
+areas and usually grows in water too shallow for other species except
+widgeon grass. It can often tolerate larger a wider range of salinity
+than other seagrass species. Shoal grass is characterized by thin, flat
+blades, that are narrower than turtle grass blades.
+
+**Manatee grass** (*Syringodium filiforme*) is easily recognizable
+because its leaves are thin and cylindrical instead of the flat,
+ribbon-like form shared by many other seagrass species. The leaves can
+grow up to half a meter in length. Manatee grass is found growing with
+other seagrasses or by itself in small, dense patches.
+
+**Widgeon grass** (*Ruppia maritima*) grows in both fresh and salt water
+and is widely distributed throughout Florida’s estuaries in less saline
+areas, particularly in inlets along the east coast. This species
+resembles shoal grass in certain environments but can be identified by
+the pointed tips of its leaves.
+
+Three species of *Halophila* are found in Florida - **Star grass**
+(*Halophila engelmannii*), **Paddle grass** (*Halophila decipiens*), and
+**Johnson's seagrass** (*Halophila johnsonii*). These are smaller, more
+fragile seagrasses than other Florida species and are often short-lived.
+They grow along a single long rhizome, with short blades. These species
+are not well-studied, although surveys are underway to define their
+ecological roles.
+
+**Notes:**
+
+------------------------------------------------------------------------
+
+*Star grass*, *Paddle grass*, and *Johnson's seagrass* will be grouped
+together and listed as **Halophila spp.** in the following managed
+areas. This is because several surveys did not specify to the species
+level:
+
+-   Banana River Aquatic Preserve
+
+-   Indian River-Malabar to Vero Beach Aquatic Preserve
+
+-   Indian River-Vero Beach to Ft. Pierce Aquatic Preserve
+
+-   Jensen Beach to Jupiter Inlet Aquatic Preserve
+
+-   Loxahatchee River-Lake Worth Creek Aquatic Preserve
+
+-   Mosquito Lagoon Aquatic Preserve
+
+-   Biscayne Bay Aquatic Preserve
+
+-   Florida Keys National Marine Sanctuary
+
+------------------------------------------------------------------------

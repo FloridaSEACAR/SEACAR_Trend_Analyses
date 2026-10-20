@@ -1,0 +1,23 @@
+---
+title: "CW_Descriptive_Snippet"
+output: html_document
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+Coastal wetlands are critical transition zones between freshwater and
+marine environments that provide essential habitat for fish, crustaceans
+and coastal birds. There are two types of coastal wetlands in Florida:
+[mangrove
+swamps](https://floridadep.gov/rcp/rcp/content/floridas-mangroves)
+harboring one to four mangrove tree species, and [salt
+marshes](https://floridadep.gov/rcp/saltmarshes) dominated by grasses,
+rushes and sedges.
+
+Salt marshes and mangrove forests have extensive root systems that
+enable them to withstand brief storm surges, buffering the impact to
+upland areas. Wetlands also prevent erosion and sediments from washing
+offshore while filtering nutrients, sediments and toxic contaminants.
+
+------------------------------------------------------------------------

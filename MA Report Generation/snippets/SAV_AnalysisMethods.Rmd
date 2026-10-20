@@ -1,0 +1,47 @@
+---
+title: "SAV_AnalysisMethods"
+output: html_document
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+## Submerged Aquatic Vegetation {#am_sav}
+
+Trends in SAV percent cover were analyzed with a linear mixed effects
+(LME) model of percent cover by year. The model treated the locations
+sampled as a random effect to account for the fact that the locations
+sampled in a managed area in any given year represent only a handful of
+the many possible sampling locations. The same model was fit to each
+taxonomic category in the data depending on the duration of the time
+series and the performance of the model itself: species- or genus-level
+analysis of turtle grass (Thalassia testudinum), shoal grass (Halodule
+wrightii), widgeon grass (Ruppia maritima), manatee grass (Syringodium
+filiforme), and Halophila species – stargrass (Halophila engelmannii);
+paddle-grass (Halophila decipiens); and Johnson’s seagrass (Halophila
+ovalis,
+[formerly](https://www.fisheries.noaa.gov/southeast/endangered-species-conservation/frequently-asked-questions-removal-johnsons-seagrass)
+Halophila johnsonii); analysis of macroalgae (categorized by whether the
+algae had become detached and drifted into the monitoring site or was
+growing attached to the substrate); all seagrasses considered together
+(total seagrass), and/or all submerged aquatic vegetation (seagrass and
+macroalgae) considered together (total SAV). The model was run only for
+categories of SAV that were sampled during the growing season from April
+to October and had at least five years of data. A result with a
+significant, positive slope of the LME model indicates that percent
+cover of a given species or group increased over time while a negative
+slope indicates that it decreased.
+
+Trends in water clarity were analyzed using records of chlorophyll a,
+Secchi depth, and turbidity. A seasonal Kendall test to control the
+effect of systematic differences in indicator values between months in
+the trend analysis. For example, turbidity in the rainy season will
+always tend to be higher than turbidity in the dry season. A significant
+result for the seasonal Kendall test indicates a monotonically
+increasing or decreasing trend across all seasons. The trend slope
+estimate is called the Sen slope, or the Theil-Sen estimator, and is
+calculated as the median of the slopes between all pairs of points
+within each season. The Sen intercept was calculated as the median of
+`y - mx` for all year-indicator value pairs in the time series, where
+`y` is the indicator value, `m` is the Sen slope, and `x` is the year
+corresponding with indicator value `y`.

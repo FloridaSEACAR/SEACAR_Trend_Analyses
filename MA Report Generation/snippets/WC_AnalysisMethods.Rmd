@@ -1,0 +1,78 @@
+---
+title: "WC_AnalysisMethods"
+output: html_document
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+## Water Column {#am_wc}
+
+Water column parameters vary in physicochemical stability which, in
+turn, affects sample reliability. Temperature, pH and dissolved oxygen
+generally must be measured in the field within 15 minutes of sample
+collection. Conductivity, salinity, and turbidity may be measured in the
+field or sent to a lab for processing which allows for comparable field
+and laboratory results to be combined for analysis. The accuracy of
+field-probe measurements of chlorophyll a, total suspended solids,
+nitrogen and phosphorus is considered lower than laboratory measurements
+and often not directly comparable; therefore, only laboratory data were
+used in analyses of these parameters.
+
+Nutrients were analyzed from records of total nitrogen and total
+phosphorus. If total nitrogen was not measured directly but instead
+component nitrogen species such as total Kjeldahl nitrogen, nitrate,
+nitrite and ammonia were sampled, total nitrogen was calculated as the
+sum of the components.
+
+Water quality was assessed using monthly averages of the following
+parameters: water temperature (°C), salinity (ppt), dissolved oxygen
+(mg/L), dissolved oxygen saturation (%), and pH (pH units). Water
+clarity was analyzed using monthly averages of chlorophyll a (µg/L),
+Secchi depth (m), total suspended solids (mg/L), turbidity (NTU), and
+colored dissolved organic matter (PCU).
+
+Water column parameters are strongly influenced by the season or month
+when samples are collected. For example, nutrient concentrations and
+water quality and clarity levels change from the dry season to the rainy
+season. Seasonal Kendall tests were applied, where appropriate, to
+account for systematic differences in indicator values between months. A
+significant result for the Seasonal Kendall test indicates a
+monotonically increasing or decreasing trend across seasons or months.
+The trend slope estimate is called the Sen slope, or the Theil-Sen
+estimator, and is calculated as the median of the slopes between all
+pairs of points within each season. The Sen intercept was calculated as
+the median of `y – mx` for all year-indicator value pairs in the time
+series, where `y` is the indicator value, `m` is the Sen slope, and `x`
+is the year corresponding with indicator value `y`.
+
+**Seasonal Kendall-Tau Analysis**
+
+Indicators must have a minimum of five to ten years, depending on the
+habitat, of data within the geographic range of the analysis to be
+included in the analysis. Ten years of data are required for discrete
+parameters, and five years of data are required for continuous
+parameters. If there are insufficient years of data, the number of years
+of data available will be noted and labeled as "insufficient data to
+conduct analysis". Further, for the preferred Seasonal Kendall-Tau test,
+there must be data from at least two months in common across at least
+two consecutive years within the RCP managed area being analyzed. Values
+that pass both of these tests will be included in the analysis and be
+labeled as Use_In_Analysis = TRUE. Any that fail either test will be
+excluded from the analyses and labeled as Use_In_Analysis = FALSE. The
+points for all Water Column plots displayed in this section are monthly
+averages. Trend significance will be denoted as "Significant Trend"
+(when p \< 0.05), or "Non-significant Trend" (when p \>= 0.05). Any
+parameters with insufficient data to perform Seasonal Kendall-Tau test
+will have their monthly averages plotted without a corresponding trend
+line.
+
+### Nekton {#am_nekton}
+
+Nekton survey data were corrected by sampling effort and
+aggregated to plot species richness over time. The effort-corrected
+values reflected the gear type and its size, as well as the duration of
+the survey tows. The number of unique species encountered by the
+comparable group of surveys (i.e., using the same gear type and size)
+was summed and then divided by the effort-corrected value to estimate
+species richness per 100 m^2^.

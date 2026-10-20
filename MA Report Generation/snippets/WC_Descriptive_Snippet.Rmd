@@ -1,0 +1,34 @@
+---
+title: "WC_Descriptive_Snippet"
+output: html_document
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+The water column habitat extends from the water’s surface to the bottom
+sediments, and it’s where fish, dolphins, crabs and people swim! So much
+life makes its home in the water column that the health of marine and
+coastal ecosystems, as well as human economies, depend on the condition
+of this vulnerable habitat. Local patterns of rainfall, temperature,
+winds and currents can rapidly change the condition of the water column,
+while global influences such as [El Niño/La
+Niña](https://oceanservice.noaa.gov/facts/ninonina.html), large-scale
+fluctuation in sea temperatures and climate change can have long-term
+effects. Inputs from the prosperity of our day-to-day lives including
+farming, mining and forestry, and emissions from power generation,
+automobiles and water treatment can also alter the health of the water
+column. Acting alone or together, each input can have complex and
+lasting effects on habitats and ecosystems.
+
+SEACAR evaluates water column health with several essential parameters.
+These include nutrient surveys of nitrogen and phosphorus, and water
+quality assessments of salinity, dissolved oxygen, pH, and water
+temperature. Water clarity is evaluated with Secchi depth, turbidity,
+levels of chlorophyll a, total suspended solids, and colored dissolved
+organic matter. Additionally, the richness of nekton is indicated by the
+abundance of free-swimming fishes and macroinvertebrates like crabs and
+shrimps.
+
+------------------------------------------------------------------------
+

@@ -1,0 +1,31 @@
+---
+title: "CW_AnalysisMethods"
+output: html_document
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+## Coastal Wetlands {#am_cw}
+
+Change in the composition of coastal wetlands species over time was
+analyzed as a generalized linear model with species group (mangroves and
+associates, marsh, marsh succulents, and invasive plants) and species as
+independent variables. The models were only run for managed areas that
+had at least five years of data in the time series.
+
+Change in the percent cover of coastal wetlands over time were analyzed
+as linear mixed models with the following species groups and species:
+mangroves and associates (*Avicennia germinans*, *Rhizophora mangle*,
+*Laguncularia racemosa* and *Conocarpus erectus*); marsh (*Spartina
+alterniflora* [also known as *Sporobolus alterniflorus*], *Spartina
+patens*, *Spartina bakeri*, *Distichlis* spp., *Sporobolus* spp.,
+*Paspalum* spp. and *Juncus roemerianus*); marsh succulents (*Batis*
+spp., *Salicornia* spp., *Sarcocornia* spp., *Blutaparon* spp.,
+*Sesuvium* spp., *Suaeda* spp., *Limonium* spp); and invasive plants
+(*Schinus terebinthifolia* [also known as *Schinus terebinthifolius*]).
+The models treated sample locations as a random effect to account for
+the fact that the locations sampled in a managed area in any given year
+represent only a handful of the many possible sampling locations. The
+models were only run for managed areas that had at least five years of
+data in the time series.

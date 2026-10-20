@@ -1,0 +1,11 @@
+---
+title: "Coral_AnalysisMethods"
+output: html_document
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+## Coral Reef {#am_coral}
+
+Coral reef analysis methods go here.

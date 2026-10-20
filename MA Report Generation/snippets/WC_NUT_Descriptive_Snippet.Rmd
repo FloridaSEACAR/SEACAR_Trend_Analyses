@@ -1,0 +1,20 @@
+---
+title: "WC_NUT_Descriptive_Snippet"
+output: html_document
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+Nutrients such as nitrogen and phosphorus are essential for the growth
+and maintenance of plant and animal life. However, high nutrient
+concentrations in the water column may fuel the growth of harmful algae,
+creating dense blooms that block sunlight and deplete oxygen for fish
+and other organisms. Nutrients enter water bodies several ways including
+runoff from rain events, and atmospheric deposition from natural and
+industrial sources. Analysis of the changes in nitrogen and phosphorus
+concentrations aids the management of nutrient pollution and helps
+reduce the frequency and severity of harmful algal blooms.
+
+------------------------------------------------------------------------
+

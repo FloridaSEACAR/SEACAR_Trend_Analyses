@@ -1,0 +1,20 @@
+---
+title: "WC_WQ_Descriptive_Snippet"
+output: html_document
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+Water quality is determined by measuring biochemical properties of a
+water body. Many organisms, including oysters and larval fish,
+consistently require high-quality water to flourish. Human health, along
+with Florida’s economy, also depends on the health of our waters.
+Dissolved oxygen, dissolved oxygen saturation, salinity, water
+temperature, and pH are crucial indicators of water quality. To ensure
+that our waters meet standards established to protect aquatic life and
+human well-being, each of these parameters are monitored by the state of
+Florida as part of its responsibilities through the Clean Water Act
+(Chapter 62-303, Florida Administrative Code).
+
+------------------------------------------------------------------------

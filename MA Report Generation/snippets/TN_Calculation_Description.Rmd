@@ -3,30 +3,57 @@ output:
   pdf_document: default
   html_document: default
   distill::distill_article: default
+editor_options: 
+  markdown: 
+    wrap: 72
 ---
 
 **Total Nitrogen Calculation:**
 
-The logic for calculated Total Nitrogen was provided by Kevin O’Donnell and colleagues at FDEP (with the help of Jay Silvanima, Watershed Monitoring Section). The following logic is used, in this order, based on the availability of specific nitrogen components.  
+The logic for calculating total nitrogen from individual nitrogen
+compounds was provided by Kevin O’Donnell and colleagues at FDEP (with
+the help of Jay Silvanima, Watershed Monitoring Section). The following
+logic is used, in order, based on the availability of data for the
+individual total nitrogen components. In the formulas below, TN = total
+nitrogen, TKN = total kjeldahl nitrogen, NO3O2 = combined measurement of
+nitrate and nitrite, NO3 = nitrate, NO2 = nitrite, ORGN = organic
+nitrogen, NH4 = ammonium, INORGN = inorganic nitrogen, TA = total
+ammonia.
 
-1)	TN = TKN + NO3O2;
-2)	TN = TKN + NO3 + NO2;
-3)	TN = ORGN + NH4 + NO3O2;
-4)	TN = ORGN + NH4 + NO2 + NO3;
-5)	TN = TKN + NO3;
-6)	TN = ORGN + NH4 + NO3;
+1)  TN = TKN + NO3O2;
+2)  TN = TKN + NO3 + NO2;
+3)  TN = ORGN + INORGN;
+4)  TN = ORGN + TA + NO3O2;
+5)  TN = ORGN + TA + NO2 + NO3;
+6)  TN = ORGN + NH4 + NO3O2;
+7)  TN = ORGN + NH4 + NO2 + NO3;
+8)  TN = TKN + NO3;
+9)  TN = ORGN + NH4 + NO3;
 
-```{r echo=FALSE, out.width='100%', fig.align='right', eval=FALSE}
+```{r echo=FALSE, out.width='40%', fig.align='center', eval=TRUE}
 knitr::include_graphics(here::here("images/TN_Calculation.png"))
 ```
 
 Additional Information:
 
-* Rules for use of sample fraction:
-  + Florida Department of Environmental Protection (FDEP) report that if both “Total” and “Dissolved” components are reported, only “Total” is used. If the total is not reported, then the dissolved components are used as a best available replacement. 
-  + Total nitrogen calculations are done using nitrogen components with the same sample fraction, nitrogen components with mixed total/dissolved sample fractions are not used. In other words, total nitrogen can be calculated when TKN and NO3O2 are both total sample fractions, or when both are dissolved sample fractions. *Future calculations of total nitrogen values may be based on components with mixed sample fractions.*
-  
-* Values inserted into data:
-  + ParameterName = “Total Nitrogen”
-  + SEACAR_QAQCFlagCode = “1Q”
-  + SEACAR_QAQC_Description = “SEACAR Calculated”
+-   Rules for use of sample fraction:
+    -   If both “Total” and “Dissolved” components are reported, only
+        “Total” is used. If the total is not reported, then the
+        dissolved components are used as a best available replacement.
+    -   An analysis of all SEACAR data showed that 90% of all possible
+        total nitrogen calculations can be done using nitrogen
+        components with the same sample fraction, rather than using
+        nitrogen components with mixed total/dissolved sample fractions.
+        In other words, total nitrogen can be calculated when TKN and
+        NO3O2 are both total sample fractions, or when both are
+        dissolved sample fractions. This is important, because it
+        allowed SEACAR to avoid calculating total nitrogen values based
+        on components with mixed sample fractions.
+-   Values inserted into data:
+    -   ParameterName = “Total Nitrogen”
+    -   SEACAR_QAQCFlagCode = “1Q”
+    -   SEACAR_QAQC_Description = “SEACAR Calculated”
+
+------------------------------------------------------------------------
+
+

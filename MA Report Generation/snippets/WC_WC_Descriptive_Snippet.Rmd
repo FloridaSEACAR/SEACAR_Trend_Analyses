@@ -1,0 +1,20 @@
+---
+title: "WC_WC_Descriptive_Snippet"
+output: html_document
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+Water clarity measures how much light penetrates the water column. The
+amount of light reaching the seafloor affects the condition and species
+composition of submerged aquatic vegetation which need sunlight for
+productivity. Some seagrasses can even directly improve local water
+clarity by absorbing dissolved nutrients and trapping sediment particles
+in their blades and roots. Several parameters can affect water clarity
+including turbidity, total suspended solids, and the concentrations of
+chlorophyll a and colored dissolved organic matter. A few of the
+instruments used to quantify water clarity for monitoring submerged
+aquatic vegetation are Secchi disks and turbidity meters.
+
+------------------------------------------------------------------------
