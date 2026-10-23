@@ -1,0 +1,546 @@
+---
+date: "Last compiled on `r format(Sys.time(), '%d %B, %Y')`"
+output:
+  word_document:
+    toc: TRUE
+    toc_depth: 2
+  html_document:
+    toc: TRUE
+    toc_float: TRUE
+    toc_depth: 2
+    dev: png
+    keep_md: yes
+  pdf_document:
+    toc: TRUE
+    toc_depth: 2
+    dev: png
+    extra_dependencies: ["float", "booktabs"]
+    keep_md: no
+urlcolor: blue
+header-includes:
+  - \usepackage{float}
+---
+
+# Important Notes
+
+The purpose of this script is to determine community composition by various coral species listed below, create managed area statistics, generate plots, and create reports in pdf form for Coral data.
+
+These scripts were created by [J.E. Panzik](mailto:jepanzik@usf.edu) (jepanzik@usf.edu) for SEACAR. Updated by [T.G. Hill](mailto:Tyler.Hill@FloridaDEP.gov) (Tyler.Hill@FloridaDEP.gov).
+
+All scripts and outputs can be found on the SEACAR GitHub repository:
+
+https://github.com/FloridaSEACAR/SEACAR_Trend_Analyses
+
+This markdown file is designed to be compiled by [Coral_Plot_Render.R](https://github.com/FloridaSEACAR/SEACAR_Trend_Analyses/blob/main/Coral/Coral_Plot_Render.R) (https://github.com/FloridaSEACAR/SEACAR_Trend_Analyses/blob/main/Coral/Coral_Plot_Render.R).
+
+\newpage
+# Coral Community Composition
+
+```{r show_plots, results='asis', echo=FALSE, warning=FALSE}
+knitr::opts_chunk$set(
+   warning=FALSE,
+   message=FALSE,
+   echo=FALSE,
+   dpi=200,
+   fig.pos = 'H'
+   )
+# Ensure SpeciesRichness MA_OV_Stats file is being used
+MA_Ov_Stats <- fread("output/CommunityComposition/Coral_CC_MA_Overall_Stats.txt")
+
+coral_cc_plots <- list.files("output/CommunityComposition/Figures", full.names = T, pattern=".png$")
+coral_cc_maps <- str_subset(list.files("output/maps", full.names = T, pattern=".png$"), "_CC_")
+# Get plot function locates filepath
+get_plot <- function(ma){
+  ma_abrev <- MA_All[ManagedAreaName==ma, Abbreviation]
+  str_subset(coral_cc_plots, paste0("_",ma_abrev))
+}
+get_map <- function(ma){
+  ma_abrev <- MA_All[ManagedAreaName==ma, Abbreviation]
+  str_subset(coral_cc_maps, paste0("_",ma_abrev))
+}
+
+# Make table function shows trend results
+make_table <- function(ma, tableFormat){
+  ResultTable <- MA_Ov_Stats[ManagedAreaName==ma,]
+  # Removes location, species group, and parameter information because it is
+  # in plot labels
+  ResultTable <- ResultTable[,-c("AreaID", "ManagedAreaName",
+                                 "ProgramIDs", "Programs", "ParameterName")]
+  # Renames StandardDeviation to StDev to save horizontal space
+  ResultTable <- ResultTable %>%
+    rename("StDev"="StandardDeviation")
+  # Converts all non-integer values to 2 decimal places for space
+  ResultTable$Min <- round(ResultTable$Min, 2)
+  ResultTable$Max <- round(ResultTable$Max, 2)
+  ResultTable$Median <- round(ResultTable$Median, 2)
+  ResultTable$Mean <- round(ResultTable$Mean, 2)
+  ResultTable$StDev <- round(ResultTable$StDev, 2)
+  names(ResultTable) <- gsub("_", "-", names(ResultTable))
+  
+  result_table <- kable(ResultTable, format=tableFormat,
+                        caption=paste0("Coral Species Richness - ", ma),
+                        row.names = FALSE, digits = 2,
+                        booktabs = T, linesep = "", escape = F, longtable = F) %>%
+    kableExtra::kable_styling(latex_options = c("scale_down", "HOLD_position"))
+  
+  return(result_table)
+}
+
+for(ma in unique(MA_Ov_Stats$ManagedAreaName)){
+  # fig_caption <- figureCaptions[HabitatName=="Coral/Coral Reef" & IndicatorName=="Grazers and Reef Dependent Species", FigureCaptions]
+  fig_caption <- "FIGURE CAPTION HERE"
+  desc <- descriptionTable[ManagedAreaName==ma & HabitatName=="Coral/Coral Reef" & IndicatorName=="Community Composition", get(descriptionColumn)]
+  cat("  \n")
+  cat(glue("## {ma}"))
+  plot_loc <- get_plot(ma)
+  cat("  \n")
+  SEACAR::subchunkify(cat("![", fig_caption, "](", plot_loc,")"))
+  cat("  \n")
+  SEACAR::subchunkify(make_table(ma, tableFormat))
+  cat("  \n")
+  cat(desc)
+  cat("  \n")
+  map_loc <- get_map(ma)
+  cat("![](", map_loc,")")
+  cat("  \n")
+}
+
+```
+
+# Libraries and Settings
+
+Loads libraries used in the script. The inclusion of `scipen` option limits how frequently R defaults to scientific notation. Sets default settings for displaying warning and messages in created document, and sets figure dpi.
+
+```{r libraries, message=FALSE, echo=TRUE, warning=FALSE, include=TRUE}
+library(knitr)
+library(data.table)
+library(dplyr)
+library(lubridate)
+library(ggplot2)
+library(ggpubr)
+library(scales)
+library(EnvStats)
+library(tidyr)
+library(kableExtra)
+library(glue)
+library(grid)
+library(stringr)
+options(scipen=999)
+knitr::opts_chunk$set(
+   warning=FALSE,
+   message=FALSE,
+   echo=FALSE
+)
+options(knitr.kable.NA = '-')
+```
+
+# File Import
+
+Imports file that is determined in the Coral_Plot_Render.R script.
+
+The command `fread` is used because of its improved speed while handling large data files.
+
+SEACAR's `clean_managed_areas()` function is applied to de-concatenate `ManagedAreaName` and `AreaID` values.
+
+The script then gets the name of the parameter as it appears in the data file and units of the parameter.
+
+The file being used for the analysis is: **`r file_short`**
+
+```{r file_import, eval=F, echo=T}
+#Gets the files with the file names containing the desired parameter
+file_in <- list.files(seacar_data_location, pattern="All_CORAL", full=TRUE)
+
+#Gets the specific file used and removes the directory names
+file_short <- tail(str_split(file_in, "/")[[1]], 1)
+
+# Read in data file
+data <- fread(file_in, sep="|", header=TRUE, stringsAsFactors=FALSE, na.strings="NULL")
+# Apply Managed Area transformation - de-concatenate MA names
+data <- setDT(SEACAR::clean_managed_areas(data, "ma", keep_na = FALSE))
+
+cat(paste("The data file(s) used:", file_short, sep="\n"))
+```
+
+# Data Filtering
+
+The processing and filtering that is done to the data is as follows:
+
+1. Only take data rows that are Presence/Absence measurements for the following SpeciesGroup1 values: "Corallimorpharians", "Cyanobacteria", "Macroalgae", "Milleporans", "Octocorals", "Porifera", "Scleractinians", "Zoanthids", and "Others", where the ResultValue is 1 (meaning species is present).
+2. Set parameter names to `Species Richness`
+3. Exclude ProgramID_981 (collects only Scleractinian data)
+4. Creates species richness data set
+   + Grouped based on common `ManagedAreaName`, `ProgramID`, `ProgramName`, `ProgramLocationID`,
+            and `SampleDate`
+   + `SpeciesRichness` determined based on the number of unique species (`gensp`) in each group
+   
+5. Writes to file with "_UsedData" file name to indicate what data was used for species richness.
+
+```{r filtering, eval=F, echo=T}
+parameter <- "Species Richness (Community Composition)"
+param_file <- "CC"
+out_dir <- "output/CommunityComposition"
+# Coral species groups included in community composition
+comp_species_groups <- c("Corallimorpharians", "Cyanobacteria", "Macroalgae", 
+                         "Milleporans", "Octocorals", "Porifera", "Scleractinians", 
+                         "Zoanthids", "Others")
+# Programs to exclude (ID_981 only reports scleractinians)
+exclude_progs <- c(981)
+# Filter for the presence of those species groups for each area and LocationID
+# This gives us species richness values
+data_cc <- data %>% 
+  filter(
+    ParameterName=="Presence/Absence",
+    ResultValue==1,
+    SpeciesGroup1 %in% comp_species_groups,
+    !ProgramID %in% exclude_progs
+  ) %>%
+  group_by(AreaID, ManagedAreaName, ProgramID, ProgramName, LocationID,
+           SampleDate, SpeciesGroup1) %>%
+  reframe(
+    ParameterName = parameter,
+    Year = unique(Year),
+    Month = unique(Month),
+    SpeciesRichness = length(unique(CommonIdentifier))
+  )
+```
+
+---
+title: 'SEACAR Coral Analysis: Community Composition'
+---
+
+# Managed Area Statistics
+
+Gets summary statistics for each managed area. Uses piping from dplyr package to feed into subsequent steps. The following steps are performed:
+
+1. Group data that have the same `ManagedAreaName`, `Year`, and `Month`.
+   + Second summary statistics do not use the `Month` grouping and are only for `ManagedAreaName` and `Year`.
+   + Third summary statistics do not use `Year` grouping and are only for `ManagedAreaName` and `Month`
+   + Fourth summary statistics are only grouped based on `ManagedAreaName`
+      + Determines the years that the minimum and maximum species richness occurred
+
+2. For each group, provide the following information: Parameter Name (ParameterName), Number of Entries (N_Data), Lowest Value (Min), Largest Value (Max), Median, Mean, Standard Deviation, and a list of all Programs included in these measurements.
+3. Sort the data in ascending (A to Z and 0 to 9) order based on `ManagedAreaName` then `Year` then `Month`
+4. Write summary stats to a pipe-delimited .txt file in the output directory
+   + [Coral Species Richness Output Files in SEACAR GitHub](https://github.com/FloridaSEACAR/SEACAR_Trend_Analyses/tree/main/Coral/output/CommunityComposition) (https://github.com/FloridaSEACAR/SEACAR_Trend_Analyses/tree/main/Coral/output/CommunityComposition)
+
+```{r managed_area_stats, eval=F, echo=T}
+# Create summary statistics for each managed area based on Year and Month
+# intervals.
+MA_YM_Stats <- data_cc %>%
+  group_by(AreaID, ManagedAreaName, Year, Month) %>%
+  summarize(ParameterName=parameter,
+            N_Data=length(na.omit(SpeciesRichness)),
+            Min=min(SpeciesRichness),
+            Max=max(SpeciesRichness),
+            Median=median(SpeciesRichness),
+            Mean=mean(SpeciesRichness),
+            StandardDeviation=sd(SpeciesRichness),
+            Programs=paste(sort(unique(ProgramName), decreasing=FALSE), collapse=', '),
+            ProgramIDs=paste(sort(unique(ProgramID), decreasing=FALSE), collapse=', '),
+            IncludedSpeciesGroups = paste(sort(unique(SpeciesGroup1), decreasing=FALSE), collapse=', '),
+            .groups = "keep") %>%
+  arrange(ManagedAreaName, Year, Month) %>%
+  as.data.table()
+# Writes summary statistics to file
+fwrite(MA_YM_Stats, paste0(out_dir,"/Coral_", param_file, "_MA_MMYY_Stats.txt"), sep="|")
+# Removes variable storing data to improve computer memory
+rm(MA_YM_Stats)
+
+# Create summary statistics for each managed area based on Year intervals
+MA_Y_Stats <- data_cc %>%
+  group_by(AreaID, ManagedAreaName, Year) %>%
+  summarize(ParameterName=parameter,
+            N_Data=length(na.omit(SpeciesRichness)),
+            Min=min(SpeciesRichness),
+            Max=max(SpeciesRichness),
+            Median=median(SpeciesRichness),
+            Mean=mean(SpeciesRichness),
+            StandardDeviation=sd(SpeciesRichness),
+            Programs=paste(sort(unique(ProgramName), decreasing=FALSE), collapse=', '),
+            ProgramIDs=paste(sort(unique(ProgramID), decreasing=FALSE), collapse=', '),
+            IncludedSpeciesGroups = paste(sort(unique(SpeciesGroup1), decreasing=FALSE), collapse=', '),
+            .groups = "keep") %>%
+  arrange(ManagedAreaName, Year) %>%
+  as.data.table()
+# Writes summary statistics to file
+fwrite(MA_Y_Stats, paste0(out_dir,"/Coral_", param_file, "_MA_Yr_Stats.txt"), sep="|")
+
+# Create summary statistics for each managed area based on Month intervals.
+MA_M_Stats <- data_cc %>%
+  group_by(AreaID, ManagedAreaName, Month) %>%
+  summarize(ParameterName=parameter,
+            N_Data=length(na.omit(SpeciesRichness)),
+            Min=min(SpeciesRichness),
+            Max=max(SpeciesRichness),
+            Median=median(SpeciesRichness),
+            Mean=mean(SpeciesRichness),
+            StandardDeviation=sd(SpeciesRichness),
+            Programs=paste(sort(unique(ProgramName), decreasing=FALSE), collapse=', '),
+            ProgramIDs=paste(sort(unique(ProgramID), decreasing=FALSE), collapse=', '),
+            IncludedSpeciesGroups = paste(sort(unique(SpeciesGroup1), decreasing=FALSE), collapse=', '),
+            .groups = "keep") %>%
+  arrange(ManagedAreaName, Month) %>%
+  as.data.table()
+# Writes summary statistics to file
+fwrite(MA_M_Stats, paste0(out_dir,"/Coral_", param_file, "_MA_Mo_Stats.txt"), sep="|")
+# Removes variable storing data to improve computer memory
+rm(MA_M_Stats)
+
+# Create summary overall statistics for each managed area.
+MA_Ov_Stats <- data_cc %>%
+  group_by(AreaID, ManagedAreaName) %>%
+  summarize(ParameterName=parameter,
+            N_Years=length(unique(na.omit(Year))),
+            EarliestYear=min(Year),
+            LatestYear=max(Year),
+            N_Data=length(na.omit(SpeciesRichness)),
+            Min=min(SpeciesRichness),
+            Max=max(SpeciesRichness),
+            Median=median(SpeciesRichness),
+            Mean=mean(SpeciesRichness),
+            StandardDeviation=sd(SpeciesRichness),
+            Programs=paste(sort(unique(ProgramName), decreasing=FALSE), collapse=', '),
+            ProgramIDs=paste(sort(unique(ProgramID), decreasing=FALSE), collapse=', '),
+            IncludedSpeciesGroups = paste(sort(unique(SpeciesGroup1), decreasing=FALSE), collapse=', '),
+            Year_MinRichness = NA,
+            Year_MaxRichness = NA,
+            .groups = "keep") %>% 
+  arrange(ManagedAreaName) %>%
+  as.data.table()
+
+# Loops through each ManagedAreaName.
+# Determines what year the minimum and maximum species richness occurred
+for(m in 1:nrow(MA_Ov_Stats)){
+  # Stores ManagedAreaName for this row
+  ma <- MA_Ov_Stats$ManagedAreaName[m]
+  
+  # Skips to next row if there are no data for this combination
+  if(MA_Ov_Stats$N_Data[m]==0){
+    next
+  }
+  # Gets the minimum and maximum Mean (yearly averages)
+  min <- MA_Y_Stats[ManagedAreaName==ma, min(Mean)]
+  max <- MA_Y_Stats[ManagedAreaName==ma, max(Mean)]
+  #Determines what years those minimum and maximum values occured
+  year_min <- MA_Y_Stats[ManagedAreaName==ma & Mean == min, Year]
+  year_max <- MA_Y_Stats[ManagedAreaName==ma & Mean == max, Year]
+  # Stores the occurrence years of the minimum and maximum into the overall
+  # stats for this row
+  MA_Ov_Stats$Year_MinRichness[m] <- year_min
+  MA_Ov_Stats$Year_MaxRichness[m] <- year_max
+}
+# Write overall statistics to file
+fwrite(MA_Ov_Stats, paste0(out_dir,"/Coral_", param_file, "_MA_Overall_Stats.txt"), sep="|")
+```
+
+# Appendix I: Managed Area Species Richness
+
+The plots shown here are the species richness for each managed area with a yearly average.
+
+1. Aggregate data by AreaID, ManagedAreaName, ParameterName, Year, and SpeciesGroup1 values and provide the amount of years of data (N_Years), Earliest and Latest Year of sampling, amount of data (N_Data), Min, Max, Median, Mean, and SD of species richness, and which programs provided data in a given year.
+2. Save a copy of the data used `Coral_CommunityComposition_UsedData.txt`.
+3. Determine color palette for each species group.
+4. Gather a list of `ProgramName` and `ProgramID` values and create palette for display in Program Timeline plots.
+5. Loop through all available Managed Areas and generate plots for each.
+6. Save plots and eventually zip them all together.
+   + [Coral Community Composition Figures in SEACAR GitHub](https://github.com/FloridaSEACAR/SEACAR_Trend_Analyses/tree/main/Coral/output/CommunityComposition/Figures) (https://github.com/FloridaSEACAR/SEACAR_Trend_Analyses/tree/main/Coral/output/CommunityComposition/Figures)
+
+```{r CCPlot, eval=F, echo=T}
+# Condense species richness values into annual averages, min/max, etc.
+comp_plot_data <- data_cc %>%
+  group_by(AreaID, ManagedAreaName, ParameterName, Year, SpeciesGroup1) %>%
+  reframe(
+    N_Years = length(unique(na.omit(Year))),
+    EarliestYear = min(Year),
+    LatestYear = max(Year),
+    N_Data = length(na.omit(SpeciesRichness)),
+    Min = min(SpeciesRichness),
+    Max = max(SpeciesRichness),
+    Median = median(SpeciesRichness),
+    Mean = mean(SpeciesRichness),
+    StandardDeviation = sd(SpeciesRichness),
+    Programs = paste(sort(unique(ProgramName), decreasing = FALSE), collapse = ", "),
+    ProgramIDs = paste(sort(unique(ProgramID), decreasing = FALSE), collapse = ", ")
+  ) %>%
+  as.data.table()
+# Write overall statistics to file
+fwrite(comp_plot_data, paste0(out_dir,"/Coral_", param_file, "_UsedData.txt"), sep="|")
+
+# Color palette for SEACAR
+color_palette <- SEACAR::seacar_palette1
+# All unique SG1 groups
+sg1 <- sort(unique(comp_plot_data$SpeciesGroup1))
+# Create palette for all SG2 values so it is consistent across all MAs
+sg1_palette <- color_palette[seq(1, length(sg1))]
+names(sg1_palette) <- sg1
+
+# Create data frame of program names and IDs to display in timeline plot
+progs <- data.frame(
+  ProgramID = comp_plot_data %>% separate_longer_delim(ProgramIDs, ", ") %>% pull(ProgramIDs) %>% unique(),
+  ProgramName = comp_plot_data %>% separate_longer_delim(Programs, ", ") %>% pull(Programs) %>% unique()
+)
+pids <- unique(progs$ProgramID)
+pids_palette <- viridis::viridis(length(pids))
+names(pids_palette) <- pids
+
+for(ma in unique(comp_plot_data$ManagedAreaName)){
+  ma_abrev <- MA_All[ManagedAreaName==ma, Abbreviation]
+  # Gets data for target managed area
+  plot_data <- comp_plot_data[ManagedAreaName==ma, ]
+  # Determines most recent year with available data for managed area
+  maxyr <- max(plot_data$LatestYear)
+  # Determines earliest recent year with available data for managed area
+  minyr <- min(plot_data$EarliestYear)
+  # Determines how many years of data are present
+  nyrs <- maxyr-minyr+1
+  
+  current_year <- as.integer(format(Sys.Date(), "%Y"))
+  
+  # Creates break intervals for plots based on number of years of data
+  if(nyrs>=30){
+    brk <- 10
+  } else if(nyrs>=10){
+    brk <- 4
+  } else if(nyrs>=4){
+    brk <- 2
+  } else {
+    # Ensure 5 years are included on axis
+    total_ticks <- 5
+    extra_years <- total_ticks - nyrs
+    # Always add 1 year before the first year
+    years_before <- min(1, extra_years)
+    years_after <- extra_years - years_before
+    # Adjust min and max year, without going beyond current year
+    minyr <- minyr - years_before
+    maxyr <- min(maxyr + years_after, current_year)
+    # Re-check if we have enough years (in case maxyr hit current year)
+    minyr <- max(minyr, maxyr - (total_ticks - 1))
+    brk <- 1 
+  }
+  # Determine range of data values for the managed area
+  y_range <- max(plot_data$Mean) - min(plot_data$Mean)
+  
+  # Determines lower bound of y-axis based on data range. Set based on
+  # relation of data range to minimum value. Designed to set lower boundary
+  # to be 10% of the data range below the minimum value
+  y_min <- if(min(plot_data$Mean)-(0.1*y_range)<0){
+    # If 10% of the data range below the minimum value is less than 0,
+    # set as 0
+    y_min <- 0
+  } else {
+    # Otherwise set minimum bound as 10% data range below minimum value
+    y_min <- min(plot_data$Mean)-(0.1*y_range)
+  }
+  
+  # Sets upper bound of y-axis to be 10% of the data range above the
+  # maximum value.
+  y_max <- max(plot_data$Mean)+(0.1*y_range)
+  
+  ## Legend labels - grab list of unique SG1 for this MA
+  sp_list <- unique(plot_data$SpeciesGroup1)
+  sp_list <- sp_list[order(match(sp_list, names(sg1_palette)))]
+  
+  # # Create common name labels for legend display
+  # sp_labels <- sapply(sp_list, function(x){sg_common[[x]]})
+  sp_labels <- sp_list
+  
+  # Creates plot object using plot_data and grouping by the plot gear types.
+  # Data is plotted as symbols with connected lines.
+  p1 <- ggplot(data=plot_data, 
+               aes(fill = SpeciesGroup1, y=Mean, x=Year)) +
+    geom_bar(position="stack", stat="identity", width = 0.9) +
+    labs(
+      title="Coral Community Composition",
+      subtitle=ma,
+      x="Year",
+      y=paste0("Annual average richness (number of species)")
+    ) +
+    scale_fill_manual(
+      name = "Species group",
+      values = sg1_palette,
+      labels = sp_labels,
+      na.value = "grey50"
+    ) +
+    scale_x_continuous(limits = c(minyr-0.50, maxyr+0.50), 
+                       breaks = seq(minyr, maxyr, brk)) +
+    SEACAR::SEACAR_plot_theme()
+  
+  timeline_data <- plot_data %>% 
+    separate_longer_delim(ProgramIDs, delim = ", ") %>%
+    arrange(ProgramIDs, Year) %>%
+    group_by(ProgramIDs) %>% 
+    mutate(
+      is_gap = Year - lag(Year, default = first(Year)) > 1,
+      block_id = cumsum(is_gap)
+    ) %>%
+    group_by(ProgramIDs, block_id) %>% 
+    reframe(
+      startYear = min(Year)-0.5,
+      endYear = max(Year)+0.5
+    ) %>% 
+    select(-block_id) %>%
+    mutate(ProgramIDs = as.factor(ProgramIDs)) %>%
+    arrange(desc(ProgramIDs))
+  
+  # Add in program names from progs
+  timeline_data <- timeline_data %>% 
+    left_join(progs, join_by(ProgramIDs==ProgramID))
+  
+  # Create data for labels
+  label_data <- timeline_data %>%
+    group_by(ProgramIDs, ProgramName) %>%
+    summarise(start_label = min(startYear),
+              end_label = max(endYear), 
+              .groups = "drop") %>%
+    mutate(mid_label = (start_label + end_label) / 2)
+  
+  # ProgramID timeline
+  timeline_plot <- ggplot(timeline_data) +
+    geom_linerange(
+      aes(xmin = startYear, xmax = endYear, y = ProgramIDs, color = ProgramIDs), 
+      alpha = 0.4, linewidth = 6
+    ) +
+    geom_text(
+      data = label_data,
+      aes(y = ProgramIDs, label = ProgramName),
+      x = min(label_data$start_label),
+      color = "black",
+      size = 2,
+      vjust = 0.5,
+      hjust = -0.01
+    ) +
+    scale_x_continuous(limits = c(minyr-0.5, maxyr+0.5),
+                       breaks = seq(minyr, maxyr, brk)) +
+    scale_y_discrete(limits = rev) +
+    scale_color_manual(values = pids_palette) +
+    theme_minimal() +
+    theme(
+      axis.title.y = element_blank(),
+      axis.text.y = element_blank(),
+      axis.ticks.y = element_blank(),
+      panel.grid.major.y = element_blank(),
+      panel.grid.minor.y = element_blank(),
+      axis.title.x = element_blank(),
+      axis.text.x = element_blank(),
+      axis.ticks.x = element_blank(),
+      legend.box.margin = margin(0, 0, 0, 0)
+    )
+  
+  plot <- p1 / timeline_plot + plot_layout(heights = c(5, 2))
+  
+  # Sets file name of plot created
+  outname <- paste0("Coral_Community_Composition_", ma_abrev, ".png")
+  # Saves plot as a png image
+  ggsave(filename = paste0(out_dir, "/Figures/", outname), 
+         plot = plot,
+         width = 8,
+         height = 7,
+         units = "in")
+}
+
+#Gets list of all CC image files and creates zip directory
+fig_list <- list.files(paste0(out_dir, "/Figures"), pattern=".png", full=FALSE)
+setwd(paste0(out_dir, "/Figures"))
+zip("CoralCCFigures", files=fig_list)
+setwd(wd)
+```
