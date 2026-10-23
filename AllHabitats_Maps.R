@@ -11,8 +11,11 @@ library(rstudioapi)
 library(SEACAR)
 library(stringr)
 
+# Set working directory to SEACAR_Trend_Analyses root folder
+setwd(this.path::here())
+
 # Bring in CartoDB API key (variable carto_key) from source file [DO NOT UPLOAD TO GITHUB]
-source("../../carto_key.R")
+source("../carto_key.R")
 
 # analysis <- "ma"
 
@@ -146,9 +149,6 @@ addCircleLegend_temp <- function(
     leaflet::addControl(map, html = circle_legend, position = position, layerId = layerId)
   )
 }
-
-# Set working directory to SEACAR_Trend_Analyses root folder
-setwd(this.path::here())
 
 # Create data frame to store habitat crosswalk
 habs <- data.table(
@@ -349,19 +349,33 @@ for(ma in unique(data$ManagedAreaName)){
     # ma_include_list <- list(unique(data$ManagedAreaName))
     data_subset <- list(df)
   } else if(hab=="Coral Reef"){
-    indicators <- c("Percent Cover", "Grazers and Reef Dependent Species")
-    parameters <- c("Percent Cover", "Presence/Absence")
+    indicators <- c("Percent Cover", "Grazers and Reef Dependent Species", "Community Composition")
+    parameters <- c("Percent Cover", "Presence/Absence", "Presence/Absence")
     parameters_display <- parameters
     # ma_include_list <- list(coral_pc_MA_Include, coral_sr_MA_Include)
     coral_sr_programs <- coral_sr_data %>% 
       group_by(!!sym(analysis_col), ProgramID, ProgramName, ProgramLocationID, 
                LocationID, IndicatorName, ParameterName, OriginalLatitude, OriginalLongitude) %>%
-      reframe(n_data = n())
+      reframe(n_data = n()) %>%
+      sf::st_as_sf(coords = c("OriginalLongitude", "OriginalLatitude"), crs = 4326)
+    
     coral_pc_programs <- coral_pc_data %>% 
       group_by(!!sym(analysis_col), ProgramID, ProgramName, ProgramLocationID, 
                LocationID, IndicatorName, ParameterName, OriginalLatitude, OriginalLongitude) %>%
-      reframe(n_data = n())
-    data_subset <- list(merge(coral_pc_programs, pt_ln_df), merge(coral_sr_programs, pt_ln_df))
+      reframe(n_data = n()) %>%
+      sf::st_as_sf(coords = c("OriginalLongitude", "OriginalLatitude"), crs = 4326)
+    
+    coral_cc_programs <- coral_cc_data %>%
+      group_by(!!sym(analysis_col), ProgramID, ProgramName, ProgramLocationID, 
+               LocationID, IndicatorName, ParameterName, OriginalLatitude, OriginalLongitude) %>%
+      reframe(n_data = n()) %>%
+      sf::st_as_sf(coords = c("OriginalLongitude", "OriginalLatitude"), crs = 4326)
+    
+    data_subset <- list(
+      "Percent Cover" = coral_pc_programs, 
+      "Grazers and Reef Dependent Species" = coral_sr_programs, 
+      "Community Composition" = coral_cc_programs
+    )
   } else if(hab=="Nekton"){
     indicators <- c("Nekton")
     parameters <- c("Presence/Absence")
@@ -397,8 +411,10 @@ for(ma in unique(data$ManagedAreaName)){
     # ma_include <- ma_include_list[[i]]
     # if(!ma %in% ma_include) next
     # Filter data for a given MA
-    if(hab=="Submerged Aquatic Vegetation"){
+    if(hab == "Submerged Aquatic Vegetation"){
       df_ma <- data_subset[[1]] %>% filter(ManagedAreaName==ma & IndicatorName==ind)
+    } else if(hab == "Coral Reef"){
+      df_ma <- data_subset[[ind]] %>% filter(ManagedAreaName==ma & IndicatorName==ind & ParameterName==param)
     } else {
       df_ma <- data_subset[[1]] %>% filter(ManagedAreaName==ma & IndicatorName==ind & ParameterName==param)
     }
@@ -609,7 +625,8 @@ for(ma in unique(data$ManagedAreaName)){
     if(hab %in% c("Coastal Wetlands", "Nekton")){
       file_name <- paste0(hab_filepath, "_", ma_abrev, "_map.png")
     } else if(hab=="Coral Reef"){
-      file_name <- paste0("Coral_", ifelse(ind=="Percent Cover", "PC", "SpeciesRichness"), "_", ma_abrev, "_map.png")
+      ind_short <- if(ind=="Percent Cover") "PC" else if(ind=="Community Composition") "CC" else "SpeciesRichness"
+      file_name <- paste0("Coral_", ind_short, "_", ma_abrev, "_map.png")
     } else if(hab=="Oyster Reef"){
       ind_short <- ifelse(ind=="Density", "Dens", ifelse(ind=="Percent Live", "PrcLive", "SH"))
       file_name <- paste0("Oyster_", ind_short, "_", ma_abrev, "_map.png")
