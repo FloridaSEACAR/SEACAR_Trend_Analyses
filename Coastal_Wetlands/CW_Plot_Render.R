@@ -68,31 +68,24 @@ unit <- "# of species"
 data$ParameterUnits <- unit
 cw <- copy(data)
 
-# Remove rows with missing ManagedAreaName
-data <- data[!is.na(data$ManagedAreaName),]
-data <- data[data$ManagedAreaName!="NA",]
-# Remove rows with missing GenusName
-data <- data[!is.na(data$GenusName),]
-# Remove rows with missing SpeciesName
-data <- data[!is.na(data$SpeciesName),]
-# Remove rows with missing Months
-data <- data[!is.na(data$Month),]
-# Remove rows with missing Years
-data <- data[!is.na(data$Year),]
+# Remove rows with missing ManagedAreaName, GenusName, SpeciesName, Months, Years
+data <- data[!is.na(ManagedAreaName) & ManagedAreaName!="NA" & 
+               !is.na(GenusName) & !is.na(SpeciesName) & 
+               !is.na(Month) & !is.na(Year)]
 # Set ResultValue to be a number value
 data$ResultValue <- as.numeric(data$ResultValue)
 # Remove rows where ResultValue is 0
-data <- data[data$ResultValue!=0,]
-# Create variable that combines the genus and species name
-data$gensp <- paste(data$GenusName, data$SpeciesName, sep=" ")
+data <- data[ResultValue!=0]
 
 # Create Species Richness values for groups of unique combinations of
 # ManagedAreaName, ProgramID, ProgramName, ProgramLocationID, and SampleDate.
-data <- data %>%
-  group_by(AreaID, ManagedAreaName, ProgramID, ProgramName, ProgramLocationID,
-           SampleDate, SpeciesGroup1) %>%
-  reframe(ParameterName=parameter, Year=unique(Year), 
-          Month=unique(Month), SpeciesRichness=length(unique(gensp)))
+data <- data[, .(
+  ParameterName = parameter,
+  Year = unique(Year),
+  Month = unique(Month),
+  SpeciesRichness = uniqueN(CommonIdentifier)
+), by = .(AreaID, ManagedAreaName, ProgramID, ProgramName, ProgramLocationID,
+          SampleDate, SpeciesGroup1)]
 
 # Writes this data that is used by the rest of the script to a text file
 fwrite(data, paste0(out_dir,"/CoastalWetlands_", param_file, "_UsedData.txt"),
@@ -103,7 +96,7 @@ data$SampleDate <- as.Date(data$SampleDate)
 
 # Creates a variable with the names of all the managed areas that contain
 # species observations
-cw_MA_Include <- unique(data$ManagedAreaName[!is.na(data$SpeciesRichness)])
+cw_MA_Include <- data[!is.na(SpeciesRichness), unique(ManagedAreaName)]
 
 # Puts the managed areas in alphabetical order
 cw_MA_Include <- cw_MA_Include[order(cw_MA_Include)]
