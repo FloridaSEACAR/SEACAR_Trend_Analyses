@@ -1,5 +1,5 @@
 AreaID|ManagedAreaName|ParameterName|N_Years|EarliestYear|LatestYear|N_Data|Min|Max|Median|Mean|StandardDeviation|Programs|ProgramIDs|Year_MinRichness|Year_MaxRichness
 7|Biscayne Bay-Cape Florida to Monroe County Line Aquatic Preserve|Species Richness|1|2014|2014|2|200|200|200|200|0|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|915|2014|2014
 13|Coupon Bight Aquatic Preserve|Species Richness|14|1999|2016|49|200|284|281|266.673469387755|30.6895664647762|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|915|2014|2012
-15|Florida Keys National Marine Sanctuary|Species Richness|21|1999|2019|9898|1|302|281|248.148514851485|76.8684445880276|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Population Status of Elkhorn Coral|136, 915|2018|2001
+15|Florida Keys National Marine Sanctuary|Species Richness|16|1999|2016|9136|182|302|281|268.703261821366|30.215689771247|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|915|2016|2012
 12|Kristin Jacobs Coral Aquatic Preserve|Species Richness|23|1992|2017|3269|1|302|294|218.447537473233|108.396982569038|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Palm Beach County Artificial and Natural Reef Monitoring Program|915, 3024|1992|2014

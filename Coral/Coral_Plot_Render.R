@@ -19,7 +19,22 @@ library(glue)
 library(patchwork)
 options(scipen=999)
 
-# Coral Species Richness ----
+# ProgramIDs to exclude based on SME feedback
+# 62, 136, and 899 were specified by SMEs directly
+# 981 only collects scleractinians
+# 5040, 5042, 4019 were disease surveys 
+ids_to_exclude <- c(62, 136, 899, 981, 5040, 5042, 4019)
+
+# Choose analysis type (by Managed Area or by Coral Region)
+analysis <- "ma"
+# analysis <- "coral_region"
+
+analysis_col <- if(analysis=="ma"){
+  "ManagedAreaName"
+} else if(analysis=="coral_region"){
+  "CoralRegion"
+}
+
 # Gets directory of this script and sets it as the working directory
 wd <- dirname(getActiveDocumentContext()$path)
 setwd(wd)
@@ -30,10 +45,11 @@ create_maps <- TRUE
 source("../SEACAR_data_location.R")
 
 #Set output directory
-out_dir <- "output/SpeciesRichness"
-
-#Sets abbreviation or label to be used in file names
-param_file <- "SpeciesRichness"
+out_dir <- if(analysis=="ma"){
+  "output/SpeciesRichness"
+} else if(analysis=="coral_region"){
+  "output/CoralRegion/SpeciesRichness"
+}
 
 #Loads data file with list on managed area names and corresponding area IDs and short names
 MA_All <- SEACAR::ManagedAreas
@@ -49,21 +65,30 @@ file_short <- tail(str_split(file_in, "/")[[1]], 1)
 
 # Read in data file
 data <- fread(file_in, sep="|", header=TRUE, stringsAsFactors=FALSE, na.strings="NULL")
-# Apply Managed Area transformation - de-concatenate MA names
-data <- setDT(SEACAR::clean_managed_areas(data, "ma", keep_na = FALSE))
-
 cat(paste("The data file(s) used:", file_short, sep="\n"))
 
-# # Make a copy of main data file to save for Coral Percent Cover
-# data2 <- copy(data)
-# coral_pc_data <- copy(data) # Save copy for use with maps (Percent Cover)
+# Apply Managed Area transformation - de-concatenate MA names
+if(analysis=="ma"){
+  data <- setDT(SEACAR::clean_managed_areas(data, "ma", keep_na = FALSE))
+}
+
+# Table of excluded programs for display in report
+excluded_program_table <- data[ProgramID %in% ids_to_exclude, .(
+  ProgramID = unique(ProgramID), ProgramName = unique(ProgramName)
+)]
+
+# Exclude non-comparable programs
+data <- data[!ProgramID %in% ids_to_exclude]
+
+## Coral Species Richness ----
+#Sets abbreviation or label to be used in file names
+param_file <- "SpeciesRichness"
 
 ## Data Filtering ----
 # Only keep data for Presence of grazers and reef-dependent species
 data_sr <- data[ParameterName=="Presence/Absence" & 
                   SpeciesGroup1 %in% c("Grazers and reef dependent species", 
                                        "Reef fish"), ]
-# coral_sr_data <- copy(data) # Save copy for use with maps (Species Richness)
 
 # Rename P/A to Species Richness
 data_sr$ParameterName <- "Species Richness"
@@ -74,16 +99,16 @@ title_param <- "Species Richness - Grazers and Reef-Dependent Species"
 unit <- "# of species"
 data_sr$ParameterUnits <- unit
 
-# Remove rows with missing ManagedAreaName, GenusName, SpeciesName, Months, Years, SpeciesGroup1
-data_sr <- data_sr[!is.na(ManagedAreaName) & ManagedAreaName!="NA" & !is.na(GenusName) & 
-                     !is.na(SpeciesName) & !is.na(Month) & !is.na(Year) & !is.na(SpeciesGroup1)]
+# Remove rows with missing ManagedAreaName/Coral Region, GenusName, SpeciesName, Months, Years, SpeciesGroup1
+data_sr <- data_sr[!is.na(get(analysis_col)) & get(analysis_col)!="NA"]
+data_sr <- data_sr[!is.na(GenusName) & !is.na(SpeciesName) & !is.na(Month) & !is.na(Year) & !is.na(SpeciesGroup1)]
 # Remove rows where ResultValue is 0 and missing
 data_sr <- data_sr[ResultValue!=0 & !is.na(ResultValue)]
 
 # Create Species Richness values for groups of unique combinations of
-# ManagedAreaName, ProgramID, ProgramName, ProgramLocationID, and SampleDate.
+# ManagedAreaName/CoralRegion, ProgramID, ProgramName, ProgramLocationID, and SampleDate.
 data_sr <- data_sr[ResultValue==1] %>%
-  group_by(AreaID, ManagedAreaName, ProgramID, ProgramName, ProgramLocationID,
+  group_by(AreaID, !!sym(analysis_col), ProgramID, ProgramName, ProgramLocationID,
            SampleDate) %>%
   summarise(ParameterName=parameter,
             Year=unique(Year), Month=unique(Month),
@@ -98,16 +123,21 @@ data_sr$SampleDate <- as.Date(data_sr$SampleDate)
 
 # Creates a variable with the names of all the managed areas that contain
 # species observations, in alphabetical order
-coral_sr_MA_Include <- data_sr[!is.na(SpeciesRichness), unique(ManagedAreaName)] %>% sort()
+coral_sr_MA_Include <- data_sr[!is.na(SpeciesRichness), unique(get(analysis_col))] %>% sort()
 
-# Determines the number of managed areas used
+# Determines the number of managed areas used# Determines the number of managed areas used# Determines the number of managed areas used
 n <- length(coral_sr_MA_Include)
 
 ## Managed Area Stats ----
+# Determine columns to group by
+cols_to_group <- c(analysis_col, "Year", "Month")
+if(analysis=="ma"){
+  cols_to_group <- c("AreaID", cols_to_group)
+}
 # Create summary statistics for each managed area based on Year and Month
 # intervals.
 MA_YM_Stats <- data_sr %>%
-  group_by(AreaID, ManagedAreaName, Year, Month) %>%
+  group_by(across(all_of(cols_to_group))) %>%
   summarize(ParameterName=parameter,
             N_Data=length(na.omit(SpeciesRichness)),
             Min=min(SpeciesRichness),
@@ -118,16 +148,22 @@ MA_YM_Stats <- data_sr %>%
             Programs=paste(sort(unique(ProgramName), decreasing=FALSE), collapse=', '),
             ProgramIDs=paste(sort(unique(ProgramID), decreasing=FALSE), collapse=', '),
             .groups = "keep") %>%
-  arrange(ManagedAreaName, Year, Month) %>%
+  arrange(!!sym(analysis_col), Year, Month) %>%
   as.data.table()
 # Writes summary statistics to file
 fwrite(MA_YM_Stats, paste0(out_dir,"/Coral_", param_file, "_MA_MMYY_Stats.txt"), sep="|")
 # Removes variable storing data to improve computer memory
 rm(MA_YM_Stats)
 
+# Determine columns to group by
+cols_to_group <- c(analysis_col, "Year")
+if(analysis=="ma"){
+  cols_to_group <- c("AreaID", cols_to_group)
+}
+
 # Create summary statistics for each managed area based on Year intervals
 MA_Y_Stats <- data_sr %>%
-  group_by(AreaID, ManagedAreaName, Year) %>%
+  group_by(across(all_of(cols_to_group))) %>%
   summarize(ParameterName=parameter,
             N_Data=length(na.omit(SpeciesRichness)),
             Min=min(SpeciesRichness),
@@ -138,14 +174,20 @@ MA_Y_Stats <- data_sr %>%
             Programs=paste(sort(unique(ProgramName), decreasing=FALSE), collapse=', '),
             ProgramIDs=paste(sort(unique(ProgramID), decreasing=FALSE), collapse=', '),
             .groups = "keep") %>%
-  arrange(ManagedAreaName, Year) %>%
+  arrange(!!sym(analysis_col), Year) %>%
   as.data.table()
 # Writes summary statistics to file
 fwrite(MA_Y_Stats, paste0(out_dir,"/Coral_", param_file, "_MA_Yr_Stats.txt"), sep="|")
 
+# Determine columns to group by
+cols_to_group <- c(analysis_col, "Month")
+if(analysis=="ma"){
+  cols_to_group <- c("AreaID", cols_to_group)
+}
+
 # Create summary statistics for each managed area based on Month intervals.
 MA_M_Stats <- data_sr %>%
-  group_by(AreaID, ManagedAreaName, Month) %>%
+  group_by(across(all_of(cols_to_group))) %>%
   summarize(ParameterName=parameter,
             N_Data=length(na.omit(SpeciesRichness)),
             Min=min(SpeciesRichness),
@@ -156,16 +198,23 @@ MA_M_Stats <- data_sr %>%
             Programs=paste(sort(unique(ProgramName), decreasing=FALSE), collapse=', '),
             ProgramIDs=paste(sort(unique(ProgramID), decreasing=FALSE), collapse=', '),
             .groups = "keep") %>%
-  arrange(ManagedAreaName, Month) %>%
+  arrange(!!sym(analysis_col), Month) %>%
   as.data.table()
 # Writes summary statistics to file
 fwrite(MA_M_Stats, paste0(out_dir,"/Coral_", param_file, "_MA_Mo_Stats.txt"), sep="|")
 # Removes variable storing data to improve computer memory
 rm(MA_M_Stats)
 
+# Determine columns to group by
+cols_to_group <- if(analysis=="ma"){
+  c("AreaID", analysis_col)
+} else {
+  c(analysis_col)
+}
+
 # Create summary overall statistics for each managed area.
 MA_Ov_Stats <- data_sr %>%
-  group_by(AreaID, ManagedAreaName) %>%
+  group_by(across(all_of(cols_to_group))) %>%
   summarize(ParameterName=parameter,
             N_Years=length(unique(na.omit(Year))),
             EarliestYear=min(Year),
@@ -181,25 +230,25 @@ MA_Ov_Stats <- data_sr %>%
             Year_MinRichness = NA,
             Year_MaxRichness = NA,
             .groups = "keep") %>% 
-  arrange(ManagedAreaName) %>%
+  arrange(!!sym(analysis_col)) %>%
   as.data.table()
 
 # Loops through each ManagedAreaName.
 # Determines what year the minimum and maximum species richness occurred
 for(m in 1:nrow(MA_Ov_Stats)){
   # Stores ManagedAreaName for this row
-  ma <- MA_Ov_Stats$ManagedAreaName[m]
+  ma <- MA_Ov_Stats[[analysis_col]][m]
   
   # Skips to next row if there are no data for this combination
   if(MA_Ov_Stats$N_Data[m]==0){
     next
   }
   # Gets the minimum and maximum Mean (yearly averages)
-  min <- MA_Y_Stats[ManagedAreaName==ma, min(Mean)]
-  max <- MA_Y_Stats[ManagedAreaName==ma, max(Mean)]
+  min <- MA_Y_Stats[get(analysis_col)==ma, min(Mean)]
+  max <- MA_Y_Stats[get(analysis_col)==ma, max(Mean)]
   #Determines what years those minimum and maximum values occured
-  year_min <- MA_Y_Stats[ManagedAreaName==ma & Mean == min, Year]
-  year_max <- MA_Y_Stats[ManagedAreaName==ma & Mean == max, Year]
+  year_min <- MA_Y_Stats[get(analysis_col)==ma & Mean == min, Year]
+  year_max <- MA_Y_Stats[get(analysis_col)==ma & Mean == max, Year]
   # Stores the occurrence years of the minimum and maximum into the overall
   # stats for this row
   MA_Ov_Stats$Year_MinRichness[m] <- year_min
@@ -216,9 +265,19 @@ MA_Ov_Stats <- MA_Ov_Stats[!is.na(MA_Ov_Stats$EarliestYear), ]
 color_palette <- SEACAR::seacar_palette1
 
 # Remove previous plots before rendering new plots
-plot_files <- c(list.files("output/PercentCover/Figures", full=T),
-                list.files("output/SpeciesRichness/Figures", full=T),
-                list.files("output/CommunityComposition/Figures", full=T))
+if(analysis=="ma"){
+  plot_files <- c(
+    list.files("output/PercentCover/Figures", full=T),
+    list.files("output/SpeciesRichness/Figures", full=T),
+    list.files("output/CommunityComposition/Figures", full=T)
+  )
+} else if(analysis=="coral_region"){
+  plot_files <- c(
+    list.files("output/CoralRegion/PercentCover/Figures", full=T),
+    list.files("output/CoralRegion/SpeciesRichness/Figures", full=T),
+    list.files("output/CoralRegion/CommunityComposition/Figures", full=T)
+  )
+}
 file.remove(plot_files)
 
 # Loop that cycles through each managed area with data
@@ -229,13 +288,17 @@ if(n==0){
   for(i in 1:n){
     ma <- coral_sr_MA_Include[i]
     # Get abbreviated name for filename
-    ma_abrev <- MA_All[ManagedAreaName==ma, Abbreviation]
+    ma_abrev <- if(analysis=="ma"){
+      MA_All[ManagedAreaName==ma, Abbreviation]
+    } else if(analysis=="coral_region"){
+      gsub(" ", "", ma)
+    }
     # Gets data for target managed area
-    plot_data <- MA_Y_Stats[ManagedAreaName==ma, ]
+    plot_data <- MA_Y_Stats[get(analysis_col)==ma, ]
     # Determines most recent year with available data for managed area
-    t_max <- MA_Ov_Stats[ManagedAreaName==ma, max(LatestYear)]
+    t_max <- MA_Ov_Stats[get(analysis_col)==ma, max(LatestYear)]
     # Determines earliest recent year with available data for managed area
-    t_min <- MA_Ov_Stats[ManagedAreaName==ma, min(EarliestYear)]
+    t_min <- MA_Ov_Stats[get(analysis_col)==ma, min(EarliestYear)]
     # Determines how many years of data are present
     t <- t_max-t_min
     
@@ -270,6 +333,11 @@ if(n==0){
     # maximum value.
     y_max <- max(plot_data$Mean)+(0.1*y_range)
     
+    # Location subtitle for plot display
+    loc_subtitle <- if(analysis=="ma") ma else {
+      paste(ma, "Coral Region")
+    }
+    
     # Creates plot object using plot_data.
     # Data is plotted as symbols with connected lines.
     p1 <- ggplot(data=plot_data) +
@@ -278,7 +346,7 @@ if(n==0){
       geom_point(aes(x=Year, y=Mean), fill=color_palette[1],
                  shape=21, size=2, color="#333333", alpha=1) +
       labs(title="Grazers and Reef-Dependent Species Richness",
-           subtitle=ma,
+           subtitle=loc_subtitle,
            x="Year", y="Annual average richness (# of species)") +
       scale_x_continuous(limits=c(t_min-0.25, t_max+0.25),
                          breaks=seq(t_max, t_min, brk)) +
@@ -299,14 +367,24 @@ if(n==0){
 #Gets list of all image files in output/Figures and creates zip directory
 fig_list <- list.files(paste0(out_dir, "/Figures"), pattern=".png", full=FALSE)
 setwd(paste0(out_dir, "/Figures"))
-zip("CoralSpeciesRichnessFigures", files=fig_list)
+folder_name <- if(analysis=="ma"){
+  "CoralSpeciesRichnessFigures"
+} else if(analysis=="coral_region"){
+  "CoralSpeciesRichnessFigures_CoralRegion"
+}
+zip(folder_name, files=fig_list)
 setwd(wd)
 
 ## Coral Percent Cover ----
 # Set seed
 seed <- 42
 #Set output directory
-out_dir <- "output/PercentCover"
+out_dir <- if(analysis=="ma"){
+  "output/PercentCover"
+} else if(analysis=="coral_region"){
+  "output/CoralRegion/PercentCover"
+}
+
 #Sets abbreviation or label to be used in file names
 param_file <- "PC"
 
@@ -320,20 +398,26 @@ unit <- "%"
 data_pc$ParameterUnits <- unit
 
 # Remove any rows that are not corals, missing GenusName, SpeciesName, Months, Years, 
-# SpeciesGroup1, ResultValue, SampleDate, ManagedAreaName
+# SpeciesGroup1, ResultValue, SampleDate, ManagedAreaName / Coral Region
 data_pc <- data_pc[SpeciesGroup1 %in% c("Octocorals","Milleporans","Scleractinians") & 
                      !is.na(GenusName) & !is.na(SpeciesName) & !is.na(Month) & 
                      !is.na(Year) & !is.na(SpeciesGroup1) & !is.na(ResultValue) & 
-                     !is.na(SampleDate) & !is.na(ManagedAreaName)]
+                     !is.na(SampleDate) & !is.na(get(analysis_col))]
 
 # # Writes this data that is used by the rest of the script to a text file (too large to share)
 # fwrite(data_pc, paste0(out_dir,"/Coral_", param_file, "_UsedData.txt"), sep="|")
 
-# Managed Area Stats ----
+## Managed Area Stats ----
+# Determine columns to group by
+cols_to_group <- c(analysis_col, "Year", "Month")
+if(analysis=="ma"){
+  cols_to_group <- c("AreaID", cols_to_group)
+}
+
 # Create summary statistics for each managed area based on Year and Month
 # intervals.
 MA_YM_Stats <- data_pc %>%
-  group_by(AreaID, ManagedAreaName, Year, Month) %>%
+  group_by(across(all_of(cols_to_group))) %>%
   summarize(ParameterName=parameter,
             N_Data=length(na.omit(ResultValue)),
             Min=min(ResultValue),
@@ -344,16 +428,22 @@ MA_YM_Stats <- data_pc %>%
             Programs=paste(sort(unique(ProgramName), decreasing=FALSE), collapse=', '),
             ProgramIDs=paste(sort(unique(ProgramID), decreasing=FALSE), collapse=', '),
             .groups = "keep") %>%
-  arrange(ManagedAreaName, Year, Month) %>%
+  arrange(!!sym(analysis_col), Year, Month) %>%
   as.data.table()
 # Writes summary statistics to file
 fwrite(MA_YM_Stats, paste0(out_dir,"/Coral_", param_file, "_MA_MMYY_Stats.txt"), sep="|")
 # Removes variable storing data to improve computer memory
 rm(MA_YM_Stats)
 
+# Determine columns to group by
+cols_to_group <- c(analysis_col, "Year")
+if(analysis=="ma"){
+  cols_to_group <- c("AreaID", cols_to_group)
+}
+
 # Create summary statistics for each managed area based on Year intervals
 MA_Y_Stats <- data_pc %>%
-  group_by(AreaID, ManagedAreaName, Year) %>%
+  group_by(across(all_of(cols_to_group))) %>%
   summarize(ParameterName=parameter,
             N_Data=length(na.omit(ResultValue)),
             Min=min(ResultValue),
@@ -364,14 +454,20 @@ MA_Y_Stats <- data_pc %>%
             Programs=paste(sort(unique(ProgramName), decreasing=FALSE), collapse=', '),
             ProgramIDs=paste(sort(unique(ProgramID), decreasing=FALSE), collapse=', '),
             .groups = "keep") %>%
-  arrange(ManagedAreaName, Year) %>%
+  arrange(!!sym(analysis_col), Year) %>%
   as.data.table()
 # Writes summary statistics to file
 fwrite(MA_Y_Stats, paste0(out_dir,"/Coral_", param_file, "_MA_Yr_Stats.txt"), sep="|")
 
+# Determine columns to group by
+cols_to_group <- c(analysis_col, "Month")
+if(analysis=="ma"){
+  cols_to_group <- c("AreaID", cols_to_group)
+}
+
 # Create summary statistics for each managed area based on Month intervals.
 MA_M_Stats <- data_pc %>%
-  group_by(AreaID, ManagedAreaName, Month) %>%
+  group_by(across(all_of(cols_to_group))) %>%
   summarize(ParameterName=parameter,
             N_Data=length(na.omit(ResultValue)),
             Min=min(ResultValue),
@@ -382,16 +478,23 @@ MA_M_Stats <- data_pc %>%
             Programs=paste(sort(unique(ProgramName), decreasing=FALSE), collapse=', '),
             ProgramIDs=paste(sort(unique(ProgramID), decreasing=FALSE), collapse=', '),
             .groups = "keep") %>%
-  arrange(ManagedAreaName, Month) %>%
+  arrange(!!sym(analysis_col), Month) %>%
   as.data.table()
 # Writes summary statistics to file
 fwrite(MA_M_Stats, paste0(out_dir,"/Coral_", param_file, "_MA_Mo_Stats.txt"), sep="|")
 # Removes variable storing data to improve computer memory
 rm(MA_M_Stats)
 
+# Determine columns to group by
+cols_to_group <- if(analysis=="ma"){
+  c("AreaID", analysis_col)
+} else {
+  c(analysis_col)
+}
+
 # Create summary overall statistics for each managed area.
 MA_Ov_Stats <- data_pc %>%
-  group_by(AreaID, ManagedAreaName) %>%
+  group_by(across(all_of(cols_to_group))) %>%
   summarize(ParameterName=parameter,
             N_Years=length(unique(na.omit(Year))),
             SufficientData=ifelse(N_Years>=5, TRUE, FALSE),
@@ -406,15 +509,15 @@ MA_Ov_Stats <- data_pc %>%
             Programs=paste(sort(unique(ProgramName), decreasing=FALSE), collapse=', '),
             ProgramIDs=paste(sort(unique(ProgramID), decreasing=FALSE), collapse=', '),
             .groups = "keep") %>%
-  arrange(ManagedAreaName) %>%
+  arrange(!!sym(analysis_col)) %>%
   as.data.table()
 
 # Write overall statistics to file
 fwrite(MA_Ov_Stats, paste0(out_dir,"/Coral_", param_file, "_MA_Overall_Stats.txt"), sep="|")
 # Creates a variable with the names of all the managed areas that contain
 # species observations
-coral_pc_MA_Include <- MA_Ov_Stats[!is.na(Mean) & SufficientData==TRUE, sort(unique(ManagedAreaName))]
-coral_pc_MA_All <- MA_Ov_Stats[!is.na(Mean), sort(unique(ManagedAreaName))]
+coral_pc_MA_Include <- MA_Ov_Stats[!is.na(Mean) & SufficientData==TRUE, sort(unique(get(analysis_col)))]
+coral_pc_MA_All <- MA_Ov_Stats[!is.na(Mean), sort(unique(get(analysis_col)))]
 
 # Determines the number of managed areas used
 n <- length(coral_pc_MA_Include)
@@ -422,15 +525,20 @@ n <- length(coral_pc_MA_Include)
 # LME ----
 # Creates blank data frame with number of rows defined by how many managed areas
 # are going to be analyzed
-lme_stats <- data.frame(matrix(ncol = 5, nrow = n))
 # Sets column names for blank data frame
-colnames(lme_stats) <- c("AreaID", "ManagedAreaName", "LME_Intercept", "LME_Slope", "LME_p")
+if(analysis=="ma"){
+  lme_stats <- data.frame(matrix(ncol = 5, nrow = n))
+  colnames(lme_stats) <- c("AreaID", analysis_col, "LME_Intercept", "LME_Slope", "LME_p")
+} else {
+  lme_stats <- data.frame(matrix(ncol = 4, nrow = n))
+  colnames(lme_stats) <- c(analysis_col, "LME_Intercept", "LME_Slope", "LME_p")
+}
 
 # Begins to loop through each managed area for analysis (which have enough data)
 for(i in 1:n){
   ma <- coral_pc_MA_Include[i]
   # Gets data for current managegd area
-  lme_data <- data_pc[ManagedAreaName==ma,]
+  lme_data <- data_pc[get(analysis_col)==ma,]
   # params
   pars <- lmeControl(
     maxIter = 200,
@@ -453,8 +561,10 @@ for(i in 1:n){
   
   if(inherits(fit, "try-error")) {
     message("LME failed for: ", ma)
-    lme_stats$AreaID[i] <- unique(lme_data$AreaID)
-    lme_stats$ManagedAreaName[i] <- ma
+    if(analysis=="ma"){
+      lme_stats$AreaID[i] <- unique(lme_data$AreaID)      
+    }
+    lme_stats[[analysis_col]][i] <- ma
     lme_stats$LME_Intercept[i] <- NA
     lme_stats$LME_Slope[i] <- NA
     lme_stats$LME_p[i] <- NA
@@ -462,8 +572,10 @@ for(i in 1:n){
   }
   
   # Store information and model fits in appropriate row of data frame
-  lme_stats$AreaID[i] <- unique(lme_data$AreaID)
-  lme_stats$ManagedAreaName[i] <- ma
+  if(analysis=="ma"){
+    lme_stats$AreaID[i] <- unique(lme_data$AreaID)    
+  }
+  lme_stats[[analysis_col]][i] <- ma
   lme_stats$LME_Intercept[i] <- fit$coefficients$fixed[1]
   lme_stats$LME_Slope[i] <- fit$coefficients$fixed[2]
   lme_stats$LME_p[i] <- anova(fit)$p[2]
@@ -474,8 +586,13 @@ for(i in 1:n){
 }
 
 # Merges LME stats with overall stats to complete stats for each managed area
-lme_stats <- merge.data.frame(MA_Ov_Stats[,-c("Programs", "ProgramIDs")],
-                              lme_stats, by=c("AreaID", "ManagedAreaName"), all=TRUE)
+if(analysis=="ma"){
+  lme_stats <- merge.data.frame(MA_Ov_Stats[,-c("Programs", "ProgramIDs")],
+                                lme_stats, by=c("AreaID", analysis_col), all=TRUE)
+} else {
+  lme_stats <- merge.data.frame(MA_Ov_Stats[,-c("Programs", "ProgramIDs")],
+                                lme_stats, by=c(analysis_col), all=TRUE)
+}
 
 ## Add in TrendText and TrendIcon columns
 lme_stats <- lme_stats %>% 
@@ -483,7 +600,7 @@ lme_stats <- lme_stats %>%
                             ifelse(LME_p <= 0.05 & LME_Slope < 0, "Decreasing trend", "No detectable trend")),
          TrendIcon = ifelse(LME_p <= 0.05 & LME_Slope > 0, 1,
                             ifelse(LME_p <= 0.05 & LME_Slope < 0, -1, 0))) %>%
-  arrange(ManagedAreaName) %>% 
+  arrange(!!sym(analysis_col)) %>% 
   as.data.table()
 
 #filling remaining values in TrendText + TrendIcon column
@@ -495,21 +612,26 @@ lme_stats[SufficientData==TRUE & is.na(LME_Slope), TrendIcon := 3]
 # Write lme statistics to file
 fwrite(lme_stats, paste0(out_dir,"/Coral_", param_file, "_LME_Stats.txt"), sep="|")
 
+cols_to_group <- if(analysis=="ma"){
+  c("AreaID", analysis_col)
+} else {
+  c(analysis_col)
+}
 # Gets lower x and y values based on LME fit to use in plot
 lme_plot <- lme_stats %>%
-  group_by(AreaID, ManagedAreaName) %>%
+  group_by(across(all_of(cols_to_group))) %>%
   summarize(x=EarliestYear,
             y=LME_Slope*x+LME_Intercept, .groups = "keep")
 # Gets upper x and y values based on LME fit to use in plot
 lme_plot2 <- lme_stats %>%
-  group_by(AreaID, ManagedAreaName) %>%
+  group_by(across(all_of(cols_to_group))) %>%
   summarize(x=LatestYear,
             y=LME_Slope*x+LME_Intercept, .groups = "keep")
 # Merges LME fit values for plot into one data frame
 lme_plot <- bind_rows(lme_plot, lme_plot2)
 rm(lme_plot2)
 # Puts LME plot data fram in alphabetical order by managed area
-lme_plot <- as.data.frame(lme_plot[order(lme_plot$ManagedAreaName), ])
+lme_plot <- as.data.frame(lme_plot[order(lme_plot[[analysis_col]]), ])
 lme_plot <- setDT(lme_plot[!is.na(lme_plot$y),])
 
 # Trendlines_ManagedArea ----
@@ -526,17 +648,21 @@ if(n==0){
   for(i in 1:length(coral_pc_MA_All)){ 
     ma <- coral_pc_MA_All[i]
     # Get abbreviated name for filename
-    ma_abrev <- MA_All[ManagedAreaName==ma, Abbreviation]
+    ma_abrev <- if(analysis=="ma"){
+      MA_All[ManagedAreaName==ma, Abbreviation]
+    } else if(analysis=="coral_region"){
+      gsub(" ", "", ma)
+    }
     # Gets data for target managed area
-    plot_data <- data_pc[ManagedAreaName==ma]
+    plot_data <- data_pc[get(analysis_col)==ma]
     if(ma %in% coral_pc_MA_Include){
-      lme_plot_data <- lme_plot[ManagedAreaName==ma,]
+      lme_plot_data <- lme_plot[get(analysis_col)==ma,]
     }
     
     # Determines most recent year with available data for managed area
-    maxyr <- MA_Ov_Stats[ManagedAreaName==ma, max(LatestYear)]
+    maxyr <- MA_Ov_Stats[get(analysis_col)==ma, max(LatestYear)]
     # Determines earliest recent year with available data for managed area
-    minyr <- MA_Ov_Stats[ManagedAreaName==ma, min(EarliestYear)]
+    minyr <- MA_Ov_Stats[get(analysis_col)==ma, min(EarliestYear)]
     # Determines how many years of data are present
     nyrs <- maxyr-minyr+1
     
@@ -570,7 +696,7 @@ if(n==0){
     y_range <- max(plot_data$ResultValue) - min(plot_data$ResultValue)
     
     # Sets y_min
-    if(ma %in% coral_pc_MA_Include){
+    if(nrow(lme_plot_data)>0){
       # y_min <- min(min(lme_plot_data$y), min(plot_data$ResultValue))
       y_min <- min(min(lme_plot_data$y), 0)
     } else {
@@ -585,6 +711,11 @@ if(n==0){
       y_max <- max(plot_data$ResultValue)+(0.1*y_range)
     }
     
+    # Location subtitle for plot display
+    loc_subtitle <- if(analysis=="ma") ma else {
+      paste(ma, "Coral Region")
+    }
+    
     # Creates plot object using plot_data.
     # Data is plotted as a point pot with jitter to show concentrations
     # that overlap. LME fit is plotted as a line
@@ -597,7 +728,7 @@ if(n==0){
                   color="#000099", linewidth=1.2, alpha=0.7)
       }} +
       labs(title="Coral Percent Cover",
-           subtitle=ma,
+           subtitle=loc_subtitle,
            x="Year", y="Percent cover (%)") +
       scale_x_continuous(limits = c(minyr-0.25, maxyr+0.25),
                          breaks = seq(minyr, maxyr, brk)) +
@@ -618,42 +749,75 @@ if(n==0){
 #Gets list of all PC image files and creates zip directory
 fig_list <- list.files(paste0(out_dir, "/Figures"), pattern=".png", full=FALSE)
 setwd(paste0(out_dir, "/Figures"))
-zip("CoralPCFigures", files=fig_list)
+folder_name <- if(analysis=="ma"){
+  "CoralPCFigures"
+} else if(analysis=="coral_region"){
+  "CoralPCFigures_CoralRegion"
+}
+zip(folder_name, files=fig_list)
 setwd(wd)
 
 ## Coral Community Composition ----
+# Parameter name
 parameter <- "Species Richness (Community Composition)"
+# Short hand parametername
 param_file <- "CC"
-out_dir <- "output/CommunityComposition"
+# Output directory location
+out_dir <- if(analysis=="ma"){
+  "output/CommunityComposition"
+} else if(analysis=="coral_region"){
+  "output/CoralRegion/CommunityComposition"
+}
 # Coral species groups included in community composition
 comp_species_groups <- c("Corallimorpharians", "Cyanobacteria", "Macroalgae", 
                          "Milleporans", "Octocorals", "Porifera", "Scleractinians", 
                          "Zoanthids", "Others")
-# Programs to exclude (ID_981 only reports scleractinians)
-exclude_progs <- c(981)
+# Their corresponding "common" names
+comp_species_groups_common <- data.table(
+  "sci_names" = comp_species_groups,
+  "common_names" = c("False corals", "Blue-green algae", "Macroalgae",
+                     "Fire corals", "Soft corals", "Sponges", "Stony corals",
+                     "Zoanthids", "Others")
+)
+
+# Columns to group by
+cols_to_group <- c(analysis_col, "ProgramID", "ProgramName", "LocationID", "SampleDate", "SpeciesGroup1")
+if(analysis=="ma"){
+  cols_to_group <- c("AreaID", cols_to_group)
+}
+
 # Filter for the presence of those species groups for each area and LocationID
 # This gives us species richness values
 data_cc <- data %>% 
   filter(
     ParameterName=="Presence/Absence",
     ResultValue==1,
-    SpeciesGroup1 %in% comp_species_groups,
-    !ProgramID %in% exclude_progs
+    SpeciesGroup1 %in% comp_species_groups
   ) %>%
-  group_by(AreaID, ManagedAreaName, ProgramID, ProgramName, LocationID,
-           SampleDate, SpeciesGroup1) %>%
+  group_by(across(all_of(cols_to_group))) %>%
   reframe(
     ParameterName = parameter,
     Year = unique(Year),
     Month = unique(Month),
     SpeciesRichness = length(unique(CommonIdentifier))
-  )
+  ) %>% as.data.table()
+
+if(analysis=="coral_region"){
+  data_cc[is.na(CoralRegion), `:=` (CoralRegion = "NA")]
+}
 
 ## Managed Area Stats ----
 # Create summary statistics for each managed area based on Year and Month
 # intervals.
+
+# Determine columns to group by
+cols_to_group <- c(analysis_col, "Year", "Month")
+if(analysis=="ma"){
+  cols_to_group <- c("AreaID", cols_to_group)
+}
+
 MA_YM_Stats <- data_cc %>%
-  group_by(AreaID, ManagedAreaName, Year, Month) %>%
+  group_by(across(all_of(cols_to_group))) %>%
   summarize(ParameterName=parameter,
             N_Data=length(na.omit(SpeciesRichness)),
             Min=min(SpeciesRichness),
@@ -665,16 +829,22 @@ MA_YM_Stats <- data_cc %>%
             ProgramIDs=paste(sort(unique(ProgramID), decreasing=FALSE), collapse=', '),
             IncludedSpeciesGroups = paste(sort(unique(SpeciesGroup1), decreasing=FALSE), collapse=', '),
             .groups = "keep") %>%
-  arrange(ManagedAreaName, Year, Month) %>%
+  arrange(!!sym(analysis_col), Year, Month) %>%
   as.data.table()
 # Writes summary statistics to file
 fwrite(MA_YM_Stats, paste0(out_dir,"/Coral_", param_file, "_MA_MMYY_Stats.txt"), sep="|")
 # Removes variable storing data to improve computer memory
 rm(MA_YM_Stats)
 
+# Determine columns to group by
+cols_to_group <- c(analysis_col, "Year")
+if(analysis=="ma"){
+  cols_to_group <- c("AreaID", cols_to_group)
+}
+
 # Create summary statistics for each managed area based on Year intervals
 MA_Y_Stats <- data_cc %>%
-  group_by(AreaID, ManagedAreaName, Year) %>%
+  group_by(across(all_of(cols_to_group))) %>%
   summarize(ParameterName=parameter,
             N_Data=length(na.omit(SpeciesRichness)),
             Min=min(SpeciesRichness),
@@ -686,14 +856,20 @@ MA_Y_Stats <- data_cc %>%
             ProgramIDs=paste(sort(unique(ProgramID), decreasing=FALSE), collapse=', '),
             IncludedSpeciesGroups = paste(sort(unique(SpeciesGroup1), decreasing=FALSE), collapse=', '),
             .groups = "keep") %>%
-  arrange(ManagedAreaName, Year) %>%
+  arrange(!!sym(analysis_col), Year) %>%
   as.data.table()
 # Writes summary statistics to file
 fwrite(MA_Y_Stats, paste0(out_dir,"/Coral_", param_file, "_MA_Yr_Stats.txt"), sep="|")
 
+# Determine columns to group by
+cols_to_group <- c(analysis_col, "Month")
+if(analysis=="ma"){
+  cols_to_group <- c("AreaID", cols_to_group)
+}
+
 # Create summary statistics for each managed area based on Month intervals.
 MA_M_Stats <- data_cc %>%
-  group_by(AreaID, ManagedAreaName, Month) %>%
+  group_by(across(all_of(cols_to_group))) %>%
   summarize(ParameterName=parameter,
             N_Data=length(na.omit(SpeciesRichness)),
             Min=min(SpeciesRichness),
@@ -705,16 +881,23 @@ MA_M_Stats <- data_cc %>%
             ProgramIDs=paste(sort(unique(ProgramID), decreasing=FALSE), collapse=', '),
             IncludedSpeciesGroups = paste(sort(unique(SpeciesGroup1), decreasing=FALSE), collapse=', '),
             .groups = "keep") %>%
-  arrange(ManagedAreaName, Month) %>%
+  arrange(!!sym(analysis_col), Month) %>%
   as.data.table()
 # Writes summary statistics to file
 fwrite(MA_M_Stats, paste0(out_dir,"/Coral_", param_file, "_MA_Mo_Stats.txt"), sep="|")
 # Removes variable storing data to improve computer memory
 rm(MA_M_Stats)
 
+# Determine columns to group by
+cols_to_group <- if(analysis=="ma"){
+  c("AreaID", analysis_col)
+} else {
+  c(analysis_col)
+}
+
 # Create summary overall statistics for each managed area.
 MA_Ov_Stats <- data_cc %>%
-  group_by(AreaID, ManagedAreaName) %>%
+  group_by(across(all_of(cols_to_group))) %>%
   summarize(ParameterName=parameter,
             N_Years=length(unique(na.omit(Year))),
             EarliestYear=min(Year),
@@ -731,25 +914,25 @@ MA_Ov_Stats <- data_cc %>%
             Year_MinRichness = NA,
             Year_MaxRichness = NA,
             .groups = "keep") %>% 
-  arrange(ManagedAreaName) %>%
+  arrange(!!sym(analysis_col)) %>%
   as.data.table()
 
-# Loops through each ManagedAreaName.
+# Loops through each ManagedAreaName / Coral Region.
 # Determines what year the minimum and maximum species richness occurred
 for(m in 1:nrow(MA_Ov_Stats)){
   # Stores ManagedAreaName for this row
-  ma <- MA_Ov_Stats$ManagedAreaName[m]
+  ma <- MA_Ov_Stats[[analysis_col]][m]
   
   # Skips to next row if there are no data for this combination
   if(MA_Ov_Stats$N_Data[m]==0){
     next
   }
   # Gets the minimum and maximum Mean (yearly averages)
-  min <- MA_Y_Stats[ManagedAreaName==ma, min(Mean)]
-  max <- MA_Y_Stats[ManagedAreaName==ma, max(Mean)]
+  min <- MA_Y_Stats[get(analysis_col)==ma, min(Mean)]
+  max <- MA_Y_Stats[get(analysis_col)==ma, max(Mean)]
   #Determines what years those minimum and maximum values occured
-  year_min <- MA_Y_Stats[ManagedAreaName==ma & Mean == min, Year]
-  year_max <- MA_Y_Stats[ManagedAreaName==ma & Mean == max, Year]
+  year_min <- MA_Y_Stats[get(analysis_col)==ma & Mean == min, Year]
+  year_max <- MA_Y_Stats[get(analysis_col)==ma & Mean == max, Year]
   # Stores the occurrence years of the minimum and maximum into the overall
   # stats for this row
   MA_Ov_Stats$Year_MinRichness[m] <- year_min
@@ -759,9 +942,16 @@ for(m in 1:nrow(MA_Ov_Stats)){
 fwrite(MA_Ov_Stats, paste0(out_dir,"/Coral_", param_file, "_MA_Overall_Stats.txt"), sep="|")
 
 ### Create plots
+# Determine columns to group by
+cols_to_group <- c(analysis_col, "ParameterName", "Year", "SpeciesGroup1")
+if(analysis=="ma"){
+  cols_to_group <- c("AreaID", cols_to_group)
+}
+
 # Condense species richness values into annual averages, min/max, etc.
 comp_plot_data <- data_cc %>%
-  group_by(AreaID, ManagedAreaName, ParameterName, Year, SpeciesGroup1) %>%
+  filter(!!sym(analysis_col) != "NA") %>%
+  group_by(across(all_of(cols_to_group))) %>%
   reframe(
     N_Years = length(unique(na.omit(Year))),
     EarliestYear = min(Year),
@@ -800,10 +990,14 @@ pids <- unique(progs$ProgramID)
 pids_palette <- viridis::viridis(length(pids))
 names(pids_palette) <- pids
 
-for(ma in unique(comp_plot_data$ManagedAreaName)){
-  ma_abrev <- MA_All[ManagedAreaName==ma, Abbreviation]
+for(ma in unique(comp_plot_data[[analysis_col]])){
+  ma_abrev <- if(analysis=="ma"){
+    MA_All[ManagedAreaName==ma, Abbreviation]
+  } else if(analysis=="coral_region"){
+    gsub(" ", "", ma)
+  }
   # Gets data for target managed area
-  plot_data <- comp_plot_data[ManagedAreaName==ma, ]
+  plot_data <- comp_plot_data[get(analysis_col)==ma, ]
   # Determines most recent year with available data for managed area
   maxyr <- max(plot_data$LatestYear)
   # Determines earliest recent year with available data for managed area
@@ -857,9 +1051,9 @@ for(ma in unique(comp_plot_data$ManagedAreaName)){
   sp_list <- unique(plot_data$SpeciesGroup1)
   sp_list <- sp_list[order(match(sp_list, names(sg1_palette)))]
   
-  # # Create common name labels for legend display
-  # sp_labels <- sapply(sp_list, function(x){sg_common[[x]]})
-  sp_labels <- sp_list
+  # Create common name labels for legend display
+  sp_labels <- sapply(sp_list, function(x){comp_species_groups_common[sci_names==x, common_names]})
+  # sp_labels <- sp_list # un-comment to use scientific names
   
   # Creates plot object using plot_data and grouping by the plot gear types.
   # Data is plotted as symbols with connected lines.
@@ -909,17 +1103,19 @@ for(ma in unique(comp_plot_data$ManagedAreaName)){
     summarise(start_label = min(startYear),
               end_label = max(endYear), 
               .groups = "drop") %>%
-    mutate(mid_label = (start_label + end_label) / 2)
+    mutate(mid_label = (start_label + end_label) / 2,
+           label_name = paste0("ID_", ProgramIDs, ": ", ProgramName))
   
   # ProgramID timeline
   timeline_plot <- ggplot(timeline_data) +
     geom_linerange(
-      aes(xmin = startYear, xmax = endYear, y = ProgramIDs, color = ProgramIDs), 
+      aes(xmin = startYear, xmax = endYear, y = ProgramIDs), 
+      color = "#045273",
       alpha = 0.4, linewidth = 6
     ) +
     geom_text(
       data = label_data,
-      aes(y = ProgramIDs, label = ProgramName),
+      aes(y = ProgramIDs, label = label_name),
       x = min(label_data$start_label),
       color = "black",
       size = 2,
@@ -940,7 +1136,8 @@ for(ma in unique(comp_plot_data$ManagedAreaName)){
       axis.title.x = element_blank(),
       axis.text.x = element_blank(),
       axis.ticks.x = element_blank(),
-      legend.box.margin = margin(0, 0, 0, 0)
+      legend.box.margin = margin(0, 0, 0, 0),
+      legend.position = "none"
     )
   
   plot <- p1 / timeline_plot + plot_layout(heights = c(5, 2))
@@ -958,7 +1155,12 @@ for(ma in unique(comp_plot_data$ManagedAreaName)){
 #Gets list of all CC image files and creates zip directory
 fig_list <- list.files(paste0(out_dir, "/Figures"), pattern=".png", full=FALSE)
 setwd(paste0(out_dir, "/Figures"))
-zip("CoralCCFigures", files=fig_list)
+folder_name <- if(analysis=="ma"){
+  "CoralCCFigures"
+} else if(analysis=="coral_region"){
+  "CoralCCFigures_CoralRegion"
+}
+zip(folder_name, files=fig_list)
 setwd(wd)
 
 if(create_maps){
@@ -967,9 +1169,9 @@ if(create_maps){
                           SpeciesGroup1 %in% c("Grazers and reef dependent species", "Reef fish")]
   coral_cc_data <- data[ParameterName=="Presence/Absence" & 
                           ResultValue==1 & 
-                          SpeciesGroup1 %in% comp_species_groups & 
-                          !ProgramID %in% exclude_progs]
-  analysis <- "ma"
+                          SpeciesGroup1 %in% comp_species_groups]
+
+  # analysis <- "ma"
   hab <- "Coral Reef"
   source("../AllHabitats_Maps.R", echo = T, chdir = T)
 }
@@ -984,17 +1186,17 @@ coral_cc_stats <- fread(paste0("output/CommunityComposition/Coral_CC_MA_Overall_
 # Empty table to store results
 descriptionTable <- data.table()
 # Loop through MAs and apply necessary functions
-for(ma in unique(c(coral_pc_stats$ManagedAreaName, coral_sr_stats$ManagedAreaName, coral_cc_stats$ManagedAreaName))){
-  if(ma %in% coral_pc_stats$ManagedAreaName){
-    descriptionText <- SEACAR::generate_description(data = coral_pc_stats[ManagedAreaName==ma, ], habitat = "Coral")
+for(ma in unique(c(coral_pc_stats[[analysis_col]], coral_sr_stats[[analysis_col]], coral_cc_stats[[analysis_col]]))){
+  if(ma %in% coral_pc_stats[[analysis_col]]){
+    descriptionText <- SEACAR::generate_description(data = coral_pc_stats[get(analysis_col)==ma, ], habitat = "Coral")
     descriptionTable <- bind_rows(descriptionTable, descriptionText)
   }
-  if(ma %in% coral_sr_stats$ManagedAreaName){
-    descriptionText <- SEACAR::generate_description(data = coral_sr_stats[ManagedAreaName==ma, ], habitat = "Coral")
+  if(ma %in% coral_sr_stats[[analysis_col]]){
+    descriptionText <- SEACAR::generate_description(data = coral_sr_stats[get(analysis_col)==ma, ], habitat = "Coral")
     descriptionTable <- bind_rows(descriptionTable, descriptionText)
   }
-  if(ma %in% coral_cc_stats$ManagedAreaName){
-    descriptionText <- SEACAR::generate_description(data = coral_cc_stats[ManagedAreaName==ma, ], habitat = "Coral")
+  if(ma %in% coral_cc_stats[[analysis_col]]){
+    descriptionText <- SEACAR::generate_description(data = coral_cc_stats[get(analysis_col)==ma, ], habitat = "Coral")
     descriptionTable <- bind_rows(descriptionTable, descriptionText)
   }
 }
@@ -1002,28 +1204,22 @@ for(ma in unique(c(coral_pc_stats$ManagedAreaName, coral_sr_stats$ManagedAreaNam
 # Write .csv of text results
 fwrite(descriptionTable, file = "output/coral_tableDescriptions.csv")
 
-# Render both reports
-report_types <- c("SpeciesRichness", "PercentCover", "CommunityComposition")
+# Render report
 for(file_type in c("HTML", "PDF")){
+  if(analysis!="ma") next
   descriptionColumn <- ifelse(file_type=="PDF", "DescriptionLatex", "DescriptionHTML")
   tableFormat <- ifelse(file_type=="PDF", "latex", "simple")
-  for(report_type in report_types){
-    file_out <-  paste0("Coral_", report_type, "_Report")
-    template <- if(report_type=="SpeciesRichness"){
-      "Coral_SpeciesRichness.Rmd"
-    } else if(report_type=="PercentCover"){
-      "Coral_PC.Rmd"
-    } else if(report_type=="CommunityComposition"){
-      "Coral_CC.Rmd"
-    }
-    rmarkdown::render(input = template, 
-                      output_format = paste0(tolower(file_type),"_document"),
-                      output_file = paste0(file_out, ".", tolower(file_type)),
-                      output_dir = paste0("output/", report_type),
-                      clean=TRUE)
-    #Removes unwanted files created in the rendering process
-    unlink(paste0(out_dir, "/", file_out, ".md"))
-    unlink(paste0(out_dir, "/", file_out, "_files"), recursive=TRUE)
-    unlink(paste0(file_out, ".log"))
-  }
+  
+  file_out <-  paste0("Coral_Reef_Report")
+  
+  rmarkdown::render(input = "Coral_Report.Rmd", 
+                    output_format = paste0(tolower(file_type),"_document"),
+                    output_file = paste0("Coral_Reef_Report.", tolower(file_type)),
+                    output_dir = paste0("output/"),
+                    clean=TRUE)
+  #Removes unwanted files created in the rendering process
+  unlink(paste0("output/", file_out, ".md"))
+  unlink(paste0("output/", file_out, "_files"), recursive=TRUE)
+  unlink(paste0("output/", file_out, ".log"))
 }
+

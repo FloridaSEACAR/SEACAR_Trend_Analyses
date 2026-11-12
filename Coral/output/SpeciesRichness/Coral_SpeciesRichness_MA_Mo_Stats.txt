@@ -6,18 +6,17 @@ AreaID|ManagedAreaName|Month|ParameterName|N_Data|Min|Max|Median|Mean|StandardDe
 13|Coupon Bight Aquatic Preserve|8|Species Richness|29|204|281|281|265.068965517241|31.7433131704062|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|915
 13|Coupon Bight Aquatic Preserve|10|Species Richness|4|200|284|200|221|42|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|915
 13|Coupon Bight Aquatic Preserve|11|Species Richness|2|281|281|281|281|0|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|915
-15|Florida Keys National Marine Sanctuary|1|Species Richness|73|1|2|2|1.67123287671233|0.47301616487964|Population Status of Elkhorn Coral|136
-15|Florida Keys National Marine Sanctuary|2|Species Richness|86|1|281|2|8.18604651162791|42.3455009424661|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Population Status of Elkhorn Coral|136, 915
-15|Florida Keys National Marine Sanctuary|3|Species Richness|7|1|281|1|81.1428571428571|136.528908503448|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Population Status of Elkhorn Coral|136, 915
-15|Florida Keys National Marine Sanctuary|4|Species Richness|14|1|281|2|101.285714285714|139.008261277151|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Population Status of Elkhorn Coral|136, 915
-15|Florida Keys National Marine Sanctuary|5|Species Richness|674|1|287|280|209.538575667656|107.78660261998|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Population Status of Elkhorn Coral|136, 915
-15|Florida Keys National Marine Sanctuary|6|Species Richness|2886|1|302|281|260.313236313236|59.7945553602986|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Population Status of Elkhorn Coral|136, 915
-15|Florida Keys National Marine Sanctuary|7|Species Richness|1426|1|302|281|270.464235624123|43.929566241738|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Population Status of Elkhorn Coral|136, 915
-15|Florida Keys National Marine Sanctuary|8|Species Richness|2531|1|284|281|269.315290399052|35.4337348374435|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Population Status of Elkhorn Coral|136, 915
-15|Florida Keys National Marine Sanctuary|9|Species Richness|1507|1|284|281|233.422694094227|86.9826795960503|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Population Status of Elkhorn Coral|136, 915
-15|Florida Keys National Marine Sanctuary|10|Species Richness|455|1|284|281|210.353846153846|103.052914327903|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Population Status of Elkhorn Coral|136, 915
-15|Florida Keys National Marine Sanctuary|11|Species Richness|185|1|284|281|239.762162162162|63.0052419806382|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Population Status of Elkhorn Coral|136, 915
-15|Florida Keys National Marine Sanctuary|12|Species Richness|54|1|204|2|31.7592592592593|72.5047650184755|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring, Population Status of Elkhorn Coral|136, 915
+15|Florida Keys National Marine Sanctuary|2|Species Richness|2|281|281|281|281|0|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|915
+15|Florida Keys National Marine Sanctuary|3|Species Richness|2|281|281|281|281|0|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|915
+15|Florida Keys National Marine Sanctuary|4|Species Richness|5|281|281|281|281|0|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|915
+15|Florida Keys National Marine Sanctuary|5|Species Richness|542|182|287|280.5|260.143911439114|36.7738951176175|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|915
+15|Florida Keys National Marine Sanctuary|6|Species Richness|2771|182|302|281|271.048357993504|28.821481659772|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|915
+15|Florida Keys National Marine Sanctuary|7|Species Richness|1400|200|302|281|275.455714285714|24.4582656353284|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|915
+15|Florida Keys National Marine Sanctuary|8|Species Richness|2511|200|284|281|271.447232178415|26.2703441048629|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|915
+15|Florida Keys National Marine Sanctuary|9|Species Richness|1344|200|284|281|261.519345238095|34.3554142418892|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|915
+15|Florida Keys National Marine Sanctuary|10|Species Richness|374|200|284|281|255.542780748663|37.7436966492516|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|915
+15|Florida Keys National Marine Sanctuary|11|Species Richness|177|204|284|281|250.519774011299|38.1931530030224|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|915
+15|Florida Keys National Marine Sanctuary|12|Species Richness|8|204|204|204|204|0|NPS South Florida/Caribbean Inventory and Monitoring Network: Coral Reef Monitoring|915
 12|Kristin Jacobs Coral Aquatic Preserve|1|Species Richness|22|2|80|47.5|43.6363636363636|19.6724256004268|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Kristin Jacobs Coral Aquatic Preserve|2|Species Richness|55|1|73|38|38.4363636363636|16.7661073867|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
 12|Kristin Jacobs Coral Aquatic Preserve|3|Species Richness|37|3|77|32|33.3783783783784|17.0152731250345|Palm Beach County Artificial and Natural Reef Monitoring Program|3024
